@@ -6,6 +6,28 @@ Player instructions belong in [graphics](../players/graphics.md) and
 [content list](../MODLIST.md), with authoritative selections in `empack.yml` and
 `empack.lock`.
 
+## Transmission & Linkage
+
+Transmission & Linkage 0.2.9 uses Compat 0.11.1's optional interaction and Jade
+adapters. Visible rods disconnect by sneak-using a Create wrench, rather than
+ordinary attacks. Server checks protect endpoint/settings edits and resolved
+binding selections; Jade reports actual link, actuator and extra kinetic output
+state. The [adapter reference](https://github.com/mannie-exe/create-sky-compat/blob/v0.11.1/docs/development/transmission-linkage.md)
+owns exact pins, protection limits and update/removal procedures.
+
+Native world-to-ship and rotated ship-to-ship fixtures retained mutual references,
+one rod constraint per pair and cold-reload behavior. Both stock actuator types
+move without an external supply; this documented upstream behavior is retained.
+No recipe, power-limit or mass changes are applied. Stock link lengths avoid the
+known enlarged-range visual cap. A controlled converter drive is verified; a
+self-powered loop and practical production balance are not established.
+
+The isolated client exercised settings and deliberate removal, Jade inspection,
+normal/giant rod rendering with shaders off and the default Complementary/Euphoria
+stack, native converter assembly and representative Ponder playback. The pack
+corrects the tutorial's rod-body interaction target. Broader claim integrations,
+arbitrary hinge builds and unsupported GPUs remain separate playtesting scope.
+
 ## Linear Bearing
 
 Linear Bearing 1.3.5 and Linear Bearings Fix 1.0.3 use Compat 0.9.0's optional
@@ -874,3 +896,18 @@ client visual pass was performed for this metadata/configuration release.
 [Compat's DH integration](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/lod.md)
 owns lifecycle and optional cache-isolation hooks. It does not provide a separate
 terrain predictor. SeedGen and Voxy/Roxy are not included in the pack.
+
+## Release 0.1.26 verification
+
+The pack adds exact Transmission & Linkage 0.2.9 bytes and published Compat
+0.11.1 on both sides. All three reference distributions build; ZIP integrity,
+new dependency rows, client exclusion of BlueMap, and the Unix terminal wrapper
+check pass. Journal generation checks 86 managed outputs; the configuration
+audit checks 243 files without drift. All 30 pack tests pass. The fresh Atlas
+export verifies the three added journal definitions and preserves prior mechanics.
+
+Source-level and native machinery evidence is owned by Compat's verification
+guide. Native actuation, recipe costs, converter limits, terrain, seed and LOD
+identity remain unchanged. Personal-instance installation is verified separately
+from distribution construction; archive checks do not establish every gameplay
+arrangement or GPU.

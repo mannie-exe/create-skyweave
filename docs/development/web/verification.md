@@ -519,3 +519,21 @@ The audit server does not import playing-world datapacks or gamerules. Check tho
 separately when evaluating a world-specific change. Optional loot-table and Sable missing-block warnings remain tracked in
 [upstream findings](../upstream.md). Automatic Hostile Skies raids remain disabled;
 its captain-order route is not enabled merely because the graph can describe it.
+
+## Transmission & Linkage content refresh, 2026-11-01
+
+The isolated exporter used the materialized 0.1.26 selection with published
+Compat 0.11.1 and Transmission & Linkage 0.2.9. Capture completed at
+2026-11-01T07:20:29Z with unchanged source fingerprint and a matching lock hash.
+No playing world or ore survey was recaptured.
+
+`mise exec -- pnpm data:refresh` and `pnpm data:check` pass with 10,100 items,
+9,232 recipes and 75 journal entries. The new inventory entries pass native
+negative/positive objective handlers, NBT restoration, reward grants and repeated
+claim checks. All 81 previous native definitions retain their mechanics; three
+new definitions bring the total to 84, including chapter definitions.
+
+`mise exec -- pnpm verify` passes formatting, 79 JavaScript tests, Astro checking
+and the production build. Existing components, recipe adapters and layout remain
+unchanged. Authored item/interaction notes distinguish native capability checks
+from practical factory balance and a hypothetical self-powered loop.

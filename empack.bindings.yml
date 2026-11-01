@@ -263,7 +263,7 @@ bindings:
           layer: client
   create-sky-compat:
     placement:
-    - destination: mods/create-sky-compat-0.10.2-mc1.21.1-neoforge.jar
+    - destination: mods/create-sky-compat-0.11.1-mc1.21.1-neoforge.jar
       environment:
         client: required
         server: required
@@ -386,12 +386,15 @@ policies:
   config/questlog/quests/workshop/brass.json: managed
   config/questlog/quests/workshop/fan.json: managed
   config/questlog/quests/workshop/fan_processing.json: managed
+  config/questlog/quests/workshop/flexible_shafts.json: managed
   config/questlog/quests/workshop/heat.json: managed
   config/questlog/quests/workshop/hinged_motion.json: managed
   config/questlog/quests/workshop/linear_guide.json: managed
   config/questlog/quests/workshop/millstone.json: managed
   config/questlog/quests/workshop/mix.json: managed
   config/questlog/quests/workshop/mixer.json: managed
+  config/questlog/quests/workshop/pneumatic_motion.json: managed
   config/questlog/quests/workshop/press.json: managed
   config/questlog/quests/workshop/press_sheets.json: managed
+  config/questlog/quests/workshop/rotation_recovery.json: managed
   config/questlog/quests/workshop/wheel.json: managed

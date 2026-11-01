@@ -129,8 +129,8 @@ reviewing rewards; do not introduce team progression or an anti-sharing system.
 
 ## Current definitions
 
-The authored source contains nine chapters and 72 entries: 56 inventory entries,
-fourteen advancement entries and two block interactions. 24 entries offer fixed,
+The authored source contains nine chapters and 75 entries: 59 inventory entries,
+fourteen advancement entries and two block interactions. 25 entries offer fixed,
 manually collected rewards. All entries have empty native requirements. Chapters
 and sort order organize browsing without imposing crafting order or losing events
 behind prerequisite gates.
@@ -204,7 +204,7 @@ survival playtesting. Do not increase an objective count to justify a payout.
 | Backpack tool and fluid use | 4 torches and 2 glass | 12.5% of a 32-torch reserve and 17% of the glass for a pair of backpack tanks; no complete upgrade, hose or extra backpack |
 | Animal breeding | 4 wheat | 17% of a 24-wheat breeding/feed reserve; no new animal or crop species |
 | Enchanting | 3 lapis | 17% of an 18-lapis session; no enchanted equipment or levels |
-| Workshop rotation | 4 shafts | 17% of a 24-shaft distribution batch |
+| Workshop rotation and flexible shafts | 5 shafts across two entries | About 21% of a 24-shaft distribution batch; the extra one-shaft supplement is indivisible and adds no scarce component |
 | Pressing, mixing, fan processing | 2 iron ingots, 4 andesite, 4 gravel | Roughly 12–17% of separate 16/32/32 input batches; no zinc, quartz or platinum |
 | Mechanical crafting | 3 crafters | 14% of the 21-crafter crushing-wheel arrangement, after the first recipe batch |
 | Hot air | 2 wool and 2 sticks | One four-envelope recipe; 12.5% of a 32-envelope expansion, not a claim that 32 encloses a viable balloon |

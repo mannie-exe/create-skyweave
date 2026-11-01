@@ -188,3 +188,25 @@ build does not establish an affordable survival route or safe round trip.
 [Building weights](weights.md) owns the pack's classification policy, retained
 upstream behavior, multipart decisions and native verification. Use it when
 choosing comparable construction blocks or updating Sable/building dependencies.
+
+## Moving machinery
+
+Transmission & Linkage adds flexible shaft connections, configurable pneumatic
+rods and kinetic conversion bearings alongside Linear Bearing guides and Absolute
+Kinematics hinges. These are alternatives with different motion/control roles,
+not a compulsory tier sequence. Both joint rod types use the craftable brass
+heads; andesite holds close to its linked rest length while brass permits a
+shorter elastic connection.
+
+Normal and giant actuators retain their native self-contained operation. A
+regulator separately requires Create rotation to automate target length; it does
+not represent a fluid supply. Conversion bearings recover actual physical
+rotation through their rear output. No artificial fuel requirement or converter
+output nerf is applied. The stock rod range stays below upstream's long-model
+limit. Keep clearance and rest-length limits visible when planning mechanisms.
+
+Three optional Workshop inventory entries introduce these capabilities. They do
+not certify a working linkage or generator. The flexible-shaft setup adds one
+common shaft; pneumatic and conversion equipment entries add no reward. Native
+recipes retain their precision mechanisms, sheets and spring requirements; giant
+rods also need mechanical crafting and their honey-bucket input.

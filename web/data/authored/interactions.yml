@@ -92,3 +92,28 @@ records:
     evidence: configuration
     detail: The block is available and its recipe requires a Brass Casing, but flywheelBearingStorageCapability is false. It currently provides no kinetic-storage route. A proposed persistent role is burst power or engine-off operation; enable and test storage before claiming that role.
     sources: ['bits_n_bobs-common.toml', 'bits_n_bobs-server.toml']
+  - id: linkage/pneumatic-motion
+    title: Configurable pneumatic motion
+    inputs:
+      [
+        [aeronautics_utility_objects:hydraulic_connection_head],
+        [aeronautics_utility_objects:hydraulic_rod],
+      ]
+    outputs: []
+    evidence: native-actuation-and-client-checks
+    detail: Connect heads on separate assembled bodies, then right-click the rod body for target, return-force and damping controls. A powered regulator separately maps redstone to target length. The stock actuation contract is retained; these controls are not a supplied fluid network. No inventory-producing recipe is implied.
+    sources:
+      [
+        'docs/development/progression.md',
+        'https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/transmission-linkage.md',
+      ]
+  - id: linkage/physical-conversion
+    title: Physical rotation recovery
+    inputs: [[aeronautics_utility_objects:damping_stress_bearing]]
+    outputs: []
+    evidence: controlled-native-conversion
+    detail: The assembled bearing measures physical rotation and publishes rear shaft output while resisting the motion. A controlled 2-rad/s fixture produced 19 RPM and about 3711 SU with native defaults. This is a supplied test drive, not a demonstrated self-powered machine or a sustained production budget.
+    sources:
+      [
+        'https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/verification.md',
+      ]

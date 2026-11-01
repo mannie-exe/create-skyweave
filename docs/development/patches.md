@@ -258,3 +258,18 @@ The Atlas's active generated data and textures are needed for local browsing;
 Retain reusable visual fixtures and the source of testing harnesses. Cleanup of
 build output does not authorize deleting play worlds, LODs, backups, unrelated
 instances or dependency caches shared with other projects.
+
+### Transmission & Linkage
+
+Keep the pack on the artifact reviewed by Compat's interaction and Jade adapters.
+Review settings/removal packet handlers, remapped binding locals, endpoint
+protection and native Ponder behavior together before updating. The resource-only
+fixes JAR corrects the English rod-settings tutorial target; remove that key when
+the selected upstream release supplies correct wording. It contains no machinery
+runtime code.
+
+Native actuation, recipes, output limits and mass defaults are retained. Generate
+and inspect fresh upstream configs during upgrades rather than treating supplied
+pressure/flow labels as implemented fluid plumbing. Keep default link lengths
+until upstream rendering and selection support a larger configured range. The
+Atlas and three Workshop entries must follow any actual capability change.

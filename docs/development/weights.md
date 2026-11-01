@@ -120,3 +120,12 @@ inertia definitions, lift and cargo mechanics were not changed. Existing startup
 warnings about unregistered optional resources are not evidence of a new weight
 regression. The classification policy above distinguishes direct counterparts from deliberate
 extrapolations and retained defaults.
+
+## Transmission & Linkage
+
+The reviewed 0.2.9 runtime assigns mass 1.0 to all eight registered blocks,
+matching Create's mechanical bearing. Three native moving-head assemblies each
+weigh 3.0 with their stone ballast (stone contributes 2.0). These results support
+retaining upstream classifications; no additional mass tag is shipped. Link
+geometry is not an inventory of extra physical block positions. Recheck native
+classification and assembled totals when updating this machinery or Sable.

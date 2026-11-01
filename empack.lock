@@ -41,6 +41,7 @@ coverage:
   create-aeronautics-covers: complete
   create-aeronautics-rechiseled-compatibility: unknown
   create-aeronautics-throwable-rope-connector: unknown
+  create-aeronautics-transmission-linkage: complete
   create-aeroworks: complete
   create-ballast: complete
   create-big-cannons: complete
@@ -2325,6 +2326,61 @@ dependencies:
     selection: null
     source-selector: null
     title: create-aeronautics-throwable-rope-connector
+  create-aeronautics-transmission-linkage:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/Y1dq5ioE/versions/WoUjC6d4/create_aeronautics_transmission_linkage-0.2.9.jar
+        kind: provider
+        pin:
+          project:
+            project: Y1dq5ioE
+            provider: modrinth
+          selection:
+            id: WoUjC6d4
+            provider: modrinth
+        slot: create_aeronautics_transmission_linkage-0.2.9.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 408317e1fe8b44512007df662a342888acf67871
+          sha512: >-
+            da593d7462f100abe6b5ce2ddb661228433890dda1c66d87cbf0eff4f97637c102cd9f12be1d9e40e967e17b35a28d10a41fdfea571c2dc64be8d28eb2d5ace5
+        size: 736565
+      placements:
+      - destination: mods/create_aeronautics_transmission_linkage-0.2.9.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 408317e1fe8b44512007df662a342888acf67871
+          sha512: >-
+            da593d7462f100abe6b5ce2ddb661228433890dda1c66d87cbf0eff4f97637c102cd9f12be1d9e40e967e17b35a28d10a41fdfea571c2dc64be8d28eb2d5ace5
+        location: Y1dq5ioE
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: Y1dq5ioE
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: Y1dq5ioE
+        provider: modrinth
+      selection:
+        id: WoUjC6d4
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: create-aeronautics-transmission-linkage
+    title: "Create Aeronautics: Transmission & Linkage"
   create-aeroworks:
     content: mod
     files:
@@ -3023,17 +3079,17 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://github.com/mannie-exe/create-sky-compat/releases/download/v0.10.2/create-sky-compat-0.10.2-mc1.21.1-neoforge.jar
+          https://github.com/mannie-exe/create-sky-compat/releases/download/v0.11.1/create-sky-compat-0.11.1-mc1.21.1-neoforge.jar
         kind: url
       expected:
         accepted-observation: null
         digests:
-          sha1: 5fa0abd99daf424e8d387458e010db3a4bf15ac0
+          sha1: bbabdbfe7961c480491c582837239f8dfa28368f
           sha512: >-
-            5433ae5e08de26a74527b45dc6e326c02325da7185dedfa4d16e3f82fcf3bf348b91bd5d660e074fb13147d4d56360a50bb6ce91faef52e366b35bc9e88151fd
+            2da2c8d1a854e808446417271b3bffaa368b78ed6c2509800fbc3b523d1b80083c6f5ccab6624ef06aedf61589b80f5e2e38fc5dad4c7786a04e872f1fdbb0fb
         size: null
       placements:
-      - destination: mods/create-sky-compat-0.10.2-mc1.21.1-neoforge.jar
+      - destination: mods/create-sky-compat-0.11.1-mc1.21.1-neoforge.jar
         environment:
           client: required
           server: required
@@ -3041,9 +3097,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: 5fa0abd99daf424e8d387458e010db3a4bf15ac0
+          sha1: bbabdbfe7961c480491c582837239f8dfa28368f
           sha512: >-
-            5433ae5e08de26a74527b45dc6e326c02325da7185dedfa4d16e3f82fcf3bf348b91bd5d660e074fb13147d4d56360a50bb6ce91faef52e366b35bc9e88151fd
+            2da2c8d1a854e808446417271b3bffaa368b78ed6c2509800fbc3b523d1b80083c6f5ccab6624ef06aedf61589b80f5e2e38fc5dad4c7786a04e872f1fdbb0fb
         location: null
         source: url-file
       slot: primary
@@ -8591,7 +8647,7 @@ dependencies:
       provider: modrinth
       selector: OnlVIpq5
     title: Fast Noise
-intent-revision: de7d59eb756d2ef1701de9cc1eb9dcd537f5b1b3fb983d41f946a6fad7c4f319
+intent-revision: 7588aec1a33ade9f58e297f7b602bdfa76cf04c592c866a4508beea4fd14b99a
 required-edges:
   accessories:
   - owo-lib

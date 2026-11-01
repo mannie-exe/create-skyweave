@@ -1008,6 +1008,50 @@
       "labels": {
         "0": "1 ball joint"
       }
+    },
+    "workshop/flexible_shafts": {
+      "title": "Flexible shaft link",
+      "flavor": "",
+      "requirements": "Obtain 2 brass universal joint heads and 1 andesite universal joint rod at once.",
+      "description": [
+        "Universal joint heads connect Create shafts across separate assembled physics structures. Both rod variants attach to brass heads; the rod you use determines the connection.",
+        "An andesite rod reaches farther and holds close to the length at which it was connected. A brass rod permits a shorter elastic connection. Both can strain and break when extended or compressed too far; leave room for the machinery to move within those limits.",
+        "Connect a shaft source and a load to use the link. This is an alternative to aligned magnetic ports or paired spring transmission, not an extra power source. These supplies do not demonstrate a working connection."
+      ],
+      "disclaimer": "inventory",
+      "labels": {
+        "0": "2 joint heads",
+        "1": "1 andesite rod"
+      }
+    },
+    "workshop/pneumatic_motion": {
+      "title": "Pneumatic linkage",
+      "flavor": "",
+      "requirements": "Obtain 2 pneumatic connection heads and 1 pneumatic rod at once.",
+      "description": [
+        "A pneumatic rod connects heads on separate assembled physics structures. Aim at the rod body and right-click to set target length, return force and stretch resistance. The normal rod operates from those settings without an external fuel, fluid or shaft supply.",
+        "Free mode allows the link to slide without actively returning to its target. A powered pneumatic regulator can select target length with redstone; shaft speed controls how quickly the target changes. This is distinct from a passive Linear Bearing guide.",
+        "Sneak-use a Create wrench on the rod body to disconnect it. Giant hydraulic rods offer pressure and flow controls, while hinge heads allow an end to swing about a pin axis. Keep the connection within its supported travel and leave clearance for the attached structure."
+      ],
+      "disclaimer": "inventory",
+      "labels": {
+        "0": "2 pneumatic heads",
+        "1": "1 pneumatic rod"
+      }
+    },
+    "workshop/rotation_recovery": {
+      "title": "Recover rotation",
+      "flavor": "",
+      "requirements": "Obtain 1 kinetic conversion bearing.",
+      "description": [
+        "A kinetic conversion bearing turns the physical rotation of its attached structure into Create shaft output at the rear. Assemble the payload with the bearing, then provide a physical source of motion; crafting the bearing does not make it rotate.",
+        "Resistance opposes that motion, and the resulting output depends on measured rotation and the configured limits. Sneak-right-click the bearing to adjust its resistance. Use Ponder to review assembly and the output connection.",
+        "This provides a different role from the Linear Bearing gyroscopic gearbox, which reports angular rate with no stress capacity. The journal checks the equipment, not a working generator or sustained power production."
+      ],
+      "disclaimer": "inventory",
+      "labels": {
+        "0": "1 conversion bearing"
+      }
     }
   }
 }

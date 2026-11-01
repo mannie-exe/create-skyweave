@@ -46,3 +46,27 @@ notes:
         'docs/development/progression.md',
         'Absolute Kinematics 1.0.1 native fixture',
       ]
+  aeronautics_utility_objects:hydraulic_rod:
+    text: Configurable link between assembled physics structures. Normal actuation uses target length and return force without an external supply; a shaft-powered regulator separately automates the target. Right-click the rod body for settings; sneak-use a Create wrench to detach it. Equipment acquisition does not establish a working mechanism.
+    status: runtime-checked
+    sources:
+      [
+        'docs/development/progression.md',
+        'https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/transmission-linkage.md',
+      ]
+  aeronautics_utility_objects:brass_universal_joint:
+    text: Both joint rod types use these craftable heads. Andesite rods reach farther and hold near their linked rest length; brass rods permit shorter elastic connections. Use an actual shaft source and load. The legacy andesite head is hidden and is not a missing required recipe.
+    status: source-reviewed
+    sources:
+      [
+        'aeronautics_utility_objects:brass_universal_joint',
+        'docs/development/progression.md',
+      ]
+  aeronautics_utility_objects:damping_stress_bearing:
+    text: Recovers physical rotation through a separate rear kinetic output. Native assembly, controlled external rotation and Jade output inspection were checked. This is distinct from the zero-SU angular-rate sensor. No self-powered loop or practical production balance is established by the controlled fixture.
+    status: runtime-checked
+    sources:
+      [
+        'docs/development/progression.md',
+        'https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/verification.md',
+      ]

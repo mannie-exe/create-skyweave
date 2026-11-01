@@ -3,9 +3,9 @@
   "records": [
     {
       "path": "overrides/common/config/create_sky_compat-features.properties",
-      "sha256": "494a7e5bc0139c04fe8ea07aaff803d9c3bed6f8c87896f3625f1e0ba600a0a0",
+      "sha256": "cf8ed97e076abcd87ea5349e3a65ac977fbb9a2c84e814b321e0447b861452d0",
       "review": "reviewed",
-      "reason": "Explicit Compat selections for terrain, rendering, SDL/Lamb lifecycle and Sodium lookup, journal behavior, and Linear Bearing assembly, braking, transmission and gyro sensing. Per-save DH cache isolation stays opt-in. Enable Linear Bearing Ponder and server-backed Jade inspection."
+      "reason": "Explicit optional terrain, rendering, lighting, journal and machinery adaptations, including Transmission & Linkage interaction authorization and server-backed Jade. Per-save DH cache isolation remains opt-in."
     }
   ]
 }

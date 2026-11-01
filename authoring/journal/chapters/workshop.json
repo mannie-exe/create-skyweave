@@ -386,6 +386,91 @@
         "completed_text_color": "#356b52",
         "progress_text_color": "#435b68"
       }
+    },
+    {
+      "id": "flexible_shafts",
+      "definition": {
+        "chapter": "questlog:workshop",
+        "sort_order": 125,
+        "icon": {
+          "item": "aeronautics_utility_objects:brass_universal_joint"
+        },
+        "requirements": [],
+        "objectives": [
+          {
+            "type": "questlog:item_obtain",
+            "item": "aeronautics_utility_objects:brass_universal_joint",
+            "required_amount": 2
+          },
+          {
+            "type": "questlog:item_obtain",
+            "item": "aeronautics_utility_objects:universal_joint_rod2",
+            "required_amount": 1
+          }
+        ],
+        "rewards": [
+          {
+            "type": "questlog:item",
+            "item": "create:shaft",
+            "count": 1
+          }
+        ],
+        "text_color": "#273238",
+        "title_color": "#18242b",
+        "completed_text_color": "#356b52",
+        "progress_text_color": "#435b68"
+      }
+    },
+    {
+      "id": "pneumatic_motion",
+      "definition": {
+        "chapter": "questlog:workshop",
+        "sort_order": 130,
+        "icon": {
+          "item": "aeronautics_utility_objects:hydraulic_rod"
+        },
+        "requirements": [],
+        "objectives": [
+          {
+            "type": "questlog:item_obtain",
+            "item": "aeronautics_utility_objects:hydraulic_connection_head",
+            "required_amount": 2
+          },
+          {
+            "type": "questlog:item_obtain",
+            "item": "aeronautics_utility_objects:hydraulic_rod",
+            "required_amount": 1
+          }
+        ],
+        "rewards": [],
+        "text_color": "#273238",
+        "title_color": "#18242b",
+        "completed_text_color": "#356b52",
+        "progress_text_color": "#435b68"
+      }
+    },
+    {
+      "id": "rotation_recovery",
+      "definition": {
+        "chapter": "questlog:workshop",
+        "sort_order": 135,
+        "icon": {
+          "item": "aeronautics_utility_objects:damping_stress_bearing"
+        },
+        "requirements": [],
+        "objectives": [
+          {
+            "type": "questlog:item_obtain",
+            "item": "aeronautics_utility_objects:damping_stress_bearing",
+            "required_amount": 1
+          }
+        ],
+        "rewards": [],
+        "text_color": "#273238",
+        "title_color": "#18242b",
+        "completed_text_color": "#356b52",
+        "progress_text_color": "#435b68"
+      }
     }
   ]
 }
