@@ -97,6 +97,17 @@
   "createsky.journal.engines.sensor.objective.0.0": "Altitude sensor",
   "createsky.journal.engines.sensor.objective.0.1": "Velocity sensor",
   "createsky.journal.engines.sensor.objective.0.2": "Gimbal sensor",
+  "createsky.journal.engines.magnetic_link.title": "Magnetic link",
+  "createsky.journal.engines.magnetic_link.description": "Obtain 2 magnetic ports at once.\n\nOpposite-facing magnetic ports couple Create rotation across a short, unobstructed gap. Put a real rotation source behind one port and the load behind the other.\n\nThe link transfers the source network's speed and stress capacity; it supplies no free power. Ship motion can break alignment or range, so keep the gap aligned throughout the mechanism's travel.\n\nPlaced blocks and items in containers do not count.",
+  "createsky.journal.engines.magnetic_link.objective.0": "2 magnetic ports",
+  "createsky.journal.engines.spring_link.title": "Spring link",
+  "createsky.journal.engines.spring_link.description": "Obtain 2 torsional anchors and 2 springs at once.\n\nA torsional anchor behind each head of a paired Simulated spring transfers Create rotation between the endpoints. The springs used to craft the anchors are separate from this linking pair.\n\nProvide an external drive and an appropriate load. The spring link shares that drive's stress budget rather than generating power; assembled and stationary endpoints can be connected.\n\nPlaced blocks and items in containers do not count.",
+  "createsky.journal.engines.spring_link.objective.0": "2 torsional anchors",
+  "createsky.journal.engines.spring_link.objective.1": "2 spring heads",
+  "createsky.journal.engines.gyro_sensor.title": "Angular-rate sensor",
+  "createsky.journal.engines.gyro_sensor.description": "Obtain 1 gyroscopic gearbox and 1 redstone converter at once.\n\nA gyroscopic gearbox on a Sable body reports angular rate about its shaft axis. Connect a redstone converter to turn the signal into redstone strength.\n\nThis is a sensor with zero stress capacity, not a generator or an automatic stabilizer. The journal checks the equipment; it does not detect a working control circuit or a stable airship.\n\nPlaced blocks and items in containers do not count.",
+  "createsky.journal.engines.gyro_sensor.objective.0": "1 gyroscopic gearbox",
+  "createsky.journal.engines.gyro_sensor.objective.1": "1 RPM converter",
   "createsky.journal.flight.assembler.title": "Physics assembler",
   "createsky.journal.flight.assembler.description": "Have at least 1 Physics assembler in your inventory at once.\n\nThe Physics Assembler turns a selected group of glued blocks into a Simulated Contraption. The assembled blocks can move together while remaining interactable.\n\nAssembly does not supply lift or thrust. Include the propulsion, support and controls the structure needs before separating it from its fixed surroundings.\n\nPlaced blocks and items in containers do not count.",
   "createsky.journal.flight.assembler.objective.0": "Physics assembler",
@@ -251,5 +262,9 @@
   "createsky.journal.workshop.heat.objective.0": "Solid burner",
   "createsky.journal.workshop.brass.title": "Brass ingots",
   "createsky.journal.workshop.brass.description": "Have at least 2 Brass ingots in your inventory at once.\n\nBrass is used for components such as Brass Casings and Propeller Bearings. Producing it connects copper and zinc supplies to heated mixing in a Basin.\n\nA fueled Propulsion Solid Burner can provide the heated state beneath the Basin. This gives the normal brass recipe a route that does not depend on capturing a blaze.\n\nPlaced blocks and items in containers do not count.",
-  "createsky.journal.workshop.brass.objective.0": "Brass ingots"
+  "createsky.journal.workshop.brass.objective.0": "Brass ingots",
+  "createsky.journal.workshop.linear_guide.title": "Linear guide",
+  "createsky.journal.workshop.linear_guide.description": "Obtain 1 linear bearing and 4 linear casings at once.\n\nA linear bearing assembles a moving carriage above its face. Matching casings form a passive guide; use a real mechanical arrangement or gravity to move the payload.\n\nPower on the moving carriage engages its brake. With the brake engaged and the payload aligned, use the casing with an empty hand to recover the bearing; its destination must be clear. These supplies do not prove that a working guide was built.\n\nPlaced blocks and items in containers do not count.",
+  "createsky.journal.workshop.linear_guide.objective.0": "1 bearing",
+  "createsky.journal.workshop.linear_guide.objective.1": "4 casings"
 }

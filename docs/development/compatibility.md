@@ -6,14 +6,25 @@ Player instructions belong in [graphics](../players/graphics.md) and
 [content list](../MODLIST.md), with authoritative selections in `empack.yml` and
 `empack.lock`.
 
-## Deferred mechanics
+## Linear Bearing
 
-Linear Bearing and Linear Bearings Fix are excluded pending a stable repair.
-The companion corrects dedicated-server initialization and bubble-gum loot, but
-not the carriage's broken redstone lock. Scoped native checks found an invalid
-Sable sublevel test and an obsolete physics call in that path; assembly alone
-is not proof of a working slider. Reintroduce the pair only after verifying
-locking, release, transmission and dedicated-server behavior together.
+Linear Bearing 1.3.5 and Linear Bearings Fix 1.0.3 use Compat 0.9.0's optional
+carriage, transmission and gyro adapters. The companion owns dedicated startup
+and bubble-gum loot; Compat suppresses its overlapping bootstrap repair. Keep the
+companion while the provider declares it required.
+
+The guide remains passive, with a redstone brake capturing its current relative
+pose. Magnetic and spring links are native Create network edges, including real
+load and stalling. The gyro is an angular-rate signal with zero stress capacity.
+Checked assembly and aligned empty-hand recovery preserve cargo and refuse
+occupied destinations. No recipes, weights or hidden actuator are added.
+
+The [mod's machinery reference](https://github.com/mannie-exe/create-sky-compat/blob/v0.9.0/docs/development/linear-bearing.md)
+owns the contracts and dependency-update procedure. Native tests cover free/braked
+motion, multiple orientations, moving parents, recovery, cold reload, driven
+coupling controls, overload and source removal. An isolated client also exercised
+assembly, braking, recovery and reopening. Old upstream injected-source network
+saves and arbitrary foreign assembly exceptions remain outside that evidence.
 
 ## Rain audio
 
@@ -34,7 +45,7 @@ add a second coordinate conversion based only on source-space positions.
 ## Colorwheel
 
 The manifest selects client-only Colorwheel 1.3.0+mc1.21.1 with Compat
-0.8.0. Minecraft, loader, Iris, Sodium, Create, Sable and shader versions remain
+0.9.0. Minecraft, loader, Iris, Sodium, Create, Sable and shader versions remain
 pinned. Explicit client placements keep Colorwheel, Iris and Sodium out of server
 exports. Client file names and existing renderer bytes are preserved.
 
@@ -52,9 +63,43 @@ no client hooks. See the [exact verification and limits](https://github.com/mann
 No measured performance gain or general shadow repair is claimed. Keep patch
 retirement tied to the actual released Colorwheel/Sable implementations.
 
-Compat also contains separately gated SDL/Lamb repairs; those mods are not added
-by this renderer update. The pack's world, recipes, weights and LOD caches do not
-change.
+## Moving lights
+
+The pack includes client-only Sable Dynamic Lights 2.0.1 (`vjb0hAWB`) and
+LambDynamicLights 4.8.11+1.21.1 (`ksaGCvSu`) with Compat's
+`lighting.lifecycle` and `lighting.sodium` adaptations explicitly enabled.
+SDL owns moving Create/Sable sources; Compat repairs the selected Sodium lookup,
+keeps their light client-local and clears source owners across unload/disconnect.
+No server mod or authoritative lighting change is required.
+
+Lamb's exact universal JAR is URL-pinned because its catalog requires Fabric API
+even though the artifact bundles a native NeoForge runtime and its supporting
+libraries. Both new JARs match the SHA-256 hashes used in the earlier
+[Compat lighting checks](https://github.com/mannie-exe/create-sky-compat/blob/v0.8.0/docs/development/lighting.md#artifacts-and-updates).
+Keep that pair aligned with Compat's exact version guards. Do not add another
+Fabric API or a competing dynamic-light engine for this integration.
+
+Native lighting evidence covers moving and nested contraptions, source removal,
+dimension travel and client/server light separation. It does not prove complete
+wall occlusion or fix the unreproduced upstream hang. Keep new pack verification
+separate from those earlier renderer observations.
+
+## Pack verification, 0.1.24
+
+The 30 pack Python tests, journal generation, 242-file configuration audit and
+maintained resource checks pass. The accepted journal baseline adds four equipment
+entries; all 75 previous native chapter/quest definitions have identical mechanics.
+All three reference profiles build. Archive checks confirm 70 managed entries,
+Linear/Fix on both sides, client-only SDL/Lamb and renderer/audio mods, server-only
+BlueMap, embedded asset hashes, unique entries and valid CRCs. Unix launcher patch
+verification passes. Only Compat changed among existing dependency records; four
+new dependencies were added.
+
+The Atlas recaptured the complete materialized server selection and decoded all
+70 entries. Its [verification](web/verification.md#materialized-pack-inputs-2026-10-31)
+owns snapshot counts and app checks. This does not establish every quest operation
+or a survival playthrough. The mod's native fixtures provide the separate carriage,
+transmission and gyro evidence linked above.
 
 ## Pack verification, 0.1.23
 
@@ -213,6 +258,21 @@ The sample is not an inventory of every structure or runtime-placed block.
 Animated machinery, moving ships and specialized container renderers are outside
 this DH pass: their detailed behavior is not required for distant natural island
 terrain. This is a scope decision, not a claim that DH reproduces those renderers.
+
+## Hoofprint zoom
+
+Inspection on 2026-10-31 of the pinned Hoofprint 1.3.0+1.21 JAR confirms that
+`config/hoofprint.toml` cannot extend the scroll range. `defaultScale = -1`
+selects half the GUI scale rounded up; `1` starts at the farthest existing
+zoom and `10` at the closest. Scrolling is independently hard-coded to integer
+map scales 1..10, equivalent to display pixels per block. `-2` is outside the
+declared range and has no additional zoom-out semantics.
+
+Keep the current pack default pending an adapter. The
+[Compat investigation](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/hoofprint.md)
+owns the source/bytecode evidence and proposed fractional client zoom, including
+initialization, dimension changes and pointer anchoring. It is not implemented
+or verified in game; the pack retains the existing default.
 
 ## Controls and resource packs
 

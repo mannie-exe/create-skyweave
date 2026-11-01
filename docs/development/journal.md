@@ -129,8 +129,8 @@ reviewing rewards; do not introduce team progression or an anti-sharing system.
 
 ## Current definitions
 
-The authored source contains nine chapters and 66 entries: 50 inventory entries,
-fourteen advancement entries and two block interactions. Twenty-two entries offer fixed,
+The authored source contains nine chapters and 70 entries: 54 inventory entries,
+fourteen advancement entries and two block interactions. 23 entries offer fixed,
 manually collected rewards. All entries have empty native requirements. Chapters
 and sort order organize browsing without imposing crafting order or losing events
 behind prerequisite gates.
@@ -145,6 +145,20 @@ Ingredient-only entries for iron, tubes, sheets and platinum were folded into
 capability guidance or operation checks. Possession of a circuit table and delivery
 table was consolidated into their interaction entries. Full requirements and short
 labels remain separate locale fields. No recipes, loot or world generation changed.
+
+### Linear machinery
+
+Four equipment entries introduce a guide, paired magnetic ports, paired torsional
+anchors with separate spring heads, and a gyro/converter sensor. Native inventory
+objectives detect supplies only. Descriptions distinguish passive travel, powered
+braking, external drive capacity and a zero-capacity sensor; none claims successful
+movement or stabilization. There are no prerequisite gates or invented operation
+triggers.
+
+The guide reward is two casings toward an example twelve-casing rail setup, about
+17% of its rail cost. It supplies no new bearing or scarce slime. Other machinery
+entries have no material reward. Recheck the recipes, machinery contract and
+cross-entry reward budget when changing Linear Bearing or its Compat adapters.
 
 ### Traveler's Backpack
 

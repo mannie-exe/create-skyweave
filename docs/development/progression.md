@@ -38,9 +38,13 @@ rate, one ingot takes 180 crushed-gold washes on average, not a guaranteed batch
 
 ## Mechanical alternatives
 
-Linear Bearing and its companion fix remain excluded until their powered
-carriage behavior is repaired and verified. They supply no current journal route
-or progression requirement. See [the compatibility boundary](compatibility.md#deferred-mechanics).
+Linear Bearing supplies passive guides with powered brakes, short-range magnetic
+couplings, spring-linked transmission and a gyro/converter angular-rate sensor.
+All transmission uses a real external drive and its stress budget. These are
+alternatives for reusable moving machinery, not a mandatory technology tier or
+free energy. The guide is not a powered actuator. Equipment journal entries
+explain setup without claiming a working installation; see
+[compatibility](compatibility.md#linear-bearing).
 
 [Transmission & Linkage](https://modrinth.com/mod/create-aeronautics-transmission-linkage)
 remains a candidate. Its hydraulic rods, redstone length controls, joints and

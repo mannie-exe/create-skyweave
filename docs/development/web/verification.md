@@ -6,21 +6,22 @@ separate owners and limits. Commands and prerequisites live in [setup](setup.md)
 
 ## Materialized pack inputs, 2026-10-31
 
-The 0.1.23 capture used all 102 server-side JARs from the materialized pack,
-including Compat 0.8.0 and the maintained fixes resource JAR. Linear Bearing,
-its companion, Camping and client-only renderer/audio additions were absent.
-The native server exported 66 journal entries and 9,209 recipes with zero exporter
-errors, then shut down normally. Its snapshot records `modSource: pack`, the lock
-hash and `sourceChangedDuringExport: false`; extraction and compilation completed.
-`pnpm data:check` passed, including native journal definitions and reward checks.
-The saved-world survey was not regenerated because terrain settings did not change.
+The 0.1.24 capture used all 104 server-side JARs from the materialized pack,
+including published Compat 0.9.0, Linear Bearing 1.3.5, its companion fix and the
+maintained resource JAR. Client-only lighting and renderer/audio additions were
+excluded. The native server exported 70 journal entries and 9,219 recipes with
+zero exporter errors, then shut down normally. The snapshot records `modSource:
+pack`, the lock hash and `sourceChangedDuringExport: false`; extraction and
+compilation completed with 10,086 items. `pnpm data:check` passed, including native
+journal definitions and reward checks. The saved-world survey was not regenerated
+because terrain settings did not change.
 
-`pnpm verify` passes 79 JavaScript tests, Astro checks and eight page builds;
-`pnpm test:python` passes 27 tests. Cases cover side/default participation,
-missing or modified bytes, duplicate/traversing destinations, source-specific
-fingerprints and authored server/default configuration changes. Compilation uses
-the patched NeoForge game JAR before raw cached Minecraft classes. These checks
-establish capture/input behavior, not backpack gameplay or rain-audio quality.
+`pnpm verify` passes 79 JavaScript tests, Astro checks and eight page builds.
+Existing Python input/exporter checks remain unchanged. Capture checks establish
+registered data, source integrity and snapshot consistency; they do not prove
+survival balance or machine operations. The
+[Compat verification](https://github.com/mannie-exe/create-sky-compat/blob/v0.9.0/docs/development/verification.md#release-090)
+owns the separate native mechanics and client observations.
 
 ## Journal presentation facts, 2026-10-31
 

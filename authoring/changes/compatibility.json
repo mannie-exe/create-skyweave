@@ -3,9 +3,9 @@
   "records": [
     {
       "path": "overrides/common/config/create_sky_compat-features.properties",
-      "sha256": "7630196607262e5597eb6fcb1b2817b5027a12256bee58d93017720deba03277",
+      "sha256": "a96cb3cfcb4d755dcf52fb8e2029ce138e6d6d5a73334f32fd40437c8d87e159",
       "review": "reviewed",
-      "reason": "Explicit optional Compat selections, including Colorwheel construct materials and unsupported-OIT sampler allocation. Keep existing terrain/rendering behavior and per-save DH cache isolation opt-in."
+      "reason": "Explicit Compat selections for terrain, rendering, SDL/Lamb lifecycle and Sodium lookup, journal behavior, and Linear Bearing assembly, braking, transmission and gyro sensing. Per-save DH cache isolation stays opt-in."
     }
   ]
 }

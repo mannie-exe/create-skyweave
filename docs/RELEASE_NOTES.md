@@ -1,21 +1,24 @@
-# Create Sky 0.1.23
+# Create Sky 0.1.24
 
-Update Create Sky Compat to 0.8.0 and add client-only Colorwheel 1.3.0.
-The optional renderer adaptations preserve the selected Iris/Sodium and
-Complementary/Euphoria versions. Iris and Sodium are explicitly client-only.
+Add client-only Sable Dynamic Lights 2.0.1 and LambDynamicLights 4.8.11+1.21.1.
+Enable Compat's Sodium lookup and client-light ownership repairs for moving
+Create contraptions and Sable ships. Complete wall occlusion is not guaranteed;
+shader-provided held-item light may overlap with dynamic lighting.
 
-Add Cool Rain Reforged 1.0.2 and Sable Cool Rain 1.0.1 for surface-dependent rain
-audio. These additions introduce no recipes or progression gates.
+Update Create Sky Compat from 0.8.0 to 0.9.0 and restore Linear Bearing 1.3.5
+with Linear Bearings Fix 1.0.3. Compat repairs assembly, redstone braking,
+recovery and native Create transmission; the companion remains the sole owner
+of overlapping dedicated-startup and bubble-gum-drop repairs. Guides are passive,
+magnetic/spring links use a real drive's stress budget, and the gyro is a
+zero-capacity angular-rate sensor. Recipes and masses are unchanged.
 
-Remove Let's Do Camping and its unused EMI companion. Replace the two Camping
-journal entries with four Traveler's Backpack entries covering the pack, sleeping
-bag, tool slots and hose pickup. Three small, manually claimed rewards supplement
-those actions. The journal now contains 66 entries across nine chapters.
+Add four equipment journal entries for the linear guide, magnetic link, spring
+link and gyro/converter setup. The guide entry offers two extra casings; the
+other new entries have no material reward. All four Traveler's Backpack entries
+remain. The journal now contains 70 entries across nine chapters.
 
-Linear Bearing and Linear Bearings Fix remain excluded pending a stable repair;
-their carriage-locking defects are not repaired by the companion mod.
+Refresh the Atlas's registered content, recipes and dependency snapshot. Hoofprint
+zoom remains research-only. World generation, seed, saved worlds, player progress,
+LOD identities and existing operator/player settings are preserved.
 
-World generation, seeds, saved worlds, player progress and LOD identities/settings
-are unchanged. Existing installations retain their local preferences.
-
-Previous release: [0.1.22](releases/0.1.22.md).
+Previous release: [0.1.23](releases/0.1.23.md).

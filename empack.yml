@@ -1,7 +1,7 @@
 schema: 5
 pack:
   name: Create Sky
-  version: 0.1.23
+  version: 0.1.24
   id: create_sky
   authors:
     - mannie-exe
@@ -708,17 +708,40 @@ dependencies:
     environment:
       client: required
       server: unsupported
+  sable-dynamic-lights:
+    source: modrinth:KKb9KQzX
+    pin: vjb0hAWB
+    environment:
+      client: required
+      server: unsupported
+  lambdynamiclights:
+    source:
+      kind: url
+      downloads:
+        - https://cdn.modrinth.com/data/yBW8D80W/versions/ksaGCvSu/lambdynamiclights-4.8.11%2B1.21.1.jar
+    digests:
+      sha1: 7b5afc75a094b4e8a7118f9856eec959b10f2422
+      sha512: 0286076e8b2922dfbe90cd4544a0d16e6d07d7249c732a37479ea4281e9cf96c86dd2e1ce5261489bd5553ceba33044bc550a04b9eb582645eb97f15c9c6a64c
+    environment:
+      client: required
+      server: unsupported
   create-sky-compat:
     source:
       kind: url
       downloads:
-        - https://github.com/mannie-exe/create-sky-compat/releases/download/v0.8.0/create-sky-compat-0.8.0-mc1.21.1-neoforge.jar
+        - https://github.com/mannie-exe/create-sky-compat/releases/download/v0.9.0/create-sky-compat-0.9.0-mc1.21.1-neoforge.jar
     digests:
-      sha1: a239cd9242765ed31b7f68c13c0f57ce408b3551
-      sha512: c480a05ebe25aadaddc8bc55c6aa18fac8de97a007b60e96d0922c6f3d394219e475b82c02da3b15ab45b7e0e79e17448f3be52795ffde9b443f23248a28bba4
+      sha1: 8ddcc603ab9e724148cf853e8ffa5343a9d1a759
+      sha512: a70f1e162f987833f16c00f75fbc16026481d5bc4175c9aa984509feeb38dd9a5df35ce102fdeb7993a94047e5a471819a70a99d2556bfe0ae25e1f2228b68aa
     environment:
       client: required
       server: required
+  linear-bearings-fix:
+    pin: MQ6XuOMQ
+    source: modrinth:linear-bearings-fix
+  linear-bearing:
+    pin: 8SJdnoXS
+    source: modrinth:linear-bearing
 
 build:
   default:

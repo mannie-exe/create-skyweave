@@ -300,6 +300,40 @@
         "completed_text_color": "#356b52",
         "progress_text_color": "#435b68"
       }
+    },
+    {
+      "id": "linear_guide",
+      "definition": {
+        "chapter": "questlog:workshop",
+        "sort_order": 45,
+        "icon": {
+          "item": "linearbearing:linear_bearing"
+        },
+        "requirements": [],
+        "objectives": [
+          {
+            "type": "questlog:item_obtain",
+            "item": "linearbearing:linear_bearing",
+            "required_amount": 1
+          },
+          {
+            "type": "questlog:item_obtain",
+            "item": "linearbearing:linear_casing",
+            "required_amount": 4
+          }
+        ],
+        "rewards": [
+          {
+            "type": "questlog:item",
+            "item": "linearbearing:linear_casing",
+            "count": 2
+          }
+        ],
+        "text_color": "#273238",
+        "title_color": "#18242b",
+        "completed_text_color": "#356b52",
+        "progress_text_color": "#435b68"
+      }
     }
   ]
 }

@@ -350,6 +350,85 @@
         "completed_text_color": "#356b52",
         "progress_text_color": "#435b68"
       }
+    },
+    {
+      "id": "magnetic_link",
+      "definition": {
+        "chapter": "questlog:engines",
+        "sort_order": 110,
+        "icon": {
+          "item": "linearbearing:magnetic_port"
+        },
+        "requirements": [],
+        "objectives": [
+          {
+            "type": "questlog:item_obtain",
+            "item": "linearbearing:magnetic_port",
+            "required_amount": 2
+          }
+        ],
+        "rewards": [],
+        "text_color": "#273238",
+        "title_color": "#18242b",
+        "completed_text_color": "#356b52",
+        "progress_text_color": "#435b68"
+      }
+    },
+    {
+      "id": "spring_link",
+      "definition": {
+        "chapter": "questlog:engines",
+        "sort_order": 120,
+        "icon": {
+          "item": "linearbearing:torsional_anchor"
+        },
+        "requirements": [],
+        "objectives": [
+          {
+            "type": "questlog:item_obtain",
+            "item": "linearbearing:torsional_anchor",
+            "required_amount": 2
+          },
+          {
+            "type": "questlog:item_obtain",
+            "item": "simulated:spring",
+            "required_amount": 2
+          }
+        ],
+        "rewards": [],
+        "text_color": "#273238",
+        "title_color": "#18242b",
+        "completed_text_color": "#356b52",
+        "progress_text_color": "#435b68"
+      }
+    },
+    {
+      "id": "gyro_sensor",
+      "definition": {
+        "chapter": "questlog:engines",
+        "sort_order": 130,
+        "icon": {
+          "item": "linearbearing:gyroscopic_gearbox"
+        },
+        "requirements": [],
+        "objectives": [
+          {
+            "type": "questlog:item_obtain",
+            "item": "linearbearing:gyroscopic_gearbox",
+            "required_amount": 1
+          },
+          {
+            "type": "questlog:item_obtain",
+            "item": "linearbearing:redstone_converter",
+            "required_amount": 1
+          }
+        ],
+        "rewards": [],
+        "text_color": "#273238",
+        "title_color": "#18242b",
+        "completed_text_color": "#356b52",
+        "progress_text_color": "#435b68"
+      }
     }
   ]
 }

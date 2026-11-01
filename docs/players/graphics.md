@@ -49,6 +49,19 @@ framebuffer and glass fixes. This does not promise improved FPS or corrected
 moving-airship shadows. BSL has no native Colorwheel programs in the selected
 archive and remains an alternative without Colorwheel acceleration.
 
+## Moving lights
+
+The pack includes Sable Dynamic Lights and LambDynamicLights for
+moving Create contraptions and Sable ships. Compat's `lighting.lifecycle` and
+`lighting.sodium` startup switches are enabled by default. These are client-only;
+the server does not need the lighting mods.
+
+Lamb's settings control ordinary dynamic lighting. If a shader already lights
+your held item, its light can overlap with Lamb's first-person contribution.
+SDL also supplies a held-block fallback, so Lamb's self-light switch alone may
+not remove every contribution. Light can leak through ship walls; the adapter
+does not guarantee fully enclosed cabin lighting.
+
 ## Resource packs
 
 The selected stack includes RAY's ladders and rails, Midnighttigger's Fusion

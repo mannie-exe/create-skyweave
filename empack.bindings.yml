@@ -1,5 +1,23 @@
 schema: 1
 bindings:
+  sable-dynamic-lights:
+    placement:
+      files:
+        primary:
+        - destination: mods/sable-dynamic-lights-1.21.1-2.0.1.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  lambdynamiclights:
+    placement:
+      files:
+        content:
+        - destination: mods/lambdynamiclights-4.8.11+1.21.1.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
   create-aeronautics-rechiseled-compatibility:
     placement:
       files:
@@ -245,7 +263,7 @@ bindings:
           layer: client
   create-sky-compat:
     placement:
-    - destination: mods/create-sky-compat-0.8.0-mc1.21.1-neoforge.jar
+    - destination: mods/create-sky-compat-0.9.0-mc1.21.1-neoforge.jar
       environment:
         client: required
         server: required
@@ -284,11 +302,14 @@ policies:
   config/questlog/quests/electricity/use_design.json: managed
   config/questlog/quests/electricity/wire.json: managed
   config/questlog/quests/engines/controller.json: managed
+  config/questlog/quests/engines/gyro_sensor.json: managed
   config/questlog/quests/engines/liquid.json: managed
+  config/questlog/quests/engines/magnetic_link.json: managed
   config/questlog/quests/engines/portable.json: managed
   config/questlog/quests/engines/resin.json: managed
   config/questlog/quests/engines/sensor.json: managed
   config/questlog/quests/engines/solid.json: managed
+  config/questlog/quests/engines/spring_link.json: managed
   config/questlog/quests/engines/steering.json: managed
   config/questlog/quests/engines/stirling.json: managed
   config/questlog/quests/engines/tank.json: managed
@@ -330,6 +351,7 @@ policies:
   config/questlog/quests/workshop/fan.json: managed
   config/questlog/quests/workshop/fan_processing.json: managed
   config/questlog/quests/workshop/heat.json: managed
+  config/questlog/quests/workshop/linear_guide.json: managed
   config/questlog/quests/workshop/millstone.json: managed
   config/questlog/quests/workshop/mix.json: managed
   config/questlog/quests/workshop/mixer.json: managed

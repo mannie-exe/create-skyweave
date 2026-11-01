@@ -95,6 +95,9 @@ coverage:
   jade-sable-compat: complete
   jei: complete
   kotlin-for-forge: complete
+  lambdynamiclights: unknown
+  linear-bearing: complete
+  linear-bearings-fix: complete
   lithium: complete
   lootr: complete
   low-on-fire: complete
@@ -131,6 +134,7 @@ coverage:
   rpl: complete
   sable: complete
   sable-cool-rain: complete
+  sable-dynamic-lights: complete
   searchables: complete
   shulkerboxtooltip: complete
   simple-3d-iron-bars: complete
@@ -2925,17 +2929,17 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://github.com/mannie-exe/create-sky-compat/releases/download/v0.8.0/create-sky-compat-0.8.0-mc1.21.1-neoforge.jar
+          https://github.com/mannie-exe/create-sky-compat/releases/download/v0.9.0/create-sky-compat-0.9.0-mc1.21.1-neoforge.jar
         kind: url
       expected:
         accepted-observation: null
         digests:
-          sha1: a239cd9242765ed31b7f68c13c0f57ce408b3551
+          sha1: 8ddcc603ab9e724148cf853e8ffa5343a9d1a759
           sha512: >-
-            c480a05ebe25aadaddc8bc55c6aa18fac8de97a007b60e96d0922c6f3d394219e475b82c02da3b15ab45b7e0e79e17448f3be52795ffde9b443f23248a28bba4
+            a70f1e162f987833f16c00f75fbc16026481d5bc4175c9aa984509feeb38dd9a5df35ce102fdeb7993a94047e5a471819a70a99d2556bfe0ae25e1f2228b68aa
         size: null
       placements:
-      - destination: mods/create-sky-compat-0.8.0-mc1.21.1-neoforge.jar
+      - destination: mods/create-sky-compat-0.9.0-mc1.21.1-neoforge.jar
         environment:
           client: required
           server: required
@@ -2943,9 +2947,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: a239cd9242765ed31b7f68c13c0f57ce408b3551
+          sha1: 8ddcc603ab9e724148cf853e8ffa5343a9d1a759
           sha512: >-
-            c480a05ebe25aadaddc8bc55c6aa18fac8de97a007b60e96d0922c6f3d394219e475b82c02da3b15ab45b7e0e79e17448f3be52795ffde9b443f23248a28bba4
+            a70f1e162f987833f16c00f75fbc16026481d5bc4175c9aa984509feeb38dd9a5df35ce102fdeb7993a94047e5a471819a70a99d2556bfe0ae25e1f2228b68aa
         location: null
         source: url-file
       slot: primary
@@ -5209,6 +5213,152 @@ dependencies:
       provider: modrinth
       selector: ordsPcFz
     title: Kotlin for Forge
+  lambdynamiclights:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/yBW8D80W/versions/ksaGCvSu/lambdynamiclights-4.8.11%2B1.21.1.jar
+        kind: url
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 7b5afc75a094b4e8a7118f9856eec959b10f2422
+          sha512: >-
+            0286076e8b2922dfbe90cd4544a0d16e6d07d7249c732a37479ea4281e9cf96c86dd2e1ce5261489bd5553ceba33044bc550a04b9eb582645eb97f15c9c6a64c
+        size: null
+      placements:
+      - destination: mods/lambdynamiclights-4.8.11+1.21.1.jar
+        environment:
+          client: required
+          server: unsupported
+        layer: client
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 7b5afc75a094b4e8a7118f9856eec959b10f2422
+          sha512: >-
+            0286076e8b2922dfbe90cd4544a0d16e6d07d7249c732a37479ea4281e9cf96c86dd2e1ce5261489bd5553ceba33044bc550a04b9eb582645eb97f15c9c6a64c
+        location: null
+        source: url-file
+      slot: content
+    identity:
+      key: lambdynamiclights
+      kind: url
+    incompatibilities: []
+    selection: null
+    source-selector: null
+    title: lambdynamiclights
+  linear-bearing:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - https://cdn.modrinth.com/data/ZTwCjE7O/versions/8SJdnoXS/linearbearing-1.3.5.jar
+        kind: provider
+        pin:
+          project:
+            project: ZTwCjE7O
+            provider: modrinth
+          selection:
+            id: 8SJdnoXS
+            provider: modrinth
+        slot: linearbearing-1.3.5.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: eea526a9e5b22ef1482f3f6f739d65a53681f1f0
+          sha512: >-
+            c9862f34cac34c09109dec8257056f88228d0d751cf1c4f57627eff4cecfecae4c6685f8a06786b7a17f6ed21164a285b4b7242fd68dba0e22d2ad53d35eed78
+        size: 203626
+      placements:
+      - destination: mods/linearbearing-1.3.5.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: eea526a9e5b22ef1482f3f6f739d65a53681f1f0
+          sha512: >-
+            c9862f34cac34c09109dec8257056f88228d0d751cf1c4f57627eff4cecfecae4c6685f8a06786b7a17f6ed21164a285b4b7242fd68dba0e22d2ad53d35eed78
+        location: ZTwCjE7O
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: ZTwCjE7O
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: ZTwCjE7O
+        provider: modrinth
+      selection:
+        id: 8SJdnoXS
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: linear-bearing
+    title: "Create: Linear Bearing"
+  linear-bearings-fix:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/xLxyRluH/versions/MQ6XuOMQ/linearbearingsfix-1.0.3.jar
+        kind: provider
+        pin:
+          project:
+            project: xLxyRluH
+            provider: modrinth
+          selection:
+            id: MQ6XuOMQ
+            provider: modrinth
+        slot: linearbearingsfix-1.0.3.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 035f3e0654522796aab12ba9161fe5e7fbeb9fa3
+          sha512: >-
+            a468de73f1cd009cd7ad522e7c998d68ad2cdb397359e42e9872a172a1dbcbd0117c712d6ed7ed6fc94b6a9f5788e5cb9234b553f0f018269855844e1c2b00e9
+        size: 28688
+      placements:
+      - destination: mods/linearbearingsfix-1.0.3.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 035f3e0654522796aab12ba9161fe5e7fbeb9fa3
+          sha512: >-
+            a468de73f1cd009cd7ad522e7c998d68ad2cdb397359e42e9872a172a1dbcbd0117c712d6ed7ed6fc94b6a9f5788e5cb9234b553f0f018269855844e1c2b00e9
+        location: xLxyRluH
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: xLxyRluH
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: xLxyRluH
+        provider: modrinth
+      selection:
+        id: MQ6XuOMQ
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: linear-bearings-fix
+    title: Linear Bearings Fix
   lithium:
     content: mod
     files:
@@ -7111,6 +7261,61 @@ dependencies:
       provider: modrinth
       selector: sable-cool-rain
     title: "Sable: Cool Rain"
+  sable-dynamic-lights:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/KKb9KQzX/versions/vjb0hAWB/sable-dynamic-lights-1.21.1-2.0.1.jar
+        kind: provider
+        pin:
+          project:
+            project: KKb9KQzX
+            provider: modrinth
+          selection:
+            id: vjb0hAWB
+            provider: modrinth
+        slot: sable-dynamic-lights-1.21.1-2.0.1.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: d0d8d1d47078d7bb617b9665a0fb9383bf84aaea
+          sha512: >-
+            d0c14dfd60adc41e1084a6a3c7b08ffb7122bb89c97bab2fc9c722e4761b174d2009f6a2a1e464f36825bacf54d6c962bb471003c65c7304213048c9ef3f143a
+        size: 103621
+      placements:
+      - destination: mods/sable-dynamic-lights-1.21.1-2.0.1.jar
+        environment:
+          client: required
+          server: unsupported
+        layer: client
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: d0d8d1d47078d7bb617b9665a0fb9383bf84aaea
+          sha512: >-
+            d0c14dfd60adc41e1084a6a3c7b08ffb7122bb89c97bab2fc9c722e4761b174d2009f6a2a1e464f36825bacf54d6c962bb471003c65c7304213048c9ef3f143a
+        location: KKb9KQzX
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: KKb9KQzX
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: KKb9KQzX
+        provider: modrinth
+      selection:
+        id: vjb0hAWB
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: KKb9KQzX
+    title: "Sable Dynamic Lights (Create: Dynamic Lights fork)"
   searchables:
     content: mod
     files:
@@ -8238,7 +8443,7 @@ dependencies:
       provider: modrinth
       selector: OnlVIpq5
     title: Fast Noise
-intent-revision: 46a10f52a3131336dca396b6d4dd8b99867756705810b320b6d990285e131a79
+intent-revision: 4b1fb3b5d0143e75f32c9b0ab197c7377f29184b917b06acee3b63a159382c42
 required-edges:
   accessories:
   - owo-lib
@@ -8331,6 +8536,11 @@ required-edges:
   - jade
   jei:
   - mezzconfig
+  linear-bearing:
+  - create
+  - create-aeronautics
+  - linear-bearings-fix
+  - sable
   moreculling:
   - cloth-config
   mt-ct-d:

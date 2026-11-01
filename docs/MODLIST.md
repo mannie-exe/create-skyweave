@@ -38,7 +38,7 @@ mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_
 | Controlling | 19.0.5 | [Exact version](https://modrinth.com/mod/controlling/version/FaNppCJJ) |
 | Cool Rain Reforged | 1.0.2 | [Exact version](https://modrinth.com/mod/cool-rain-reforged/version/SwSSfJQQ) |
 | Copycat Bar Extrusion | 0.1.0 | [Exact release](https://github.com/mannie-exe/copycat-bar-extrusion/releases/tag/v0.1.0) |
-| Create Sky Compat | 0.8.0 | [GitHub release](https://github.com/mannie-exe/create-sky-compat/releases/tag/v0.8.0) |
+| Create Sky Compat | 0.9.0 | [GitHub release](https://github.com/mannie-exe/create-sky-compat/releases/tag/v0.9.0) |
 | Create Accessories Compat | 1.0 | [Exact version](https://modrinth.com/mod/create-accessories-compat/version/2r7hvkCQ) |
 | Create Aeronautics | 1.3.2+mc1.21.1 | [Exact version](https://modrinth.com/mod/create-aeronautics/version/44pLdPGg) |
 | Create Aeronautics: Covers | 1.0.1 | [Exact version](https://modrinth.com/mod/create-aeronautics-covers/version/R35biaZf) |
@@ -106,6 +106,9 @@ mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_
 | Jade 🔍 | 15.10.6+neoforge | [Exact version](https://modrinth.com/mod/jade/version/eYz2YBGT) |
 | Just Enough Items (JEI) | 19.70.0.464 | [Exact version](https://modrinth.com/mod/jei/version/ufAsQKnC) |
 | Kotlin for Forge | 5.12.0 | [Exact version](https://modrinth.com/mod/kotlin-for-forge/version/uhJhCT7X) |
+| LambDynamicLights | 4.8.11+1.21.1 | [Exact version](https://modrinth.com/mod/lambdynamiclights/version/ksaGCvSu) |
+| Linear Bearing | 1.3.5 | [Exact version](https://modrinth.com/mod/linear-bearing/version/8SJdnoXS) |
+| Linear Bearings Fix | 1.0.3 | [Exact version](https://modrinth.com/mod/linear-bearings-fix/version/MQ6XuOMQ) |
 | Lithium | mc1.21.1-0.15.4-neoforge | [Exact version](https://modrinth.com/mod/lithium/version/DDUrRVCA) |
 | Lootr | 1.21.1-1.11.38.127 | [Exact version](https://modrinth.com/version/SPOrIzX8) |
 | Low On Fire | 26.3 | [Exact version](https://modrinth.com/version/yQdcUfnr) |
@@ -141,6 +144,7 @@ mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_
 | Ritchie's Projectile Library | 2.1.2 | [Exact version](https://modrinth.com/mod/rpl/version/hZ6B2Z0x) |
 | Sable | 2.0.6+mc1.21.1 | [Exact version](https://modrinth.com/mod/sable/version/fg9dTRz9) |
 | Sable Cool Rain | 1.0.1+1.21.1+neoforge | [Exact version](https://modrinth.com/mod/sable-cool-rain/version/3KLMffqk) |
+| Sable Dynamic Lights | 2.0.1 | [Exact version](https://modrinth.com/mod/sable-dynamic-lights/version/vjb0hAWB) |
 | Searchables | 1.0.2 | [Exact version](https://modrinth.com/mod/searchables/version/iEE85X0w) |
 | Separate Sable Render Distance (Create Aeronautics Addon) | 1.8.7 | [Exact version](https://modrinth.com/mod/ssrd/version/iZflRKdV) |
 | Shulker Box Tooltip | 5.1.9+1.21.1-neoforge | [Exact version](https://modrinth.com/mod/shulkerboxtooltip/version/IuqNIoAi) |
