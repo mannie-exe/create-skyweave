@@ -67,18 +67,6 @@
       "sha512": "d888553c8a254c3654f8da2ae2cae0bb642594546c71988739c93bf6b18668145e0ce5b1c20ae0544b9b6019f17e4da944bd5bc17e4c6b73e7f1374cfa2c9db9",
       "url": "https://cdn.modrinth.com/data/x49wilh8/versions/uQsIRky8/Design-n-Decor-1.21.1-2.2b.jar"
     },
-    "fresh-animations": {
-      "version": "aQjwvDfY",
-      "path": "pack/resourcepacks/FreshAnimations_v1.11.1_1.20+.zip",
-      "sha512": "641a03d55c36920cc9a70d891bcca3347b196968bcb5637781f21b417b1ff893ce60652abcf02be872872fc1130ccc6785155ea3b19a0ed484de714b6229c922",
-      "url": "https://cdn.modrinth.com/data/50dA9Sha/versions/aQjwvDfY/FreshAnimations_v1.11.1_1.20%2B.zip"
-    },
-    "fresh-animations-details": {
-      "version": "XM8VyQLk",
-      "path": "pack/resourcepacks/FA+Details-v2.4.zip",
-      "sha512": "d8a6c2e0ac272e2f4773ed962301ece0cda73136d89a9788eff4dae74979471d29b7dee4073e8169644c4c2017f7b3286dab538171f9e8e2c19e708aa7df8d3d",
-      "url": "https://cdn.modrinth.com/data/lctgpCsu/versions/XM8VyQLk/FA%2BDetails-v2.4.zip"
-    },
     "minecraft": {
       "version": "1.21.1",
       "path": ".cache/resource-inputs/minecraft-1.21.1.jar",
