@@ -1,20 +1,21 @@
-# Create Sky 0.1.22
+# Create Sky 0.1.23
 
-Update Create Sky Compat to 0.7.0 with optional Questlog interface, notifications
-and reward validation. Conditions and rewards wrap, scrollbars have proportional
-thumbs, and rewards can be previewed before completion. Collection remains manual.
+Update Create Sky Compat to 0.8.0 and add client-only Colorwheel 1.3.0.
+The optional renderer adaptations preserve the selected Iris/Sodium and
+Complementary/Euphoria versions. Iris and Sodium are explicitly client-only.
 
-A Settings bookmark opens grouped display and notification preferences. It retains
-the current entry and scroll position. Item images and condition symbols can be
-switched independently. Notices announce first objective progress and completion;
-completion replaces a pending start, and reconnect does not replay old progress.
+Add Cool Rain Reforged 1.0.2 and Sable Cool Rain 1.0.1 for surface-dependent rain
+audio. These additions introduce no recipes or progression gates.
 
-Restore Questlog's native warm parchment, ink and control artwork. Remove the
-older partial flat reskin while retaining generated translations. Compat's Mods
-configuration entry also exposes effective adaptation status and file guidance.
+Remove Let's Do Camping and its unused EMI companion. Replace the two Camping
+journal entries with four Traveler's Backpack entries covering the pack, sleeping
+bag, tool slots and hose pickup. Three small, manually claimed rewards supplement
+those actions. The journal now contains 66 entries across nine chapters.
 
-Quest definitions, quantities, rewards, recipes, terrain, world identity and LOD
-settings remain unchanged apart from enabling completion notices on all entries.
-Existing worlds and individual journal progress are preserved.
+Linear Bearing and Linear Bearings Fix remain excluded pending a stable repair;
+their carriage-locking defects are not repaired by the companion mod.
 
-Previous release: [0.1.21](releases/0.1.21.md).
+World generation, seeds, saved worlds, player progress and LOD identities/settings
+are unchanged. Existing installations retain their local preferences.
+
+Previous release: [0.1.22](releases/0.1.22.md).

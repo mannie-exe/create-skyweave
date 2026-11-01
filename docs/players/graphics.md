@@ -34,6 +34,21 @@ airship shadows remain unresolved. Report the shader pack,
 block types, whether the balloon is inflated, and whether camera or ship motion
 changes the artifact. Do not clear worlds or LOD caches to troubleshoot it.
 
+## Colorwheel
+
+Colorwheel enables shader-aware Flywheel rendering with compatible shaders.
+Complementary and the generated Euphoria selection include native support; no
+Colorwheel Patcher is included. Shader-off rendering keeps Flywheel's ordinary
+backend. The Mac uses instancing; indirect rendering and Colorwheel OIT are
+unavailable there. Compat releases unused OIT sampler slots on that renderer and
+supplies material metadata for direct Sable model draws.
+
+These are separate `rendering.colorwheel_samplers` and
+`rendering.colorwheel_materials` startup switches. They complement the existing
+framebuffer and glass fixes. This does not promise improved FPS or corrected
+moving-airship shadows. BSL has no native Colorwheel programs in the selected
+archive and remains an alternative without Colorwheel acceleration.
+
 ## Resource packs
 
 The selected stack includes RAY's ladders and rails, Midnighttigger's Fusion

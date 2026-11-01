@@ -153,12 +153,12 @@
       }
     },
     {
-      "id": "backpack",
+      "id": "travel_pack",
       "definition": {
         "chapter": "questlog:main",
         "sort_order": 50,
         "icon": {
-          "item": "camping:small_backpack"
+          "item": "travelersbackpack:standard"
         },
         "requirements": [],
         "objectives": [
@@ -166,13 +166,13 @@
             "type": "questlog:or",
             "objectives": [
               {
-                "type": "questlog:item_obtain",
-                "item": "camping:small_backpack",
+                "type": "questlog:advancement",
+                "advancement": "travelersbackpack:standard",
                 "required_amount": 1
               },
               {
-                "type": "questlog:item_obtain",
-                "item": "camping:large_backpack",
+                "type": "questlog:advancement",
+                "advancement": "travelersbackpack:custom_backpack",
                 "required_amount": 1
               }
             ]
@@ -186,102 +186,86 @@
       }
     },
     {
-      "id": "sleeping_bag",
+      "id": "pack_sleeping_bag",
       "definition": {
         "chapter": "questlog:main",
         "sort_order": 60,
         "icon": {
-          "item": "camping:sleeping_bag_white"
+          "item": "travelersbackpack:white_sleeping_bag"
         },
         "requirements": [],
         "objectives": [
           {
-            "type": "questlog:or",
-            "objectives": [
-              {
-                "type": "questlog:item_obtain",
-                "item": "camping:sleeping_bag_white",
-                "required_amount": 1
-              },
-              {
-                "type": "questlog:item_obtain",
-                "item": "camping:sleeping_bag_orange",
-                "required_amount": 1
-              },
-              {
-                "type": "questlog:item_obtain",
-                "item": "camping:sleeping_bag_magenta",
-                "required_amount": 1
-              },
-              {
-                "type": "questlog:item_obtain",
-                "item": "camping:sleeping_bag_light_blue",
-                "required_amount": 1
-              },
-              {
-                "type": "questlog:item_obtain",
-                "item": "camping:sleeping_bag_yellow",
-                "required_amount": 1
-              },
-              {
-                "type": "questlog:item_obtain",
-                "item": "camping:sleeping_bag_lime",
-                "required_amount": 1
-              },
-              {
-                "type": "questlog:item_obtain",
-                "item": "camping:sleeping_bag_pink",
-                "required_amount": 1
-              },
-              {
-                "type": "questlog:item_obtain",
-                "item": "camping:sleeping_bag_gray",
-                "required_amount": 1
-              },
-              {
-                "type": "questlog:item_obtain",
-                "item": "camping:sleeping_bag_light_gray",
-                "required_amount": 1
-              },
-              {
-                "type": "questlog:item_obtain",
-                "item": "camping:sleeping_bag_cyan",
-                "required_amount": 1
-              },
-              {
-                "type": "questlog:item_obtain",
-                "item": "camping:sleeping_bag_purple",
-                "required_amount": 1
-              },
-              {
-                "type": "questlog:item_obtain",
-                "item": "camping:sleeping_bag_blue",
-                "required_amount": 1
-              },
-              {
-                "type": "questlog:item_obtain",
-                "item": "camping:sleeping_bag_brown",
-                "required_amount": 1
-              },
-              {
-                "type": "questlog:item_obtain",
-                "item": "camping:sleeping_bag_green",
-                "required_amount": 1
-              },
-              {
-                "type": "questlog:item_obtain",
-                "item": "camping:sleeping_bag_red",
-                "required_amount": 1
-              },
-              {
-                "type": "questlog:item_obtain",
-                "item": "camping:sleeping_bag_black",
-                "required_amount": 1
-              }
-            ]
+            "type": "questlog:advancement",
+            "advancement": "travelersbackpack:use_sleeping_bag",
+            "required_amount": 1
           }
         ],
-        "rewards": [],
+        "rewards": [
+          {
+            "type": "questlog:item",
+            "item": "minecraft:bread",
+            "count": 1
+          }
+        ],
+        "text_color": "#273238",
+        "title_color": "#18242b",
+        "completed_text_color": "#356b52",
+        "progress_text_color": "#435b68"
+      }
+    },
+    {
+      "id": "pack_tools",
+      "definition": {
+        "chapter": "questlog:main",
+        "sort_order": 70,
+        "icon": {
+          "item": "minecraft:iron_pickaxe"
+        },
+        "requirements": [],
+        "objectives": [
+          {
+            "type": "questlog:advancement",
+            "advancement": "travelersbackpack:tool_slots",
+            "required_amount": 1
+          }
+        ],
+        "rewards": [
+          {
+            "type": "questlog:item",
+            "item": "minecraft:torch",
+            "count": 4
+          }
+        ],
+        "text_color": "#273238",
+        "title_color": "#18242b",
+        "completed_text_color": "#356b52",
+        "progress_text_color": "#435b68"
+      }
+    },
+    {
+      "id": "pack_fluids",
+      "definition": {
+        "chapter": "questlog:main",
+        "sort_order": 80,
+        "icon": {
+          "item": "travelersbackpack:hose"
+        },
+        "requirements": [],
+        "objectives": [
+          {
+            "type": "questlog:advancement",
+            "advancement": "travelersbackpack:hose_suck",
+            "required_amount": 1
+          }
+        ],
+        "rewards": [
+          {
+            "type": "questlog:item",
+            "item": "minecraft:glass",
+            "count": 2
+          }
+        ],
         "text_color": "#273238",
         "title_color": "#18242b",
         "completed_text_color": "#356b52",

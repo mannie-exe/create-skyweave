@@ -3,9 +3,9 @@
   "records": [
     {
       "path": "overrides/common/config/create_sky_compat-features.properties",
-      "sha256": "9740cb7b27d6ba7c64dd02626a1fd6fc63e391517d83136097bca0c18ffeb1d6",
+      "sha256": "7630196607262e5597eb6fcb1b2817b5027a12256bee58d93017720deba03277",
       "review": "reviewed",
-      "reason": "Explicit Create Sky Compat adaptation selections. Preserve the pack behavior, enable the incorporated rendering fixes, and keep per-save DH cache isolation opt-in."
+      "reason": "Explicit optional Compat selections, including Colorwheel construct materials and unsupported-OIT sampler allocation. Keep existing terrain/rendering behavior and per-save DH cache isolation opt-in."
     }
   ]
 }

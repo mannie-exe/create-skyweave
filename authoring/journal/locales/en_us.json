@@ -87,50 +87,6 @@
         "0": "Enchant an item"
       }
     },
-    "main/backpack": {
-      "title": "Extra carrying space",
-      "flavor": "",
-      "requirements": "Obtain a small or large Camping backpack.",
-      "description": [
-        "A backpack provides extra storage for equipment and supplies during a trip. Separate return fuel and food from materials intended for construction.",
-        "Journal inventory conditions do not inspect backpack contents. Move a required item into your ordinary inventory when you want the journal to record it."
-      ],
-      "disclaimer": "inventory",
-      "labels": {
-        "0": "Either backpack",
-        "0.0": "Small backpack",
-        "0.1": "Large backpack"
-      }
-    },
-    "main/sleeping_bag": {
-      "title": "Field rest",
-      "flavor": "",
-      "requirements": "Obtain a Camping sleeping bag of any color.",
-      "description": [
-        "A sleeping bag provides a portable place to sleep during an expedition. Find solid, safe ground before using it; carrying one does not establish shelter.",
-        "Sleeping also interrupts the sleepless nights used to encounter phantoms. Gather membranes first if you are preparing a glider through that route."
-      ],
-      "disclaimer": "inventory",
-      "labels": {
-        "0": "Any sleeping bag",
-        "0.0": "White",
-        "0.1": "Orange",
-        "0.2": "Magenta",
-        "0.3": "Light blue",
-        "0.4": "Yellow",
-        "0.5": "Lime",
-        "0.6": "Pink",
-        "0.7": "Gray",
-        "0.8": "Light gray",
-        "0.9": "Cyan",
-        "0.10": "Purple",
-        "0.11": "Blue",
-        "0.12": "Brown",
-        "0.13": "Green",
-        "0.14": "Red",
-        "0.15": "Black"
-      }
-    },
     "travel/membranes": {
       "title": "Phantom membranes",
       "flavor": "",
@@ -915,6 +871,60 @@
       "disclaimer": "inventory",
       "labels": {
         "0": "Crossbow"
+      }
+    },
+    "main/travel_pack": {
+      "title": "Carry a backpack",
+      "flavor": "",
+      "requirements": "Obtain a standard or custom Traveler's Backpack and complete its inventory advancement.",
+      "description": [
+        "A Traveler's Backpack keeps expedition equipment in a separate inventory. Equip it in the Accessories back slot and use the backpack control to open it; its starting leather tier provides 27 storage slots.",
+        "Keep return supplies apart from collected materials. Upgrade slots add functions such as crafting or fluid storage, while tool slots provide a separate way to exchange carried equipment."
+      ],
+      "disclaimer": "advancement",
+      "labels": {
+        "0": "Obtain a backpack",
+        "0.0": "Standard backpack",
+        "0.1": "Custom backpack"
+      }
+    },
+    "main/pack_sleeping_bag": {
+      "title": "Deploy a sleeping bag",
+      "flavor": "",
+      "requirements": "Use the backpack's sleeping-bag control to deploy the bag and attempt to sleep.",
+      "description": [
+        "The backpack's sleeping bag provides a place to attempt rest without carrying a separate bed. Quick deployment is enabled, so the backpack can remain equipped; allow space for the bag on solid ground.",
+        "Sleeping bags do not set your respawn point in this pack. This advancement records deployment and a sleep attempt, not a completed night; ordinary sleep restrictions still apply. Successful sleep also interrupts the sleepless nights used to encounter phantoms."
+      ],
+      "disclaimer": "advancement",
+      "labels": {
+        "0": "Deploy sleeping bag"
+      }
+    },
+    "main/pack_tools": {
+      "title": "Swap carried tools",
+      "flavor": "",
+      "requirements": "Use Traveler's Backpack's tool-swap action with an equipped backpack.",
+      "description": [
+        "Store compatible equipment in the backpack's dedicated tool slots, then use its tool-swap control to exchange a slot with the item in your hand. Check Minecraft's Controls menu for the assigned binding.",
+        "Tool slots keep frequently used equipment available without filling the main storage grid. A swap does not repair the tool or preserve its durability; keep a replacement or repair supplies for longer trips. Completion records the swap action; it does not inspect the exchanged tool."
+      ],
+      "disclaimer": "advancement",
+      "labels": {
+        "0": "Swap a stored tool"
+      }
+    },
+    "main/pack_fluids": {
+      "title": "Draw fluid with a hose",
+      "flavor": "",
+      "requirements": "Use a hose to draw fluid into an equipped backpack's tank and complete its hose advancement.",
+      "description": [
+        "The Tanks Upgrade provides two fluid tanks. Install one if the backpack does not already have tanks, select a tank and set the hose to draw mode before using it on a fluid source.",
+        "The configured leather-tier capacity is three buckets (3,000 mB) per tank. The hose can move fluids without supplying ship plumbing or fuel delivery automatically; tank contents and a usable source still matter."
+      ],
+      "disclaimer": "advancement",
+      "labels": {
+        "0": "Draw fluid"
       }
     }
   }

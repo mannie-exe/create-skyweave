@@ -36,6 +36,22 @@ other starting resources, with diamond/platinum in deep interiors. Mining access
 travel time and whole-island quantities remain separate gameplay checks. Gold washing supplies a separate 5% platinum-nugget chance. At that
 rate, one ingot takes 180 crushed-gold washes on average, not a guaranteed batch.
 
+## Mechanical alternatives
+
+Linear Bearing and its companion fix remain excluded until their powered
+carriage behavior is repaired and verified. They supply no current journal route
+or progression requirement. See [the compatibility boundary](compatibility.md#deferred-mechanics).
+
+[Transmission & Linkage](https://modrinth.com/mod/create-aeronautics-transmission-linkage)
+remains a candidate. Its hydraulic rods, redstone length controls, joints and
+rotational energy conversion cover a broader role than a guide rail; it is not
+a direct replacement merely because both move structures. Review extension,
+return force and damping as control choices before adding journal routes.
+[Absolute Kinematics](https://www.curseforge.com/minecraft/mc-mods/absolute-kinematics)
+is also uninstalled: its driven hinges and free ball joints are a smaller option
+for articulated structures, with some overlap with the larger linkage mod.
+These role comparisons come from release/source inspection, not pack gameplay.
+
 ## Equipment maintenance
 
 Easy Anvils retains repair-material and XP costs, but removes the 40-level cap,

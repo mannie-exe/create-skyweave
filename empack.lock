@@ -24,9 +24,11 @@ coverage:
   clean-tooltips: complete
   cloth-config: complete
   collective: complete
+  colorwheel: complete
   complementary-unbound: complete
   connector: complete
   controlling: complete
+  cool-rain-reforged: complete
   copycat-bar-extrusion: unknown
   copycats: complete
   create: complete
@@ -93,8 +95,6 @@ coverage:
   jade-sable-compat: complete
   jei: complete
   kotlin-for-forge: complete
-  lets-do-camping: complete
-  lets-do-emi-compat: complete
   lithium: complete
   lootr: complete
   low-on-fire: complete
@@ -130,6 +130,7 @@ coverage:
   reliable-gliders: complete
   rpl: complete
   sable: complete
+  sable-cool-rain: complete
   searchables: complete
   shulkerboxtooltip: complete
   simple-3d-iron-bars: complete
@@ -1452,6 +1453,65 @@ dependencies:
         provider: modrinth
     source-selector: null
     title: Collective
+  colorwheel:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/BzHgFoGz/versions/8rq5KP4U/colorwheel-neoforge-1.3.0%2Bmc1.21.1.jar
+        kind: provider
+        pin:
+          project:
+            project: BzHgFoGz
+            provider: modrinth
+          selection:
+            id: 8rq5KP4U
+            provider: modrinth
+        slot: colorwheel-neoforge-1.3.0+mc1.21.1.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 350a9476147f00e351745ae1c1446eefe706bd89
+          sha512: >-
+            1d2088d41f57cef08b8b9692a5f95427c34cf218e0e0fe20bc335e7a5cab9e37cea414b786070cc29947fbbe9e9dba1a4134f722c35b9ccbef60e2a075e352aa
+        size: 514376
+      placements:
+      - destination: mods/colorwheel-neoforge-1.3.0+mc1.21.1.jar
+        environment:
+          client: required
+          server: unsupported
+        layer: client
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 350a9476147f00e351745ae1c1446eefe706bd89
+          sha512: >-
+            1d2088d41f57cef08b8b9692a5f95427c34cf218e0e0fe20bc335e7a5cab9e37cea414b786070cc29947fbbe9e9dba1a4134f722c35b9ccbef60e2a075e352aa
+        location: BzHgFoGz
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: BzHgFoGz
+        provider: modrinth
+    incompatibilities:
+    - project:
+        project: ndHYMY2K
+        provider: modrinth
+      selection: null
+    selection:
+      project:
+        project: BzHgFoGz
+        provider: modrinth
+      selection:
+        id: 8rq5KP4U
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: colorwheel
+    title: Colorwheel
   complementary-unbound:
     content: shader-pack
     files:
@@ -1617,6 +1677,61 @@ dependencies:
       provider: modrinth
       selector: controlling
     title: Controlling
+  cool-rain-reforged:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/IgftU6Mn/versions/SwSSfJQQ/coolrain-1.21.1-NeoForge-1.0.2.jar
+        kind: provider
+        pin:
+          project:
+            project: IgftU6Mn
+            provider: modrinth
+          selection:
+            id: SwSSfJQQ
+            provider: modrinth
+        slot: coolrain-1.21.1-NeoForge-1.0.2.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 2f41f15cb7b6c46aeeae95c29c1f3a9c1d53f327
+          sha512: >-
+            bd463f60ac2ab9f22bc7b7c35656e3e174b2db5bde95f3c7d404b07f085bdbd550774e9bf7ff81310a0f4eea5348398d2a8f617a1d1644db6e38c8eb83245328
+        size: 4151295
+      placements:
+      - destination: mods/coolrain-1.21.1-NeoForge-1.0.2.jar
+        environment:
+          client: required
+          server: unsupported
+        layer: client
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 2f41f15cb7b6c46aeeae95c29c1f3a9c1d53f327
+          sha512: >-
+            bd463f60ac2ab9f22bc7b7c35656e3e174b2db5bde95f3c7d404b07f085bdbd550774e9bf7ff81310a0f4eea5348398d2a8f617a1d1644db6e38c8eb83245328
+        location: IgftU6Mn
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: IgftU6Mn
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: IgftU6Mn
+        provider: modrinth
+      selection:
+        id: SwSSfJQQ
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: cool-rain-reforged
+    title: Cool Rain Reforged
   copycat-bar-extrusion:
     content: mod
     files:
@@ -2810,17 +2925,17 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://github.com/mannie-exe/create-sky-compat/releases/download/v0.7.0/create-sky-compat-0.7.0-mc1.21.1-neoforge.jar
+          https://github.com/mannie-exe/create-sky-compat/releases/download/v0.8.0/create-sky-compat-0.8.0-mc1.21.1-neoforge.jar
         kind: url
       expected:
         accepted-observation: null
         digests:
-          sha1: 114e5958721baea088b91be5cfeafdfc7e869040
+          sha1: a239cd9242765ed31b7f68c13c0f57ce408b3551
           sha512: >-
-            71a6a7e5e6080a2851bc32209ae3dc362d691848448b026f2c7c9a17b195a82ca7344d76df3bd7f0f22192e945143fa9056a3c2d21bbbd8b735c9370abbe2998
+            c480a05ebe25aadaddc8bc55c6aa18fac8de97a007b60e96d0922c6f3d394219e475b82c02da3b15ab45b7e0e79e17448f3be52795ffde9b443f23248a28bba4
         size: null
       placements:
-      - destination: mods/create-sky-compat-0.7.0-mc1.21.1-neoforge.jar
+      - destination: mods/create-sky-compat-0.8.0-mc1.21.1-neoforge.jar
         environment:
           client: required
           server: required
@@ -2828,9 +2943,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: 114e5958721baea088b91be5cfeafdfc7e869040
+          sha1: a239cd9242765ed31b7f68c13c0f57ce408b3551
           sha512: >-
-            71a6a7e5e6080a2851bc32209ae3dc362d691848448b026f2c7c9a17b195a82ca7344d76df3bd7f0f22192e945143fa9056a3c2d21bbbd8b735c9370abbe2998
+            c480a05ebe25aadaddc8bc55c6aa18fac8de97a007b60e96d0922c6f3d394219e475b82c02da3b15ab45b7e0e79e17448f3be52795ffde9b443f23248a28bba4
         location: null
         source: url-file
       slot: primary
@@ -4793,7 +4908,7 @@ dependencies:
         environment:
           client: required
           server: unsupported
-        layer: common
+        layer: client
       provenance:
         conversions: []
         declared-digests:
@@ -5094,116 +5209,6 @@ dependencies:
       provider: modrinth
       selector: ordsPcFz
     title: Kotlin for Forge
-  lets-do-camping:
-    content: mod
-    files:
-    - acquisition:
-        downloads:
-        - >-
-          https://cdn.modrinth.com/data/uJXTNuf0/versions/GdYcZwHn/letsdo-camping-neoforge-2.1.6.jar
-        kind: provider
-        pin:
-          project:
-            project: uJXTNuf0
-            provider: modrinth
-          selection:
-            id: GdYcZwHn
-            provider: modrinth
-        slot: letsdo-camping-neoforge-2.1.6.jar
-      expected:
-        accepted-observation: null
-        digests:
-          sha1: efdde75d38c08ab8952d4732ff537e5a88f17c01
-          sha512: >-
-            f47a9dac957faea4793d285e45f4d0b5f38815d3049ce7bfd024b765ece4cb2825a303c1132e203db6060c49b5f1c36c85ba65ff0cd2f79d21d392634412e744
-        size: 1346314
-      placements:
-      - destination: mods/letsdo-camping-neoforge-2.1.6.jar
-        environment:
-          client: required
-          server: required
-        layer: common
-      provenance:
-        conversions: []
-        declared-digests:
-          sha1: efdde75d38c08ab8952d4732ff537e5a88f17c01
-          sha512: >-
-            f47a9dac957faea4793d285e45f4d0b5f38815d3049ce7bfd024b765ece4cb2825a303c1132e203db6060c49b5f1c36c85ba65ff0cd2f79d21d392634412e744
-        location: uJXTNuf0
-        source: provider-catalog
-      slot: primary
-    identity:
-      kind: provider
-      project:
-        project: uJXTNuf0
-        provider: modrinth
-    incompatibilities: []
-    selection:
-      project:
-        project: uJXTNuf0
-        provider: modrinth
-      selection:
-        id: GdYcZwHn
-        provider: modrinth
-    source-selector:
-      provider: modrinth
-      selector: uJXTNuf0
-    title: "[Let's Do] Camping"
-  lets-do-emi-compat:
-    content: mod
-    files:
-    - acquisition:
-        downloads:
-        - >-
-          https://cdn.modrinth.com/data/k6hi4lMv/versions/j1Vdf01b/emi-letsdo-compat-2.0.3.jar
-        kind: provider
-        pin:
-          project:
-            project: k6hi4lMv
-            provider: modrinth
-          selection:
-            id: j1Vdf01b
-            provider: modrinth
-        slot: emi-letsdo-compat-2.0.3.jar
-      expected:
-        accepted-observation: null
-        digests:
-          sha1: af5780b19d76dafe9febcc83efc36e309870292a
-          sha512: >-
-            40bdfd6192cbd37fce828d337e98267141e3bd99301f423b5ea169512dad6d01afdd54fdfad7aaa8609241651c229a86beaa481d3403257038cd08e5e626a057
-        size: 123119
-      placements:
-      - destination: mods/emi-letsdo-compat-2.0.3.jar
-        environment:
-          client: required
-          server: unsupported
-        layer: common
-      provenance:
-        conversions: []
-        declared-digests:
-          sha1: af5780b19d76dafe9febcc83efc36e309870292a
-          sha512: >-
-            40bdfd6192cbd37fce828d337e98267141e3bd99301f423b5ea169512dad6d01afdd54fdfad7aaa8609241651c229a86beaa481d3403257038cd08e5e626a057
-        location: k6hi4lMv
-        source: provider-catalog
-      slot: primary
-    identity:
-      kind: provider
-      project:
-        project: k6hi4lMv
-        provider: modrinth
-    incompatibilities: []
-    selection:
-      project:
-        project: k6hi4lMv
-        provider: modrinth
-      selection:
-        id: j1Vdf01b
-        provider: modrinth
-    source-selector:
-      provider: modrinth
-      selector: k6hi4lMv
-    title: "[Let's Do Addon] EMI Compat"
   lithium:
     content: mod
     files:
@@ -7051,6 +7056,61 @@ dependencies:
       provider: modrinth
       selector: T9PomCSv
     title: Sable
+  sable-cool-rain:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/nUwwB5kx/versions/3KLMffqk/sable-cool-rain-1.0.1%2B1.21.1%2Bneoforge.jar
+        kind: provider
+        pin:
+          project:
+            project: nUwwB5kx
+            provider: modrinth
+          selection:
+            id: 3KLMffqk
+            provider: modrinth
+        slot: sable-cool-rain-1.0.1+1.21.1+neoforge.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: f38aa048d8a853a3897b475fe5118a5096cfee4d
+          sha512: >-
+            dccd4b92360caef342fa3226ab7e8d6e2dbf44745cf4ff9e3e861356bf7a6796e26a19512319fd1cd143a0f25b23ad65f542ee7783a7f61f6cdc4907a6f78961
+        size: 238579
+      placements:
+      - destination: mods/sable-cool-rain-1.0.1+1.21.1+neoforge.jar
+        environment:
+          client: required
+          server: unsupported
+        layer: client
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: f38aa048d8a853a3897b475fe5118a5096cfee4d
+          sha512: >-
+            dccd4b92360caef342fa3226ab7e8d6e2dbf44745cf4ff9e3e861356bf7a6796e26a19512319fd1cd143a0f25b23ad65f542ee7783a7f61f6cdc4907a6f78961
+        location: nUwwB5kx
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: nUwwB5kx
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: nUwwB5kx
+        provider: modrinth
+      selection:
+        id: 3KLMffqk
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: sable-cool-rain
+    title: "Sable: Cool Rain"
   searchables:
     content: mod
     files:
@@ -7407,7 +7467,7 @@ dependencies:
         environment:
           client: required
           server: unsupported
-        layer: common
+        layer: client
       provenance:
         conversions: []
         declared-digests:
@@ -8178,7 +8238,7 @@ dependencies:
       provider: modrinth
       selector: OnlVIpq5
     title: Fast Noise
-intent-revision: dbd3ed984ef5db28da6a69cde0f85ac35086eb178c489f899bbf7e9b6d764297
+intent-revision: 46a10f52a3131336dca396b6d4dd8b99867756705810b320b6d990285e131a79
 required-edges:
   accessories:
   - owo-lib
@@ -8193,6 +8253,8 @@ required-edges:
   - create
   bellsandwhistles:
   - create
+  colorwheel:
+  - iris
   connector:
   - forgified-fabric-api
   controlling:
@@ -8263,12 +8325,12 @@ required-edges:
   invmovecompats:
   - cloth-config
   - invmove
+  iris:
+  - sodium
   jade-addons-forge:
   - jade
   jei:
   - mezzconfig
-  lets-do-camping:
-  - curios
   moreculling:
   - cloth-config
   mt-ct-d:
@@ -8281,6 +8343,9 @@ required-edges:
   reliable-emi:
   - emi
   - yacl
+  sable-cool-rain:
+  - cool-rain-reforged
+  - sable
   sky-villages:
   - architectury-api
   sodium-extra:

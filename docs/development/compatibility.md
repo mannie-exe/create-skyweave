@@ -6,6 +6,67 @@ Player instructions belong in [graphics](../players/graphics.md) and
 [content list](../MODLIST.md), with authoritative selections in `empack.yml` and
 `empack.lock`.
 
+## Deferred mechanics
+
+Linear Bearing and Linear Bearings Fix are excluded pending a stable repair.
+The companion corrects dedicated-server initialization and bubble-gum loot, but
+not the carriage's broken redstone lock. Scoped native checks found an invalid
+Sable sublevel test and an obsolete physics call in that path; assembly alone
+is not proof of a working slider. Reintroduce the pair only after verifying
+locking, release, transmission and dedicated-server behavior together.
+
+## Rain audio
+
+Cool Rain Reforged 1.0.2 and Sable Cool Rain 1.0.1 are client-only. They add
+surface-dependent rain audio and copied-material/Sable surface handling, without
+recipes, weights or a progression gate. Base rain sounds use the existing
+Weather volume category. No separate gameplay configuration is registered.
+The exact release JARs matter: the base mod's current source branch targets a
+newer weather renderer than the selected Minecraft 1.21.1 release.
+
+The isolated full client reached the menu, and its exported `LevelRenderer`
+bytecode contains calls to both bridge hooks, including the material-return
+adapter. This verifies actual injection despite their optional `require=0`
+selectors. It does not establish audio balance, shelter behavior or moving-ship
+sound positioning. Sable already handles plot-coordinate sound distance; do not
+add a second coordinate conversion based only on source-space positions.
+
+## Colorwheel
+
+The manifest selects client-only Colorwheel 1.3.0+mc1.21.1 with Compat
+0.8.0. Minecraft, loader, Iris, Sodium, Create, Sable and shader versions remain
+pinned. Explicit client placements keep Colorwheel, Iris and Sodium out of server
+exports. Client file names and existing renderer bytes are preserved.
+
+Compat supplies terrain/emission metadata on Sable's direct non-AO model path
+and releases unused OIT sampler slots when Colorwheel's own renderer guard
+disables OIT. On the tested Apple driver, the unadapted embedded translucent
+program failed at `shadowtex0`; the adapted selection renders with the current
+Complementary/Euphoria configuration unchanged. Do not replace supported OIT
+allocation or disable shaders to mask that failure.
+
+Native checks cover shader on/off backend selection, static and assembled glass /
+Copycats, moving Sable/Create geometry, press/propeller Ponder, a Macaw lamp,
+shader reload, and minimum optional loading. Full dedicated-server startup selects
+no client hooks. See the [exact verification and limits](https://github.com/mannie-exe/create-sky-compat/blob/v0.8.0/docs/development/verification.md#release-080).
+No measured performance gain or general shadow repair is claimed. Keep patch
+retirement tied to the actual released Colorwheel/Sable implementations.
+
+Compat also contains separately gated SDL/Lamb repairs; those mods are not added
+by this renderer update. The pack's world, recipes, weights and LOD caches do not
+change.
+
+## Pack verification, 0.1.23
+
+The selected pack without Linear Bearing or its companion passed all 30 pack
+Python tests, the 242-file configuration audit, journal/resource generation checks
+and all three reference builds. Archive checks verified dependency removal,
+client/server placement, asset hashes, managed journal definitions and preserved
+seed-file policies. The isolated dedicated fixture decoded 66 entries and checked
+the four new backpack entries' condition handlers, persistence and manual rewards.
+It shut down normally. Action advancements were granted for handler checks;
+actual backpack use and rain-audio quality still need gameplay review.
+
 ## Journal adaptation, 2026-10-31
 
 Create Sky 0.1.22 selects Compat 0.7.0 with independent Questlog interface,
@@ -446,9 +507,8 @@ crop block implementations in the inspected plant classes. The plant displays
 therefore compare vanilla growth stages, stems, cane, fungi and aquatic plants.
 All eight ladder families are present: vanilla; Create andesite/brass/copper;
 Create Deco iron/industrial iron/zinc; and Copycat. Apply a material to the
-Copycat sample yourself. Gingerbread men sit beside the stationary animal specimens. The mosquito station
-has a Night / spawn button: Camping 2.1.6 discards swarms by day and runs its own
-movement even with `NoAI`. The equipment chest and enclosed pen support motion
+Copycat sample yourself. Gingerbread men sit beside the stationary animal specimens.
+The equipment chest and enclosed pen support motion
 checks. Revision 8 adds a powered adjustable burner and propeller/press Ponder
 buttons. Both buttons and the burner rendered with the selected shaders in the
 isolated full-stack client on 2026-10-24. The stopped local-world check passed

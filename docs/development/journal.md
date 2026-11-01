@@ -4,7 +4,7 @@ Questlog provides an optional, bookless journal for Create Sky. The selected
 artifact is recorded in `empack.yml`; the current implementation review covers
 Questlog 3.5.0 on Minecraft 1.21.1 / NeoForge.
 
-Compat 0.7.0 owns wrapped rows, reward previews, bookmark preferences and runtime
+Compat's Questlog adaptations own wrapped rows, reward previews, bookmark preferences and runtime
 notifications. The pack enables its three independent startup switches and native
 completion flags. Review the exact Questlog pin and Compat hooks together before
 upgrading either. Keep the native Questlog panel textures replaceable; adding panel
@@ -79,7 +79,7 @@ actual content warrants it. They are not final names or mandatory gates.
 
 | Subject | Coverage to consider |
 | --- | --- |
-| Field supplies and survival | Food, renewable crops, animals, camping, backpacks, repair and enchanting. |
+| Field supplies and survival | Food, renewable crops, animals, portable rest, backpacks, repair and enchanting. |
 | Island access and exploration | Gliders, climbing, ropes, ascent, descent and return access. |
 | Workshop and processing | Rotation, transmission, pressing, washing, heat, alloys, crushing and assembly. |
 | Airframe and lift | Physics assembly, glue roles, envelope enclosure, heat, mass and levitite. |
@@ -129,8 +129,8 @@ reviewing rewards; do not introduce team progression or an anti-sharing system.
 
 ## Current definitions
 
-The authored source contains nine chapters and 64 entries: 52 inventory entries,
-ten advancement entries and two block interactions. Nineteen entries offer fixed,
+The authored source contains nine chapters and 66 entries: 50 inventory entries,
+fourteen advancement entries and two block interactions. Twenty-two entries offer fixed,
 manually collected rewards. All entries have empty native requirements. Chapters
 and sort order organize browsing without imposing crafting order or losing events
 behind prerequisite gates.
@@ -146,6 +146,25 @@ capability guidance or operation checks. Possession of a circuit table and deliv
 table was consolidated into their interaction entries. Full requirements and short
 labels remain separate locale fields. No recipes, loot or world generation changed.
 
+### Traveler's Backpack
+
+Four Field supplies entries cover the pack and its existing operating controls.
+They use Traveler's Backpack 10.1.40's native advancements rather than custom
+detectors or possession checks for components that may already be installed.
+
+| Entry | Native condition | Limit |
+| --- | --- | --- |
+| Carry a backpack | `standard` or `custom_backpack` inventory advancement | Ownership, not equipping or a particular storage tier |
+| Deploy a sleeping bag | `use_sleeping_bag` | Successful deployment followed by a sleep attempt; sleep itself can fail |
+| Swap carried tools | `tool_slots` | The swap action, including exchanges involving empty slots |
+| Draw fluid with a hose | `hose_suck` | The hose's fluid pickup action; bucket filling through another interface does not satisfy it |
+
+Quick sleeping-bag use is enabled and does not set spawn. The leather tier has
+27 storage slots and two tool slots; fluid capacity is 1,000 mB per storage row,
+so each installed tank holds 3,000 mB. Recheck these configuration consumers and
+the advancement call sites when updating Traveler's Backpack. Advancement names
+alone do not establish that a night passed or that a nonempty tool was exchanged.
+
 ### Reward budgets
 
 These are authoring reference batches, not measured trip durations or proven
@@ -154,7 +173,8 @@ survival playtesting. Do not increase an objective count to justify a payout.
 
 | Route | Total supplement | Reference use and limit |
 | --- | --- | --- |
-| Food and glider | 4 bread across two entries | About 17% of a 24-food travel reserve; no membranes or leather |
+| Food, glider and field rest | 5 bread across three entries | About 21% of a 24-food travel reserve; the one-bread rest supplement is an indivisible rounding exception; no membranes or leather |
+| Backpack tool and fluid use | 4 torches and 2 glass | 12.5% of a 32-torch reserve and 17% of the glass for a pair of backpack tanks; no complete upgrade, hose or extra backpack |
 | Animal breeding | 4 wheat | 17% of a 24-wheat breeding/feed reserve; no new animal or crop species |
 | Enchanting | 3 lapis | 17% of an 18-lapis session; no enchanted equipment or levels |
 | Workshop rotation | 4 shafts | 17% of a 24-shaft distribution batch |
@@ -230,6 +250,14 @@ reset progress, reinterpret old completion or award the same reward twice.
 installation order. Builds do not install files into personal instances.
 
 ## Evidence and references
+
+The 2026-10-31 scoped pack fixture decoded all 66 entries, including the four
+Traveler's Backpack entries. Native checks covered negative/positive objective
+handling, NBT restoration, manual reward collection, duplicate claims and overflow.
+The action advancements were granted to exercise Questlog's handlers; this is
+not an in-game demonstration of the three backpack operations. Their trigger
+call sites were inspected in the selected 10.1.40 JAR, including the sleep-attempt
+and empty-tool-slot limits above. Existing definitions and rewards were unchanged.
 
 The source review inspected Questlog
 [`c77a41e`](https://github.com/infernalstudios/Questlog/tree/c77a41eb54e6fce28981e8d6694862863704268e)

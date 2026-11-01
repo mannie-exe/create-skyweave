@@ -1,6 +1,6 @@
 # Included content
 
-Create Sky 0.1.20 selections. Minecraft is 1.21.1 and NeoForge is 21.1.264.
+Selections from `empack.yml` and `empack.lock`. Minecraft is 1.21.1 and NeoForge is 21.1.264.
 The manifest/lock are authoritative; this list excludes libraries bundled inside
 mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_NOTES.md).
 
@@ -10,8 +10,6 @@ mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_
 | 3D Sugar Cane | 2.0 | [Exact version](https://modrinth.com/resourcepack/3d-sugar-cane/version/sU6FmyoH) |
 | [EMF] Entity Model Features | 3.3.12-neoforge-1.21 | [Exact version](https://modrinth.com/mod/entity-model-features/version/197m3VoU) |
 | [ETF] Entity Texture Features | 7.2.6-neoforge-1.21 | [Exact version](https://modrinth.com/mod/entitytexturefeatures/version/lwNx1nD1) |
-| [Let's Do Addon] EMI Compat | 2.0.3 | [Exact version](https://modrinth.com/mod/lets-do-emi-compat/version/j1Vdf01b) |
-| [Let's Do] Camping | 2.1.6 | [Exact version](https://modrinth.com/mod/lets-do-camping/version/GdYcZwHn) |
 | Accessories Compatibility Layer | 0.1.13 | [Exact version](https://modrinth.com/mod/accessories-compat-layer/version/UB8bxpVn) |
 | Accessories | 1.1.0-beta.54+1.21.1 | [Exact version](https://modrinth.com/mod/accessories/version/dy9BbDEy) |
 | Aeronautics Delivery Quests | 1.1.1 | [Exact version](https://modrinth.com/mod/aeronautics-delivery-quests/version/GBzcF6Il) |
@@ -34,11 +32,13 @@ mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_
 | Climbable Ropes for Create Aeronautics | 2.2.0 | [Exact version](https://modrinth.com/mod/create-aeronautics-climbable-rope/version/TTGedLb3) |
 | Cloth Config API | 15.0.140+neoforge | [Exact version](https://modrinth.com/mod/cloth-config/version/izKINKFg) |
 | Collective | 1.21.1-8.65-fabric+forge+neo | [Exact version](https://modrinth.com/mod/collective/version/d78uVgbq) |
+| Colorwheel | 1.3.0+mc1.21.1 | [Exact version](https://modrinth.com/mod/colorwheel/version/8rq5KP4U) |
 | Complementary Unbound | r5.9.3 | [Exact version](https://modrinth.com/version/B1kyfoUZ) |
 | Concurrent Chunk Management Engine (NeoForge) | 0.4.0-alpha.0.124+1.21.1 | [Exact version](https://modrinth.com/mod/c2me-neoforge/version/VACgDPOc) |
 | Controlling | 19.0.5 | [Exact version](https://modrinth.com/mod/controlling/version/FaNppCJJ) |
+| Cool Rain Reforged | 1.0.2 | [Exact version](https://modrinth.com/mod/cool-rain-reforged/version/SwSSfJQQ) |
 | Copycat Bar Extrusion | 0.1.0 | [Exact release](https://github.com/mannie-exe/copycat-bar-extrusion/releases/tag/v0.1.0) |
-| Create Sky Compat | 0.7.0 | [Exact release](https://github.com/mannie-exe/create-sky-compat/releases/tag/v0.7.0) |
+| Create Sky Compat | 0.8.0 | [GitHub release](https://github.com/mannie-exe/create-sky-compat/releases/tag/v0.8.0) |
 | Create Accessories Compat | 1.0 | [Exact version](https://modrinth.com/mod/create-accessories-compat/version/2r7hvkCQ) |
 | Create Aeronautics | 1.3.2+mc1.21.1 | [Exact version](https://modrinth.com/mod/create-aeronautics/version/44pLdPGg) |
 | Create Aeronautics: Covers | 1.0.1 | [Exact version](https://modrinth.com/mod/create-aeronautics-covers/version/R35biaZf) |
@@ -140,6 +140,7 @@ mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_
 | Reliable Gliders | 2.0.0+1.21.1-neoforge | [Exact version](https://modrinth.com/mod/reliable-gliders/version/aOgcvBAo) |
 | Ritchie's Projectile Library | 2.1.2 | [Exact version](https://modrinth.com/mod/rpl/version/hZ6B2Z0x) |
 | Sable | 2.0.6+mc1.21.1 | [Exact version](https://modrinth.com/mod/sable/version/fg9dTRz9) |
+| Sable Cool Rain | 1.0.1+1.21.1+neoforge | [Exact version](https://modrinth.com/mod/sable-cool-rain/version/3KLMffqk) |
 | Searchables | 1.0.2 | [Exact version](https://modrinth.com/mod/searchables/version/iEE85X0w) |
 | Separate Sable Render Distance (Create Aeronautics Addon) | 1.8.7 | [Exact version](https://modrinth.com/mod/ssrd/version/iZflRKdV) |
 | Shulker Box Tooltip | 5.1.9+1.21.1-neoforge | [Exact version](https://modrinth.com/mod/shulkerboxtooltip/version/IuqNIoAi) |

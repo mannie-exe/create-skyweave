@@ -1,7 +1,7 @@
 schema: 5
 pack:
   name: Create Sky
-  version: 0.1.22
+  version: 0.1.23
   id: create_sky
   authors:
     - mannie-exe
@@ -302,13 +302,6 @@ dependencies:
   kotlin-for-forge:
     source: modrinth:ordsPcFz
     pin: uhJhCT7X
-  lets-do-camping:
-    source: modrinth:uJXTNuf0
-    pin: GdYcZwHn
-  lets-do-emi-compat:
-    side: client
-    source: modrinth:k6hi4lMv
-    pin: j1Vdf01b
   lithium:
     source: modrinth:gvQqBUqZ
     pin: DDUrRVCA
@@ -697,14 +690,32 @@ dependencies:
     environment:
       client: required
       server: unsupported
+  cool-rain-reforged:
+    source: modrinth:cool-rain-reforged
+    pin: SwSSfJQQ
+    environment:
+      client: required
+      server: unsupported
+  sable-cool-rain:
+    source: modrinth:sable-cool-rain
+    pin: 3KLMffqk
+    environment:
+      client: required
+      server: unsupported
+  colorwheel:
+    source: modrinth:colorwheel
+    pin: 8rq5KP4U
+    environment:
+      client: required
+      server: unsupported
   create-sky-compat:
     source:
       kind: url
       downloads:
-        - https://github.com/mannie-exe/create-sky-compat/releases/download/v0.7.0/create-sky-compat-0.7.0-mc1.21.1-neoforge.jar
+        - https://github.com/mannie-exe/create-sky-compat/releases/download/v0.8.0/create-sky-compat-0.8.0-mc1.21.1-neoforge.jar
     digests:
-      sha1: 114e5958721baea088b91be5cfeafdfc7e869040
-      sha512: 71a6a7e5e6080a2851bc32209ae3dc362d691848448b026f2c7c9a17b195a82ca7344d76df3bd7f0f22192e945143fa9056a3c2d21bbbd8b735c9370abbe2998
+      sha1: a239cd9242765ed31b7f68c13c0f57ce408b3551
+      sha512: c480a05ebe25aadaddc8bc55c6aa18fac8de97a007b60e96d0922c6f3d394219e475b82c02da3b15ab45b7e0e79e17448f3be52795ffde9b443f23248a28bba4
     environment:
       client: required
       server: required

@@ -7,7 +7,7 @@
   "chapter": "questlog:main",
   "sort_order": 50,
   "icon": {
-    "item": "camping:small_backpack"
+    "item": "travelersbackpack:standard"
   },
   "requirements": [],
   "objectives": [
@@ -15,21 +15,21 @@
       "type": "questlog:or",
       "objectives": [
         {
-          "type": "questlog:item_obtain",
-          "item": "camping:small_backpack",
+          "type": "questlog:advancement",
+          "advancement": "travelersbackpack:standard",
           "required_amount": 1,
-          "name": "createsky.journal.main.backpack.objective.0.0",
+          "name": "createsky.journal.main.travel_pack.objective.0.0",
           "translatable": true
         },
         {
-          "type": "questlog:item_obtain",
-          "item": "camping:large_backpack",
+          "type": "questlog:advancement",
+          "advancement": "travelersbackpack:custom_backpack",
           "required_amount": 1,
-          "name": "createsky.journal.main.backpack.objective.0.1",
+          "name": "createsky.journal.main.travel_pack.objective.0.1",
           "translatable": true
         }
       ],
-      "name": "createsky.journal.main.backpack.objective.0",
+      "name": "createsky.journal.main.travel_pack.objective.0",
       "translatable": true
     }
   ],
@@ -38,9 +38,9 @@
   "title_color": "#18242b",
   "completed_text_color": "#356b52",
   "progress_text_color": "#435b68",
-  "title": "createsky.journal.main.backpack.title",
+  "title": "createsky.journal.main.travel_pack.title",
   "translatable": true,
   "description": {
-    "translate": "createsky.journal.main.backpack.description"
+    "translate": "createsky.journal.main.travel_pack.description"
   }
 }

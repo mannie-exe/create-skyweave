@@ -108,13 +108,6 @@
       "reference": "docs/development/decisions.md"
     },
     {
-      "path": "overrides/common/config/camping-common.toml",
-      "sha256": "a3039972e2b37f93b4e8bc0b2f80010c3a686d84ba145a29737e121f9bcf61a3",
-      "review": "inherited",
-      "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
-    },
-    {
       "path": "overrides/common/config/carryon-common.toml",
       "sha256": "e94d8859abff70825f11105108642fc804add64d490743cedf9a127381cb0f39",
       "review": "inherited",

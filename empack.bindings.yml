@@ -198,9 +198,54 @@ bindings:
             client: required
             server: required
           layer: common
+  iris:
+    placement:
+      files:
+        primary:
+        - destination: mods/iris-neoforge-1.8.14-beta.1+mc1.21.1.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  sodium:
+    placement:
+      files:
+        primary:
+        - destination: mods/sodium-neoforge-0.8.13+mc1.21.1.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  cool-rain-reforged:
+    placement:
+      files:
+        primary:
+        - destination: mods/coolrain-1.21.1-NeoForge-1.0.2.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  sable-cool-rain:
+    placement:
+      files:
+        primary:
+        - destination: mods/sable-cool-rain-1.0.1+1.21.1+neoforge.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  colorwheel:
+    placement:
+      files:
+        primary:
+        - destination: mods/colorwheel-neoforge-1.3.0+mc1.21.1.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
   create-sky-compat:
     placement:
-    - destination: mods/create-sky-compat-0.7.0-mc1.21.1-neoforge.jar
+    - destination: mods/create-sky-compat-0.8.0-mc1.21.1-neoforge.jar
       environment:
         client: required
         server: required
@@ -258,11 +303,13 @@ policies:
   config/questlog/quests/flight/propeller.json: managed
   config/questlog/quests/flight/spin_propeller.json: managed
   config/questlog/quests/main/anvil.json: managed
-  config/questlog/quests/main/backpack.json: managed
   config/questlog/quests/main/breeding.json: managed
   config/questlog/quests/main/enchanting.json: managed
   config/questlog/quests/main/food.json: managed
-  config/questlog/quests/main/sleeping_bag.json: managed
+  config/questlog/quests/main/pack_fluids.json: managed
+  config/questlog/quests/main/pack_sleeping_bag.json: managed
+  config/questlog/quests/main/pack_tools.json: managed
+  config/questlog/quests/main/travel_pack.json: managed
   config/questlog/quests/main/water.json: managed
   config/questlog/quests/manufacturing/crafters.json: managed
   config/questlog/quests/manufacturing/deployer.json: managed
