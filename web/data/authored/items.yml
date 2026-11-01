@@ -90,3 +90,11 @@ notes:
     text: Death scrolls are disabled. Recovery does not grant a teleport or remote inventory retrieval; this registered utility is not an enabled acquisition route.
     status: optional-integration-disabled
     sources: ['overrides/common/config/yigd.json']
+  create_redstone_additions:verdigris:
+    text: Native axe scraping yields 3–6 pieces after a successful copper weathering transition. Copper must first weather; opening a copper door or a canceled scrape is not a resource source. Verdigris feeds the upstream Cyan Quartz and semiconductor recipes; no recipe or yield rebalance was added.
+    status: runtime-checked
+    sources:
+      [
+        'docs/development/compatibility.md#redstone-control',
+        'Create Sky Compat 0.14.0 native scraping fixture',
+      ]

@@ -6,6 +6,31 @@ Player instructions belong in [graphics](../players/graphics.md) and
 [content list](../MODLIST.md), with authoritative selections in `empack.yml` and
 `empack.lock`.
 
+## Redstone control
+
+Redstone Link GUI keeps Create's ghost frequencies and personal presets. Open it
+with an empty hand and Shift + right-click on a frequency slot. The native range
+remains 24 blocks. Compat checks server permissions and menu identity, projects
+Sable coordinates and limits relocation to ordinary links within one coordinate
+frame. Vector-thruster frequency menus remain available; machinery relocation
+is intentionally refused.
+
+Redstone Additions supplies optional gates, crossings and resistors alongside
+Create controls. Compat repairs placement/input side effects, feedback, support
+loss, wrench behavior, successful-only copper scraping and inverter transparency.
+Crossroad strong output through solid blocks loses one signal level; wire behavior
+retains its native contract. Treat it as an analog detail when designing circuits.
+The resource-only fixes JAR restores nine block drops using the 1.21 loot directory
+and supplies the missing Ponder category translations. Carry On's existing Create
+exclusion already covers these components; no additional pickup rule is required.
+
+The journal introduces copper scraping and acquiring signal components without
+claiming a completed circuit or making them mandatory for flight. Existing remote
+control guidance explains the frequency UI. Recipes remain upstream-owned; scarce
+materials are not granted through these entries. Recheck the exact dependency pins,
+resource overrides and [adapter contract](https://github.com/mannie-exe/create-sky-compat/blob/v0.14.0/docs/development/redstone.md)
+together when upgrading. Remove overlapping repairs after native verification.
+
 ## Audio and death recovery
 
 Analog Audio's server-owned radio and speaker ranges are 128 blocks. Existing

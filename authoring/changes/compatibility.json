@@ -3,9 +3,16 @@
   "records": [
     {
       "path": "overrides/common/config/create_sky_compat-features.properties",
-      "sha256": "0cf1e9c856b230cfd95884df71595eac86e1fa5535dcb0cb241f803d3acc8b2b",
+      "sha256": "82fe6aea1b843d57492560881ef7b44a9a1ab481c45765361783c608fb0db384",
       "review": "reviewed",
-      "reason": "Enable the selected independent adapters, including client radio timeline correction and Sable/YiGD construct recovery.",
+      "reason": "Enable independent terrain, machinery, journal, rendering, recovery and reviewed redstone menu/gate adapters.",
+      "reference": "docs/development/compatibility.md"
+    },
+    {
+      "path": "overrides/common/config/createredstonelinkgui-common.toml",
+      "sha256": "7d1ebca9e3134781296a983d20b2b26e7179b8d928dc44f7a3bfe10d9f28f19b",
+      "review": "reviewed",
+      "reason": "Retain the native 24-block limit; Compat permits ordinary links within one coordinate frame.",
       "reference": "docs/development/compatibility.md"
     }
   ]

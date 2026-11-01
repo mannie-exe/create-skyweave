@@ -568,3 +568,18 @@ recapturing world or ore evidence. No gameplay or journal source changed.
 `pnpm test` passes all 79 JavaScript tests; `pnpm build` passes Astro checking
 and the production build. UI source was unchanged, so browser interaction
 checks were not repeated. The existing large-chunk build warning remains.
+
+## Redstone content refresh, 2026-11-01
+
+The materialized 0.1.30 selection uses published Compat 0.14.0, Link GUI
+1.21.1-1.9.2 and Redstone Additions 1.0.5. `pnpm data:refresh` and
+`pnpm data:check` pass with 10,116 items, 9,246 recipes and 77 journal entries.
+The authored scraping route records Verdigris acquisition that recipe exports
+cannot discover. Existing quest mechanics match the preceding baseline after
+excluding the two intentional new entries. No playing world or ore survey changed.
+
+`pnpm verify` passes formatting, all 79 JavaScript tests, Astro checks and the
+production build. UI source and interaction behavior are unchanged; browser
+interaction tests were not repeated. Native menu, circuit and Ponder evidence
+belongs to Compat's redstone verification reference. The existing chunk-size
+warning remains.

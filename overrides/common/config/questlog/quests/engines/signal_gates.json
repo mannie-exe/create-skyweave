@@ -1,0 +1,60 @@
+{
+  "include_in_main": false,
+  "toast_on_unlock": false,
+  "toast_on_complete": true,
+  "show_popup_on_unlock": false,
+  "details_open_by_default": true,
+  "chapter": "questlog:engines",
+  "sort_order": 105,
+  "icon": {
+    "item": "create_redstone_additions:conjunctor"
+  },
+  "requirements": [],
+  "objectives": [
+    {
+      "type": "questlog:or",
+      "objectives": [
+        {
+          "type": "questlog:item_obtain",
+          "item": "create_redstone_additions:conjunctor",
+          "required_amount": 1,
+          "name": "createsky.journal.engines.signal_gates.objective.0.0",
+          "translatable": true
+        },
+        {
+          "type": "questlog:item_obtain",
+          "item": "create_redstone_additions:disjunctor",
+          "required_amount": 1,
+          "name": "createsky.journal.engines.signal_gates.objective.0.1",
+          "translatable": true
+        },
+        {
+          "type": "questlog:item_obtain",
+          "item": "create_redstone_additions:inverter",
+          "required_amount": 1,
+          "name": "createsky.journal.engines.signal_gates.objective.0.2",
+          "translatable": true
+        },
+        {
+          "type": "questlog:item_obtain",
+          "item": "create_redstone_additions:crossroad",
+          "required_amount": 1,
+          "name": "createsky.journal.engines.signal_gates.objective.0.3",
+          "translatable": true
+        }
+      ],
+      "name": "createsky.journal.engines.signal_gates.objective.0",
+      "translatable": true
+    }
+  ],
+  "rewards": [],
+  "text_color": "#273238",
+  "title_color": "#18242b",
+  "completed_text_color": "#356b52",
+  "progress_text_color": "#435b68",
+  "title": "createsky.journal.engines.signal_gates.title",
+  "translatable": true,
+  "description": {
+    "translate": "createsky.journal.engines.signal_gates.description"
+  }
+}

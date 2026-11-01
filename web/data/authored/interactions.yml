@@ -117,3 +117,10 @@ records:
       [
         'https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/verification.md',
       ]
+  - id: controls/link-frequencies
+    title: Edit link frequencies
+    inputs: [[create:redstone_link]]
+    outputs: []
+    evidence: native-packet-and-client-checks
+    detail: Empty hand + Shift + right-click on a frequency slot opens Link GUI. Ghost selections and personal presets do not consume items. Compat validates menus and server permissions; relocation is limited to ordinary links within one world or ship, up to 24 blocks. Vector-thruster frequency menus remain available without machinery relocation.
+    sources: ['docs/development/compatibility.md#redstone-control']

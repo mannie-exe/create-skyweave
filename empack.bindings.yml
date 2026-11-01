@@ -343,12 +343,14 @@ policies:
   config/questlog/quests/engines/portable.json: managed
   config/questlog/quests/engines/resin.json: managed
   config/questlog/quests/engines/sensor.json: managed
+  config/questlog/quests/engines/signal_gates.json: managed
   config/questlog/quests/engines/solid.json: managed
   config/questlog/quests/engines/spring_link.json: managed
   config/questlog/quests/engines/steering.json: managed
   config/questlog/quests/engines/stirling.json: managed
   config/questlog/quests/engines/tank.json: managed
   config/questlog/quests/engines/turpentine.json: managed
+  config/questlog/quests/engines/verdigris.json: managed
   config/questlog/quests/flight/assembler.json: managed
   config/questlog/quests/flight/bearing.json: managed
   config/questlog/quests/flight/burner.json: managed

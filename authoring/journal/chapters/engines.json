@@ -352,6 +352,72 @@
       }
     },
     {
+      "id": "verdigris",
+      "definition": {
+        "chapter": "questlog:engines",
+        "sort_order": 100,
+        "icon": {
+          "item": "create_redstone_additions:verdigris"
+        },
+        "requirements": [],
+        "objectives": [
+          {
+            "type": "questlog:item_obtain",
+            "item": "create_redstone_additions:verdigris",
+            "required_amount": 4
+          }
+        ],
+        "rewards": [],
+        "text_color": "#273238",
+        "title_color": "#18242b",
+        "completed_text_color": "#356b52",
+        "progress_text_color": "#435b68"
+      }
+    },
+    {
+      "id": "signal_gates",
+      "definition": {
+        "chapter": "questlog:engines",
+        "sort_order": 105,
+        "icon": {
+          "item": "create_redstone_additions:conjunctor"
+        },
+        "requirements": [],
+        "objectives": [
+          {
+            "type": "questlog:or",
+            "objectives": [
+              {
+                "type": "questlog:item_obtain",
+                "item": "create_redstone_additions:conjunctor",
+                "required_amount": 1
+              },
+              {
+                "type": "questlog:item_obtain",
+                "item": "create_redstone_additions:disjunctor",
+                "required_amount": 1
+              },
+              {
+                "type": "questlog:item_obtain",
+                "item": "create_redstone_additions:inverter",
+                "required_amount": 1
+              },
+              {
+                "type": "questlog:item_obtain",
+                "item": "create_redstone_additions:crossroad",
+                "required_amount": 1
+              }
+            ]
+          }
+        ],
+        "rewards": [],
+        "text_color": "#273238",
+        "title_color": "#18242b",
+        "completed_text_color": "#356b52",
+        "progress_text_color": "#435b68"
+      }
+    },
+    {
       "id": "magnetic_link",
       "definition": {
         "chapter": "questlog:engines",

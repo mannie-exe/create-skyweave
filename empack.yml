@@ -1,7 +1,7 @@
 schema: 5
 pack:
   name: Create Sky
-  version: 0.1.29
+  version: 0.1.30
   id: create_sky
   authors:
     - mannie-exe
@@ -729,10 +729,10 @@ dependencies:
     source:
       kind: url
       downloads:
-        - https://github.com/mannie-exe/create-sky-compat/releases/download/v0.13.0/create-sky-compat-0.13.0-mc1.21.1-neoforge.jar
+        - https://github.com/mannie-exe/create-sky-compat/releases/download/v0.14.0/create-sky-compat-0.14.0-mc1.21.1-neoforge.jar
     digests:
-      sha1: edddb9cf59205843b4c4d6ddadade021c3fbd030
-      sha512: 2f7c23a2c5e70de49fc5e7ef975aafe676bb09082dc79626de6a235a4803012d080e23eb6351dc955ffae98954688be7eeca3b066f2260f46c433e0d4945c21a
+      sha1: dd3c780bef10ee30e53bc4481003b5fd367402b4
+      sha512: 3780e8c8c5858ffa160e130c36e25b6cdf9611bb1ae4b52f4874b4481bd7c43599bd77be081595d6167df418c6205d6ec8611c5e4dc9182df7c4e88cf88e7d51
     environment:
       client: required
       server: required
@@ -768,6 +768,12 @@ dependencies:
   yigd:
     pin: Axk4bfXT
     source: modrinth:yigd
+  create-redstone-link-gui:
+    pin: s8Yw7I6l
+    source: modrinth:create-redstone-link-gui
+  create-redstone-additions:
+    pin: 4P4QJB3m
+    source: modrinth:create-redstone-additions
 
 build:
   default:

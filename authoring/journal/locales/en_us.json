@@ -424,7 +424,7 @@
       "flavor": "",
       "requirements": "Have at least 1 Adjustable burner in your inventory at once.",
       "description": [
-        "An Adjustable Burner supplies hot air for a balloon. Its setting limits the volume of hot air supplied, in cubic metres; raising the setting beyond the envelope’s available volume adds no more lift.",
+        "An Adjustable Burner supplies hot air for a balloon. Its setting limits the volume of hot air supplied, in cubic metres; raising the setting beyond the envelope\u2019s available volume adds no more lift.",
         "The roof and sides must contain the hot air, while the bottom can remain open above the burner. Connect and glue the envelope, supports and platform into the same craft before assembly. Propellers or thrusters provide horizontal movement."
       ],
       "disclaimer": "inventory",
@@ -626,7 +626,8 @@
       "requirements": "Obtain a Linked Controller and 2 Redstone Links. The conditions are recorded independently.",
       "description": [
         "A Linked Controller sends inputs to matching Redstone Link frequencies. Connect the receiving signals to mechanisms such as thrusters or transmission controls.",
-        "Test each input while the craft is secured. A controller does not automatically provide steering, altitude hold or a safe response when an input is released."
+        "Test each input while the craft is secured. A controller does not automatically provide steering, altitude hold or a safe response when an input is released.",
+        "With an empty hand, hold Shift and right-click a frequency slot to open its menu. Ghost slots and personal presets choose frequencies without consuming the selected items; relocation supports ordinary Redstone Links within one world or ship."
       ],
       "disclaimer": "inventory",
       "labels": {
@@ -1052,6 +1053,36 @@
       "disclaimer": "inventory",
       "labels": {
         "0": "1 conversion bearing"
+      }
+    },
+    "engines/verdigris": {
+      "title": "Copper scraping",
+      "flavor": "",
+      "requirements": "Obtain 4 Verdigris.",
+      "description": [
+        "Scrape weathered copper with an axe to collect Verdigris. A successful scrape yields 3\u20136 pieces; opening a copper door or canceling the scrape produces none.",
+        "Verdigris and Nether Quartz make Cyan Quartz. Polish it and combine it with the other recipe components to produce Quartz Semiconductors for signal components."
+      ],
+      "disclaimer": "inventory",
+      "labels": {
+        "0": "4 verdigris"
+      }
+    },
+    "engines/signal_gates": {
+      "title": "Signal components",
+      "flavor": "",
+      "requirements": "Obtain a Conjunctor, Disjunctor, Inverter or Crossroad. Any one completes this entry.",
+      "description": [
+        "Conjunctors require both side inputs; Disjunctors accept either side. Inverters provide the complementary signal, while Crossroads carry two crossing signal axes.",
+        "Use Ponder to inspect each component and a Create wrench to rotate or recover it. Crossroad strong output through solid blocks loses one signal level, so check analog signal strength when combining gates."
+      ],
+      "disclaimer": "inventory",
+      "labels": {
+        "0": "Any signal component",
+        "0.0": "Conjunctor",
+        "0.1": "Disjunctor",
+        "0.2": "Inverter",
+        "0.3": "Crossroad"
       }
     }
   }

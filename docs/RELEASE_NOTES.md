@@ -1,26 +1,23 @@
-# Create Sky 0.1.29
+# Create Sky 0.1.30
 
-Restrict Carry On pickup of reviewed construct joints, assembly helpers and linked
-endpoints from Simulated, Absolute Kinematics, Transmission & Linkage, Linear
-Bearing and Aerocables. Ordinary containers retain their existing behavior.
-The targeted tag excludes 25 previously eligible block-entity types without
-changing other pickup eligibility. Native checks covered machinery refusal,
-ordinary container pickup and chest pickup on Sable constructs.
+Add Create: Redstone Link GUI 1.21.1-1.9.2 and Create: Redstone Additions 1.0.5,
+with Create Sky Compat 0.14.0. Minecraft and the other dependencies stay pinned.
 
-Rewrite 27 English Ponder passages across Transmission & Linkage's six tutorials.
-Clarify target distance, Return Force, Stretch Resistance, regulator controls,
-link limits and externally driven conversion bearings. Native animations and
-scene timing are unchanged; the settings tutorial still points toward a head
-while its corrected text directs players to the rod body.
+Frequency menus support ghost selections and personal presets. Server guards
+check editing permissions, stale targets and channel identity. Plain Redstone
+Links can be relocated within one world or ship; machinery and cross-frame moves
+are refused. Default access is empty hand + Shift + right-click on a frequency
+slot, with the native 24-block relocation limit.
 
-Both changes are pack-owned resources/configuration. Create Sky Compat remains
-0.13.0; dependency selections, quests, generation and LOD identities are unchanged.
-No world regeneration is needed.
+Gate repairs cover placement side effects, feedback, support loss, wrench use,
+successful-only Verdigris scraping and inverter transparency. Crossroad strong
+output through solid blocks loses one signal level. Pack resources restore nine
+component drops and Ponder category labels. Two optional journal entries introduce
+copper scraping and signal components; remote-control guidance includes the UI.
 
-For existing installations, keep personal settings and add
-`#createsky:carry_on_restricted` to `blacklist.forbiddenTiles` in
-`config/carryon-common.toml`. This seeded file is preserved by updates. Apply the
-rule to dedicated servers and clients used for single-player, then restart them.
-Fresh installations include it by default.
+The Atlas refresh includes the new content, recipes and journal data. Generation,
+world identity, seed and LOD policy are unchanged; no world regeneration is needed.
+Startup switches are seeded settings: existing installations keep their preferences
+and use default-on values for omitted new keys.
 
-Previous release: [0.1.28](releases/0.1.28.md).
+Previous release: [0.1.29](releases/0.1.29.md).

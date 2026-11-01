@@ -36,6 +36,69 @@
       "review": "reviewed",
       "reason": "Owner-only inventory recovery with native vanilla dropped XP, no random loss, costs, expiry or teleport. Keep last-ground placement off; Overworld minimum -127 leaves supporting-block space.",
       "reference": "docs/development/compatibility.md"
+    },
+    {
+      "path": "pack-fixes/data/create_redstone_additions/loot_table/blocks/diode.json",
+      "sha256": "62110e26be1acb1650b01be61b075b62738de4769e167fbe2cc561f0f54544c8",
+      "review": "reviewed",
+      "reason": "Restore normal block recovery from 1.0.5 loot tables stored under the pre-1.21 directory.",
+      "reference": "docs/development/compatibility.md"
+    },
+    {
+      "path": "pack-fixes/data/create_redstone_additions/loot_table/blocks/disjunctor.json",
+      "sha256": "de5e8690849cca474c8f65b0db302a15d29ce9238b994234ad7d873b7523d819",
+      "review": "reviewed",
+      "reason": "Restore normal block recovery from 1.0.5 loot tables stored under the pre-1.21 directory.",
+      "reference": "docs/development/compatibility.md"
+    },
+    {
+      "path": "pack-fixes/data/create_redstone_additions/loot_table/blocks/conjunctor.json",
+      "sha256": "0dabb19a91151af4c325a7c7efc376d826b87f26a310951142d098cc96a962e3",
+      "review": "reviewed",
+      "reason": "Restore normal block recovery from 1.0.5 loot tables stored under the pre-1.21 directory.",
+      "reference": "docs/development/compatibility.md"
+    },
+    {
+      "path": "pack-fixes/data/create_redstone_additions/loot_table/blocks/inverter.json",
+      "sha256": "abbfe43cd2d00c2131ea6cce69b72e82c1e5f236a01c6e9b36ee673ffa01f105",
+      "review": "reviewed",
+      "reason": "Restore normal block recovery from 1.0.5 loot tables stored under the pre-1.21 directory.",
+      "reference": "docs/development/compatibility.md"
+    },
+    {
+      "path": "pack-fixes/data/create_redstone_additions/loot_table/blocks/crossroad.json",
+      "sha256": "f2e32d397583c822453775ab1d486a176b43e7943f545baf27706d64f1dd9900",
+      "review": "reviewed",
+      "reason": "Restore normal block recovery from 1.0.5 loot tables stored under the pre-1.21 directory.",
+      "reference": "docs/development/compatibility.md"
+    },
+    {
+      "path": "pack-fixes/data/create_redstone_additions/loot_table/blocks/golden_resistor.json",
+      "sha256": "e774cededeec2dd3f439ed073f8fdcf33db878c64a91a9e03e222b0da224b836",
+      "review": "reviewed",
+      "reason": "Restore normal block recovery from 1.0.5 loot tables stored under the pre-1.21 directory.",
+      "reference": "docs/development/compatibility.md"
+    },
+    {
+      "path": "pack-fixes/data/create_redstone_additions/loot_table/blocks/iron_resistor.json",
+      "sha256": "194088eeacb73b1df00eb0431a4820317fbcadc83f5045c849cbce0fa34d1217",
+      "review": "reviewed",
+      "reason": "Restore normal block recovery from 1.0.5 loot tables stored under the pre-1.21 directory.",
+      "reference": "docs/development/compatibility.md"
+    },
+    {
+      "path": "pack-fixes/data/create_redstone_additions/loot_table/blocks/ceramic_resistor.json",
+      "sha256": "594d256aba12fe1513c84f7d415bd2a3996b8a6f88d8c71df3ad9d65d3f17de2",
+      "review": "reviewed",
+      "reason": "Restore normal block recovery from 1.0.5 loot tables stored under the pre-1.21 directory.",
+      "reference": "docs/development/compatibility.md"
+    },
+    {
+      "path": "pack-fixes/data/create_redstone_additions/loot_table/blocks/glass_resistor.json",
+      "sha256": "5515bc20ba66a5fc10d3395364b293cf91e03bf0197b0f2a6e38321afeada3fa",
+      "review": "reviewed",
+      "reason": "Restore normal block recovery from 1.0.5 loot tables stored under the pre-1.21 directory.",
+      "reference": "docs/development/compatibility.md"
     }
   ]
 }

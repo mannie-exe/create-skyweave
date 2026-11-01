@@ -40,7 +40,7 @@ mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_
 | Controlling | 19.0.5 | [Exact version](https://modrinth.com/mod/controlling/version/FaNppCJJ) |
 | Cool Rain Reforged | 1.0.2 | [Exact version](https://modrinth.com/mod/cool-rain-reforged/version/SwSSfJQQ) |
 | Copycat Bar Extrusion | 0.1.0 | [Exact release](https://github.com/mannie-exe/copycat-bar-extrusion/releases/tag/v0.1.0) |
-| Create Sky Compat | 0.13.0 | [GitHub release](https://github.com/mannie-exe/create-sky-compat/releases/tag/v0.13.0) |
+| Create Sky Compat | 0.14.0 | [GitHub release](https://github.com/mannie-exe/create-sky-compat/releases/tag/v0.14.0) |
 | Create Accessories Compat | 1.0 | [Exact version](https://modrinth.com/mod/create-accessories-compat/version/2r7hvkCQ) |
 | Create Aeronautics | 1.3.2+mc1.21.1 | [Exact version](https://modrinth.com/mod/create-aeronautics/version/44pLdPGg) |
 | Create Aeronautics: Transmission & Linkage | 0.2.9 | [Exact version](https://modrinth.com/mod/create-aeronautics-transmission-linkage/version/WoUjC6d4) |
@@ -73,6 +73,8 @@ mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_
 | Create: Radars | 5.0.3-1.21.1 | [Exact version](https://modrinth.com/mod/create-radars/version/q723aMHO) |
 | Create: Transmission! | 1.2.2+neoforge-create6-1.21.1 | [Exact version](https://modrinth.com/mod/create-transmission/version/dOsq88jX) |
 | Create: Vibrant Vaults | 0.3.2 | [Exact version](https://modrinth.com/mod/create-vibrant-vaults/version/t17qYXjn) |
+| Create: Redstone Additions | 1.0.5 | [Exact version](https://modrinth.com/mod/create-redstone-additions/version/4P4QJB3m) |
+| Create: Redstone Link GUI | 1.21.1-1.9.2 | [Exact version](https://modrinth.com/mod/create-redstone-link-gui/version/s8Yw7I6l) |
 | Cubic Sun & Moon | 1.8.5 | [Exact version](https://modrinth.com/version/zHa4qeKn) |
 | Curios API | 9.5.1+1.21.1 | [Exact version](https://modrinth.com/mod/curios/version/yohfFbgD) |
 | Default World Type | 1.21-5.0.4 | [Exact version](https://modrinth.com/version/CCrwlupr) |

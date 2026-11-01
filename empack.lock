@@ -55,6 +55,8 @@ coverage:
   create-power-loader: complete
   create-propulsion-simulated: complete
   create-radars: complete
+  create-redstone-additions: complete
+  create-redstone-link-gui: complete
   create-sky-compat: unknown
   create-touch-ups: complete
   create-transmission: complete
@@ -3074,20 +3076,130 @@ dependencies:
       provider: modrinth
       selector: BLu2Yqfq
     title: "Create: Radars"
+  create-redstone-additions:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/AoEzBC2h/versions/4P4QJB3m/create_redstone_additions-1.0.5.jar
+        kind: provider
+        pin:
+          project:
+            project: AoEzBC2h
+            provider: modrinth
+          selection:
+            id: 4P4QJB3m
+            provider: modrinth
+        slot: create_redstone_additions-1.0.5.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 9e5026e0d3d4b97410ff0fcb9b6b576d32f7ba69
+          sha512: >-
+            3f4e53da5629ae9cca299425b53a7f54c65821299eed23f68463ca956b69585f119439383e5d380a9464010dc17c6aa39d94e54ef24c5ad9cf26fb9df875c64c
+        size: 294019
+      placements:
+      - destination: mods/create_redstone_additions-1.0.5.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 9e5026e0d3d4b97410ff0fcb9b6b576d32f7ba69
+          sha512: >-
+            3f4e53da5629ae9cca299425b53a7f54c65821299eed23f68463ca956b69585f119439383e5d380a9464010dc17c6aa39d94e54ef24c5ad9cf26fb9df875c64c
+        location: AoEzBC2h
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: AoEzBC2h
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: AoEzBC2h
+        provider: modrinth
+      selection:
+        id: 4P4QJB3m
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: create-redstone-additions
+    title: "Create: Redstone Additions"
+  create-redstone-link-gui:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/GhtD1QcW/versions/s8Yw7I6l/createredstonelinkgui-1.21.1-1.9.2.jar
+        kind: provider
+        pin:
+          project:
+            project: GhtD1QcW
+            provider: modrinth
+          selection:
+            id: s8Yw7I6l
+            provider: modrinth
+        slot: createredstonelinkgui-1.21.1-1.9.2.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 408f1af35409f8931171dc9c5ab724b762bf65c1
+          sha512: >-
+            aa5271c30c343d1f03073283c79d144e5690fe0c68b206f24e29f4dd5299bd137870e4c95ec7878fccb32c76c8924cec5f38013cad7f833cef08013570cf3762
+        size: 243975
+      placements:
+      - destination: mods/createredstonelinkgui-1.21.1-1.9.2.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 408f1af35409f8931171dc9c5ab724b762bf65c1
+          sha512: >-
+            aa5271c30c343d1f03073283c79d144e5690fe0c68b206f24e29f4dd5299bd137870e4c95ec7878fccb32c76c8924cec5f38013cad7f833cef08013570cf3762
+        location: GhtD1QcW
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: GhtD1QcW
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: GhtD1QcW
+        provider: modrinth
+      selection:
+        id: s8Yw7I6l
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: create-redstone-link-gui
+    title: "Create: Redstone Link GUI"
   create-sky-compat:
     content: mod
     files:
     - acquisition:
         downloads:
         - >-
-          https://github.com/mannie-exe/create-sky-compat/releases/download/v0.13.0/create-sky-compat-0.13.0-mc1.21.1-neoforge.jar
+          https://github.com/mannie-exe/create-sky-compat/releases/download/v0.14.0/create-sky-compat-0.14.0-mc1.21.1-neoforge.jar
         kind: url
       expected:
         accepted-observation: null
         digests:
-          sha1: edddb9cf59205843b4c4d6ddadade021c3fbd030
+          sha1: dd3c780bef10ee30e53bc4481003b5fd367402b4
           sha512: >-
-            2f7c23a2c5e70de49fc5e7ef975aafe676bb09082dc79626de6a235a4803012d080e23eb6351dc955ffae98954688be7eeca3b066f2260f46c433e0d4945c21a
+            3780e8c8c5858ffa160e130c36e25b6cdf9611bb1ae4b52f4874b4481bd7c43599bd77be081595d6167df418c6205d6ec8611c5e4dc9182df7c4e88cf88e7d51
         size: null
       placements:
       - destination: mods/create-sky-compat.jar
@@ -3098,9 +3210,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: edddb9cf59205843b4c4d6ddadade021c3fbd030
+          sha1: dd3c780bef10ee30e53bc4481003b5fd367402b4
           sha512: >-
-            2f7c23a2c5e70de49fc5e7ef975aafe676bb09082dc79626de6a235a4803012d080e23eb6351dc955ffae98954688be7eeca3b066f2260f46c433e0d4945c21a
+            3780e8c8c5858ffa160e130c36e25b6cdf9611bb1ae4b52f4874b4481bd7c43599bd77be081595d6167df418c6205d6ec8611c5e4dc9182df7c4e88cf88e7d51
         location: null
         source: url-file
       slot: primary
@@ -8703,7 +8815,7 @@ dependencies:
       provider: modrinth
       selector: OnlVIpq5
     title: Fast Noise
-intent-revision: d98dbbfb85acbe6bcfdb87ec0d6f0d5c00acf7a6c996ed418ab825dce5640ddc
+intent-revision: d11b9c677990a8d822fca87c0c1e77a1be8d9877398483ea4a3818d2af54a773
 required-edges:
   accessories:
   - owo-lib

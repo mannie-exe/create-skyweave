@@ -456,6 +456,13 @@
       "review": "reviewed",
       "reason": "Native defaults reviewed for the controls, equipment and resource-pack integration; intentional settings are described in compatibility.md.",
       "reference": "docs/development/compatibility.md#controls-and-resource-packs"
+    },
+    {
+      "path": "overrides/client/config/createredstonelinkgui-client.toml",
+      "sha256": "0fe6822b8e81818adee8c96c427b9b0cdf5b45964730a64be2e1c90ecd8067e8",
+      "review": "reviewed",
+      "reason": "Keep ordinary slot interactions available; open the menu deliberately with an empty hand and Shift.",
+      "reference": "docs/development/compatibility.md"
     }
   ]
 }
