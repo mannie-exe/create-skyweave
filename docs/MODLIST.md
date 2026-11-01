@@ -40,7 +40,7 @@ mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_
 | Controlling | 19.0.5 | [Exact version](https://modrinth.com/mod/controlling/version/FaNppCJJ) |
 | Cool Rain Reforged | 1.0.2 | [Exact version](https://modrinth.com/mod/cool-rain-reforged/version/SwSSfJQQ) |
 | Copycat Bar Extrusion | 0.1.0 | [Exact release](https://github.com/mannie-exe/copycat-bar-extrusion/releases/tag/v0.1.0) |
-| Create Sky Compat | 0.11.1 | [GitHub release](https://github.com/mannie-exe/create-sky-compat/releases/tag/v0.11.1) |
+| Create Sky Compat | 0.12.1 | [GitHub release](https://github.com/mannie-exe/create-sky-compat/releases/tag/v0.12.1) |
 | Create Accessories Compat | 1.0 | [Exact version](https://modrinth.com/mod/create-accessories-compat/version/2r7hvkCQ) |
 | Create Aeronautics | 1.3.2+mc1.21.1 | [Exact version](https://modrinth.com/mod/create-aeronautics/version/44pLdPGg) |
 | Create Aeronautics: Transmission & Linkage | 0.2.9 | [Exact version](https://modrinth.com/mod/create-aeronautics-transmission-linkage/version/WoUjC6d4) |
@@ -168,3 +168,4 @@ mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_
 | Traveler's Backpack | 1.21.1-10.1.40 | [Exact version](https://modrinth.com/mod/travelersbackpack/version/ZqrwMSn5) |
 | TxniLib | neoforge-1.21.1-1.0.24 | [Exact version](https://modrinth.com/mod/txnilib/version/M1CyD3Uu) |
 | YetAnotherConfigLib (YACL) | 3.8.2+1.21.1-neoforge | [Exact version](https://modrinth.com/mod/yacl/version/7TVdVtxF) |
+| You're in Grave Danger | 2.0.13 | [Exact version](https://modrinth.com/mod/yigd/version/Axk4bfXT) |
