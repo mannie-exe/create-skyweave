@@ -109,10 +109,10 @@
     },
     {
       "path": "overrides/common/config/carryon-common.toml",
-      "sha256": "e94d8859abff70825f11105108642fc804add64d490743cedf9a127381cb0f39",
-      "review": "inherited",
-      "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "sha256": "ad2a47b90aa043d25be43029a1cae266274ba0773420744148c94a4c4ab99ed3",
+      "review": "reviewed",
+      "reason": "Retain ordinary container carrying; exclude reviewed construct joints and linked endpoints through the pack-owned relocation tag. Keep upstream Create, protected-container and native-backpack exclusions.",
+      "reference": "docs/development/compatibility.md#carry-on-machinery"
     },
     {
       "path": "overrides/common/config/climbable_ropes-server.toml",
@@ -666,6 +666,13 @@
       "review": "reviewed",
       "reason": "Match recolored DnD flywheels to Create flywheel mass; optional entries exclude large fans and preserve upstream physics definitions.",
       "reference": "docs/development/weights.md"
+    },
+    {
+      "path": "pack-fixes/data/createsky/tags/block/carry_on_restricted.json",
+      "sha256": "51002e42c040ada7132270a70b9e9f26c0592676e52c42826780481ac97699df",
+      "review": "reviewed",
+      "reason": "Restrict relocation of reviewed joints, assembly helpers and linked endpoints without excluding unrelated blocks from their mods. Optional IDs tolerate removed dependencies.",
+      "reference": "docs/development/compatibility.md#carry-on-machinery"
     }
   ]
 }

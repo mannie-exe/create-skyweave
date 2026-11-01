@@ -1,0 +1,117 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "simulated:physics_assembler",
+      "required": false
+    },
+    {
+      "id": "simulated:swivel_bearing",
+      "required": false
+    },
+    {
+      "id": "simulated:swivel_bearing_link_block",
+      "required": false
+    },
+    {
+      "id": "simulated:rope_winch",
+      "required": false
+    },
+    {
+      "id": "simulated:rope_connector",
+      "required": false
+    },
+    {
+      "id": "simulated:torsion_spring",
+      "required": false
+    },
+    {
+      "id": "simulated:merging_glue",
+      "required": false
+    },
+    {
+      "id": "simulated:docking_connector",
+      "required": false
+    },
+    {
+      "id": "simulated:spring",
+      "required": false
+    },
+    {
+      "id": "absolute_kinematics:hinge",
+      "required": false
+    },
+    {
+      "id": "absolute_kinematics:hinge_leaf",
+      "required": false
+    },
+    {
+      "id": "absolute_kinematics:ball_joint",
+      "required": false
+    },
+    {
+      "id": "absolute_kinematics:ball_joint_plate",
+      "required": false
+    },
+    {
+      "id": "aeronautics_utility_objects:universal_joint",
+      "required": false
+    },
+    {
+      "id": "aeronautics_utility_objects:brass_universal_joint",
+      "required": false
+    },
+    {
+      "id": "aeronautics_utility_objects:damping_stress_bearing",
+      "required": false
+    },
+    {
+      "id": "aeronautics_utility_objects:hydraulic_connection_head",
+      "required": false
+    },
+    {
+      "id": "aeronautics_utility_objects:hydraulic_hinge_head",
+      "required": false
+    },
+    {
+      "id": "aeronautics_utility_objects:brass_hydraulic_hinge_head",
+      "required": false
+    },
+    {
+      "id": "aeronautics_utility_objects:hydraulic_hinge_link",
+      "required": false
+    },
+    {
+      "id": "aeronautics_utility_objects:hydraulic_regulator",
+      "required": false
+    },
+    {
+      "id": "linearbearing:linear_bearing",
+      "required": false
+    },
+    {
+      "id": "linearbearing:linear_moving",
+      "required": false
+    },
+    {
+      "id": "linearbearing:magnetic_port",
+      "required": false
+    },
+    {
+      "id": "linearbearing:torsional_anchor",
+      "required": false
+    },
+    {
+      "id": "linearbearing:gyroscopic_gearbox",
+      "required": false
+    },
+    {
+      "id": "aerocables:connector",
+      "required": false
+    },
+    {
+      "id": "aerocables:fe_connector",
+      "required": false
+    }
+  ]
+}

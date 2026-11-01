@@ -39,6 +39,58 @@ external claims mod is not established. See the maintained
 and [audio boundary](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/audio.md)
 before upgrading their dependencies.
 
+## Carry On machinery
+
+Carry On 2.2.6.13 handles empty-hand pickup before native block use. A successful
+pickup removes the block entity and block; it does not run Sable's assembly-move
+callbacks. Coordinate-bearing links and native sneak interactions therefore need
+separate review from ordinary inventories.
+
+The common blacklist references `#createsky:carry_on_restricted`, owned by the
+resource-only fixes JAR. Carry On supports [tag-based exclusions](https://github.com/Tschipp/CarryOn/wiki/Black---and-Whitelist-Config). Its optional block IDs cover these reviewed families:
+
+| Content | Restricted parts |
+| --- | --- |
+| Simulated | Assembler, swivel bearing and plate, merging glue, rope winch/connector, docking connector, torsion spring and spring |
+| Absolute Kinematics | Hinges, ball joints and their paired parts |
+| Transmission & Linkage | All eight linked machinery/auxiliary blocks, including heads, regulator and conversion bearing |
+| Linear Bearing | Bearing/carriage, magnetic port, torsional anchor and gyroscopic gearbox |
+| Aerocables | The two cable endpoint blocks |
+
+Carry On configuration uses the seed policy. Existing installations must merge
+`#createsky:carry_on_restricted` into `blacklist.forbiddenTiles` and restart;
+replacing the resource JAR alone does not add the blacklist reference. Preserve
+other operator settings.
+
+Keep the upstream Create/Copycats, protected-container, grave and entity exclusions.
+Backpacks were already excluded by the loaded rules; no duplicate namespace rule
+was needed. Ordinary chests, barrels and furnaces remain carryable. The Linear
+Bearing redstone converter also remains eligible. Other Simulated and Aeroworks
+controls, Power Grid networks and modded inventories need individual evidence
+before changing their rules; a block entity alone is not a reason for exclusion.
+
+A 2026-11-01 isolated native comparison covered the complete block registry and
+fourteen pickup cases. The tag removed exactly 25 previously eligible block-entity
+types without changing other eligibility. Actual pickup changed from allowed to
+refused for pneumatic heads/regulator/conversion bearing, Simulated assembler and
+bearing, and an Absolute Kinematics hinge. Positive container and converter cases
+still passed. Paired helper blocks without block entities are included to keep
+assembly families together; default `pickupAllBlocks=false` already excludes
+ordinary non-block-entity states.
+
+Sable's interaction-distance mapping permits ordinary chest pickup from a plot
+while the player remains at its projected world location. A settled-world check
+also removed a single-block chest construct and shut down cleanly. This does not
+prove every container's placement, linked inventory behavior, carried passenger,
+protection integration or active machine relocation. Retain the targeted policy
+rather than treating all ship storage as either unsafe or verified.
+
+On Carry On updates, review event priority, list/tag matching and block-entity
+serialization/removal order. On machinery updates, review assembly callbacks,
+paired block cleanup and native sneak-use before changing this tag. Check both
+native refusal and an unaffected carryable object; do not infer safety solely
+from a blacklist string or a registry ID.
+
 ## Transmission & Linkage
 
 Transmission & Linkage 0.2.9 uses Compat 0.11.1's optional interaction and Jade

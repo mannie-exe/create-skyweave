@@ -274,9 +274,19 @@ instances or dependency caches shared with other projects.
 Keep the pack on the artifact reviewed by Compat's interaction and Jade adapters.
 Review settings/removal packet handlers, remapped binding locals, endpoint
 protection and native Ponder behavior together before updating. The resource-only
-fixes JAR corrects the English rod-settings tutorial target; remove that key when
-the selected upstream release supplies correct wording. It contains no machinery
-runtime code.
+fixes JAR owns English Ponder corrections for all six native tutorials. They
+clarify rod distance, Return Force versus Stretch Resistance, regulator drive,
+brass versus andesite strain limits and externally driven conversion bearings.
+Keep actual setting labels such as Expected Length so players can find them.
+Remove individual overrides when the selected upstream supplies equivalent
+wording. These are language resources, not Compat mixins or replacement scenes.
+
+The 2026-11-01 client check compiled and sought all six scenes and visually played
+the rod properties/settings scenes with the pack overrides. Upstream animation,
+pointers, overlays and timing remain unchanged; compilation does not establish
+playback of every tutorial. The settings tutorial still points toward the lower
+head while explaining rod-body interaction. A scene adjustment would be a separate
+runtime change; the text identifies the correct target explicitly.
 
 Native actuation, recipes, output limits and mass defaults are retained. Generate
 and inspect fresh upstream configs during upgrades rather than treating supplied
