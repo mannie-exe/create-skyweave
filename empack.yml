@@ -753,6 +753,15 @@ dependencies:
     environment:
       client: required
       server: required
+  colorwheel-patcher:
+    pin: dQqV3sci
+    side: client
+    source: modrinth:colorwheel-patcher
+  photon-shader:
+    pin: BnGklH5y
+    side: client
+    source: modrinth:photon-shader
+    type: shader-pack
 
 build:
   default:

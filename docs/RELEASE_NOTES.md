@@ -18,6 +18,12 @@ current animation rigs, so the obsolete pack rig replacements are removed.
 Sky Archipelago stays at 1.3.6: upstream 1.4 warns of world incompatibility and
 requires a separate terrain-adapter review.
 
+Add client-only Colorwheel Patcher 1.0.5 for the generated BSL alternative and
+Photon 1.4 as another selectable shader. Current Complementary/Euphoria and Photon
+use native Colorwheel support. Photon retains High lighting with machinery shadows
+and the pack's camera/shadow preferences. Complementary/Euphoria remains the
+default; Photon is not supported on Apple GPUs by its author.
+
 Refresh the Atlas's registered content, recipes, journal and compatibility notes.
 No world generation, seed, player-progress or LOD identity change is intended.
 

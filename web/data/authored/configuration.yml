@@ -105,3 +105,13 @@ records:
         'runtime/recipes.json',
         'config/almostunified/unification/materials.json',
       ]
+
+  - id: rendering/shader-support
+    title: Colorwheel shader support
+    evidence: native-client-verified
+    detail: Colorwheel Patcher 1.0.5 generates a BSL 10.1.8 alternative at client launch and copies the original preset. Complementary r5.9.3, Euphoria 1.10.5 and Photon 1.4 support Colorwheel natively. Photon is selectable but unsupported on Apple GPUs by its author. Generated BSL and an assembled carriage rendered in the isolated client. Photon retains High lighting with machinery shadows and no macOS workaround; its preset is source-reviewed, without supported-platform GPU testing. Complementary/Euphoria remains the default.
+    sources:
+      - docs/players/graphics.md
+      - docs/development/compatibility.md#shader-patching
+      - https://modrinth.com/mod/colorwheel-patcher
+      - https://modrinth.com/shader/photon-shader

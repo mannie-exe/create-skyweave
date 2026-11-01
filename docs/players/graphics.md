@@ -108,16 +108,32 @@ Shaders are off by default. Select a pack through Iris's shader settings:
 | --- | --- | --- |
 | Complementary Unbound | r5.9.3 | Balanced preset with Low block reflections |
 | Complementary + Euphoria | 1.10.5 patches for r5.9.3 | Generated at launch; retains the pack's fog and night-sky settings |
-| BSL | 10.1.8 | Alternative preset with advanced materials disabled |
+| BSL + Colorwheel | 10.1.8 + Clrwl 1.0.5 | Generated at launch; copies the supplied BSL settings |
+| Photon | 1.4 | High defaults with machinery shadows; native Colorwheel and DH support |
 
-All three use 128-block shadow distance. Complementary and Euphoria also use
-Low light-shaft sampling. Their clouds, water reflections, ambient occlusion,
+The supplied Complementary, Euphoria and BSL presets use 128-block shadow distance.
+Complementary and Euphoria also use Low light-shaft sampling. Their clouds, water reflections, ambient occlusion,
 bloom and anti-aliasing retain the stock HIGH behavior. BSL disables depth of
 field, motion blur and multicolored blocklight.
 
 These settings reduce selected rendering costs while retaining most effects;
 there is no measured FPS guarantee. Check moving ships, water and glass, island
 edges, and sunrise/sunset after changing settings.
+
+Colorwheel Patcher creates `BSL_v10.1.8 + Clrwl_1.0.5.zip` beside the original BSL
+archive. Select that generated pack for Colorwheel support; the original remains
+available. Current Complementary, Euphoria and Photon already support Colorwheel
+and do not need generated copies.
+
+Photon retains its native High lighting settings, including SH Skylight and colored
+shadows, with block-entity shadows enabled for machinery. Shadow distance is 128
+blocks at 2048 resolution; depth of field and motion blur are disabled. Its Ultra
+profile and colored-lighting options remain available through the shader menu.
+
+Complementary + Euphoria remains the default selection. Photon is a manually
+selected alternative for supported GPUs; its author does not support Apple GPUs.
+Use Complementary/Euphoria on Apple hardware. Colorwheel Patcher does not change
+that hardware limitation.
 
 ## Texture-unit errors
 

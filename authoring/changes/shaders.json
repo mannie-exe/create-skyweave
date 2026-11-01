@@ -36,6 +36,13 @@
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
       "reference": "docs/development/decisions.md"
+    },
+    {
+      "path": "overrides/client/shaderpacks/photon_v1.4.zip.txt",
+      "sha256": "2cf144fc02b106db52c9878f6fc28d2274e2b8dcedd2fa0088f7b948b39e8717",
+      "review": "reviewed",
+      "reason": "Retain native High lighting, add block-entity shadows for machinery, and use 128-block shadows without depth of field or motion blur. No macOS workaround or non-Apple GPU validation.",
+      "reference": "docs/development/compatibility.md#shader-patching"
     }
   ]
 }

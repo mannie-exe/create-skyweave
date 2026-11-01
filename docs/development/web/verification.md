@@ -17,6 +17,12 @@ The snapshot records `modSource: pack`, the lock hash and
 eight page builds). The existing bundle-size warning remains. The saved-world and
 ore survey was retained: this update changes machinery and guidance, not generation.
 
+The client-only Colorwheel Patcher 1.0.5 and Photon 1.4 additions were followed by
+`pnpm data:refresh` and `pnpm data:check`. All 104 server-side mod inputs and the
+runtime stayed identical; the final export fingerprint was stable. Atlas notes
+separate the native BSL check from Photon's source-reviewed preset. Shader evidence
+and GPU limits live in the [compatibility guide](../compatibility.md#shader-patching).
+
 ## Journal presentation facts, 2026-10-31
 
 For Create Sky 0.1.22, the source configuration and resource-pack notes reflect

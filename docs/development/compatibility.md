@@ -81,10 +81,10 @@ add a second coordinate conversion based only on source-space positions.
 
 ## Colorwheel
 
-The manifest selects client-only Colorwheel 1.3.0+mc1.21.1 with Compat
-0.9.0. Minecraft, loader, Iris, Sodium, Create, Sable and shader versions remain
-pinned. Explicit client placements keep Colorwheel, Iris and Sodium out of server
-exports. Client file names and existing renderer bytes are preserved.
+The manifest selects client-only Colorwheel 1.3.0+mc1.21.1 with Compat's optional
+rendering adaptations. Explicit client placements keep Colorwheel, Iris, Sodium
+and Colorwheel Patcher out of server exports. Existing renderer versions remain
+pinned.
 
 Compat supplies terrain/emission metadata on Sable's direct non-AO model path
 and releases unused OIT sampler slots when Colorwheel's own renderer guard
@@ -99,6 +99,46 @@ shader reload, and minimum optional loading. Full dedicated-server startup selec
 no client hooks. See the [exact verification and limits](https://github.com/mannie-exe/create-sky-compat/blob/v0.8.0/docs/development/verification.md#release-080).
 No measured performance gain or general shadow repair is claimed. Keep patch
 retirement tied to the actual released Colorwheel/Sable implementations.
+
+### Shader patching
+
+Colorwheel Patcher 1.0.5 overlays its embedded shader patches onto matching input
+archives at client startup. Its BSL version check accepts filenames containing
+`10.1`, including the selected 10.1.8. It generates
+`BSL_v10.1.8 + Clrwl_1.0.5.zip`, copies the original settings file and leaves the
+original archive intact. A second initialization skips an existing current output.
+The native released-JAR check generated the archive, changed 22 paths, passed ZIP
+integrity/path checks, preserved settings and left its output unchanged on rerun.
+The isolated full-pack client also compiled and rendered the generated BSL pack
+and an assembled carriage on the Apple M4 Pro. This does not establish every
+rendering path or performance.
+
+Complementary r5.9.3, Euphoria 1.10.5 and Photon 1.4 have native Colorwheel support.
+The patcher's older Photon 1.3a patch must not be forced onto 1.4. Select the
+official Photon release rather than an older compatibility fork. Photon also
+provides DH shaders, but its author does not support Apple GPUs. Its stock settings
+exceeded this Mac's 16-sampler limit in `deferred4`; that is not evidence of a
+failure on supported GPUs. Further Photon runtime testing and macOS workarounds
+are outside this pass.
+
+The Photon preset retains native High lighting, adds block-entity shadows, uses
+128-block shadows at 2048 resolution, and disables depth of field/motion blur.
+It does not override SH Skylight, colored shadows or colored-lighting controls to
+accommodate macOS. The options were checked against the exact 1.4 sources; the
+preset has not been GPU-tested on a supported platform. Complementary/Euphoria
+remains the default. No additional runtime adapter is introduced.
+
+Keep the original shader downloads as referenced dependencies. Generate patched
+copies locally instead of distributing their modified archives. On updates,
+review the patcher's embedded `config.json`, filename matching and patched files;
+its broad substring match is not proof that a future BSL revision is compatible.
+Recheck settings copying, generated names, Iris/Colorwheel startup, moving geometry
+and DH before recommending a new combination. The patcher follows Euphoria in
+loader ordering and does not replace Euphoria's generator.
+
+Sources: [Colorwheel](https://modrinth.com/mod/colorwheel),
+[Patcher](https://modrinth.com/mod/colorwheel-patcher),
+[Photon](https://modrinth.com/shader/photon-shader).
 
 ## Moving lights
 

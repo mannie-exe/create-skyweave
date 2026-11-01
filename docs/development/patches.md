@@ -10,7 +10,7 @@ The manifest and lock own exact selections. This guide owns update procedures;
 | Component | Source / output | Update together | Required check or removal condition |
 | --- | --- | --- | --- |
 | DH Polygon Fix 1.0.2 | Separate `dh-polygon-fix` repository; URL pin and placement in empack | DH 3.3.3, SSRD, Iris/Sodium and the native GL query | The patch requires DH 3.3.3. When updating DH, verify the upstream query fix and remove the incompatible patch; test native query/restore and shader pipelines. |
-| Create Sky Compat 0.6.0 | `create-sky-compat` source project; common referenced JAR | Sky Archipelago 1.3.6; optional Sky Villages 1.0.6 + Architectury 13.x, Sable 2.0.6 and ADQ 1.1.1 | Revalidate terrain, geology, climate, village footprint/count policy, pressure and generation identity. For ADQ, review private route calls, horizontal-distance checks, chunk-ticket lifetime and success/failure cleanup. Rerun native endpoint checks; retain safety predicates. Replace the old neighbor dependency rather than installing both; see [worldgen](worldgen.md). |
+| Create Sky Compat | `create-sky-compat` source project; common referenced JAR | Sky Archipelago 1.3.6; optional Sky Villages 1.0.6 + Architectury 13.x, Sable 2.0.6 and ADQ 1.1.1 | Revalidate terrain, geology, climate, village footprint/count policy, pressure and generation identity. For ADQ, review private route calls, horizontal-distance checks, chunk-ticket lifetime and success/failure cleanup. Rerun native endpoint checks; retain safety predicates. Replace the old neighbor dependency rather than installing both; see [worldgen](worldgen.md). |
 | Copycat Bar Extrusion 0.1.0 | Separate `copycat-bar-extrusion` repository; client-only URL JAR | Create 6.0.10 (`UjX6dr61`), Create Deco 2.1.3 bar artwork and active resource stack | Recheck `CopycatBarsModel` delegation, exact Create SHA-512 and required Mixin; run `./gradlew check build`, then six facings, adjacency, reload, supported materials and shader-off/on native checks. Retire only if the selected Create version supplies equivalent bounded depth and native fallback behavior. |
 | Worldgen configuration | `overrides/common/config/sky_archipelago*`, `zfastnoise.mixin.properties` | Sky Archipelago, Zfastnoise and generation/optimization mods | Preserve CONSISTENT 1494 for ordinary legacy Sky worlds. The expanded preset owns its embedded terrain settings. Recheck biome redirects and generation identity before generating new terrain. |
 | Shared data fixes | `pack-fixes/data/` → `create-sky-fixes-0.1.0.jar` | Mods owning the replaced recipe, loot, tag or processor resources | Compare new upstream JSON by exact resource ID. Remove bug overrides only when the installed artifact contains the fix; retain deliberate pack policy. Run native recipe/loot checks. |
@@ -68,9 +68,10 @@ Compat’s [adapter reference](https://github.com/mannie-exe/create-sky-compat/b
 owns its supported combinations and retirement procedures. Every adaptation can
 be disabled before target mixins/classes load, including for unsupported installed
 versions. Keep the pack’s explicit feature file aligned with that reference.
-Rendering corrections do not change mass tiers, recipes, or resources. Interactive
-shader/Ponder/balloon/material checks remain pending for this release; flickering
-or gapped airship shadows remain unresolved.
+Rendering corrections do not change mass tiers, recipes, or resources. The
+[compatibility guide](compatibility.md) records native shader, Ponder, balloon and
+material checks and their limits. Flickering or gapped airship shadows remain
+unresolved.
 
 ## Shared data overrides
 

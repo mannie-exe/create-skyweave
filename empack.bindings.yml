@@ -284,8 +284,27 @@ bindings:
             client: required
             server: required
           layer: common
+  colorwheel-patcher:
+    placement:
+      files:
+        colorwheel_patcher-neoforge-1.0.5+mc1.21.1.jar:
+        - destination: mods/colorwheel_patcher-neoforge-1.0.5+mc1.21.1.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  photon-shader:
+    placement:
+      files:
+        photon_v1.4.zip:
+        - destination: shaderpacks/photon_v1.4.zip
+          environment:
+            client: required
+            server: unsupported
+          layer: common
 
 policies:
+  shaderpacks/photon_v1.4.zip.txt: seed
   config/bluemap/core.conf: seed
   config/bluemap/maps/world.conf: seed
   config/bluemap/webserver.conf: seed

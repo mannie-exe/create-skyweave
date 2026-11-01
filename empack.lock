@@ -26,6 +26,7 @@ coverage:
   cloth-config: complete
   collective: complete
   colorwheel: complete
+  colorwheel-patcher: complete
   complementary-unbound: complete
   connector: complete
   controlling: complete
@@ -117,6 +118,7 @@ coverage:
   moreculling: complete
   mt-ct-d: complete
   owo-lib: complete
+  photon-shader: complete
   ping-wheel: complete
   playeranimator: complete
   polymorph: complete
@@ -1553,6 +1555,61 @@ dependencies:
       provider: modrinth
       selector: colorwheel
     title: Colorwheel
+  colorwheel-patcher:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/KPsw5jDu/versions/dQqV3sci/colorwheel_patcher-neoforge-1.0.5%2Bmc1.21.1.jar
+        kind: provider
+        pin:
+          project:
+            project: KPsw5jDu
+            provider: modrinth
+          selection:
+            id: dQqV3sci
+            provider: modrinth
+        slot: colorwheel_patcher-neoforge-1.0.5+mc1.21.1.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 0e63780e5b8af294bf58609ac866b9866ab9537b
+          sha512: >-
+            902bca40ac980f4aab2564d64cf47a698b18f44234f9757c9125f755f9890d3350ca4e28e25e601ea8031139cab5b6bf897298bc4033e39ef86c9d7054705cb2
+        size: 210569
+      placements:
+      - destination: mods/colorwheel_patcher-neoforge-1.0.5+mc1.21.1.jar
+        environment:
+          client: required
+          server: unsupported
+        layer: client
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 0e63780e5b8af294bf58609ac866b9866ab9537b
+          sha512: >-
+            902bca40ac980f4aab2564d64cf47a698b18f44234f9757c9125f755f9890d3350ca4e28e25e601ea8031139cab5b6bf897298bc4033e39ef86c9d7054705cb2
+        location: KPsw5jDu
+        source: provider-catalog
+      slot: colorwheel_patcher-neoforge-1.0.5+mc1.21.1.jar
+    identity:
+      kind: provider
+      project:
+        project: KPsw5jDu
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: KPsw5jDu
+        provider: modrinth
+      selection:
+        id: dQqV3sci
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: colorwheel-patcher
+    title: Colorwheel Patcher
   complementary-unbound:
     content: shader-pack
     files:
@@ -6365,6 +6422,60 @@ dependencies:
       provider: modrinth
       selector: ccKDOlHs
     title: oωo (owo-lib)
+  photon-shader:
+    content: shader-pack
+    files:
+    - acquisition:
+        downloads:
+        - https://cdn.modrinth.com/data/lLqFfGNs/versions/BnGklH5y/photon_v1.4.zip
+        kind: provider
+        pin:
+          project:
+            project: lLqFfGNs
+            provider: modrinth
+          selection:
+            id: BnGklH5y
+            provider: modrinth
+        slot: photon_v1.4.zip
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 96c7730f5891a42e39bbf1f0f5a98fa99628a7fe
+          sha512: >-
+            2dec87084dccf91a72a06235ecbfb3627f066699b5f70583f06077cba61433aedbfa6af28eb68bf1cdc726149cc3d9a587517cfab59e6a24e9d6a40b6874d655
+        size: 3857333
+      placements:
+      - destination: shaderpacks/photon_v1.4.zip
+        environment:
+          client: required
+          server: unsupported
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 96c7730f5891a42e39bbf1f0f5a98fa99628a7fe
+          sha512: >-
+            2dec87084dccf91a72a06235ecbfb3627f066699b5f70583f06077cba61433aedbfa6af28eb68bf1cdc726149cc3d9a587517cfab59e6a24e9d6a40b6874d655
+        location: lLqFfGNs
+        source: provider-catalog
+      slot: photon_v1.4.zip
+    identity:
+      kind: provider
+      project:
+        project: lLqFfGNs
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: lLqFfGNs
+        provider: modrinth
+      selection:
+        id: BnGklH5y
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: photon-shader
+    title: Photon Shaders
   ping-wheel:
     content: mod
     files:
@@ -8480,7 +8591,7 @@ dependencies:
       provider: modrinth
       selector: OnlVIpq5
     title: Fast Noise
-intent-revision: 0df410e1fdc2a31240aa8c509c31c89cd75560193693ba1dbb1e4186a241003e
+intent-revision: de7d59eb756d2ef1701de9cc1eb9dcd537f5b1b3fb983d41f946a6fad7c4f319
 required-edges:
   accessories:
   - owo-lib

@@ -33,6 +33,7 @@ mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_
 | Climbable Ropes for Create Aeronautics | 2.2.0 | [Exact version](https://modrinth.com/mod/create-aeronautics-climbable-rope/version/TTGedLb3) |
 | Cloth Config API | 15.0.140+neoforge | [Exact version](https://modrinth.com/mod/cloth-config/version/izKINKFg) |
 | Collective | 1.21.1-8.65-fabric+forge+neo | [Exact version](https://modrinth.com/mod/collective/version/d78uVgbq) |
+| Colorwheel Patcher | 1.0.5+mc1.21.1 | [Exact version](https://modrinth.com/mod/colorwheel-patcher/version/dQqV3sci) |
 | Colorwheel | 1.3.0+mc1.21.1 | [Exact version](https://modrinth.com/mod/colorwheel/version/8rq5KP4U) |
 | Complementary Unbound | r5.9.3 | [Exact version](https://modrinth.com/version/B1kyfoUZ) |
 | Concurrent Chunk Management Engine (NeoForge) | 0.4.0-alpha.0.124+1.21.1 | [Exact version](https://modrinth.com/mod/c2me-neoforge/version/VACgDPOc) |
@@ -128,6 +129,7 @@ mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_
 | ModernFix | 5.27.27+mc1.21.1 | [Exact version](https://modrinth.com/mod/modernfix/version/ZDZENbHH) |
 | More Culling | 1.0.10 | [Exact version](https://modrinth.com/mod/moreculling/version/5M4T2FfG) |
 | oωo (owo-lib) | 0.12.15.6-beta.1+1.21 | [Exact version](https://modrinth.com/mod/owo-lib/version/wbdHEItB) |
+| Photon Shaders | v1.4 | [Exact version](https://modrinth.com/shader/photon-shader/version/BnGklH5y) |
 | Ping Wheel | 1.12.2 | [Exact version](https://modrinth.com/mod/ping-wheel/version/Zrh2Fmn9) |
 | playerAnimator | 2.0.4+1.21.1-forge | [Exact version](https://modrinth.com/mod/playeranimator/version/HJZB6bmA) |
 | Polymorph | 1.2.0+1.21.1 | [Exact version](https://modrinth.com/mod/polymorph/version/9yWvrF5o) |
