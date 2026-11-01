@@ -70,3 +70,23 @@ notes:
         'docs/development/progression.md',
         'https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/verification.md',
       ]
+  travelersbackpack:standard:
+    text: Equipped backpack contents follow YiGD's grave recovery rather than separate backpack placement. Native death, cold reload and an owner claim preserved the equipped backpack and named contents. Loose-item protections remain enabled.
+    status: runtime-checked
+    sources:
+      - docs/development/compatibility.md#audio-and-death-recovery
+      - overrides/common/config/travelersbackpack-server.toml
+  yigd:grave:
+    text: A generated death marker, not a normal inventory progression item. Right-click your own grave to recover stored inventory and vanilla dropped XP. Claiming removes the marker without dropping a grave item; Carry On excludes YiGD blocks.
+    status: intentional-access-limit
+    sources:
+      - overrides/common/config/yigd.json
+      - overrides/common/config/carryon-common.toml
+  yigd:grave_key:
+    text: Grave keys are disabled. Owner recovery requires no key or item fee; this registered utility is not a missing progression ingredient.
+    status: optional-integration-disabled
+    sources: ['overrides/common/config/yigd.json']
+  yigd:death_scroll:
+    text: Death scrolls are disabled. Recovery does not grant a teleport or remote inventory retrieval; this registered utility is not an enabled acquisition route.
+    status: optional-integration-disabled
+    sources: ['overrides/common/config/yigd.json']

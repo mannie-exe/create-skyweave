@@ -879,7 +879,8 @@
       "requirements": "Obtain a standard or custom Traveler's Backpack and complete its inventory advancement.",
       "description": [
         "A Traveler's Backpack keeps expedition equipment in a separate inventory. Equip it in the Accessories back slot and use the backpack control to open it; its starting leather tier provides 27 storage slots.",
-        "Keep return supplies apart from collected materials. Upgrade slots add functions such as crafting or fluid storage, while tool slots provide a separate way to exchange carried equipment."
+        "Keep return supplies apart from collected materials. Upgrade slots add functions such as crafting or fluid storage, while tool slots provide a separate way to exchange carried equipment.",
+        "On death, YiGD keeps the equipped backpack and its contents with your other recoverable items. Recover them from your grave; the backpack does not place a separate recovery block."
       ],
       "disclaimer": "advancement",
       "labels": {

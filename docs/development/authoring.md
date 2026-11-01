@@ -30,9 +30,8 @@ the editor counts those entries. Sentence counts are editorial guidance.
 
 Each locale's `shared` object maps disclaimer keys to nonempty messages. Entries
 reference those keys through `disclaimer`; they do not own copies of the text.
-The existing `inventory` message serves 46 entries, while `delivery_interaction`
-and `circuit_interaction` each serve one. Similar interaction messages stay
-separate because they describe different completion checks.
+Shared messages can serve multiple entries. Keep similar interaction messages
+separate when they describe different completion checks.
 
 The app's **Disclaimers** tab creates, edits and deletes these shared messages.
 Keys use lowercase letters, numbers and underscores. The editor keeps existing

@@ -60,10 +60,10 @@
     },
     {
       "path": "overrides/common/config/analogaudio/analogaudio.server.toml",
-      "sha256": "82c975206d053d4644d0b4716ff4e13ebd541114d2572c4b2a462a09e9a5f0e2",
-      "review": "inherited",
-      "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "sha256": "3a192987f63452a3ac776b65c27967ce4b5d13a662e7b71d61bd39c18fd32031",
+      "review": "reviewed",
+      "reason": "Native radio and speaker ranges are 128 blocks. Existing attenuation, volume, spatiality and filtering remain unchanged.",
+      "reference": "docs/development/compatibility.md"
     },
     {
       "path": "overrides/common/config/azimuth-common.toml",
@@ -529,10 +529,10 @@
     },
     {
       "path": "overrides/common/config/travelersbackpack-server.toml",
-      "sha256": "4d7112631b449a8f39a9b987177ab0a0c888e876fe5d0a2ac15e3d0ee17ca727",
+      "sha256": "ee2c026ddeb974f0b1bae3d14862845cfe92fda6fa886056760f1555415443ba",
       "review": "reviewed",
-      "reason": "Adopt the 10.1.40 schema with explicit dropped-backpack persistence, fire and explosion resistance; retain existing equipment, capacity and sleeping-bag choices.",
-      "reference": "docs/development/decisions.md"
+      "reason": "YiGD owns equipped backpack recovery. Disable separate death placement while retaining normal storage, equipment and loose-item protections. Other imported settings remain unchanged.",
+      "reference": "docs/development/compatibility.md"
     },
     {
       "path": "overrides/common/config/treechop-common.toml",

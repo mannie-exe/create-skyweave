@@ -6,6 +6,39 @@ Player instructions belong in [graphics](../players/graphics.md) and
 [content list](../MODLIST.md), with authoritative selections in `empack.yml` and
 `empack.lock`.
 
+## Audio and death recovery
+
+Analog Audio's server-owned radio and speaker ranges are 128 blocks. Existing
+volume, filtering, spatial modes and attenuation remain unchanged; this extends
+the quieter tail rather than adding a new falloff. Compat's independently gated
+client timeline adaptation joins the current media position after loading and
+reconciles standby resumes. It uses AnalogLib 0.1.0 bundled in the selected Analog
+Audio release, independently of the existing Create registration repair.
+
+YiGD 2.0.13 owns recoverable inventory and XP, including the Accessories-equipped
+Traveler's Backpack and nested contents. Owner-only recovery has no random item
+loss, key/cost requirement, expiry or teleport feature. XP uses `VANILLA`, with no
+kept percentage. The Overworld minimum is -127, leaving support space above the
+pack's -128 build floor; other dimension minima retain their native defaults.
+Global last-ground placement stays disabled so ordinary airborne deaths are not
+silently relocated to an old landing point.
+
+`backpackDeathPlace=false` disables competing backpack placement. Retain
+`voidProtection=true`: it also protects loose backpack item entities, and YiGD
+captures the equipped item through Accessories. The backpack's native grave-mod
+detection avoids separate death placement; disabling item protections is unnecessary.
+Carry On's existing `yigd:*` exclusion keeps graves out of its pickup path.
+
+Compat's optional Sable/YiGD adapter stores construct-placement metadata in the
+same YiGD record. It places graves in real plots, projects tracking into world
+coordinates and uses bounded local fallback without duplicating contents.
+Temporary unloading differs from construct removal. Spawn protection and the
+adapter's cancellable placement event are checked; compatibility with every
+external claims mod is not established. See the maintained
+[recovery contract](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/recovery.md)
+and [audio boundary](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/audio.md)
+before upgrading their dependencies.
+
 ## Transmission & Linkage
 
 Transmission & Linkage 0.2.9 uses Compat 0.11.1's optional interaction and Jade

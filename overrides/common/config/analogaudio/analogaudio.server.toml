@@ -15,7 +15,7 @@ enableWalkieFiltering = true
 allowFileUploads = false
 
 # Controls the maximum distance in blocks you can hear radio audio before it falls off.
-globalRadioRange = 64
+globalRadioRange = 128
 
 # Controls the maximum distance in blocks you can hear speaker audio before it falls off.
-globalSpeakerRange = 64
+globalSpeakerRange = 128

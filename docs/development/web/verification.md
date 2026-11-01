@@ -537,3 +537,22 @@ new definitions bring the total to 84, including chapter definitions.
 and the production build. Existing components, recipe adapters and layout remain
 unchanged. Authored item/interaction notes distinguish native capability checks
 from practical factory balance and a hypothetical self-powered loop.
+
+## Audio and recovery content refresh, 2026-11-01
+
+The isolated exporter used the materialized 0.1.27 selection with published
+Compat 0.12.1 and You're in Grave Danger 2.0.13. Capture completed at
+2026-11-01T10:41:16Z. Source and lock fingerprints match the selected inputs.
+No playing world or ore survey was recaptured.
+
+`pnpm data:refresh`, `pnpm data:compile` and `pnpm data:check` pass with
+10,103 items, 9,232 recipes and 75 journal entries. Authored notes distinguish
+the generated grave marker from inventory items and identify deliberately
+disabled keys and death scrolls rather than inventing acquisition routes.
+Backpack guidance reflects native equipped-backpack recovery checks; journal
+IDs, objectives and rewards are unchanged.
+
+`pnpm verify` passes formatting, JavaScript tests, Astro checking and the
+production build. Only authored data and documentation changed; existing
+components and interactions were retained, so browser interaction tests were
+not repeated. The existing large-chunk build warning remains.

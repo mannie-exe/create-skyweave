@@ -263,7 +263,7 @@ bindings:
           layer: client
   create-sky-compat:
     placement:
-    - destination: mods/create-sky-compat-0.11.1-mc1.21.1-neoforge.jar
+    - destination: mods/create-sky-compat.jar
       environment:
         client: required
         server: required

@@ -74,6 +74,24 @@ Lootr provides personal loot in supported containers; it does not add structures
 Carry On excludes Lootr containers and Aeronautics/Sable objects. Ship storage,
 resource access and survival progression still need gameplay testing.
 
+## Death and recovery
+
+YiGD stores recoverable inventory, equipment and the equipped Traveler's Backpack
+with its contents in a grave. Right-click your grave to recover them. Graves stay
+owner-controlled, with no random item loss or recovery fee. Recoverable XP follows
+the vanilla death-drop amount; previous levels are not fully preserved.
+
+A grave on a supported Sable deck moves with the ship. After falling from a
+verified deck into the void, recovery prefers that ship. If the construct is lost
+or cannot provide space, placement searches near its last verified location. An
+unloaded ship's existing grave stays saved. If nearby placement is blocked, the
+saved recovery remains pending; ask the server operator rather than assuming the
+items were dropped into the void.
+
+Traveler's Backpack does not place a separate death-recovery block. Normal
+backpack storage, equipment controls and dropped-item protections remain enabled.
+Claim existing graves before removing YiGD or disabling construct recovery.
+
 ## Existing installations
 
 Read the target release's notes before updating. Stop the client or server before

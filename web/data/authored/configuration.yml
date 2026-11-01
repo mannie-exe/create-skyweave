@@ -115,3 +115,19 @@ records:
       - docs/development/compatibility.md#shader-patching
       - https://modrinth.com/mod/colorwheel-patcher
       - https://modrinth.com/shader/photon-shader
+  - id: gameplay/grave-recovery
+    title: Death recovery
+    evidence: native-client-verified
+    detail: YiGD owns inventory, equipment and equipped backpack contents. Owner claims have no random loss, key, cost or expiry; XP follows the vanilla death-drop amount. Compat places ship graves in real plots and retains one recovery record through bounded fallback or temporary unloading. Global last-ground placement and separate backpack death placement remain disabled.
+    sources:
+      - overrides/common/config/yigd.json
+      - overrides/common/config/travelersbackpack-server.toml
+      - docs/development/compatibility.md#audio-and-death-recovery
+  - id: gameplay/radio-playback
+    title: Radio timing and range
+    evidence: native-client-verified
+    detail: Native radio and speaker ranges are 128 blocks with existing volume, spatiality and attenuation. Compat's client timeline correction joins the current media position after loading and reconciles standby playback. Internet loading can remain silent; synchronization is not sample-perfect.
+    sources:
+      - overrides/common/config/analogaudio/analogaudio.server.toml
+      - overrides/common/config/create_sky_compat-features.properties
+      - https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/audio.md

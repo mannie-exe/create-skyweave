@@ -1,21 +1,27 @@
-# Create Sky 0.1.26
+# Create Sky 0.1.27
 
-Add Create Aeronautics: Transmission & Linkage 0.2.9 for flexible shaft links,
-pneumatic/hydraulic mechanisms and physical rotation recovery. Native recipes,
-actuation, power limits and mass defaults remain unchanged.
+Add You're in Grave Danger 2.0.13 and update Create Sky Compat to 0.12.1.
+YiGD owns recoverable inventory, equipment and equipped backpack contents.
+Recovery is owner-controlled, without random item loss, keys, costs, expiry or
+teleportation. Recoverable XP follows the vanilla death-drop amount.
 
-Update Create Sky Compat to 0.11.1. Optional adapters make visible-rod removal a
-sneak-wrench action, validate player edits and linked endpoints on the server,
-and add Jade link, actuator and conversion-output inspection. The pack also
-corrects the native rod-settings tutorial's interaction target.
+Graves on supported Sable decks move with their constructs. Void falls from a
+verified deck prefer the original ship; loss uses bounded nearby fallback while
+unloaded graves retain their saved recovery. Native owner claims, cold reload,
+disassembly and backpack contents were checked. Update both sides together.
 
-Add three optional Workshop entries for flexible shafts, pneumatic linkage and
-rotation recovery. The journal now has 75 entries, with 25 offering fixed rewards.
-Existing objectives and rewards are unchanged; the new flexible-shaft entry gives
-one common shaft. Refresh the Atlas's registered content, recipes and journal.
+Radio and speaker ranges are 128 blocks, with existing volume and attenuation.
+The optional client timing adapter joins the current song position after loading
+and reconciles standby resumes. Initial internet loading can remain silent.
+Two clients were checked with insertion roles swapped, range re-entry and online
+playback. This does not promise sample-perfect synchronization.
 
-No terrain-generation, seed, world or LOD-identity changes are intended. Existing
-worlds remain in use. Stock rod lengths avoid the upstream enlarged-range visual
-limit; no speculative balance nerf or external power requirement is added.
+Keep normal backpack item protections; only separate death placement is disabled.
+Update backpack journal guidance and the Atlas's selected content/configuration.
+Existing quest IDs, objectives and rewards remain unchanged.
 
-Previous release: [0.1.25](releases/0.1.25.md).
+No world regeneration, seed, terrain-generation or LOD-identity changes are needed.
+Keep worlds, LODs and personal settings when updating. Partial support shapes,
+arbitrary construct splitting and external claim systems need further coverage.
+
+Previous release: [0.1.26](releases/0.1.26.md).

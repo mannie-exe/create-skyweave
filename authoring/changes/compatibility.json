@@ -3,9 +3,10 @@
   "records": [
     {
       "path": "overrides/common/config/create_sky_compat-features.properties",
-      "sha256": "cf8ed97e076abcd87ea5349e3a65ac977fbb9a2c84e814b321e0447b861452d0",
+      "sha256": "0cf1e9c856b230cfd95884df71595eac86e1fa5535dcb0cb241f803d3acc8b2b",
       "review": "reviewed",
-      "reason": "Explicit optional terrain, rendering, lighting, journal and machinery adaptations, including Transmission & Linkage interaction authorization and server-backed Jade. Per-save DH cache isolation remains opt-in."
+      "reason": "Enable the selected independent adapters, including client radio timeline correction and Sable/YiGD construct recovery.",
+      "reference": "docs/development/compatibility.md"
     }
   ]
 }

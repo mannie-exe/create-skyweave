@@ -29,6 +29,13 @@
       "review": "reviewed",
       "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
       "reference": "docs/development/progression.md"
+    },
+    {
+      "path": "overrides/common/config/yigd.json",
+      "sha256": "928195f02f2fc1f41fa0db8e2da849f5ce7917fb4951a7b9f85a084fc58866a6",
+      "review": "reviewed",
+      "reason": "Owner-only inventory recovery with native vanilla dropped XP, no random loss, costs, expiry or teleport. Keep last-ground placement off; Overworld minimum -127 leaves supporting-block space.",
+      "reference": "docs/development/compatibility.md"
     }
   ]
 }

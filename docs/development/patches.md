@@ -32,6 +32,16 @@ world generation, recipe execution or GPU behavior.
 
 ## Coupled update boundaries
 
+Audio and recovery updates couple Analog Audio's bundled AnalogLib, Sable, YiGD,
+Accessories and Traveler's Backpack with Compat's independent adapters. Inspect
+the exact nested playback engine and native inventory integrations. Recheck
+loading/standby timing, plot ownership, removal/unload/disassembly, single claims,
+compass locations and equipped nested contents. Keep ordinary attenuation and
+backpack item protections separate from death-placement policy. The mod's
+[adapter reference](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/adapters.md)
+owns hook maintenance; [pack compatibility](compatibility.md#audio-and-death-recovery)
+owns the selected configuration.
+
 Journal updates cross source, generated config, translations and Atlas evidence.
 Recipe, loot, mass, fuel or worldgen changes can invalidate a useful setup or reward
 budget even when every item ID still resolves. The journal owns those gameplay

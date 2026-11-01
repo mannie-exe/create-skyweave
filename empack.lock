@@ -159,6 +159,7 @@ coverage:
   treechop: complete
   txnilib: complete
   yacl: complete
+  yigd: complete
   zfastnoise: complete
 dependencies:
   3d-crops:
@@ -3079,17 +3080,17 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://github.com/mannie-exe/create-sky-compat/releases/download/v0.11.1/create-sky-compat-0.11.1-mc1.21.1-neoforge.jar
+          https://github.com/mannie-exe/create-sky-compat/releases/download/v0.12.1/create-sky-compat-0.12.1-mc1.21.1-neoforge.jar
         kind: url
       expected:
         accepted-observation: null
         digests:
-          sha1: bbabdbfe7961c480491c582837239f8dfa28368f
+          sha1: 57a609a8598d9c8ab35ed29bf91e631d23a86883
           sha512: >-
-            2da2c8d1a854e808446417271b3bffaa368b78ed6c2509800fbc3b523d1b80083c6f5ccab6624ef06aedf61589b80f5e2e38fc5dad4c7786a04e872f1fdbb0fb
+            e5a89e85af5960006be69b40114d55561885fe02e5e58ff405bafc68e17179a78bc88f4bbe1b184c2a70cdb5728e40f59dc9ee3ffd92ecaffe75897c1a38b30b
         size: null
       placements:
-      - destination: mods/create-sky-compat-0.11.1-mc1.21.1-neoforge.jar
+      - destination: mods/create-sky-compat.jar
         environment:
           client: required
           server: required
@@ -3097,9 +3098,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: bbabdbfe7961c480491c582837239f8dfa28368f
+          sha1: 57a609a8598d9c8ab35ed29bf91e631d23a86883
           sha512: >-
-            2da2c8d1a854e808446417271b3bffaa368b78ed6c2509800fbc3b523d1b80083c6f5ccab6624ef06aedf61589b80f5e2e38fc5dad4c7786a04e872f1fdbb0fb
+            e5a89e85af5960006be69b40114d55561885fe02e5e58ff405bafc68e17179a78bc88f4bbe1b184c2a70cdb5728e40f59dc9ee3ffd92ecaffe75897c1a38b30b
         location: null
         source: url-file
       slot: primary
@@ -8580,6 +8581,61 @@ dependencies:
       provider: modrinth
       selector: 1eAoo2KR
     title: YetAnotherConfigLib (YACL)
+  yigd:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/HnD1GX6e/versions/Axk4bfXT/youre-in-grave-danger-neoforge-2.0.13.jar
+        kind: provider
+        pin:
+          project:
+            project: HnD1GX6e
+            provider: modrinth
+          selection:
+            id: Axk4bfXT
+            provider: modrinth
+        slot: youre-in-grave-danger-neoforge-2.0.13.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 5f8382ea90afaeb302a60e87e70a560a9329eabc
+          sha512: >-
+            562ea8d82184139e361db5f959ad5a993bbd76d34532248e0f89dd5ef7e2555f2a79e12d353fd389a7508bc34b6e1b654616c67e975ea7cb8a43f1e972284f61
+        size: 448888
+      placements:
+      - destination: mods/youre-in-grave-danger-neoforge-2.0.13.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 5f8382ea90afaeb302a60e87e70a560a9329eabc
+          sha512: >-
+            562ea8d82184139e361db5f959ad5a993bbd76d34532248e0f89dd5ef7e2555f2a79e12d353fd389a7508bc34b6e1b654616c67e975ea7cb8a43f1e972284f61
+        location: HnD1GX6e
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: HnD1GX6e
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: HnD1GX6e
+        provider: modrinth
+      selection:
+        id: Axk4bfXT
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: yigd
+    title: You're in Grave Danger
   zfastnoise:
     content: mod
     files:
@@ -8647,7 +8703,7 @@ dependencies:
       provider: modrinth
       selector: OnlVIpq5
     title: Fast Noise
-intent-revision: 7588aec1a33ade9f58e297f7b602bdfa76cf04c592c866a4508beea4fd14b99a
+intent-revision: be5415762b024195c47d804a6250bea95185b72d2e5014f2232191c15b1092de
 required-edges:
   accessories:
   - owo-lib
@@ -8762,6 +8818,8 @@ required-edges:
   - architectury-api
   sodium-extra:
   - sodium
+  yigd:
+  - cloth-config
 resolver: empack-synchronization-v0.5
 runtime:
   loader: neoforge

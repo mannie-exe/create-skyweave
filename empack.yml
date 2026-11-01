@@ -1,7 +1,7 @@
 schema: 5
 pack:
   name: Create Sky
-  version: 0.1.26
+  version: 0.1.27
   id: create_sky
   authors:
     - mannie-exe
@@ -729,10 +729,10 @@ dependencies:
     source:
       kind: url
       downloads:
-        - https://github.com/mannie-exe/create-sky-compat/releases/download/v0.11.1/create-sky-compat-0.11.1-mc1.21.1-neoforge.jar
+        - https://github.com/mannie-exe/create-sky-compat/releases/download/v0.12.1/create-sky-compat-0.12.1-mc1.21.1-neoforge.jar
     digests:
-      sha1: bbabdbfe7961c480491c582837239f8dfa28368f
-      sha512: 2da2c8d1a854e808446417271b3bffaa368b78ed6c2509800fbc3b523d1b80083c6f5ccab6624ef06aedf61589b80f5e2e38fc5dad4c7786a04e872f1fdbb0fb
+      sha1: 57a609a8598d9c8ab35ed29bf91e631d23a86883
+      sha512: e5a89e85af5960006be69b40114d55561885fe02e5e58ff405bafc68e17179a78bc88f4bbe1b184c2a70cdb5728e40f59dc9ee3ffd92ecaffe75897c1a38b30b
     environment:
       client: required
       server: required
@@ -765,6 +765,9 @@ dependencies:
   create-aeronautics-transmission-linkage:
     pin: WoUjC6d4
     source: modrinth:create-aeronautics-transmission-linkage
+  yigd:
+    pin: Axk4bfXT
+    source: modrinth:yigd
 
 build:
   default:
