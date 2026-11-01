@@ -4178,7 +4178,7 @@
         }
       ],
       "inspection": {
-        "sha512": "f5f84645c2665e772d6db80a201e7dda0feb570a82445b72e7012665b6df238357a8b62e6d2655a43146fd309c36125ed18d9512ee924f89587ef627c6f3c753",
+        "sha512": "d8a6c2e0ac272e2f4773ed962301ece0cda73136d89a9788eff4dae74979471d29b7dee4073e8169644c4c2017f7b3286dab538171f9e8e2c19e708aa7df8d3d",
         "format": 15,
         "supportedFormats": {
           "min_inclusive": 15,
@@ -4188,14 +4188,18 @@
         "fusionMinimum": null,
         "fusionOverridesIncluded": false,
         "declaresTargetFormat": true,
-        "effectiveAssetCount": 188,
+        "effectiveAssetCount": 238,
         "namespaces": {
-          "minecraft": 188
+          "minecraft": 238
         },
         "features": ["custom-entity-models"],
         "overlaps": {
+          "low-on-fire": {
+            "count": 1,
+            "examples": ["assets/minecraft/font/default.json"]
+          },
           "fresh-animations": {
-            "count": 51,
+            "count": 50,
             "examples": [
               "assets/minecraft/optifine/cem/chicken.jem",
               "assets/minecraft/optifine/cem/cod.jem",
@@ -4212,14 +4216,12 @@
             "examples": ["assets/minecraft/font/default.json"]
           }
         },
-        "matchingInstalledAssets": 24,
-        "matchingModNamespaces": [],
         "version": {
-          "id": "tGydmcT3",
-          "name": "Details Add-on 2.2.1",
-          "version_number": "2.2.1",
+          "id": "XM8VyQLk",
+          "name": "Details Add-on 2.4",
+          "version_number": "2.4.0",
           "version_type": "release",
-          "date_published": "2026-04-20T03:20:05.958451Z",
+          "date_published": "2026-10-31T08:33:46.383019Z",
           "game_versions": [
             "1.20",
             "1.20.1",
@@ -4239,26 +4241,26 @@
             "1.21.8",
             "1.21.9",
             "1.21.10",
-            "1.21.11"
+            "1.21.11",
+            "26.1",
+            "26.1.1",
+            "26.1.2",
+            "26.2",
+            "26.3"
           ],
-          "dependencies": [
-            {
-              "version_id": null,
-              "project_id": "50dA9Sha",
-              "file_name": null,
-              "dependency_type": "required"
-            }
-          ]
+          "dependencies": []
         },
         "file": {
-          "url": "https://cdn.modrinth.com/data/lctgpCsu/versions/tGydmcT3/FA%2BDetails-v2.2.1.zip",
-          "filename": "FA+Details-v2.2.1.zip",
-          "size": 289745,
+          "url": "https://cdn.modrinth.com/data/lctgpCsu/versions/XM8VyQLk/FA%2BDetails-v2.4.zip",
+          "filename": "FA+Details-v2.4.zip",
+          "size": 400883,
           "hashes": {
-            "sha1": "456243af4db5e0b575b1f31c0ba5edfac24ec346",
-            "sha512": "f5f84645c2665e772d6db80a201e7dda0feb570a82445b72e7012665b6df238357a8b62e6d2655a43146fd309c36125ed18d9512ee924f89587ef627c6f3c753"
+            "sha1": "b98a11e783b79851e6f3c72e4b1eaf9b401d7599",
+            "sha512": "d8a6c2e0ac272e2f4773ed962301ece0cda73136d89a9788eff4dae74979471d29b7dee4073e8169644c4c2017f7b3286dab538171f9e8e2c19e708aa7df8d3d"
           }
-        }
+        },
+        "matchingInstalledAssets": 0,
+        "matchingModNamespaces": []
       },
       "links": [
         {
@@ -4266,7 +4268,7 @@
           "url": "https://modrinth.com/resourcepack/fresh-animations-details"
         }
       ],
-      "retrieved": "2026-10-23T10:20:46.587326+00:00"
+      "retrieved": "2026-11-01T05:07:26.719540+00:00"
     },
     "fresh-animations-objects": {
       "title": "Fresh Animations: Objects",

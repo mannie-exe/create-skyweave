@@ -7,7 +7,8 @@ separate owners and limits. Commands and prerequisites live in [setup](setup.md)
 ## Materialized pack inputs, 2026-10-31
 
 The 0.1.25 capture used all 104 selected server-side pack JARs plus the exporter,
-including published Compat 0.10.1 and Absolute Kinematics 1.0.1. The native server
+including published Compat 0.10.2, Absolute Kinematics 1.0.1, Questlog 3.5.3,
+Radars 5.0.3 and JEI 19.70.0.468. The native server
 exported 72 journal entries and 9,221 recipes with zero exporter errors, then shut
 down normally. All native objective, fixed-reward and repeated-claim checks passed.
 The snapshot records `modSource: pack`, the lock hash and

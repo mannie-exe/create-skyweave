@@ -178,11 +178,9 @@ candidates:
       Uses the EMF/ETF stack already selected and follows the same base animation
       style.
     concern:
-      Details 2.2.1 references animation files removed in FA 1.11.1. The maintained
-      patch binds mooshrooms, villagers, traders and elder guardians to current
-      shared rigs. Donkeys and mules use the current saddle/chest hierarchy with
-      Details' straps retained. Sleeping villager feet and equipped/unequipped
-      mule models were checked in game. Modded mobs retain their own styling.
+      Details 2.4 supplies the current shared FA 1.11 rigs and juvenile models.
+      No pack rig replacement is generated. Modded mobs retain their own styling;
+      rare variants and every equipment state are not established by archive checks.
     nextCheck:
       Recheck shared rig references, sleeping poses and equipment visibility
       whenever Fresh Animations or Details changes. Rare variants remain untested.

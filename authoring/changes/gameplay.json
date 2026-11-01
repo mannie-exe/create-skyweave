@@ -186,9 +186,9 @@
     },
     {
       "path": "overrides/common/config/create_radar-server.toml",
-      "sha256": "c3e461a4c8026b03d59587b76c4b0fc7e639bfa3f85a56031df09a0793347d2c",
+      "sha256": "60c47415f831e356c0cfc795df3a6b0bcb8bdeb14db85c4440c24487e8922074",
       "review": "reviewed",
-      "reason": "Adopt the 5.0.1 targeting/controller schema and remove its obsolete link-range key; preserve the pack's existing radar range, vertical scan and dish-growth values.",
+      "reason": "Radar controls retain pack choices; directional jamming uses native full-power RPM and onset fractions.",
       "reference": "docs/development/decisions.md"
     },
     {

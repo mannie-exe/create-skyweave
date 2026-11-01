@@ -210,24 +210,17 @@ Complementary Unbound/Euphoria; see [verification](compatibility.md#visual-compa
 
 ### Fresh Details animation rigs
 
-`fresh_details.py` binds the reviewed Details models to the pinned Fresh Animations
-rigs. The `fresh_details_rigs` switch includes these corrections:
+Fresh Details 2.4 uses the current Fresh Animations 1.11 shared rigs for
+mooshrooms, villagers, traders, guardians, donkeys and mules. The selected archive
+has no missing external JPM references in its base CEM models. Its native models
+own sleeping poses, juvenile geometry and chest straps; no pack rig replacement
+is generated.
 
-- Adult/baby mooshrooms use the shared cow rig and stable ear/tail motions.
-- Villagers, sleeping villagers and wandering traders use the shared villager rig
-  and current species flags. Details' sleeping model references a removed animation
-  file; without the adapter its leg pivots remain in the wrong positions.
-- Elder guardians use the shared guardian rig and elder flag while retaining fins.
-- Donkeys and mules use the current saddle/bridle hierarchy with Details' chest
-  straps. The old mule rig is absent from the selected base pack.
-
-Update both input pins together. Check resource overlays for Minecraft 1.21.1
-before treating an absent reference as an active defect. Do not copy old animation
-files forward merely to satisfy their filenames; their variables and model
-hierarchies can differ from the current rig. Review sleep/wake and walking poses,
-juveniles, chest/saddle visibility and representative swimming or airborne states.
-This adapter does not establish compatibility for every Details model or newer
-Minecraft overlays.
+Update both input pins together. Review active Minecraft overlays, sleep/wake and
+walking poses, juveniles, chest/saddle visibility and representative swimming or
+airborne states. Valid filenames alone do not establish every animation state or
+rare variant. Do not copy old animation files forward to satisfy removed names;
+variables and model hierarchies can differ from current rigs.
 
 ### Lootr and Fresh Objects
 

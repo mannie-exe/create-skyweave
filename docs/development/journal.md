@@ -2,7 +2,7 @@
 
 Questlog provides an optional, bookless journal for Create Sky. The selected
 artifact is recorded in `empack.yml`; the current implementation review covers
-Questlog 3.5.0 on Minecraft 1.21.1 / NeoForge.
+Questlog 3.5.3 on Minecraft 1.21.1 / NeoForge.
 
 Compat's Questlog adaptations own wrapped rows, reward previews, bookmark preferences and runtime
 notifications. The pack enables its three independent startup switches and native

@@ -274,7 +274,7 @@ targetTrackingLeadTicks = 3
 	skyPlaneRadarMaxSolidBlocks = 8
 
 #.
-#Directional jammer frequency matching and deception effects
+#Directional jammer power and deception effects
 [directionalJammingConfig]
 	#.
 	#Seconds a directional jammer remains active during a discharge
@@ -299,36 +299,6 @@ targetTrackingLeadTicks = 3
 	# Default: 25.0
 	# Range: 0.0 ~ 4096.0
 	nearbyRadarSpilloverRadiusBlocks = 25.0
-	#.
-	#RPM difference that begins cannon guidance error
-	# Default: 15.0
-	# Range: 0.0 ~ 256.0
-	outerRpmTolerance = 15.0
-	#.
-	#RPM difference that begins directional track jitter
-	# Default: 10.0
-	# Range: 0.0 ~ 256.0
-	directionalRpmTolerance = 10.0
-	#.
-	#RPM difference that begins severe deception
-	# Default: 5.0
-	# Range: 0.0 ~ 256.0
-	severeRpmTolerance = 5.0
-	#.
-	#Multiplier converting radar rolling-rate RPM/s into extra frequency tolerance
-	# Default: 0.5
-	# Range: 0.0 ~ 4.0
-	rollingRateScale = 0.5
-	#.
-	#Maximum RPM tolerance added by rolling rate
-	# Default: 15.0
-	# Range: 0.0 ~ 256.0
-	maxRollingRateBonus = 15.0
-	#.
-	#Minimum effect strength immediately inside a jamming tier
-	# Default: 0.10000000149011612
-	# Range: 0.0 ~ 1.0
-	tierOnsetStrength = 0.10000000149011612
 	#.
 	#Maximum turret error for full jamming strength
 	# Default: 3.0
@@ -432,6 +402,21 @@ targetTrackingLeadTicks = 3
 	# Default: 120
 	# Range: 1 ~ 1200
 	maxSyntheticLifetimeTicks = 120
+	#.
+	#Jammer shaft RPM required for maximum jamming power
+	# Default: 256.0
+	# Range: 1.0 ~ 1024.0
+	fullPowerRpm = 256.0
+	#.
+	#Normalized jammer power where directional interference begins
+	# Default: 0.20000000298023224
+	# Range: 0.0 ~ 1.0
+	directionalOnsetFraction = 0.20000000298023224
+	#.
+	#Normalized jammer power where severe deception begins
+	# Default: 0.5
+	# Range: 0.0 ~ 1.0
+	severeOnsetFraction = 0.5
 
 #.
 #Configs for sky radar

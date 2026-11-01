@@ -8,7 +8,6 @@ from archive_output import archive_bytes, publish
 from resource_inputs import inputs as load_inputs, verify_bytes
 from model_authoring import generate as generate_models, require
 from lootr_models import build as build_lootr_models
-from fresh_details import build as build_fresh_details
 
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT = ROOT / 'overrides/client/resourcepacks/Create Sky Resource Patches.zip'
@@ -78,10 +77,6 @@ def build(archives, recipes, config):
         require('lootr' in archives and 'entity-model-features' in archives,
                 'Lootr adaptation requires pinned renderer inputs')
         entries.update(build_lootr_models(archives['fresh-animations-objects']))
-    details_enabled = config.get('compatibility', {}).get('fresh_details_rigs', False)
-    require(type(details_enabled) is bool, 'Fresh Details selection must be a boolean')
-    if details_enabled:
-        entries.update(build_fresh_details(archives['fresh-animations'], archives['fresh-animations-details']))
     encoded = {path: json.dumps(value, ensure_ascii=False, sort_keys=True,
                                 separators=(',', ':')).encode() + b'\n'
                for path, value in entries.items()}

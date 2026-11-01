@@ -174,8 +174,8 @@ dependencies:
     source: modrinth:wPQ6GgFE
     pin: 3Y4r0ItR
   create-radars:
+    pin: q723aMHO
     source: modrinth:BLu2Yqfq
-    pin: PxQPBxAp
   create-transmission:
     source: modrinth:QFCkBuIh
     pin: dOsq88jX
@@ -297,8 +297,8 @@ dependencies:
     source: modrinth:jCrJ4iGH
     pin: cxUohR7A
   jei:
+    pin: j41QZiGx
     source: modrinth:u6dRKJwZ
-    pin: ufAsQKnC
   kotlin-for-forge:
     source: modrinth:ordsPcFz
     pin: uhJhCT7X
@@ -386,9 +386,9 @@ dependencies:
     source: modrinth:plgWdsGJ
     pin: uehlsDrT
   reliable-emi:
+    pin: pnPjAfuO
     side: client
     source: modrinth:N9WucjHL
-    pin: aMKmQMTe
   rpl:
     source: modrinth:B3pb093D
     pin: hZ6B2Z0x
@@ -475,8 +475,8 @@ dependencies:
     pin: H13U56dc
     source: modrinth:create-propulsion-simulated
   questlog:
+    pin: qnCcrOl2
     source: modrinth:questlog
-    pin: Pykla7tJ
   sky-villages:
     pin: 3InSHTOp
     source: modrinth:sky-villages
@@ -670,8 +670,8 @@ dependencies:
       client: required
       server: unsupported
   fresh-animations-details:
+    pin: XM8VyQLk
     source: modrinth:fresh-animations-details
-    pin: tGydmcT3
     type: resource-pack
     environment:
       client: required
@@ -729,10 +729,10 @@ dependencies:
     source:
       kind: url
       downloads:
-        - https://github.com/mannie-exe/create-sky-compat/releases/download/v0.10.1/create-sky-compat-0.10.1-mc1.21.1-neoforge.jar
+        - https://github.com/mannie-exe/create-sky-compat/releases/download/v0.10.2/create-sky-compat-0.10.2-mc1.21.1-neoforge.jar
     digests:
-      sha1: 63115b496d350e9b372d18c84c175de59532eeaf
-      sha512: e7d7652f0f84ae7bfb4c7fcec3586f49fe24bb162c24047313531d641fa6c1adea745edd20960757bdbc5cfa4a17e08ae332f2937f61e7be1b5bb21da67e0735
+      sha1: 5fa0abd99daf424e8d387458e010db3a4bf15ac0
+      sha512: 5433ae5e08de26a74527b45dc6e326c02325da7185dedfa4d16e3f82fcf3bf348b91bd5d660e074fb13147d4d56360a50bb6ce91faef52e366b35bc9e88151fd
     environment:
       client: required
       server: required

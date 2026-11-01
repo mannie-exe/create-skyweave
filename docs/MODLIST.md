@@ -39,7 +39,7 @@ mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_
 | Controlling | 19.0.5 | [Exact version](https://modrinth.com/mod/controlling/version/FaNppCJJ) |
 | Cool Rain Reforged | 1.0.2 | [Exact version](https://modrinth.com/mod/cool-rain-reforged/version/SwSSfJQQ) |
 | Copycat Bar Extrusion | 0.1.0 | [Exact release](https://github.com/mannie-exe/copycat-bar-extrusion/releases/tag/v0.1.0) |
-| Create Sky Compat | 0.10.1 | [GitHub release](https://github.com/mannie-exe/create-sky-compat/releases/tag/v0.10.1) |
+| Create Sky Compat | 0.10.2 | [GitHub release](https://github.com/mannie-exe/create-sky-compat/releases/tag/v0.10.2) |
 | Create Accessories Compat | 1.0 | [Exact version](https://modrinth.com/mod/create-accessories-compat/version/2r7hvkCQ) |
 | Create Aeronautics | 1.3.2+mc1.21.1 | [Exact version](https://modrinth.com/mod/create-aeronautics/version/44pLdPGg) |
 | Create Aeronautics: Covers | 1.0.1 | [Exact version](https://modrinth.com/mod/create-aeronautics-covers/version/R35biaZf) |
@@ -68,7 +68,7 @@ mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_
 | Create: Interiors | 0.6.1 | [Exact version](https://modrinth.com/mod/interiors/version/gBrfZy6S) |
 | Create: Power Grid | 0.6.2 | [Exact version](https://modrinth.com/mod/power-grid/version/jCkPHjmP) |
 | Create: Power Loader | 2.0.5-mc1.21.1 | [Exact version](https://modrinth.com/mod/create-power-loader/version/3Y4r0ItR) |
-| Create: Radars | 5.0.2-1.21.1 | [Exact version](https://modrinth.com/mod/create-radars/version/PxQPBxAp) |
+| Create: Radars | 5.0.3-1.21.1 | [Exact version](https://modrinth.com/mod/create-radars/version/q723aMHO) |
 | Create: Transmission! | 1.2.2+neoforge-create6-1.21.1 | [Exact version](https://modrinth.com/mod/create-transmission/version/dOsq88jX) |
 | Create: Vibrant Vaults | 0.3.2 | [Exact version](https://modrinth.com/mod/create-vibrant-vaults/version/t17qYXjn) |
 | Cubic Sun & Moon | 1.8.5 | [Exact version](https://modrinth.com/version/zHa4qeKn) |
@@ -90,7 +90,7 @@ mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_
 | FerriteCore | 7.0.3-neoforge | [Exact version](https://modrinth.com/mod/ferrite-core/version/x7kQWVju) |
 | Forgified Fabric API | 0.116.15+2.3.6+1.21.1 | [Exact version](https://modrinth.com/mod/forgified-fabric-api/version/C4eskNuR) |
 | Fresh Animations | 1.11.1 | [Exact version](https://modrinth.com/resourcepack/fresh-animations/version/aQjwvDfY) |
-| Fresh Animations: Details | 2.2.1 | [Exact version](https://modrinth.com/version/tGydmcT3) |
+| Fresh Animations: Details | 2.4.0 | [Exact version](https://modrinth.com/version/XM8VyQLk) |
 | Fresh Animations: Objects | 2.1.2 | [Exact version](https://modrinth.com/version/AIGgXNdl) |
 | Fresh Flower Pots | 1.5.4 | [Exact version](https://modrinth.com/version/YEM2pUsf) |
 | Fusion (Connected Textures) | 1.3.16-neoforge-mc1.21.1 | [Exact version](https://modrinth.com/mod/fusion-connected-textures/version/AYDaLPK8) |
@@ -105,7 +105,7 @@ mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_
 | Jade Addons (Neo/Forge) | 6.1.2+neoforge | [Exact version](https://modrinth.com/mod/jade-addons-forge/version/O3F6Dkle) |
 | Jade Sable Compat | 1.3.0 | [Exact version](https://modrinth.com/mod/jade-sable-compat/version/cxUohR7A) |
 | Jade 🔍 | 15.10.6+neoforge | [Exact version](https://modrinth.com/mod/jade/version/eYz2YBGT) |
-| Just Enough Items (JEI) | 19.70.0.464 | [Exact version](https://modrinth.com/mod/jei/version/ufAsQKnC) |
+| Just Enough Items (JEI) | 19.70.0.468 | [Exact version](https://modrinth.com/mod/jei/version/j41QZiGx) |
 | Kotlin for Forge | 5.12.0 | [Exact version](https://modrinth.com/mod/kotlin-for-forge/version/uhJhCT7X) |
 | LambDynamicLights | 4.8.11+1.21.1 | [Exact version](https://modrinth.com/mod/lambdynamiclights/version/ksaGCvSu) |
 | Linear Bearing | 1.3.5 | [Exact version](https://modrinth.com/mod/linear-bearing/version/8SJdnoXS) |
@@ -133,14 +133,14 @@ mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_
 | Polymorph | 1.2.0+1.21.1 | [Exact version](https://modrinth.com/mod/polymorph/version/9yWvrF5o) |
 | Ponder | 1.0.87+mc1.21.1 | [Exact artifact](https://maven.createmod.net/net/createmod/ponder/ponder-neoforge/1.0.87+mc1.21.1/ponder-neoforge-1.0.87+mc1.21.1.jar) |
 | Puzzles Lib | 21.1.65 | [Exact version](https://modrinth.com/mod/puzzles-lib/version/kiX1lfse) |
-| Questlog | 3.5.0-1.21.1-neoforge | [Exact version](https://modrinth.com/mod/questlog/version/Pykla7tJ) |
+| Questlog | 3.5.3-1.21.1-neoforge | [Exact version](https://modrinth.com/mod/questlog/version/qnCcrOl2) |
 | RAY's 3D Ladders | 2.4 | [Exact version](https://modrinth.com/version/lfVriRcD) |
 | RAY's 3D Rails | 3.6 | [Exact version](https://modrinth.com/version/vTaYwBqs) |
 | Rechiseled | 1.2.6-neoforge-mc1.21 | [Exact version](https://modrinth.com/mod/rechiseled/version/6muGRqvu) |
 | Rechiseled: Create | 1.1.1-neoforge-mc1.21 | [Exact version](https://modrinth.com/mod/rechiseled-create/version/VnOezhJR) |
 | Redden's Stone Lanterns | 1.0.4 | [Exact version](https://modrinth.com/mod/reddens-stone-lanterns/version/uehlsDrT) |
 | Redstone Tweaks | 2.4.5 | [Exact version](https://modrinth.com/resourcepack/redstone-tweaks/version/acYT0fGm) |
-| Reliable EMI (REMI) | 4.8.0-1.21.1-neoforge | [Exact version](https://modrinth.com/mod/reliable-emi/version/aMKmQMTe) |
+| Reliable EMI (REMI) | 4.8.1-1.21.1-neoforge | [Exact version](https://modrinth.com/mod/reliable-emi/version/pnPjAfuO) |
 | Reliable Gliders | 2.0.0+1.21.1-neoforge | [Exact version](https://modrinth.com/mod/reliable-gliders/version/aOgcvBAo) |
 | Ritchie's Projectile Library | 2.1.2 | [Exact version](https://modrinth.com/mod/rpl/version/hZ6B2Z0x) |
 | Sable | 2.0.6+mc1.21.1 | [Exact version](https://modrinth.com/mod/sable/version/fg9dTRz9) |

@@ -263,7 +263,7 @@ bindings:
           layer: client
   create-sky-compat:
     placement:
-    - destination: mods/create-sky-compat-0.10.1-mc1.21.1-neoforge.jar
+    - destination: mods/create-sky-compat-0.10.2-mc1.21.1-neoforge.jar
       environment:
         client: required
         server: required
@@ -275,6 +275,15 @@ bindings:
         client: required
         server: required
       layer: common
+  jei:
+    placement:
+      files:
+        jei-1.21.1-neoforge-19.70.0.468.jar:
+        - destination: mods/jei-1.21.1-neoforge-19.70.0.468.jar
+          environment:
+            client: required
+            server: required
+          layer: common
 
 policies:
   config/bluemap/core.conf: seed

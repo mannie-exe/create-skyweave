@@ -44,6 +44,25 @@ old stabilization claim. Guidance does not add another drive or progression gate
 The mod's [machinery reference](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/linear-bearing.md#ponder-and-jade)
 owns registration, optional loading and update procedures.
 
+## Dependency update constraints
+
+Minecraft remains 1.21.1. Sky Archipelago 1.4 changes core generation and explicitly
+warns that 1.3.6 worlds may be incompatible; retain 1.3.6 and Compat's matching
+terrain hooks for existing saves. This is a separate migration review.
+
+Questlog 3.5.3 uses Compat 0.10.2's reviewed journal gate. Radars 5.0.3 replaces
+six old jammer thresholds/scales with full-power RPM and directional/severe onset
+fractions; native config correction retained every other pack value. JEI and
+Reliable EMI update together with existing MezzConfig, EMI and YACL versions.
+The two AK recipes and journal requirements/rewards remain unchanged.
+
+Empack's provider graph declares an exact older JEI through Aeronautics Covers,
+although Covers' native JAR declares JEI optional with an unrestricted version.
+Updating both logical keys selected the old catalog reference. Explicitly adding
+the checksummed new JEI JAR with provider identification and Covers in one forced
+batch retained Covers and selected the intended JEI. Restore exact author pins
+and materialize before building; review joint selections for unintended downgrades.
+
 ## Rain audio
 
 Cool Rain Reforged 1.0.2 and Sable Cool Rain 1.0.1 are client-only. They add
@@ -602,7 +621,7 @@ machinery and track samples do not establish working contraptions.
 | Macaw lanterns | Bell, covered, cross and festive standing/hanging variants use fitted artwork. Bridge and stair lanterns use the detailed template within their original mounting envelope. The bridge must be directly below the lantern; its state selects the elevation. Native shader-off/on views cover representative variants. Wall variants retain their brackets with fitted lantern bodies. |
 | Create and Deco bars | Texture-mask extrusion covers all three Create families and Deco's andesite, brass, copper, industrial iron, iron and zinc model families, including overlays. Native posts, ends, corners, crossings and three-block stacks were reviewed. Deco overlays are connected bars with additional panels, not wall decals. Connection blockstates remain upstream-owned. |
 | Cage lamps and frontlights | Deco's cage surfaces have depth while its base, light and material/color bindings remain intact. Eight DnD hood templates retain their bodies, texture bindings, rotation, lit and no-base variants. Representative straight/rotated and powered/unpowered views passed with shaders on and off. |
-| Mooshrooms | Details 2.2.1 refers to the removed `mooshroom_animations.jpm` in FA 1.11.1. The adapter retains adult/baby geometry, uses the current shared cow rig and replaces obsolete ear/tail expressions. Red/brown adults and babies render; a retained clip shows idle motion. Stationary fixture specimens also require `OnGround:1b`. Other Details rigs with missing references remain outside this fix. |
+| Mooshrooms | Details 2.4 uses the current shared cow rig; no pack rig replacement remains. The isolated updated client rendered adult/baby mooshrooms and a sleeping villager with visible feet. Stationary fixture specimens still need `OnGround:1b`. Rare random variants, every animation state and all equipped models remain untested. |
 | Aquatic plants and pitcher plant | The selected stack, including active overlays, supplies no replacement geometry for lily pads, kelp, seagrass or pitcher growth stages. Their flat surfaces are missing coverage, not a priority failure. No new plant pack was added. |
 | Barrels | Fresh Objects 2.1.2 supplies no barrel CEM model. A barrel changes its block-state model/texture when opened; it has no chest-style lid renderer. An open-state model can change the silhouette, but smooth lid motion would require a renderer and transition state. |
 | Lootr chests | The [adapter](patches.md#lootr-and-fresh-objects) supplies the exact `lootr_lootr_chest` and `lootr_lootr_trapped_chest` model names requested by EMF, with literal body/latch bindings and an isolated animation resource. Native opening/closing, body motion, generated loot, state textures and neighboring-chest independence passed locally. Lootr continues to select its own materials; `vanilla_textures` stays disabled. |

@@ -23,6 +23,16 @@ selected current source files. No issue, comment or PR was published. The entrie
   closed 2026-10-20. Current main has singular loot_table/blocks/platinum_casing.json.
   https://github.com/Propulsion-Team/create-propulsion-simulated/issues/98
 
+## Provider assessment limits
+
+The 2026-10-31 empack assessment could not complete Fresh Animations because an
+upstream version record was rejected as invalid/unsupported. Retain its reviewed
+1.11.1 archive; this is incomplete catalog evidence, not proof that it is current.
+JEI/Covers also required an explicit provider-identified file batch: Covers'
+catalog edge points to an older exact JEI while its native dependency is optional
+and unrestricted. The selected current JEI/EMI pair rendered AK's hinge recipe in
+the isolated updated client. No empack or provider issue was submitted.
+
 ## New-report candidates
 
 - Linear Bearing 1.3.5 includes an undiscovered Ponder service declaration and an

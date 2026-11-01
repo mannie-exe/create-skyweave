@@ -74,10 +74,10 @@
       "url": "https://cdn.modrinth.com/data/50dA9Sha/versions/aQjwvDfY/FreshAnimations_v1.11.1_1.20%2B.zip"
     },
     "fresh-animations-details": {
-      "version": "tGydmcT3",
-      "path": "pack/resourcepacks/FA+Details-v2.2.1.zip",
-      "sha512": "f5f84645c2665e772d6db80a201e7dda0feb570a82445b72e7012665b6df238357a8b62e6d2655a43146fd309c36125ed18d9512ee924f89587ef627c6f3c753",
-      "url": "https://cdn.modrinth.com/data/lctgpCsu/versions/tGydmcT3/FA%2BDetails-v2.2.1.zip"
+      "version": "XM8VyQLk",
+      "path": "pack/resourcepacks/FA+Details-v2.4.zip",
+      "sha512": "d8a6c2e0ac272e2f4773ed962301ece0cda73136d89a9788eff4dae74979471d29b7dee4073e8169644c4c2017f7b3286dab538171f9e8e2c19e708aa7df8d3d",
+      "url": "https://cdn.modrinth.com/data/lctgpCsu/versions/XM8VyQLk/FA%2BDetails-v2.4.zip"
     },
     "minecraft": {
       "version": "1.21.1",
@@ -87,8 +87,7 @@
     }
   },
   "compatibility": {
-    "lootr_fresh_objects": true,
-    "fresh_details_rigs": true
+    "lootr_fresh_objects": true
   },
   "credits": [
     "Fresh Flower Pots — BlueHDGaming: https://modrinth.com/resourcepack/fresh-flower-pots",
