@@ -99,7 +99,11 @@ Publish and verify Compat before updating its URL and digest pins in `empack.yml
 Use empack to regenerate bindings and the lock; inspect exports for duplicate or
 obsolete JARs. `overrides/common/config/create_sky_compat-features.properties`
 explicitly selects the pack's adaptations. Unknown feature keys fail startup, so
-review this file whenever removing or renaming upstreamed adapters.
+review this file whenever removing or renaming upstreamed adapters. The local
+configuration sidebar edits this same file for next startup; existing keys and
+omitted defaults remain authoritative. Review Compat’s
+[editor maintenance](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/configuration.md)
+when updating its configuration facilities.
 
 Remove retired dependencies with `empack remove`, then inspect the lock and exports.
 Deleting an intent entry and running `sync` can retain its previous selection.

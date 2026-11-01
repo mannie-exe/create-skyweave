@@ -556,3 +556,15 @@ IDs, objectives and rewards are unchanged.
 production build. Only authored data and documentation changed; existing
 components and interactions were retained, so browser interaction tests were
 not repeated. The existing large-chunk build warning remains.
+
+## Configuration release refresh, 2026-11-01
+
+The materialized 0.1.28 selection uses published Compat 0.13.0, SHA-256
+`a9d575964ae2eacc695119537aa26410d84632308171681875ea4bb8e100d92e`.
+`pnpm data:refresh` and `pnpm data:check` pass with 10,103 items, 9,232 recipes
+and 75 journal entries. The source/lock metadata was regenerated without
+recapturing world or ore evidence. No gameplay or journal source changed.
+
+`pnpm test` passes all 79 JavaScript tests; `pnpm build` passes Astro checking
+and the production build. UI source was unchanged, so browser interaction
+checks were not repeated. The existing large-chunk build warning remains.

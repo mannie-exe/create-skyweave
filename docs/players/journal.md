@@ -43,3 +43,8 @@ repair materials are unchanged: obtain phantom membranes through normal play.
 Objective rows use short labels. Read the main description for full item names,
 counts and conditions. Descriptions and objective rows wrap and scroll; compact mode does not restore
 the old truncated rows.
+
+Use the Settings bookmark for item images, condition symbols and notifications.
+The same preferences are available from Mods → Create Sky Compat → Config →
+Client → Questlog. These apply immediately. Startup fixes in that screen require
+Save changes and a game restart; they do not configure a connected server.
