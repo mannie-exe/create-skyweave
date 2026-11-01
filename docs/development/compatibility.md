@@ -99,7 +99,11 @@ The Atlas recaptured the complete materialized server selection and decoded all
 70 entries. Its [verification](web/verification.md#materialized-pack-inputs-2026-10-31)
 owns snapshot counts and app checks. This does not establish every quest operation
 or a survival playthrough. The mod's native fixtures provide the separate carriage,
-transmission and gyro evidence linked above.
+transmission and gyro evidence linked above. Local client/server installation
+used downloaded, checksum-verified release archives. Both subsequent preparation
+checks reported zero changes. Stopped-world/client-save/LOD metadata and protected
+settings matched before restart; the existing server then reached its normal ready
+state with the three machinery adapters active. BlueMap returned HTTP 200.
 
 ## Pack verification, 0.1.23
 

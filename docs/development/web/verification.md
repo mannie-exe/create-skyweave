@@ -6,9 +6,9 @@ separate owners and limits. Commands and prerequisites live in [setup](setup.md)
 
 ## Materialized pack inputs, 2026-10-31
 
-The 0.1.24 capture used all 104 server-side JARs from the materialized pack,
-including published Compat 0.9.0, Linear Bearing 1.3.5, its companion fix and the
-maintained resource JAR. Client-only lighting and renderer/audio additions were
+The 0.1.24 capture used all 103 selected server-side pack JARs plus the exporter.
+These include published Compat 0.9.0, Linear Bearing 1.3.5, its companion fix and
+the maintained resource JAR. Client-only lighting and renderer/audio additions were
 excluded. The native server exported 70 journal entries and 9,219 recipes with
 zero exporter errors, then shut down normally. The snapshot records `modSource:
 pack`, the lock hash and `sourceChangedDuringExport: false`; extraction and
