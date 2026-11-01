@@ -25,8 +25,11 @@ flowchart TD
 [`scripts/runtime.py`](../../../web/scripts/runtime.py) compiles
 [`AtlasExporter.java`](../../../web/tools/exporter/AtlasExporter.java) against the installed
 server libraries, then boots a disposable NeoForge server under `.cache/audit-server`.
-It uses the installed server's mod set and checked maintained resource JARs.
-Config is copied from the server and common overrides; existing-world
+By default it uses the complete materialized server selection from `empack.lock`,
+plus checked maintained resource JARs. `scripts/runtime-inputs.mjs` verifies every
+selected JAR's locked size and digests before capture; missing or modified files
+fail instead of falling back to installed copies. Client-only dependencies are excluded.
+Config is copied from the server and common/server overrides; existing-world
 `serverconfig` is copied as configuration only. Live chunks, player data and LODs
 are never mounted. Java libraries and mod JARs are symlinked as read-only inputs
 by convention; this is process isolation, not an operating-system sandbox.
@@ -40,7 +43,7 @@ webserver, asset downloads and metrics are disabled. `complete.json` marks a
 finished export; `scripts/runtime_capture.py` accepts it only after clean process
 exit and rejects fatal shutdown diagnostics even with exit code zero. Failed or
 timed-out runs remove the marker. `snapshot.json` records loaded JAR hashes, the
-pack-lock hash and input fingerprint after that check. Investigate a failed capture
+pack-lock hash, mod source (`pack` or `installed`) and input fingerprint after that check. Investigate a failed capture
 before compiling its output.
 
 The adapter is specific to this pack and Minecraft 1.21.1 / NeoForge. Adding a mod
@@ -68,12 +71,18 @@ Its weighted loot outcomes and world-survey estimates are unrelated to physics.
 Use the [building-weight guide](../weights.md) for that policy and its native
 checks. Do not infer ship weight from item or recipe records.
 
-After updating the installed dependency set, refresh the runtime snapshot and
+After materializing the selected pack dependencies, refresh the runtime snapshot and
 extraction, compile, then run `pnpm data:check`. Confirm the loaded JAR hashes in
 `runtime/snapshot.json`; a newer pack lock or Compat source checkout is not
 evidence that the exporter loaded it. Keep an older capture's provenance and
 stale indication until its inputs can be refreshed. Runtime refresh does not
 replace the separately dated world, island or structure surveys.
+
+Use `python3 scripts/runtime.py --installed-mods` only for an explicit comparison
+with the configured installation. Both modes use the locked NeoForge libraries
+and maintained resource overrides; neither installs mods into a playing instance.
+The compiler puts the patched NeoForge game JAR before raw Minecraft libraries
+so installer cache order cannot shadow the game's patched API.
 
 ## Textures and names
 

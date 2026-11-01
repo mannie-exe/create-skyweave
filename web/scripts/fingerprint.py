@@ -1,10 +1,16 @@
 """Cheap change detector. Runtime exports separately hash every loaded JAR."""
 import hashlib, json
-from paths import paths
+from paths import ROOT, paths
 
-def fingerprint():
+def fingerprint(mod_source=None):
     p=paths();files={}
-    for base in [p['server']/'mods',p['server']/'config',p['server']/'defaultconfigs',p['server']/'world/serverconfig',p['pack']/'overrides/common/config',p['pack']/'overrides/common/mods',p['server']/'world/datapacks']:
+    if mod_source is None:
+        snapshot = ROOT / 'data/generated/runtime/snapshot.json'
+        mod_source = json.loads(snapshot.read_text()).get('modSource', 'installed') if snapshot.exists() else 'installed'
+    if mod_source not in {'pack', 'installed'}: raise ValueError('Unknown runtime mod source')
+    sources = [p['server']/'mods'] if mod_source == 'installed' else [p['pack']/'pack/mods',p['pack']/'overrides/server/mods']
+    authored = [p['pack']/'overrides'/layer/folder for layer in ['common', 'server'] for folder in ['config', 'defaultconfigs']]
+    for base in [*sources,p['server']/'config',p['server']/'defaultconfigs',p['server']/'world/serverconfig',*authored,p['pack']/'overrides/common/mods',p['server']/'world/datapacks']:
         if base.exists():
             for file in sorted(base.rglob('*')):
                 if file.is_file() and file.suffix in ('.jar','.json','.toml','.properties'):

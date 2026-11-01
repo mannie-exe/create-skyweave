@@ -57,10 +57,13 @@ For example, a non-Prism installation can override just the client JAR:
 }
 ```
 
-Keep installed server selections aligned with the pack before capturing additions
-or removals. The exporter uses that complete dependency set and checks the
-maintained resource JAR before capture; it does not select newer authoring JARs
-one by one. Build maintained resources using the pack's own build guide.
+Run `empack sync --materialize --yes` in the pack directory before capturing
+additions or removals. The exporter uses the complete locked server selection
+from the pack, verifies its bytes, and checks maintained resource JARs before
+capture. The configured server supplies the locked NeoForge libraries, accepted
+EULA and copied configuration; its installed mod set need not be synchronized.
+Use `python3 scripts/runtime.py --installed-mods` for an explicit comparison with
+that installed set. Build maintained resources using the pack's own build guide.
 The map does not install Minecraft, accept its EULA or synchronize play instances.
 
 ## First capture and refresh

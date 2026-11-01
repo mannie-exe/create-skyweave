@@ -4,6 +4,24 @@ Checks apply to the recorded source or artifact, not every later checkout. Brows
 checks establish interface behavior; native game checks and survey evidence have
 separate owners and limits. Commands and prerequisites live in [setup](setup.md).
 
+## Materialized pack inputs, 2026-10-31
+
+The 0.1.23 capture used all 102 server-side JARs from the materialized pack,
+including Compat 0.8.0 and the maintained fixes resource JAR. Linear Bearing,
+its companion, Camping and client-only renderer/audio additions were absent.
+The native server exported 66 journal entries and 9,209 recipes with zero exporter
+errors, then shut down normally. Its snapshot records `modSource: pack`, the lock
+hash and `sourceChangedDuringExport: false`; extraction and compilation completed.
+`pnpm data:check` passed, including native journal definitions and reward checks.
+The saved-world survey was not regenerated because terrain settings did not change.
+
+`pnpm verify` passes 79 JavaScript tests, Astro checks and eight page builds;
+`pnpm test:python` passes 27 tests. Cases cover side/default participation,
+missing or modified bytes, duplicate/traversing destinations, source-specific
+fingerprints and authored server/default configuration changes. Compilation uses
+the patched NeoForge game JAR before raw cached Minecraft classes. These checks
+establish capture/input behavior, not backpack gameplay or rain-audio quality.
+
 ## Journal presentation facts, 2026-10-31
 
 For Create Sky 0.1.22, the source configuration and resource-pack notes reflect
