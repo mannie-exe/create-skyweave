@@ -150,3 +150,9 @@ client and server config values differ; they are installation-specific.
 Avoid clearing caches as a first step. It removes usable LODs and forces another
 transfer or rebuild. If terrain is wrong rather than missing, first check the
 world generator and [SeedGen compatibility](../development/compatibility.md#world-generation).
+
+## Shader reload shortcut
+
+F8 reloads the selected shader. R remains available for recipe lookup and
+Power Grid interactions. Existing installations retain their other key choices;
+check Controls if you have assigned F8 yourself.

@@ -1,0 +1,5 @@
+{
+  "block.linearbearing.linear_moving": "Linear Carriage",
+  "advancement.linearbearing.gyro_gearbox.title": "Angular velocity",
+  "advancement.linearbearing.gyro_gearbox.description": "Fit a gyroscopic mechanism to a brass casing to obtain an angular-rate sensor"
+}

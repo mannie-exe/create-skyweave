@@ -6,22 +6,15 @@ separate owners and limits. Commands and prerequisites live in [setup](setup.md)
 
 ## Materialized pack inputs, 2026-10-31
 
-The 0.1.24 capture used all 103 selected server-side pack JARs plus the exporter.
-These include published Compat 0.9.0, Linear Bearing 1.3.5, its companion fix and
-the maintained resource JAR. Client-only lighting and renderer/audio additions were
-excluded. The native server exported 70 journal entries and 9,219 recipes with
-zero exporter errors, then shut down normally. The snapshot records `modSource:
-pack`, the lock hash and `sourceChangedDuringExport: false`; extraction and
-compilation completed with 10,086 items. `pnpm data:check` passed, including native
-journal definitions and reward checks. The saved-world survey was not regenerated
-because terrain settings did not change.
-
-`pnpm verify` passes 79 JavaScript tests, Astro checks and eight page builds.
-Existing Python input/exporter checks remain unchanged. Capture checks establish
-registered data, source integrity and snapshot consistency; they do not prove
-survival balance or machine operations. The
-[Compat verification](https://github.com/mannie-exe/create-sky-compat/blob/v0.9.0/docs/development/verification.md#release-090)
-owns the separate native mechanics and client observations.
+The 0.1.25 capture used all 104 selected server-side pack JARs plus the exporter,
+including published Compat 0.10.1 and Absolute Kinematics 1.0.1. The native server
+exported 72 journal entries and 9,221 recipes with zero exporter errors, then shut
+down normally. All native objective, fixed-reward and repeated-claim checks passed.
+The snapshot records `modSource: pack`, the lock hash and
+`sourceChangedDuringExport: false`; extraction and compilation completed with
+10,088 items. `pnpm data:check` and `pnpm verify` passed (79 tests, Astro checks and
+eight page builds). The existing bundle-size warning remains. The saved-world and
+ore survey was retained: this update changes machinery and guidance, not generation.
 
 ## Journal presentation facts, 2026-10-31
 

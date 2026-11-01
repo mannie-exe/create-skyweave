@@ -28,3 +28,21 @@ notes:
     text: Automatic raids are disabled in this pack. Captain orders therefore lack a normal enabled spawn route; manual administrator-triggered raids remain available for testing. This is an intentional setting constraint, not a reason to enable random player-targeted raids.
     status: intentional-access-limit
     sources: ['hostile_skies-common.toml', 'data/authored/mobs.yml']
+  absolute_kinematics:hinge:
+    text: Driven 180-degree joint with a separate through shaft. The native recipe uses a wooden slab, gearbox and industrial iron block. The Workshop journal checks acquisition; assembly, 16-RPM side drive, its stop and recovery were checked separately in a native fixture.
+    status: runtime-checked
+    sources:
+      [
+        'absolute_kinematics:hinge',
+        'docs/development/progression.md',
+        'Absolute Kinematics 1.0.1 native fixture',
+      ]
+  absolute_kinematics:ball_joint:
+    text: Passive joint with shaft passthrough and configurable redstone locking. The native recipe uses a wooden slab, brass ingot and industrial iron block. It adds articulation rather than a powered linear actuator. Native assembly, redstone lock/release and recovery passed; complete articulated aircraft remain untested.
+    status: runtime-checked
+    sources:
+      [
+        'absolute_kinematics:ball_joint',
+        'docs/development/progression.md',
+        'Absolute Kinematics 1.0.1 native fixture',
+      ]

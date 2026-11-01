@@ -70,7 +70,7 @@ records:
   - id: guidance/journal
     title: Questlog journal
     evidence: runtime
-    detail: Questlog 3.5.0 has 64 entries in nine chapters; nineteen offer small fixed supplies. Inventory, block-interaction and advancement objectives remain native. Compat 0.7.0 adds wrapped conditions, reward previews, grouped local settings, first-progress/completion notices and server claim validation. All chapters are available immediately; completion does not prove a working airship, production line or delivery service.
+    detail: The bookless journal uses native inventory, block-interaction and advancement objectives with selected fixed setup rewards. Compat adds wrapped conditions, reward previews, grouped local settings, first-progress/completion notices and server claim validation. All chapters are available immediately; completion does not prove a working airship, production line or delivery service. Current entries and reward counts come from the runtime journal snapshot.
     sources:
       - runtime/journal.json
       - overrides/common/config/questlog

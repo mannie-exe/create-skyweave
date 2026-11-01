@@ -263,7 +263,14 @@ bindings:
           layer: client
   create-sky-compat:
     placement:
-    - destination: mods/create-sky-compat-0.9.0-mc1.21.1-neoforge.jar
+    - destination: mods/create-sky-compat-0.10.1-mc1.21.1-neoforge.jar
+      environment:
+        client: required
+        server: required
+      layer: common
+  absolute_kinematics-1.0.1:
+    placement:
+    - destination: mods/absolute_kinematics-1.0.1.jar
       environment:
         client: required
         server: required
@@ -347,10 +354,12 @@ policies:
   config/questlog/quests/travel/membranes.json: managed
   config/questlog/quests/travel/winch.json: managed
   config/questlog/quests/workshop/alloy.json: managed
+  config/questlog/quests/workshop/ball_joint.json: managed
   config/questlog/quests/workshop/brass.json: managed
   config/questlog/quests/workshop/fan.json: managed
   config/questlog/quests/workshop/fan_processing.json: managed
   config/questlog/quests/workshop/heat.json: managed
+  config/questlog/quests/workshop/hinged_motion.json: managed
   config/questlog/quests/workshop/linear_guide.json: managed
   config/questlog/quests/workshop/millstone.json: managed
   config/questlog/quests/workshop/mix.json: managed

@@ -933,7 +933,8 @@
       "requirements": "Obtain 1 linear bearing and 4 linear casings at once.",
       "description": [
         "A linear bearing assembles a moving carriage above its face. Matching casings form a passive guide; use a real mechanical arrangement or gravity to move the payload.",
-        "Power on the moving carriage engages its brake. With the brake engaged and the payload aligned, use the casing with an empty hand to recover the bearing; its destination must be clear. These supplies do not prove that a working guide was built."
+        "Power on the moving carriage engages its brake. With the brake engaged and the payload aligned, use the casing with an empty hand to recover the bearing; its destination must be clear. These supplies do not prove that a working guide was built.",
+        "Ponder demonstrates assembly, braking and recovery. The tutorial illustrates the arrangement; the guide itself still needs an external force to move."
       ],
       "disclaimer": "inventory",
       "labels": {
@@ -980,6 +981,32 @@
       "labels": {
         "0": "1 gyroscopic gearbox",
         "1": "1 RPM converter"
+      }
+    },
+    "workshop/hinged_motion": {
+      "title": "Hinged motion",
+      "flavor": "",
+      "requirements": "Obtain 1 Hinge.",
+      "description": [
+        "A Hinge joins a simulated payload to a base and rotates it through a limited arc. Its side shaft drives the joint through 90 degrees in either direction; the through shaft carries rotation into the attached mechanism.",
+        "Use glue to keep the intended payload connected and leave clearance for its full swing. Redstone unlocks the hinge by default, allowing it to move freely; the value panel changes this behavior. Holding the equipment does not demonstrate a working joint."
+      ],
+      "disclaimer": "inventory",
+      "labels": {
+        "0": "1 hinge"
+      }
+    },
+    "workshop/ball_joint": {
+      "title": "Ball joint",
+      "flavor": "",
+      "requirements": "Obtain 1 Ball Joint.",
+      "description": [
+        "A Ball Joint lets an attached simulated payload rotate about several axes. It permits 180 degrees of movement on the X and Z axes, while its shaft can pass rotation through to machinery on the payload.",
+        "The joint has no direct rotational drive. Gravity or another force moves the payload; redstone locks the joint by default, and the value panel changes the locking behavior. Use Ponder to review assembly, locking and shaft connections."
+      ],
+      "disclaimer": "inventory",
+      "labels": {
+        "0": "1 ball joint"
       }
     }
   }

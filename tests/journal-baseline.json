@@ -1,5 +1,5 @@
 {
-  "revision": "Linear Bearing equipment routes; Traveler mechanics retained",
-  "nativeFiles": 79,
-  "mechanicsSha256": "dfdd96509ba05596177943aa1e0b08aa126bfea18551125e1f647a87225a9e9e"
+  "revision": "Absolute Kinematics hinge and ball-joint equipment; existing mechanics retained",
+  "nativeFiles": 81,
+  "mechanicsSha256": "b67e03f1cec0eacedd396dadd862b26539de5d2d19d0deed14b5f1209c4fe8e2"
 }

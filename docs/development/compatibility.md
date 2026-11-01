@@ -26,6 +26,24 @@ coupling controls, overload and source removal. An isolated client also exercise
 assembly, braking, recovery and reopening. Old upstream injected-source network
 saves and arbitrary foreign assembly exceptions remain outside that evidence.
 
+## Articulated joints and machinery guidance
+
+Absolute Kinematics 1.0.1 adds hinges and ball joints on both sides. Its exact
+CurseForge CDN URL is digest-pinned because a CurseForge API key is not configured;
+its JAR metadata omits Create, Sable and Simulated requirements. Keep the pack's
+reviewed Create 6.0.10, Sable 2.0.6 and Aeronautics/Simulated 1.3.2 selections together.
+The native fixture used real empty-hand interaction assembly, a 16-RPM side-shaft
+hinge drive reaching its 90-degree stop, ball-joint lock/release and recovery of
+both stone payloads. Both joints retain their native mass of 1.0. No recipe or
+weight adjustment was justified. Large articulated craft remain a play check.
+
+Compat's `linear_bearing.ponder` and `linear_bearing.jade` switches add machinery
+tutorials and server-backed inspection. The shared fixes resource supplies English
+names for internal carriage blocks and corrects the gyro acquisition advancement's
+old stabilization claim. Guidance does not add another drive or progression gate.
+The mod's [machinery reference](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/linear-bearing.md#ponder-and-jade)
+owns registration, optional loading and update procedures.
+
 ## Rain audio
 
 Cool Rain Reforged 1.0.2 and Sable Cool Rain 1.0.1 are client-only. They add

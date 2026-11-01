@@ -52,9 +52,13 @@ rotational energy conversion cover a broader role than a guide rail; it is not
 a direct replacement merely because both move structures. Review extension,
 return force and damping as control choices before adding journal routes.
 [Absolute Kinematics](https://www.curseforge.com/minecraft/mc-mods/absolute-kinematics)
-is also uninstalled: its driven hinges and free ball joints are a smaller option
-for articulated structures, with some overlap with the larger linkage mod.
-These role comparisons come from release/source inspection, not pack gameplay.
+1.0.1 adds a shaft-driven 180-degree hinge and a passive ball joint. Both pass
+rotation into attached machinery. Their two recipes retain native wooden slabs,
+industrial iron blocks and a gearbox or brass ingot. No new compulsory tier or
+recipe gate is introduced; the journal distinguishes equipment from working joints.
+Native fixtures verified interaction assembly, a real 16-RPM hinge drive reaching
+its 90-degree stop, ball-joint redstone lock/release, and payload recovery.
+Large articulated aircraft and long-term constraint behavior remain play checks.
 
 ## Equipment maintenance
 

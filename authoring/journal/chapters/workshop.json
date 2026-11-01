@@ -334,6 +334,58 @@
         "completed_text_color": "#356b52",
         "progress_text_color": "#435b68"
       }
+    },
+    {
+      "id": "hinged_motion",
+      "definition": {
+        "chapter": "questlog:workshop",
+        "sort_order": 115,
+        "icon": {
+          "item": "absolute_kinematics:hinge"
+        },
+        "requirements": [],
+        "objectives": [
+          {
+            "type": "questlog:item_obtain",
+            "item": "absolute_kinematics:hinge",
+            "required_amount": 1
+          }
+        ],
+        "rewards": [
+          {
+            "type": "questlog:item",
+            "item": "create:shaft",
+            "count": 2
+          }
+        ],
+        "text_color": "#273238",
+        "title_color": "#18242b",
+        "completed_text_color": "#356b52",
+        "progress_text_color": "#435b68"
+      }
+    },
+    {
+      "id": "ball_joint",
+      "definition": {
+        "chapter": "questlog:workshop",
+        "sort_order": 120,
+        "icon": {
+          "item": "absolute_kinematics:ball_joint"
+        },
+        "requirements": [],
+        "objectives": [
+          {
+            "type": "questlog:item_obtain",
+            "item": "absolute_kinematics:ball_joint",
+            "required_amount": 1
+          }
+        ],
+        "rewards": [],
+        "text_color": "#273238",
+        "title_color": "#18242b",
+        "completed_text_color": "#356b52",
+        "progress_text_color": "#435b68"
+      }
     }
   ]
 }

@@ -24,6 +24,20 @@ selected current source files. No issue, comment or PR was published. The entrie
   https://github.com/Propulsion-Team/create-propulsion-simulated/issues/98
 
 ## New-report candidates
+
+- Linear Bearing 1.3.5 includes an undiscovered Ponder service declaration and an
+  Item/Object-array call against Ponder's ResourceLocation-array registration API.
+  Its lone scene describes kinetic-driven movement, while the installed mechanism
+  is a passive guide. Compat provides independently registered guidance. English
+  internal-carriage names are also missing; the pack's resource fixes supply them.
+  These findings come from exact released JARs and native client checks on
+  2026-10-31; no report has been submitted.
+- Absolute Kinematics 1.0.1 declares Minecraft/NeoForge requirements but omits its
+  runtime Create/Sable/Simulated requirements. The pack explicitly supplies the
+  reviewed combination. Both joint assemblies, a driven hinge, ball lock/release,
+  and payload recovery passed; omission of metadata is not evidence of a broken
+  mechanism. Source: [upstream repository](https://github.com/RCXcrafter/Absolute-Kinematics).
+
 - Aero Cables 0.4.0: condition ae_cable, rs_cable and cc_cable recipes on ae2,
   refinedstorage and computercraft respectively. Installed runtime produced
   recipe errors without those optional mods. The pack's three conditions remove them.

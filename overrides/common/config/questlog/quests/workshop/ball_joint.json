@@ -1,0 +1,32 @@
+{
+  "include_in_main": false,
+  "toast_on_unlock": false,
+  "toast_on_complete": true,
+  "show_popup_on_unlock": false,
+  "details_open_by_default": true,
+  "chapter": "questlog:workshop",
+  "sort_order": 120,
+  "icon": {
+    "item": "absolute_kinematics:ball_joint"
+  },
+  "requirements": [],
+  "objectives": [
+    {
+      "type": "questlog:item_obtain",
+      "item": "absolute_kinematics:ball_joint",
+      "required_amount": 1,
+      "name": "createsky.journal.workshop.ball_joint.objective.0",
+      "translatable": true
+    }
+  ],
+  "rewards": [],
+  "text_color": "#273238",
+  "title_color": "#18242b",
+  "completed_text_color": "#356b52",
+  "progress_text_color": "#435b68",
+  "title": "createsky.journal.workshop.ball_joint.title",
+  "translatable": true,
+  "description": {
+    "translate": "createsky.journal.workshop.ball_joint.description"
+  }
+}

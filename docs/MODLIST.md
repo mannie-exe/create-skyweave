@@ -10,6 +10,7 @@ mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_
 | 3D Sugar Cane | 2.0 | [Exact version](https://modrinth.com/resourcepack/3d-sugar-cane/version/sU6FmyoH) |
 | [EMF] Entity Model Features | 3.3.12-neoforge-1.21 | [Exact version](https://modrinth.com/mod/entity-model-features/version/197m3VoU) |
 | [ETF] Entity Texture Features | 7.2.6-neoforge-1.21 | [Exact version](https://modrinth.com/mod/entitytexturefeatures/version/lwNx1nD1) |
+| Absolute Kinematics | 1.0.1 | [CurseForge file](https://www.curseforge.com/minecraft/mc-mods/absolute-kinematics/files/8511680) |
 | Accessories Compatibility Layer | 0.1.13 | [Exact version](https://modrinth.com/mod/accessories-compat-layer/version/UB8bxpVn) |
 | Accessories | 1.1.0-beta.54+1.21.1 | [Exact version](https://modrinth.com/mod/accessories/version/dy9BbDEy) |
 | Aeronautics Delivery Quests | 1.1.1 | [Exact version](https://modrinth.com/mod/aeronautics-delivery-quests/version/GBzcF6Il) |
@@ -38,7 +39,7 @@ mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_
 | Controlling | 19.0.5 | [Exact version](https://modrinth.com/mod/controlling/version/FaNppCJJ) |
 | Cool Rain Reforged | 1.0.2 | [Exact version](https://modrinth.com/mod/cool-rain-reforged/version/SwSSfJQQ) |
 | Copycat Bar Extrusion | 0.1.0 | [Exact release](https://github.com/mannie-exe/copycat-bar-extrusion/releases/tag/v0.1.0) |
-| Create Sky Compat | 0.9.0 | [GitHub release](https://github.com/mannie-exe/create-sky-compat/releases/tag/v0.9.0) |
+| Create Sky Compat | 0.10.1 | [GitHub release](https://github.com/mannie-exe/create-sky-compat/releases/tag/v0.10.1) |
 | Create Accessories Compat | 1.0 | [Exact version](https://modrinth.com/mod/create-accessories-compat/version/2r7hvkCQ) |
 | Create Aeronautics | 1.3.2+mc1.21.1 | [Exact version](https://modrinth.com/mod/create-aeronautics/version/44pLdPGg) |
 | Create Aeronautics: Covers | 1.0.1 | [Exact version](https://modrinth.com/mod/create-aeronautics-covers/version/R35biaZf) |

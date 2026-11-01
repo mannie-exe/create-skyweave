@@ -1,7 +1,7 @@
 schema: 5
 pack:
   name: Create Sky
-  version: 0.1.24
+  version: 0.1.25
   id: create_sky
   authors:
     - mannie-exe
@@ -729,10 +729,10 @@ dependencies:
     source:
       kind: url
       downloads:
-        - https://github.com/mannie-exe/create-sky-compat/releases/download/v0.9.0/create-sky-compat-0.9.0-mc1.21.1-neoforge.jar
+        - https://github.com/mannie-exe/create-sky-compat/releases/download/v0.10.1/create-sky-compat-0.10.1-mc1.21.1-neoforge.jar
     digests:
-      sha1: 8ddcc603ab9e724148cf853e8ffa5343a9d1a759
-      sha512: a70f1e162f987833f16c00f75fbc16026481d5bc4175c9aa984509feeb38dd9a5df35ce102fdeb7993a94047e5a471819a70a99d2556bfe0ae25e1f2228b68aa
+      sha1: 63115b496d350e9b372d18c84c175de59532eeaf
+      sha512: e7d7652f0f84ae7bfb4c7fcec3586f49fe24bb162c24047313531d641fa6c1adea745edd20960757bdbc5cfa4a17e08ae332f2937f61e7be1b5bb21da67e0735
     environment:
       client: required
       server: required
@@ -742,6 +742,17 @@ dependencies:
   linear-bearing:
     pin: 8SJdnoXS
     source: modrinth:linear-bearing
+  absolute_kinematics-1.0.1:
+    source:
+      kind: url
+      downloads:
+        - https://edge.forgecdn.net/files/8511/680/absolute_kinematics-1.0.1.jar
+    digests:
+      sha1: fc502f4edfab93626a08d33aee45947323533623
+      sha512: ff89f5e875e9a6c5e07ea03cd562b4f9942f4ce009f8b652c84748c19a9da48036e9acb4b6a778497655cb81d8efb9a20dd29fa82d5bd1577d160394c168b195
+    environment:
+      client: required
+      server: required
 
 build:
   default:

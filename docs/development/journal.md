@@ -129,8 +129,8 @@ reviewing rewards; do not introduce team progression or an anti-sharing system.
 
 ## Current definitions
 
-The authored source contains nine chapters and 70 entries: 54 inventory entries,
-fourteen advancement entries and two block interactions. 23 entries offer fixed,
+The authored source contains nine chapters and 72 entries: 56 inventory entries,
+fourteen advancement entries and two block interactions. 24 entries offer fixed,
 manually collected rewards. All entries have empty native requirements. Chapters
 and sort order organize browsing without imposing crafting order or losing events
 behind prerequisite gates.
@@ -159,6 +159,19 @@ The guide reward is two casings toward an example twelve-casing rail setup, abou
 17% of its rail cost. It supplies no new bearing or scarce slime. Other machinery
 entries have no material reward. Recheck the recipes, machinery contract and
 cross-entry reward budget when changing Linear Bearing or its Compat adapters.
+
+### Articulated machinery
+
+Two Workshop inventory entries introduce Absolute Kinematics' driven hinge and
+passive ball joint. Both require one already acquired joint; neither condition
+claims assembly, articulation, locking or successful shaft transmission. Their
+native Ponder tutorials explain those operations.
+
+The hinge entry supplies two shafts toward a twelve-shaft drive/control setup,
+about 17% of that batch. It supplies neither a gearbox nor a scarce first joint.
+The ball-joint entry has no material reward: the component is indivisible and
+has no recurring operating consumable that needs a discovery subsidy. Existing
+entry IDs, objective positions, and rewards are unchanged.
 
 ### Traveler's Backpack
 
