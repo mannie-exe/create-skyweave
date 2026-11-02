@@ -7,7 +7,9 @@ from pathlib import Path
 from archive_output import archive_bytes, publish
 from resource_inputs import inputs as load_inputs, verify_bytes
 from model_authoring import generate as generate_models, require
-from lootr_models import build as build_lootr_models
+from lootr_models import build as build_lootr_models, fit_native_uvs
+from texture_resources import build as build_textures
+from selective_resources import build as build_selective
 
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT = ROOT / 'overrides/client/resourcepacks/Create Sky Resource Patches.zip'
@@ -56,7 +58,7 @@ def patch_chain(original):
     return result
 
 
-def build(archives, recipes, config):
+def build(archives, recipes, config, selections=None, nautilus_license=None, textures=None):
     entries = {'pack.mcmeta': {'pack': {'pack_format': 34,
                 'description': 'Create Sky resource compatibility'}}}
     for plant in PLANTS:
@@ -71,18 +73,55 @@ def build(archives, recipes, config):
     additions, _ = generate_models(recipes, archives)
     require(not entries.keys() & additions.keys(), 'Model recipe collides with maintained patch')
     entries.update(additions)
+    if selections is not None:
+        selected, selection_report = build_selective(archives, selections)
+        require(not entries.keys() & selected.keys(), 'Selection collides with a maintained model patch')
+        entries.update(selected)
+        entries['resource-selections.json'] = {'schema': 1, 'reviewRun': selections['reviewRun'], 'selections': selection_report}
+    for record in (textures or {}).get('resources', []):
+        require(not record.get('model') or any(recipe['output'] == record['model'] for recipe in recipes['recipes']),
+                f'{record["id"]}: model recipe reference is missing')
+    artwork, active_textures, texture_report = build_textures(archives, textures, additions) if textures is not None else ({}, {}, [])
+    require(not entries.keys() & artwork.keys(), 'Texture selection collides with a maintained resource')
+    entries.update(artwork)
+    entries['texture-resources.json'] = {'schema': 1, 'resources': texture_report}
     lootr_enabled = config.get('compatibility', {}).get('lootr_fresh_objects', False)
     require(type(lootr_enabled) is bool, 'Lootr compatibility selection must be a boolean')
+    require(lootr_enabled or not any(item['action'] == 'compose' for item in (selections or {}).get('selections', [])),
+            'The selected chest composition requires the Fresh/Lootr adapter')
     if lootr_enabled:
         require('lootr' in archives and 'entity-model-features' in archives,
                 'Lootr adaptation requires pinned renderer inputs')
-        entries.update(build_lootr_models(archives['fresh-animations-objects']))
-    encoded = {path: json.dumps(value, ensure_ascii=False, sort_keys=True,
+        chest = next((entry for entry in (selections or {}).get('selections', []) if entry['action'] == 'compose'), None)
+        require(chest is None or (chest['id'] == 'chest/single' and chest['source'] == '3d-default'), 'Unknown chest composition')
+        composed = build_lootr_models(archives['fresh-animations-objects'], archives['3d-default'] if chest else None)
+        chest_art = next((case for key, case in active_textures.items() if key.startswith('chest-')), None)
+        if chest_art is not None and chest is not None:
+            for path, rig in composed.items():
+                if path.endswith(('/lootr_lootr_chest.jem', '/lootr_lootr_trapped_chest.jem')):
+                    fit_native_uvs(rig, chest_art['original']['model'])
+        entries.update(composed)
+        if chest:
+            next(item for item in selection_report if item['id'] == chest['id'])['roots'] = sorted(
+                path for path in composed if path.endswith('.jem'))
+    encoded = {path: value if isinstance(value, bytes) else json.dumps(value, ensure_ascii=False, sort_keys=True,
                                 separators=(',', ':')).encode() + b'\n'
                for path, value in entries.items()}
     credits = config.get("credits", [])
     require(isinstance(credits, list) and all(isinstance(line, str) for line in credits),
             "Resource credits must be a list of text lines")
+    if selections is not None:
+        require(isinstance(nautilus_license, bytes), 'Missing Nautilus license text')
+        encoded['SOURCES.json'] = json.dumps({
+            'builder': 'https://github.com/mannie-exe/create_sky/tree/main/scripts',
+            'selections': selections,
+            'textures': textures,
+            'inputs': {key: {field: source[field] for field in ('version', 'sha512', 'url')}
+                       for key, source in config['sources'].items()},
+        }, ensure_ascii=False, indent=2).encode() + b'\n'
+        for key, filename in [('3d-default', 'LICENSE'), ('classic-3d', 'LICENSE.md')]:
+            encoded[f'LICENSES/{key}.txt'] = archives[key].read(filename)
+        encoded['LICENSES/nautilus3d.txt'] = nautilus_license
     if credits:
         encoded["CREDITS.txt"] = ("\n\n".join(credits) + "\n").encode()
     return archive_bytes(encoded, (2026, 10, 23, 0, 0, 0))
@@ -92,13 +131,13 @@ def generate_pack(root=ROOT, output=OUTPUT, check=False):
     # Acquisition can take time. Build from one captured recipe set, then refuse
     # publication if an external editor changed its sources while we worked.
     paths = ['authoring/resource-patches.json', 'authoring/model-recipes.json',
-             'empack.yml', 'empack.lock', 'empack.bindings.yml']
+             'empack.yml', 'empack.lock', 'empack.bindings.yml', 'authoring/resource-selections.json', 'authoring/resource-licenses/nautilus3d-AGPL-3.0.txt', 'authoring/texture-resources.json']
     before = {name: (root / name).read_bytes() for name in paths}
     config = json.loads(before[paths[0]])
     recipes = json.loads(before[paths[1]])
     archives = load_inputs(root, recipe=config)
     try:
-        data = build(archives, recipes, config)
+        data = build(archives, recipes, config, json.loads(before['authoring/resource-selections.json']), before['authoring/resource-licenses/nautilus3d-AGPL-3.0.txt'], json.loads(before['authoring/texture-resources.json']))
     finally:
         for archive in archives.values():
             archive.close()

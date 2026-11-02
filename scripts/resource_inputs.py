@@ -23,7 +23,9 @@ def inputs(root, *, download=True, recipe=None):
     empack = shutil.which('empack') or str(Path.home() / '.local/bin/empack')
     archives = {}
     for key, source in recipe['sources'].items():
-        if key != 'minecraft':
+        require(source.get('selection', 'dependency') in ('dependency', 'build-only'),
+                f'{key}: unknown input selection mode')
+        if key != 'minecraft' and source.get('selection') != 'build-only':
             info = json.loads(subprocess.check_output(
                 [empack, '--workdir', str(root), 'manifest', 'explain', key, '--json'], text=True))
             require(info['selection_satisfied'] and info['source_binding_current']

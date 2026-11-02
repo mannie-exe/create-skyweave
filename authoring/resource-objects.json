@@ -1,0 +1,484 @@
+{
+  "schema": 1,
+  "entities": [
+    {
+      "id": "minecraft:creeper",
+      "label": "Creeper",
+      "source": "minecraft",
+      "nativeModel": "minecraft:creeper",
+      "texture": "minecraft:entity/creeper/creeper",
+      "cem": {
+        "path": "assets/minecraft/optifine/cem/creeper.jem",
+        "adapter": "creeper",
+        "poseLabel": "Inspection stance",
+        "pose": {
+          "body": {
+            "y": 17
+          },
+          "leg1": {
+            "y": 19,
+            "z": 3
+          },
+          "leg2": {
+            "y": 19,
+            "z": 3
+          },
+          "leg3": {
+            "y": 19,
+            "z": -3
+          },
+          "leg4": {
+            "y": 19,
+            "z": -3
+          }
+        },
+        "note": "Explicit inspection stance aligned to the factory standing frame; animation expressions and conditional variants are not evaluated."
+      }
+    },
+    {
+      "id": "minecraft:cow",
+      "label": "Cow",
+      "source": "minecraft",
+      "nativeModel": "minecraft:cow",
+      "texture": "minecraft:entity/cow/cow",
+      "cem": {
+        "path": "assets/minecraft/optifine/cem/cow.jem",
+        "adapter": "quadruped",
+        "poseLabel": "Adult inspection stance",
+        "pose": {
+          "body": {
+            "y": 10.7,
+            "z": 1,
+            "rx": 0
+          },
+          "leg1": {
+            "y": 24
+          },
+          "leg2": {
+            "y": 24
+          },
+          "leg3": {
+            "y": 24
+          },
+          "leg4": {
+            "y": 24
+          }
+        },
+        "hiddenParts": [],
+        "note": "Authored adult inspection stance using the installed FA rig. Animation expressions, random variants and condition-driven visibility are not evaluated."
+      }
+    },
+    {
+      "id": "create_confectionery:little_gingerbread_man",
+      "label": "Little gingerbread man",
+      "source": "create-confectionery",
+      "nativeModel": "create_confectionery:little_gingerbread_man",
+      "texture": "create_confectionery:entities/gingerbread_man_0",
+      "textures": [
+        "create_confectionery:entities/gingerbread_man_0",
+        "create_confectionery:entities/gingerbread_man_1",
+        "create_confectionery:entities/gingerbread_man_2",
+        "create_confectionery:entities/gingerbread_man_3"
+      ]
+    },
+    {
+      "id": "minecraft:pig",
+      "label": "Pig",
+      "source": "minecraft",
+      "nativeModel": "minecraft:pig",
+      "texture": "minecraft:entity/pig/pig",
+      "cem": {
+        "path": "assets/minecraft/optifine/cem/pig.jem",
+        "adapter": "quadruped",
+        "poseLabel": "Adult inspection stance",
+        "pose": {
+          "body": {
+            "y": 16.3,
+            "z": 0,
+            "rx": 0
+          },
+          "leg1": {
+            "y": 24
+          },
+          "leg2": {
+            "y": 24
+          },
+          "leg3": {
+            "y": 24
+          },
+          "leg4": {
+            "y": 24
+          }
+        },
+        "hiddenParts": ["plant", "left_saddle", "right_saddle", "tusks"],
+        "note": "Authored adult inspection stance using the installed FA rig. Animation expressions, random variants and condition-driven visibility are not evaluated."
+      }
+    },
+    {
+      "id": "minecraft:chicken",
+      "label": "Chicken",
+      "source": "minecraft",
+      "nativeModel": "minecraft:chicken",
+      "texture": "minecraft:entity/chicken",
+      "cem": {
+        "path": "assets/minecraft/optifine/cem/chicken.jem",
+        "adapter": "chicken",
+        "poseLabel": "Adult inspection stance",
+        "pose": {
+          "body": {
+            "y": 17.3,
+            "z": 1,
+            "rx": 0
+          },
+          "right_leg": {
+            "y": 23.9
+          },
+          "left_leg": {
+            "y": 23.9
+          }
+        },
+        "hiddenParts": [],
+        "note": "Authored adult inspection stance using the installed FA rig. Animation expressions, random variants and condition-driven visibility are not evaluated."
+      }
+    },
+    {
+      "id": "minecraft:mooshroom",
+      "label": "Mooshroom",
+      "source": "minecraft",
+      "nativeModel": "minecraft:cow",
+      "texture": "minecraft:entity/cow/red_mooshroom",
+      "cem": {
+        "path": "assets/minecraft/optifine/cem/mooshroom.jem",
+        "adapter": "quadruped",
+        "poseLabel": "Adult inspection stance",
+        "pose": {
+          "body": {
+            "y": 10.7,
+            "z": 1,
+            "rx": 0
+          },
+          "leg1": {
+            "y": 24
+          },
+          "leg2": {
+            "y": 24
+          },
+          "leg3": {
+            "y": 24
+          },
+          "leg4": {
+            "y": 24
+          }
+        },
+        "hiddenParts": [],
+        "note": "Authored adult inspection stance using the installed FA rig. Animation expressions, random variants and condition-driven visibility are not evaluated."
+      },
+      "nativeLimitation": "The native cow-body factory omits the mooshroom mushroom feature renderer; use the selected CEM preview or an in-game comparison."
+    }
+  ],
+  "candidates": [
+    {
+      "id": "candidate-3d-plants",
+      "label": "Vervada's enhanced plants",
+      "version": "Tiny drop, tiny update",
+      "versionId": "xQ41qLei",
+      "project": "ghc0v6DT",
+      "url": "https://modrinth.com/resourcepack/3d-plants",
+      "download": "https://cdn.modrinth.com/data/ghc0v6DT/versions/xQ41qLei/Vervada-s-enhanced-plants.zip",
+      "path": ".cache/resource-candidates/3d-plants.zip",
+      "sha512": "17dbdfebe84e2c3cab4b74707726dad2bc3d9efcf2b2a14b244850fe6d422cecd6e946ac2ce7fe89d6fd1767ffe71f6e7d730318e9a0a926f89f5301f4b7b773",
+      "sha256": "2d2a6e8cb10aa7a1fefdf3a1c64c87ddd8537c4c57ebb94432639b6da741845a",
+      "size": 729045,
+      "license": "CC-BY-SA-4.0",
+      "downloads": 120818,
+      "updated": "2026-09-26T14:19:41.546689Z",
+      "reviewed": "2026-11-02",
+      "objects": [
+        "minecraft:pitcher_plant",
+        "minecraft:pitcher_crop",
+        "minecraft:seagrass",
+        "minecraft:tall_seagrass",
+        "minecraft:dead_bush",
+        "minecraft:azalea",
+        "minecraft:flowering_azalea"
+      ],
+      "note": "Selected: azalea, flowering azalea. Other features remain unselected.",
+      "status": "partial"
+    },
+    {
+      "id": "candidate-3dvanilla",
+      "label": "3D Vanilla",
+      "version": "3D Vanilla v1.7.1 for Minecraft 1.16+",
+      "versionId": "5OUPEuwF",
+      "project": "di3Wfoht",
+      "url": "https://modrinth.com/resourcepack/3dvanilla",
+      "download": "https://cdn.modrinth.com/data/di3Wfoht/versions/5OUPEuwF/3D%20Vanilla%201.16%2B.zip",
+      "path": ".cache/resource-candidates/3dvanilla.zip",
+      "sha512": "2878c1108216933a1c6976ac6dee8a0d8e413b85c9b59010433e14dbf5318b3c7b00c521f1a4b20ba818de2a5aa72576a8fec6a3cf023ffaf71a0968c71938e0",
+      "sha256": "4ea75ce5dbb42ea0021bbed260c3357387d9891d6164b6d2cba85574f4828f51",
+      "size": 2553076,
+      "license": "Apache-2.0",
+      "downloads": 38364,
+      "updated": "2026-09-15T21:10:50.888497Z",
+      "reviewed": "2026-11-02",
+      "objects": [
+        "minecraft:crafter",
+        "minecraft:brewing_stand",
+        "minecraft:furnace",
+        "minecraft:smoker",
+        "minecraft:blast_furnace",
+        "minecraft:grindstone",
+        "minecraft:loom",
+        "minecraft:cartography_table",
+        "minecraft:fletching_table",
+        "minecraft:note_block",
+        "minecraft:jukebox",
+        "minecraft:composter"
+      ],
+      "note": "Selected: cartography table, blast furnace, crafter, loom. Other features remain unselected.",
+      "status": "partial"
+    },
+    {
+      "id": "candidate-jacobs-workspace-plus",
+      "label": "Jacob’s 3D Workspace+",
+      "version": "1.14+",
+      "versionId": "bszrY1CR",
+      "project": "xpRegpE4",
+      "url": "https://modrinth.com/resourcepack/jacobs-workspace-plus",
+      "download": "https://cdn.modrinth.com/data/xpRegpE4/versions/bszrY1CR/Jacob%E2%80%99s%20Workspace%2B%20%281.14%2B%29.zip",
+      "path": ".cache/resource-candidates/jacobs-workspace-plus.zip",
+      "sha512": "7ca1bf29b7889690eb3c1cdab871c2497ddd5aace38381b02e09f08e71205c4deb6cf66732492d8750c4b06c272f0a30da39d8d06f82f339a252581a0afd02e3",
+      "sha256": "cb65da50279255acc84aba3031567a1ca612799f4d4d48e89e9dd89325497338",
+      "size": 645136,
+      "license": "CC-BY-NC-4.0",
+      "downloads": 1250,
+      "updated": "2025-11-27T15:17:10.362655Z",
+      "reviewed": "2026-11-02",
+      "objects": [
+        "minecraft:smoker",
+        "minecraft:blast_furnace",
+        "minecraft:furnace",
+        "minecraft:cartography_table",
+        "minecraft:fletching_table",
+        "minecraft:loom",
+        "minecraft:smithing_table",
+        "minecraft:barrel",
+        "minecraft:brewing_stand"
+      ],
+      "note": "Selected: smithing table, brewing stand. Other features remain unselected.",
+      "status": "partial"
+    },
+    {
+      "id": "candidate-montanas-bushier-kelp",
+      "label": "Montana's Bushier Kelp",
+      "version": "2.0.1",
+      "versionId": "gkWizbKh",
+      "project": "sCH1CEfh",
+      "url": "https://modrinth.com/resourcepack/montanas-bushier-kelp",
+      "download": "https://cdn.modrinth.com/data/sCH1CEfh/versions/gkWizbKh/bushy_kelp.zip",
+      "path": ".cache/resource-candidates/montanas-bushier-kelp.zip",
+      "sha512": "39c5ede337942aba408f9395458e9f0ff34d479e2e39d3d05337e4400380c52ed4c8ed7392a89d2aaef388a964b4c683c5e2de8c81f88450a271d624e5181cb7",
+      "sha256": "3b891f5d2c283acbd5201161a431cfceb201cbf426d71d98efbf59c2ff4c586e",
+      "size": 25772,
+      "license": "LicenseRef-All-Rights-Reserved",
+      "downloads": 57617,
+      "updated": "2026-07-06T05:57:36.765259Z",
+      "reviewed": "2026-11-02",
+      "objects": ["minecraft:kelp", "minecraft:kelp_plant"],
+      "note": "Deferred after visual review: fuller kelp reduces visibility and its fit remains uncertain.",
+      "status": "defer"
+    },
+    {
+      "id": "candidate-toastys-perfect-pitchers-3d-pitcher-plants",
+      "label": "Toasty's Perfect Pitchers (3d pitcher plants)",
+      "version": "Toasty's Perfect Pitchers (3d pitcher plants) v3",
+      "versionId": "1wfNUDsn",
+      "project": "mdxJ2lRj",
+      "url": "https://modrinth.com/resourcepack/toastys-perfect-pitchers-3d-pitcher-plants",
+      "download": "https://cdn.modrinth.com/data/mdxJ2lRj/versions/1wfNUDsn/Toasty%27s%20Perfect%20Pitchers%20v3.zip",
+      "path": ".cache/resource-candidates/toastys-perfect-pitchers-3d-pitcher-plants.zip",
+      "sha512": "c91a9a6c0c315522a21e94e8ed9698f6a03041ed9ee7ad03d5672bab577a89b139efa79e125fa38864e8d960882e14059947cdf4ba60eb184777331d91e9dcee",
+      "sha256": "288bbba5ad605eb572e2ed2182ec2de966056c7cd965beaa955b5090838c18f4",
+      "size": 256556,
+      "license": "LicenseRef-All-Rights-Reserved",
+      "downloads": 1312,
+      "updated": "2025-11-22T19:27:27.380635Z",
+      "reviewed": "2026-11-02",
+      "objects": ["minecraft:pitcher_plant", "minecraft:pitcher_crop"],
+      "note": "Selected: pitcher crop and plant. Other features remain unselected. Element angles use the maintained NeoForge composite conversion.",
+      "status": "partial"
+    },
+    {
+      "id": "candidate-ulticraft-models-3d",
+      "label": "3D Models",
+      "version": "v2.97.0 for 26.3",
+      "versionId": "vRQx6yxi",
+      "project": "ejmzg9VI",
+      "url": "https://modrinth.com/resourcepack/ulticraft-models-3d",
+      "download": "https://cdn.modrinth.com/data/ejmzg9VI/versions/vRQx6yxi/UltiCraft-Models3D-2.97.0.zip",
+      "path": ".cache/resource-candidates/ulticraft-models-3d.zip",
+      "sha512": "65c635f1b838aff23cc7190dc5e77cc917997357db9b970a3461c34e30a9688d6fee2bd21af8506cacefa983ef618cff8d0765d66dddbd08ca3f67403ec68c7d",
+      "sha256": "0ab865e2454ea441df8e521e1dfdf5e1498f58da82587d9c6501154697b3143a",
+      "size": 370813,
+      "license": "CC-BY-NC-SA-4.0",
+      "downloads": 83000,
+      "updated": "2026-10-24T23:00:12.325442Z",
+      "reviewed": "2026-11-02",
+      "objects": [
+        "minecraft:smoker",
+        "minecraft:blast_furnace",
+        "minecraft:furnace",
+        "minecraft:cartography_table",
+        "minecraft:fletching_table",
+        "minecraft:loom",
+        "minecraft:barrel",
+        "minecraft:composter",
+        "minecraft:brewing_stand",
+        "minecraft:note_block",
+        "minecraft:jukebox"
+      ],
+      "note": "Selected: smoker, furnace, fletching table. Other features remain unselected.",
+      "status": "partial"
+    }
+  ],
+  "blocks": [
+    {
+      "id": "minecraft:pitcher_plant",
+      "cases": [
+        {
+          "id": "standing",
+          "label": "Whole plant · fixed lower/upper",
+          "components": [
+            {
+              "properties": {
+                "half": "lower"
+              },
+              "offset": [0, 0, 0]
+            },
+            {
+              "properties": {
+                "half": "upper"
+              },
+              "offset": [0, 16, 0]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "minecraft:barrel",
+      "cases": [
+        {
+          "id": "closed-up",
+          "label": "Closed · facing up",
+          "components": [
+            {
+              "properties": {
+                "facing": "up",
+                "open": "false"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "minecraft:brewing_stand",
+      "cases": [
+        {
+          "id": "empty",
+          "label": "Empty stand",
+          "components": [
+            {
+              "properties": {
+                "has_bottle_0": "false",
+                "has_bottle_1": "false",
+                "has_bottle_2": "false"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "minecraft:pitcher_crop",
+      "cases": [
+        {
+          "id": "seedling",
+          "label": "Seedling · age 0",
+          "components": [
+            {
+              "properties": {
+                "age": "0",
+                "half": "lower"
+              }
+            }
+          ]
+        },
+        {
+          "id": "mature",
+          "label": "Mature crop · age 4",
+          "components": [
+            {
+              "properties": {
+                "age": "4",
+                "half": "lower"
+              }
+            },
+            {
+              "properties": {
+                "age": "4",
+                "half": "upper"
+              },
+              "offset": [0, 16, 0]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "minecraft:crafter",
+      "cases": [
+        {
+          "id": "idle",
+          "label": "Upright · idle",
+          "components": [
+            {
+              "properties": {
+                "crafting": "false",
+                "triggered": "false",
+                "orientation": "north_up"
+              }
+            }
+          ]
+        },
+        {
+          "id": "triggered",
+          "label": "Upright · triggered",
+          "components": [
+            {
+              "properties": {
+                "crafting": "false",
+                "triggered": "true",
+                "orientation": "north_up"
+              }
+            }
+          ]
+        },
+        {
+          "id": "crafting",
+          "label": "Upright · crafting",
+          "components": [
+            {
+              "properties": {
+                "crafting": "true",
+                "triggered": "true",
+                "orientation": "north_up"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

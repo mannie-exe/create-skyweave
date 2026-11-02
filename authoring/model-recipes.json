@@ -24615,6 +24615,836 @@
           }
         }
       ]
+    },
+    {
+      "id": "lootr-barrel-clasps",
+      "label": "Lootr barrel: unlooted clasps",
+      "kind": "extrusion",
+      "enabled": true,
+      "output": "create_sky:block/lootr_barrel_clasps",
+      "texture": {
+        "source": "lootr",
+        "id": "lootr:block/barrel_side"
+      },
+      "depth": 0.5,
+      "threshold": 128,
+      "texture_bindings": {
+        "top": {
+          "source": "lootr",
+          "id": "lootr:block/barrel_top"
+        },
+        "bottom": {
+          "source": "lootr",
+          "id": "lootr:block/barrel_bottom"
+        }
+      },
+      "parts": [
+        {
+          "key": "south",
+          "axis": "z",
+          "center": 16.25,
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "span": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "surface": "front",
+          "flip_u": false,
+          "mask": {
+            "kind": "material",
+            "palette": [
+              [
+                178,
+                100,
+                17
+              ],
+              [
+                220,
+                150,
+                19
+              ],
+              [
+                233,
+                177,
+                21
+              ],
+              [
+                250,
+                214,
+                74
+              ],
+              [
+                253,
+                245,
+                95
+              ]
+            ],
+            "tolerance": 0,
+            "regions": [
+              [
+                0,
+                3,
+                6,
+                6
+              ],
+              [
+                10,
+                3,
+                16,
+                6
+              ],
+              [
+                0,
+                10,
+                6,
+                13
+              ],
+              [
+                10,
+                10,
+                16,
+                13
+              ]
+            ],
+            "include": [],
+            "exclude": []
+          }
+        },
+        {
+          "key": "north",
+          "axis": "z",
+          "center": -0.25,
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "span": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "surface": "back",
+          "flip_u": true,
+          "mask": {
+            "kind": "material",
+            "palette": [
+              [
+                178,
+                100,
+                17
+              ],
+              [
+                220,
+                150,
+                19
+              ],
+              [
+                233,
+                177,
+                21
+              ],
+              [
+                250,
+                214,
+                74
+              ],
+              [
+                253,
+                245,
+                95
+              ]
+            ],
+            "tolerance": 0,
+            "regions": [
+              [
+                0,
+                3,
+                6,
+                6
+              ],
+              [
+                10,
+                3,
+                16,
+                6
+              ],
+              [
+                0,
+                10,
+                6,
+                13
+              ],
+              [
+                10,
+                10,
+                16,
+                13
+              ]
+            ],
+            "include": [],
+            "exclude": []
+          }
+        },
+        {
+          "key": "west",
+          "axis": "x",
+          "center": -0.25,
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "span": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "surface": "front",
+          "flip_u": false,
+          "mask": {
+            "kind": "material",
+            "palette": [
+              [
+                178,
+                100,
+                17
+              ],
+              [
+                220,
+                150,
+                19
+              ],
+              [
+                233,
+                177,
+                21
+              ],
+              [
+                250,
+                214,
+                74
+              ],
+              [
+                253,
+                245,
+                95
+              ]
+            ],
+            "tolerance": 0,
+            "regions": [
+              [
+                0,
+                3,
+                6,
+                6
+              ],
+              [
+                10,
+                3,
+                16,
+                6
+              ],
+              [
+                0,
+                10,
+                6,
+                13
+              ],
+              [
+                10,
+                10,
+                16,
+                13
+              ]
+            ],
+            "include": [],
+            "exclude": []
+          }
+        },
+        {
+          "key": "east",
+          "axis": "x",
+          "center": 16.25,
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "span": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "surface": "back",
+          "flip_u": true,
+          "mask": {
+            "kind": "material",
+            "palette": [
+              [
+                178,
+                100,
+                17
+              ],
+              [
+                220,
+                150,
+                19
+              ],
+              [
+                233,
+                177,
+                21
+              ],
+              [
+                250,
+                214,
+                74
+              ],
+              [
+                253,
+                245,
+                95
+              ]
+            ],
+            "tolerance": 0,
+            "regions": [
+              [
+                0,
+                3,
+                6,
+                6
+              ],
+              [
+                10,
+                3,
+                16,
+                6
+              ],
+              [
+                0,
+                10,
+                6,
+                13
+              ],
+              [
+                10,
+                10,
+                16,
+                13
+              ]
+            ],
+            "include": [],
+            "exclude": []
+          }
+        }
+      ],
+      "additional_elements": [
+        {
+          "name": "native_solid_body",
+          "from": [
+            0,
+            0,
+            0
+          ],
+          "to": [
+            16,
+            16,
+            16
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                16,
+                16
+              ],
+              "texture": "#north",
+              "cullface": "north"
+            },
+            "south": {
+              "uv": [
+                0,
+                0,
+                16,
+                16
+              ],
+              "texture": "#south",
+              "cullface": "south"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                16,
+                16
+              ],
+              "texture": "#east",
+              "cullface": "east"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                16,
+                16
+              ],
+              "texture": "#west",
+              "cullface": "west"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                16,
+                16
+              ],
+              "texture": "#top",
+              "cullface": "up"
+            },
+            "down": {
+              "uv": [
+                0,
+                0,
+                16,
+                16
+              ],
+              "texture": "#bottom",
+              "cullface": "down"
+            }
+          }
+        }
+      ],
+      "box_corners": true
+    },
+    {
+      "id": "lootr-barrel-looted-clasps",
+      "label": "Lootr barrel: looted clasps",
+      "kind": "extrusion",
+      "enabled": true,
+      "output": "create_sky:block/lootr_barrel_looted_clasps",
+      "texture": {
+        "source": "lootr",
+        "id": "lootr:block/opened_barrel_side"
+      },
+      "depth": 0.5,
+      "threshold": 128,
+      "texture_bindings": {
+        "top": {
+          "source": "lootr",
+          "id": "lootr:block/opened_barrel_top"
+        },
+        "bottom": {
+          "source": "lootr",
+          "id": "lootr:block/opened_barrel_bottom"
+        }
+      },
+      "parts": [
+        {
+          "key": "south",
+          "axis": "z",
+          "center": 16.25,
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "span": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "surface": "front",
+          "flip_u": false,
+          "mask": {
+            "kind": "material",
+            "palette": [
+              [
+                107,
+                99,
+                86
+              ],
+              [
+                126,
+                120,
+                104
+              ],
+              [
+                142,
+                138,
+                123
+              ],
+              [
+                176,
+                175,
+                160
+              ],
+              [
+                220,
+                220,
+                217
+              ]
+            ],
+            "tolerance": 0,
+            "regions": [
+              [
+                0,
+                3,
+                6,
+                6
+              ],
+              [
+                10,
+                3,
+                16,
+                6
+              ],
+              [
+                0,
+                10,
+                6,
+                13
+              ],
+              [
+                10,
+                10,
+                16,
+                13
+              ]
+            ],
+            "include": [],
+            "exclude": []
+          }
+        },
+        {
+          "key": "north",
+          "axis": "z",
+          "center": -0.25,
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "span": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "surface": "back",
+          "flip_u": true,
+          "mask": {
+            "kind": "material",
+            "palette": [
+              [
+                107,
+                99,
+                86
+              ],
+              [
+                126,
+                120,
+                104
+              ],
+              [
+                142,
+                138,
+                123
+              ],
+              [
+                176,
+                175,
+                160
+              ],
+              [
+                220,
+                220,
+                217
+              ]
+            ],
+            "tolerance": 0,
+            "regions": [
+              [
+                0,
+                3,
+                6,
+                6
+              ],
+              [
+                10,
+                3,
+                16,
+                6
+              ],
+              [
+                0,
+                10,
+                6,
+                13
+              ],
+              [
+                10,
+                10,
+                16,
+                13
+              ]
+            ],
+            "include": [],
+            "exclude": []
+          }
+        },
+        {
+          "key": "west",
+          "axis": "x",
+          "center": -0.25,
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "span": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "surface": "front",
+          "flip_u": false,
+          "mask": {
+            "kind": "material",
+            "palette": [
+              [
+                107,
+                99,
+                86
+              ],
+              [
+                126,
+                120,
+                104
+              ],
+              [
+                142,
+                138,
+                123
+              ],
+              [
+                176,
+                175,
+                160
+              ],
+              [
+                220,
+                220,
+                217
+              ]
+            ],
+            "tolerance": 0,
+            "regions": [
+              [
+                0,
+                3,
+                6,
+                6
+              ],
+              [
+                10,
+                3,
+                16,
+                6
+              ],
+              [
+                0,
+                10,
+                6,
+                13
+              ],
+              [
+                10,
+                10,
+                16,
+                13
+              ]
+            ],
+            "include": [],
+            "exclude": []
+          }
+        },
+        {
+          "key": "east",
+          "axis": "x",
+          "center": 16.25,
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "span": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "surface": "back",
+          "flip_u": true,
+          "mask": {
+            "kind": "material",
+            "palette": [
+              [
+                107,
+                99,
+                86
+              ],
+              [
+                126,
+                120,
+                104
+              ],
+              [
+                142,
+                138,
+                123
+              ],
+              [
+                176,
+                175,
+                160
+              ],
+              [
+                220,
+                220,
+                217
+              ]
+            ],
+            "tolerance": 0,
+            "regions": [
+              [
+                0,
+                3,
+                6,
+                6
+              ],
+              [
+                10,
+                3,
+                16,
+                6
+              ],
+              [
+                0,
+                10,
+                6,
+                13
+              ],
+              [
+                10,
+                10,
+                16,
+                13
+              ]
+            ],
+            "include": [],
+            "exclude": []
+          }
+        }
+      ],
+      "additional_elements": [
+        {
+          "name": "native_solid_body",
+          "from": [
+            0,
+            0,
+            0
+          ],
+          "to": [
+            16,
+            16,
+            16
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                16,
+                16
+              ],
+              "texture": "#north",
+              "cullface": "north"
+            },
+            "south": {
+              "uv": [
+                0,
+                0,
+                16,
+                16
+              ],
+              "texture": "#south",
+              "cullface": "south"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                16,
+                16
+              ],
+              "texture": "#east",
+              "cullface": "east"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                16,
+                16
+              ],
+              "texture": "#west",
+              "cullface": "west"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                16,
+                16
+              ],
+              "texture": "#top",
+              "cullface": "up"
+            },
+            "down": {
+              "uv": [
+                0,
+                0,
+                16,
+                16
+              ],
+              "texture": "#bottom",
+              "cullface": "down"
+            }
+          }
+        }
+      ],
+      "box_corners": true
     }
   ]
 }

@@ -20,7 +20,8 @@ class ResourcePatches(unittest.TestCase):
             root = Path(directory)
             (root / 'authoring').mkdir()
             for name in ['authoring/resource-patches.json', 'authoring/model-recipes.json',
-                         'empack.yml', 'empack.lock', 'empack.bindings.yml']:
+                         'empack.yml', 'empack.lock', 'empack.bindings.yml', 'authoring/resource-selections.json', 'authoring/resource-licenses/nautilus3d-AGPL-3.0.txt', 'authoring/texture-resources.json']:
+                (root / name).parent.mkdir(parents=True, exist_ok=True)
                 (root / name).write_text('{}')
             output = root / 'patch.zip'
             output.write_bytes(b'previous')
@@ -38,7 +39,8 @@ class ResourcePatches(unittest.TestCase):
             root = Path(directory)
             (root / 'authoring').mkdir()
             for name in ['authoring/resource-patches.json', 'authoring/model-recipes.json',
-                         'empack.yml', 'empack.lock', 'empack.bindings.yml']:
+                         'empack.yml', 'empack.lock', 'empack.bindings.yml', 'authoring/resource-selections.json', 'authoring/resource-licenses/nautilus3d-AGPL-3.0.txt', 'authoring/texture-resources.json']:
+                (root / name).parent.mkdir(parents=True, exist_ok=True)
                 (root / name).write_text('{}')
             output = root / 'patch.zip'
             with patch.object(patches, 'load_inputs', return_value={}), \

@@ -74,13 +74,13 @@ separate review from ordinary inventories.
 The common blacklist references `#createsky:carry_on_restricted`, owned by the
 resource-only fixes JAR. Carry On supports [tag-based exclusions](https://github.com/Tschipp/CarryOn/wiki/Black---and-Whitelist-Config). Its optional block IDs cover these reviewed families:
 
-| Content | Restricted parts |
-| --- | --- |
-| Simulated | Assembler, swivel bearing and plate, merging glue, rope winch/connector, docking connector, torsion spring and spring |
-| Absolute Kinematics | Hinges, ball joints and their paired parts |
-| Transmission & Linkage | All eight linked machinery/auxiliary blocks, including heads, regulator and conversion bearing |
-| Linear Bearing | Bearing/carriage, magnetic port, torsional anchor and gyroscopic gearbox |
-| Aerocables | The two cable endpoint blocks |
+| Content                | Restricted parts                                                                                                      |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| Simulated              | Assembler, swivel bearing and plate, merging glue, rope winch/connector, docking connector, torsion spring and spring |
+| Absolute Kinematics    | Hinges, ball joints and their paired parts                                                                            |
+| Transmission & Linkage | All eight linked machinery/auxiliary blocks, including heads, regulator and conversion bearing                        |
+| Linear Bearing         | Bearing/carriage, magnetic port, torsional anchor and gyroscopic gearbox                                              |
+| Aerocables             | The two cable endpoint blocks                                                                                         |
 
 Carry On configuration uses the seed policy. Existing installations must merge
 `#createsky:carry_on_restricted` into `blacklist.forbiddenTiles` and restart;
@@ -494,14 +494,14 @@ Inventory Totem ship on both sides. Camera/UI/rendering mods and resource
 packs are client-only. EMF/ETF support Fresh Animations; Puzzles Lib, Collective
 and Searchables satisfy the corresponding dependencies. Exact selections are in [MODLIST](../MODLIST.md).
 
-| Domain | Authored choice |
-| --- | --- |
-| Flight camera | Elytra retain vanilla steering and firework propulsion. Better Third Person's independent elytra camera stays off. |
+| Domain             | Authored choice                                                                                                                                                                                                              |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Flight camera      | Elytra retain vanilla steering and firework propulsion. Better Third Person's independent elytra camera stays off.                                                                                                           |
 | Inventory movement | Preserve sneaking and prevent dismounting. Text focus disables movement. Unknown screens default off; books, advancements and all Ponder browsing views also disable movement. EMI/JEI compatibility modules remain enabled. |
-| Communication | Ping Wheel keeps its range, channel and rate-limit defaults, with ten-second markers and 50% volume. Chat Heads retains its defaults. |
-| Tooltips | Keep durability/enchantment information, omit extra blank-line spacing. Shulker Box Tooltip retains its native preview defaults. |
-| Workstations | Keep generated Easy Anvils costs and maintenance settings. Easy Magic shows all enchantments while retaining paid rerolls. Do not disable old vanilla workstations. |
-| Visual resources | Use the current selection and ordering in [Graphics](../players/graphics.md#resource-packs). Retain EMF/ETF defaults. Existing options remain seed-managed; explicit syncs update only the reviewed selection. |
+| Communication      | Ping Wheel keeps its range, channel and rate-limit defaults, with ten-second markers and 50% volume. Chat Heads retains its defaults.                                                                                        |
+| Tooltips           | Keep durability/enchantment information, omit extra blank-line spacing. Shulker Box Tooltip retains its native preview defaults.                                                                                             |
+| Workstations       | Keep generated Easy Anvils costs and maintenance settings. Easy Magic shows all enchantments while retaining paid rerolls. Do not disable old vanilla workstations.                                                          |
+| Visual resources   | Use the current selection and ordering in [Graphics](../players/graphics.md#resource-packs). Retain EMF/ETF defaults. Existing options remain seed-managed; explicit syncs update only the reviewed selection.               |
 
 Better Climbing and Inventory Totem expose no generated tuning file in this
 version. Their native behavior is retained. InvMoveCompats and Ping Wheel are
@@ -531,11 +531,11 @@ The Apple M4 Pro reference client exposes 16 texture units; Iris
 15 active samplers in `composite1`, failing on `shadowcolor1`. Low block
 reflections (`BLOCK_REFLECT_QUALITY=1`) removed three reflection-buffer samplers.
 
-| Preset | Overworld maximum | Nether maximum | End maximum |
-| --- | --- | --- | --- |
-| Complementary r5.9.3 | 12 | 7 | 12 |
-| Euphoria 1.10.5 | 12 | 7 | 12 |
-| BSL 10.1.8 | 10 | 10 | 10 |
+| Preset               | Overworld maximum | Nether maximum | End maximum |
+| -------------------- | ----------------- | -------------- | ----------- |
+| Complementary r5.9.3 | 12                | 7              | 12          |
+| Euphoria 1.10.5      | 12                | 7              | 12          |
+| BSL 10.1.8           | 10                | 10             | 10          |
 
 These are measured composite/deferred sampler counts. Instrumented construction
 of all nine shader/dimension pipelines passed with DH 3.3.3, SSRD and Polygon Fix
@@ -619,10 +619,10 @@ Downloaded assets matched `SHA256SUMS`. Archive CRCs, embedded asset hashes,
 runtime pins, dependency sidedness and the native-tested fixes JAR passed inspection.
 Only that JAR changed in the client/server managed payloads from 0.1.17.
 
-| Published archive | SHA-256 |
-| --- | --- |
-| Prism references | `d93b48d4beb1ddc7bd14ca7b3302964a9db76e56d0fab8ef77f32c31ccdf6b2d` |
-| Modrinth | `8bb0f953010482a97eacaf3fc1fa5ddc8c1066d8c1f4d9d1b5a5327cd2e08e83` |
+| Published archive | SHA-256                                                            |
+| ----------------- | ------------------------------------------------------------------ |
+| Prism references  | `d93b48d4beb1ddc7bd14ca7b3302964a9db76e56d0fab8ef77f32c31ccdf6b2d` |
+| Modrinth          | `8bb0f953010482a97eacaf3fc1fa5ddc8c1066d8c1f4d9d1b5a5327cd2e08e83` |
 | Server references | `66266c36ed32a39580a1d8d8bce9bae22cb7bb5806ce93afaeb751a999c2d53a` |
 
 The stopped local Prism client and server were installed from the verified release.
@@ -679,14 +679,14 @@ blanket log suppression or speculative recipes were added to hide them.
 
 Choose checks that exercise the change:
 
-| Change | Relevant checks |
-| --- | --- |
-| Documentation | Local links and anchors, source paths, commands and claims against current files |
-| Configuration | Parse files; compare the intended keys; inspect affected exports when packaging changes |
-| Dependencies or placement | Sync, build all profiles, compare payload hashes and side exclusions |
+| Change                    | Relevant checks                                                                                        |
+| ------------------------- | ------------------------------------------------------------------------------------------------------ |
+| Documentation             | Local links and anchors, source paths, commands and claims against current files                       |
+| Configuration             | Parse files; compare the intended keys; inspect affected exports when packaging changes                |
+| Dependencies or placement | Sync, build all profiles, compare payload hashes and side exclusions                                   |
 | Shaders or rendering mods | Construct pipelines, then test island edges, water/glass, ships, lighting and dimension travel in-game |
-| Generation or physics | Test a disposable world and representative ships; preserve production world data |
-| Release | Verify CI, downloaded checksums and critical published archive contents |
+| Generation or physics     | Test a disposable world and representative ships; preserve production world data                       |
+| Release                   | Verify CI, downloaded checksums and critical published archive contents                                |
 
 Record the exact source revision, commands, environment and outcome. A passing
 packaging check does not establish GPU compatibility. Keep version-specific evidence with
@@ -770,7 +770,10 @@ Local comparison captures are generated evidence, excluded from version control:
 
 **Resource Review** in the local client is organized by Plants, Pots, Ladders,
 Bars, Lighting, Storage, Glass, Rails and signals, Machinery, Animals, Equipment,
-Surfaces, Lamp variants and Connections. `/function resource_lab:hub` returns to its controls. These are
+Surfaces, Lamp variants, Connections, Barrel details, Workstations, Garden details,
+Shelves and hives, Small props, Doors and surfaces, Selected workstations and
+Selected garden. `/function resource_lab:hub`
+returns to its controls. These are
 comparison categories, not a division by mod or resource-pack coverage. The
 fixture source, manifest and stopped-world checker live in
 `~/Minecraft/modpack-testing/projects/create-sky-resources/`.
@@ -781,23 +784,23 @@ therefore compare vanilla growth stages, stems, cane, fungi and aquatic plants.
 All eight ladder families are present: vanilla; Create andesite/brass/copper;
 Create Deco iron/industrial iron/zinc; and Copycat. Apply a material to the
 Copycat sample yourself. Gingerbread men sit beside the stationary animal specimens.
-The equipment chest and enclosed pen support motion
-checks. Revision 8 adds a powered adjustable burner and propeller/press Ponder
-buttons. Both buttons and the burner rendered with the selected shaders in the
-isolated full-stack client on 2026-10-24. The stopped local-world check passed
-4,836 block placements, 32 equipment slots and 27 stationary specimens. Other
-machinery and track samples do not establish working contraptions.
+The equipment chest and enclosed pen support motion checks. A powered adjustable
+burner and propeller/press Ponder buttons support shader comparisons. Other
+machinery and track samples do not establish working contraptions. The expanded
+fixture has bounded rebuilds, ground support, occupied shelf inventories, pond
+banks and native navigation. Its writer refuses an open world. The retained local
+debug datapack updates its layout on the next load; it selects no resources.
 
-| Family | Installed behavior and remaining work |
-| --- | --- |
-| Macaw lanterns | Bell, covered, cross and festive standing/hanging variants use fitted artwork. Bridge and stair lanterns use the detailed template within their original mounting envelope. The bridge must be directly below the lantern; its state selects the elevation. Native shader-off/on views cover representative variants. Wall variants retain their brackets with fitted lantern bodies. |
-| Create and Deco bars | Texture-mask extrusion covers all three Create families and Deco's andesite, brass, copper, industrial iron, iron and zinc model families, including overlays. Native posts, ends, corners, crossings and three-block stacks were reviewed. Deco overlays are connected bars with additional panels, not wall decals. Connection blockstates remain upstream-owned. |
-| Cage lamps and frontlights | Deco's cage surfaces have depth while its base, light and material/color bindings remain intact. Eight DnD hood templates retain their bodies, texture bindings, rotation, lit and no-base variants. Representative straight/rotated and powered/unpowered views passed with shaders on and off. |
-| Mooshrooms | Details 2.4 uses the current shared cow rig; no pack rig replacement remains. The isolated updated client rendered adult/baby mooshrooms and a sleeping villager with visible feet. Stationary fixture specimens still need `OnGround:1b`. Rare random variants, every animation state and all equipped models remain untested. |
-| Aquatic plants and pitcher plant | The selected stack, including active overlays, supplies no replacement geometry for lily pads, kelp, seagrass or pitcher growth stages. Their flat surfaces are missing coverage, not a priority failure. No new plant pack was added. |
-| Barrels | Fresh Objects 2.1.2 supplies no barrel CEM model. A barrel changes its block-state model/texture when opened; it has no chest-style lid renderer. An open-state model can change the silhouette, but smooth lid motion would require a renderer and transition state. |
-| Lootr chests | The [adapter](patches.md#lootr-and-fresh-objects) supplies the exact `lootr_lootr_chest` and `lootr_lootr_trapped_chest` model names requested by EMF, with literal body/latch bindings and an isolated animation resource. Native opening/closing, body motion, generated loot, state textures and neighboring-chest independence passed locally. Lootr continues to select its own materials; `vanilla_textures` stays disabled. |
-| Other models | Connected glass families, decorative machinery and moving objects need family-specific checks. Sharing a texture or parent is not proof of matching UVs, connection rules or renderer behavior. New creature animations need a rig/part mapping; extrusion cannot infer joints or behavior from a sprite. |
+| Family                           | Installed behavior and remaining work                                                                                                                                                                                                                                                                                                                                                                                              |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Macaw lanterns                   | Bell, covered, cross and festive standing/hanging variants use fitted artwork. Bridge and stair lanterns use the detailed template within their original mounting envelope. The bridge must be directly below the lantern; its state selects the elevation. Native shader-off/on views cover representative variants. Wall variants retain their brackets with fitted lantern bodies.                                              |
+| Create and Deco bars             | Texture-mask extrusion covers all three Create families and Deco's andesite, brass, copper, industrial iron, iron and zinc model families, including overlays. Native posts, ends, corners, crossings and three-block stacks were reviewed. Deco overlays are connected bars with additional panels, not wall decals. Connection blockstates remain upstream-owned.                                                                |
+| Cage lamps and frontlights       | Deco's cage surfaces have depth while its base, light and material/color bindings remain intact. Eight DnD hood templates retain their bodies, texture bindings, rotation, lit and no-base variants. Representative straight/rotated and powered/unpowered views passed with shaders on and off.                                                                                                                                   |
+| Mooshrooms                       | Details 2.4 uses the current shared cow rig; no pack rig replacement remains. The isolated updated client rendered adult/baby mooshrooms and a sleeping villager with visible feet. Stationary fixture specimens still need `OnGround:1b`. Rare random variants, every animation state and all equipped models remain untested.                                                                                                    |
+| Aquatic plants and pitcher plant | Lily pads now use 3D Default, and pitcher plants/crops use Toasty V3 with the maintained angle adaptation. Kelp and seagrass retain the existing stack by review decision; their flat geometry is not a load-order fault.                                                                                                                                                                                             |
+| Barrels                          | Fresh Objects 2.1.2 supplies no barrel CEM model. A barrel changes its block-state model/texture when opened; it has no chest-style lid renderer. An open-state model can change the silhouette, but smooth lid motion would require a renderer and transition state.                                                                                                                                                              |
+| Lootr chests                     | The [adapter](patches.md#lootr-and-fresh-objects) supplies the exact `lootr_lootr_chest` and `lootr_lootr_trapped_chest` model names requested by EMF, with literal body/latch bindings and an isolated animation resource. Native opening/closing, body motion, generated loot, state textures and neighboring-chest independence passed locally. Lootr continues to select its own materials; `vanilla_textures` stays disabled. |
+| Other models                     | Connected glass families, decorative machinery and moving objects need family-specific checks. Sharing a texture or parent is not proof of matching UVs, connection rules or renderer behavior. New creature animations need a rig/part mapping; extrusion cannot infer joints or behavior from a sprite.                                                                                                                          |
 
 The Bars section uses real Copycat panels with both `Material` and `Item` NBT;
 missing item data causes Create to reset the material. The directly placed internal
@@ -813,10 +816,9 @@ Filenames distinguish shader-on/off views. These checks do not establish moving
 contraption rendering, other shader compatibility or performance. No web gallery
 was added for this pass.
 
-The optional `Resource Review Prototype.zip` is a local, unselected experiment.
-Its builder is in the fixture project. The maintained patch instead uses the
-model recipes and renderer adapter described above. Source generation and
-installation are separate; consult the model-workbench verification for the tested ZIP.
+Current unselected experiments are described in [selective model comparisons](#selective-model-comparisons).
+The maintained patch uses the model recipes and renderer adapter described above;
+review ZIPs do not change its output.
 
 Shader-off comparisons use fixed noon/clear weather and matching camera poses:
 [covered before](../../web/public/generated/resource-review/covered-template-before.png),
@@ -833,10 +835,81 @@ Those earlier clips document the namespace-only experiment. Current patch checks
 and retained comparisons are in [model verification](web/verification.md#native-model-checks-2026-10-24).
 Neither set is a frame-time, audio or multiplayer test.
 
+### Selective model comparisons
+
+The review captures use Create Sky 0.1.30 (`86752bd`), Compat 0.14.0,
+Minecraft 1.21.1 and NeoForge 21.1.264. They remain dated comparisons against the
+pre-selection stack. The production selection is owned by
+`authoring/resource-selections.json`; the full donor packs are not enabled.
+
+| Feature                                  | Approved treatment                         | Scope                                                                                                                                                               |
+| ---------------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Crafting table, stonecutter              | Classic 3D Alpha 9                         | Other workstations are selected individually below.                                                                                                                 |
+| Lily pads, cactus                        | 3D Default 1.16.0                          | Existing flowers, mushrooms, fungi, pots, sugar cane and seagrass remain unchanged.                                                                                 |
+| Doors and trapdoors                      | 3D Default 1.16.0                          | All supplied vanilla wood, iron and copper families; masonry and other surfaces remain unchanged.                                                                   |
+| Lodestone, copper bulbs, hay bales       | 3D Default 1.16.0                          | Bulb oxidation/power variants are included; waxed states use the same native roots.                                                                                 |
+| Campfires                                | 3D Default 1.16.0                          | The shared template is isolated under the lit campfire roots. Earlier selective screenshots did not activate this template; a fresh visual check remains necessary. |
+| Redstone torches                         | Nautilus 3D V2.2                           | Floor/wall and on/off models with their required textures.                                                                                                          |
+| Single ordinary/trapped and Lootr chests | C: 3D Default geometry + Fresh Objects rig | All four JEMs match the reviewed prototype. Large and ender chests retain their existing rigs and were controls in C.                                               |
+| Smoker, furnace, fletching table | UltiCraft 3D Models | Selected roots and their private model/texture dependencies. |
+| Smithing table, brewing stand | Jacob’s 3D Workspace+ | Other Jacob models remain unselected. |
+| Cartography table, blast furnace, crafter, loom | 3D Vanilla | Upright crafter cases are explicit in the Atlas. |
+| Azalea, flowering azalea | Vervada’s enhanced plants | Dead bush and seagrass retain the existing stack. |
+| Pitcher plant and crop | Toasty’s Perfect Pitchers V3 | Original angles retained through NeoForge composite root transforms. |
+| Kelp | Current stack | Bushier Kelp deferred after visual review. |
+| Bookshelves, hives/nests                 | Current stack                              | Connected bookshelf framing is retained.                                                                                                                            |
+| Vanilla barrels                          | Current stack                              | No new vanilla barrel override is selected.                                                                                                                             |
+| Lootr barrels                            | Native cube + approved trim artwork        | Directional artwork and approved corner-clasp extrusion preserve Lootr material/state selection.                                                 |
+
+The [visual comparison page](http://127.0.0.1:4321/resourcepacks/reviews) displays
+this matrix beside the archived evidence. The source gallery also retains those
+images and recordings. The captured ZIPs, camera/state metadata and eight native
+closing clips remain in the Resource Review harness. They establish the shown
+variants, not a new in-game verification of the assembled production ZIP.
+
+Native checks covered six barrel orientations, up-facing vanilla/Lootr opening,
+ordinary/trapped double-chest formation, and single ordinary, trapped, ender and
+Lootr containers. Closing clips demonstrate the tested single-chest compositions.
+Shader-off checks cover the captured families; a subset also uses Complementary
+Unbound 5.9.3 with Euphoria 1.10.5. Fixture revision 9 passed 7,119 placements,
+31 inventory slots, 27 stationary specimens and save/reopen checks. Multiplayer
+loot independence, legacy Lootr styles, every held-item representation and moving
+constructs were not verified in that review.
+
+The production builder selects explicit model/blockstate roots and relocates
+required donor helpers and textures into per-source namespaces. Copied textures
+stay inside the block-atlas discovery directory and retain animation metadata.
+Global templates, interfaces, shaders, PBR maps and unselected model families are
+excluded. Campfires use vanilla leaves with a private donor template, avoiding a
+global template replacement. The expanded door-family coverage and campfire
+composition need a new native review before claiming complete visual coverage.
+
+Static checks verified dependency closure, deterministic generation, unchanged
+excluded roots and existing repairs. The only changed pre-existing asset bytes
+are the two intended Lootr chest JEMs; new ordinary/trapped C JEMs are added above
+Fresh Objects. Existing model and animation controls remain available.
+
+#### Lootr storage artwork
+
+All four gold/gray barrel and chest variants are approved and included through
+`authoring/texture-resources.json`. Their generator preserves each native palette,
+wood and alpha while relighting recognized trim. The brightest color marks short
+speculars, with broad connected highlights and softer bounce on shadow sides.
+Barrel knobs and chest latch accents follow the selected front-right direction.
+
+The barrel keeps its cube and uses separate side textures; no vanilla hoops,
+extra staves or smooth lid animation are introduced. Modern open-cap variants
+preserve their interior pixels, and legacy branches remain native. Chest exterior
+UV fitting applies only to the Lootr CEMs, retaining Fresh Objects' animation rig
+and the composed single-chest geometry. These latest PNG/UV bindings have generated
+resource and web-render checks; they do not extend the older native animation
+verification to every newly composed state.
+
 ### Patch generation boundary
 
 The [client patch builder](build.md#local-builds) pins exact source archives,
-checks empack's selected versions, and validates the pot elements and chain
+checks selected empack versions for installed inputs and SHA-512 for every input,
+and validates the pot elements and chain
 texture variables before emitting deterministic output. The pot and chain overrides
 use the inspected base paths; no active overlay changes those inputs for 1.21.1.
 The separate model recipes add explicit extrusion and UV fitting; they do not
@@ -851,11 +924,9 @@ archives, record exact excluded paths and be rebuilt after updates. Reference
 releases also need a distribution strategy for derived third-party resources;
 do not silently replace referenced inputs with bundled modified archives.
 
-The next visual comparison group remains 3D Default, Nautilus 3D, Classic 3D,
-Vanilla Experience+, Fresh Moves and Dramatic Skys with a selected sky renderer.
-Their archive inspection is recorded in the Atlas, but this fixture pass did not
-run those candidates. Fresh Moves needs motion/equipment checks; sky rendering
-needs day/night and shader-on/off checks, not only a still image.
+Vanilla Experience+, Fresh Moves and Dramatic Skys remain separate deferred
+comparisons. Fresh Moves needs motion/equipment checks; sky rendering needs
+day/night and shader-on/off checks, not only a still image.
 
 ### Visual compatibility pass
 
@@ -951,12 +1022,12 @@ The connected client and running server were tuned through DH's own UI and conso
 on 2026-10-26. The same transfer limits are now authored pack defaults. The progress overlay
 remains a local preference; new installations keep it hidden.
 
-| Setting | Previous | Tuned value |
-| --- | --- | --- |
-| Per-player bandwidth, both endpoints | 500 KB/s | 2048 KB/s |
-| Generation/download request limit, both endpoints | 20 | 64 |
-| Sync-on-load request limit, both endpoints | 50 | 100 |
-| Client generation/download progress | DISABLED | OVERLAY |
+| Setting                                           | Previous | Tuned value |
+| ------------------------------------------------- | -------- | ----------- |
+| Per-player bandwidth, both endpoints              | 500 KB/s | 2048 KB/s   |
+| Generation/download request limit, both endpoints | 20       | 64          |
+| Sync-on-load request limit, both endpoints        | 50       | 100         |
+| Client generation/download progress               | DISABLED | OVERLAY     |
 
 Server commands were `dh config common.playerBandwidthLimit 2048`,
 `dh config generation.requestRateLimit 64`, and `dh config syncOnLoad.rateLimit 100`.

@@ -3,7 +3,7 @@
   "sources": {
     "fresh-flower-pots": {
       "version": "YEM2pUsf",
-      "path": "pack/resourcepacks/§3Fresh §bFlower Pots.zip",
+      "path": "pack/resourcepacks/\u00a73Fresh \u00a7bFlower Pots.zip",
       "sha512": "20f6b1d45f824fd5218bb9ab0798170de158e9d58f71b0ddf3fad1e7a22c90aca8d1f08c8d9a1f1e932754d619c0f9480d81ad4ba2c1746b7c832c241cd2e817",
       "url": "https://cdn.modrinth.com/data/CmEN0T1m/versions/YEM2pUsf/%C2%A73Fresh%20%C2%A7bFlower%20Pots.zip"
     },
@@ -72,23 +72,91 @@
       "path": ".cache/resource-inputs/minecraft-1.21.1.jar",
       "url": "https://piston-data.mojang.com/v1/objects/30c73b1c5da787909b2f73340419fdf13b9def88/client.jar",
       "sha512": "a63c09e9b8cfe80bd5815c88818291d54cbe7c9ffcd806be6365376e865c44d5aa85e8348467e6ded8f4d9722047d3c5b075f755047a982c2e75223d2b9f68ac"
+    },
+    "3d-default": {
+      "version": "ii4vkhQ0",
+      "path": ".cache/resource-inputs/3d-default.zip",
+      "sha512": "729c0973cbe7086970775db943821b996242b5fc90a316ca58ec1ae05514ecbd7e8fa8c6aa0cf4445011a78425d5a595ac765e34c066db594f2aa02ccea80bbc",
+      "url": "https://cdn.modrinth.com/data/5aPp18Lx/versions/ii4vkhQ0/3D%20Default%201.20%2B%20v1.16.0.zip",
+      "selection": "build-only"
+    },
+    "classic-3d": {
+      "version": "kxAXta7M",
+      "path": ".cache/resource-inputs/classic-3d.zip",
+      "sha512": "935a30efada776688615eaf51563bb8f40118e35124af0b2edd1e14dcc8d476b00fdd5c8ce2dd5f3bc2960006691dc4b5a5240924c8f13c8777beb9fd994da96",
+      "url": "https://cdn.modrinth.com/data/FRSckbRo/versions/kxAXta7M/%C2%A76%C2%A7lClassic%203D%C2%A7c%20v2.0.0-A.9%C2%A7e%201.21.zip",
+      "selection": "build-only"
+    },
+    "nautilus3d": {
+      "version": "BYoL3YKt",
+      "path": ".cache/resource-inputs/nautilus3d.zip",
+      "sha512": "14dccc63880e6943c313b19b2df21cf1bc46cd31bb50a5334acab9ff93c87801e6a6686310aced9a409af06b84ed1f1e4c293de08f57b3174fc0a836bc948834",
+      "url": "https://cdn.modrinth.com/data/1MyOrwfu/versions/BYoL3YKt/Nautilus3D-V2.2.zip",
+      "selection": "build-only"
+    },
+    "3d-plants": {
+      "version": "xQ41qLei",
+      "path": ".cache/resource-candidates/3d-plants.zip",
+      "sha512": "17dbdfebe84e2c3cab4b74707726dad2bc3d9efcf2b2a14b244850fe6d422cecd6e946ac2ce7fe89d6fd1767ffe71f6e7d730318e9a0a926f89f5301f4b7b773",
+      "url": "https://cdn.modrinth.com/data/ghc0v6DT/versions/xQ41qLei/Vervada-s-enhanced-plants.zip",
+      "selection": "build-only"
+    },
+    "3dvanilla": {
+      "version": "5OUPEuwF",
+      "path": ".cache/resource-candidates/3dvanilla.zip",
+      "sha512": "2878c1108216933a1c6976ac6dee8a0d8e413b85c9b59010433e14dbf5318b3c7b00c521f1a4b20ba818de2a5aa72576a8fec6a3cf023ffaf71a0968c71938e0",
+      "url": "https://cdn.modrinth.com/data/di3Wfoht/versions/5OUPEuwF/3D%20Vanilla%201.16%2B.zip",
+      "selection": "build-only"
+    },
+    "jacobs-workspace-plus": {
+      "version": "bszrY1CR",
+      "path": ".cache/resource-candidates/jacobs-workspace-plus.zip",
+      "sha512": "7ca1bf29b7889690eb3c1cdab871c2497ddd5aace38381b02e09f08e71205c4deb6cf66732492d8750c4b06c272f0a30da39d8d06f82f339a252581a0afd02e3",
+      "url": "https://cdn.modrinth.com/data/xpRegpE4/versions/bszrY1CR/Jacob%E2%80%99s%20Workspace%2B%20%281.14%2B%29.zip",
+      "selection": "build-only"
+    },
+    "toastys-perfect-pitchers-3d-pitcher-plants": {
+      "version": "1wfNUDsn",
+      "path": ".cache/resource-candidates/toastys-perfect-pitchers-3d-pitcher-plants.zip",
+      "sha512": "c91a9a6c0c315522a21e94e8ed9698f6a03041ed9ee7ad03d5672bab577a89b139efa79e125fa38864e8d960882e14059947cdf4ba60eb184777331d91e9dcee",
+      "url": "https://cdn.modrinth.com/data/mdxJ2lRj/versions/1wfNUDsn/Toasty%27s%20Perfect%20Pitchers%20v3.zip",
+      "selection": "build-only"
+    },
+    "ulticraft-models-3d": {
+      "version": "vRQx6yxi",
+      "path": ".cache/resource-candidates/ulticraft-models-3d.zip",
+      "sha512": "65c635f1b838aff23cc7190dc5e77cc917997357db9b970a3461c34e30a9688d6fee2bd21af8506cacefa983ef618cff8d0765d66dddbd08ca3f67403ec68c7d",
+      "url": "https://cdn.modrinth.com/data/ejmzg9VI/versions/vRQx6yxi/UltiCraft-Models3D-2.97.0.zip",
+      "selection": "build-only"
     }
   },
   "compatibility": {
     "lootr_fresh_objects": true
   },
   "credits": [
-    "Fresh Flower Pots — BlueHDGaming: https://modrinth.com/resourcepack/fresh-flower-pots",
-    "3D Crops Revamped — vexcenot; adapted models credit Stridey; project credits NinthWorld: https://modrinth.com/resourcepack/3d-crops",
-    "Better Lanterns — Nico4play: https://modrinth.com/resourcepack/better-lanterns",
-    "Macaw’s Lights and Lamps — sketch_macaw: https://modrinth.com/mod/macaws-lights-and-lamps",
-    "Create Deco — talrey, Ordana and Baileybun: https://modrinth.com/mod/create-deco",
-    "Fresh Animations: Objects — FreshLX: https://modrinth.com/resourcepack/fresh-animations-objects",
-    "Compatibility adaptations and generated geometry — Create Sky",
-    "Original assets remain subject to their respective authors’ terms. Required source packs/mods supply textures; this patch includes no textures.",
-    "Create — simibubi and contributors: https://modrinth.com/mod/create",
-    "Macaw’s Bridges — sketch_macaw: https://modrinth.com/mod/macaws-bridges",
-    "Design n’ Decor — LopyLuna and contributors: https://modrinth.com/mod/create-design-n-decor",
-    "Fresh Animations and Details — FreshLX: https://modrinth.com/resourcepack/fresh-animations-details"
+    "Fresh Flower Pots \u2014 BlueHDGaming: https://modrinth.com/resourcepack/fresh-flower-pots",
+    "3D Crops Revamped \u2014 vexcenot; adapted models credit Stridey; project credits NinthWorld: https://modrinth.com/resourcepack/3d-crops",
+    "Better Lanterns \u2014 Nico4play: https://modrinth.com/resourcepack/better-lanterns",
+    "Macaw\u2019s Lights and Lamps \u2014 sketch_macaw: https://modrinth.com/mod/macaws-lights-and-lamps",
+    "Create Deco \u2014 talrey, Ordana and Baileybun: https://modrinth.com/mod/create-deco",
+    "Fresh Animations: Objects \u2014 FreshLX: https://modrinth.com/resourcepack/fresh-animations-objects",
+    "Compatibility adaptations and generated geometry \u2014 Create Sky",
+    "Original assets retain their authors\u2019 licenses. Required packs/mods supply unmodified textures; selected donor textures are included with their models.",
+    "Create \u2014 simibubi and contributors: https://modrinth.com/mod/create",
+    "Macaw\u2019s Bridges \u2014 sketch_macaw: https://modrinth.com/mod/macaws-bridges",
+    "Design n\u2019 Decor \u2014 LopyLuna and contributors: https://modrinth.com/mod/create-design-n-decor",
+    "Fresh Animations and Details \u2014 FreshLX: https://modrinth.com/resourcepack/fresh-animations-details",
+    "3D Default \u2014 GeForceLegend: https://github.com/GeForceLegend/Minecraft-3D-Default",
+    "3d-default: GPL-3.0-only; selected assets adapted into isolated namespaces. Source: https://github.com/GeForceLegend/Minecraft-3D-Default",
+    "Classic 3D \u2014 ThePinkHacker: https://github.thepinkhacker.com/classic-3d-redux",
+    "classic-3d: GPL-3.0-only; selected assets adapted into isolated namespaces. Source: https://github.thepinkhacker.com/classic-3d-redux",
+    "Nautilus 3D \u2014 Waschtl and playtrix: https://github.com/FabianMPunkt/Nautilus3D",
+    "nautilus3d: AGPL-3.0-only; selected assets adapted into isolated namespaces. Source: https://github.com/FabianMPunkt/Nautilus3D",
+    "Lootr storage artwork: native Lootr textures, relit by Create Sky. Original source: https://modrinth.com/mod/lootr; exact inputs and approved artwork fingerprints are recorded in SOURCES.json.",
+    "Vervada's enhanced plants: selected model/texture features adapted by Create Sky. Source: https://modrinth.com/resourcepack/3d-plants; license: CC-BY-SA-4.0. Unselected assets are not included.",
+    "3D Vanilla: selected model/texture features adapted by Create Sky. Source: https://modrinth.com/resourcepack/3dvanilla; license: Apache-2.0. Unselected assets are not included.",
+    "Jacob\u2019s 3D Workspace+: selected model/texture features adapted by Create Sky. Source: https://modrinth.com/resourcepack/jacobs-workspace-plus; license: CC-BY-NC-4.0. Unselected assets are not included.",
+    "Toasty's Perfect Pitchers (3d pitcher plants): selected model/texture features adapted by Create Sky. Source: https://modrinth.com/resourcepack/toastys-perfect-pitchers-3d-pitcher-plants; license: LicenseRef-All-Rights-Reserved. Unselected assets are not included.",
+    "3D Models: selected model/texture features adapted by Create Sky. Source: https://modrinth.com/resourcepack/ulticraft-models-3d; license: CC-BY-NC-SA-4.0. Unselected assets are not included."
   ]
 }

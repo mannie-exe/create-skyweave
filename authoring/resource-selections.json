@@ -1,0 +1,415 @@
+{
+  "schema": 1,
+  "reviewRun": "objects-20261102",
+  "selections": [
+    {
+      "id": "barrels/vanilla",
+      "group": "barrels",
+      "title": "Vanilla barrels",
+      "source": "current",
+      "blocks": [
+        "minecraft:barrel"
+      ],
+      "action": "keep",
+      "note": "Keep the existing barrel model."
+    },
+    {
+      "id": "barrels/lootr",
+      "group": "barrels",
+      "title": "Lootr barrels",
+      "source": "current",
+      "blocks": [
+        "lootr:lootr_barrel"
+      ],
+      "action": "keep",
+      "note": "Keep the existing directional artwork and generated corner clasps."
+    },
+    {
+      "id": "chest/single",
+      "group": "chest",
+      "title": "Single ordinary, trapped and Lootr chests",
+      "source": "3d-default",
+      "blocks": [],
+      "action": "compose",
+      "note": "C: geometry fitted to Fresh Objects. Large and ender chests retain their current rigs."
+    },
+    {
+      "id": "workstations/crafting",
+      "group": "workstations",
+      "title": "Crafting table",
+      "source": "classic-3d",
+      "blocks": [
+        "minecraft:crafting_table"
+      ],
+      "action": "apply"
+    },
+    {
+      "id": "workstations/stonecutter",
+      "group": "workstations",
+      "title": "Stonecutter",
+      "source": "classic-3d",
+      "blocks": [
+        "minecraft:stonecutter"
+      ],
+      "action": "apply"
+    },
+    {
+      "id": "plants/lily",
+      "group": "plants",
+      "title": "Lily pads",
+      "source": "3d-default",
+      "blocks": [
+        "minecraft:lily_pad"
+      ],
+      "action": "apply"
+    },
+    {
+      "id": "plants/cactus",
+      "group": "plants",
+      "title": "Cactus",
+      "source": "3d-default",
+      "blocks": [
+        "minecraft:cactus"
+      ],
+      "action": "apply"
+    },
+    {
+      "id": "plants/flowers",
+      "group": "plants",
+      "title": "Cornflowers and dandelions",
+      "source": "current",
+      "blocks": [
+        "minecraft:cornflower",
+        "minecraft:dandelion",
+        "minecraft:potted_cornflower",
+        "minecraft:potted_dandelion"
+      ],
+      "action": "keep"
+    },
+    {
+      "id": "plants/mushrooms",
+      "group": "plants",
+      "title": "Mushrooms, fungi and pots",
+      "source": "current",
+      "blocks": [
+        "minecraft:brown_mushroom",
+        "minecraft:red_mushroom",
+        "minecraft:crimson_fungus",
+        "minecraft:warped_fungus"
+      ],
+      "action": "keep",
+      "note": "Keep the existing plant and pot compositions."
+    },
+    {
+      "id": "plants/sugar-cane",
+      "group": "plants",
+      "title": "Sugar cane",
+      "source": "current",
+      "blocks": [
+        "minecraft:sugar_cane"
+      ],
+      "action": "keep"
+    },
+    {
+      "id": "plants/seagrass",
+      "group": "plants",
+      "title": "Seagrass",
+      "source": "current",
+      "blocks": [
+        "minecraft:seagrass",
+        "minecraft:tall_seagrass"
+      ],
+      "action": "keep"
+    },
+    {
+      "id": "shelves/shelves",
+      "group": "shelves",
+      "title": "Bookshelves and frame connections",
+      "source": "current",
+      "blocks": [
+        "minecraft:bookshelf",
+        "minecraft:chiseled_bookshelf"
+      ],
+      "action": "keep",
+      "note": "Preserve connected textures."
+    },
+    {
+      "id": "shelves/hives",
+      "group": "shelves",
+      "title": "Beehives and nests",
+      "source": "current",
+      "blocks": [
+        "minecraft:beehive",
+        "minecraft:bee_nest"
+      ],
+      "action": "keep"
+    },
+    {
+      "id": "props/lodestone",
+      "group": "props",
+      "title": "Lodestone",
+      "source": "3d-default",
+      "blocks": [
+        "minecraft:lodestone"
+      ],
+      "action": "apply"
+    },
+    {
+      "id": "props/bulbs",
+      "group": "props",
+      "title": "Copper bulbs: material and power states",
+      "source": "3d-default",
+      "blocks": [
+        "minecraft:copper_bulb",
+        "minecraft:exposed_copper_bulb",
+        "minecraft:weathered_copper_bulb",
+        "minecraft:oxidized_copper_bulb"
+      ],
+      "action": "apply",
+      "note": "Waxed states use the same vanilla model roots."
+    },
+    {
+      "id": "props/hay",
+      "group": "props",
+      "title": "Hay bales",
+      "source": "3d-default",
+      "blocks": [
+        "minecraft:hay_block"
+      ],
+      "action": "apply"
+    },
+    {
+      "id": "props/campfires",
+      "group": "props",
+      "title": "Campfires",
+      "source": "3d-default",
+      "blocks": [
+        "minecraft:campfire",
+        "minecraft:soul_campfire"
+      ],
+      "action": "apply",
+      "inherit_template": true,
+      "note": "Shared template is isolated to these blocks. Earlier selective screenshots did not activate it; needs a new visual check."
+    },
+    {
+      "id": "props/redstone-torch",
+      "group": "props",
+      "title": "Redstone torches: floor, wall, on and off",
+      "source": "nautilus3d",
+      "blocks": [
+        "minecraft:redstone_torch",
+        "minecraft:redstone_wall_torch"
+      ],
+      "action": "apply"
+    },
+    {
+      "id": "doors/doors",
+      "group": "doors",
+      "title": "Doors and trapdoors",
+      "source": "3d-default",
+      "blocks": [
+        "minecraft:acacia_door",
+        "minecraft:acacia_trapdoor",
+        "minecraft:bamboo_door",
+        "minecraft:bamboo_trapdoor",
+        "minecraft:birch_door",
+        "minecraft:birch_trapdoor",
+        "minecraft:cherry_door",
+        "minecraft:cherry_trapdoor",
+        "minecraft:copper_door",
+        "minecraft:copper_trapdoor",
+        "minecraft:crimson_door",
+        "minecraft:crimson_trapdoor",
+        "minecraft:dark_oak_door",
+        "minecraft:dark_oak_trapdoor",
+        "minecraft:exposed_copper_door",
+        "minecraft:exposed_copper_trapdoor",
+        "minecraft:iron_door",
+        "minecraft:iron_trapdoor",
+        "minecraft:jungle_door",
+        "minecraft:jungle_trapdoor",
+        "minecraft:mangrove_door",
+        "minecraft:mangrove_trapdoor",
+        "minecraft:oak_door",
+        "minecraft:oak_trapdoor",
+        "minecraft:oxidized_copper_door",
+        "minecraft:oxidized_copper_trapdoor",
+        "minecraft:spruce_door",
+        "minecraft:spruce_trapdoor",
+        "minecraft:warped_door",
+        "minecraft:warped_trapdoor",
+        "minecraft:waxed_copper_door",
+        "minecraft:waxed_copper_trapdoor",
+        "minecraft:waxed_exposed_copper_door",
+        "minecraft:waxed_exposed_copper_trapdoor",
+        "minecraft:waxed_oxidized_copper_door",
+        "minecraft:waxed_oxidized_copper_trapdoor",
+        "minecraft:waxed_weathered_copper_door",
+        "minecraft:waxed_weathered_copper_trapdoor",
+        "minecraft:weathered_copper_door",
+        "minecraft:weathered_copper_trapdoor"
+      ],
+      "action": "apply",
+      "note": "All vanilla wood, iron and copper families supplied by the pinned archive."
+    },
+    {
+      "id": "doors/surfaces",
+      "group": "doors",
+      "title": "Masonry and surfaces",
+      "source": "current",
+      "blocks": [
+        "minecraft:bricks",
+        "minecraft:stone_bricks",
+        "minecraft:oak_planks",
+        "minecraft:copper_block",
+        "minecraft:cobweb"
+      ],
+      "action": "keep"
+    },
+    {
+      "id": "workstations/smoker",
+      "group": "workstations",
+      "title": "Smoker",
+      "source": "ulticraft-models-3d",
+      "blocks": [
+        "minecraft:smoker"
+      ],
+      "action": "apply"
+    },
+    {
+      "id": "workstations/smithing-table",
+      "group": "workstations",
+      "title": "Smithing table",
+      "source": "jacobs-workspace-plus",
+      "blocks": [
+        "minecraft:smithing_table"
+      ],
+      "action": "apply"
+    },
+    {
+      "id": "workstations/furnace",
+      "group": "workstations",
+      "title": "Furnace",
+      "source": "ulticraft-models-3d",
+      "blocks": [
+        "minecraft:furnace"
+      ],
+      "action": "apply"
+    },
+    {
+      "id": "workstations/fletching-table",
+      "group": "workstations",
+      "title": "Fletching table",
+      "source": "ulticraft-models-3d",
+      "blocks": [
+        "minecraft:fletching_table"
+      ],
+      "action": "apply"
+    },
+    {
+      "id": "workstations/cartography-table",
+      "group": "workstations",
+      "title": "Cartography table",
+      "source": "3dvanilla",
+      "blocks": [
+        "minecraft:cartography_table"
+      ],
+      "action": "apply"
+    },
+    {
+      "id": "workstations/brewing-stand",
+      "group": "workstations",
+      "title": "Brewing stand",
+      "source": "jacobs-workspace-plus",
+      "blocks": [
+        "minecraft:brewing_stand"
+      ],
+      "action": "apply"
+    },
+    {
+      "id": "workstations/blast-furnace",
+      "group": "workstations",
+      "title": "Blast furnace",
+      "source": "3dvanilla",
+      "blocks": [
+        "minecraft:blast_furnace"
+      ],
+      "action": "apply"
+    },
+    {
+      "id": "workstations/crafter",
+      "group": "workstations",
+      "title": "Crafter",
+      "source": "3dvanilla",
+      "blocks": [
+        "minecraft:crafter"
+      ],
+      "action": "apply"
+    },
+    {
+      "id": "workstations/loom",
+      "group": "workstations",
+      "title": "Loom",
+      "source": "3dvanilla",
+      "blocks": [
+        "minecraft:loom"
+      ],
+      "action": "apply"
+    },
+    {
+      "id": "plants/azalea",
+      "group": "plants",
+      "title": "Azalea",
+      "source": "3d-plants",
+      "blocks": [
+        "minecraft:azalea"
+      ],
+      "action": "apply"
+    },
+    {
+      "id": "plants/flowering-azalea",
+      "group": "plants",
+      "title": "Flowering azalea",
+      "source": "3d-plants",
+      "blocks": [
+        "minecraft:flowering_azalea"
+      ],
+      "action": "apply"
+    },
+    {
+      "id": "plants/pitchers",
+      "group": "plants",
+      "title": "Pitcher crop and plant",
+      "source": "toastys-perfect-pitchers-3d-pitcher-plants",
+      "blocks": [
+        "minecraft:pitcher_crop",
+        "minecraft:pitcher_plant"
+      ],
+      "action": "apply",
+      "adaptation": "neoforge-root-rotations",
+      "note": "Preserve V3 geometry using built-in NeoForge composite root transforms for Minecraft 1.21.1."
+    },
+    {
+      "id": "plants/kelp",
+      "group": "plants",
+      "title": "Kelp",
+      "source": "current",
+      "blocks": [
+        "minecraft:kelp",
+        "minecraft:kelp_plant"
+      ],
+      "action": "keep",
+      "note": "Bushier Kelp deferred after visual review."
+    },
+    {
+      "id": "plants/dead-bush",
+      "group": "plants",
+      "title": "Dead bush",
+      "source": "current",
+      "blocks": [
+        "minecraft:dead_bush"
+      ],
+      "action": "keep"
+    }
+  ]
+}
