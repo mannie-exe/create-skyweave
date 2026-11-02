@@ -21,6 +21,30 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
+          fetch-depth: 0
+      - name: Generate commit changelog
+        id: changelog
+        uses: orhun/git-cliff-action@a9a95522b26fe6403f7bb24031f21fb573d0f5ff # v4
+        with:
+          version: v2.14.2
+          config: cliff.toml
+          args: --latest --strip header
+        env:
+          OUTPUT: ${{ runner.temp }}/commit-changelog.md
+      - name: Compose release notes
+        env:
+          COMMIT_CHANGELOG: ${{ steps.changelog.outputs.changelog }}
+        run: |
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          output = Path(os.environ['RUNNER_TEMP']) / 'release-notes.md'
+          authored = Path(os.environ['EMPACK_RELEASE_NOTES']).read_text()
+          history = Path(os.environ['COMMIT_CHANGELOG']).read_text()
+          output.write_text(authored.rstrip() + '\n\n' + history)
+          with Path(os.environ['GITHUB_ENV']).open('a') as env:
+              env.write(f'EMPACK_RELEASE_NOTES={output}\n')
+          PY
       - uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
         with:
           distribution: temurin

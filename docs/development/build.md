@@ -6,19 +6,19 @@ clients or servers.
 
 ## Source layout
 
-| Path | Owner of the setting |
-| --- | --- |
-| `empack.yml` | Pack version, runtime, dependency intent and distribution profiles |
-| `empack.lock` | Resolved content and hashes |
-| `empack.bindings.yml` | Selected files, names and placement |
-| `overrides/common/` | Shared authored configuration |
-| `authoring/` | Journal source and categorized configuration register |
-| `overrides/client/` | Client-only content and shader presets |
-| `templates/` | Prism memory and Java arguments, and server properties |
-| `web/` | Internal map and journal editor; excluded from pack payloads |
-| `docs/players/` | Player and server-owner instructions |
-| `docs/development/` | Maintainer procedures and dated evidence |
-| `docs/RELEASE_NOTES.md` | Notes consumed by release CI |
+| Path                    | Owner of the setting                                               |
+| ----------------------- | ------------------------------------------------------------------ |
+| `empack.yml`            | Pack version, runtime, dependency intent and distribution profiles |
+| `empack.lock`           | Resolved content and hashes                                        |
+| `empack.bindings.yml`   | Selected files, names and placement                                |
+| `overrides/common/`     | Shared authored configuration                                      |
+| `authoring/`            | Journal source and categorized configuration register              |
+| `overrides/client/`     | Client-only content and shader presets                             |
+| `templates/`            | Prism memory and Java arguments, and server properties             |
+| `web/`                  | Internal map and journal editor; excluded from pack payloads       |
+| `docs/players/`         | Player and server-owner instructions                               |
+| `docs/development/`     | Maintainer procedures and dated evidence                           |
+| `docs/RELEASE_NOTES.md` | Notes consumed by release CI                                       |
 
 Generated JARs and archives are ignored by Git. Both resource builders accept
 `--check` and preserve existing output timestamps when the bytes are unchanged. Keep worlds, credentials, server
@@ -65,11 +65,16 @@ release's checksums to identify released bytes; a local rebuild is not a substit
 for verifying downloaded release assets.
 
 `authoring/resource-patches.json` pins the archive inputs for the client model patch.
-`build-resource-patches.py` checks their selected empack versions and archive
-SHA-512 hashes, then writes `Create Sky Resource Patches.zip` in client overrides.
+`build-resource-patches.py` checks selected empack versions for installed inputs
+and SHA-512 hashes for all archives, then writes `Create Sky Resource Patches.zip` in client overrides.
 It combines four Crops plants with Fresh Flower Pots, restores Macaw's chain
 texture bindings, and includes enabled model-authoring recipes and compatibility
-adapters. The models reference existing textures. [Model authoring](web/models.md)
+adapters. Approved texture inclusion comes from `authoring/texture-resources.json`;
+the same generator supplies the web preview and shipping PNGs, with approval
+fingerprints checked before publication. `authoring/resource-selections.json` adds approved per-feature donor
+models and the Fresh chest composition. Source-only archives remain outside the
+enabled resource stack; required donor textures and licenses are copied into the
+generated ZIP. [Model authoring](web/models.md)
 owns extrusion and artwork-fitting controls.
 Keep this generated pack above its inputs. Unknown versions or model structures
 stop generation for review; follow the [update procedure](patches.md#update-sequence). CI runs
@@ -196,7 +201,10 @@ the publication target; review hosting eligibility before any Modrinth upload.
 3. Record checks, tested versions and limitations in the relevant verification
    guide. Update [decisions](decisions.md) only when policy changes. Commit and
    push the reviewed source.
-4. Push the matching `v<version>` tag to trigger publication.
+4. After content commits, run `git-cliff --tag v<version> --output CHANGELOG.md`
+   with git-cliff 2.14.2. Review the generated history, then commit it with the
+   version and notes as `chore(release): <version>`. Push the matching `v<version>`
+   tag to trigger publication.
 5. Wait for validation and release jobs. Download the published assets, verify
    `SHA256SUMS`, and check the critical payloads before announcing the release.
 
@@ -223,7 +231,13 @@ and deployment dry run. Pack profiles assemble `pack/`, `overrides/` and
 
 Retain these choices when refreshing the scaffold:
 
-- `EMPACK_RELEASE_NOTES` points to `docs/RELEASE_NOTES.md` and uses `--notes-file`.
+- `cliff.toml` groups conventional commit history; release/merge commits are excluded.
+  `CHANGELOG.md` is the generated repository history; `docs/RELEASE_NOTES.md` owns
+  the player-facing summary and archived notes retain that context.
+- Release checkout fetches full history. The pinned git-cliff action/tool generates
+  the latest tagged section and appends it to the authored summary in a temporary
+  file. `EMPACK_RELEASE_NOTES` passes that file through `--notes-file`.
+  This follows empack's own GitHub workflow; git-cliff is not an empack CLI command.
 - All three reference profiles are selected through `build.default`; CI uses that default.
 - Prism overrides memory to 512 MiB minimum and 8192 MiB maximum.
 - Prism defaults to Java 21 Generational ZGC through `OverrideJavaArgs=true` and
