@@ -2,6 +2,31 @@ import { randomUUID } from 'node:crypto'
 
 // User actions span validation, file writes and multiple named subprocesses.
 const actions = {
+  '/__atlas/objects/inputs': [
+    'Fetch candidate resource inputs',
+    '/resource-authoring',
+    'Resource preview inputs ready',
+  ],
+  '/__atlas/objects/generate': [
+    'Refresh resource objects',
+    '/resource-authoring',
+    'Resource object previews refreshed. Pack sources were not changed.',
+  ],
+  '/__atlas/objects/export': [
+    'Export static model definitions',
+    '/resource-authoring',
+    'Static model definitions exported. No Minecraft instance was started.',
+  ],
+  '/__atlas/textures/generate': [
+    'Rebuild texture previews',
+    '/resource-authoring?view=textures',
+    'Texture previews rebuilt. Installed packs were not changed.',
+  ],
+  '/__atlas/resource-reviews/save': [
+    'Save resource review',
+    '/resourcepacks/reviews',
+    'Review saved. Pack selections were not changed.',
+  ],
   '/__atlas/authoring/save': [
     'Save journal source',
     '/authoring',
@@ -19,12 +44,12 @@ const actions = {
   ],
   '/__atlas/models/save': [
     'Save model source',
-    '/model-authoring',
+    '/resource-authoring?view=models',
     'Model source saved.',
   ],
   '/__atlas/models/generate': [
     'Generate resource patches',
-    '/model-authoring',
+    '/resource-authoring?view=models',
     'Resource patches generated. Instances were not changed.',
   ],
   '/__atlas/refresh': [

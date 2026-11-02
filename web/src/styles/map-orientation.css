@@ -52,9 +52,6 @@
   font-size: var(--type-label-size);
   color: var(--ink);
 }
-.orientation-ruler button[aria-current='true'] {
-  box-shadow: inset 0 -2px var(--line-selected);
-}
 .orientation-ruler button:disabled {
   color: var(--ink-muted);
 }
@@ -69,14 +66,15 @@
   flex: 1;
   min-width: 0;
 }
-#family-axis {
+:where(#family-axis) {
   position: relative;
   overflow: hidden;
   flex: 0 0 var(--family-axis-width);
   background: var(--surface-panel);
   border-right: 1px solid var(--line-subtle);
 }
-#family-axis button {
+:where(#family-axis) button {
+  --button-selection-shadow: inset -2px 0 var(--line-selected);
   position: absolute;
   left: 0;
   width: 100%;
@@ -89,17 +87,14 @@
   text-align: left;
   overflow: hidden;
 }
-#family-axis button span {
+:where(#family-axis) button span {
   position: absolute;
   top: calc(var(--family-inset, 0px) + var(--space-control));
   left: var(--space-control);
   right: var(--space-control);
   font-size: var(--type-label-size);
 }
-#family-axis button[aria-current='true'] {
-  box-shadow: inset -2px 0 var(--line-selected);
-}
-#family-axis button:disabled {
+:where(#family-axis) button:disabled {
   color: var(--ink-muted);
 }
 @media (max-width: 600px) {

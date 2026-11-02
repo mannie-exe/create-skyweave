@@ -1,0 +1,47 @@
+.texture-resource-previews {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: var(--space-section);
+  align-items: start;
+}
+.texture-file-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-control);
+}
+.texture-file-grid[data-single='true'] {
+  grid-template-columns: minmax(0, 1fr);
+}
+.texture-file-grid figure {
+  margin: 0;
+  min-width: 0;
+}
+.texture-file-grid figcaption {
+  margin-block-start: var(--space-tight);
+  font: var(--type-caption-size)/var(--type-caption-leading)
+    var(--type-body-family);
+}
+.texture-resource-image {
+  display: block;
+  inline-size: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  image-rendering: pixelated;
+  border: var(--control-border-width) solid var(--line-subtle);
+}
+.texture-resource-inputs {
+  margin: 0;
+  padding-inline-start: var(--space-content);
+  font-family: var(--type-code-family);
+  overflow-wrap: anywhere;
+}
+.resource-preview pre {
+  margin: 0;
+  overflow: auto;
+  font: var(--type-code-size)/var(--type-code-leading) var(--type-code-family);
+}
+@media (max-width: 1100px) {
+  .texture-resource-previews {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

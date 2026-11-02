@@ -11,6 +11,26 @@ test.beforeEach(async ({ page }) => {
   )
 })
 
+test('comparison sheets link to their unedited originals', async ({ page }) => {
+  await page.goto('/resourcepacks#3d-default')
+  const gallery = page.locator('[id="3d-default"] [data-gallery]')
+  await gallery.locator('[data-presentation="true"]').first().click()
+  const originals = gallery.locator('[data-gallery-originals]')
+  await expect(originals).toBeVisible()
+  await expect(originals.locator('a')).toHaveCount(4)
+  for (const link of await originals.locator('a').all()) {
+    await expect(link).toHaveAttribute(
+      'href',
+      /\/generated\/resource-review\/selective-20261101\/.*\.png$/,
+    )
+  }
+  await expect(gallery.locator('[data-gallery-source]')).toHaveText(
+    'Open comparison sheet',
+  )
+  await gallery.locator('[data-image]').first().click()
+  await expect(originals).toBeHidden()
+})
+
 test('review filters persist, reset and reveal catalog references', async ({
   page,
 }) => {
@@ -26,7 +46,7 @@ test('review filters persist, reset and reveal catalog references', async ({
   await page.locator('#pack-search').fill('does not exist')
   await expect(page.locator('#pack-empty')).toBeVisible()
   await page.getByRole('button', { name: 'Reset', exact: true }).click()
-  await expect(page.locator('[data-candidate]:visible')).toHaveCount(48)
+  await expect(page.locator('[data-candidate]:visible')).toHaveCount(54)
   await page.locator('#pack-category').selectOption('Connected textures')
   await expect(page).toHaveURL(/scope=Connected/)
   await page.reload()
@@ -209,7 +229,7 @@ test('reading rail follows the document and shares its filters', async ({
   await expect(page.locator('#pack-empty')).toBeVisible()
   await expect(index.locator('a:visible')).toHaveCount(0)
   await page.locator('#pack-reset').click()
-  await expect(index.locator('a:visible')).toHaveCount(48)
+  await expect(index.locator('a:visible')).toHaveCount(54)
   await page.setViewportSize({ width: 390, height: 844 })
   await index.locator('[href="#create-sky-resource-patches"]').click()
   await expect(page.locator('#create-sky-resource-patches h2')).toBeFocused()

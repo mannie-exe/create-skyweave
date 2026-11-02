@@ -2,7 +2,7 @@
 
 Run `pnpm dev` and open `/authoring`. The editor reads the pack configured in
 `data/local.json`; static builds have no editing endpoints. Journal, Config audit,
-Models and Source JSON share the authoring navigation. The model workbench has its
+Resources and Source JSON share the authoring navigation. Resource authoring has its
 own [guide](models.md).
 
 ## Journal
@@ -72,8 +72,10 @@ compiler in a temporary pack.
 
 ## Drafts and source edits
 
-The Activity panel sits beside authoring at desktop widths and follows the editor
-on narrow screens. It records complete actions, including validation and file writes.
+Open Activity from the shared header. Pin it beside authoring when enough width
+remains; on narrow screens and dense resource/map views it opens as an overlay.
+Close or Escape returns focus to the header button. Open and pin preferences last
+for the browser session. It records complete actions, including validation and file writes.
 Routine source reads and previews do not replace those results. Editor feedback
 stays beside the relevant actions; recent outcomes remain in Activity after a
 toast disappears. See [data](data.md#filesystem-boundary) for retention and polling.

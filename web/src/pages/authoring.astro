@@ -2,24 +2,12 @@
 import Base from '../layouts/Base.astro'
 import AppHeader from '../components/AppHeader.astro'
 import AuthoringApp from '../components/authoring/AuthoringApp'
-import ActivityHost from '../components/activity/ActivityHost'
 import '../styles/authoring.css'
 import '../styles/journal.css'
 import '../styles/activity.css'
 ---
 
-<Base title="Pack authoring · Create Sky">
-  <AppHeader page="authoring" showJobs={false} />
-  <div class="authoring-layout">
-    <div>
-      <AuthoringApp client:only="react" />
-    </div>
-    <aside class="authoring-activity">
-      <ActivityHost
-        live={import.meta.env.DEV}
-        presentation="panel"
-        client:only="react"
-      />
-    </aside>
-  </div>
+<Base title="Pack authoring · Create Sky" activityDock>
+  <AppHeader slot="header" page="authoring" />
+  <AuthoringApp client:only="react" />
 </Base>

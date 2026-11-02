@@ -8,13 +8,22 @@ const hash = (value) => crypto.createHash('sha256').update(value).digest('hex')
 export function modelAuthoring(pack) {
   const file = path.join(pack, 'authoring/model-recipes.json')
   const pins = path.join(pack, 'authoring/resource-patches.json')
+  const selections = path.join(pack, 'authoring/resource-selections.json')
+  const textures = path.join(pack, 'authoring/texture-resources.json')
   async function source() {
-    for (const name of [file, pins])
+    for (const name of [file, pins, selections, textures])
       if ((await fs.realpath(name)) !== name)
         throw new Error('Model authoring symlinks are not supported')
     const text = await fs.readFile(file, 'utf8')
     const pinText = await fs.readFile(pins, 'utf8')
-    return { text, revision: hash(text + '\n' + pinText) }
+    const selectionText = await fs.readFile(selections, 'utf8')
+    const textureText = await fs.readFile(textures, 'utf8')
+    return {
+      text,
+      revision: hash(
+        text + '\n' + pinText + '\n' + selectionText + '\n' + textureText,
+      ),
+    }
   }
   async function preview(document, validate = false) {
     const result = await jobs.run(
@@ -28,7 +37,7 @@ export function modelAuthoring(pack) {
     const current = await source()
     if (current.revision !== revision)
       throw new Error(
-        'Model source or input pins changed. Reload before saving or generating.',
+        'Model source or resource inputs changed. Reload before saving or generating.',
       )
     return current
   }

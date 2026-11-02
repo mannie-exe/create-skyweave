@@ -32,7 +32,7 @@ export type ActivityState = {
 }
 
 // Shared by independent React islands and ordinary DOM consumers; no React owner.
-export function createActivityStore() {
+function createActivityStore() {
   let state: ActivityState = {
     current: null,
     history: [],

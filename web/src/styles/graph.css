@@ -100,7 +100,7 @@
 .graph-results {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: var(--space-tight);
   max-height: 430px;
   overflow: auto;
 }
@@ -142,7 +142,7 @@
 }
 .flow-actions {
   display: flex;
-  gap: 6px;
+  gap: var(--space-inline);
   flex-wrap: wrap;
   margin-left: auto;
 }

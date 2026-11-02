@@ -17,6 +17,7 @@ export default defineConfig({
           '**/.cache/**',
           '**/data/generated/**',
           '**/data/local.json',
+          '**/data/authored/resource-reviews.json',
           '**/public/generated/**',
           ...domains.map((domain) => `**/data/authored/${domain}.yml`),
         ],

@@ -33,6 +33,14 @@ async function fixture(t) {
     path.join(root, 'scripts/build-resource-patches.py'),
     "from pathlib import Path\nPath('generated.marker').write_text('built')\nprint('Generated')\n",
   )
+  await fs.writeFile(
+    path.join(root, 'authoring/resource-selections.json'),
+    JSON.stringify({ schema: 1, selections: [] }),
+  )
+  await fs.writeFile(
+    path.join(root, 'authoring/texture-resources.json'),
+    JSON.stringify({ schema: 1, resources: [] }),
+  )
   return { root, editor: modelAuthoring(root) }
 }
 
@@ -94,4 +102,38 @@ test('source and temporary symlinks cannot redirect writes', async (t) => {
   await fs.unlink(file)
   await fs.symlink(outside, file)
   await assert.rejects(editor.read(), /symlinks/)
+})
+
+test('changed resource selections invalidate generation and preserve model edits', async (t) => {
+  const { root, editor } = await fixture(t)
+  const initial = await editor.read()
+  await fs.appendFile(
+    path.join(root, 'authoring/resource-selections.json'),
+    '\n',
+  )
+  await assert.rejects(
+    editor.generate({ revision: initial.revision }),
+    /changed/,
+  )
+  await assert.rejects(
+    editor.save({ document: initial.document, revision: initial.revision }),
+    /changed/,
+  )
+  assert.deepEqual((await editor.read()).document, initial.document)
+  await assert.rejects(fs.stat(path.join(root, 'generated.marker')), {
+    code: 'ENOENT',
+  })
+})
+
+test('changed texture approvals invalidate generation', async (t) => {
+  const { root, editor } = await fixture(t)
+  const initial = await editor.read()
+  await fs.appendFile(path.join(root, 'authoring/texture-resources.json'), '\n')
+  await assert.rejects(
+    editor.generate({ revision: initial.revision }),
+    /changed/,
+  )
+  await assert.rejects(fs.stat(path.join(root, 'generated.marker')), {
+    code: 'ENOENT',
+  })
 })

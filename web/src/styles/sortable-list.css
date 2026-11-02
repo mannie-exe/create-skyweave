@@ -1,0 +1,56 @@
+.sortable-actions {
+  gap: var(--space-tight);
+  margin-block-end: var(--space-content);
+}
+.sortable-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: var(--control-border-width) solid var(--line-control);
+  background: var(--surface-panel);
+  max-block-size: var(--sortable-list-limit, none);
+  overflow: auto;
+}
+.sortable-list-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+}
+.sortable-list-item + .sortable-list-item {
+  border-block-start: var(--control-border-width) solid var(--line-subtle);
+}
+.sortable-list-item[data-selected='true'] {
+  background: var(--surface-selected);
+}
+.sortable-list-item[data-dragging='true'] {
+  box-shadow: var(--shadow-overlay);
+}
+.sortable-handle,
+.sortable-selection {
+  border-color: transparent;
+  border-radius: 0;
+  background: transparent;
+}
+.sortable-handle {
+  cursor: grab;
+  color: var(--ink-muted);
+  touch-action: none;
+}
+.sortable-handle:active {
+  cursor: grabbing;
+}
+.sortable-selection {
+  min-width: 0;
+  inline-size: 100%;
+  text-align: start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sortable-announcement {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}

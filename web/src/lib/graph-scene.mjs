@@ -16,7 +16,7 @@ export function indexScene(nodes, edges) {
   return { nodes, edges, bounds, tiles }
 }
 
-export function visibleNodes(scene, extent, padding = 300) {
+function visibleNodes(scene, extent, padding = 300) {
   const found = []
   for (
     let x = Math.floor((extent.x1 - padding) / 512);

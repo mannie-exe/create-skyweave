@@ -15,17 +15,15 @@
 }
 .review-toolbar h1 {
   margin: 0 auto 0 0;
-  font-size: var(--type-view-title-size);
-  font-weight: var(--type-view-title-weight);
 }
 .review-summary {
-  margin: 14px 0;
+  margin: var(--space-content) 0;
   color: var(--ink-muted);
   justify-content: space-between;
 }
 .review-method,
 .catalog-screening {
-  padding: 14px 18px;
+  padding: var(--space-content);
   background: var(--surface-panel);
   border: 1px solid var(--line-subtle);
 }
@@ -35,18 +33,16 @@
 .resource-candidate {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  gap: 40px;
-  padding: 32px 0;
+  gap: calc(var(--space-section) * 2);
+  padding: calc(var(--space-content) * 2) 0;
   border-bottom: 1px solid var(--line-subtle);
-  scroll-margin-top: 20px;
+  scroll-margin-top: var(--space-section);
 }
 .candidate-copy {
   max-width: 68ch;
 }
 .candidate-copy h2 {
   margin: var(--space-control) 0;
-  font-size: 23px;
-  line-height: 1.2;
 }
 .candidate-copy h2 a {
   color: var(--ink);
@@ -68,11 +64,12 @@
 }
 .review-status[data-state='try'],
 .review-status[data-state='installed'] {
-  background: var(--surface-selected);
-  border-color: var(--color-action);
+  background: var(--status-info-surface);
+  border-color: var(--status-info-line);
 }
 .candidate-description {
-  font-size: 16px;
+  font-size: var(--type-reading-size);
+  line-height: var(--type-reading-leading);
 }
 .candidate-concern {
   border-left: 2px solid var(--line-subtle);
@@ -81,7 +78,7 @@
 .candidate-links {
   list-style: none;
   padding: 0;
-  margin: 18px 0;
+  margin: var(--space-content) 0;
 }
 .candidate-evidence {
   font-size: var(--type-caption-size);
@@ -108,7 +105,7 @@
 }
 .gallery-open {
   display: block;
-  background: var(--surface-selected);
+  background: var(--surface-inset);
   border: 1px solid var(--line-subtle);
 }
 .gallery-main,
@@ -121,7 +118,7 @@
 .pack-gallery figcaption {
   font-size: var(--type-caption-size);
   color: var(--ink-muted);
-  margin-top: 7px;
+  margin-top: var(--space-inline);
   min-height: 18px;
 }
 .gallery-thumbnails {
@@ -164,10 +161,10 @@
   color: var(--ink-muted);
 }
 .catalog-screening {
-  margin-top: 30px;
+  margin-top: calc(var(--space-content) * 2);
 }
 .catalog-screening > .field {
-  margin-top: 18px;
+  margin-top: var(--space-content);
 }
 .catalog-scroll {
   overflow-x: auto;
@@ -195,7 +192,7 @@
   border: 1px solid var(--line-subtle);
   max-width: min(1400px, 94vw);
   max-height: 94dvh;
-  padding: 18px;
+  padding: var(--space-content);
 }
 #image-viewer::backdrop {
   background: var(--surface-scrim);
@@ -217,7 +214,8 @@
 }
 @media (max-width: 760px) {
   .resource-review {
-    padding: 18px var(--space-content) 40px;
+    padding: var(--space-content) var(--gutter-page)
+      calc(var(--space-section) * 2);
   }
   .review-toolbar {
     align-items: stretch;
@@ -235,8 +233,8 @@
   }
   .resource-candidate {
     grid-template-columns: minmax(0, 1fr);
-    gap: 20px;
-    padding: 25px 0;
+    gap: var(--space-section);
+    padding: var(--space-section) 0;
   }
   .candidate-copy {
     max-width: none;

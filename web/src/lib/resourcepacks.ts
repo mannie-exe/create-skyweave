@@ -96,8 +96,28 @@ function selectImage(gallery: HTMLElement, index: number) {
   source.href = selected.dataset.source!
   source.textContent =
     selected.dataset.origin === 'local'
-      ? 'Open original capture'
+      ? selected.dataset.presentation === 'true'
+        ? 'Open comparison sheet'
+        : 'Open original capture'
       : 'Author’s source gallery'
+  const originals = gallery.querySelector<HTMLElement>(
+    '[data-gallery-originals]',
+  )!
+  const links = JSON.parse(selected.dataset.originals || '[]') as {
+    label: string
+    url: string
+  }[]
+  originals.replaceChildren(
+    ...links.map((link) => {
+      const anchor = document.createElement('a')
+      anchor.href = link.url
+      anchor.textContent = link.label
+      anchor.target = '_blank'
+      anchor.rel = 'noreferrer'
+      return anchor
+    }),
+  )
+  originals.hidden = links.length === 0
   gallery.querySelector('[data-gallery-credit]')!.textContent =
     selected.dataset.credit!
   choices.forEach((choice, i) =>

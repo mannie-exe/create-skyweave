@@ -70,6 +70,8 @@ const credit = (image: GalleryImage) =>
             data-source={image.source}
             data-origin={image.origin || 'author'}
             data-credit={credit(image)}
+            data-presentation={image.presentation ? 'true' : undefined}
+            data-originals={JSON.stringify(image.originals || [])}
             aria-label={`${title}, ${image.kind === 'video' ? 'recording' : 'image'} ${images.indexOf(image) + 1}: ${image.caption}`}
             aria-pressed={image === images[0]}
           >
@@ -96,10 +98,24 @@ const credit = (image: GalleryImage) =>
       rel="noreferrer"
     >
       {images[0].origin === 'local'
-        ? 'Open original capture'
+        ? images[0].presentation
+          ? 'Open comparison sheet'
+          : 'Open original capture'
         : 'Author’s source gallery'}
     </a>
     {' · '}
     <span data-gallery-credit>{credit(images[0])}</span>
+  </p>
+  <p
+    class="gallery-credit action-row"
+    data-gallery-originals
+    aria-label="Unedited comparison captures"
+    hidden={!images[0].originals?.length}
+  >
+    {images[0].originals?.map((original) => (
+      <a href={original.url} target="_blank" rel="noreferrer">
+        {original.label}
+      </a>
+    ))}
   </p>
 </section>

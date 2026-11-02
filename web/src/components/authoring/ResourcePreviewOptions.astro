@@ -1,0 +1,14 @@
+---
+interface Props {
+  id: string
+  inputId: string
+}
+const { id, inputId } = Astro.props
+---
+
+<fieldset id={id} class="content-stack" data-space="control" hidden>
+  <legend>Resource preview</legend>
+  <label class="inline-field">
+    <input id={inputId} type="checkbox" checked /> Show modpack changes
+  </label>
+</fieldset>

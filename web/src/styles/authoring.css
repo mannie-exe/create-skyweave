@@ -1,5 +1,5 @@
 .authoring {
-  padding: 20px var(--gutter-page);
+  padding: var(--space-section) var(--gutter-page);
   max-width: var(--measure-page);
   margin: auto;
 }
@@ -8,21 +8,14 @@
   gap: var(--space-control);
   align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 14px;
+  margin-bottom: var(--space-content);
 }
-.authoring .scope {
-  color: var(--ink-muted);
-}
-.authoring-actions {
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  padding: 10px 0;
-  background: var(--surface-page);
-}
-.authoring .entry-editor h1 {
+.authoring .entry-editor h1:not([data-text-role]) {
   margin: 0;
-  font-size: 21px;
+  font: var(--type-view-title-weight)
+    var(--type-view-title-size)/var(--type-view-title-leading)
+    var(--type-view-title-family);
+  letter-spacing: var(--type-view-title-tracking);
 }
 :where(.authoring) label {
   display: grid;
@@ -31,7 +24,6 @@
 }
 :where(.authoring textarea:not(.source-editor)) {
   width: 100%;
-  padding: var(--space-control);
 }
 .authoring select,
 .authoring input {
@@ -49,23 +41,10 @@
 }
 .authoring th,
 .authoring td {
-  padding: 10px;
+  padding: var(--space-control);
   vertical-align: top;
 }
-.authoring fieldset {
-  border: 1px solid var(--line-subtle);
-  min-width: 0;
-}
-.authoring details:not(.disclosure) {
-  margin-top: var(--space-section);
-  overflow-wrap: anywhere;
-}
-.authoring .entry-editor h2:not([data-text-role]) {
-  font-size: 18px;
-}
-.authoring [aria-pressed='true'] {
-  border-color: var(--line-selected);
-}
+
 @media (max-width: 800px) {
   .authoring {
     padding: var(--space-control);
@@ -85,10 +64,6 @@
   background: var(--surface-panel);
   border-radius: var(--radius-panel);
   padding: var(--space-content);
-}
-.authoring .generation-review summary {
-  cursor: pointer;
-  font-size: var(--type-label-size);
 }
 .authoring .generation-review ul {
   max-height: 200px;

@@ -10,7 +10,14 @@ const observations = JSON.parse(read('research/resourcepacks/projects.json'))
 const localProjects = JSON.parse(
   read('research/resourcepacks/local-projects.json'),
 )
-const projects = { ...observations.projects, ...localProjects }
+const objectProjects = JSON.parse(
+  read('research/resourcepacks/object-projects.json'),
+).projects
+const projects = {
+  ...observations.projects,
+  ...objectProjects,
+  ...localProjects,
+}
 const catalog = JSON.parse(read('research/resourcepacks/catalog.json'))
 
 test('resource reviews join to sourced galleries and hash-verified files', () => {
@@ -27,6 +34,7 @@ test('resource reviews join to sourced galleries and hash-verified files', () =>
         'try',
         'installed',
         'compare',
+        'partial',
         'conditional',
         'defer',
         'reject',
@@ -35,7 +43,7 @@ test('resource reviews join to sourced galleries and hash-verified files', () =>
     )
     const project = projects[review.id]
     if (!(review.id in localProjects))
-      assert.ok(project.gallery.length > 0, review.id)
+      assert.ok(project.gallery.length > 0 || project.fileNote, review.id)
     for (const image of project.gallery) {
       assert.ok(image.caption.trim(), review.id)
       for (const key of ['url', 'thumbnail', 'source'])
@@ -72,6 +80,7 @@ test('catalog ranks are contiguous per source and review links identify the same
 
 test('archived media has unique files, known projects and attributable runs', () => {
   const manifest = JSON.parse(read('research/resourcepacks/local-media.json'))
+  const files = new Map(manifest.media.map((media) => [media.file, media]))
   assert.equal(
     new Set(manifest.media.map((media) => media.id)).size,
     manifest.media.length,
@@ -97,5 +106,12 @@ test('archived media has unique files, known projects and attributable runs', ()
       )
     }
     assert.ok(media.caption.trim() && media.stage.trim())
+    for (const original of media.originals || []) {
+      assert.ok(original.label.trim(), media.id)
+      assert.ok(files.has(original.file), `${media.id}: missing original`)
+      assert.equal(files.get(original.file).kind, 'image')
+      assert.equal(files.get(original.file).run, media.run)
+      assert.ok(!files.get(original.file).originals?.length)
+    }
   }
 })

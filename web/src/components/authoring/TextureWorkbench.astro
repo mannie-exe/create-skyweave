@@ -1,0 +1,30 @@
+---
+import Button from '../ui/Button.astro'
+import EditorActions from '../ui/EditorActions.astro'
+import Field from '../ui/Field.astro'
+import Workbench from '../ui/Workbench.astro'
+import ResourcePreview from './ResourcePreview.astro'
+---
+
+<section class="authoring texture-authoring content-stack">
+  <EditorActions>
+    <Button id="textures-reload">Reload previews</Button>
+    <Button id="textures-generate">Rebuild previews</Button>
+    <Fragment slot="status">
+      <span id="textures-status" role="status"></span>
+    </Fragment>
+  </EditorActions>
+  <Workbench>
+    <Fragment slot="browser">
+      <Field id="texture-search" label="Find texture resource">
+        <input id="texture-search" type="search" />
+      </Field>
+      <div
+        id="texture-list"
+        class="entry-list"
+        aria-label="Texture resources"
+      ></div>
+    </Fragment>
+    <ResourcePreview id="texture-resource" />
+  </Workbench>
+</section>

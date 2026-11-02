@@ -1,0 +1,11 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "project": [
+    "src/**/*.{astro,ts,tsx,mjs}",
+    "scripts/**/*.mjs",
+    "tests/**/*.mjs",
+    "*.{ts,mjs}",
+  ],
+  // Playwright imports this Vite-served browser module, not a Node filesystem path.
+  "ignoreUnresolved": ["^/src/lib/activity\\.ts$"],
+}

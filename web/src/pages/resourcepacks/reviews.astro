@@ -1,0 +1,42 @@
+---
+import Base from '../../layouts/Base.astro'
+import AppHeader from '../../components/AppHeader.astro'
+import ResourceComparisons from '../../components/resourcepacks/ResourceComparisons'
+import {
+  comparisons,
+  approvedSelections,
+} from '../../lib/resource-comparisons.mjs'
+import '../../styles/resource-comparisons.css'
+import { resourceReviews } from '../../../scripts/resource-reviews.mjs'
+const initial = await resourceReviews(process.cwd()).read()
+---
+
+<Base title="Visual comparisons · Create Sky">
+  <AppHeader slot="header" page="resources" />
+  <noscript>
+    <main id="main-content" class="resource-comparisons content-stack">
+      <h1>Visual comparisons</h1>
+      <p>
+        Enable JavaScript for the comparison controls, or open a saved sheet
+        below.
+      </p>
+      {comparisons.map((feature) => (
+        <section class="content-stack">
+          <h2>{feature.title}</h2>
+          {feature.captures.map((capture) => (
+            <a href={capture.sheet}>{capture.caption}</a>
+          ))}
+        </section>
+      ))}
+    </main>
+  </noscript>
+  <div id="resource-comparisons-root">
+    <ResourceComparisons
+      comparisons={comparisons}
+      selections={approvedSelections}
+      initial={initial}
+      editable={import.meta.env.DEV}
+      client:only="react"
+    />
+  </div>
+</Base>

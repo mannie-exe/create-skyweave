@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@12.14.0",
+  "packageManager": "pnpm@12.16.1",
   "engines": {
     "node": ">=24.16.0 <25"
   },
@@ -13,7 +13,7 @@
     "preview": "astro preview --host 127.0.0.1",
     "check": "astro check",
     "test": "node --test tests/*.test.mjs",
-    "verify": "pnpm lint && pnpm test && pnpm build",
+    "verify": "pnpm lint && pnpm check:unused && pnpm test && pnpm build",
     "setup:python": "python3 -m venv .cache/python && .cache/python/bin/python -m pip install -r requirements.txt",
     "test:python": ".cache/python/bin/python -m unittest discover -s tests -p 'test_*.py'",
     "data:check": "node scripts/verify_snapshot.mjs",
@@ -30,27 +30,31 @@
     "test:browser": "playwright test",
     "data:structures": "python3 scripts/structures.py",
     "data:islands": "python3 scripts/islands.py",
-    "data:locales": "node scripts/minecraft-locales.mjs"
+    "data:locales": "node scripts/minecraft-locales.mjs",
+    "check:unused": "knip"
   },
   "dependencies": {
-    "@astrojs/react": "7.1.1",
+    "@astrojs/react": "7.1.2",
+    "@base-ui/react": "1.9.0",
+    "@dnd-kit/react": "0.5.3",
     "@xyflow/react": "12.12.0",
-    "astro": "7.4.2",
+    "astro": "7.4.4",
     "react": "19.3.1",
     "react-dom": "19.3.1",
-    "three": "0.186.1",
+    "three": "0.187.0",
     "yaml": "2.9.1"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.12",
     "@playwright/test": "1.64.1",
-    "@types/node": "^24.19.1",
+    "@types/node": "^24.19.2",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
-    "@types/three": "0.186.0",
+    "@types/three": "0.187.0",
+    "knip": "6.44.1",
     "prettier": "^3.9.10",
-    "prettier-plugin-astro": "^1.1.1",
+    "prettier-plugin-astro": "^1.1.2",
     "typescript": "6.0.3",
-    "wrangler": "4.151.3"
+    "wrangler": "4.156.0"
   }
 }

@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro'
+---
+
+<Base title="Resource authoring · Create Sky">
+  <a href="/resource-authoring">Open resource authoring</a>
+</Base>
+<script>
+  const url = new URL(location.href)
+  url.pathname = '/resource-authoring'
+  url.searchParams.set('view', 'textures')
+  url.searchParams.delete('layout')
+  location.replace(url.href)
+</script>

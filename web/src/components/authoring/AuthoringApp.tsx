@@ -1,4 +1,5 @@
 import ViewTabs from '../ui/ViewTabs'
+import EditorActions from '../ui/EditorActions'
 import Feedback from '../ui/Feedback'
 import Button from '../ui/Button'
 import Disclosure from '../ui/Disclosure'
@@ -249,7 +250,35 @@ export default function AuthoringApp() {
         >
           <header className="section-heading">
             <h1 data-text-role="item-title">{heading}</h1>
-            <div className="action-row" aria-label="Current view actions">
+            <EditorActions
+              status={
+                <>
+                  {snapshot && (
+                    <p className="scope">
+                      {dirty || unapplied
+                        ? 'Draft · unsaved changes'
+                        : 'Source · saved'}
+                      {journalScope && (
+                        <>
+                          {' · '}
+                          {refreshRequired
+                            ? 'Questlog files · status unavailable'
+                            : generatedCount
+                              ? 'Questlog files · update needed'
+                              : 'Questlog files · match saved source'}
+                        </>
+                      )}
+                    </p>
+                  )}
+                  <Feedback
+                    role="status"
+                    tone={statusError ? 'error' : 'neutral'}
+                  >
+                    {status}
+                  </Feedback>
+                </>
+              }
+            >
               <Button
                 intent={dirty || unapplied ? 'destructive' : 'default'}
                 disabled={busy}
@@ -312,29 +341,9 @@ export default function AuthoringApp() {
                   Generate Questlog files
                 </Button>
               )}
-            </div>
+            </EditorActions>
           </header>
           <div className="content-stack" data-space="control">
-            {snapshot && (
-              <p className="scope">
-                {dirty || unapplied
-                  ? 'Draft · unsaved changes'
-                  : 'Source · saved'}
-                {journalScope && (
-                  <>
-                    {' · '}
-                    {refreshRequired
-                      ? 'Questlog files · status unavailable'
-                      : generatedCount
-                        ? 'Questlog files · update needed'
-                        : 'Questlog files · match saved source'}
-                  </>
-                )}
-              </p>
-            )}
-            <Feedback role="status" tone={statusError ? 'error' : 'neutral'}>
-              {status}
-            </Feedback>
             {(dirty || unapplied) && (
               <p className="scope">
                 {Object.keys(changes).length} changed source files

@@ -1,0 +1,16 @@
+---
+import '../../styles/preview-surface.css'
+interface Props {
+  id: string
+  label: string
+}
+const { id, label } = Astro.props
+---
+
+<div id={id} class="preview-surface" aria-busy="false">
+  <slot />
+  <span class="preview-progress" role="status" hidden>
+    <span class="preview-spinner" aria-hidden="true"></span>
+    <span class="preview-progress-label">{label}</span>
+  </span>
+</div>

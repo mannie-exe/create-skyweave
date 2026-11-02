@@ -1,0 +1,24 @@
+---
+import Button from '../ui/Button.astro'
+import EditorActions from '../ui/EditorActions.astro'
+import ModelWorkbench from './ModelWorkbench.astro'
+---
+
+<section class="authoring model-authoring" data-operation-layout="inspector">
+  <EditorActions>
+    <Button id="models-reload">Reload source</Button>
+    <Button intent="primary" id="models-save" disabled>
+      Save recipes
+    </Button>
+    <Button id="models-generate" disabled>
+      Generate resource pack
+    </Button>
+    <Fragment slot="status">
+      <span id="models-status" role="status">
+        Loading model recipes…
+      </span>
+      <span id="models-drafts" class="scope"></span>
+    </Fragment>
+  </EditorActions>
+  <ModelWorkbench />
+</section>

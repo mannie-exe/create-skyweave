@@ -27,6 +27,18 @@ keep runtime and type packages aligned in the lock. The item grid and authoring
 controllers remain TypeScript, so a graph upgrade does not require converting
 other pages to React. Keep `client:only="react"` graph islands browser-owned.
 
+Keep TypeScript compatible with Astro's checker. The current stable checker rejects
+TypeScript 7.0; use the pinned 6.0 release until a supported checker migration is
+available. Keep Node typings on the configured Node major rather than adopting
+newer runtime APIs through types alone. Review Three.js runtime and type updates
+together, including rendering migration notes.
+
+`pnpm check:unused` runs Knip across application sources, scripts and tests and is
+part of `pnpm verify`. Framework plugins discover Astro and Playwright entry points.
+Keep exceptions narrow and explained; a browser URL imported by a test is not a
+Node filesystem import. Review findings before removing exports or marking files
+as entry points. Do not exclude whole source areas to get a passing result.
+
 After changing these dependencies, run `pnpm verify`, the browser suite and a
 private-data-free shell build. Check recipe nodes, fixed slots, narrow layouts,
 minimap/keyboard navigation, focus/disclosures across culling, Back navigation,
@@ -139,7 +151,8 @@ counts and limitations. This never opens or changes the playing world.
 | `pnpm data:extract` | Asset/resource extraction; completed runtime capture and its audit config/log required |
 | `pnpm data:compile` | Rebuild browser projection from existing evidence and authored YAML                    |
 | `pnpm data:check`   | Check the current generated pack snapshot                                              |
-| `pnpm verify`       | Formatting, JavaScript tests, Astro/TypeScript checks and static build                 |
+| `pnpm check:unused` | Unused files, dependencies and exports through Knip                                    |
+| `pnpm verify`       | Formatting, Knip, JavaScript tests, Astro/TypeScript checks and static build           |
 | `pnpm test:python`  | Path resolution and Anvil reader tests; Python setup required                          |
 | `pnpm test:browser` | Browser integration tests; populated snapshot and Playwright browser required          |
 | `pnpm preview`      | Serve an existing static `dist/` build without editing endpoints                       |
@@ -309,3 +322,20 @@ scenario-editor domains stay excluded from automatic reloads to protect drafts. 
 `pnpm verify`, `pnpm test:python` and `PLAYWRIGHT_CHANNEL=chrome pnpm test:browser`.
 Remove temporary downloads and browser output after recording results in
 [verification](verification.md).
+
+### Static resource previews
+
+After materializing the locked client assets and generating the existing texture
+catalogue, run from the pack root:
+
+```bash
+web/.cache/python/bin/python scripts/build-resource-objects.py --materialize-inputs
+python3 web/scripts/export-models.py
+web/.cache/python/bin/python scripts/build-resource-objects.py
+```
+
+The optional static model export needs the exact mapped client and locked loader
+libraries; see [resource authoring](models.md#stack-and-static-export-maintenance).
+The local workbench exposes the same bounded operations under Preview tools.
+Source editing, shipping generation and installation remain separate. Generated
+previews and candidate archives stay in ignored cache/output directories.

@@ -20,7 +20,7 @@ test('focused views retain real routes, source records and item inspection', asy
   const graph = page.locator('#graph-canvas')
   await expect(graph).toHaveAttribute('data-mode', 'detail')
   await expect(graph).toHaveAttribute('data-scene-nodes', '13')
-  await expect(page.locator('#graph-counts')).toContainText('12 / 31')
+  await expect(page.locator('#graph-counts')).toContainText('12 / 35')
   await page.locator('#graph-edge').selectOption({ index: 1 })
   await expect(page.locator('#graph-selection-title')).toHaveText(
     'Contributing routes',

@@ -1,3 +1,4 @@
+import Disclosure from '../ui/Disclosure'
 import Button from '../ui/Button'
 import { outcomeLabel } from '../../lib/acquisition-facts.mjs'
 import { useMemo, useRef, useState } from 'react'
@@ -171,13 +172,17 @@ export default function AcquisitionMethods({
           <h3 data-text-role="group-title">Selected method</h3>
           <p>{method.label}</p>
           {method.metrics && (
-            <details className="method-evidence">
-              <summary>
-                {method.metrics.depth === null
-                  ? methodTraceLabels[method.metrics.status]
-                  : `${method.metrics.depth} graph steps deep`}{' '}
-                · comparison evidence
-              </summary>
+            <Disclosure
+              className="method-evidence"
+              summary={
+                <>
+                  {method.metrics.depth === null
+                    ? methodTraceLabels[method.metrics.status]
+                    : `${method.metrics.depth} graph steps deep`}{' '}
+                  · comparison evidence
+                </>
+              }
+            >
               <p>
                 {method.metrics.depth === null
                   ? 'No independent depth is assigned. Review the missing prerequisites and other ways to obtain this item.'
@@ -212,12 +217,16 @@ export default function AcquisitionMethods({
                   </li>
                 ))}
               </ul>
-            </details>
+            </Disclosure>
           )}
-          <details className="method-facts">
-            <summary>
-              {outcomeLabel(method.metrics?.outcome)} · yield and requirements
-            </summary>
+          <Disclosure
+            className="method-facts"
+            summary={
+              <>
+                {outcomeLabel(method.metrics?.outcome)} · yield and requirements
+              </>
+            }
+          >
             {method.metrics?.outcome?.expectedCount != null && (
               <p>
                 {Number(method.metrics.outcome.expectedCount.toFixed(3))}{' '}
@@ -243,8 +252,7 @@ export default function AcquisitionMethods({
             <p>{method.route.facts?.supply}</p>
             {method.route.facts?.access && <p>{method.route.facts.access}</p>}
             {method.route.facts?.quantities?.length > 0 && (
-              <details>
-                <summary>Materials and setup</summary>
+              <Disclosure summary={<>Materials and setup</>}>
                 <ul>
                   {method.route.facts.quantities.map((q: any, i: number) => (
                     <li key={i}>
@@ -268,9 +276,9 @@ export default function AcquisitionMethods({
                   . Fuel, durability, stress and reusable tools need separate
                   operating budgets.
                 </p>
-              </details>
+              </Disclosure>
             )}
-          </details>
+          </Disclosure>
           {method.recipe ? (
             <RecipeCard
               key={method.id}
@@ -285,10 +293,9 @@ export default function AcquisitionMethods({
                 {method.route.detail ??
                   'Conditions are recorded with this method.'}
               </p>
-              <details>
-                <summary>Conditions and source</summary>
+              <Disclosure summary={<>Conditions and source</>}>
                 <pre>{JSON.stringify(method.route, null, 2)}</pre>
-              </details>
+              </Disclosure>
             </>
           )}
         </div>

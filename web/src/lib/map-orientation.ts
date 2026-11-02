@@ -50,6 +50,7 @@ export function mapOrientation(
       new Option(families[band.key as keyof typeof families], band.key),
     )
     const button = document.createElement('button')
+    button.className = 'ui-button'
     button.type = 'button'
     button.dataset.familyBand = band.key
     const label = document.createElement('span')
@@ -79,6 +80,7 @@ export function mapOrientation(
   for (const band of bands) {
     if (ruler) {
       const button = document.createElement('button')
+      button.className = 'ui-button'
       button.type = 'button'
       button.dataset.depthBand = band.key
       const label = document.createElement('span')

@@ -10,8 +10,11 @@ export function fieldControl(id: string, { hint = false, error = false } = {}) {
   }
 }
 
-/** Numeric model fields are generated dynamically but keep the same label contract. */
-export function createField(labelText: string, control: HTMLInputElement) {
+/** Generated fields share the same label contract as Astro and React fields. */
+export function createField(
+  labelText: string,
+  control: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement,
+) {
   const element = document.createElement('div')
   element.className = 'field'
   const label = document.createElement('label')

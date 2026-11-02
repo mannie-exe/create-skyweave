@@ -3,6 +3,8 @@ import Field from '../ui/Field.astro'
 import SourceEditor from '../ui/SourceEditor.astro'
 import Button from '../ui/Button.astro'
 import Workbench from '../ui/Workbench.astro'
+import PreviewSurface from '../ui/PreviewSurface.astro'
+import ResourcePreviewOptions from './ResourcePreviewOptions.astro'
 ---
 
 <Workbench>
@@ -22,9 +24,25 @@ import Workbench from '../ui/Workbench.astro'
       </label>
     </div>
     <p id="model-output" class="model-path"></p>
+    <ResourcePreviewOptions
+      id="model-resource-preview"
+      inputId="model-modpack"
+    />
+    <div
+      id="model-related-textures"
+      class="content-stack"
+      data-space="control"
+      hidden
+    ></div>
     <fieldset id="extrusion-fields" hidden>
       <legend>Extrusion</legend>
       <div class="model-fields">
+        <Field id="model-mask-kind" label="Select pixels by">
+          <select id="model-mask-kind">
+            <option value="alpha">Opacity</option>
+            <option value="material">Material mask</option>
+          </select>
+        </Field>
         <Field id="model-depth" label="Depth">
           <input
             id="model-depth"
@@ -76,24 +94,29 @@ import Workbench from '../ui/Workbench.astro'
         Reset element
       </Button>
     </fieldset>
-    <div class="model-previews">
-      <section class="content-stack">
+    <div class="model-previews" data-mask-layout="inspector">
+      <section class="content-stack model-texture-panel">
         <header class="section-heading">
           <h2>Texture region</h2>
         </header>
         <div id="model-uv" class="model-fields"></div>
-        <canvas
-          id="model-texture"
-          width="256"
-          height="256"
-          aria-label="Texture UV selection"
-        ></canvas>
+        <PreviewSurface
+          id="texture-preview-surface"
+          label="Updating texture preview"
+        >
+          <canvas
+            id="model-texture"
+            width="512"
+            height="512"
+            aria-label="Texture UV selection"
+          ></canvas>
+        </PreviewSurface>
         <p class="scope">
           Drag a region or enter UV coordinates. The texture view shows the
           first frame.
         </p>
       </section>
-      <section class="content-stack">
+      <section class="content-stack model-geometry-panel">
         <div class="section-heading">
           <h2>Model</h2>
           <Button id="model-camera">Reset view</Button>
@@ -101,32 +124,99 @@ import Workbench from '../ui/Workbench.astro'
             <input id="model-wire" type="checkbox" /> Wireframe
           </label>
         </div>
-        <canvas
-          id="model-canvas"
-          aria-label="Interactive model preview"
-        ></canvas>
+        <PreviewSurface
+          id="model-preview-surface"
+          label="Updating model preview"
+        >
+          <canvas
+            id="model-canvas"
+            aria-label="Interactive model preview"
+          ></canvas>
+        </PreviewSurface>
         <p id="model-statistics" class="scope"></p>
         <p class="scope">
           Drag to orbit; scroll to zoom. Game lighting, shaders, and moving
           contraptions require an in-game check.
         </p>
       </section>
-    </div>
-    <details>
-      <summary>Recipe JSON</summary>
-      <SourceEditor
-        id="model-json"
-        label="Selected recipe"
-        rows={18}
-        aria-describedby="models-status"
-      >
-        <Fragment slot="actions">
-          <Button id="model-apply-json">Apply to draft</Button>
-          <Button intent="destructive" id="model-discard-json" disabled>
-            Discard JSON edits
+      <aside class="model-tools content-stack" aria-label="Texture tools">
+        <section id="texture-composition-tools" class="content-stack" hidden>
+          <h2>Texture composition</h2>
+          <p data-text-role="caption">
+            Regions apply from top to bottom. UV bounds use 0–16; flips precede
+            rotation.
+          </p>
+          <div id="texture-operations" class="content-stack"></div>
+        </section>
+        <fieldset id="material-mask-tools" class="content-stack" hidden>
+          <legend>Material selection</legend>
+          <Field id="mask-tool" label="Texture tool">
+            <select id="mask-tool">
+              <option value="pick">Sample color</option>
+              <option value="region">Restrict region</option>
+              <option value="include">Include pixels</option>
+              <option value="exclude">Exclude pixels</option>
+              <option value="crop">UV crop</option>
+            </select>
+          </Field>
+          <Field id="mask-tolerance" label="Color tolerance">
+            <input
+              id="mask-tolerance"
+              type="number"
+              min="0"
+              max="64"
+              step="1"
+            />
+          </Field>
+          <div class="content-stack" data-space="control">
+            <h3 data-text-role="group-title">Sampled colors</h3>
+            <div id="mask-palette" class="action-row"></div>
+            <Button id="mask-clear-colors" intent="destructive">
+              Clear colors
+            </Button>
+          </div>
+          <div class="content-stack" data-space="control">
+            <h3 data-text-role="group-title">Regions</h3>
+            <div
+              id="mask-regions"
+              class="content-stack"
+              data-space="control"
+            ></div>
+          </div>
+          <Button id="mask-reset-corrections" intent="destructive">
+            Reset pixel corrections
           </Button>
-        </Fragment>
-      </SourceEditor>
+          <label class="inline-field">
+            <input type="checkbox" id="mask-show-grid" checked /> Pixel grid
+          </label>
+          <label class="inline-field">
+            <input type="checkbox" id="mask-show-overlay" checked /> Mask
+            overlay
+          </label>
+          <p id="mask-status" role="status" data-text-role="caption"></p>
+          <p data-text-role="caption">
+            Arrow keys move between pixels. Enter uses the selected tool.
+          </p>
+        </fieldset>
+      </aside>
+    </div>
+    <details class="disclosure">
+      <summary>Recipe JSON</summary>
+      <div class="content-stack">
+        <SourceEditor
+          id="model-json"
+          label="Selected recipe"
+          rows={18}
+          aria-describedby="models-status"
+        >
+          <Fragment slot="actions">
+            <Button id="model-apply-json">Apply to draft</Button>
+            <Button intent="destructive" id="model-discard-json" disabled>
+              Discard JSON edits
+            </Button>
+          </Fragment>
+        </SourceEditor>
+      </div>
     </details>
   </section>
 </Workbench>

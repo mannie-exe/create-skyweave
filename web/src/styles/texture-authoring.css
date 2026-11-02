@@ -1,0 +1,4 @@
+.texture-authoring {
+  --workbench-sidebar: var(--measure-resource-browser);
+  --workbench-sticky-top: var(--space-content);
+}

@@ -9,6 +9,9 @@ import {
   catalog,
   pack,
   checkedSelections,
+  enabledThirdParty,
+  partialSources,
+  ownedArtifacts,
   thirdParty,
   builtInSelections,
   projects,
@@ -20,14 +23,57 @@ import {
 } from '../lib/resourcepack-data'
 import '../styles/resourcepacks.css'
 import '../styles/resource-index.css'
+import objectSources from '../../../authoring/resource-objects.json'
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
+import type { ObjectCatalogue } from '../lib/object-resources'
 const categories = [...new Set(reviews.map((r) => r.category))].sort()
+let objectCatalogue: ObjectCatalogue | undefined
+try {
+  objectCatalogue = JSON.parse(
+    readFileSync(resolve('public/generated/objects/index.json'), 'utf8'),
+  )
+} catch {
+  /* Previews are optional generated local data. */
+}
+function candidateLink(candidate: (typeof objectSources.candidates)[number]) {
+  let object = candidate.objects[0],
+    caseId = ''
+  for (const id of candidate.objects) {
+    const entry = objectCatalogue?.objects.find(
+      (entry) => entry.registryId === id && entry.kind === 'block',
+    )
+    const variant = entry?.cases.find(
+      (value) =>
+        value.previews[candidate.id]?.supported &&
+        value.previews.pack?.supported &&
+        value.previews[candidate.id].digest !== value.previews.pack.digest,
+    )
+    if (variant) {
+      object = id
+      caseId = variant.id
+      break
+    }
+  }
+  const params = new URLSearchParams({
+    object: 'block/' + object,
+    a: 'pack',
+    b: candidate.id,
+    source: candidate.id,
+  })
+  if (caseId) params.set('case', caseId)
+  return '/resource-authoring?' + params
+}
 ---
 
 <Base title="Resource packs · Create Sky">
-  <AppHeader page="resources" />
+  <AppHeader slot="header" page="resources" />
   <main id="main-content" tabindex="-1" class="resource-review">
     <div class="review-toolbar">
-      <h1>Resource packs</h1>
+      <h1 data-text-role="view-title">Resource packs</h1>
+      <a class="ui-button" href="/resourcepacks/reviews">
+        Compare captures
+      </a>
       <Field id="pack-search" label="Search" layout="inline">
         <input
           id="pack-search"
@@ -65,10 +111,52 @@ const categories = [...new Set(reviews.map((r) => r.category))].sort()
       </span>
     </div>
     <p class="review-stack" data-text-role="caption">
-      Create Sky {pack.pack.version} · {checkedSelections}/{thirdParty.length}{' '}
-      third-party resource selections match the archived file hashes. Defaults
-      come from the modpack; personal client choices can differ.
+      Create Sky {pack.pack.version} · {enabledThirdParty} enabled packs ·{' '}
+      {partialSources.size} sources with selected features · {ownedArtifacts}{' '}
+      pack-owned artifacts. {checkedSelections}/{thirdParty.length} locked
+      resource-pack files match the archived inspection. Defaults come from the
+      modpack; personal client choices can differ.
     </p>
+    <p>
+      <a href="/resource-authoring?kind=entity&object=entity%2Fminecraft%3Acreeper&case=rest&a=native&b=pack">
+        Compare mob models and textures
+      </a>
+    </p>
+    <details class="disclosure">
+      <summary>Object comparisons · selected and deferred</summary>
+      <div class="content-stack">
+        <p data-text-role="caption">
+          Selected features are built into Create Sky Resource Patches. Full
+          donor packs stay disabled. Compare the built result with upstream
+          resources; deferred features remain available for review.
+        </p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Source</th>
+                <th>Review scope</th>
+                <th>Comparison</th>
+              </tr>
+            </thead>
+            <tbody>
+              {objectSources.candidates.map((candidate) => (
+                <tr>
+                  <td>
+                    <a href={candidate.url}>{candidate.label}</a>
+                    <p data-text-role="caption">{candidate.version}</p>
+                  </td>
+                  <td>{candidate.note}</td>
+                  <td>
+                    <a href={candidateLink(candidate)}>Compare objects</a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
     <details class="review-method">
       <summary>Coverage and limits</summary>
       <p>{catalog.method}</p>
@@ -102,9 +190,11 @@ const categories = [...new Set(reviews.map((r) => r.category))].sort()
         consistent appearance beside Create add-ons.
       </p>
       <p>
-        Create Sky test images and recordings appear beside author thumbnails in
-        each relevant gallery. Captions identify the archived test and shader
-        state; they do not establish how the current pack renders. The
+        <a href="/resourcepacks/reviews">Visual comparisons</a> groups matched
+        captures by feature. Create Sky test images and recordings also appear
+        beside author thumbnails in each relevant gallery. Captions identify the
+        archived test and shader state; they do not establish how the current
+        pack renders. The
         <a href="/generated/resource-review/fixture-overview.png">
           earlier Resource Review layout
         </a>

@@ -439,8 +439,8 @@ candidates:
       Could complement third-person play without imposing special eye pixels on
       player skins.
     concern:
-      Player-model animation must coexist with Better Third Person, Barrel
-      Roll, gliders, held tools and ship seating. Author compatibility with
+      Player-model animation must coexist with Better Third Person, gliders,
+      held tools and ship seating. Author compatibility with
       other mods is not evidence for this combination.
     nextCheck:
       Test the no-eyes edition through climbing, flight, seats and tool use
@@ -459,45 +459,25 @@ candidates:
       compatible implementation and complete food coverage first.
   - id: nautilus3d
     category: Models
-    status: defer
-    description: Bundles many vanilla-style 3D blocks, random variations and
-      interface changes.
-    fit:
-      A possible replacement strategy if the pack wants one owner for its vanilla
-      model changes.
-    concern:
-      Overlaps crops, sugar cane, iron bars and many Redstone Tweaks assets.
-      Contains CIT, CTM and core-shader features beyond our current renderer
-      coverage.
-    nextCheck:
-      Review it as a replacement set, not another layer; assess required
-      renderers and add-on texture consistency.
+    status: partial
+    description: Adds detailed block models and cosmetic variations.
+    fit: Redstone torches are selected through the generated resource patch.
+    concern: The complete pack remains disabled. Its other models, UI and shader changes are excluded.
+    nextCheck: Review the selected torch models beside the installed redstone indicators.
   - id: 3d-default
     category: Models
-    status: compare
-    description: Adds vanilla-looking depth to a broad collection of block and
-      entity models.
-    fit:
-      Could consolidate several small model packs without selecting a different
-      texture palette.
-    concern:
-      Overlaps every currently selected model/animation family. Entity-model
-      overrides require careful priority with Fresh Animations.
-    nextCheck:
-      Compare a replacement configuration with the current six-pack set;
-      inspect doors, crops, ladders, bars and animated entities.
+    status: partial
+    description: Adds vanilla-looking depth to block and entity models.
+    fit: Selected doors, trapdoors, lily pads, cactus, lights and props; single-chest geometry is composed with Fresh Objects and Lootr.
+    concern: Campfire geometry comes from an isolated shared template that earlier selective screenshots did not activate. Large and ender chests keep their current rigs.
+    nextCheck: Review the assembled selection, especially campfires and door families beyond the captured samples. Barrels retain the existing selection; Lootr has approved directional artwork and clasp geometry.
   - id: classic-3d
     category: Models
-    status: defer
-    description: Rebuilds familiar vanilla blocks as more detailed models.
-    fit: An alternative to multiple independent vanilla model packs.
-    concern:
-      The only returned 1.21.1 file is an alpha; the author says the rewrite
-      is incomplete. It also overlaps existing crop, ladder, bar and redstone
-      assets.
-    nextCheck:
-      Wait for a sufficiently complete compatible build or explicitly test
-      the alpha as a replacement.
+    status: partial
+    description: Rebuilds familiar vanilla blocks as detailed models.
+    fit: Crafting tables and stonecutters are selected through the generated resource patch.
+    concern: The pinned file is an alpha. Its dense shelf models and other unselected assets remain excluded.
+    nextCheck: Vanilla barrels retain the existing selection. Lootr uses custom corner-clasp extrusion with approved directional trim textures.
   - id: vanilla-exp
     category: Overhauls
     status: defer
@@ -528,8 +508,7 @@ candidates:
     fit: Useful as a visual comparison, not a small enhancement to the current pack.
     concern:
       The file has selected mod UI support, but that is not full art support
-      for Create and its add-ons. It substantially overlaps all six installed
-      packs.
+      for Create and its add-ons. It substantially overlaps the selected resources.
     nextCheck: A separate art-direction decision and mod-support project would be needed.
   - id: 3d-ladders
     category: Models
@@ -559,10 +538,9 @@ candidates:
   - id: create-sky-resource-patches
     category: Pack-owned
     status: installed
-    description: Combines the pack’s client model and animation repairs.
+    description: Combines client model repairs, selected donor geometry and chest animations.
     fit: Gives potted plants, Create and Deco bars, Macaw lanterns, cage lamps,
-      DnD frontlights and Lootr chests compatible models. Rebinds selected Fresh
-      Details creatures to current Fresh Animations rigs.
+      DnD frontlights and Lootr storage compatible models, including barrel corner clasps and relit storage artwork.
     concern: Must load above its source packs. The archived comparisons show
       earlier patch revisions, not a new verification of the current build.
       Copycat panel geometry comes from the separate Copycat Bar Extrusion mod.
@@ -585,3 +563,46 @@ candidates:
       runtime hooks are incorporated in Create Sky Compat.
     nextCheck: Check upstream recipe, loot, tag and journal changes before
       rebuilding. A resource build alone does not verify runtime behavior.
+
+  - id: ulticraft-models-3d
+    category: Models
+    status: partial
+    description: Adds detailed vanilla block models.
+    fit: Smoker, furnace and fletching table are selected in Resource Patches.
+    concern: The complete pack stays disabled; shared helpers are isolated to selected objects.
+    nextCheck: Compare workstation states and neighboring modded blocks in Resource Review.
+  - id: jacobs-workspace-plus
+    category: Models
+    status: partial
+    description: Adds workstation geometry and matching texture details.
+    fit: Smithing table and brewing stand are selected in Resource Patches.
+    concern: Other models remain unselected. The unselected loom has an unresolved visible texture binding.
+    nextCheck: Check brewing bottles and workstation interactions when updating the source.
+  - id: 3dvanilla
+    category: Models
+    status: partial
+    description: Adds depth to vanilla workstations and utility blocks.
+    fit: Cartography table, blast furnace, crafter and loom are selected in Resource Patches.
+    concern: This is 3D Vanilla, distinct from 3D Default. Other source models remain unselected.
+    nextCheck: Review active furnace and upright crafter states when updating models.
+  - id: 3d-plants
+    category: Models
+    status: partial
+    description: Vervada’s enhanced plant models.
+    fit: Azalea and flowering azalea are selected in Resource Patches.
+    concern: Other plants remain unselected; dead bush and seagrass keep their current appearance.
+    nextCheck: Check the selected shrubs beside existing plants and potted models.
+  - id: toastys-perfect-pitchers-3d-pitcher-plants
+    category: Models
+    status: partial
+    description: Adds shaped pitcher plants and crop growth stages.
+    fit: V3 models are selected with preserved angles through NeoForge composite transforms.
+    concern: Untouched V3 uses angles rejected by Minecraft 1.21.1; the generated adaptation is required.
+    nextCheck: Inspect whole plants and crop stages on valid soil after source or loader updates.
+  - id: montanas-bushier-kelp
+    category: Models
+    status: defer
+    description: Adds fuller kelp planes and animated textures.
+    fit: Available as an object comparison; the current kelp selection is retained.
+    concern: Deferred after visual review because the denser silhouette reduces underwater visibility.
+    nextCheck: Reconsider only if the desired underwater appearance changes.

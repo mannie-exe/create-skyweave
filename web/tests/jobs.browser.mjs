@@ -73,8 +73,11 @@ test('job diagnostics are escaped and cancellation sends only the current job ID
     return route.fulfill({ json: {} })
   })
   await page.goto('/resourcepacks', { waitUntil: 'domcontentloaded' })
-  await expect(page.locator('#job-summary')).toContainText('Check config files')
+  await expect(page.locator('#job-summary')).toContainText('Activity · running')
   await page.locator('#job-summary').click()
+  await expect(
+    page.getByRole('region', { name: 'Current operation' }),
+  ).toContainText('Check config files')
   await page.getByText('Diagnostics', { exact: true }).click()
   await expect(page.locator('#job-diagnostic')).toHaveText(
     '<img src=x onerror=alert(1)>',

@@ -1,0 +1,26 @@
+.ui-icon-button {
+  display: inline-grid;
+  place-items: center;
+  inline-size: var(--icon-control-size);
+  min-block-size: var(--icon-control-size);
+  padding: var(--space-inline);
+}
+.ui-icon-button svg {
+  inline-size: var(--icon-size);
+  block-size: var(--icon-size);
+  fill: currentColor;
+}
+.ui-tooltip-positioner {
+  z-index: var(--layer-tooltip);
+}
+.ui-tooltip {
+  max-inline-size: min(28ch, 80vw);
+  inline-size: max-content;
+  padding: var(--space-tight) var(--space-inline);
+  border-radius: var(--radius-control);
+  background: var(--surface-inverse);
+  color: var(--ink-inverse);
+  font: var(--type-caption-size)/var(--type-caption-leading)
+    var(--type-body-family);
+  pointer-events: none;
+}

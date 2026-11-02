@@ -4,6 +4,8 @@ import { resolve } from 'node:path'
 import packSource from '../../../empack.yml?raw'
 import defaultOptions from '../../../overrides/client/options.txt?raw'
 import localProjects from '../../data/research/resourcepacks/local-projects.json'
+import objectProjects from '../../data/research/resourcepacks/object-projects.json'
+import selectedFeatures from '../../../authoring/resource-selections.json'
 import { resourceStack, selectionStatus } from './resourcepack-stack.mjs'
 import YAML from 'yaml'
 import reviewSource from '../../data/authored/resourcepacks.yml?raw'
@@ -18,6 +20,7 @@ export const statuses: Record<string, string> = {
   unselected: 'Not in pack',
   try: 'Try first',
   compare: 'Compare',
+  partial: 'Selected features',
   conditional: 'Requires work',
   defer: 'Defer',
   reject: 'Not a fit',
@@ -43,6 +46,19 @@ export interface GalleryImage {
   kind?: 'image' | 'video'
   origin?: 'author' | 'local'
   credit?: string
+  presentation?: boolean
+  originals?: { label: string; url: string }[]
+}
+
+interface LocalCapture {
+  projects: string[]
+  file: string
+  kind: string
+  run: string
+  stage: string
+  caption: string
+  gallery?: boolean
+  originals?: { label: string; file: string }[]
 }
 
 export interface Project {
@@ -72,6 +88,7 @@ export interface Project {
 
 export const projects = {
   ...observations.projects,
+  ...objectProjects.projects,
   ...localProjects,
 } as Record<string, Project>
 const localArtifacts = Object.fromEntries(
@@ -96,16 +113,28 @@ const localArtifacts = Object.fromEntries(
   }),
 )
 export const pack = YAML.parse(packSource)
-export const { stack, selected } = resourceStack(
+const { stack, selected } = resourceStack(
   pack,
   YAML.parse(packLock),
   defaultOptions,
   projects,
   localArtifacts,
 )
+export { stack }
 export const thirdParty = Object.entries(stack).filter(
   ([id]) => !(id in localProjects),
 )
+export const enabledThirdParty = thirdParty.filter(
+  ([, item]) => item.enabled,
+).length
+export const partialSources = new Set(
+  selectedFeatures.selections
+    .filter((selection) => selection.action === 'apply')
+    .map((selection) => selection.source),
+)
+export const ownedArtifacts = Object.values(localArtifacts).filter(
+  (artifact) => artifact.present,
+).length
 export const checkedSelections = thirdParty.filter(
   ([, item]) => item.enabled && item.intentMatches && item.inspectionMatches,
 ).length
@@ -117,8 +146,10 @@ export const builtInSelections = selected.filter(
 export function galleryFor(project: string): GalleryImage[] {
   return [
     ...projects[project].gallery,
-    ...localMedia.media
-      .filter((media) => media.projects.includes(project))
+    ...(localMedia.media as LocalCapture[])
+      .filter(
+        (media) => media.gallery !== false && media.projects.includes(project),
+      )
       .map((media) => {
         const run = localMedia.runs[media.run as keyof typeof localMedia.runs]
         const url = `/generated/resource-review/${media.file}`
@@ -130,6 +161,11 @@ export function galleryFor(project: string): GalleryImage[] {
           captured: run.date,
           kind: media.kind as 'image' | 'video',
           origin: 'local' as const,
+          presentation: !!media.originals?.length,
+          originals: media.originals?.map((original) => ({
+            label: original.label,
+            url: `/generated/resource-review/${original.file}`,
+          })),
           credit: `Create Sky test · ${run.date} · ${run.context} Current pack may differ.`,
         }
       }),

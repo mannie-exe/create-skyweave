@@ -23,6 +23,19 @@
       "evidence": "docs/development/compatibility.md#visual-compatibility-pass",
       "patchSha256": "edce4c4265ea017caf638821d8a4b857060ca261b2c870c9c5059b282ba0691e",
       "copycatSha256": "ba32ee265b9bcf838c9cc177398081759e870aadffdadee8bf41fd207bfb99eb"
+    },
+    "selective-20261101": {
+      "date": "2026-11-01",
+      "context": "Frozen Create Sky 0.1.30; Resource Review revision 9; MC 1.21.1 / NeoForge 21.1.264. Prototypes are unselected. Captions distinguish shader modes and Lootr states.",
+      "evidence": "docs/development/compatibility.md#selective-model-comparisons",
+      "packRevision": "86752bdbefc182da1f63fc7539765fa87a57fe88",
+      "compatRevision": "4fd5910230f05c33aa77cdf7a0988837341fa60e"
+    },
+    "selected-20261102": {
+      "date": "2026-11-02",
+      "context": "Resource Review revision 10; MC 1.21.1 / NeoForge 21.1.264; selected generated resource ZIP; shaders off. Static fixture verification, not gameplay or animation testing.",
+      "evidence": "docs/development/web/verification.md#selected-resources-and-fixture-2026-11-02",
+      "patchSha256": "f6a85f4069252c3e81755a40d1be9cea90dadb5fd22edec1dfa0d7e1d52c99e9"
     }
   },
   "media": [
@@ -271,6 +284,2084 @@
       "caption": "Covered lantern flame animation after resource reload.",
       "sha256": "e3989463f2c3d4d521a6b736fd9d2feb6a67ac7ff30b60276f23241a79f28000",
       "source": "atlas/models/final-covered-animation.mp4"
+    },
+    {
+      "id": "selective-20261101-barrels-detail-3d-default-barrels-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/barrels-detail-3d-default-barrels-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Vanilla up-facing barrel. Shaders off. B · 3D Default.",
+      "sha256": "bb1b2aa5b868aa1fbb1bf0b946f03eaabcfd6eb0af24a4a4a7ea2e0d81a0dab2",
+      "source": "harness/images/2026-11-01-selective/barrels-detail-3d-default-barrels-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-barrels-detail-3d-default-barrels-shader",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/barrels-detail-3d-default-barrels-shader.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Vanilla up-facing barrel. Complementary/Euphoria on. B · 3D Default.",
+      "sha256": "4fc4c9e50a6ad0c788eb92ff882d9e185b33418600d0947638b7cebe5a72000f",
+      "source": "harness/images/2026-11-01-selective/barrels-detail-3d-default-barrels-shader.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-barrels-detail-baseline-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/barrels-detail-baseline-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Vanilla up-facing barrel. Shaders off. A · Current.",
+      "sha256": "09e32db09bbb94750c16f98f448908cfb8e37b5b1bde6955bf1771de5ff13d68",
+      "source": "harness/images/2026-11-01-selective/barrels-detail-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-barrels-detail-baseline-shader",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/barrels-detail-baseline-shader.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Vanilla up-facing barrel. Complementary/Euphoria on. A · Current.",
+      "sha256": "6b332c28635de092d5e6bfa490f62df9486f112516599acce555897c8acfd509",
+      "source": "harness/images/2026-11-01-selective/barrels-detail-baseline-shader.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-barrels-detail-classic-3d-barrels-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/barrels-detail-classic-3d-barrels-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Vanilla up-facing barrel. Shaders off. D · Classic 3D.",
+      "sha256": "8c4c36a8e1ac6cdb691b022b5707e230f8f1136fb890f8b918595a8dc820be76",
+      "source": "harness/images/2026-11-01-selective/barrels-detail-classic-3d-barrels-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-barrels-detail-classic-3d-barrels-shader",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/barrels-detail-classic-3d-barrels-shader.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Vanilla up-facing barrel. Complementary/Euphoria on. D · Classic 3D.",
+      "sha256": "cf9c96c7922c7536173d6d2d30e5215a2fd78fc646b0f367e146908f2ccc18e4",
+      "source": "harness/images/2026-11-01-selective/barrels-detail-classic-3d-barrels-shader.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-barrels-detail-nautilus3d-barrels-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/barrels-detail-nautilus3d-barrels-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Vanilla up-facing barrel. Shaders off. C · Nautilus 3D.",
+      "sha256": "926237309077e563de63d89c7cdead92358f2cb8820fdf6d0cfab489e68c5fe3",
+      "source": "harness/images/2026-11-01-selective/barrels-detail-nautilus3d-barrels-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-barrels-detail-nautilus3d-barrels-shader",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/barrels-detail-nautilus3d-barrels-shader.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Vanilla up-facing barrel. Complementary/Euphoria on. C · Nautilus 3D.",
+      "sha256": "0f0252c0837e89d2177ebfd9c5bb614ae534e2dda08c4c97ee3e7d79010330e5",
+      "source": "harness/images/2026-11-01-selective/barrels-detail-nautilus3d-barrels-shader.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-barrels-lootr-opened-3d-default-barrels-shader",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/barrels-lootr-opened-3d-default-barrels-shader.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Lootr barrel after native opening; opened materials in every treatment. Complementary/Euphoria on. B · 3D Default.",
+      "sha256": "19c6e9fb8e9d87bd5d096784cd81a9d52a8dee642a1a6125cf6a02f2b9b730b3",
+      "source": "harness/images/2026-11-01-selective/barrels-lootr-opened-3d-default-barrels-shader.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-barrels-lootr-opened-baseline-shader",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/barrels-lootr-opened-baseline-shader.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Lootr barrel after native opening; opened materials in every treatment. Complementary/Euphoria on. A · Current.",
+      "sha256": "6e9ce28ef4a2ddf64860cd3dd1231df8e8a919912f7f92a4938c42732c6b5753",
+      "source": "harness/images/2026-11-01-selective/barrels-lootr-opened-baseline-shader.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-barrels-lootr-opened-classic-3d-barrels-shader",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/barrels-lootr-opened-classic-3d-barrels-shader.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Lootr barrel after native opening; opened materials in every treatment. Complementary/Euphoria on. D · Classic 3D.",
+      "sha256": "e8a9a37f7193e2c095b2478f619b62ce0a90d8c7d17229a3fd0c69b2cdd6b1fd",
+      "source": "harness/images/2026-11-01-selective/barrels-lootr-opened-classic-3d-barrels-shader.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-barrels-lootr-opened-nautilus3d-barrels-shader",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/barrels-lootr-opened-nautilus3d-barrels-shader.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Lootr barrel after native opening; opened materials in every treatment. Complementary/Euphoria on. C · Nautilus 3D.",
+      "sha256": "f46620397910bb19a6168f75f308bc0fd481d44a362ed089d4c12c321423e856",
+      "source": "harness/images/2026-11-01-selective/barrels-lootr-opened-nautilus3d-barrels-shader.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-barrels-overview-3d-default-barrels-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/barrels-overview-3d-default-barrels-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Six orientations, vanilla and unopened Lootr controls. Shaders off. B · 3D Default.",
+      "sha256": "3bfe1fc62989820fbfae1c64f176e459d7b34e5aff97ae560f1327e5515a5b6f",
+      "source": "harness/images/2026-11-01-selective/barrels-overview-3d-default-barrels-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-barrels-overview-baseline-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/barrels-overview-baseline-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Six orientations, vanilla and unopened Lootr controls. Shaders off. A · Current.",
+      "sha256": "48b12aba9fce61a780f8c4b6b431fa31deff7bb70b31ef287d1b60fe51adc5ec",
+      "source": "harness/images/2026-11-01-selective/barrels-overview-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-barrels-overview-classic-3d-barrels-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/barrels-overview-classic-3d-barrels-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Six orientations, vanilla and unopened Lootr controls. Shaders off. D · Classic 3D.",
+      "sha256": "17e1595304a0de42cf9957bd2d7e84e8e96689b8992f834d81dc7ff6d433d4ef",
+      "source": "harness/images/2026-11-01-selective/barrels-overview-classic-3d-barrels-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-barrels-overview-nautilus3d-barrels-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/barrels-overview-nautilus3d-barrels-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Six orientations, vanilla and unopened Lootr controls. Shaders off. C · Nautilus 3D.",
+      "sha256": "0f4ea3256be27f754150bc6c1b84438f3d94c3791b5dd05eb69d25e202fc5bed",
+      "source": "harness/images/2026-11-01-selective/barrels-overview-nautilus3d-barrels-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-chest-close-lootr-baseline",
+      "projects": [
+        "3d-default",
+        "fresh-animations-objects",
+        "create-sky-resource-patches"
+      ],
+      "file": "selective-20261101/chest-close-lootr-baseline.mp4",
+      "kind": "video",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Native lootr closing; container shown briefly before closing. Shaders off. A · Current.",
+      "sha256": "31bfd40bfee9515a0efc0e61271f3f0424628af0f8568593859f371651e4dd82",
+      "source": "harness/images/2026-11-01-selective/chest-close-lootr-baseline.mp4"
+    },
+    {
+      "id": "selective-20261101-chest-close-lootr-chest-composed",
+      "projects": [
+        "3d-default",
+        "fresh-animations-objects",
+        "create-sky-resource-patches"
+      ],
+      "file": "selective-20261101/chest-close-lootr-chest-composed.mp4",
+      "kind": "video",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Native lootr closing; container shown briefly before closing. Shaders off. C · Geometry + Fresh.",
+      "sha256": "8f4170c76d359d28e6a010f8872a0454a97646d6e6ab2bcbc097121fbbdaa3f4",
+      "source": "harness/images/2026-11-01-selective/chest-close-lootr-chest-composed.mp4"
+    },
+    {
+      "id": "selective-20261101-chest-close-lootr-chest-geometry",
+      "projects": [
+        "3d-default",
+        "fresh-animations-objects",
+        "create-sky-resource-patches"
+      ],
+      "file": "selective-20261101/chest-close-lootr-chest-geometry.mp4",
+      "kind": "video",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Native lootr closing; container shown briefly before closing. Shaders off. B · Geometry control.",
+      "sha256": "b9a86ffa9732519d7e042ead532b5eb3127a1287269aecd45e12bf19ed19ed2b",
+      "source": "harness/images/2026-11-01-selective/chest-close-lootr-chest-geometry.mp4"
+    },
+    {
+      "id": "selective-20261101-chest-close-lootr-trapped-chest-composed",
+      "projects": [
+        "3d-default",
+        "fresh-animations-objects",
+        "create-sky-resource-patches"
+      ],
+      "file": "selective-20261101/chest-close-lootr-trapped-chest-composed.mp4",
+      "kind": "video",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Native lootr-trapped closing; container shown briefly before closing. Shaders off. C · Geometry + Fresh.",
+      "sha256": "316945b3237a09af87b6cd04d1a603fea56b7d83dbfe6bed97edfe3897186068",
+      "source": "harness/images/2026-11-01-selective/chest-close-lootr-trapped-chest-composed.mp4"
+    },
+    {
+      "id": "selective-20261101-chest-close-ordinary-baseline",
+      "projects": [
+        "3d-default",
+        "fresh-animations-objects",
+        "create-sky-resource-patches"
+      ],
+      "file": "selective-20261101/chest-close-ordinary-baseline.mp4",
+      "kind": "video",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Native ordinary closing; container shown briefly before closing. Shaders off. A · Current.",
+      "sha256": "dcfb77c46a61387e8ec70e5a35c06bd385cffa773819f3ce68ed30b68ddc21c8",
+      "source": "harness/images/2026-11-01-selective/chest-close-ordinary-baseline.mp4"
+    },
+    {
+      "id": "selective-20261101-chest-close-ordinary-chest-composed",
+      "projects": [
+        "3d-default",
+        "fresh-animations-objects",
+        "create-sky-resource-patches"
+      ],
+      "file": "selective-20261101/chest-close-ordinary-chest-composed.mp4",
+      "kind": "video",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Native ordinary closing; container shown briefly before closing. Shaders off. C · Geometry + Fresh.",
+      "sha256": "c789bab601af412716632755467647992173806fc7629fdcbc22b3b2654917ac",
+      "source": "harness/images/2026-11-01-selective/chest-close-ordinary-chest-composed.mp4"
+    },
+    {
+      "id": "selective-20261101-chest-close-ordinary-chest-geometry",
+      "projects": [
+        "3d-default",
+        "fresh-animations-objects",
+        "create-sky-resource-patches"
+      ],
+      "file": "selective-20261101/chest-close-ordinary-chest-geometry.mp4",
+      "kind": "video",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Native ordinary closing; container shown briefly before closing. Shaders off. B · Geometry control.",
+      "sha256": "5379d8d9860bba2c20a61e663808e94c3561c9a98c71a420adeffa156f5c2c00",
+      "source": "harness/images/2026-11-01-selective/chest-close-ordinary-chest-geometry.mp4"
+    },
+    {
+      "id": "selective-20261101-chest-close-trapped-chest-composed",
+      "projects": [
+        "3d-default",
+        "fresh-animations-objects",
+        "create-sky-resource-patches"
+      ],
+      "file": "selective-20261101/chest-close-trapped-chest-composed.mp4",
+      "kind": "video",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Native trapped closing; container shown briefly before closing. Shaders off. C · Geometry + Fresh.",
+      "sha256": "9dbbb3900b713ceae5e464292619fe05d296df81b8717f4aac700def3630d98e",
+      "source": "harness/images/2026-11-01-selective/chest-close-trapped-chest-composed.mp4"
+    },
+    {
+      "id": "selective-20261101-chest-detail-baseline-plain",
+      "projects": [
+        "3d-default",
+        "fresh-animations-objects",
+        "create-sky-resource-patches"
+      ],
+      "file": "selective-20261101/chest-detail-baseline-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Single chest: current rig, geometry-only control and composed Fresh rig. Shaders off. A · Current.",
+      "sha256": "8124296366046d99c1884e01540877178e464c9a19d4a75cd3bf84efb2c7ecd7",
+      "source": "harness/images/2026-11-01-selective/chest-detail-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-chest-detail-baseline-shader",
+      "projects": [
+        "3d-default",
+        "fresh-animations-objects",
+        "create-sky-resource-patches"
+      ],
+      "file": "selective-20261101/chest-detail-baseline-shader.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Single chest: current rig, geometry-only control and composed Fresh rig. Complementary/Euphoria on. A · Current.",
+      "sha256": "8329ddfaf00c22934f5daaff66d6ca62d7da65dce3497485e6cf05d382057372",
+      "source": "harness/images/2026-11-01-selective/chest-detail-baseline-shader.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-chest-detail-chest-composed-plain",
+      "projects": [
+        "3d-default",
+        "fresh-animations-objects",
+        "create-sky-resource-patches"
+      ],
+      "file": "selective-20261101/chest-detail-chest-composed-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Single chest: current rig, geometry-only control and composed Fresh rig. Shaders off. C · Geometry + Fresh.",
+      "sha256": "d37c0ef7cfa9481cac48c38bf1f6e068ac34bec10eb8483e963e72332081fcf6",
+      "source": "harness/images/2026-11-01-selective/chest-detail-chest-composed-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-chest-detail-chest-composed-shader",
+      "projects": [
+        "3d-default",
+        "fresh-animations-objects",
+        "create-sky-resource-patches"
+      ],
+      "file": "selective-20261101/chest-detail-chest-composed-shader.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Single chest: current rig, geometry-only control and composed Fresh rig. Complementary/Euphoria on. C · Geometry + Fresh.",
+      "sha256": "2b0136c2d95fa850231dae57c77ec96540eee463dc9ff5497b1cc22fcaf7c7c9",
+      "source": "harness/images/2026-11-01-selective/chest-detail-chest-composed-shader.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-chest-detail-chest-geometry-plain",
+      "projects": [
+        "3d-default",
+        "fresh-animations-objects",
+        "create-sky-resource-patches"
+      ],
+      "file": "selective-20261101/chest-detail-chest-geometry-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Single chest: current rig, geometry-only control and composed Fresh rig. Shaders off. B · Geometry control.",
+      "sha256": "1772f656f52e2fb851ba8c356e0b8d05d62f89b31d3f04e0e672f8aeb29d6743",
+      "source": "harness/images/2026-11-01-selective/chest-detail-chest-geometry-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-chest-lootr-baseline-plain",
+      "projects": [
+        "3d-default",
+        "fresh-animations-objects",
+        "create-sky-resource-patches"
+      ],
+      "file": "selective-20261101/chest-lootr-baseline-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Unopened Lootr chest with native gold materials. Shaders off. A · Current.",
+      "sha256": "ebdc350abc553e7476ff697a4582b22ad8ebd714f19a1149bb8202778c0c4c9d",
+      "source": "harness/images/2026-11-01-selective/chest-lootr-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-chest-lootr-chest-composed-plain",
+      "projects": [
+        "3d-default",
+        "fresh-animations-objects",
+        "create-sky-resource-patches"
+      ],
+      "file": "selective-20261101/chest-lootr-chest-composed-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Unopened Lootr chest with native gold materials. Shaders off. C · Geometry + Fresh.",
+      "sha256": "e9734b3696f382712a6967d44bf81422ed93aa57e496f0cfd2557ff837c964d4",
+      "source": "harness/images/2026-11-01-selective/chest-lootr-chest-composed-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-chest-lootr-chest-geometry-plain",
+      "projects": [
+        "3d-default",
+        "fresh-animations-objects",
+        "create-sky-resource-patches"
+      ],
+      "file": "selective-20261101/chest-lootr-chest-geometry-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Unopened Lootr chest with native gold materials. Shaders off. B · Geometry control.",
+      "sha256": "55b728c5f71409cbe15a2722ab3ca123a1cbcd77edaae43c0220f62e54c92827",
+      "source": "harness/images/2026-11-01-selective/chest-lootr-chest-geometry-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-chest-lootr-opened-baseline-shader",
+      "projects": [
+        "3d-default",
+        "fresh-animations-objects",
+        "create-sky-resource-patches"
+      ],
+      "file": "selective-20261101/chest-lootr-opened-baseline-shader.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Opened Lootr chest with native silver materials. Complementary/Euphoria on. A · Current.",
+      "sha256": "3269735555ed1ba2bc64828d83ce8b284787473af8ae920b8db2bd978f7ef200",
+      "source": "harness/images/2026-11-01-selective/chest-lootr-opened-baseline-shader.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-chest-lootr-opened-chest-composed-shader",
+      "projects": [
+        "3d-default",
+        "fresh-animations-objects",
+        "create-sky-resource-patches"
+      ],
+      "file": "selective-20261101/chest-lootr-opened-chest-composed-shader.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Opened Lootr chest with native silver materials. Complementary/Euphoria on. C · Geometry + Fresh.",
+      "sha256": "7b82502c577e7f2afb04c2d9d8ef5f5e0c3a8341cc129afc9b8c4ff857f68f4b",
+      "source": "harness/images/2026-11-01-selective/chest-lootr-opened-chest-composed-shader.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-doors-overview-3d-default-doors-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/doors-overview-3d-default-doors-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Doors and trapdoors in several wood families. Shaders off. B · 3D Default.",
+      "sha256": "412b45d83a6c454b56c16df743923cdaf1a0fe3baaa1bcf37be92062628e1058",
+      "source": "harness/images/2026-11-01-selective/doors-overview-3d-default-doors-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-doors-overview-baseline-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/doors-overview-baseline-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Doors and trapdoors in several wood families. Shaders off. A · Current.",
+      "sha256": "2383723fc5ed04bf090160fd6a0720c13fc5b91ae80273b4994ca01b33975907",
+      "source": "harness/images/2026-11-01-selective/doors-overview-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-doors-overview-classic-3d-doors-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/doors-overview-classic-3d-doors-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Doors and trapdoors in several wood families. Shaders off. D · Classic 3D.",
+      "sha256": "8b68475cfacd33721bd5956880ab813e0c8675d9aa3e3816f8f9011d4085ba34",
+      "source": "harness/images/2026-11-01-selective/doors-overview-classic-3d-doors-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-doors-overview-nautilus3d-doors-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/doors-overview-nautilus3d-doors-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Doors and trapdoors in several wood families. Shaders off. C · Nautilus 3D.",
+      "sha256": "500e484ce01888973d707b5f91d8db65caea9d7ab5eaa0880eab524352b9e5b1",
+      "source": "harness/images/2026-11-01-selective/doors-overview-nautilus3d-doors-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-doors-surface-3d-default-doors-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/doors-surface-3d-default-doors-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Masonry, planks, copper and cobweb context. Shaders off. B · 3D Default.",
+      "sha256": "b159e73f229d2f645380ac99d92d1e620722e79b9c313c6a9ec46f74f9e10e50",
+      "source": "harness/images/2026-11-01-selective/doors-surface-3d-default-doors-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-doors-surface-baseline-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/doors-surface-baseline-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Masonry, planks, copper and cobweb context. Shaders off. A · Current.",
+      "sha256": "5ba655a5e8ea6ca24479d684c93512c7de4b3df0b4f15bafe0a3e5eb69ad9648",
+      "source": "harness/images/2026-11-01-selective/doors-surface-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-doors-surface-classic-3d-doors-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/doors-surface-classic-3d-doors-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Masonry, planks, copper and cobweb context. Shaders off. D · Classic 3D.",
+      "sha256": "4df0f9cc69fd5344152db88b5290a6a9b5e0217d9d18b1602cb84a319b454a56",
+      "source": "harness/images/2026-11-01-selective/doors-surface-classic-3d-doors-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-doors-surface-nautilus3d-doors-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/doors-surface-nautilus3d-doors-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Masonry, planks, copper and cobweb context. Shaders off. C · Nautilus 3D.",
+      "sha256": "f68632a1d591f4d6df66528eebcf32ef50f67d63ceae122bda8b783d2a3cb25b",
+      "source": "harness/images/2026-11-01-selective/doors-surface-nautilus3d-doors-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-plants-aquatic-3d-default-plants-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/plants-aquatic-3d-default-plants-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Aquatic context and variation. Shaders off. B · 3D Default.",
+      "sha256": "656d9b280a75d4f4afe54f94060842fe8a7b9395473934ae1e7dbd7c1b631192",
+      "source": "harness/images/2026-11-01-selective/plants-aquatic-3d-default-plants-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-plants-aquatic-baseline-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/plants-aquatic-baseline-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Aquatic context and variation. Shaders off. A · Current.",
+      "sha256": "19fc92b75668458e15f6f44038b11e9064c92cd5a1d8c731f3c2bf030e39cda6",
+      "source": "harness/images/2026-11-01-selective/plants-aquatic-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-plants-aquatic-classic-3d-plants-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/plants-aquatic-classic-3d-plants-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Aquatic context and variation. Shaders off. D · Classic 3D.",
+      "sha256": "a66f36ab4396faccf5eca898889679f83fa274b0cf6c2f349b89e425cd0a1f68",
+      "source": "harness/images/2026-11-01-selective/plants-aquatic-classic-3d-plants-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-plants-aquatic-nautilus3d-plants-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/plants-aquatic-nautilus3d-plants-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Aquatic context and variation. Shaders off. C · Nautilus 3D.",
+      "sha256": "79ca3e4e407d84fff149e26a34a5b5bfd1b075fee0c2df39ffc79ac33a769e33",
+      "source": "harness/images/2026-11-01-selective/plants-aquatic-nautilus3d-plants-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-plants-lily-detail-3d-default-plants-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/plants-lily-detail-3d-default-plants-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Lily-pad depth at the same world position. Shaders off. B · 3D Default.",
+      "sha256": "1a2d546a7e991f1b5fe7306a4674009161c64ff03db71968e6cdbd7a87c70355",
+      "source": "harness/images/2026-11-01-selective/plants-lily-detail-3d-default-plants-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-plants-lily-detail-3d-default-plants-shader",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/plants-lily-detail-3d-default-plants-shader.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Lily-pad depth at the same world position. Complementary/Euphoria on. B · 3D Default.",
+      "sha256": "e889f1629f7f2d8e0358b6153dd5930b79b83566760789e73c8abe8f09e66446",
+      "source": "harness/images/2026-11-01-selective/plants-lily-detail-3d-default-plants-shader.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-plants-lily-detail-baseline-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/plants-lily-detail-baseline-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Lily-pad depth at the same world position. Shaders off. A · Current.",
+      "sha256": "cc154ab138c1eafa115bf6ff80dfded51ec12d0817ec75df14649a5f46b2569b",
+      "source": "harness/images/2026-11-01-selective/plants-lily-detail-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-plants-lily-detail-baseline-shader",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/plants-lily-detail-baseline-shader.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Lily-pad depth at the same world position. Complementary/Euphoria on. A · Current.",
+      "sha256": "df6d2f4fe24ca859aba516f0fd1c7679e7875c6c1dfeb7a876d532a00c09305b",
+      "source": "harness/images/2026-11-01-selective/plants-lily-detail-baseline-shader.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-plants-lily-detail-classic-3d-plants-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/plants-lily-detail-classic-3d-plants-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Lily-pad depth at the same world position. Shaders off. D · Classic 3D.",
+      "sha256": "3ecad2de174ff1d083d1f61355b76268a2557c38e7f55aaaf7be09062ae7a25d",
+      "source": "harness/images/2026-11-01-selective/plants-lily-detail-classic-3d-plants-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-plants-lily-detail-nautilus3d-plants-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/plants-lily-detail-nautilus3d-plants-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Lily-pad depth at the same world position. Shaders off. C · Nautilus 3D.",
+      "sha256": "5e7057fef43843da8c98a6e2979e476c2fa617acd450c940c6698d44ddf176b7",
+      "source": "harness/images/2026-11-01-selective/plants-lily-detail-nautilus3d-plants-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-plants-lily-detail-nautilus3d-plants-shader",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/plants-lily-detail-nautilus3d-plants-shader.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Lily-pad depth at the same world position. Complementary/Euphoria on. C · Nautilus 3D.",
+      "sha256": "3134f6d7367dc4c2b6e9a1170e050c1d493b967dafa7187ed2bb07e1c6ad1a44",
+      "source": "harness/images/2026-11-01-selective/plants-lily-detail-nautilus3d-plants-shader.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-plants-potted-3d-default-plants-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/plants-potted-3d-default-plants-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "World and potted vegetation beside the installed pot composition. Shaders off. B · 3D Default.",
+      "sha256": "9513b11be06e31f65a7123fadc8ea9d765be36b5ba47d4795190ecd3108eb933",
+      "source": "harness/images/2026-11-01-selective/plants-potted-3d-default-plants-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-plants-potted-baseline-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/plants-potted-baseline-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "World and potted vegetation beside the installed pot composition. Shaders off. A · Current.",
+      "sha256": "cf9dab6761255b5f555bf769550606d37dbc28e264e137da15872c9c0140b13b",
+      "source": "harness/images/2026-11-01-selective/plants-potted-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-plants-potted-classic-3d-plants-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/plants-potted-classic-3d-plants-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "World and potted vegetation beside the installed pot composition. Shaders off. D · Classic 3D.",
+      "sha256": "c09e312a7c4e1c1657c696e5ececd5c50894b0bfa12ccacd46411b446e12b0f8",
+      "source": "harness/images/2026-11-01-selective/plants-potted-classic-3d-plants-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-plants-potted-nautilus3d-plants-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/plants-potted-nautilus3d-plants-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "World and potted vegetation beside the installed pot composition. Shaders off. C · Nautilus 3D.",
+      "sha256": "592d29d2c767897fcabcbf95b44049b6ede3a46b9e56568859f1d0a06d0e4589",
+      "source": "harness/images/2026-11-01-selective/plants-potted-nautilus3d-plants-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-plants-stems-3d-default-plants-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/plants-stems-3d-default-plants-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Cactus and bamboo with saved ground support. Shaders off. B · 3D Default.",
+      "sha256": "4840c1baca55a06e4ff6d60d47b07c4b864b120f54a38af48aa557230399dbe6",
+      "source": "harness/images/2026-11-01-selective/plants-stems-3d-default-plants-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-plants-stems-baseline-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/plants-stems-baseline-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Cactus and bamboo with saved ground support. Shaders off. A · Current.",
+      "sha256": "b45a0e2efcc768a15a63aa63e46d03a668ee0f897f244260704bab218b263a5f",
+      "source": "harness/images/2026-11-01-selective/plants-stems-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-plants-stems-classic-3d-plants-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/plants-stems-classic-3d-plants-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Cactus and bamboo with saved ground support. Shaders off. D · Classic 3D.",
+      "sha256": "e65f7d9f5ebff1e6a49a78dea4551ee8f0540310df210ef92bbd079ba728018d",
+      "source": "harness/images/2026-11-01-selective/plants-stems-classic-3d-plants-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-plants-stems-nautilus3d-plants-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/plants-stems-nautilus3d-plants-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Cactus and bamboo with saved ground support. Shaders off. C · Nautilus 3D.",
+      "sha256": "66ebfc18b166e683780e31f057b6697caeb4288201f950b367b744fdcca892a4",
+      "source": "harness/images/2026-11-01-selective/plants-stems-nautilus3d-plants-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-plants-underwater-3d-default-plants-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/plants-underwater-3d-default-plants-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Underwater controls; these versions supply no kelp replacement. Shaders off. B · 3D Default.",
+      "sha256": "ddc0aafacdcd25b954e9f0868322508f5b7d2c69d283ed118565feac669aa7d0",
+      "source": "harness/images/2026-11-01-selective/plants-underwater-3d-default-plants-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-plants-underwater-baseline-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/plants-underwater-baseline-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Underwater controls; these versions supply no kelp replacement. Shaders off. A · Current.",
+      "sha256": "9851fd534c2054c0f14d857c5937458d3f6f20a7406eb3c169ad582039532d80",
+      "source": "harness/images/2026-11-01-selective/plants-underwater-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-plants-underwater-classic-3d-plants-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/plants-underwater-classic-3d-plants-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Underwater controls; these versions supply no kelp replacement. Shaders off. D · Classic 3D.",
+      "sha256": "04a11f91dd2ff5c9b57912870dc616b5fc3b85553c6753873827f17580ba3c7a",
+      "source": "harness/images/2026-11-01-selective/plants-underwater-classic-3d-plants-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-plants-underwater-nautilus3d-plants-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/plants-underwater-nautilus3d-plants-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Underwater controls; these versions supply no kelp replacement. Shaders off. C · Nautilus 3D.",
+      "sha256": "cba2355991f11c88482633d19cfb7a49a85579a091e39a8f72d73e73a5ff4d1a",
+      "source": "harness/images/2026-11-01-selective/plants-underwater-nautilus3d-plants-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-props-detail-3d-default-props-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/props-detail-3d-default-props-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Unlit copper bulb. Shaders off. B · 3D Default.",
+      "sha256": "768eb154bfecfef3051d92c1d179cf9b2328c4a15ceaef9c231bf8a7d2001df1",
+      "source": "harness/images/2026-11-01-selective/props-detail-3d-default-props-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-props-detail-baseline-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/props-detail-baseline-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Unlit copper bulb. Shaders off. A · Current.",
+      "sha256": "c42cd995acaea04947095c3e91faf6f76e6d10144dace15cb84ffe98c92cbc08",
+      "source": "harness/images/2026-11-01-selective/props-detail-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-props-detail-classic-3d-props-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/props-detail-classic-3d-props-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Unlit copper bulb. Shaders off. D · Classic 3D.",
+      "sha256": "5b26630ca695e510984a98c611715abf6ca4038eae1270bf20ae99bebf0a2ca0",
+      "source": "harness/images/2026-11-01-selective/props-detail-classic-3d-props-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-props-detail-nautilus3d-props-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/props-detail-nautilus3d-props-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Unlit copper bulb. Shaders off. C · Nautilus 3D.",
+      "sha256": "93f4f65a667c97cfe856d66a9efbf7afeb4974a4a3efcee206d6a8dfc87bf53e",
+      "source": "harness/images/2026-11-01-selective/props-detail-nautilus3d-props-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-props-overview-3d-default-props-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/props-overview-3d-default-props-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Bulbs, hay, lodestone, campfires and modded light controls. Shaders off. B · 3D Default.",
+      "sha256": "5a335edc7e3886956b0858a2a9c71a7f8fec65abfde483bdb537042194e27f25",
+      "source": "harness/images/2026-11-01-selective/props-overview-3d-default-props-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-props-overview-baseline-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/props-overview-baseline-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Bulbs, hay, lodestone, campfires and modded light controls. Shaders off. A · Current.",
+      "sha256": "bfb796e2e824400946a9982c2be607835e3234da4bfe6a4e33adce23b6e3c2cf",
+      "source": "harness/images/2026-11-01-selective/props-overview-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-props-overview-classic-3d-props-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/props-overview-classic-3d-props-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Bulbs, hay, lodestone, campfires and modded light controls. Shaders off. D · Classic 3D.",
+      "sha256": "164667120dfd1eef3e612efa686cdb6c0fc376e387d6bc324a9f66a02fce3c00",
+      "source": "harness/images/2026-11-01-selective/props-overview-classic-3d-props-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-props-overview-nautilus3d-props-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/props-overview-nautilus3d-props-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Bulbs, hay, lodestone, campfires and modded light controls. Shaders off. C · Nautilus 3D.",
+      "sha256": "4c270ff935269b7616ea5ce617f45f4c0f1208c616f44a197de3ebb77c8e0305",
+      "source": "harness/images/2026-11-01-selective/props-overview-nautilus3d-props-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-shelves-connections-3d-default-shelves-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/shelves-connections-3d-default-shelves-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Touching shelves; compare frame joins against connected textures. Shaders off. B · 3D Default.",
+      "sha256": "756ac51b1ced8f088c0b0f62015924f06190abc93005b8b1bc2debc691de6d9c",
+      "source": "harness/images/2026-11-01-selective/shelves-connections-3d-default-shelves-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-shelves-connections-baseline-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/shelves-connections-baseline-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Touching shelves; compare frame joins against connected textures. Shaders off. A · Current.",
+      "sha256": "04ce0a0bfa6d0ce61d74831f09169a849d4116d854292b1befe9fb56aafd3721",
+      "source": "harness/images/2026-11-01-selective/shelves-connections-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-shelves-connections-classic-3d-shelves-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/shelves-connections-classic-3d-shelves-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Touching shelves; compare frame joins against connected textures. Shaders off. D · Classic 3D.",
+      "sha256": "65f038a07107aba411b8417de6367519061fbcf8fb1a30401284f46c8ef60739",
+      "source": "harness/images/2026-11-01-selective/shelves-connections-classic-3d-shelves-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-shelves-connections-nautilus3d-shelves-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/shelves-connections-nautilus3d-shelves-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Touching shelves; compare frame joins against connected textures. Shaders off. C · Nautilus 3D.",
+      "sha256": "e9becd9e709767ed2f973f7a3fb25d83ee3e75f9f08f427d33e49c96f6549190",
+      "source": "harness/images/2026-11-01-selective/shelves-connections-nautilus3d-shelves-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-shelves-hive-detail-3d-default-shelves-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/shelves-hive-detail-3d-default-shelves-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Beehive at honey level three; Classic 3D has no hive replacement. Shaders off. B · 3D Default.",
+      "sha256": "4c426c3f2d453b523981bc58223cdb97a28e88b87e56c23c39b58c2d55cd73a0",
+      "source": "harness/images/2026-11-01-selective/shelves-hive-detail-3d-default-shelves-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-shelves-hive-detail-baseline-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/shelves-hive-detail-baseline-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Beehive at honey level three; Classic 3D has no hive replacement. Shaders off. A · Current.",
+      "sha256": "eb29cfcb845347c3e1e17b4dd1ad45d28f47ba5a3322a65467b1fe4cf7126baf",
+      "source": "harness/images/2026-11-01-selective/shelves-hive-detail-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-shelves-hive-detail-classic-3d-shelves-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/shelves-hive-detail-classic-3d-shelves-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Beehive at honey level three; Classic 3D has no hive replacement. Shaders off. D · Classic 3D.",
+      "sha256": "c5f668134be746b8535b323f8b9c9c53afc07b39485e7b4b3af97dafecb496b8",
+      "source": "harness/images/2026-11-01-selective/shelves-hive-detail-classic-3d-shelves-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-shelves-hive-detail-nautilus3d-shelves-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/shelves-hive-detail-nautilus3d-shelves-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Beehive at honey level three; Classic 3D has no hive replacement. Shaders off. C · Nautilus 3D.",
+      "sha256": "40719e664523f3eae716a61fd8be748acc124df74ff761c14959e3b385cfa6f0",
+      "source": "harness/images/2026-11-01-selective/shelves-hive-detail-nautilus3d-shelves-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-shelves-hives-3d-default-shelves-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/shelves-hives-3d-default-shelves-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Nest and hive honey-level controls. Shaders off. B · 3D Default.",
+      "sha256": "5468caa46133899b338f7d56fc0ebe6629613ddd4ffdd884054e6576a031c10a",
+      "source": "harness/images/2026-11-01-selective/shelves-hives-3d-default-shelves-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-shelves-hives-baseline-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/shelves-hives-baseline-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Nest and hive honey-level controls. Shaders off. A · Current.",
+      "sha256": "408e8b2f0c7d1e65f9027eed315e2ba4f392214bb9546aeca1085df2f7a533b7",
+      "source": "harness/images/2026-11-01-selective/shelves-hives-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-shelves-hives-classic-3d-shelves-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/shelves-hives-classic-3d-shelves-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Nest and hive honey-level controls. Shaders off. D · Classic 3D.",
+      "sha256": "71df0a3f13b5def62e9d9b7ff9b98406727dfc9b786335501c08104d55655f26",
+      "source": "harness/images/2026-11-01-selective/shelves-hives-classic-3d-shelves-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-shelves-hives-nautilus3d-shelves-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/shelves-hives-nautilus3d-shelves-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Nest and hive honey-level controls. Shaders off. C · Nautilus 3D.",
+      "sha256": "e0458a6c31449d58f4f5e7904549d0614091f59dcfec04f2814cda67a704c3c1",
+      "source": "harness/images/2026-11-01-selective/shelves-hives-nautilus3d-shelves-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-shelves-shelf-detail-3d-default-shelves-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/shelves-shelf-detail-3d-default-shelves-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Bookshelf depth and book arrangement. Shaders off. B · 3D Default.",
+      "sha256": "1b4d7a031ff28b6e7032f002a79dbb6c5f9298127b052c7604ac412517fe26af",
+      "source": "harness/images/2026-11-01-selective/shelves-shelf-detail-3d-default-shelves-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-shelves-shelf-detail-baseline-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/shelves-shelf-detail-baseline-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Bookshelf depth and book arrangement. Shaders off. A · Current.",
+      "sha256": "842d717e64c0376e48797f5fd94091fb399b29533adff8b852c62746d41d7058",
+      "source": "harness/images/2026-11-01-selective/shelves-shelf-detail-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-shelves-shelf-detail-classic-3d-shelves-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/shelves-shelf-detail-classic-3d-shelves-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Bookshelf depth and book arrangement. Shaders off. D · Classic 3D.",
+      "sha256": "99654f5bc4533c7b791ae4ca01bd42ea91f59e9ae6138f153ce094ccd3948d6f",
+      "source": "harness/images/2026-11-01-selective/shelves-shelf-detail-classic-3d-shelves-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-shelves-shelf-detail-nautilus3d-shelves-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/shelves-shelf-detail-nautilus3d-shelves-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Bookshelf depth and book arrangement. Shaders off. C · Nautilus 3D.",
+      "sha256": "8dc5c44fcaab039fa6e08690610e5a3aa50e0c62be4a28b79e8ec3fc0a96cfe4",
+      "source": "harness/images/2026-11-01-selective/shelves-shelf-detail-nautilus3d-shelves-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-shelves-shelves-3d-default-shelves-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/shelves-shelves-3d-default-shelves-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Shelves and occupied chiseled-shelf controls. Shaders off. B · 3D Default.",
+      "sha256": "9b831d8a0777b7fce99839f4f1be1f112321d25ba055fb38fee7c9f44a2e5cb7",
+      "source": "harness/images/2026-11-01-selective/shelves-shelves-3d-default-shelves-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-shelves-shelves-baseline-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/shelves-shelves-baseline-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Shelves and occupied chiseled-shelf controls. Shaders off. A · Current.",
+      "sha256": "ff7385ca089a9174f648bd264338905ffc6ce837db4c50851e6be4d4ff453889",
+      "source": "harness/images/2026-11-01-selective/shelves-shelves-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-shelves-shelves-classic-3d-shelves-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/shelves-shelves-classic-3d-shelves-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Shelves and occupied chiseled-shelf controls. Shaders off. D · Classic 3D.",
+      "sha256": "e0b10466a1cace8e6fb877b7d4970d07c1c2b5a9355962041a6e22259473d7ec",
+      "source": "harness/images/2026-11-01-selective/shelves-shelves-classic-3d-shelves-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-shelves-shelves-nautilus3d-shelves-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/shelves-shelves-nautilus3d-shelves-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Shelves and occupied chiseled-shelf controls. Shaders off. C · Nautilus 3D.",
+      "sha256": "37f62e6e5eccaffada10cf02589a07e5f488f157ac6d2be15e7362571e877edd",
+      "source": "harness/images/2026-11-01-selective/shelves-shelves-nautilus3d-shelves-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-workstations-crafting-3d-default-workstations-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/workstations-crafting-3d-default-workstations-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Crafting table; drawers, tools and top details are decorative. Shaders off. B · 3D Default.",
+      "sha256": "5e2d05e0c4f4695df166ec856426254953fa0dcbba016109059243c311875b73",
+      "source": "harness/images/2026-11-01-selective/workstations-crafting-3d-default-workstations-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-workstations-crafting-baseline-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/workstations-crafting-baseline-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Crafting table; drawers, tools and top details are decorative. Shaders off. A · Current.",
+      "sha256": "487ad21a52d9583309b783f8e778249295bc1a228c1359e5b9c2eb91ccd3f4cc",
+      "source": "harness/images/2026-11-01-selective/workstations-crafting-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-workstations-crafting-baseline-shader",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/workstations-crafting-baseline-shader.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Crafting table; drawers, tools and top details are decorative. Complementary/Euphoria on. A · Current.",
+      "sha256": "1bf66a284fd9ce0a4db37a9509e7ff21778e2f0417d32321ada62fee00a64a62",
+      "source": "harness/images/2026-11-01-selective/workstations-crafting-baseline-shader.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-workstations-crafting-classic-3d-workstations-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/workstations-crafting-classic-3d-workstations-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Crafting table; drawers, tools and top details are decorative. Shaders off. D · Classic 3D.",
+      "sha256": "375b6de1e8775e794d0b863b3c98511f87324d40cdf0998f18aaf841a25f221b",
+      "source": "harness/images/2026-11-01-selective/workstations-crafting-classic-3d-workstations-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-workstations-crafting-nautilus3d-workstations-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/workstations-crafting-nautilus3d-workstations-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Crafting table; drawers, tools and top details are decorative. Shaders off. C · Nautilus 3D.",
+      "sha256": "7eb6ed7f8cafff267d6d74c4b0f8788cdd93f47ffb3201614b998fe125bd1166",
+      "source": "harness/images/2026-11-01-selective/workstations-crafting-nautilus3d-workstations-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-workstations-crafting-nautilus3d-workstations-shader",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/workstations-crafting-nautilus3d-workstations-shader.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Crafting table; drawers, tools and top details are decorative. Complementary/Euphoria on. C · Nautilus 3D.",
+      "sha256": "33c3d6f897b5c57444ff9060278c22750994f7b8592fe7407592a316ca278361",
+      "source": "harness/images/2026-11-01-selective/workstations-crafting-nautilus3d-workstations-shader.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-workstations-overview-3d-default-workstations-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/workstations-overview-3d-default-workstations-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Workstation family with modded neighbors. Shaders off. B · 3D Default.",
+      "sha256": "a0d291739a9523b819d3b1ca169a9ed542a9d2e4599723230e379e160aded3c9",
+      "source": "harness/images/2026-11-01-selective/workstations-overview-3d-default-workstations-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-workstations-overview-baseline-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/workstations-overview-baseline-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Workstation family with modded neighbors. Shaders off. A · Current.",
+      "sha256": "2a1ed212f5dcec067669e11642110fb89190f46dbdf46ccf977d88099c00ca63",
+      "source": "harness/images/2026-11-01-selective/workstations-overview-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-workstations-overview-classic-3d-workstations-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/workstations-overview-classic-3d-workstations-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Workstation family with modded neighbors. Shaders off. D · Classic 3D.",
+      "sha256": "c67fa1df556ffc57be44dd341453235b84f443b3064599e814a763ff60aba8c2",
+      "source": "harness/images/2026-11-01-selective/workstations-overview-classic-3d-workstations-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-workstations-overview-nautilus3d-workstations-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/workstations-overview-nautilus3d-workstations-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Workstation family with modded neighbors. Shaders off. C · Nautilus 3D.",
+      "sha256": "6442b4e74691d7bac97667cec43c9380c047f8681f34ae6ce32a78309adb4850",
+      "source": "harness/images/2026-11-01-selective/workstations-overview-nautilus3d-workstations-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-workstations-stonecutter-3d-default-workstations-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/workstations-stonecutter-3d-default-workstations-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Stonecutter geometry; details do not indicate processing. Shaders off. B · 3D Default.",
+      "sha256": "dcfc5702d258ff8c4b100be240796c7c5b48ed87e58a2806935092f9d646728b",
+      "source": "harness/images/2026-11-01-selective/workstations-stonecutter-3d-default-workstations-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-workstations-stonecutter-baseline-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/workstations-stonecutter-baseline-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Current stack",
+      "caption": "Stonecutter geometry; details do not indicate processing. Shaders off. A · Current.",
+      "sha256": "36b75d5004b72e8ec97feaa27f7c94cb29a3ea79eb3e9aa202701a8e4de93d76",
+      "source": "harness/images/2026-11-01-selective/workstations-stonecutter-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-workstations-stonecutter-classic-3d-workstations-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/workstations-stonecutter-classic-3d-workstations-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Stonecutter geometry; details do not indicate processing. Shaders off. D · Classic 3D.",
+      "sha256": "f2511c9790e8021ccf86334018f2d62f0f735fcd0c271e7a0dfe111b63dd0440",
+      "source": "harness/images/2026-11-01-selective/workstations-stonecutter-classic-3d-workstations-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-workstations-stonecutter-nautilus3d-workstations-plain",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/workstations-stonecutter-nautilus3d-workstations-plain.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Prototype",
+      "caption": "Stonecutter geometry; details do not indicate processing. Shaders off. C · Nautilus 3D.",
+      "sha256": "0911a4e9e51757d7a2260d974ae3aad4301c63b19701b883e1f27dd34d59e6db",
+      "source": "harness/images/2026-11-01-selective/workstations-stonecutter-nautilus3d-workstations-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-comparison-barrels-detail-shader",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/comparison-barrels-detail-shader.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Vanilla up-facing barrel. Complementary/Euphoria on. Same crop and scale; unedited originals below.",
+      "sha256": "61325fa4562bf0e6ed98622f65109900b93e79da0fea79c90942fde32b6a75d9",
+      "source": "harness/images/2026-11-01-selective/comparison-barrels-detail-shader.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/barrels-detail-baseline-shader.png"
+        },
+        {
+          "label": "B · 3D Default",
+          "file": "selective-20261101/barrels-detail-3d-default-barrels-shader.png"
+        },
+        {
+          "label": "C · Nautilus 3D",
+          "file": "selective-20261101/barrels-detail-nautilus3d-barrels-shader.png"
+        },
+        {
+          "label": "D · Classic 3D",
+          "file": "selective-20261101/barrels-detail-classic-3d-barrels-shader.png"
+        }
+      ]
+    },
+    {
+      "id": "selective-20261101-comparison-barrels-detail",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/comparison-barrels-detail.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Vanilla up-facing barrel. Shaders off. Same crop and scale; unedited originals below.",
+      "sha256": "0af96ef26afc954623325afd297f596be27aab8bd3f4b819043f7809e9a8ab78",
+      "source": "harness/images/2026-11-01-selective/comparison-barrels-detail.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/barrels-detail-baseline-plain.png"
+        },
+        {
+          "label": "B · 3D Default",
+          "file": "selective-20261101/barrels-detail-3d-default-barrels-plain.png"
+        },
+        {
+          "label": "C · Nautilus 3D",
+          "file": "selective-20261101/barrels-detail-nautilus3d-barrels-plain.png"
+        },
+        {
+          "label": "D · Classic 3D",
+          "file": "selective-20261101/barrels-detail-classic-3d-barrels-plain.png"
+        }
+      ]
+    },
+    {
+      "id": "selective-20261101-comparison-barrels-lootr-opened-shader",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/comparison-barrels-lootr-opened-shader.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Lootr barrel after native opening; opened materials in every treatment. Complementary/Euphoria on. Same crop and scale; unedited originals below.",
+      "sha256": "41181449a59639f98ebcecb60832ad3d8dfaaab6f71e0f651e449febe1d62de5",
+      "source": "harness/images/2026-11-01-selective/comparison-barrels-lootr-opened-shader.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/barrels-lootr-opened-baseline-shader.png"
+        },
+        {
+          "label": "B · 3D Default",
+          "file": "selective-20261101/barrels-lootr-opened-3d-default-barrels-shader.png"
+        },
+        {
+          "label": "C · Nautilus 3D",
+          "file": "selective-20261101/barrels-lootr-opened-nautilus3d-barrels-shader.png"
+        },
+        {
+          "label": "D · Classic 3D",
+          "file": "selective-20261101/barrels-lootr-opened-classic-3d-barrels-shader.png"
+        }
+      ]
+    },
+    {
+      "id": "selective-20261101-comparison-chest-detail-shader",
+      "projects": [
+        "3d-default",
+        "fresh-animations-objects",
+        "create-sky-resource-patches"
+      ],
+      "file": "selective-20261101/comparison-chest-detail-shader.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Single chest: current rig, geometry-only control and composed Fresh rig. Complementary/Euphoria on. Same crop and scale; unedited originals below.",
+      "sha256": "afa81a13aed7a5a125b3dd75af4ec89070e8742f229d51b922afdbed3f9334b9",
+      "source": "harness/images/2026-11-01-selective/comparison-chest-detail-shader.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/chest-detail-baseline-shader.png"
+        },
+        {
+          "label": "C · Geometry + Fresh",
+          "file": "selective-20261101/chest-detail-chest-composed-shader.png"
+        }
+      ]
+    },
+    {
+      "id": "selective-20261101-comparison-chest-detail",
+      "projects": [
+        "3d-default",
+        "fresh-animations-objects",
+        "create-sky-resource-patches"
+      ],
+      "file": "selective-20261101/comparison-chest-detail.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Single chest: current rig, geometry-only control and composed Fresh rig. Shaders off. Same crop and scale; unedited originals below.",
+      "sha256": "54df56119b87a07ba7296ac300b06322248f3e43f98696de0d5ff66e5139f434",
+      "source": "harness/images/2026-11-01-selective/comparison-chest-detail.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/chest-detail-baseline-plain.png"
+        },
+        {
+          "label": "B · Geometry control",
+          "file": "selective-20261101/chest-detail-chest-geometry-plain.png"
+        },
+        {
+          "label": "C · Geometry + Fresh",
+          "file": "selective-20261101/chest-detail-chest-composed-plain.png"
+        }
+      ]
+    },
+    {
+      "id": "selective-20261101-comparison-chest-lootr-opened-shader",
+      "projects": [
+        "3d-default",
+        "fresh-animations-objects",
+        "create-sky-resource-patches"
+      ],
+      "file": "selective-20261101/comparison-chest-lootr-opened-shader.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Opened Lootr chest with native silver materials. Complementary/Euphoria on. Same crop and scale; unedited originals below.",
+      "sha256": "b694a2fa019d4ad86982ce8fde14435677d469b79876762932578513732107e4",
+      "source": "harness/images/2026-11-01-selective/comparison-chest-lootr-opened-shader.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/chest-lootr-opened-baseline-shader.png"
+        },
+        {
+          "label": "C · Geometry + Fresh",
+          "file": "selective-20261101/chest-lootr-opened-chest-composed-shader.png"
+        }
+      ]
+    },
+    {
+      "id": "selective-20261101-comparison-chest-lootr",
+      "projects": [
+        "3d-default",
+        "fresh-animations-objects",
+        "create-sky-resource-patches"
+      ],
+      "file": "selective-20261101/comparison-chest-lootr.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Unopened Lootr chest with native gold materials. Shaders off. Same crop and scale; unedited originals below.",
+      "sha256": "3fe2593e6b333c439659392178aed3a2fe5355800bdac1c87d47a88d561770b6",
+      "source": "harness/images/2026-11-01-selective/comparison-chest-lootr.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/chest-lootr-baseline-plain.png"
+        },
+        {
+          "label": "B · Geometry control",
+          "file": "selective-20261101/chest-lootr-chest-geometry-plain.png"
+        },
+        {
+          "label": "C · Geometry + Fresh",
+          "file": "selective-20261101/chest-lootr-chest-composed-plain.png"
+        }
+      ]
+    },
+    {
+      "id": "selective-20261101-comparison-doors-overview",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/comparison-doors-overview.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Doors and trapdoors in several wood families. Shaders off. Same crop and scale; unedited originals below.",
+      "sha256": "b51705ea36cc49564979a8e7f9e46b00a17095b64ca628a70e6ff39bfc27ae0e",
+      "source": "harness/images/2026-11-01-selective/comparison-doors-overview.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/doors-overview-baseline-plain.png"
+        },
+        {
+          "label": "B · 3D Default",
+          "file": "selective-20261101/doors-overview-3d-default-doors-plain.png"
+        },
+        {
+          "label": "C · Nautilus 3D",
+          "file": "selective-20261101/doors-overview-nautilus3d-doors-plain.png"
+        },
+        {
+          "label": "D · Classic 3D",
+          "file": "selective-20261101/doors-overview-classic-3d-doors-plain.png"
+        }
+      ]
+    },
+    {
+      "id": "selective-20261101-comparison-doors-surface",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/comparison-doors-surface.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Masonry, planks, copper and cobweb context. Shaders off. Same crop and scale; unedited originals below.",
+      "sha256": "6eaeddc999ff039a8085d4bee9e8a50f96db39409d1bca262d5c147418390a10",
+      "source": "harness/images/2026-11-01-selective/comparison-doors-surface.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/doors-surface-baseline-plain.png"
+        },
+        {
+          "label": "B · 3D Default",
+          "file": "selective-20261101/doors-surface-3d-default-doors-plain.png"
+        },
+        {
+          "label": "C · Nautilus 3D",
+          "file": "selective-20261101/doors-surface-nautilus3d-doors-plain.png"
+        },
+        {
+          "label": "D · Classic 3D",
+          "file": "selective-20261101/doors-surface-classic-3d-doors-plain.png"
+        }
+      ]
+    },
+    {
+      "id": "selective-20261101-comparison-plants-aquatic",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/comparison-plants-aquatic.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Aquatic context and variation. Shaders off. Same crop and scale; unedited originals below.",
+      "sha256": "df810b14eb84a2e8dde6a45baa725bd14c8dc49fc9782e308a3afc7eb0f39605",
+      "source": "harness/images/2026-11-01-selective/comparison-plants-aquatic.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/plants-aquatic-baseline-plain.png"
+        },
+        {
+          "label": "B · 3D Default",
+          "file": "selective-20261101/plants-aquatic-3d-default-plants-plain.png"
+        },
+        {
+          "label": "C · Nautilus 3D",
+          "file": "selective-20261101/plants-aquatic-nautilus3d-plants-plain.png"
+        },
+        {
+          "label": "D · Classic 3D",
+          "file": "selective-20261101/plants-aquatic-classic-3d-plants-plain.png"
+        }
+      ],
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-comparison-plants-lily-detail-shader",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/comparison-plants-lily-detail-shader.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Lily-pad depth at the same world position. Complementary/Euphoria on. Same crop and scale; unedited originals below.",
+      "sha256": "9421283f5473b5532fd3bc609fb38e7cc1e16c42276e3b7bbef93785745ce9f7",
+      "source": "harness/images/2026-11-01-selective/comparison-plants-lily-detail-shader.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/plants-lily-detail-baseline-shader.png"
+        },
+        {
+          "label": "B · 3D Default",
+          "file": "selective-20261101/plants-lily-detail-3d-default-plants-shader.png"
+        },
+        {
+          "label": "C · Nautilus 3D",
+          "file": "selective-20261101/plants-lily-detail-nautilus3d-plants-shader.png"
+        }
+      ]
+    },
+    {
+      "id": "selective-20261101-comparison-plants-lily-detail",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/comparison-plants-lily-detail.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Lily-pad depth at the same world position. Shaders off. Same crop and scale; unedited originals below.",
+      "sha256": "0e386c4aa80467cec40f00bb18fbbffda5d3af6f676a17ac64c6af1681739e0a",
+      "source": "harness/images/2026-11-01-selective/comparison-plants-lily-detail.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/plants-lily-detail-baseline-plain.png"
+        },
+        {
+          "label": "B · 3D Default",
+          "file": "selective-20261101/plants-lily-detail-3d-default-plants-plain.png"
+        },
+        {
+          "label": "C · Nautilus 3D",
+          "file": "selective-20261101/plants-lily-detail-nautilus3d-plants-plain.png"
+        },
+        {
+          "label": "D · Classic 3D",
+          "file": "selective-20261101/plants-lily-detail-classic-3d-plants-plain.png"
+        }
+      ]
+    },
+    {
+      "id": "selective-20261101-comparison-plants-potted",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/comparison-plants-potted.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "World and potted vegetation beside the installed pot composition. Shaders off. Same crop and scale; unedited originals below.",
+      "sha256": "0a415e3f30ea0cfa460877ee033f2d6bf5ac4e7bd10ef4e0fefa40f2eb10d4bb",
+      "source": "harness/images/2026-11-01-selective/comparison-plants-potted.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/plants-potted-baseline-plain.png"
+        },
+        {
+          "label": "B · 3D Default",
+          "file": "selective-20261101/plants-potted-3d-default-plants-plain.png"
+        },
+        {
+          "label": "C · Nautilus 3D",
+          "file": "selective-20261101/plants-potted-nautilus3d-plants-plain.png"
+        },
+        {
+          "label": "D · Classic 3D",
+          "file": "selective-20261101/plants-potted-classic-3d-plants-plain.png"
+        }
+      ]
+    },
+    {
+      "id": "selective-20261101-comparison-plants-stems",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/comparison-plants-stems.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Cactus and bamboo with saved ground support. Shaders off. Same crop and scale; unedited originals below.",
+      "sha256": "523b0181cffd6c56945afaf9c2fee22aafd7a6ab8533528cec0418bd68bddb40",
+      "source": "harness/images/2026-11-01-selective/comparison-plants-stems.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/plants-stems-baseline-plain.png"
+        },
+        {
+          "label": "B · 3D Default",
+          "file": "selective-20261101/plants-stems-3d-default-plants-plain.png"
+        },
+        {
+          "label": "C · Nautilus 3D",
+          "file": "selective-20261101/plants-stems-nautilus3d-plants-plain.png"
+        },
+        {
+          "label": "D · Classic 3D",
+          "file": "selective-20261101/plants-stems-classic-3d-plants-plain.png"
+        }
+      ]
+    },
+    {
+      "id": "selective-20261101-comparison-plants-underwater",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/comparison-plants-underwater.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Underwater controls; these versions supply no kelp replacement. Shaders off. Same crop and scale; unedited originals below.",
+      "sha256": "12b0b8dd6ac41e08159a0f30049ef5a1f37b3627fc33a94141473007a1a1fb64",
+      "source": "harness/images/2026-11-01-selective/comparison-plants-underwater.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/plants-underwater-baseline-plain.png"
+        },
+        {
+          "label": "B · 3D Default",
+          "file": "selective-20261101/plants-underwater-3d-default-plants-plain.png"
+        },
+        {
+          "label": "C · Nautilus 3D",
+          "file": "selective-20261101/plants-underwater-nautilus3d-plants-plain.png"
+        },
+        {
+          "label": "D · Classic 3D",
+          "file": "selective-20261101/plants-underwater-classic-3d-plants-plain.png"
+        }
+      ]
+    },
+    {
+      "id": "selective-20261101-comparison-props-detail",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/comparison-props-detail.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Unlit copper bulb. Shaders off. Same crop and scale; unedited originals below.",
+      "sha256": "01f4c35207f7ae94c952c08f7be3b92e4e2bff29198c59a9971acf3fa2e2b2cf",
+      "source": "harness/images/2026-11-01-selective/comparison-props-detail.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/props-detail-baseline-plain.png"
+        },
+        {
+          "label": "B · 3D Default",
+          "file": "selective-20261101/props-detail-3d-default-props-plain.png"
+        },
+        {
+          "label": "C · Nautilus 3D",
+          "file": "selective-20261101/props-detail-nautilus3d-props-plain.png"
+        },
+        {
+          "label": "D · Classic 3D",
+          "file": "selective-20261101/props-detail-classic-3d-props-plain.png"
+        }
+      ]
+    },
+    {
+      "id": "selective-20261101-comparison-props-overview",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/comparison-props-overview.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Bulbs, hay, lodestone, campfires and modded light controls. Shaders off. Same crop and scale; unedited originals below.",
+      "sha256": "6e1c782dc28554f5c6a0baf733ec7af9d04a252c6a3b84c8595edd7d2e370c81",
+      "source": "harness/images/2026-11-01-selective/comparison-props-overview.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/props-overview-baseline-plain.png"
+        },
+        {
+          "label": "B · 3D Default",
+          "file": "selective-20261101/props-overview-3d-default-props-plain.png"
+        },
+        {
+          "label": "C · Nautilus 3D",
+          "file": "selective-20261101/props-overview-nautilus3d-props-plain.png"
+        },
+        {
+          "label": "D · Classic 3D",
+          "file": "selective-20261101/props-overview-classic-3d-props-plain.png"
+        }
+      ]
+    },
+    {
+      "id": "selective-20261101-comparison-shelves-connections",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/comparison-shelves-connections.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Touching shelves; compare frame joins against connected textures. Shaders off. Same crop and scale; unedited originals below.",
+      "sha256": "436197de3f5c08539889d811774a1a6b71b10027d1628fee109b7cb1ab5f41e3",
+      "source": "harness/images/2026-11-01-selective/comparison-shelves-connections.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/shelves-connections-baseline-plain.png"
+        },
+        {
+          "label": "B · 3D Default",
+          "file": "selective-20261101/shelves-connections-3d-default-shelves-plain.png"
+        },
+        {
+          "label": "C · Nautilus 3D",
+          "file": "selective-20261101/shelves-connections-nautilus3d-shelves-plain.png"
+        },
+        {
+          "label": "D · Classic 3D",
+          "file": "selective-20261101/shelves-connections-classic-3d-shelves-plain.png"
+        }
+      ]
+    },
+    {
+      "id": "selective-20261101-comparison-shelves-hive-detail",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/comparison-shelves-hive-detail.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Beehive at honey level three; Classic 3D has no hive replacement. Shaders off. Same crop and scale; unedited originals below.",
+      "sha256": "9f170f229abcc9c50981c885d8953f95643ee4c07e8714fc63bfab1011ac86fa",
+      "source": "harness/images/2026-11-01-selective/comparison-shelves-hive-detail.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/shelves-hive-detail-baseline-plain.png"
+        },
+        {
+          "label": "B · 3D Default",
+          "file": "selective-20261101/shelves-hive-detail-3d-default-shelves-plain.png"
+        },
+        {
+          "label": "C · Nautilus 3D",
+          "file": "selective-20261101/shelves-hive-detail-nautilus3d-shelves-plain.png"
+        },
+        {
+          "label": "D · Classic 3D",
+          "file": "selective-20261101/shelves-hive-detail-classic-3d-shelves-plain.png"
+        }
+      ]
+    },
+    {
+      "id": "selective-20261101-comparison-shelves-hives",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/comparison-shelves-hives.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Nest and hive honey-level controls. Shaders off. Same crop and scale; unedited originals below.",
+      "sha256": "de70cea357d186ee73863766809458c69491ca8b410b577d18fa158c4c422b57",
+      "source": "harness/images/2026-11-01-selective/comparison-shelves-hives.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/shelves-hives-baseline-plain.png"
+        },
+        {
+          "label": "B · 3D Default",
+          "file": "selective-20261101/shelves-hives-3d-default-shelves-plain.png"
+        },
+        {
+          "label": "C · Nautilus 3D",
+          "file": "selective-20261101/shelves-hives-nautilus3d-shelves-plain.png"
+        },
+        {
+          "label": "D · Classic 3D",
+          "file": "selective-20261101/shelves-hives-classic-3d-shelves-plain.png"
+        }
+      ],
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-comparison-shelves-shelf-detail",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/comparison-shelves-shelf-detail.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Bookshelf depth and book arrangement. Shaders off. Same crop and scale; unedited originals below.",
+      "sha256": "ec5fdb9f37903396dc7ab2965dee4489597d0db394adb7e6be5d9b4a7263e156",
+      "source": "harness/images/2026-11-01-selective/comparison-shelves-shelf-detail.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/shelves-shelf-detail-baseline-plain.png"
+        },
+        {
+          "label": "B · 3D Default",
+          "file": "selective-20261101/shelves-shelf-detail-3d-default-shelves-plain.png"
+        },
+        {
+          "label": "C · Nautilus 3D",
+          "file": "selective-20261101/shelves-shelf-detail-nautilus3d-shelves-plain.png"
+        },
+        {
+          "label": "D · Classic 3D",
+          "file": "selective-20261101/shelves-shelf-detail-classic-3d-shelves-plain.png"
+        }
+      ]
+    },
+    {
+      "id": "selective-20261101-comparison-shelves-shelves",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/comparison-shelves-shelves.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Shelves and occupied chiseled-shelf controls. Shaders off. Same crop and scale; unedited originals below.",
+      "sha256": "856a9b70ebd5158c9cdb12ee3990125a287c1dd9cf1a17dfed42babd29aea5ba",
+      "source": "harness/images/2026-11-01-selective/comparison-shelves-shelves.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/shelves-shelves-baseline-plain.png"
+        },
+        {
+          "label": "B · 3D Default",
+          "file": "selective-20261101/shelves-shelves-3d-default-shelves-plain.png"
+        },
+        {
+          "label": "C · Nautilus 3D",
+          "file": "selective-20261101/shelves-shelves-nautilus3d-shelves-plain.png"
+        },
+        {
+          "label": "D · Classic 3D",
+          "file": "selective-20261101/shelves-shelves-classic-3d-shelves-plain.png"
+        }
+      ],
+      "gallery": false
+    },
+    {
+      "id": "selective-20261101-comparison-workstations-crafting-shader",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/comparison-workstations-crafting-shader.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Crafting table; drawers, tools and top details are decorative. Complementary/Euphoria on. Same crop and scale; unedited originals below.",
+      "sha256": "1c7330aca132ec8e3e41fc9c7a205ef932b292a5e8651b10c5f7a0b7539b4049",
+      "source": "harness/images/2026-11-01-selective/comparison-workstations-crafting-shader.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/workstations-crafting-baseline-shader.png"
+        },
+        {
+          "label": "C · Nautilus 3D",
+          "file": "selective-20261101/workstations-crafting-nautilus3d-workstations-shader.png"
+        }
+      ]
+    },
+    {
+      "id": "selective-20261101-comparison-workstations-crafting",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/comparison-workstations-crafting.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Crafting table; drawers, tools and top details are decorative. Shaders off. Same crop and scale; unedited originals below.",
+      "sha256": "e4afe91d31a015c308ad83f7391d36ddbfa5b25ff2db9fdaf3dc9a30263fad52",
+      "source": "harness/images/2026-11-01-selective/comparison-workstations-crafting.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/workstations-crafting-baseline-plain.png"
+        },
+        {
+          "label": "B · 3D Default",
+          "file": "selective-20261101/workstations-crafting-3d-default-workstations-plain.png"
+        },
+        {
+          "label": "C · Nautilus 3D",
+          "file": "selective-20261101/workstations-crafting-nautilus3d-workstations-plain.png"
+        },
+        {
+          "label": "D · Classic 3D",
+          "file": "selective-20261101/workstations-crafting-classic-3d-workstations-plain.png"
+        }
+      ]
+    },
+    {
+      "id": "selective-20261101-comparison-workstations-stonecutter",
+      "projects": ["3d-default", "nautilus3d", "classic-3d"],
+      "file": "selective-20261101/comparison-workstations-stonecutter.png",
+      "kind": "image",
+      "run": "selective-20261101",
+      "stage": "Comparison",
+      "caption": "Stonecutter geometry; details do not indicate processing. Shaders off. Same crop and scale; unedited originals below.",
+      "sha256": "ce945aabd580b2cf3a3f74b98a20b7ea16714342f07971c81d0da4c86610fc11",
+      "source": "harness/images/2026-11-01-selective/comparison-workstations-stonecutter.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "selective-20261101/workstations-stonecutter-baseline-plain.png"
+        },
+        {
+          "label": "B · 3D Default",
+          "file": "selective-20261101/workstations-stonecutter-3d-default-workstations-plain.png"
+        },
+        {
+          "label": "C · Nautilus 3D",
+          "file": "selective-20261101/workstations-stonecutter-nautilus3d-workstations-plain.png"
+        },
+        {
+          "label": "D · Classic 3D",
+          "file": "selective-20261101/workstations-stonecutter-classic-3d-workstations-plain.png"
+        }
+      ]
+    },
+    {
+      "id": "selected-20261102-garden-pitcher",
+      "projects": ["create-sky-resource-patches"],
+      "file": "selected-20261102/garden-pitcher.png",
+      "kind": "image",
+      "run": "selected-20261102",
+      "stage": "Selected",
+      "caption": "Selected Toasty V3 pitcher, with the NeoForge angle adaptation; shaders off.",
+      "sha256": "4ff3109d52dff8eb0599426e930706b2d1cb5e9efb718601eb221b0f13b1f53b",
+      "source": "harness/images/2026-11-02-selected/garden-pitcher.png"
+    },
+    {
+      "id": "selected-20261102-studio-loom",
+      "projects": ["create-sky-resource-patches"],
+      "file": "selected-20261102/studio-loom.png",
+      "kind": "image",
+      "run": "selected-20261102",
+      "stage": "Selected",
+      "caption": "Selected 3D Vanilla loom; shaders off.",
+      "sha256": "bc7e0da6c3d5cf5e8542c02aaee63375cbbe58dca8f2c8716e8abb2320868933",
+      "source": "harness/images/2026-11-02-selected/studio-loom.png"
     }
   ]
 }

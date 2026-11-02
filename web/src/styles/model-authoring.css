@@ -1,5 +1,5 @@
 .model-authoring {
-  --workbench-sidebar: 17.5rem;
+  --workbench-sidebar: var(--measure-resource-browser);
   --workbench-sticky-top: 4.75rem;
   --workbench-list-limit: calc(100dvh - 260px);
 }
@@ -9,11 +9,6 @@
   gap: var(--space-control);
   align-items: end;
 }
-.authoring .inline-field {
-  display: flex;
-  align-items: center;
-  gap: var(--space-inline);
-}
 .model-path,
 #model-json {
   font-family: var(--type-code-family);
@@ -21,10 +16,13 @@
 }
 .model-previews {
   display: grid;
-  grid-template-columns: minmax(220px, 1fr) minmax(0, 2fr);
-  gap: 20px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(15rem, 0.9fr);
+  grid-template-areas: 'texture model tools';
+  gap: var(--space-content);
+  align-items: start;
 }
-#model-canvas {
+#model-canvas,
+.resource-model-canvas {
   display: block;
   width: 100%;
   height: 420px;
@@ -34,6 +32,11 @@
   touch-action: none;
 }
 #model-texture {
+  --preview-checker-surface: color-mix(
+    in oklab,
+    var(--ink) 10%,
+    var(--surface-panel)
+  );
   display: block;
   width: 100%;
   max-width: 320px;
@@ -41,12 +44,18 @@
   image-rendering: pixelated;
   border: 1px solid var(--line-subtle);
   background: repeating-conic-gradient(
-      var(--surface-selected) 0% 25%,
+      var(--preview-checker-surface) 0% 25%,
       var(--surface-panel) 0% 50%
     )
     0 0 / 16px 16px;
   cursor: crosshair;
   touch-action: none;
+}
+#texture-preview-surface {
+  max-width: 320px;
+}
+.model-previews[data-mask-active='true'] #texture-preview-surface {
+  max-width: none;
 }
 .model-previews h2 {
   margin: 0;
@@ -54,9 +63,76 @@
 @media (max-width: 1100px) {
   .model-previews {
     grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'texture' 'tools' 'model';
   }
 }
 
-.authoring .control-row > .inline-field {
-  min-block-size: var(--control-min-block-size);
+.model-texture-panel {
+  grid-area: texture;
+}
+.model-geometry-panel {
+  grid-area: model;
+}
+.model-tools {
+  grid-area: tools;
+  min-width: 0;
+}
+#material-mask-tools,
+#texture-operations fieldset {
+  margin: 0;
+  min-width: 0;
+  padding: var(--space-content);
+}
+
+.model-previews[data-mask-active='true'] #model-texture {
+  max-width: none;
+}
+.mask-color::before {
+  content: '';
+  display: inline-block;
+  inline-size: var(--space-control);
+  block-size: var(--space-control);
+  margin-inline-end: var(--space-inline);
+  vertical-align: middle;
+  background: var(--mask-swatch);
+  border: 1px solid var(--line-control);
+}
+.model-previews #model-uv,
+.texture-region-fields {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.model-previews #model-uv input,
+.texture-region-fields input {
+  min-width: 0;
+  width: 100%;
+}
+.model-authoring .control-row > .field:has(#model-label) {
+  flex: 1;
+  min-width: min(24rem, 100%);
+  max-width: 42rem;
+}
+.texture-operation-workbench {
+  --sortable-list-limit: 20rem;
+}
+@media (min-width: 1101px) {
+  .model-authoring[data-operation-layout='inspector'] .model-texture-panel,
+  .model-authoring[data-operation-layout='inspector'] .model-geometry-panel {
+    position: sticky;
+    top: var(--workbench-sticky-top);
+  }
+}
+
+.model-tools:not(:has(> :not([hidden]))) {
+  display: none;
+}
+@media (min-width: 1101px) {
+  .model-previews:not(:has(.model-tools > :not([hidden]))) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    grid-template-areas: 'texture model';
+  }
+}
+@media (max-width: 1100px) {
+  .model-previews:not(:has(.model-tools > :not([hidden]))) {
+    grid-template-areas: 'texture' 'model';
+  }
 }

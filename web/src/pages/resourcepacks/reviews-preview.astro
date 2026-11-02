@@ -1,0 +1,13 @@
+---
+import Base from '../../layouts/Base.astro'
+---
+
+<Base title="Visual comparisons · Create Sky">
+  <a href="/resourcepacks/reviews">Open visual comparisons</a>
+</Base>
+<script>
+  const url = new URL(location.href)
+  url.pathname = '/resourcepacks/reviews'
+  url.searchParams.delete('location')
+  location.replace(url.href)
+</script>

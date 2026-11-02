@@ -1,44 +1,14 @@
 ---
-import ViewTabs from '../components/ui/ViewTabs.astro'
-import Button from '../components/ui/Button.astro'
 import Base from '../layouts/Base.astro'
-import AppHeader from '../components/AppHeader.astro'
-import { authoringViews } from '../lib/authoring-navigation'
-import ModelWorkbench from '../components/authoring/ModelWorkbench.astro'
-import '../styles/authoring.css'
-import '../styles/model-authoring.css'
-import '../styles/journal.css'
 ---
 
-<Base title="Model authoring · Create Sky">
-  <AppHeader page="authoring" />
-  <ViewTabs label="Authoring views">
-    {authoringViews.map((item) => (
-      <a
-        href={item.href}
-        aria-current={item.id === 'models' ? 'page' : undefined}
-      >
-        {item.label}
-      </a>
-    ))}
-  </ViewTabs>
-  <main id="main-content" tabindex="-1" class="authoring model-authoring">
-    <div class="actions authoring-actions">
-      <Button id="models-reload">Reload source</Button>
-      <Button intent="primary" id="models-save" disabled>
-        Save recipes
-      </Button>
-      <Button id="models-generate" disabled>
-        Generate resource pack
-      </Button>
-      <span id="models-status" role="status">
-        Loading model recipes…
-      </span>
-      <span id="models-drafts" class="scope"></span>
-    </div>
-    <ModelWorkbench />
-  </main>
-  <script>
-    import '../lib/model-authoring'
-  </script>
+<Base title="Resource authoring · Create Sky">
+  <a href="/resource-authoring">Open resource authoring</a>
 </Base>
+<script>
+  const url = new URL(location.href)
+  url.pathname = '/resource-authoring'
+  url.searchParams.set('view', 'models')
+  url.searchParams.delete('layout')
+  location.replace(url.href)
+</script>

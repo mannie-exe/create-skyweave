@@ -1,4 +1,43 @@
-/* Explicit text roles opt in without changing semantic heading levels. */
+/* Defaults stay weak: explicit roles do not depend on heading level or page CSS. */
+:where(h1, h2, h3, h4, h5, h6) {
+  overflow-wrap: anywhere;
+}
+:where(h1),
+[data-text-role='page-title'] {
+  font-family: var(--type-page-title-family);
+  font-size: var(--type-page-title-size);
+  font-weight: var(--type-page-title-weight);
+  line-height: var(--type-page-title-leading);
+  letter-spacing: var(--type-page-title-tracking);
+}
+[data-text-role='view-title'] {
+  font-family: var(--type-view-title-family);
+  font-size: var(--type-view-title-size);
+  font-weight: var(--type-view-title-weight);
+  line-height: var(--type-view-title-leading);
+  letter-spacing: var(--type-view-title-tracking);
+}
+:where(h2),
+[data-text-role='section-title'] {
+  font-family: var(--type-section-title-family);
+  font-size: var(--type-section-title-size);
+  font-weight: var(--type-section-title-weight);
+  line-height: var(--type-section-title-leading);
+  letter-spacing: var(--type-section-title-tracking);
+}
+:where(h3, h4, h5, h6),
+[data-text-role='group-title'] {
+  font-family: var(--type-group-title-family);
+  font-size: var(--type-group-title-size);
+  font-weight: var(--type-group-title-weight);
+  line-height: var(--type-group-title-leading);
+  letter-spacing: var(--type-group-title-tracking);
+}
+[data-text-role='reading'] {
+  font-family: var(--type-body-family);
+  font-size: var(--type-reading-size);
+  line-height: var(--type-reading-leading);
+}
 [data-text-role='body'] {
   font-family: var(--type-body-family);
   font-size: var(--type-body-size);
@@ -12,20 +51,6 @@
   font-weight: var(--type-item-title-weight);
   line-height: var(--type-item-title-leading);
   letter-spacing: var(--type-item-title-tracking);
-}
-[data-text-role='section-title'] {
-  font-family: var(--type-section-title-family);
-  font-size: var(--type-section-title-size);
-  font-weight: var(--type-section-title-weight);
-  line-height: var(--type-section-title-leading);
-  letter-spacing: var(--type-section-title-tracking);
-}
-[data-text-role='group-title'] {
-  font-family: var(--type-group-title-family);
-  font-size: var(--type-group-title-size);
-  font-weight: var(--type-group-title-weight);
-  line-height: var(--type-group-title-leading);
-  letter-spacing: var(--type-group-title-tracking);
 }
 [data-text-role='label'] {
   font-family: var(--type-label-family);

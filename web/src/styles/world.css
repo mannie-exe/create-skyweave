@@ -42,11 +42,7 @@
   padding: var(--space-tight);
   overflow-wrap: anywhere;
 }
-.ore-choice[aria-pressed='true'] {
-  color: var(--ink-selected);
-  background: var(--surface-selected);
-  border-color: var(--line-selected);
-}
+
 #world-canvas {
   --map-unknown-surface: #e3e5e9;
   --map-location-mark: #dd7a42;

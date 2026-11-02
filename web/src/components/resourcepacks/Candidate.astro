@@ -43,7 +43,7 @@ const searchable = [
       </span>
       <span>{review.category}</span>
     </div>
-    <h2>
+    <h2 data-text-role="view-title">
       <a href={`#${review.id}`}>{project.title}</a>
     </h2>
     <p class="candidate-description">{review.description}</p>
@@ -76,7 +76,7 @@ const searchable = [
         )}
       </p>
     )}
-    <details class="candidate-evidence">
+    <details class="disclosure candidate-evidence">
       <summary>
         File evidence
         {current?.source
@@ -85,110 +85,118 @@ const searchable = [
             ? ` · ${evidence.effectiveAssetCount.toLocaleString()} effective assets`
             : ' · source review only'}
       </summary>
-      {current?.source ? (
-        <>
-          <p>
-            {current.present
-              ? 'Built artifact present.'
-              : 'Built artifact missing.'}{' '}
-            Presence does not prove source freshness or runtime behavior.
-          </p>
-          <p>
-            Sources: <code>{current.source}</code>
-          </p>
-          <p>
-            Check without rewriting: <code>{current.check}</code>
-          </p>
-          {current.sha256 && (
-            <details>
-              <summary>Built SHA-256</summary>
-              <code class="digest">{current.sha256}</code>
+      <div class="content-stack">
+        {current?.source ? (
+          <>
+            <p>
+              {current.present
+                ? 'Built artifact present.'
+                : 'Built artifact missing.'}{' '}
+              Presence does not prove source freshness or runtime behavior.
+            </p>
+            <p>
+              Sources: <code>{current.source}</code>
+            </p>
+            <p>
+              Check without rewriting: <code>{current.check}</code>
+            </p>
+            {current.sha256 && (
+              <details class="disclosure">
+                <summary>Built SHA-256</summary>
+                <div class="content-stack">
+                  <code class="digest">{current.sha256}</code>
+                </div>
+              </details>
+            )}
+          </>
+        ) : evidence ? (
+          <>
+            <p>
+              <a
+                href={`https://modrinth.com/version/${evidence.version.id}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {evidence.version.name}
+              </a>{' '}
+              · {evidence.version.version_type}
+            </p>
+            <p class="file-name">{evidence.file.filename}</p>
+            <p>
+              Listed for 1.21.1.{' '}
+              {evidence.declaresTargetFormat
+                ? 'Metadata includes resource format 34.'
+                : `Metadata does not declare a valid range containing format 34 (base format ${evidence.format}).`}
+            </p>
+            {evidence.metadataWarning && <p>{evidence.metadataWarning}.</p>}
+            {evidence.fusionMinimum && (
+              <p>
+                Fusion ≥ {evidence.fusionMinimum}; Fusion overrides{' '}
+                {evidence.fusionOverridesIncluded ? 'included' : 'excluded'} in
+                this inspection.
+              </p>
+            )}
+            <p>
+              {evidence.matchingInstalledAssets.toLocaleString()} paths match
+              vanilla or installed mod resources. Matching mod namespaces:{' '}
+              {evidence.matchingModNamespaces.join(', ') || 'none'}. This is a
+              footprint check, not complete mod coverage.
+            </p>
+            {evidence.features.length > 0 && (
+              <p>Detected features: {evidence.features.join(', ')}.</p>
+            )}
+            {Object.keys(evidence.overlaps).length > 0 ? (
+              <>
+                <p>
+                  Different bytes at paths also used by the inspected 0.1.9
+                  baseline:
+                </p>
+                <ul>
+                  {Object.entries(evidence.overlaps).map(([id, overlap]) => (
+                    <li>
+                      <a href={`#${id}`}>{projects[id]?.title || id}</a>:{' '}
+                      {overlap.count} paths
+                      <details class="disclosure">
+                        <summary>Examples</summary>
+                        <div class="content-stack">
+                          <ul class="path-list">
+                            {overlap.examples.map((path) => (
+                              <li>{path}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </details>
+                    </li>
+                  ))}
+                </ul>
+                <p>
+                  Models and textures can replace one another. Language keys and
+                  font providers can merge; shared paths alone do not prove a
+                  conflict.
+                </p>
+              </>
+            ) : (
+              <p>
+                No differing asset paths shared with the six resource packs in
+                the inspected 0.1.9 baseline.
+              </p>
+            )}
+            <details class="disclosure">
+              <summary>SHA-512</summary>
+              <div class="content-stack">
+                <code class="digest">{evidence.sha512}</code>
+              </div>
             </details>
-          )}
-        </>
-      ) : evidence ? (
-        <>
+          </>
+        ) : (
           <p>
-            <a
-              href={`https://modrinth.com/version/${evidence.version.id}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {evidence.version.name}
-            </a>{' '}
-            · {evidence.version.version_type}
+            {project.fileNote}{' '}
+            <a href={project.versionUrl} target="_blank" rel="noreferrer">
+              Listed download
+            </a>
           </p>
-          <p class="file-name">{evidence.file.filename}</p>
-          <p>
-            Listed for 1.21.1.{' '}
-            {evidence.declaresTargetFormat
-              ? 'Metadata includes resource format 34.'
-              : `Metadata does not declare a valid range containing format 34 (base format ${evidence.format}).`}
-          </p>
-          {evidence.metadataWarning && <p>{evidence.metadataWarning}.</p>}
-          {evidence.fusionMinimum && (
-            <p>
-              Fusion ≥ {evidence.fusionMinimum}; Fusion overrides{' '}
-              {evidence.fusionOverridesIncluded ? 'included' : 'excluded'} in
-              this inspection.
-            </p>
-          )}
-          <p>
-            {evidence.matchingInstalledAssets.toLocaleString()} paths match
-            vanilla or installed mod resources. Matching mod namespaces:{' '}
-            {evidence.matchingModNamespaces.join(', ') || 'none'}. This is a
-            footprint check, not complete mod coverage.
-          </p>
-          {evidence.features.length > 0 && (
-            <p>Detected features: {evidence.features.join(', ')}.</p>
-          )}
-          {Object.keys(evidence.overlaps).length > 0 ? (
-            <>
-              <p>
-                Different bytes at paths also used by the inspected 0.1.9
-                baseline:
-              </p>
-              <ul>
-                {Object.entries(evidence.overlaps).map(([id, overlap]) => (
-                  <li>
-                    <a href={`#${id}`}>{projects[id]?.title || id}</a>:{' '}
-                    {overlap.count} paths
-                    <details>
-                      <summary>Examples</summary>
-                      <ul class="path-list">
-                        {overlap.examples.map((path) => (
-                          <li>{path}</li>
-                        ))}
-                      </ul>
-                    </details>
-                  </li>
-                ))}
-              </ul>
-              <p>
-                Models and textures can replace one another. Language keys and
-                font providers can merge; shared paths alone do not prove a
-                conflict.
-              </p>
-            </>
-          ) : (
-            <p>
-              No differing asset paths shared with the six resource packs in the
-              inspected 0.1.9 baseline.
-            </p>
-          )}
-          <details>
-            <summary>SHA-512</summary>
-            <code class="digest">{evidence.sha512}</code>
-          </details>
-        </>
-      ) : (
-        <p>
-          {project.fileNote}{' '}
-          <a href={project.versionUrl} target="_blank" rel="noreferrer">
-            Listed download
-          </a>
-        </p>
-      )}
+        )}
+      </div>
     </details>
   </div>
   {images.length ? (

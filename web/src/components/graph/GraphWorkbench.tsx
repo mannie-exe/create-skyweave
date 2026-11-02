@@ -1,3 +1,4 @@
+import Disclosure from '../ui/Disclosure'
 import Button from '../ui/Button'
 import ViewTabs from '../ui/ViewTabs'
 import Field from '../ui/Field'
@@ -452,6 +453,11 @@ export default function GraphWorkbench() {
               <Button
                 key={n.id}
                 data-item={n.id}
+                aria-current={
+                  mode === 'processing'
+                    ? machine === n.id
+                    : mode === 'routes' && item === n.id
+                }
                 onClick={() =>
                   mode === 'processing'
                     ? change(() => setMachine(n.id))
@@ -583,12 +589,11 @@ export default function GraphWorkbench() {
               )}
             </div>
             {record && (
-              <details id="graph-record">
-                <summary>Selection data</summary>
+              <Disclosure id="graph-record" summary={<>Selection data</>}>
                 <pre id="graph-selection-data">
                   {JSON.stringify(record, null, 2)}
                 </pre>
-              </details>
+              </Disclosure>
             )}
           </section>
         </div>

@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import { textureFrame } from './texture-frame.ts'
 import { readColorTokens } from './style-tokens.ts'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 
@@ -8,6 +9,7 @@ export type Element = {
   from: number[]
   to: number[]
   faces: Record<string, Face>
+  transform?: number[][]
   rotation?: {
     axis: 'x' | 'y' | 'z'
     angle: number
@@ -15,11 +17,24 @@ export type Element = {
     rescale?: boolean
   }
 }
-export type Model = { textures: Record<string, string>; elements: Element[] }
+export type Model = {
+  textures: Record<string, string>
+  elements: Element[]
+  meshes?: {
+    name?: string
+    positions: number[]
+    uv: number[]
+    texture: string
+  }[]
+  doubleSided?: boolean
+  sceneRotation?: number[]
+}
 export type TextureSource = {
   url: string
+  originalUrl?: string
   width: number
   height: number
+  frameWidth?: number
   frameHeight: number
   animation: {
     frametime?: number
@@ -33,6 +48,14 @@ export type Preview = {
   textures: Record<string, TextureSource>
   elements: number
   faces: number
+  masks?: {
+    plane: number
+    key: string
+    width: number
+    height: number
+    texture: string
+    pixels: number[][]
+  }[]
 }
 
 // Minecraft face winding and UV orientation, in model coordinates. Keep this
@@ -97,6 +120,22 @@ export function faceGeometry(element: Element, direction: string, face: Face) {
         axis[rotation.axis] = 1
         point.applyAxisAngle(axis, angle).add(origin)
       }
+      if (element.transform) {
+        const coordinates = point.toArray().map((value) => value / 16)
+        point.fromArray(
+          element.transform.map(
+            (row) =>
+              (row[3] +
+                row
+                  .slice(0, 3)
+                  .reduce(
+                    (sum, value, index) => sum + value * coordinates[index],
+                    0,
+                  )) *
+              16,
+          ),
+        )
+      }
       return point.toArray()
     })
     .flat()
@@ -142,6 +181,9 @@ export class ModelPreview {
   private generation = 0
   private selected = -1
   private wireframe = false
+  private textureTime: number | undefined
+  private renderFrame: (time: number) => void = () => {}
+  private cameraListener?: () => void
 
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas
@@ -163,6 +205,7 @@ export class ModelPreview {
     this.controls.minDistance = 8
     this.controls.maxDistance = 120
     this.controls.update()
+    this.controls.addEventListener('change', () => this.cameraListener?.())
     this.scene.add(this.group, new THREE.AmbientLight(0xffffff, 2))
     const light = new THREE.DirectionalLight(0xffffff, 2)
     light.position.set(10, 30, 20)
@@ -178,33 +221,15 @@ export class ModelPreview {
       this.camera.updateProjectionMatrix()
     })
     this.observer.observe(canvas)
-    this.renderer.setAnimationLoop((time) => {
+    this.renderFrame = (time) => {
       for (const { map, source } of this.maps) {
-        const count = source.height / source.frameHeight
-        if (count <= 1) continue
-        const sequence =
-          source.animation?.frames ?? Array.from({ length: count }, (_, i) => i)
-        const frames = sequence.map((f) =>
-          typeof f === 'number'
-            ? { index: f, time: source.animation?.frametime ?? 1 }
-            : {
-                index: f.index,
-                time: f.time ?? source.animation?.frametime ?? 1,
-              },
-        )
-        let tick =
-          Math.floor(time / 50) % frames.reduce((sum, f) => sum + f.time, 0)
-        let frame = frames[0].index
-        for (const f of frames) {
-          frame = f.index
-          if (tick < f.time) break
-          tick -= f.time
-        }
-        map.repeat.y = 1 / count
-        map.offset.y = 1 - (frame + 1) / count
+        const frame = textureFrame(source, this.textureTime ?? time)
+        map.repeat.set(frame.repeat[0], frame.repeat[1])
+        map.offset.set(frame.offset[0], frame.offset[1])
       }
       this.renderer.render(this.scene, this.camera)
-    })
+    }
+    this.active(true)
   }
 
   private clear() {
@@ -256,8 +281,102 @@ export class ModelPreview {
         this.group.add(mesh)
       }
     }
+    for (const face of preview.model.meshes ?? []) {
+      if (face.positions.length !== 12 || face.uv.length !== 8)
+        throw new Error('Unsupported preview mesh face')
+      const identifier = preview.model.textures[face.texture]
+      const map = textures.find((texture) => texture.key === identifier)?.map
+      if (!map) throw new Error(`Missing mesh texture: ${identifier}`)
+      const geometry = new THREE.BufferGeometry()
+      geometry.setAttribute(
+        'position',
+        new THREE.Float32BufferAttribute(face.positions, 3),
+      )
+      geometry.setAttribute('uv', new THREE.Float32BufferAttribute(face.uv, 2))
+      geometry.setIndex([0, 1, 2, 0, 2, 3])
+      geometry.computeVertexNormals()
+      const material = new THREE.MeshLambertMaterial({
+        map,
+        alphaTest: 0.1,
+        side: preview.model.doubleSided ? THREE.DoubleSide : THREE.FrontSide,
+        wireframe: this.wireframe,
+      })
+      this.group.add(new THREE.Mesh(geometry, material))
+    }
+    this.group.rotation.set(0, 0, 0)
+    this.group.position.set(0, 0, 0)
+    if (preview.model.sceneRotation) {
+      const [x, y] = preview.model.sceneRotation
+      this.group.rotation.set(
+        THREE.MathUtils.degToRad(x),
+        -THREE.MathUtils.degToRad(y),
+        0,
+      )
+      const center = new THREE.Vector3(8, 8, 8).applyEuler(this.group.rotation)
+      this.group.position.set(8 - center.x, 8 - center.y, 8 - center.z)
+    }
     this.highlight(this.selected)
     this.canvas.dataset.ready = preview.id
+  }
+
+  active(value: boolean) {
+    this.renderer.setAnimationLoop(value ? this.renderFrame : null)
+  }
+
+  textureClock(milliseconds: number | undefined) {
+    this.textureTime = milliseconds
+  }
+
+  onCameraChange(listener?: () => void) {
+    this.cameraListener = listener
+  }
+
+  cameraState() {
+    return {
+      position: this.camera.position.toArray(),
+      target: this.controls.target.toArray(),
+      up: this.camera.up.toArray(),
+    }
+  }
+
+  setCamera(state: ReturnType<ModelPreview['cameraState']>) {
+    this.camera.position.fromArray(state.position)
+    this.camera.up.fromArray(state.up)
+    this.controls.target.fromArray(state.target)
+    this.controls.update()
+  }
+
+  bounds() {
+    const bounds = new THREE.Box3().setFromObject(this.group)
+    return { min: bounds.min.toArray(), max: bounds.max.toArray() }
+  }
+
+  fit(bounds: { min: number[]; max: number[] } = this.bounds()) {
+    const minimum = new THREE.Vector3().fromArray(bounds.min),
+      maximum = new THREE.Vector3().fromArray(bounds.max)
+    const center = minimum.add(maximum).multiplyScalar(0.5)
+    const size = new THREE.Vector3()
+      .fromArray(bounds.max)
+      .sub(new THREE.Vector3().fromArray(bounds.min))
+    const distance = Math.max(size.x, size.y, size.z, 8) * 2.1
+    this.controls.target.copy(center)
+    this.camera.position
+      .copy(center)
+      .add(
+        new THREE.Vector3(0.65, 0.48, 0.8).normalize().multiplyScalar(distance),
+      )
+    this.controls.update()
+  }
+
+  orient(view: 'front' | 'top') {
+    this.controls.target.set(8, 8, 8)
+    this.camera.up.set(0, 1, 0)
+    this.camera.position.set(
+      8,
+      view === 'top' ? 48 : 8,
+      view === 'top' ? 8.01 : 48,
+    )
+    this.controls.update()
   }
 
   highlight(index: number) {

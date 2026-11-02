@@ -393,9 +393,11 @@ returns both layers, with a session identity and a bounded operation history.
 The history lives in server memory and resets when the development server restarts.
 
 `lib/activity.ts` owns the shared browser subscription store. `ActivityHost` renders
-notifications and either the authoring side panel or the compact Activity disclosure
-on other pages. Both presentations use `ActivityPanel`; React islands and DOM
-consumers use the same store. Each page mounts a single host for polling and toasts.
+notifications and one shared header control. `Base` supplies an optional dock;
+the host uses it only when the authoring task retains enough width. Dense views
+and narrow screens use a modal overlay. Both presentations use `ActivityPanel`;
+React islands and DOM consumers use the same store. Each page mounts a single
+host for polling and toasts.
 Polling is single-flight, pauses while the document is hidden and refreshes on
 return. Connection failures retain last-known results but mark them disconnected.
 There is no filesystem watcher, background recapture or automatic draft reload.
@@ -510,6 +512,13 @@ formerly selected review cannot remain “Selected stack” after its dependency
 removed. Personal client settings are not read. These values refresh with the
 local server/module or static build; they are not an installation monitor.
 
+Resource authoring currently resolves declared model/texture inputs and known
+pack-owned overrides. It does not reconstruct arbitrary live client resource
+stacks. Object origin, input archive, generated output owner, and preview capability
+are separate facts. The [preview coverage reference](models.md#preview-coverage-and-deferred-features)
+owns current behavior, research boundaries, and deferred entity animation,
+block-state interaction, and audio work.
+
 `local-projects.json` describes the generated resource ZIP and resource-only JAR.
 The page reads their existence and SHA-256 from fixed repository paths at render
 or build time. Run web commands from `web/`, as in the setup guide. Presence alone
@@ -521,6 +530,44 @@ Coverage and limits. Overlap inspection still uses its recorded older baseline.
 `local-media.json` assigns selected archived screenshots and clips to relevant
 reviews. It records original paths, SHA-256 hashes, run context, dates and captions.
 A run's final combined patch hash does not identify its before images.
+
+`authoring/resource-selections.json` owns approved per-feature choices used by the
+production resource builder. The comparison page reads that same file to show
+mixed selections, preserved content and deferred work. It does not infer that a
+full donor pack is enabled. The resource catalogue labels these donor projects
+“Selected features”; the pack-owned artifact retains its current generated hash.
+Runtime recipe/world projections do not need a refresh for client-only models.
+
+`/resourcepacks/reviews` groups the dated comparisons by feature rather than by
+provider. `src/lib/resource-comparisons.mjs` derives scenes, stable preference IDs
+and recordings from the media manifest. Its feature definitions own the review
+questions and limits. Original captures and cropped sheets retain separate links;
+scene changes never pair captures from different shader or Lootr states.
+`ImageComparison.tsx` overlays full-size, aligned captures using clipping rather
+than resizing halves. Pointer capture handles dragging; a native range input
+provides keyboard access. Fixed vertical/horizontal modes use a 50% split and
+disable the slider. Both images must load before the comparison is revealed;
+original links remain available when a capture fails. These controls change only
+the viewing state, not review evidence or saved decisions.
+
+`data/authored/resource-reviews.json` owns saved preferences and notes, keyed by
+capture run and feature. This is review evidence, not pack-selection authority.
+`ResourceComparisons.tsx` holds unsaved drafts; `scripts/resource-reviews.mjs`
+validates the fixed save operation behind the loopback workspace middleware.
+GET `/__atlas/resource-reviews` reads source; POST `/__atlas/resource-reviews/save`
+saves one feature with source and evidence revisions. Saves use an exclusive
+staging file and replacement, reject symlinks and stale source/evidence, preserve
+other dated reviews, and appear in Activity. They run no generator or subprocess.
+The dev watcher ignores this source so saving does not reload away drafts.
+Static builds embed a read-only snapshot.
+
+When importing another capture set, update the catalogue's run and feature
+coverage, retain stable preference IDs where their meaning is unchanged, collect
+the manifest media, then restart the dev server or rebuild. The evidence digest
+covers comparison definitions, captions, paths and media hashes; old decisions
+remain visible with a recheck warning. Retired preferences stay readable but
+cannot be saved as new choices. Catalogue judgments in `resourcepacks.yml`, model
+recipes and pack selection still require their separate authored edits.
 
 `ReviewIndex.astro` renders the same ordered reviews as the document, so its links
 work before enhancement. `resourcepack-index.ts` tracks the reading position and
@@ -648,3 +695,15 @@ shared content-stack markup also applies to HTML created by their renderers.
 Neither layout nor journal changes update a survey's capture date or generator
 identity. Mapper edits still rebuild through the existing domain-save/compile
 path; runtime capture and world imports remain separate explicit operations.
+
+### Resource objects
+
+The Resources workbench projects existing model recipes, artwork records, selective
+features and runtime registry IDs into one catalogue. Object origin, artifacts and
+ordered contributors have separate identities. `resource_stack.py` resolves
+admitted dependencies; `build-resource-objects.py` writes content-addressed scenes
+and images under `web/public/generated/objects/`. Neither directory is source.
+Static factory/CEM exports are disposable `web/.cache/resource-exporter` inputs;
+[resource authoring](models.md) owns coverage, refresh and update requirements.
+Temporary comparison stacks use registered layer IDs through `objects.preview`;
+source saves, output generation and instance installation use their existing owners.

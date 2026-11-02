@@ -4,6 +4,226 @@ Checks apply to the recorded source or artifact, not every later checkout. Brows
 checks establish interface behavior; native game checks and survey evidence have
 separate owners and limits. Commands and prerequisites live in [setup](setup.md).
 
+## Selected resources and fixture, 2026-11-02
+
+Worktree based on `86752bd`. Approved object selections add individual workstation,
+azalea and pitcher models to the generated visual resource ZIP; full donor packs
+remain disabled. SHA-256:
+`f6a85f4069252c3e81755a40d1be9cea90dadb5fd22edec1dfa0d7e1d52c99e9`.
+The object projection now has 166 subjects and 924 supported previews. Toasty's
+untouched upstream input remains explicitly unsupported at invalid element angles;
+the maintained NeoForge composite output is supported and was rendered in game.
+
+- Root `python3 -m unittest discover -s tests -v`: 52 pass, including pivot,
+  composite flattening and unsupported-loader boundaries.
+- `pnpm verify`: 88 JavaScript checks, zero Astro diagnostics, 15-page build.
+- `pnpm test:python`: 27 pass.
+- `pnpm exec playwright test tests/objects.browser.mjs tests/resourcepacks.browser.mjs`:
+  13 pass. Selected profiles with identical geometry are intentionally deduplicated;
+  the browser check now compares distinct inputs and the raw/patched pitcher cases.
+- Resource harness `python3 -m unittest test_fixture -v`: four safety checks pass.
+  A stopped isolated world passed `verify_world.py`: 7,167 placements, 31 equipment
+  slots and 27 stationary specimens, with no mismatches or missing specimens.
+
+Native checks used a disposable locked client, Minecraft 1.21.1, NeoForge 21.1.264,
+Java 21 and the generated ZIP above the existing selected stack, with shaders off.
+The first platform recovery overwrote planting soil; those images were discarded.
+The refreshed fixture was loaded, inspected, saved and checked from its actual
+Anvil data. Continuous paths replace the district gaps; new studios group the
+selected workstations and azalea/pitcher cases. Pitchers have valid soil, hydrated
+crop beds and both halves at mature ages. The player returned to the hub at Y181.
+Native captures and exact camera/state metadata live in the harness's
+`images/2026-11-02-selected/`; the Resource Patches gallery includes the pitcher and
+loom captures. These checks establish static appearance and placement, not shader,
+progression or animation correctness. Existing unrelated DnD loot and optional
+model warnings remain outside this resource-selection pass.
+
+The retained personal Resource Review world received only the updated fixture
+datapack, with its world-session lock checked. Its bounded districts rebuild on
+next entry. The personal game resources, server world, seed and LODs were untouched.
+
+The subsequent mob-preview expansion exported 20 static model definitions through
+`python3 scripts/export-models.py`, without starting Minecraft. Browser rendering
+was inspected for cow, pig, chicken, mooshroom and Creeper; the FA base and selected
+profiles use the actual resolved rigs. Hidden pig props are absent from exported
+meshes, and flat chicken details use the entity no-cull hint. The missing native
+mooshroom feature renderer remains explicit. These are static inspection stances,
+not verified animation frames. Fourteen object/resourcepack browser checks pass;
+`pnpm verify`, 27 web Python checks and 52 root Python checks also pass.
+The pack catalogue has 54 reviews and distinguishes 17 enabled packs, eight
+selective donor sources and two pack-owned artifacts. New source galleries retain
+their own retrieval dates; the older ranked survey is not presented as rescanned.
+
+The existing source editors now have a visible Back to object action. A working
+`?workbench=inspector` preview moves comparison evidence below source editing and
+styles native disclosure sections, pending layout review. Desktop and 390-pixel
+views were inspected: no horizontal overflow, model drafts survive a texture
+round trip, and Back to object hides the editor. The existing theme, source tools
+and save/generate boundaries are retained.
+
+## Object workbench, 2026-11-02
+
+Worktree based on `86752bd`, with the preceding approved resource work preserved.
+The canonical Resources page groups 163 registered subjects and associates all 89
+model recipes through real model dependencies. It produces 899 supported static
+previews; unsupported profiles and poses remain explicit. Native static model
+factories supply cow, creeper and Confectionery gingerbread meshes. Creeper's
+resolved CEM uses one authored inspection stance, not evaluated FA animation.
+Source/export inspection and browser rendering do not establish native animation,
+shader or custom entity-renderer correctness. This initial browser-only check preceded the native selection pass above.
+
+- `pnpm verify`: 88 JavaScript checks, zero Astro diagnostics, 15-page static build;
+  existing large-chunk warning remains.
+- `pnpm test:python`: 27 pass; `.cache/python/bin/python -m unittest discover -s ../tests`:
+  50 pass, including fixed-state resolution, degenerate-face handling and RGB transparency checks.
+- `python3 scripts/export-models.py` from `web`: five static definitions exported,
+  including native fixed poses and resolved Creeper CEM input. No game initialized.
+- `pnpm exec playwright test tests/objects.browser.mjs tests/models.browser.mjs tests/material-mask.browser.mjs tests/resource-authoring.browser.mjs tests/lootr-artwork.browser.mjs --reporter=line`:
+  28 pass with `tests/resourcepacks.browser.mjs` added, covering candidate
+  navigation, fixed-state rendering and existing capture galleries as well as
+  migrated object/source navigation. Checks retain mask/composition drafts, invalid JSON, named generation,
+  pointer/keyboard ordering, contextual links, custom registered stacks, unsupported
+  comparison sides, responsive layout and absence of source writes from preview.
+- Headless desktop and 390-pixel views inspected. Mobile starts with collapsed
+  browser/filters, places controls below the wide preview and has no overflow.
+  Shared cameras, wipe/fixed halves and texture views use the same admitted scenes.
+
+The resolver checks locked archive hashes, selected order, matching overlays,
+filters, parent/alias cycles, unknown native priority, image/metadata ownership and
+invalid frame references. The local generated-asset route serves files created
+since startup and refuses foreign paths and symlinks; macOS's `/var` root alias is
+canonicalized without permitting a generated file to escape its directory.
+
+During that initial check, personal instances, worlds, seeds and LODs were not changed. The Atlas was
+restarted to load the final middleware and job routes; subsequent generated
+filenames require no restart. Coverage and dependency-update requirements belong to [models](models.md).
+
+Six preview-only archives were fetched and hash-verified. Removing one cache input
+and running `--materialize-inputs` fetched bytes identical to the independently
+verified archive. The survey provides 36 supported candidate cases; 33 have
+different supported render inputs from the current result. Nine cases remain
+unsupported because of state-selection gaps, a visible unbound texture or invalid
+1.21.1 rotations. None was repaired or adopted silently. Desktop native checks
+remain required for runtime-only behavior.
+
+Before the later approved selections, the shipping ZIP was byte-identical at SHA-256
+`87de37e8f05f1cf1823328473204c67c4ef8a957fc8a7a34d4a7ce666c77b261`
+(`python3 -B scripts/build-resource-patches.py --check`). Obsolete hashed scenes,
+rejected downloads and disposable build/test output were pruned after preserving
+current previews and the six pinned inputs.
+
+## Lootr shipping resources and authoring preview, 2026-11-02
+
+Worktree based on `86752bd`. All four Lootr texture variants are approved and
+included through `authoring/texture-resources.json`. The shipping builder and web
+preview share `texture_resources.py` and `lootr_artwork.py`; preview caches are
+not build inputs. Altering an approved fingerprint was rejected before publication.
+The ZIP records per-output hashes and keeps the upstream input/approval source.
+
+The generated client ZIP contains the two chest atlases and both barrel material
+sets, directional side bindings and open-cap rims. Loader wrappers, facing states,
+legacy styles and player-specific selection are retained. A source comparison
+confirmed that the Lootr-specific CEM changes are confined to UVs: coordinates,
+part hierarchy, animation expressions and the shared Fresh animation resource
+are unchanged. Exterior UVs fit the approved native atlas; donor interiors remain.
+Static native and composed CEM previews remain distinct geometry representations;
+new native in-game inspection is not established by these checks.
+
+The Atlas's labeled **Show modpack changes** checkbox switches original model and
+textures against the generated modpack result. It is hidden/disabled for resources with neither model nor texture changes. Barrels show all six faces in a two-column pseudo-atlas with small labels;
+chests show one atlas. The old per-model Lootr region-copy recipes and temporary
+step-preview controls are removed. Region composition remains available for
+recipes that declare it; barrel clasp recipes use material masks.
+
+Checks:
+
+- `pnpm verify`: formatting, 84 JavaScript checks, zero Astro diagnostics and a
+  14-page static build pass; the existing large-chunk warning remains.
+- `pnpm test:python`: 27 pass.
+- `python3 -m unittest discover -s tests`: 38 pass.
+- `python3 -B scripts/build-resource-patches.py --check`: deterministic ZIP matches,
+  SHA-256 `87de37e8f05f1cf1823328473204c67c4ef8a957fc8a7a34d4a7ce666c77b261`.
+  Both enabled barrel recipes produce 169 elements, four directional bindings,
+  unchanged approved artwork hashes and the correct open-cap texture. Disabling
+  the recipes preserves the textured native cube. Built previews match the leaves.
+- `pnpm exec playwright test tests/material-mask.browser.mjs tests/models.browser.mjs tests/lootr-artwork.browser.mjs tests/resource-authoring.browser.mjs`:
+  15 pass. Checks cover recipe texture overlays, directional bindings, contextual links/history, draft preservation, the checkbox, all faces, unchanged-resource hiding, named
+  generation, draft retention, pointer/keyboard reordering, cancellation, validation
+  and narrow layouts. Test region copies are disposable inputs, not shipped recipes.
+
+The resource change is client-only. No personal server restart, world/LOD edit,
+commit or public release was performed. The combined authoring workbench is
+`/resource-authoring`, linked as Resources in the authoring navigation.
+The earlier artifact views are now source tools within the object workbench. Editable recipes retain
+their working geometry when previewing built textures. A headless Chromium inspection of both views had
+no page errors. The catalogue declares object origin independently of input source.
+That earlier snapshot had no general pack-stack resolver, entity animation engine or audio preview. Browser renders do not validate native Fresh animations or all
+moving/legacy storage cases.
+
+The preview coverage reference distinguishes existing texture-frame playback from
+deferred model animation, block-state interaction, and audio work. Its technical
+boundaries were checked against the Minecraft 1.21.1 NeoForge and CEM references.
+This documentation-only follow-up passed formatting, local-link checks, and
+`git diff --check`; it did not repeat browser or Minecraft checks.
+
+## Resource comparison page, 2026-11-01
+
+Worktree based on pack `86752bd`, including the selective-resource work below.
+The approved comparison page is `/resourcepacks/reviews`, linked from the
+catalogue. Seven feature groups derive 22 scene sheets and eight chest recordings
+from the existing media manifest. A single aligned canvas supports Swipe,
+vertical halves and horizontal halves without resizing either image. The rejected authoring layout and preview
+controls are removed; old preview links redirect to the adopted page.
+
+Preferences and notes save to a separate authored source without changing pack
+selections. Browser editing checks use an in-memory source; filesystem checks use
+disposable directories. Personal reviews, instances and worlds are not modified.
+
+The approved matrix is read from the production builder's selection source,
+including mixed choices and deferred barrels. Donor catalogue entries say
+“Selected features”; archived A captures remain labelled as the baseline.
+Model authoring refuses stale save/generation after selection-source changes.
+
+- `pnpm verify`: 83 unit tests passed, zero Astro errors, warnings or hints;
+  ten pages built. The existing bundle-size warning remains.
+- `pnpm exec playwright test tests/resource-comparisons.browser.mjs tests/resourcepacks.browser.mjs`:
+  11 checks passed, covering discovery, original-image decoding, scene/candidate
+  deep links, review persistence, per-feature drafts, conflict recovery, hidden
+  video playback and existing galleries. Image reveal checks exercise pointer
+  dragging, keyboard endpoints, fixed 50% modes with disabled controls, equal
+  image bounds, restored slider position, touch input and failed-capture links.
+- Headless Chromium desktop and narrow views inspected. Widths of 1440, 768 and
+  390 pixels retain no page overflow. The no-JavaScript fallback links all 22
+  saved sheets. Static preview displays saved reviews without editing controls.
+
+Filesystem checks cover source/evidence revisions, bounded/allowlisted inputs,
+retained dated reviews and source/staging symlink refusal. No live preference is
+chosen on the owner's behalf, and no new game captures were made for this page.
+
+## Selective resource comparisons, 2026-11-01
+
+Worktree based on pack `86752bd`. The existing resource gallery presents unselected
+feature comparisons and native chest recordings. Comparison sheets link to every
+unedited input capture; hidden originals remain hash-verified media without adding
+another row of thumbnails. Existing gallery navigation and semantic action spacing
+are reused. Production selections, recipes and world/ore projections are unchanged.
+
+- `pnpm media:collect`: 154 captures verified, including 132 newly collected files;
+  existing archives preserved.
+- `pnpm verify`: 79 tests passed; Astro reported zero errors and warnings; all eight
+  pages built. The existing bundle-size warning remains.
+- `pnpm exec playwright test tests/resourcepacks.browser.mjs`: eight tests passed,
+  covering comparison-original links, source switching, keyboard viewing, responsive
+  layout, filtering, attribution and hidden-video playback.
+
+A live Chromium check decoded a comparison sheet and played the composed Lootr
+recording with advancing playback and no media error.
+
+Native fixture, model and animation results, including their limits, belong to
+[selective model comparisons](../compatibility.md#selective-model-comparisons).
+The media manifest owns attribution and file hashes. Rebuild instructions and
+private prototype inputs stay with the existing Resource Review harness.
+
 ## Materialized pack inputs, 2026-10-31
 
 The 0.1.25 capture used all 104 selected server-side pack JARs plus the exporter,
@@ -583,3 +803,100 @@ production build. UI source and interaction behavior are unchanged; browser
 interaction tests were not repeated. Native menu, circuit and Ponder evidence
 belongs to Compat's redstone verification reference. The existing chunk-size
 warning remains.
+
+## Workspace preparation and dependency checks, 2026-11-02
+
+Prepared against `86752bd` plus the existing resource-authoring worktree, using Node
+24.22.0 and pnpm 12.16.1. The workspace rewrite remains specified rather than
+implemented. Existing resource selections, generated pack artifacts and Minecraft
+instances were unchanged.
+
+The dependency review updated Astro to 7.4.4, its React integration to 7.1.2,
+Three.js and its types to 0.187.0, prettier-plugin-astro to 1.1.2 and Wrangler to
+4.156.0. Knip 6.44.1 is part of `pnpm verify`; inspected private helpers/types no
+longer export unused API names. Its only unresolved-import exception is the
+Playwright test's literal Vite browser URL.
+
+`pnpm outdated --format json` now lists only TypeScript 7.0.2 and Node 26 typings.
+An actual TypeScript 7.0.2 check failed with Astro's explicit unsupported-version
+error; the stable checker requires TypeScript below 7. Retained 6.0.3 and Node 24
+typings 24.19.2. `pnpm peers check` reports no issues.
+
+Baseline and upgraded `pnpm verify` pass: formatting, 88 JavaScript tests, zero
+Astro diagnostics and a static build. The final build contains 16 pages including
+the read-only workspace preview. The final lock SHA-256 is
+`2d1f865d490c674eb7b8f9c086de0ba658fff39ee64009b476dabc8f608711e0`.
+
+`pnpm test:browser tests/objects.browser.mjs tests/models.browser.mjs
+tests/activity.browser.mjs tests/navigation.browser.mjs` passes all 15 tests.
+This exercises static entity/resource comparisons, model drafts, existing Activity
+behavior and navigation after the renderer upgrade; it is not a full browser-suite
+or native Minecraft check. One dev-toolbar audit fetch diagnostic occurred during
+server shutdown; no test failed.
+
+A separate headless check at 1440px and 390px verifies the workspace preview's
+dock/overlay switch, Pin/Unpin, Close/Escape, conflict example and absence of
+document overflow. It recorded no page errors and no non-GET requests. The preview
+uses real journal prose, one current Activity read and simulated source-state
+examples; it cannot save source or start jobs. The owner selected status beside actions and requested right alignment. A follow-up
+check at 1440px, 1024px and 390px verifies alignment with the task edge and no document overflow. The future
+service, policy, invalidation and WebSocket behavior are not established by these
+checks. Python/native sources were unchanged, so their suites were not repeated.
+
+A disposable `node .cache/workspace-runtime-probe/probe.ts` check used exact ws
+8.22.1, Zod 4.6.7 and Chokidar 6.0.0 with Vite 8.3.5 under Node 24.22.0. It passes
+native TypeScript loading, strict unknown-key rejection, an actual `atlas.v1`
+socket exchange beside Vite's token-checked HMR socket, foreign-Origin rejection
+(403), oversize rejection (1009) and one atomic-save change event. The first
+watcher observation missed an early ready event; registering the listener before
+awaiting server startup fixed the probe. This was an API investigation, not the
+workspace implementation or a policy/security test. Its fixture and temporary
+dependency tree were removed after retaining the compact result.
+
+## Activity interface, 2026-11-02
+
+The approved workspace preview is now used by the live pages: one Activity button
+in the header, an optional authoring dock, and a modal overlay on narrow or dense
+views. Open/pin preferences survive page navigation within the tab. Journal, model
+and texture editors share right-aligned action/status grouping. The prototype
+component/styles were removed; `/workspace-preview` redirects to `/authoring`.
+
+`pnpm verify` passes formatting, Knip, 88 JavaScript tests, zero Astro diagnostics
+and the static build. The Activity, model and navigation browser files pass all
+nine checks, covering notifications, cancellation, dock/overlay transitions,
+Escape/focus, drafts and navigation. Additional live-page checks at 1440px and
+390px confirm status alignment, no document overflow and no page errors.
+
+This change retains the existing HTTP endpoints, polling and authoring behavior.
+The environment/service/WebSocket/policy rewrite remains separate work.
+
+The object toolbar's Preview tools control expands into a separate row. Its
+search field and action buttons retain their position and size through opening
+and closing at 1440px, 800px and 390px. `pnpm test:browser
+tests/objects.browser.mjs` passes all seven tests, including that regression;
+`pnpm verify` also passes.
+
+## Semantic UI consistency, 2026-11-02
+
+Dirty worktree based on `86752bd`. Shared states, type roles, field/source
+presentation and composition were checked across the item map/details,
+progression graph, world/ores, Evidence, scenario editor, journal/audit,
+object/model/texture editors, resource index and comparisons. This pass changes
+interface presentation, not acquisition data, generated resources or instances.
+
+- `pnpm verify`: formatting, Knip, 88 JavaScript tests, zero Astro diagnostics and
+  a 16-page build pass.
+- `pnpm test:browser`: 91 pass. Existing assertions were brought into alignment
+  with the Resources navigation, Activity header and current graph snapshot.
+- After the final heading-wrap and navigation/disabled-state adjustments,
+  `pnpm exec playwright test tests/semantic-ui.browser.mjs tests/ui.browser.mjs
+tests/navigation.browser.mjs tests/composition.browser.mjs
+tests/orientation.browser.mjs tests/atlas.browser.mjs`: 25 pass.
+
+Headless live-page checks at 1440px and 390px covered loaded content, not only
+loading placeholders. An enlarged 125% root/18px body exposed overflowing registry
+identifiers in Evidence; the final browser check verifies that case. Token override
+checks exercise selection across Astro/React/generated DOM, hover and expansion,
+keyboard focus, metadata/labels, native textarea insets and disclosure gaps.
+Game slot geometry and renderer data palettes retain their separate ownership.
+No Minecraft verification was needed or performed for this interface pass.

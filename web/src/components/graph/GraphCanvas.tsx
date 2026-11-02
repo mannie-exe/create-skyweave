@@ -1,3 +1,4 @@
+import Disclosure from '../ui/Disclosure'
 import Button from '../ui/Button'
 import {
   createContext,
@@ -74,10 +75,9 @@ const GraphNode = memo(function GraphNode({ id, data }: NodeProps) {
               ) : (
                 <>
                   <p>{n.route.detail ?? n.route.kind}</p>
-                  <details>
-                    <summary>Conditions and source</summary>
+                  <Disclosure summary={<>Conditions and source</>}>
                     <pre>{JSON.stringify(n.route, null, 2)}</pre>
-                  </details>
+                  </Disclosure>
                 </>
               )}
             </div>
@@ -103,7 +103,7 @@ const GraphNode = memo(function GraphNode({ id, data }: NodeProps) {
 const nodeTypes = { atlas: GraphNode }
 
 // Positions remain a projection of existing routes, never a second progression solver.
-export function cardScene(source: any) {
+function cardScene(source: any) {
   const detailed = [...source.nodes.values()].some(
     (n: any) => n.type === 'route',
   )

@@ -25,7 +25,7 @@
   border-inline-start: 2px solid transparent;
   margin-inline-start: -1px;
 }
-.resource-index a[aria-current] {
+.resource-index a[aria-current]:not([aria-current='false']) {
   color: var(--ink-selected);
   border-inline-start-color: var(--line-selected);
   background: linear-gradient(90deg, var(--surface-selected), transparent);
@@ -35,7 +35,7 @@
   font-size: var(--type-caption-size);
   color: var(--ink-muted);
 }
-.resource-index [aria-current] small {
+.resource-index [aria-current]:not([aria-current='false']) small {
   color: var(--ink-selected-muted);
 }
 .resource-index-marker {

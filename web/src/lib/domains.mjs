@@ -10,7 +10,7 @@ export const domains = [
   'worldgen',
   'configuration',
 ]
-export const identifier = /^[a-z0-9_.-]+:[a-z0-9_./-]+$/
+const identifier = /^[a-z0-9_.-]+:[a-z0-9_./-]+$/
 export function validateDomain(name, text) {
   if (!domains.includes(name)) throw new Error('Unknown domain')
   if (Buffer.byteLength(text) > 1024 * 1024)

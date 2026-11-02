@@ -1,6 +1,7 @@
-/* Shared roles. Candidate visual changes are isolated in design previews. */
+/* Reference values → shared roles → component geometry. Game materials stay local. */
 :root {
   --layer-notification: 30;
+  --layer-tooltip: 20;
   --shadow-overlay: 0 6px 30px color-mix(in srgb, var(--ink) 13%, transparent);
   color-scheme: light;
   --ref-color-white: #fff;
@@ -38,6 +39,12 @@
     var(--surface-panel)
   );
   --status-error-ink: var(--ref-color-red);
+  --status-info-surface: color-mix(
+    in oklab,
+    var(--color-action) 8%,
+    var(--surface-panel)
+  );
+  --status-info-line: var(--color-action);
   --surface-disabled: var(--surface-inset);
   --ink-disabled: var(--ink-muted);
   --line-disabled: var(--line-subtle);
@@ -60,6 +67,13 @@
   --focus-width: 2px;
   --focus-offset: 2px;
   --surface-selected: var(--ref-color-blue-pale);
+  --surface-selected-hover: color-mix(
+    in oklab,
+    var(--color-action) 8%,
+    var(--surface-selected)
+  );
+  --ink-expanded: var(--color-action);
+  --line-expanded: var(--line-selected);
   --line-subtle: var(--ref-color-rule);
   --line-control: var(--ref-color-rule);
 
@@ -72,16 +86,28 @@
   --radius-panel: 7px;
   --measure-page: 1600px;
   --measure-inspector: 1040px;
+  --measure-resource-browser: 17.5rem;
   --gutter-page: calc(var(--ref-space-unit) * 7.5);
-  --surface-scrim: #17233be6;
+  --surface-scrim: color-mix(in srgb, var(--ink) 90%, transparent);
 
   --type-body-family: var(--ref-font-sans);
   --type-body-size: 14px;
   --type-body-weight: 400;
   --type-body-leading: 1.5;
   --type-body-tracking: 0;
+  --type-page-title-family: var(--type-body-family);
+  --type-page-title-size: 2rem;
+  --type-page-title-weight: 550;
+  --type-page-title-leading: 1.15;
+  --type-page-title-tracking: -0.035em;
+  --type-reading-size: 1rem;
+  --type-reading-leading: 1.6;
   /* Standard controls: body line box + vertical inset + two one-pixel borders. */
   --control-border-width: 1px;
+  --icon-size: calc(var(--type-body-size) * 1.25);
+  --icon-control-size: calc(
+    var(--icon-size) + var(--space-inline) * 2 + var(--control-border-width) * 2
+  );
   --control-min-block-size: calc(
     var(--type-body-size) * var(--type-body-leading) + var(--space-inline) * 2 +
       var(--control-border-width) * 2
@@ -116,6 +142,9 @@
   --type-meta-size: 0.6875rem;
   --type-view-title-size: 1.375rem;
   --type-view-title-weight: 550;
+  --type-view-title-family: var(--type-body-family);
+  --type-view-title-leading: 1.25;
+  --type-view-title-tracking: -0.01em;
 
   --type-caption-family: var(--type-body-family);
   --type-caption-size: 0.75rem;
@@ -138,5 +167,6 @@
 @media (max-width: 680px) {
   :root {
     --gutter-page: 12px;
+    --type-page-title-size: 1.6875rem;
   }
 }

@@ -1,0 +1,62 @@
+---
+import Button from '../ui/Button.astro'
+import PreviewSurface from '../ui/PreviewSurface.astro'
+import ResourcePreviewOptions from './ResourcePreviewOptions.astro'
+import '../../styles/resource-preview.css'
+interface Props {
+  id: string
+}
+const { id } = Astro.props
+---
+
+<section id={`${id}-editor`} class="resource-preview content-stack" hidden>
+  <header class="section-heading">
+    <h1 id={`${id}-title`} data-text-role="item-title"></h1>
+    <span id={`${id}-approval`} data-text-role="caption"></span>
+  </header>
+  <ResourcePreviewOptions
+    id={`${id}-preview-options`}
+    inputId={`${id}-modpack`}
+  />
+  <a id={`${id}-related`} data-resource-authoring-link></a>
+  <div class="texture-resource-previews">
+    <section class="content-stack">
+      <h2 data-text-role="group-title">Model</h2>
+      <PreviewSurface
+        id={`${id}-model-surface`}
+        label="Updating resource render"
+      >
+        <canvas
+          id={`${id}-model`}
+          class="resource-model-canvas"
+          aria-label="Texture resource render"
+        ></canvas>
+      </PreviewSurface>
+      <div class="action-row" role="group" aria-label="Model view">
+        <Button id={`${id}-front`}>Front</Button>
+        <Button id={`${id}-top`} title="Front of the storage is at the bottom">
+          Top
+        </Button>
+        <Button id={`${id}-reset`}>Reset view</Button>
+      </div>
+      <p id={`${id}-model-note`} data-text-role="caption"></p>
+    </section>
+    <section class="content-stack">
+      <h2 data-text-role="group-title">Textures</h2>
+      <PreviewSurface id={`${id}-image-surface`} label="Updating texture file">
+        <div id={`${id}-files`} class="texture-file-grid"></div>
+      </PreviewSurface>
+    </section>
+  </div>
+  <div class="content-stack" data-space="control">
+    <p id={`${id}-source`} data-text-role="caption"></p>
+    <ul id={`${id}-inputs`} class="texture-resource-inputs"></ul>
+    <p id={`${id}-inclusion`} data-text-role="caption"></p>
+  </div>
+  <details class="disclosure">
+    <summary>Source and lighting parameters</summary>
+    <div class="content-stack">
+      <pre id={`${id}-details`}></pre>
+    </div>
+  </details>
+</section>

@@ -52,6 +52,18 @@
   align-items: center;
   min-block-size: var(--control-min-block-size);
 }
+.inline-field,
+:where(.authoring) .inline-field {
+  display: flex;
+  align-items: center;
+  gap: var(--space-inline);
+  min-block-size: var(--control-min-block-size);
+  margin: 0;
+}
+.inline-field > :is(input[type='checkbox'], input[type='radio']) {
+  flex: none;
+  margin: 0;
+}
 .section-heading {
   display: flex;
   align-items: center;
@@ -62,4 +74,16 @@
 }
 .section-heading > :where(*) {
   margin: 0;
+}
+.editor-actions {
+  align-items: flex-end;
+  max-inline-size: 100%;
+  margin-inline-start: auto;
+}
+.editor-actions > .action-row {
+  justify-content: flex-end;
+}
+.editor-status {
+  text-align: end;
+  overflow-wrap: anywhere;
 }

@@ -110,6 +110,57 @@ export const jobRegistry = Object.freeze({
     ['overrides/client/resourcepacks/Create Sky Resource Patches.zip'],
     { timeoutMs: 180000 },
   ),
+  'objects.inputs': python(
+    'build-resource-objects.py',
+    'pack',
+    ['.cache/resource-candidates'],
+    { args: ['--materialize-inputs'], timeoutMs: 180000 },
+  ),
+  'objects.generate': python(
+    'build-resource-objects.py',
+    'pack',
+    ['web/public/generated/objects'],
+    { timeoutMs: 180000 },
+  ),
+  'objects.export': python(
+    'export-models.py',
+    'web',
+    ['.cache/resource-exporter'],
+    { timeoutMs: 60000 },
+  ),
+  'objects.preview': python(
+    'build-resource-objects.py',
+    'pack',
+    ['JSON object preview', 'web/public/generated/objects/textures'],
+    {
+      args: ['--stdin'],
+      validate: (input) => {
+        if (
+          !input ||
+          Object.keys(input).sort().join() !== 'case,layers,object' ||
+          typeof input.object !== 'string' ||
+          input.object.length > 200 ||
+          typeof input.case !== 'string' ||
+          input.case.length > 160 ||
+          !Array.isArray(input.layers) ||
+          input.layers.length > 192 ||
+          input.layers.some(
+            (layer) => typeof layer !== 'string' || layer.length > 200,
+          )
+        )
+          throw new Error(
+            'Expected a registered object, case, and bounded layer list',
+          )
+      },
+      inputs: 'object, case, layers: registered IDs only',
+      stdin: (input) => JSON.stringify(input),
+      maxBytes: 8 * 1024 * 1024,
+      cancellable: true,
+    },
+  ),
+  'textures.generate': python('build-texture-resources.py', 'pack', [
+    'web/public/generated/texture-resources',
+  ]),
   'snapshot.fingerprint': python(
     'fingerprint.py',
     'web',

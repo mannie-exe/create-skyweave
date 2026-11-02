@@ -41,7 +41,9 @@ test('journal field rows align controls and disclosures separate inline metadata
       (await center(
         nav.getByRole('button', { name: 'Journal', exact: true }),
       )) -
-        (await center(nav.getByRole('link', { name: 'Models', exact: true }))),
+        (await center(
+          nav.getByRole('link', { name: 'Resources', exact: true }),
+        )),
     ),
   ).toBeLessThan(1)
   await page.getByRole('button', { name: 'Localization', exact: true }).click()

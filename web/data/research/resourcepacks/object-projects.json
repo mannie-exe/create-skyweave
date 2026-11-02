@@ -1,0 +1,322 @@
+{
+  "projects": {
+    "3d-plants": {
+      "title": "Vervada's enhanced plants",
+      "url": "https://modrinth.com/resourcepack/3d-plants",
+      "links": [
+        {
+          "label": "Modrinth",
+          "url": "https://modrinth.com/resourcepack/3d-plants"
+        },
+        {
+          "label": "Pinned version",
+          "url": "https://modrinth.com/version/xQ41qLei"
+        }
+      ],
+      "gallery": [
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/ghc0v6DT/images/ca5c020b57ceaf74507f9c843228eba6a89e4a2d_350.webp",
+          "url": "https://cdn.modrinth.com/data/ghc0v6DT/images/ca5c020b57ceaf74507f9c843228eba6a89e4a2d_350.webp",
+          "caption": "Potted !",
+          "source": "https://modrinth.com/resourcepack/3d-plants"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/ghc0v6DT/images/1fcbeefe84719c5010a1606956fe434777de8ab4_350.webp",
+          "url": "https://cdn.modrinth.com/data/ghc0v6DT/images/1fcbeefe84719c5010a1606956fe434777de8ab4_350.webp",
+          "caption": "Mangrove",
+          "source": "https://modrinth.com/resourcepack/3d-plants"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/ghc0v6DT/images/8ae098195fcdea01609d3c00b8bbbac65532d5e8_350.webp",
+          "url": "https://cdn.modrinth.com/data/ghc0v6DT/images/8ae098195fcdea01609d3c00b8bbbac65532d5e8_350.webp",
+          "caption": "Cherry blossom at midnight",
+          "source": "https://modrinth.com/resourcepack/3d-plants"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/ghc0v6DT/images/4eced581b1325cba13113c73f30375d558181f46_350.webp",
+          "url": "https://cdn.modrinth.com/data/ghc0v6DT/images/4eced581b1325cba13113c73f30375d558181f46_350.webp",
+          "caption": "Crops",
+          "source": "https://modrinth.com/resourcepack/3d-plants"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/ghc0v6DT/images/4340e28d8df63930c1c899e2bfb5a0e225419e4c_350.webp",
+          "url": "https://cdn.modrinth.com/data/ghc0v6DT/images/4340e28d8df63930c1c899e2bfb5a0e225419e4c_350.webp",
+          "caption": "Roses",
+          "source": "https://modrinth.com/resourcepack/3d-plants"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/ghc0v6DT/images/552b5eb52df22a26f43581867ba63777eae60af2_350.webp",
+          "url": "https://cdn.modrinth.com/data/ghc0v6DT/images/552b5eb52df22a26f43581867ba63777eae60af2_350.webp",
+          "caption": "Corals",
+          "source": "https://modrinth.com/resourcepack/3d-plants"
+        }
+      ],
+      "retrieved": "2026-11-02T19:16:39.444454+00:00",
+      "inspection": null,
+      "fileNote": "Pinned archive inspected for object comparisons; selected features are generated separately. Exact file hashes and scope are in authoring/resource-objects.json."
+    },
+    "3dvanilla": {
+      "title": "3D Vanilla",
+      "url": "https://modrinth.com/resourcepack/3dvanilla",
+      "links": [
+        {
+          "label": "Modrinth",
+          "url": "https://modrinth.com/resourcepack/3dvanilla"
+        },
+        {
+          "label": "Pinned version",
+          "url": "https://modrinth.com/version/5OUPEuwF"
+        }
+      ],
+      "gallery": [
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/di3Wfoht/images/e9652fd2db98c39df40d428738666e57ad76651c_350.webp",
+          "url": "https://cdn.modrinth.com/data/di3Wfoht/images/e9652fd2db98c39df40d428738666e57ad76651c_350.webp",
+          "caption": "3D Vanilla",
+          "source": "https://modrinth.com/resourcepack/3dvanilla"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/di3Wfoht/images/f9479d8ee871427d4d4567c6921df8c91fb6f536_350.webp",
+          "url": "https://cdn.modrinth.com/data/di3Wfoht/images/f9479d8ee871427d4d4567c6921df8c91fb6f536_350.webp",
+          "caption": "3D Vanilla",
+          "source": "https://modrinth.com/resourcepack/3dvanilla"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/di3Wfoht/images/7b0667f2f6b20e2fba416a4c37145226b5605a36_350.webp",
+          "url": "https://cdn.modrinth.com/data/di3Wfoht/images/7b0667f2f6b20e2fba416a4c37145226b5605a36_350.webp",
+          "caption": "3D Vanilla",
+          "source": "https://modrinth.com/resourcepack/3dvanilla"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/di3Wfoht/images/94985c2f8781595a04ea8b0c30661c6277ba2a1f_350.webp",
+          "url": "https://cdn.modrinth.com/data/di3Wfoht/images/94985c2f8781595a04ea8b0c30661c6277ba2a1f_350.webp",
+          "caption": "3D Vanilla",
+          "source": "https://modrinth.com/resourcepack/3dvanilla"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/di3Wfoht/images/62c37d8b70f729c8e2b80e20d0461f6d897935dc_350.webp",
+          "url": "https://cdn.modrinth.com/data/di3Wfoht/images/62c37d8b70f729c8e2b80e20d0461f6d897935dc_350.webp",
+          "caption": "3D Vanilla",
+          "source": "https://modrinth.com/resourcepack/3dvanilla"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/di3Wfoht/images/46858b055bff337aa261c791665ac4a78d750e87_350.webp",
+          "url": "https://cdn.modrinth.com/data/di3Wfoht/images/46858b055bff337aa261c791665ac4a78d750e87_350.webp",
+          "caption": "3D Vanilla",
+          "source": "https://modrinth.com/resourcepack/3dvanilla"
+        }
+      ],
+      "retrieved": "2026-11-02T19:16:39.444469+00:00",
+      "inspection": null,
+      "fileNote": "Pinned archive inspected for object comparisons; selected features are generated separately. Exact file hashes and scope are in authoring/resource-objects.json."
+    },
+    "jacobs-workspace-plus": {
+      "title": "Jacob’s 3D Workspace+",
+      "url": "https://modrinth.com/resourcepack/jacobs-workspace-plus",
+      "links": [
+        {
+          "label": "Modrinth",
+          "url": "https://modrinth.com/resourcepack/jacobs-workspace-plus"
+        },
+        {
+          "label": "Pinned version",
+          "url": "https://modrinth.com/version/bszrY1CR"
+        }
+      ],
+      "gallery": [
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/xpRegpE4/images/7d99540df1c5d087bed208f7178c49431a65a407_350.webp",
+          "url": "https://cdn.modrinth.com/data/xpRegpE4/images/7d99540df1c5d087bed208f7178c49431a65a407_350.webp",
+          "caption": "Banner",
+          "source": "https://modrinth.com/resourcepack/jacobs-workspace-plus"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/xpRegpE4/images/946a7347a23b174d116d588213e6107406d90bf7_350.webp",
+          "url": "https://cdn.modrinth.com/data/xpRegpE4/images/946a7347a23b174d116d588213e6107406d90bf7_350.webp",
+          "caption": "Jacob’s 3D Workspace+",
+          "source": "https://modrinth.com/resourcepack/jacobs-workspace-plus"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/xpRegpE4/images/37c3352ee839fa2b4c9e038af24297e92a927bbe_350.webp",
+          "url": "https://cdn.modrinth.com/data/xpRegpE4/images/37c3352ee839fa2b4c9e038af24297e92a927bbe_350.webp",
+          "caption": "Jacob’s 3D Workspace+",
+          "source": "https://modrinth.com/resourcepack/jacobs-workspace-plus"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/xpRegpE4/images/28c075dafb430f55af193bc13c0aa30eb8d74b57_350.webp",
+          "url": "https://cdn.modrinth.com/data/xpRegpE4/images/28c075dafb430f55af193bc13c0aa30eb8d74b57_350.webp",
+          "caption": "Jacob’s 3D Workspace+",
+          "source": "https://modrinth.com/resourcepack/jacobs-workspace-plus"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/xpRegpE4/images/5c9ffddb6e7f20e1401749d64f4da98cb1b08b3c_350.webp",
+          "url": "https://cdn.modrinth.com/data/xpRegpE4/images/5c9ffddb6e7f20e1401749d64f4da98cb1b08b3c_350.webp",
+          "caption": "Jacob’s 3D Workspace+",
+          "source": "https://modrinth.com/resourcepack/jacobs-workspace-plus"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/xpRegpE4/images/f3943228f84c01a432c6bb6b431993644dc2b904_350.webp",
+          "url": "https://cdn.modrinth.com/data/xpRegpE4/images/f3943228f84c01a432c6bb6b431993644dc2b904_350.webp",
+          "caption": "Jacob’s 3D Workspace+",
+          "source": "https://modrinth.com/resourcepack/jacobs-workspace-plus"
+        }
+      ],
+      "retrieved": "2026-11-02T19:16:39.444475+00:00",
+      "inspection": null,
+      "fileNote": "Pinned archive inspected for object comparisons; selected features are generated separately. Exact file hashes and scope are in authoring/resource-objects.json."
+    },
+    "montanas-bushier-kelp": {
+      "title": "Montana's Bushier Kelp",
+      "url": "https://modrinth.com/resourcepack/montanas-bushier-kelp",
+      "links": [
+        {
+          "label": "Modrinth",
+          "url": "https://modrinth.com/resourcepack/montanas-bushier-kelp"
+        },
+        {
+          "label": "Pinned version",
+          "url": "https://modrinth.com/version/gkWizbKh"
+        }
+      ],
+      "gallery": [
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/sCH1CEfh/images/baefced0960983728279ddc954de93414cc2c3d5_350.webp",
+          "url": "https://cdn.modrinth.com/data/sCH1CEfh/images/baefced0960983728279ddc954de93414cc2c3d5_350.webp",
+          "caption": "Kelp From Bellow",
+          "source": "https://modrinth.com/resourcepack/montanas-bushier-kelp"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/sCH1CEfh/images/f5abf13364e8c81888637a066665b52f8c799c5b_350.webp",
+          "url": "https://cdn.modrinth.com/data/sCH1CEfh/images/f5abf13364e8c81888637a066665b52f8c799c5b_350.webp",
+          "caption": "Kelp From Above",
+          "source": "https://modrinth.com/resourcepack/montanas-bushier-kelp"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/sCH1CEfh/images/a884a378d28c0fbf3c35de7c4939203586e9138f_350.webp",
+          "url": "https://cdn.modrinth.com/data/sCH1CEfh/images/a884a378d28c0fbf3c35de7c4939203586e9138f_350.webp",
+          "caption": "Close-up",
+          "source": "https://modrinth.com/resourcepack/montanas-bushier-kelp"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/sCH1CEfh/images/b1e4eaf27bcbce5ac476ad94c71dcb45db8577f4.gif",
+          "url": "https://cdn.modrinth.com/data/sCH1CEfh/images/b1e4eaf27bcbce5ac476ad94c71dcb45db8577f4.gif",
+          "caption": "Animation",
+          "source": "https://modrinth.com/resourcepack/montanas-bushier-kelp"
+        }
+      ],
+      "retrieved": "2026-11-02T19:16:39.444478+00:00",
+      "inspection": null,
+      "fileNote": "Pinned archive inspected for object comparisons; selected features are generated separately. Exact file hashes and scope are in authoring/resource-objects.json."
+    },
+    "toastys-perfect-pitchers-3d-pitcher-plants": {
+      "title": "Toasty's Perfect Pitchers (3d pitcher plants)",
+      "url": "https://modrinth.com/resourcepack/toastys-perfect-pitchers-3d-pitcher-plants",
+      "links": [
+        {
+          "label": "Modrinth",
+          "url": "https://modrinth.com/resourcepack/toastys-perfect-pitchers-3d-pitcher-plants"
+        },
+        {
+          "label": "Pinned version",
+          "url": "https://modrinth.com/version/1wfNUDsn"
+        }
+      ],
+      "gallery": [
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/mdxJ2lRj/images/7f7fc41dd60ba04218451cf5f30d9b97139c02ce_350.webp",
+          "url": "https://cdn.modrinth.com/data/mdxJ2lRj/images/7f7fc41dd60ba04218451cf5f30d9b97139c02ce_350.webp",
+          "caption": "v3",
+          "source": "https://modrinth.com/resourcepack/toastys-perfect-pitchers-3d-pitcher-plants"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/mdxJ2lRj/images/7f1539f9a15d191a4656eab946ac69acf279353c_350.webp",
+          "url": "https://cdn.modrinth.com/data/mdxJ2lRj/images/7f1539f9a15d191a4656eab946ac69acf279353c_350.webp",
+          "caption": "v1/v2",
+          "source": "https://modrinth.com/resourcepack/toastys-perfect-pitchers-3d-pitcher-plants"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/mdxJ2lRj/images/9dbb34cf5127204a3c3680a8a4ad182d00bc7a94_350.webp",
+          "url": "https://cdn.modrinth.com/data/mdxJ2lRj/images/9dbb34cf5127204a3c3680a8a4ad182d00bc7a94_350.webp",
+          "caption": "v1",
+          "source": "https://modrinth.com/resourcepack/toastys-perfect-pitchers-3d-pitcher-plants"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/mdxJ2lRj/images/678a6d6b563109cddcff3e430571dd83b4390f63_350.webp",
+          "url": "https://cdn.modrinth.com/data/mdxJ2lRj/images/678a6d6b563109cddcff3e430571dd83b4390f63_350.webp",
+          "caption": "v1/v2",
+          "source": "https://modrinth.com/resourcepack/toastys-perfect-pitchers-3d-pitcher-plants"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/mdxJ2lRj/images/ff031fa938524b313641b9862e51d7e692d1dc70_350.webp",
+          "url": "https://cdn.modrinth.com/data/mdxJ2lRj/images/ff031fa938524b313641b9862e51d7e692d1dc70_350.webp",
+          "caption": "v2",
+          "source": "https://modrinth.com/resourcepack/toastys-perfect-pitchers-3d-pitcher-plants"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/mdxJ2lRj/images/cf1d5c071eff9a360fc4006deed8028b02253f1b_350.webp",
+          "url": "https://cdn.modrinth.com/data/mdxJ2lRj/images/cf1d5c071eff9a360fc4006deed8028b02253f1b_350.webp",
+          "caption": "v1/v2 pack.png",
+          "source": "https://modrinth.com/resourcepack/toastys-perfect-pitchers-3d-pitcher-plants"
+        }
+      ],
+      "retrieved": "2026-11-02T19:16:39.444482+00:00",
+      "inspection": null,
+      "fileNote": "Pinned archive inspected for object comparisons; selected features are generated separately. Exact file hashes and scope are in authoring/resource-objects.json."
+    },
+    "ulticraft-models-3d": {
+      "title": "3D Models",
+      "url": "https://modrinth.com/resourcepack/ulticraft-models-3d",
+      "links": [
+        {
+          "label": "Modrinth",
+          "url": "https://modrinth.com/resourcepack/ulticraft-models-3d"
+        },
+        {
+          "label": "Pinned version",
+          "url": "https://modrinth.com/version/vRQx6yxi"
+        }
+      ],
+      "gallery": [
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/ejmzg9VI/images/81a0447fab1bcf4fb9f127e16acb47b96e48bcf2_350.webp",
+          "url": "https://cdn.modrinth.com/data/ejmzg9VI/images/81a0447fab1bcf4fb9f127e16acb47b96e48bcf2_350.webp",
+          "caption": "3 Models for Workstations",
+          "source": "https://modrinth.com/resourcepack/ulticraft-models-3d"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/ejmzg9VI/images/8f164dfe7e9aa56af0db2a581dab2530101f76c4_350.webp",
+          "url": "https://cdn.modrinth.com/data/ejmzg9VI/images/8f164dfe7e9aa56af0db2a581dab2530101f76c4_350.webp",
+          "caption": "3D models for workstations",
+          "source": "https://modrinth.com/resourcepack/ulticraft-models-3d"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/ejmzg9VI/images/dd2771b479d1e37af8eef08575c5e7749cff6b36_350.webp",
+          "url": "https://cdn.modrinth.com/data/ejmzg9VI/images/dd2771b479d1e37af8eef08575c5e7749cff6b36_350.webp",
+          "caption": "3D models for workstations",
+          "source": "https://modrinth.com/resourcepack/ulticraft-models-3d"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/ejmzg9VI/images/bf608b6c155126a4f0f48e356317c86b1fb9e256_350.webp",
+          "url": "https://cdn.modrinth.com/data/ejmzg9VI/images/bf608b6c155126a4f0f48e356317c86b1fb9e256_350.webp",
+          "caption": "Variated bookshelves, 3D books and 3D enchanting station",
+          "source": "https://modrinth.com/resourcepack/ulticraft-models-3d"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/ejmzg9VI/images/2bdab39f9c4fd4bc670ce4eb84b0a1275f002f11_350.webp",
+          "url": "https://cdn.modrinth.com/data/ejmzg9VI/images/2bdab39f9c4fd4bc670ce4eb84b0a1275f002f11_350.webp",
+          "caption": "3D Barrel",
+          "source": "https://modrinth.com/resourcepack/ulticraft-models-3d"
+        },
+        {
+          "thumbnail": "https://cdn.modrinth.com/data/ejmzg9VI/images/90c5865cd8883a5b112417391d6e074045167fde_350.webp",
+          "url": "https://cdn.modrinth.com/data/ejmzg9VI/images/90c5865cd8883a5b112417391d6e074045167fde_350.webp",
+          "caption": "3D ores",
+          "source": "https://modrinth.com/resourcepack/ulticraft-models-3d"
+        }
+      ],
+      "retrieved": "2026-11-02T19:16:39.444486+00:00",
+      "inspection": null,
+      "fileNote": "Pinned archive inspected for object comparisons; selected features are generated separately. Exact file hashes and scope are in authoring/resource-objects.json."
+    }
+  }
+}

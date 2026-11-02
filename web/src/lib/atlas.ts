@@ -98,7 +98,7 @@ async function loadCatalog() {
   ]
     .map(
       (key) =>
-        `<button class="subtle" data-coverage="${key}">${nf.format(meta.counts[key] ?? 0)} ${key === 'unmapped' ? 'no adapter' : key === 'excluded' ? 'internal / creative' : key}</button>`,
+        `<button class="ui-button subtle" data-coverage="${key}">${nf.format(meta.counts[key] ?? 0)} ${key === 'unmapped' ? 'no adapter' : key === 'excluded' ? 'internal / creative' : key}</button>`,
     )
     .join('')
   el('coverage-summary')
@@ -197,7 +197,7 @@ function render() {
   grid.innerHTML = visible
     .map(
       (n) =>
-        `<button class="cell ${n.id === selected ? 'selected' : ''} ${n.hasNote ? 'has-note' : ''}" data-id="${escape(n.id)}" data-coverage="${coverageStatus(n.status)}" role="gridcell" aria-label="${escape(n.name)}; ${coverageStates[coverageStatus(n.status)].label}${n.depth === null ? '' : `; route depth ${n.depth}`}${n.hasNote ? '; review note' : ''}" style="left:${n.x * cw}px;top:${n.y * ch}px;width:${cw}px;height:${ch}px">${safeIcon(n.icon) ? `<img src="${n.icon}" alt="" loading="lazy" style="width:${36 * scale}px;height:${36 * scale}px"/>` : '<span class="fallback">◇</span>'}<span class="caption" style="font-size:${10 * scale}px">${escape(n.name)}</span><span class="namespace" style="font-size:${8 * scale}px">${escape(n.mod)}</span>${n.hasNote ? '<i class="note-indicator" aria-hidden="true"></i>' : ''}</button>`,
+        `<button class="cell ${n.id === selected ? 'selected' : ''} ${n.hasNote ? 'has-note' : ''}" data-id="${escape(n.id)}" data-coverage="${coverageStatus(n.status)}" role="gridcell" aria-selected="${n.id === selected}" aria-label="${escape(n.name)}; ${coverageStates[coverageStatus(n.status)].label}${n.depth === null ? '' : `; route depth ${n.depth}`}${n.hasNote ? '; review note' : ''}" style="left:${n.x * cw}px;top:${n.y * ch}px;width:${cw}px;height:${ch}px">${safeIcon(n.icon) ? `<img src="${n.icon}" alt="" loading="lazy" style="width:${36 * scale}px;height:${36 * scale}px"/>` : '<span class="fallback">◇</span>'}<span class="caption" style="font-size:${10 * scale}px">${escape(n.name)}</span><span class="namespace" style="font-size:${8 * scale}px">${escape(n.mod)}</span>${n.hasNote ? '<i class="note-indicator" aria-hidden="true"></i>' : ''}</button>`,
     )
     .join('')
   el('position').textContent =
@@ -235,8 +235,6 @@ function positionInspector() {
 const navigationSize = new ResizeObserver(positionInspector)
 navigationSize.observe(viewTabs)
 navigationSize.observe(document.querySelector('.topbar')!)
-const jobStatus = document.getElementById('job-status')
-if (jobStatus) navigationSize.observe(jobStatus)
 window.addEventListener('scroll', positionInspector, { passive: true })
 positionInspector()
 grid.addEventListener('click', (event) => {
@@ -314,7 +312,7 @@ function recipeHTML(recipe: RecordData, open = false) {
     : recipe.output && recipe.output !== 'minecraft:air'
       ? (itemCatalog.get(recipe.output)?.name ?? recipe.id)
       : recipe.id
-  return `<details class="record recipe-record"${open ? ' open' : ''}><summary><span>${escape(output)}</span><span class="record-kind">${escape(type)}</span><small>${escape(recipe.id)}</small></summary><div data-recipe-host="${escape(recipe.id)}"></div></details>`
+  return `<details class="record recipe-record disclosure"${open ? ' open' : ''}><summary><span>${escape(output)}</span><span class="record-kind">${escape(type)}</span><small>${escape(recipe.id)}</small></summary><div class="content-stack"><div data-recipe-host="${escape(recipe.id)}"></div></div></details>`
 }
 async function inspect(id: string, back = false) {
   const node = nodes.find((n) => n.id === id)
@@ -349,18 +347,18 @@ async function inspect(id: string, back = false) {
         .join('')}
       ${detail.uses.length > 80 ? '<p class="muted">First 80 shown; Evidence lists all active recipes.</p>' : ''}`
     const evidence = `<h3 data-text-role="group-title">Potential drops · ${detail.drops.length} tables</h3>
-      ${detail.drops.map((drop: RecordData) => `<details class="record"><summary>${escape(drop.id)}</summary><p class="muted">Conditions and functions determine actual drops.</p>${pretty(drop.json)}</details>`).join('')}
-      <details class="record"><summary>Tags & tool requirements</summary>${pretty({ tags: detail.tags, block: detail.block })}</details>
-      <details class="record"><summary>Interactions & implementation hooks</summary>${pretty({ transformations: detail.interactions, hooks: detail.hooks })}</details>
-      <details class="record"><summary>Native interaction documentation</summary>${Object.keys(detail.ponder).length ? pretty(detail.ponder) : '<p>No matching Ponder text indexed.</p>'}</details>
-      <details class="record"><summary>Registry and asset provenance</summary><p class="muted">Extracted icons can differ from custom in-game rendering.</p>${pretty({ components: detail.components, stack: detail.stack, class: detail.class, icon: detail.icon })}</details>
+      ${detail.drops.map((drop: RecordData) => `<details class="record disclosure"><summary>${escape(drop.id)}</summary><div class="content-stack"><p class="muted">Conditions and functions determine actual drops.</p>${pretty(drop.json)}</div></details>`).join('')}
+      <details class="record disclosure"><summary>Tags & tool requirements</summary><div class="content-stack">${pretty({ tags: detail.tags, block: detail.block })}</div></details>
+      <details class="record disclosure"><summary>Interactions & implementation hooks</summary><div class="content-stack">${pretty({ transformations: detail.interactions, hooks: detail.hooks })}</div></details>
+      <details class="record disclosure"><summary>Native interaction documentation</summary><div class="content-stack">${Object.keys(detail.ponder).length ? pretty(detail.ponder) : '<p>No matching Ponder text indexed.</p>'}</div></details>
+      <details class="record disclosure"><summary>Registry and asset provenance</summary><div class="content-stack"><p class="muted">Extracted icons can differ from custom in-game rendering.</p>${pretty({ components: detail.components, stack: detail.stack, class: detail.class, icon: detail.icon })}</div></details>
       <button id="edit-item-note">Edit item notes in workspace</button>`
     el('detail').innerHTML = `
       ${inspectorHistory.length ? '<button id="item-back">← Back</button>' : ''}
       <nav class="detail-tabs" aria-label="Item information">
-        <button data-detail-tab="acquisition" aria-pressed="true">Acquisition</button>
-        <button data-detail-tab="uses" aria-pressed="false">Uses · ${detail.uses.length}</button>
-        <button data-detail-tab="evidence" aria-pressed="false">Evidence</button>
+        <button class="ui-button" data-detail-tab="acquisition" aria-pressed="true">Acquisition</button>
+        <button class="ui-button" data-detail-tab="uses" aria-pressed="false">Uses · ${detail.uses.length}</button>
+        <button class="ui-button" data-detail-tab="evidence" aria-pressed="false">Evidence</button>
       </nav>
       <div class="item-detail-layout" data-active-panel="acquisition">
       <div class="item-subject">
@@ -368,7 +366,7 @@ async function inspect(id: string, back = false) {
         ${safeIcon(node.icon) ? `<img class="detail-icon" src="${node.icon}" alt=""/>` : ''}
         <div><h2 data-text-role="item-title">${escape(node.name)}</h2><div class="id" data-text-role="code">${escape(id)}</div><span class="badge">${node.depth === null ? coverageStates[coverageStatus(node.status)].label : `DEPTH ${node.depth}`}</span></div>
       </header>
-      ${detail.note ? `<details class="item-notes"><summary>Pack notes</summary><div class="pack-note">${escape(detail.note.text)}<p>${sourceLinks(detail.note.sources)}</p></div></details>` : ''}
+      ${detail.note ? `<details class="item-notes disclosure"><summary>Pack notes</summary><div class="content-stack"><div class="pack-note">${escape(detail.note.text)}<p>${sourceLinks(detail.note.sources)}</p></div></div></details>` : ''}
       </div>
       ${section('acquisition', 'Acquisition', '<div class="item-acquisition method-workbench"></div>')}
       ${section('uses', 'Uses', uses)}
@@ -586,7 +584,7 @@ async function loadWorld() {
       )
       .map(([id, value]) => {
         const v = value as RecordData
-        return `<tr><td><button class="ore-choice" data-ore="${escape(id)}" title="${escape(id)}">${escape(itemCatalog.get(id)?.name ?? id)}</button></td><td>${v.estimatedPerChunk.toFixed(4)}</td><td>${v.approx95PerChunk?.map((n: number) => n.toFixed(4)).join(' to ') ?? 'Not captured'}</td></tr>`
+        return `<tr><td><button class="ui-button ore-choice" data-ore="${escape(id)}" title="${escape(id)}">${escape(itemCatalog.get(id)?.name ?? id)}</button></td><td>${v.estimatedPerChunk.toFixed(4)}</td><td>${v.approx95PerChunk?.map((n: number) => n.toFixed(4)).join(' to ') ?? 'Not captured'}</td></tr>`
       })
       .join('') +
     '</tbody></table></div><p class="muted">Area-weighted estimates include void chunks. Intervals reflect sampling variance; sparse samples can miss rare ore entirely. These are not ore per stone block or a guarantee for one island.</p>'
@@ -622,14 +620,14 @@ function recordedGeneration(identity?: RecordData) {
     ['Local water', identity.water],
     ['Ocean variants', identity.oceans],
   ].filter(([, value]) => value !== undefined)
-  return `<details><summary>Recorded generation settings</summary><p>Settings saved with this world. Current pack defaults may differ.</p><div class="table-scroll"><table><tbody>${rows
+  return `<details class="disclosure"><summary>Recorded generation settings</summary><div class="content-stack"><p>Settings saved with this world. Current pack defaults may differ.</p><div class="table-scroll"><table><tbody>${rows
     .map(
       ([label, value]) =>
         `<tr><th scope="row">${escape(label)}</th><td>${typeof value === 'object' ? pretty(value) : escape(value)}</td></tr>`,
     )
     .join(
       '',
-    )}</tbody></table></div><details><summary>Full generation identity</summary>${pretty(identity)}</details></details>`
+    )}</tbody></table></div><details class="disclosure"><summary>Full generation identity</summary><div class="content-stack">${pretty(identity)}</div></details></div></details>`
 }
 let worldGeometry = { minX: 0, minZ: 0, cell: 1, offsetX: 0, offsetY: 0 }
 function drawWorld() {

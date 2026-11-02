@@ -106,6 +106,7 @@ test('adopted authoring panel shows live actions and cancellation without a seco
   })
   await page.goto('/authoring-preview?v=b')
   await expect(page).toHaveURL(/\/authoring$/)
+  await page.locator('#job-summary').click()
   const panel = page.getByRole('region', { name: 'Activity', exact: true })
   await expect(panel).toBeVisible()
   await expect(panel).toContainText('Check config files')
@@ -121,31 +122,47 @@ test('adopted authoring panel shows live actions and cancellation without a seco
   expect(cancelled).toBe(true)
 })
 
-test('authoring panel stays beside wide editors and follows narrow editors', async ({
+test('Activity docks in roomy editors and overlays narrow or dense views', async ({
   page,
 }) => {
   await page.goto('/authoring')
   await expect(
     page.getByRole('status').filter({ hasText: 'Source loaded' }),
   ).toBeVisible()
-  const editor = page.locator('.authoring-layout > div')
-  const aside = page.locator('.authoring-activity')
-  const wideEditor = await editor.boundingBox(),
-    wideAside = await aside.boundingBox()
-  expect(wideAside.x).toBeGreaterThanOrEqual(wideEditor.x + wideEditor.width)
-  await page.getByRole('button', { name: 'Localization', exact: true }).click()
+  await page.locator('#job-summary').click()
+  const editor = page.locator('.workspace-content')
+  const dock = page.locator('#workspace-activity-dock')
+  await expect(dock).toBeVisible()
+  const editorBox = await editor.boundingBox(),
+    dockBox = await dock.boundingBox()
+  expect(dockBox.x).toBeGreaterThanOrEqual(editorBox.x + editorBox.width)
+  await page.getByRole('button', { name: 'Unpin', exact: true }).click()
   await expect(
-    page.getByRole('region', { name: 'Activity', exact: true }),
+    page.getByRole('dialog', { name: 'Activity', exact: true }),
   ).toBeVisible()
+  await page.getByRole('button', { name: 'Pin', exact: true }).click()
+  await expect(dock).toBeVisible()
+  await page.getByRole('button', { name: 'Localization', exact: true }).click()
+  await expect(dock).toBeVisible()
   await page.setViewportSize({ width: 390, height: 844 })
-  const narrowEditor = await editor.boundingBox(),
-    narrowAside = await aside.boundingBox()
-  expect(narrowAside.y).toBeGreaterThanOrEqual(
-    narrowEditor.y + narrowEditor.height,
-  )
+  await expect(
+    page.getByRole('dialog', { name: 'Activity', exact: true }),
+  ).toBeVisible()
+  await expect(dock).toBeHidden()
+  await page.keyboard.press('Escape')
+  await expect(page.locator('#job-summary')).toBeFocused()
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= innerWidth,
     ),
   ).toBe(true)
+  await page.setViewportSize({ width: 1440, height: 1000 })
+  await page.goto('/resource-authoring')
+  await page.locator('#job-summary').click()
+  await expect(
+    page.getByRole('dialog', { name: 'Activity', exact: true }),
+  ).toBeVisible()
+  await expect(dock).toBeHidden()
+  await page.getByRole('button', { name: 'Close', exact: true }).click()
+  await expect(page.locator('#job-summary')).toBeFocused()
 })

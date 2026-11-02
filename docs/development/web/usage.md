@@ -180,6 +180,32 @@ future static deployments provide browsing only.
 ## Resource packs
 
 Open **Resource packs** in the header for the dated review at `/resourcepacks`.
+**Compare captures** opens `/resourcepacks/reviews`. Choose a feature, scene and
+candidate to compare matched original captures on one canvas. **Swipe** lets you
+drag across the image or use **Reveal position**; the slider also supports arrow
+keys, Home and End. **Vertical halves** fixes current left/candidate right;
+**Horizontal halves** fixes current top/candidate bottom. Both fixed modes disable
+the slider. Returning to Swipe restores its previous position. The URL retains the
+feature, scene and candidate for sharing and reloading. **All variants on one sheet** opens the cropped
+comparison; **Chests and Lootr → Closing animations** includes native recordings.
+Collapsed recordings pause playback.
+
+**Approved selections** lists the production choices within each feature group.
+They can differ within a group. This matrix owns selective donor choices;
+procedural models and artwork additionally affect the built result shown in
+Resources. A is the dated capture baseline, not today's generated patch. Review notes and
+preferences remain separate from that selection source.
+
+In `pnpm dev`, choose a preference, enter notes and select **Save review**. Reviews
+are saved by dated capture set and feature; they do not install packs or change
+selection status. Unsaved drafts survive feature changes. **Reload saved reviews**
+reads changes made elsewhere while retaining drafts; expand **Saved review** to
+compare, then save or **Revert draft**. Changed sources refuse stale writes.
+A warning identifies saved reviews whose evidence has changed. Static builds show
+the saved review snapshot and do not offer editing. Old comparison-preview links
+redirect here.
+
+The catalogue retains its existing navigation.
 Search by pack, feature or mod, then narrow by decision or scope. Filters are
 stored in the URL; Reset clears them. The numbered index stays beside the continuous
 reviews and highlights your reading position. Select a pack to jump to its review;
@@ -210,3 +236,25 @@ Catalog screening retains all 750 ranked listings and their first-pass screening
 reasons. Its search is separate from the detailed review filters. Following a
 review link reveals its target even if the current filters hide it. The page is
 read-only and does not download, install or reorder resource packs.
+
+## Resource objects
+
+Open Resources under Pack authoring. Find an object, choose a material/component
+or fixed pose, then compare models or textures. Filters separate origin,
+contributors, supported cases and authored work. The URL retains selection and
+filters. On mobile, expand Browse objects or Filters when needed.
+
+Native object, Selected packs and Modpack result are declared stacks. Identical
+supported renders share one option. Expand Effective resources to inspect owners
+and contributors; Comparison B layers previews a temporary registered stack.
+Unsupported cases explain the missing adapter instead of substituting geometry.
+
+Edit model or Edit texture opens the corresponding source tool; Back to comparison
+returns without discarding drafts. Refresh previews updates the catalogue. Export
+static models updates the admitted client geometry first. Activity records these
+jobs; neither action installs or builds the shipping resource pack. Model
+animation and shaders still require the native recordings/captures.
+
+The resource editor's **Back to object** action returns to its comparison without
+saving or discarding source drafts. The working `?workbench=inspector` layout
+preview groups object evidence below the source editor; it is not the default.

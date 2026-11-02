@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro'
+import AppHeader from '../components/AppHeader.astro'
+import ViewTabs from '../components/ui/ViewTabs.astro'
+import ObjectWorkbench from '../components/objects/ObjectWorkbench'
+import ModelAuthoringView from '../components/authoring/ModelAuthoringView.astro'
+import TextureWorkbench from '../components/authoring/TextureWorkbench.astro'
+import '../styles/model-authoring.css'
+import '../styles/texture-authoring.css'
+import { authoringViews } from '../lib/authoring-navigation'
+import '../styles/authoring.css'
+---
+
+<Base title="Resource authoring · Create Sky">
+  <AppHeader slot="header" page="authoring" />
+  <ViewTabs label="Authoring views">
+    {authoringViews.map((item) => (
+      <a
+        href={item.href}
+        aria-current={item.id === 'models' ? 'page' : undefined}
+      >
+        {item.label}
+      </a>
+    ))}
+  </ViewTabs>
+  <main id="main-content" tabindex="-1">
+    <ObjectWorkbench client:load />
+    <div id="object-source-storage" hidden>
+      <div id="object-source-models" class="object-source" hidden>
+        <ModelAuthoringView />
+      </div>
+      <div id="object-source-textures" class="object-source" hidden>
+        <TextureWorkbench />
+      </div>
+    </div>
+  </main>
+  <script>
+    import '../lib/object-authoring'
+  </script>
+</Base>

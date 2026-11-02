@@ -1,3 +1,4 @@
+import { selectSource } from './object-workbench.mjs'
 import { test, expect } from '@playwright/test'
 import { readFileSync } from 'node:fs'
 
@@ -23,10 +24,7 @@ test('model workbench previews extrusion and fitting without saving', async ({
   )
   await expect(page.locator('#models-save')).toBeEnabled()
   await expect(page.locator('#models-generate')).toBeDisabled()
-  await page
-    .locator('#model-list button')
-    .filter({ hasText: /^Bell lanternfitting/ })
-    .click()
+  await selectSource(page, 'models', 'bell-lantern')
   await expect(page.locator('#model-canvas')).toHaveAttribute(
     'data-ready',
     'bell-lantern',
@@ -41,10 +39,7 @@ test('model workbench previews extrusion and fitting without saving', async ({
   const recipe = JSON.parse(await page.locator('#model-json').inputValue())
   const window = recipe.edits.find((edit) => edit.element === 9)
   expect(Object.values(window.faces)[0].uv[0]).toBe(2)
-  await page
-    .locator('#model-list button')
-    .filter({ hasText: /^Industrial iron bars: postextrusion/ })
-    .click()
+  await selectSource(page, 'models', 'industrial-bars-post')
   await expect(page.getByLabel('Depth', { exact: true })).toHaveValue('1.5')
   expect(errors).toEqual([])
   page.on('dialog', (dialog) => dialog.accept())
@@ -71,14 +66,8 @@ test('unapplied JSON survives recipe switches and cannot be silently generated',
   await expect(page.locator('#models-status')).toHaveText('Source loaded')
   await page.locator('summary').filter({ hasText: 'Recipe JSON' }).click()
   await page.locator('#model-json').fill('{unfinished')
-  await page
-    .locator('#model-list button')
-    .filter({ hasText: /^Bell lanternfitting/ })
-    .click()
-  await page
-    .locator('#model-list button')
-    .filter({ hasText: /^Industrial iron bars: postextrusion/ })
-    .click()
+  await selectSource(page, 'models', 'bell-lantern')
+  await selectSource(page, 'models', 'industrial-bars-post')
   await expect(page.locator('#model-json')).toHaveValue('{unfinished')
   await expect(page.locator('#models-generate')).toBeDisabled()
   await page.locator('#model-apply-json').click()

@@ -13,6 +13,7 @@
   color: var(--ink-muted);
 }
 .method-list button {
+  --button-selection-shadow: inset 3px 0 var(--line-selected);
   display: block;
   width: 100%;
   text-align: left;
@@ -20,10 +21,6 @@
   border-radius: 0;
   background: transparent;
   padding: var(--space-inline);
-}
-.method-list button[aria-pressed='true'] {
-  background: var(--surface-selected);
-  box-shadow: inset 3px 0 var(--line-selected);
 }
 .method-list small {
   display: block;

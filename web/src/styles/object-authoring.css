@@ -1,0 +1,226 @@
+.object-authoring {
+  padding: var(--space-content) var(--gutter-page);
+  max-inline-size: var(--measure-page);
+  margin-inline: auto;
+  --object-preview-height: clamp(22rem, 40vw, 38rem);
+}
+.object-filters,
+.object-stage-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr));
+  gap: var(--space-control);
+  align-items: end;
+}
+.object-workspace {
+  display: grid;
+  grid-template-columns: minmax(12rem, var(--measure-resource-browser)) minmax(
+      0,
+      1fr
+    );
+  gap: var(--space-section);
+  align-items: start;
+}
+.object-browser {
+  position: sticky;
+  inset-block-start: var(--space-content);
+  max-block-size: calc(100dvh - var(--space-section));
+  overflow: auto;
+}
+.object-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(
+      14rem,
+      var(--measure-resource-browser)
+    );
+  gap: var(--space-section);
+  align-items: start;
+}
+.object-comparison {
+  position: relative;
+  block-size: var(--object-preview-height);
+  border: var(--control-border-width) solid var(--line-subtle);
+  border-radius: var(--radius-panel);
+  overflow: hidden;
+  background: var(--surface-panel);
+}
+.object-comparison > canvas {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  background: var(--surface-panel);
+  touch-action: none;
+}
+.object-comparison[data-mode='textures'] {
+  block-size: auto;
+  min-block-size: var(--object-preview-height);
+}
+.object-texture-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-control);
+  padding: var(--space-control);
+}
+.object-texture-grid figure {
+  margin: 0;
+  min-inline-size: 0;
+}
+.object-texture-grid figcaption,
+.object-inspector summary,
+.object-inspector li,
+.object-detail p {
+  overflow-wrap: anywhere;
+}
+.object-texture-pair {
+  position: relative;
+  aspect-ratio: 1;
+  background: var(--surface-panel);
+}
+.object-texture-pair canvas {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+  background: var(--surface-panel);
+}
+.object-texture-grid figcaption {
+  margin-block-start: var(--space-tight);
+  font-size: var(--type-caption-size);
+  color: var(--ink-muted);
+}
+.object-inspector .action-row a {
+  overflow-wrap: anywhere;
+}
+.object-provenance summary small,
+.object-provenance li small {
+  display: block;
+  color: var(--ink-muted);
+}
+.object-scene input[type='range'] {
+  inline-size: 100%;
+}
+@media (max-width: 1100px) {
+  .object-content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 700px) {
+  .object-workspace {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .object-browser {
+    position: static;
+    max-block-size: 14rem;
+  }
+  .object-texture-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.object-no-preview {
+  position: absolute;
+  inset-block: 0;
+  inline-size: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--surface-panel);
+  color: var(--ink-muted);
+  padding: var(--space-control);
+  text-align: center;
+}
+.object-no-preview[data-side='a'] {
+  inset-inline-start: 0;
+}
+.object-no-preview[data-side='b'] {
+  inset-inline-end: 0;
+}
+.object-source .workbench {
+  grid-template-columns: minmax(0, 1fr);
+}
+.object-source .workbench-browser {
+  display: none;
+}
+.object-source .authoring {
+  padding: 0;
+}
+
+.object-browser > summary {
+  display: none;
+}
+.object-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-control);
+  align-items: end;
+}
+.object-toolbar > .field {
+  flex: 1 1 16rem;
+}
+.object-filter-disclosure > .object-filters {
+  margin-block-start: var(--space-control);
+}
+.object-browser > .entry-list {
+  margin-block-start: var(--space-control);
+}
+.object-filter-disclosure {
+  min-inline-size: 0;
+}
+@media (max-width: 700px) {
+  .object-filters {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .object-filter-disclosure > summary,
+  .object-browser > summary {
+    display: list-item;
+    cursor: pointer;
+  }
+  .object-browser {
+    max-block-size: none;
+  }
+  .object-browser .entry-list {
+    max-block-size: 14rem;
+    overflow: auto;
+  }
+  .object-stage-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .object-inspector {
+    order: 1;
+  }
+}
+
+.object-detail > .section-heading > div:first-child {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-tight);
+}
+.object-authoring[data-flow='inspector'] .object-edit-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-control);
+  align-items: end;
+}
+.object-authoring[data-flow='inspector'] .object-edit-navigation > .field {
+  flex: 1 1 var(--measure-resource-browser);
+}
+.object-authoring[data-flow='inspector'] .object-inspector > .disclosure {
+  border-block-start: var(--control-border-width) solid var(--line-subtle);
+}
+.object-authoring[data-flow='inspector']
+  .object-inspector
+  .disclosure
+  > summary {
+  padding-block: var(--space-control);
+  cursor: pointer;
+}
+.object-authoring[data-flow='inspector']
+  .object-inspector
+  .disclosure
+  > :not(summary) {
+  margin-block: var(--space-tight) var(--space-control);
+}
+.object-authoring[data-flow='inspector'] .object-provenance {
+  padding-inline-start: var(--space-control);
+  border-inline-start: var(--control-border-width) solid var(--line-subtle);
+}

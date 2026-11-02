@@ -324,9 +324,9 @@ test('real source audit and local write boundaries remain available', async ({
     name: 'Authoring views',
     exact: true,
   })
-  await expect(nav.getByRole('link', { name: 'Models' })).toHaveAttribute(
+  await expect(nav.getByRole('link', { name: 'Resources' })).toHaveAttribute(
     'href',
-    '/model-authoring',
+    '/resource-authoring',
   )
   const generationStatus = page
     .locator('p.scope')

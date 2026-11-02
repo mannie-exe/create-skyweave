@@ -16,11 +16,18 @@ body {
   line-height: var(--type-body-leading);
   letter-spacing: var(--type-body-tracking);
 }
-button,
+button {
+  font: inherit;
+}
+:where(label, legend) {
+  font: var(--type-label-weight)
+    var(--type-label-size)/var(--type-label-leading) var(--type-label-family);
+}
 input,
 select,
 textarea {
-  font: inherit;
+  font: var(--type-body-weight) var(--type-body-size)/var(--type-body-leading)
+    var(--type-body-family);
 }
 button,
 select,
@@ -36,7 +43,12 @@ button {
   padding: var(--space-inline) var(--space-control);
 }
 button:enabled:hover:not(
-    :where([aria-pressed='true'], [aria-current='true'], [aria-current='page'])
+    :where(
+      [aria-pressed='true'],
+      [aria-current='true'],
+      [aria-current='page'],
+      [aria-selected='true']
+    )
   ) {
   border-color: var(--color-action);
   color: var(--color-action);
@@ -61,8 +73,17 @@ button:enabled:active {
   border-color: var(--status-error-ink);
 }
 input,
-select {
+select,
+textarea {
   padding: var(--space-inline) var(--space-control);
+  max-inline-size: 100%;
+  min-inline-size: 0;
+}
+textarea {
+  resize: vertical;
+}
+:where(input[type='checkbox'], input[type='radio'], input[type='range']) {
+  accent-color: var(--color-action);
 }
 input:focus,
 select:focus,
@@ -124,7 +145,7 @@ a {
 }
 .topbar nav {
   display: flex;
-  gap: 5px;
+  gap: var(--space-tight);
 }
 .topbar nav a {
   padding: var(--space-inline) var(--space-control);
@@ -136,6 +157,14 @@ a {
 .topbar nav a[aria-current='page'] {
   color: var(--ink-selected);
   background: var(--surface-selected);
+  box-shadow: inset 0 -2px var(--line-selected);
+}
+.topbar nav a:not([aria-current='page']):hover,
+.view-tabs a:not([aria-current='page']):hover {
+  background: var(--surface-hover);
+}
+.view-tabs a[aria-current='page'] {
+  box-shadow: inset 0 -2px var(--line-selected);
 }
 .view-tabs :is(button, a) {
   border: 0;
@@ -160,11 +189,42 @@ a {
   text-align: right;
 }
 h1 {
-  font-size: 32px;
-  letter-spacing: -1.1px;
-  line-height: 1.15;
-  margin: 10px 0 0;
-  font-weight: 550;
+  margin: var(--space-control) 0 0;
+}
+:where(pre, code) {
+  font: var(--type-code-weight) var(--type-code-size)/var(--type-code-leading)
+    var(--type-code-family);
+  overflow-wrap: anywhere;
+}
+pre {
+  background: var(--surface-inset);
+  border: var(--control-border-width) solid var(--line-subtle);
+  border-radius: var(--radius-control);
+  padding: var(--space-control);
+  max-block-size: 24rem;
+  overflow: auto;
+  white-space: pre-wrap;
+}
+summary {
+  cursor: pointer;
+  font: var(--type-label-weight)
+    var(--type-label-size)/var(--type-label-leading) var(--type-label-family);
+  overflow-wrap: anywhere;
+}
+:where(.scope, .muted) {
+  color: var(--ink-muted);
+  font: var(--type-caption-weight)
+    var(--type-caption-size)/var(--type-caption-leading)
+    var(--type-caption-family);
+  overflow-wrap: anywhere;
+}
+fieldset {
+  min-inline-size: 0;
+  border: var(--control-border-width) solid var(--line-subtle);
+  padding: var(--space-content);
+}
+legend {
+  padding-inline: var(--space-tight);
 }
 h1 span {
   color: var(--ink-muted);
@@ -188,8 +248,8 @@ th {
 
 .view-tabs {
   display: flex;
-  gap: 5px;
-  padding: 10px var(--gutter-page);
+  gap: var(--space-tight);
+  padding: var(--space-control) var(--gutter-page);
   overflow-x: auto;
   border-bottom: 1px solid var(--line-subtle);
   background: var(--surface-panel);
@@ -203,7 +263,7 @@ th {
 }
 @media (max-width: 1000px) {
   .topbar {
-    gap: 15px;
+    gap: var(--space-content);
     padding: 0 var(--gutter-page);
   }
   .snapshot {
@@ -227,8 +287,5 @@ th {
   .view-tabs :is(button, a) {
     padding: 6px var(--space-inline);
     font-size: var(--type-caption-size);
-  }
-  h1 {
-    font-size: 27px;
   }
 }

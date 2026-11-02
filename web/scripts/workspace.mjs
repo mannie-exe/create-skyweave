@@ -4,9 +4,11 @@ import crypto from 'node:crypto'
 import { domains, validateDomain } from '../src/lib/domains.mjs'
 import { compile, root } from './compile.mjs'
 import { authoring, configuredPack } from './authoring.mjs'
+import { resourceReviews } from './resource-reviews.mjs'
 import { modelAuthoring } from './model-authoring.mjs'
 import { jobs, jobRegistry, JobError } from './jobs.mjs'
 import { createOperations } from './operations.mjs'
+import { generatedResourceAssets } from './generated-resource-assets.mjs'
 const hash = (text) => crypto.createHash('sha256').update(text).digest('hex')
 
 export function workspace() {
@@ -15,6 +17,7 @@ export function workspace() {
   return {
     name: 'atlas-local-workspace',
     configureServer(server) {
+      server.middlewares.use(generatedResourceAssets(root))
       server.middlewares.use(async (req, res, next) => {
         if (!req.url?.startsWith('/__atlas/')) return next()
         let operation = null
@@ -106,6 +109,8 @@ export function workspace() {
           operation = operations.begin(req.method, req.url, input)
           const context = { web: root, pack: await configuredPack(root) }
           if (req.method === 'GET') {
+            if (req.url === '/__atlas/resource-reviews')
+              return send(200, await resourceReviews(root).read())
             if (req.url === '/__atlas/models')
               return send(200, await modelAuthoring(context.pack).read())
             if (req.url === '/__atlas/authoring')
@@ -138,6 +143,14 @@ export function workspace() {
             }
             return send(404, { error: 'Unknown workspace endpoint' })
           }
+          if (req.url === '/__atlas/resource-reviews/save')
+            return send(200, await resourceReviews(root).save(input))
+          if (req.url === '/__atlas/textures/generate') {
+            if (Object.keys(input).length)
+              throw new Error('Texture generation accepts no inputs')
+            const result = await jobs.run('textures.generate', context)
+            return send(200, { output: result.stdout.trim() })
+          }
           if (
             [
               '/__atlas/models/preview',
@@ -164,6 +177,29 @@ export function workspace() {
                 req.url.endsWith('/save') ? 'save' : 'generate'
               ](input),
             )
+          if (req.url === '/__atlas/objects/preview') {
+            const result = await jobs.run('objects.preview', context, input)
+            return send(200, JSON.parse(result.stdout))
+          }
+          if (
+            [
+              '/__atlas/objects/generate',
+              '/__atlas/objects/export',
+              '/__atlas/objects/inputs',
+            ].includes(req.url)
+          ) {
+            if (Object.keys(input).length)
+              throw new Error('Object refresh accepts no inputs')
+            const result = await jobs.run(
+              req.url.endsWith('/export')
+                ? 'objects.export'
+                : req.url.endsWith('/inputs')
+                  ? 'objects.inputs'
+                  : 'objects.generate',
+              context,
+            )
+            return send(200, { output: result.stdout.trim() })
+          }
           if (req.url === '/__atlas/refresh') {
             if (Object.keys(input).length)
               throw new Error('Refresh accepts no inputs')

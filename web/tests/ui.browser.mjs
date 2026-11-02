@@ -145,12 +145,21 @@ test('map source reload distinguishes unsaved edits from ordinary refresh', asyn
   )
 })
 
-for (const path of ['/', '/authoring', '/model-authoring', '/resourcepacks']) {
+for (const path of [
+  '/',
+  '/authoring',
+  '/resource-authoring',
+  '/resourcepacks',
+]) {
   test(`header keyboard shortcut reaches content on ${path}`, async ({
     page,
   }) => {
     await page.setViewportSize({ width: 390, height: 850 })
     await page.goto(path)
+    if (path === '/resource-authoring')
+      await expect(
+        page.getByLabel('Find object', { exact: true }),
+      ).toBeVisible()
     const main = page.getByRole('main')
     await expect(main).toBeVisible()
     const skip = page.getByRole('link', { name: 'Skip to content' })

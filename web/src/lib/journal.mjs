@@ -1,9 +1,9 @@
 // The same authored sections compiled by scripts/generate-journal.py. This module
 // edits source documents; it never writes generated Questlog files.
 export const localePath = (id) => `journal/locales/${id}.json`
-export const chapterPath = (id) => `journal/chapters/${id}.json`
+const chapterPath = (id) => `journal/chapters/${id}.json`
 export const encode = (value) => JSON.stringify(value, null, 2) + '\n'
-export function overlay(base, patch) {
+function overlay(base, patch) {
   if (base && typeof base === 'object' && !Array.isArray(base))
     return Object.fromEntries(
       Object.entries(base).map(([key, value]) => [
@@ -43,7 +43,7 @@ export function entryList(documents) {
       .map((entry) => ({ ...entry, id: chapter.id + '/' + entry.id })),
   )
 }
-export function objectivePaths(objectives, prefix = '') {
+function objectivePaths(objectives, prefix = '') {
   return objectives.flatMap((objective, index) => {
     const key = prefix + index
     return [key, ...objectivePaths(objective.objectives || [], key + '.')]

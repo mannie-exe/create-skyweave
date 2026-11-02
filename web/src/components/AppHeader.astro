@@ -31,6 +31,9 @@ const pages = [
     ))}
   </nav>
   <slot name="status" />
+  {showJobs && (
+    <div class="header-activity">
+      <JobStatus />
+    </div>
+  )}
 </header>
-
-{showJobs && <JobStatus />}

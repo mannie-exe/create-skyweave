@@ -1,3 +1,4 @@
+import Disclosure from '../ui/Disclosure'
 import Button from '../ui/Button'
 import Field from '../ui/Field'
 import { outcomeLabel } from '../../lib/acquisition-facts.mjs'
@@ -108,8 +109,7 @@ export function MethodChooser({
           )}
         </Field>
       </div>
-      <details className="method-filters">
-        <summary>More filters</summary>
+      <Disclosure className="method-filters" summary={<>More filters</>}>
         <div className="method-controls">
           <Field label={<>Prerequisites</>}>
             {(field) => (
@@ -144,7 +144,7 @@ export function MethodChooser({
             )}
           </Field>
         </div>
-      </details>
+      </Disclosure>
       <div className="method-results">
         <span role="status">
           {visible.length} of {methods.length} methods
@@ -155,8 +155,10 @@ export function MethodChooser({
           </Button>
         )}
       </div>
-      <details className="method-ranking-help">
-        <summary>How are methods compared?</summary>
+      <Disclosure
+        className="method-ranking-help"
+        summary={<>How are methods compared?</>}
+      >
         <p>
           Planned access prefers fewer opportunistic-source stages, then fewer
           stages with uncalculated odds, then fewer chance-based stages, then
@@ -184,7 +186,7 @@ export function MethodChooser({
           rarity, quantities, machine setup or playtime. “Most” compares these
           minimum depths, not the longest possible chain.
         </p>
-      </details>
+      </Disclosure>
       <div className="method-list" aria-label="Choose an acquisition method">
         {groups.map((group) => {
           const rows = visible.filter((m) =>
