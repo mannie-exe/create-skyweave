@@ -1,23 +1,36 @@
-# Create Sky 0.1.30
+# Create Sky 0.1.31
 
-Add Create: Redstone Link GUI 1.21.1-1.9.2 and Create: Redstone Additions 1.0.5,
-with Create Sky Compat 0.14.0. Minecraft and the other dependencies stay pinned.
+## Modpack resources
 
-Frequency menus support ghost selections and personal presets. Server guards
-check editing permissions, stale targets and channel identity. Plain Redstone
-Links can be relocated within one world or ship; machinery and cross-frame moves
-are refused. Default access is empty hand + Shift + right-click on a frequency
-slot, with the native 24-block relocation limit.
+Add the approved selective workstation and plant models: furnaces, smoker,
+fletching/smithing/cartography tables, brewing stand, blast furnace, crafter, loom,
+azaleas and pitchers. The existing selections also include lily pads, cactus,
+doors/trapdoors, selected props and Nautilus redstone torches. Only selected assets
+ship; the complete donor packs stay disabled.
 
-Gate repairs cover placement side effects, feedback, support loss, wrench use,
-successful-only Verdigris scraping and inverter transparency. Crossroad strong
-output through solid blocks loses one signal level. Pack resources restore nine
-component drops and Ponder category labels. Two optional journal entries introduce
-copper scraping and signal components; remote-control guidance includes the UI.
+Lootr barrels gain texture-fitted corner clasps. Ordinary, trapped and Lootr single
+chests combine selected geometry with Fresh Objects animation; Lootr storage has
+approved directional artwork for unopened and opened variants. Large and ender
+chests retain their existing treatment. Pitcher models use a NeoForge adapter for
+otherwise unsupported element rotations. Existing mushroom/pot and lighting/bar
+patches remain included.
 
-The Atlas refresh includes the new content, recipes and journal data. Generation,
-world identity, seed and LOD policy are unchanged; no world regeneration is needed.
-Startup switches are seeded settings: existing installations keep their preferences
-and use default-on values for omitted new keys.
+## Atlas and authoring
 
-Previous release: [0.1.29](releases/0.1.29.md).
+Resource authoring now groups blocks and static mob previews by object, with
+models, textures, source layers and related editors together. It supports ordered
+texture operations, material masks, model extrusion and approved-artwork previews.
+Resource comparisons have matched scenes, image-swipe controls and saved decisions.
+Selected resources and captured review media are reflected in the resource index.
+
+Activity has one shared header entry point, with a dock or overlay suited to the
+available space. Controls, selection, typography, spacing, disclosures and field
+states share semantic styles across the Atlas. Long registry names wrap on narrow
+screens. Journal drafts, validation and generation remain separate operations.
+
+Releases now combine these authored summaries with git-cliff commit history.
+Minecraft 1.21.1, NeoForge and mod/shader dependency selections are unchanged.
+This release does not change terrain generation, world identity, seeds or LOD
+policy. Existing play worlds need no regeneration.
+
+Previous release: [0.1.30](releases/0.1.30.md).
