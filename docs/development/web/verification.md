@@ -4,6 +4,45 @@ Checks apply to the recorded source or artifact, not every later checkout. Brows
 checks establish interface behavior; native game checks and survey evidence have
 separate owners and limits. Commands and prerequisites live in [setup](setup.md).
 
+## Glass backfaces, 2026-11-03
+
+Create Sky Compat 0.16.0 adds opt-in runtime backfaces after native texture
+processing. The final native artifact is SHA-256
+`fc41e9b118521f5ce578740c473312f2f8b229a8fa93ac128ac2928c621da672`.
+All nine reverse surfaces in each tested two-layer vanilla, stained, Create and
+Rechiseled wall retain the outward CT UVs while the opposite direction is hidden.
+Matched captures include shaders off/on. Matching/opaque boundaries, Create panes,
+Create Deco windows and Rechiseled axes retain native geometry and visibility.
+Resource reload and cold reopening preserve eight representative model outputs;
+disabling both switches restores the same artifact's one-sided controls.
+
+The resource-only prototype restored isolated reverse surfaces but lost Create CT
+on nine of nine thick-wall copies. It remains outside the selected stack. Static
+resource overrides cannot replace the runtime processing boundary.
+
+The existing Resource Review harness retains the baseline, resource prototype and
+runtime evidence under `images/2026-11-03-glass-backfaces`,
+`images/2026-11-03-glass-backface-resource` and
+`images/2026-11-03-glass-backface-compat`. The last includes the exact final artifact,
+registered-target inventory, native UV records and executed protocol. These are
+native rendering checks; Atlas previews do not simulate CT or renderer culling.
+[Compat verification](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/verification.md)
+owns dependency combinations, performance limits and unsupported paths.
+
+## Release checks, 0.1.33
+
+The 56 pack tests, journal generation check and 256-file configuration audit pass.
+All three reference distributions build with empack 0.8.2-beta. ZIP CRCs and every
+embedded release asset match their hashes; both instance profiles reference the
+verified Compat 0.16.0 binary and seed the two enabled backface switches. BlueMap
+remains server-only and the server archive retains its Unix runtime shim. The
+lock changes only Compat's artifact and the intent fingerprint.
+
+Atlas executable code and runtime snapshots are unchanged. Its model previews do
+not emulate this native CT/rendering adaptation; the native evidence above owns
+that claim. No app interaction or world/ore survey checks were required for these
+configuration and documentation changes.
+
 ## Release checks, 2026-11-03
 
 Create Sky 0.1.32 was prepared from `06b5a39` and the completed workspace/resource

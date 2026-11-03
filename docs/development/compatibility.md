@@ -1110,12 +1110,18 @@ Create/Rechiseled missing interior window faces originate in native face-removal
 rules. Disabling MoreCulling's block-state option did not restore them. The broad
 resource workaround is disabled and native culling definitions are restored:
 uncullable faces exposed matching-window interfaces and lacked Create CT context.
-Compat 0.15.0 supplies independent client repairs for Create material boundaries
+Compat supplies independent client repairs for Create material boundaries
 and Rechiseled pillar axes while retaining native CT/Fusion processing. Both are
 enabled in the pack startup defaults. Pane models are unchanged.
 See [patch boundaries](patches.md#window-connections-and-copycat-panels) for update
 requirements and [verification](web/verification.md#resource-rendering-repairs-2026-11-02)
 for the tested cases and limitations.
+
+`create.glass_backfaces` and `fusion.glass_backfaces` additionally show exposed
+surfaces from behind after native texture processing. The pack enables both;
+standalone Compat installations default them off. Neighbor visibility remains a
+separate decision, so matching interfaces and opaque-neighbor occlusion retain
+their native rules. The [patch reference](patches.md) owns coverage and update checks.
 
 Resource Review classifies glass blocks, panes and mesh/grates by registered
 implementation class, with bounded pages. Doors and pipes are excluded. The

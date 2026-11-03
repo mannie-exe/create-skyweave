@@ -3,9 +3,9 @@
   "records": [
     {
       "path": "overrides/common/config/create_sky_compat-features.properties",
-      "sha256": "c1e5348e12f0a9627729c676a857d3565e347732da4bb53d0b98201b48a04407",
+      "sha256": "def846243f8b723c089a5f727949cc12dc6ba10d5b629e184f5bbe6eda461cd0",
       "review": "reviewed",
-      "reason": "Enable independent terrain, machinery, journal, rendering, recovery and reviewed redstone adapters, including client-only Create material and Rechiseled axis boundary corrections.",
+      "reason": "Enable reviewed terrain, machinery, journal, rendering and recovery adapters. Client glass adapters preserve material/axis boundaries and show reverse surfaces after native Create/Fusion connected-texture processing.",
       "reference": "docs/development/compatibility.md"
     },
     {

@@ -240,36 +240,33 @@ Minecraft client JAR; review its version alongside the pack's Minecraft pin.
 
 ### Window connections and Copycat panels
 
-`compatibility.window_interior_faces` is disabled. The rejected workaround removed
-alpha-face `cullface` declarations from 246 full-window models, exposing unwanted
-framing between matching windows. Generated resources now leave these definitions
-to their upstream owners. Other model, artwork and potted-plant repairs remain.
-`scripts/window_interiors.py` remains available to reconstruct the compared study;
-do not enable it as a complete window fix.
+Window models remain owned by their upstream packs. Keep
+`compatibility.window_interior_faces` disabled: removing every `cullface`
+exposes matching interfaces and does not establish correct connected textures.
+Other model, artwork and potted-plant repairs remain independent.
 
-Create 6.0.10's `CTModel.createCTData` normally skips faces rejected by
-`Block.shouldRenderFace`. Its `ConnectedGlassBlock` hides boundaries against any
-other ConnectedGlassBlock; `WindowBlock` adds direction/translucency rules. An
-uncullable resource face can therefore appear without its CT data. The small
-Fusion `append_models` prototype confirms conditional visibility, but does not
-solve this Create-owned calculation.
+Create Sky Compat separates two visibility decisions:
 
-Create Sky Compat 0.15.0 provides two independently configurable client repairs.
-`create.window_culling` corrects Create's mixed-material suppression and lets its
-existing CT model calculate visible boundary data. `rechiseled.glass_culling`
-corrects asymmetric hiding between vertical and horizontal instances of the same
-Rechiseled glass pillar. Matching interfaces and opaque-neighbor occlusion remain
-native; no Fusion processor or CT atlas is replaced. Their target APIs are Create
-6.0.10 and Rechiseled 1.2.6 respectively. Content mods retain their own dependencies.
+- `create.window_culling` and `rechiseled.glass_culling` preserve exposed material
+  and orientation boundaries while retaining matching/opaque neighbor occlusion.
+- `create.glass_backfaces` and `fusion.glass_backfaces` make those exposed surfaces
+  visible from behind, after native connected-texture processing. Create Sky
+  explicitly enables these opt-in adapters.
 
-The old Fusion added-face prototype remains historical evidence, not a selected
-resource treatment. See the [native comparisons](web/verification.md#glass-culling-adapters-2026-11-03)
-and [Compat maintenance guide](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/rendering.md#window-faces).
+Create omits CT context for hidden directions. Adding reversed resource geometry
+can therefore select missing CT data from the opposite direction, even when the
+original boundary remains visible. Compat copies final processed quads instead,
+retaining UVs and native cull groups. Neither the visual ZIP nor resource-only JAR
+adds a second set of backfaces; Fusion modifier dispatch remains native.
 
-When these inputs change, review the native face-removal methods, CT/Fusion
-processing and adjacency/corner views. Revisit adapter scope if upstream changes
-face ownership or adds inset geometry. This does not establish
-compatibility with every shader or every transparent modded block.
+The targets are Create connected-glass/window/pane implementations, including
+Create Deco subclasses, and Fusion-backed vanilla glass/panes and Rechiseled glass
+pillars. This is not a general two-sided material setting for fluids, block-entity
+renderers, Copycats or DH terrain. Review native face removal, CT/Fusion processing,
+vertex format and Sodium batching together when updating these dependencies.
+[Native comparisons](web/verification.md#glass-backfaces-2026-11-03) record tested
+cases; [Compat](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/rendering.md#glass-backfaces)
+owns runtime hooks and update/removal conditions.
 
 Create 6.0.10 owns its glass connections through `AllSpriteShifts` and window/pane
 CT behaviours. Framed glass uses omnidirectional connections; wood windows use
