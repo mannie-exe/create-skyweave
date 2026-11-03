@@ -74,18 +74,26 @@ def build(archives, selections):
             owner, name = block.split(':', 1)
             require(owner == 'minecraft' and '/' not in name, 'Only named vanilla roots are supported')
             state = f'assets/{owner}/blockstates/{name}.json'
+            inherited_roots = None
+            if selection.get('inherit_template'):
+                require(name in ('campfire', 'soul_campfire', 'azalea', 'flowering_azalea'),
+                        'Unknown inherited template selection')
+                state_data = json.loads(vanilla[state])
+                inherited_roots = {resource_path(item['model'], 'models', '.json')
+                                   for variant in state_data['variants'].values()
+                                   for item in (variant if isinstance(variant, list) else [variant])}
             if state in source:
                 local[state] = rewrite(json.loads(source[state]))
                 roots.add(state)
             prefix = f'assets/{owner}/models/block/{name}'
             for path in source:
+                if inherited_roots is not None and path not in inherited_roots:
+                    continue
                 if path.endswith('.json') and (path == prefix + '.json' or path.startswith(prefix + '_')) and '/' not in path[len(prefix):]:
                     local[path] = model_document(path)
                     roots.add(path)
             if selection.get('inherit_template'):
-                require(name in ('campfire', 'soul_campfire'), 'Template isolation is limited to campfires')
                 # Vanilla has state-specific leaves; the donor only supplies their shared parent.
-                state_data = json.loads(vanilla[state])
                 for variant in state_data['variants'].values():
                     for item in variant if isinstance(variant, list) else [variant]:
                         path = resource_path(item['model'], 'models', '.json')

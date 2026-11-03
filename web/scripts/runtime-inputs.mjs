@@ -15,7 +15,7 @@ function participates(requirement) {
   throw new Error('Unrecognized server participation in empack.lock')
 }
 
-export function serverModInputs(pack, lock, read = readFileSync) {
+export function serverModDeclarations(pack, lock) {
   const mods = []
   const destinations = new Set()
   for (const [key, dependency] of Object.entries(lock.dependencies)) {
@@ -42,29 +42,36 @@ export function serverModInputs(pack, lock, read = readFileSync) {
         if (destinations.has(destination))
           throw new Error(`Duplicate server mod: ${destination}`)
         destinations.add(destination)
-        let bytes
-        try {
-          bytes = read(path)
-        } catch {
-          throw new Error(
-            `${key}: materialized JAR missing; run empack sync --materialize`,
-          )
-        }
-        const expected = file.expected
-        if (expected.size != null && expected.size !== bytes.length)
-          throw new Error(`${key}: materialized JAR size changed`)
-        const digests = Object.entries(expected.digests || {})
-        if (!digests.length)
-          throw new Error(`${key}: no locked digest for runtime input`)
-        for (const [algorithm, digest] of digests) {
-          if (createHash(algorithm).update(bytes).digest('hex') !== digest)
-            throw new Error(`${key}: materialized JAR ${algorithm} mismatch`)
-        }
-        mods.push({ key, path, destination })
+        mods.push({ key, path, destination, expected: file.expected })
       }
     }
   }
   return { runtime: lock.runtime, mods }
+}
+
+export function serverModInputs(pack, lock, read = readFileSync) {
+  const selection = serverModDeclarations(pack, lock)
+  const mods = selection.mods.map(({ key, path, destination, expected }) => {
+    let bytes
+    try {
+      bytes = read(path)
+    } catch {
+      throw new Error(
+        `${key}: materialized JAR missing; run empack sync --materialize`,
+      )
+    }
+    if (expected.size != null && expected.size !== bytes.length)
+      throw new Error(`${key}: materialized JAR size changed`)
+    const digests = Object.entries(expected.digests || {})
+    if (!digests.length)
+      throw new Error(`${key}: no locked digest for runtime input`)
+    for (const [algorithm, digest] of digests) {
+      if (createHash(algorithm).update(bytes).digest('hex') !== digest)
+        throw new Error(`${key}: materialized JAR ${algorithm} mismatch`)
+    }
+    return { key, path, destination }
+  })
+  return { runtime: selection.runtime, mods }
 }
 
 if (

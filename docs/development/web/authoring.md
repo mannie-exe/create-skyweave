@@ -76,15 +76,17 @@ Open Activity from the shared header. Pin it beside authoring when enough width
 remains; on narrow screens and dense resource/map views it opens as an overlay.
 Close or Escape returns focus to the header button. Open and pin preferences last
 for the browser session. It records complete actions, including validation and file writes.
-Routine source reads and previews do not replace those results. Editor feedback
+Source reads add no operations; explicit previews record their own outcomes. Editor feedback
 stays beside the relevant actions; recent outcomes remain in Activity after a
-toast disappears. See [data](data.md#filesystem-boundary) for retention and polling.
+toast disappears. See [data](data.md#filesystem-boundary) for connection and retention behavior.
 
 An acknowledged save followed by a failed view refresh remains a successful save.
 The journal retains the saved revision and any other drafts, labels generation
 status unavailable, and disables further writes until source is reloaded. Reload
 still asks before discarding drafts. Successful generation is likewise distinct
 from refreshing its displayed comparison.
+
+External source changes refresh clean journal text without generating previews or Questlog files. If text or unapplied JSON is dirty, the editor keeps it and asks for deliberate reload. Changes to maintained configuration invalidate the displayed audit; **Check files** remains an explicit action. Activity reports lost monitoring or loaded-code changes that require restarting Atlas.
 
 Save validates the complete source set before replacing files. Stale revisions
 fail without discarding local edits. Reload asks before discarding drafts. Browser
@@ -106,20 +108,30 @@ source files; it does not describe configuration-register or audit freshness.
 
 ## Filesystem and generation boundaries
 
-`scripts/authoring.mjs` accepts allowlisted source paths, rejects symlinks and
-traversal, stages combined source in a temporary directory and invokes named
-validators. It rechecks revisions before replacement, stages writes exclusively
-and rolls back ordinary replacement failures. Multi-file writes are not a
-crash-atomic transaction. Do not edit the same files externally during a save.
+`scripts/workspace/journal.ts` registers source queries, explicit output previews,
+saves and generation. Source reads launch no process. A missing or stale output
+review runs the named preview operation; a failed preview leaves source editing
+available and reports its own error.
 
-Loopback, host, same-origin, request-size and serialized-operation restrictions
-remain in the workspace middleware. Browser input cannot supply programs or shell
-commands. Temporary validation files are removed after each operation.
+Saves stage the combined source and invoke the existing Python validators with a
+trusted `--root`. `files.ts` checks exact revisions and authority before replacing
+files, and restores only bytes still owned by the failed transaction. Unresolved
+partial saves retain a recovery marker. Multi-file writes are not crash-atomic;
+external changes cause a conflict rather than being overwritten during rollback.
+
+The transport checks loopback, host, Origin and request bounds. The shared service
+owns per-pack mutation admission; source reads and cancellation remain independent.
+Browser input cannot supply programs, shell commands or working directories.
+Temporary validation files are removed after the owned worker stops.
 
 Generation removes obsolete outputs only when they carry the journal's generated
 identity. Unrelated native quests are preserved. Review the output comparison and
 Git diff, then build/install the native JSON and resource JAR together through the
 pack's separate build and sync procedures.
+Generation writes to staging first and rechecks source, tool and output revisions
+before committing the native JSON, language files and binding policies. A later
+failure does not erase an already committed stage. Preview reports are immutable
+scoped artifacts; creating them does not install generated content.
 
 These operations do not refresh the mapper's runtime export or the saved-world
 ore survey. Their respective capture/import/compile jobs remain authoritative;

@@ -21,7 +21,7 @@
     "data:runtime": "python3 scripts/runtime.py",
     "data:extract": "python3 scripts/extract.py",
     "data:world": ".cache/python/bin/python scripts/world.py",
-    "data:compile": "node scripts/compile.mjs",
+    "data:compile": "node scripts/workspace-cli.mjs map.compile",
     "data:refresh": "pnpm data:runtime && pnpm data:extract && pnpm data:compile",
     "deploy:preview": "wrangler deploy --dry-run",
     "deploy": "wrangler deploy",
@@ -31,7 +31,8 @@
     "data:structures": "python3 scripts/structures.py",
     "data:islands": "python3 scripts/islands.py",
     "data:locales": "node scripts/minecraft-locales.mjs",
-    "check:unused": "knip"
+    "check:unused": "knip",
+    "test:static": "playwright test --config playwright.static.config.ts"
   },
   "dependencies": {
     "@astrojs/react": "7.1.2",
@@ -39,10 +40,13 @@
     "@dnd-kit/react": "0.5.3",
     "@xyflow/react": "12.12.0",
     "astro": "7.4.4",
+    "chokidar": "6.0.0",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "three": "0.187.0",
-    "yaml": "2.9.1"
+    "ws": "8.22.1",
+    "yaml": "2.9.1",
+    "zod": "4.6.7"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.12",
@@ -51,6 +55,7 @@
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@types/three": "0.187.0",
+    "@types/ws": "8.18.2",
     "knip": "6.44.1",
     "prettier": "^3.9.10",
     "prettier-plugin-astro": "^1.1.2",

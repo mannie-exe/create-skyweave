@@ -1,5 +1,16 @@
 import fs from 'node:fs/promises'
 import assert from 'node:assert/strict'
+import { withWorkspace } from './workspace-cli.mjs'
+import path from 'node:path'
+const projected = await withWorkspace(path.resolve('.'), async (workspace) =>
+  Promise.all(
+    ['catalog.json', 'coverage.json'].map(async (name) =>
+      JSON.parse(
+        await fs.readFile(await workspace.projection('map', name), 'utf8'),
+      ),
+    ),
+  ),
+)
 const read = async (p) => JSON.parse(await fs.readFile(p, 'utf8'))
 const [recipes, items, errors, drops, diagnostics, catalog, coverage] =
   await Promise.all([
@@ -8,8 +19,8 @@ const [recipes, items, errors, drops, diagnostics, catalog, coverage] =
     read('data/generated/runtime/errors.json'),
     read('data/generated/runtime/patch_checks.json'),
     read('data/generated/diagnostics.json'),
-    read('public/generated/catalog.json'),
-    read('public/generated/coverage.json'),
+    projected[0],
+    projected[1],
   ])
 const byRecipe = new Map(recipes.map((r) => [r.id, r])),
   byItem = new Map(items.map((i) => [i.id, i]))

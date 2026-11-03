@@ -1092,3 +1092,34 @@ guide. Native actuation, recipe costs, converter limits, terrain, seed and LOD
 identity remain unchanged. Personal-instance installation is verified separately
 from distribution construction; archive checks do not establish every gameplay
 arrangement or GPU.
+
+## Resource rendering repairs
+
+The visual ZIP admits eight generated Lootr barrel sprites to the block atlas.
+Missing admission caused pink/black sides despite valid PNGs and model bindings.
+Normal and trapped Lootr chests are distinct blocks with the same display name;
+the trapped variants now receive the approved artwork while retaining their red
+marker. The fixture labels the trapped specimen explicitly.
+
+Selected azalea plant geometry is composed with Fresh pots and soil. Their donor
+uses shared templates, so selection follows actual shrub roots rather than the
+similarly named leaf models. Existing mushroom/fungus pots and potted cactus keep
+their selected treatments; the cactus donor's simpler potted model is not adopted.
+
+Create/Rechiseled missing interior window faces originate in native face-removal
+rules. Disabling MoreCulling's block-state option did not restore them. The broad
+resource workaround is disabled and native culling definitions are restored:
+uncullable faces exposed matching-window interfaces and lacked Create CT context.
+Compat 0.15.0 supplies independent client repairs for Create material boundaries
+and Rechiseled pillar axes while retaining native CT/Fusion processing. Both are
+enabled in the pack startup defaults. Pane models are unchanged.
+See [patch boundaries](patches.md#window-connections-and-copycat-panels) for update
+requirements and [verification](web/verification.md#resource-rendering-repairs-2026-11-02)
+for the tested cases and limitations.
+
+Resource Review classifies glass blocks, panes and mesh/grates by registered
+implementation class, with bounded pages. Doors and pipes are excluded. The
+Macaw's sloped chain-hung appearance is approved; flat bridges retain the regular
+standing lantern. The sloped model remains review-only until native interaction
+bounds follow its placement. Their matched views are in the
+Atlas at `/resourcepacks/reviews?feature=bridge-lantern`.

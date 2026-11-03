@@ -231,6 +231,9 @@ test('item map opens vertical paths and shared recipes remain inspectable', asyn
   )
   await expect(page.locator('#graph-route-view')).toHaveValue('path')
   await expect(page.locator('#graph-relation')).toBeDisabled()
+  await expect(
+    page.locator('#graph-node option[value^="atlas:"]').first(),
+  ).toBeAttached()
   const capability = await page
     .locator('#graph-node option')
     .evaluateAll(
@@ -291,8 +294,25 @@ test('recipe nodes are interactive and keep disclosure state across culling', as
   await page.goto('/')
   await page.locator('#search').fill('reliable_gliders:glider')
   await page.locator('#grid .cell').click()
+  await expect(page.locator('#detail h2')).toHaveText('Glider')
+  const entered = Promise.withResolvers(),
+    release = Promise.withResolvers()
+  await page.route(
+    '**/generated/details/reliable_gliders/*.json',
+    async (route) => {
+      entered.resolve()
+      await release.promise
+      await route.fallback()
+    },
+  )
   await page.locator('#view-item-route').click()
+  await entered.promise
   const canvas = page.locator('#graph-canvas')
+  try {
+    await expect(canvas).toHaveAttribute('data-scene-nodes', '0')
+  } finally {
+    release.resolve()
+  }
   const node = canvas
     .locator('.react-flow__node')
     .filter({ has: page.locator('[data-recipe="reliable_gliders:glider"]') })

@@ -5,6 +5,7 @@ import copy
 import hashlib
 import json
 from pathlib import Path
+from dataclasses import dataclass
 import sys
 
 from model_authoring import require, resource
@@ -13,6 +14,15 @@ from object_inputs import load_layers, resolve_jem, materialize_candidates
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / 'web/public/generated/objects'
+
+
+@dataclass(frozen=True)
+class Context:
+    root: Path
+    web: Path
+    output: Path
+    native: Path
+    textures: Path
 
 
 def encode(value):
@@ -59,13 +69,13 @@ def state_models(data):
     return 'unsupported state definition', []
 
 
-def catalogue(admitted):
-    recipes = json.loads((ROOT / 'authoring/model-recipes.json').read_text())['recipes']
-    texture_records = json.loads((ROOT / 'authoring/texture-resources.json').read_text())['resources']
-    selections = json.loads((ROOT / 'authoring/resource-selections.json').read_text())['selections']
-    object_records = json.loads((ROOT / 'authoring/resource-objects.json').read_text())
+def catalogue(admitted, context):
+    recipes = json.loads((context.root / 'authoring/model-recipes.json').read_text())['recipes']
+    texture_records = json.loads((context.root / 'authoring/texture-resources.json').read_text())['resources']
+    selections = json.loads((context.root / 'authoring/resource-selections.json').read_text())['selections']
+    object_records = json.loads((context.root / 'authoring/resource-objects.json').read_text())
     entity_records = object_records['entities']
-    registries = {kind: {entry['id'] for entry in json.loads((ROOT / f'web/data/generated/runtime/{kind}.json').read_text())}
+    registries = {kind: {entry['id'] for entry in json.loads((context.web / f'data/generated/runtime/{kind}.json').read_text())}
                   for kind in ('blocks', 'entities')}
     recipe_outputs = {recipe['output']: recipe for recipe in recipes}
     named_blocks = {block for selection in selections for block in selection.get('blocks', [])}
@@ -108,7 +118,7 @@ def catalogue(admitted):
                     entry['cases'].append({'id': 'fixed-' + str(index), 'label': state_name or 'Fixed model',
                                            'model': namespaced(leaf['model']), 'rotation': [leaf.get('x', 0), leaf.get('y', 0)],
                                            'uvlock': leaf.get('uvlock', False), 'properties': dict(part.split('=',1) for part in state_name.split(',') if '=' in part)})
-    previews = json.loads((ROOT / 'web/public/generated/texture-resources/index.json').read_text())['resources']
+    previews = json.loads((context.textures).read_text())['resources']
     for record in texture_records:
         for identifier in record.get('objects', []):
             entry = subject('block', identifier, record['source'])
@@ -121,6 +131,8 @@ def catalogue(admitted):
             entry['cases'].append({'id': record['id'], 'label': record['variant'], 'textureResource': record['id'],
                                     **({'recipe': recipe_outputs[record['model']]['id']} if record.get('model') else {})})
     for record in entity_records:
+        if record['source'] != 'minecraft' and record['source'] not in admitted['native']:
+            continue
         entry = subject('entity', record['id'], record['source'], record['label'])
         entry['entity'] = record
         entry['cases'] = [{'id': pose, 'label': record.get('cem',{}).get('poseLabel','Factory pose') if pose == 'rest' else 'Look right', 'pose': pose}
@@ -144,7 +156,7 @@ def catalogue(admitted):
     return objects, previews, unassigned
 
 
-def profiles(admitted, entry):
+def profiles(admitted, entry, context):
     origin = entry['origin'].get('source')
     native = ['minecraft'] + ([origin] if origin and origin != 'minecraft' and origin in admitted['layers'] else [])
     result = {
@@ -155,16 +167,16 @@ def profiles(admitted, entry):
     }
     if entry['kind']=='entity' and entry['entity'].get('cem') and 'fresh-animations' in admitted['selected']:
         result['fa-base']={'label':'Fresh Animations base', 'layers':[name for name in admitted['native'] if name!='pack-fixes'] + [name for name in admitted['selected'] if name not in ('resource-patches','fresh-animations-details')]}
-    for candidate in json.loads((ROOT / 'authoring/resource-objects.json').read_text()).get('candidates', []):
+    for candidate in json.loads((context.root / 'authoring/resource-objects.json').read_text()).get('candidates', []):
         if entry['registryId'] in candidate['objects']:
-            selected = any(selection['source'] == candidate['id'].removeprefix('candidate-') and selection['action'] == 'apply' and entry['registryId'] in selection['blocks'] for selection in json.loads((ROOT / 'authoring/resource-selections.json').read_text())['selections'])
+            selected = any(selection['source'] == candidate['id'].removeprefix('candidate-') and selection['action'] == 'apply' and entry['registryId'] in selection['blocks'] for selection in json.loads((context.root / 'authoring/resource-selections.json').read_text())['selections'])
             status = 'selected' if selected else 'defer' if candidate['status'] == 'defer' else 'pending'
             result[candidate['id']] = {'label': candidate['label'] + (' · upstream' if selected else ' · deferred' if status=='defer' else ' · candidate'), 'layers': admitted['native'] + admitted['selected'] + [candidate['id']],
                                        'note': candidate['note'], 'url': candidate['url'], 'version': candidate['version'], 'status': status}
     return result
 
 
-def scene(admitted, entry, case, names, texture_previews, native_models):
+def scene(admitted, entry, case, names, texture_previews, native_models, context):
     require(len(names) <= 192 and len(set(names)) == len(names) and all(name in admitted['layers'] for name in names), 'Invalid resource stack')
     stack = Stack([admitted['layers'][name] for name in names])
     notes = []
@@ -191,8 +203,9 @@ def scene(admitted, entry, case, names, texture_previews, native_models):
         if unsupported and stack.exists(unsupported):
             raise ValueError('This stack uses a CEM model without an admitted static adapter: ' + unsupported)
         if cem and stack.exists(cem['path']):
+            require(bool(native_models), 'Export static client models before previewing this entity')
             require(pose == 'rest', 'The CEM adapter supplies only its explicit inspection stance')
-            cached = json.loads((ROOT / 'web/.cache/resource-exporter/cem-inputs.json').read_text())
+            cached = json.loads((context.native / 'cem-inputs.json').read_text())
             current = {'rig': resolve_jem(stack, cem['path']), 'pose': cem['pose'], 'factory':record['nativeModel'], 'adapter':cem['adapter'], 'hiddenParts':cem.get('hiddenParts',[])}
             matching = [record['id'] + '@' + candidate for candidate in ('pack', 'selected', 'fa-base')
                         if cached.get(record['id'] + '@' + candidate) == current]
@@ -259,12 +272,12 @@ def scene(admitted, entry, case, names, texture_previews, native_models):
     return preview, stack.evidence(), list(dict.fromkeys(notes))
 
 
-def externalize(preview):
+def externalize(preview, context):
     for texture in [*preview['textures'].values(), preview['texture']]:
         if not texture['url'].startswith('data:'): continue
         raw = base64.b64decode(texture['url'].split(',', 1)[1])
         digest = hashlib.sha256(raw).hexdigest()
-        path = OUT / 'textures' / (digest + '.png')
+        path = context.output / 'textures' / (digest + '.png')
         path.parent.mkdir(parents=True, exist_ok=True)
         if not path.exists(): path.write_bytes(raw)
         texture['url'] = '/generated/objects/textures/' + path.name
@@ -272,39 +285,59 @@ def externalize(preview):
     return preview
 
 
-def build(custom=None):
+def build(custom=None, *, root=ROOT, web=None, output=None, native=None, textures=None):
+    web = web or root / 'web'
+    context = Context(root, web, output or web / 'public/generated/objects',
+                      native or web / '.cache/resource-exporter',
+                      textures or web / 'public/generated/texture-resources/index.json')
     source_paths = ['empack.lock','authoring/resource-patches.json','authoring/resource-objects.json',
                     'authoring/model-recipes.json','authoring/texture-resources.json','authoring/resource-selections.json',
                     'overrides/client/options.txt','scripts/resource_stack.py','scripts/object_inputs.py',
                     'scripts/build-resource-objects.py','scripts/resource_assets.py','scripts/model_authoring.py','scripts/cem_geometry.py','scripts/texture_resources.py','scripts/model_transforms.py']
-    source_snapshot = {name: (ROOT / name).read_bytes() for name in source_paths}
+    source_snapshot = {name: (context.root / name).read_bytes() for name in source_paths}
+    auxiliary = {file: file.read_bytes() for file in [
+        context.textures, context.web / 'data/generated/runtime/blocks.json',
+        context.web / 'data/generated/runtime/entities.json',
+        *[context.native / name for name in ('native-models.json', 'inputs.json', 'cem-inputs.json')
+          if (context.native / name).is_file()]]}
     def stable():
-        require(all((ROOT / name).read_bytes() == content for name, content in source_snapshot.items()),
+        require(all(file.read_bytes() == data for file, data in auxiliary.items()),
+                'Object projection inputs changed during generation')
+        require(all((context.root / name).read_bytes() == content for name, content in source_snapshot.items()),
                 'Object inputs changed during preview generation; refresh to use one source snapshot')
-    admitted = load_layers(ROOT)
-    objects, texture_previews, unassigned = catalogue(admitted)
-    native_file = ROOT / 'web/.cache/resource-exporter/native-models.json'
+    admitted = load_layers(context.root, web=context.web)
+    objects, texture_previews, unassigned = catalogue(admitted, context)
+    native_file = context.native / 'native-models.json'
     native_bytes = native_file.read_bytes() if native_file.exists() else b''
     native_models = json.loads(native_bytes)['models'] if native_bytes else {}
     native_status = []
-    manifest_file = ROOT / 'web/.cache/resource-exporter/inputs.json'
+    manifest_file = context.native / 'inputs.json'
     if native_models:
         metadata = json.loads(manifest_file.read_text()) if manifest_file.exists() else {}
-        current_source = hashlib.sha256((ROOT / 'web/tools/resource-exporter/StaticModels.java').read_bytes()).hexdigest()
-        local_file = ROOT / 'web/data/local.json'
-        local = json.loads(local_file.read_text()) if local_file.exists() else {}
-        mapped = Path(local['mappedClient']).expanduser() if local.get('mappedClient') else ROOT / '.cache/resource-inputs/mapped-client.jar'
-        if not mapped.is_absolute(): mapped = ROOT / 'web' / mapped
+        current_source = hashlib.sha256((context.web / 'tools/resource-exporter/StaticModels.java').read_bytes()).hexdigest()
+        current_exporter = hashlib.sha256((context.web / 'scripts/export-models.py').read_bytes()).hexdigest()
+        sys.path.insert(0, str(context.web / 'scripts'))
+        from paths import paths as configured_paths
+        configured = configured_paths(context.web)
+        mapped = configured.get('mappedClient', context.root / '.cache/resource-inputs/mapped-client.jar')
         mapped_hash = hashlib.sha256(mapped.read_bytes()).hexdigest() if mapped.is_file() else None
-        confectionery = next(item['sha256'] for item in admitted['inputs'] if item['id'] == 'create-confectionery')
-        if metadata.get('mappedClientSha256') != mapped_hash or metadata.get('modelsSha256') != hashlib.sha256(native_bytes).hexdigest() or metadata.get('sourceSha256') != current_source or metadata.get('entitySourceSha256') != hashlib.sha256(encode(json.loads((ROOT / 'authoring/resource-objects.json').read_text())['entities'])).hexdigest() or metadata.get('confectionerySha256') != confectionery or metadata.get('minecraft') != admitted['runtime']['minecraft'] or metadata.get('loader') != admitted['runtime']['loader-version']:
+        if metadata.get('mappedClientSha256') != mapped_hash or metadata.get('modelsSha256') != hashlib.sha256(native_bytes).hexdigest() or metadata.get('sourceSha256') != current_source or metadata.get('exporterSha256') != current_exporter or metadata.get('entitySourceSha256') != hashlib.sha256(encode(json.loads((context.root / 'authoring/resource-objects.json').read_text())['entities'])).hexdigest() or metadata.get('minecraft') != admitted['runtime']['minecraft'] or metadata.get('loader') != admitted['runtime']['loader-version']:
             native_models = {}
             native_status.append('Static model source changed; run the static model export job before using mob previews.')
+        else:
+            confectionery = next((item['sha256'] for item in admitted['inputs'] if item['id'] == 'create-confectionery'), None)
+            expected = metadata.get('optionalInputs', {}).get('create-confectionery')
+            if confectionery is None or expected != confectionery:
+                native_models = {key: value for key, value in native_models.items() if not key.startswith('create_confectionery:')}
+                if confectionery is not None:
+                    native_status.append('Confectionery model input changed; re-export its static factory. Vanilla factories remain available.')
 
-    stamp = hashlib.sha256(encode({'inputs': admitted['inputs'], 'objects': (ROOT / 'authoring/resource-objects.json').read_text(),
-                                  'recipes': (ROOT / 'authoring/model-recipes.json').read_text(),
+    stamp = hashlib.sha256(encode({'inputs': [{'id': item['id'], 'sha256': item['sha256']} for item in admitted['inputs']], 'objects': (context.root / 'authoring/resource-objects.json').read_text(),
+                                  'recipes': (context.root / 'authoring/model-recipes.json').read_text(),
                                   'adapters': {name: hashlib.sha256(value).hexdigest() for name, value in source_snapshot.items() if name.endswith('.py')},
-                                  'textures': (ROOT / 'authoring/texture-resources.json').read_text(),
+                                  'textures': (context.root / 'authoring/texture-resources.json').read_text(),
+                                  'texturesProjection': hashlib.sha256(auxiliary[context.textures]).hexdigest(),
+                                  'runtimeRecords': {name: hashlib.sha256(auxiliary[context.web / f'data/generated/runtime/{name}.json']).hexdigest() for name in ('blocks', 'entities')},
                                   'native': hashlib.sha256(native_bytes).hexdigest() if native_bytes else None})).hexdigest()
     if custom is not None:
         require(set(custom) == {'object', 'case', 'layers'}, 'Expected object, case, and layers')
@@ -312,21 +345,21 @@ def build(custom=None):
         entry = objects[custom['object']]
         case = next((case for case in entry['cases'] if case['id'] == custom['case']), None)
         require(case is not None and isinstance(custom['layers'], list), 'Unknown object case or stack')
-        preview, evidence, notes = scene(admitted, entry, case, custom['layers'], texture_previews, native_models)
+        preview, evidence, notes = scene(admitted, entry, case, custom['layers'], texture_previews, native_models, context)
         stable()
-        return {'preview': externalize(preview), 'evidence': evidence, 'notes': notes, 'fingerprint': stamp}
+        return {'preview': externalize(preview, context), 'evidence': evidence, 'notes': notes, 'fingerprint': stamp}
     total = 0
     for entry in objects.values():
-        entry['profiles'] = profiles(admitted, entry)
+        entry['profiles'] = profiles(admitted, entry, context)
         distinct = set()
         for case in entry['cases']:
             case['previews'] = {}
             for profile, definition in entry['profiles'].items():
                 try:
-                    preview, evidence, notes = scene(admitted, entry, case, definition['layers'], texture_previews, native_models)
+                    preview, evidence, notes = scene(admitted, entry, case, definition['layers'], texture_previews, native_models, context)
                     digest = preview_digest(preview)
                     output = 'previews/' + hashlib.sha256((entry['id'] + case['id'] + profile + stamp).encode()).hexdigest() + '.json'
-                    write(OUT / output, {'preview': externalize(preview), 'evidence': evidence, 'notes': notes, 'fingerprint': stamp})
+                    write(context.output / output, {'preview': externalize(preview, context), 'evidence': evidence, 'notes': notes, 'fingerprint': stamp})
                     case['previews'][profile] = {'url': '/generated/objects/' + output, 'digest': digest, 'supported': True,
                                                    'resourceDigest': hashlib.sha256(encode([(row['path'], next((c['sha256'] for c in row['contributors'] if c['id']==row['winner']), None)) for row in evidence])).hexdigest()}
                     distinct.add(digest)
@@ -338,17 +371,17 @@ def build(custom=None):
         entry['changed'] = any(case['changed'] for case in entry['cases'])
         entry['supported'] = any(value['supported'] for case in entry['cases'] for value in case['previews'].values())
         entry['contributors'] = sorted({contributor['winner'] for case in entry['cases'] for profile, value in case['previews'].items()
-                                        if value['supported'] for contributor in json.loads((ROOT / 'web/public' / value['url'].lstrip('/')).read_text())['evidence']
+                                        if value['supported'] for contributor in json.loads((context.output / value['url'].removeprefix('/generated/objects/')).read_text())['evidence']
                                         if contributor['winner']})
     index = {'schema': 1, 'fingerprint': stamp, 'objects': sorted(objects.values(), key=lambda entry: (entry['kind'], entry['origin']['id'], entry['label'], entry['id'])),
-             'defaultRecipe': json.loads((ROOT / 'authoring/model-recipes.json').read_text())['recipes'][0]['id'],
-             'defaultTexture': json.loads((ROOT / 'authoring/texture-resources.json').read_text())['resources'][0]['id'],
+             **({'defaultRecipe': recipes[0]['id']} if (recipes := json.loads((context.root / 'authoring/model-recipes.json').read_text())['recipes']) else {}),
+             **({'defaultTexture': records[0]['id']} if (records := json.loads((context.root / 'authoring/texture-resources.json').read_text())['resources']) else {}),
              'unassigned': unassigned,
              'nativeDiagnostics': native_status,
              'layers': [{'id': layer.id, 'label': layer.label, 'kind': layer.kind, 'sha256': layer.sha256, 'archiveSha256': layer.archive_sha256, 'file': layer.filename, 'version': layer.version, 'warnings': layer.warnings}
                         for layer in admitted['layers'].values()], 'runtime': admitted['runtime']}
     stable()
-    write(OUT / 'index.json', index)
+    write(context.output / 'index.json', index)
     print(f'{len(objects)} objects; {total} static previews; {len(unassigned)} explicitly unassigned model recipes')
     return index
 
@@ -357,11 +390,24 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--stdin', action='store_true')
     parser.add_argument('--materialize-inputs', action='store_true')
+    parser.add_argument('--root', type=Path, default=ROOT)
+    parser.add_argument('--web', type=Path)
+    parser.add_argument('--output', type=Path)
+    parser.add_argument('--native-inputs', type=Path)
+    parser.add_argument('--texture-index', type=Path)
     args = parser.parse_args()
     try:
-        if args.materialize_inputs: print(f'{materialize_candidates(ROOT)} pinned candidate inputs ready')
-        elif args.stdin: print(json.dumps(build(json.load(sys.stdin))))
-        else: build()
+        if args.materialize_inputs:
+            print(f'{materialize_candidates(args.root, output=args.output)} pinned candidate inputs ready')
+        else:
+            result = build(json.load(sys.stdin) if args.stdin else None, root=args.root, web=args.web,
+                           output=args.output, native=args.native_inputs, textures=args.texture_index)
+            if args.stdin:
+                if args.output:
+                    write(args.output / 'preview.json', result)
+                    print('Object preview generated')
+                else:
+                    print(json.dumps(result))
     except (ValueError, KeyError) as error:
         print(str(error), file=sys.stderr)
         sys.exit(2)

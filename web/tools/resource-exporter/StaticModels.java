@@ -167,14 +167,16 @@ public final class StaticModels {
     }
 
     public static void main(String[] args) throws Exception {
-        if (args.length != 1) throw new IllegalArgumentException("Expected the fixed job output directory");
+        if (args.length < 1 || args.length > 2 || (args.length == 2 && !args[1].equals("--confectionery")))
+            throw new IllegalArgumentException("Expected output directory and an optional admitted factory flag");
         Map<String, LayerDefinition> layers = new LinkedHashMap<>();
         layers.put("minecraft:cow", CowModel.createBodyLayer());
         layers.put("minecraft:creeper", CreeperModel.createBodyLayer(CubeDeformation.NONE));
         layers.put("minecraft:pig", PigModel.createBodyLayer(CubeDeformation.NONE));
         layers.put("minecraft:chicken", ChickenModel.createBodyLayer());
-        layers.put("create_confectionery:little_gingerbread_man", (LayerDefinition) Class.forName(
-                "net.mcreator.createconfectionery.client.model.Modelgingerbread_man").getMethod("createBodyLayer").invoke(null));
+        if (args.length == 2)
+            layers.put("create_confectionery:little_gingerbread_man", (LayerDefinition) Class.forName(
+                    "net.mcreator.createconfectionery.client.model.Modelgingerbread_man").getMethod("createBodyLayer").invoke(null));
         Map<String, Object> result = new LinkedHashMap<>();
         for (var entry : layers.entrySet()) {
             ModelPart root = entry.getValue().bakeRoot();

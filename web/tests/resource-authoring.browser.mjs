@@ -102,15 +102,17 @@ test('texture rebuild uses the named job and rejects arbitrary inputs', async ({
     'Modpack changes · preview current',
   )
   const result = await page.evaluate(async () => {
-    const response = await fetch('/__atlas/textures/generate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ path: '/tmp/unwanted' }),
-    })
-    return { status: response.status, body: await response.json() }
+    const { workspaceClient } = await import('/src/lib/workspace/client.ts')
+    try {
+      await workspaceClient.command('textures.generate', {
+        path: '/tmp/unwanted',
+      })
+    } catch (error) {
+      return error.failure
+    }
   })
-  expect(result.status).toBe(400)
-  expect(result.body.error).toBe('Texture generation accepts no inputs')
+  expect(result.code).toBe('INVALID_INPUT')
+  expect(result.message).toBe('Invalid operation input')
 })
 
 test('unchanged textures have no preview switch', async ({ page }) => {

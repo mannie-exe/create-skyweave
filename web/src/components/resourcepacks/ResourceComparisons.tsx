@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Button from '../ui/Button'
 import Field from '../ui/Field'
 import Feedback from '../ui/Feedback'
 import ImageComparison from './ImageComparison'
 import { requestJSON } from '../../lib/http'
-import { refreshActivity } from '../../lib/activity'
+import { observeWorkspaceChanges } from '../../lib/workspace/changes'
 import type {
   comparisons as catalogue,
   approvedSelections,
@@ -13,6 +13,8 @@ type ResourceComparison = (typeof catalogue)[number]
 
 type Draft = { preference: string; notes: string }
 type Snapshot = {
+  catalogue?: ResourceComparison[]
+  selections?: typeof approvedSelections
   document: {
     schema: number
     reviews: Record<string, Draft & { evidence: string }>
@@ -39,8 +41,8 @@ function selection(comparisons: ResourceComparison[]) {
 }
 
 export default function ResourceComparisons({
-  comparisons,
-  selections,
+  comparisons: initialComparisons,
+  selections: initialSelections,
   initial,
   editable,
 }: {
@@ -49,6 +51,8 @@ export default function ResourceComparisons({
   initial: Snapshot
   editable: boolean
 }) {
+  const [comparisons, setComparisons] = useState(initialComparisons)
+  const [selections, setSelections] = useState(initialSelections)
   const [chosen, setChosen] = useState(() => selection(comparisons))
   const featureId = chosen.feature
   const feature = comparisons.find((item) => item.id === featureId)!
@@ -78,6 +82,25 @@ export default function ResourceComparisons({
   ]
   const anyChanged = Object.entries(drafts).some(([id, value]) =>
     dirty(value, snapshot.document.reviews[id]),
+  )
+  const live = useRef({ anyChanged, busy })
+  live.current = { anyChanged, busy }
+  useEffect(
+    () =>
+      observeWorkspaceChanges({
+        sources: (id) =>
+          ['reviews', 'review-media', 'resource-selections'].includes(id),
+        changed() {
+          if (live.current.anyChanged || live.current.busy) {
+            setFeedback({
+              message:
+                'Saved reviews or evidence changed. Your drafts are preserved; reload when ready.',
+              error: true,
+            })
+          } else void reload(false)
+        },
+      }),
+    [],
   )
   const preferenceLabel = (value: string) =>
     feature.captures
@@ -111,7 +134,13 @@ export default function ResourceComparisons({
   async function reload(announce = true) {
     setBusy(true)
     try {
-      setSnapshot(await requestJSON('/__atlas/resource-reviews'))
+      const value: Snapshot = await requestJSON('/__atlas/resource-reviews')
+      setSnapshot(value)
+      if (value.catalogue?.length) {
+        setComparisons(value.catalogue)
+        setChosen(selection(value.catalogue))
+      }
+      if (value.selections) setSelections(value.selections)
       if (announce)
         setFeedback({
           message: 'Saved reviews reloaded. Your drafts are unchanged.',
@@ -153,7 +182,6 @@ export default function ResourceComparisons({
       setFeedback({ message: (error as Error).message, error: true })
     } finally {
       setBusy(false)
-      refreshActivity()
     }
   }
   const reviewNotes = (

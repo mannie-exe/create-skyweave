@@ -17,7 +17,7 @@ export function inspectGraphItem(id: string) {
 export function createGraph(inspect: (id: string) => void) {
   inspector = inspect
   return {
-    load: () => ready.then((api) => api.load()),
+    load: (refresh = false) => ready.then((api) => api.load(refresh)),
     openItem: (id: string, path = false, policy = 'planned') => {
       void ready.then((api) => api.openItem(id, path, policy))
     },

@@ -21,9 +21,11 @@ class PrefixArchive:
         return self.archive.read(self.prefix + path)
 
 
-def load_layers(root):
-    definitions = json.loads(subprocess.check_output(['node', str(root / 'web/scripts/resource-inputs.mjs'), str(root)], text=True))
-    require(definitions['runtime']['minecraft'] == '1.21.1', 'Object resource adapters currently target Minecraft 1.21.1 / resource format 34')
+def load_layers(root, definitions=None, web=None, review_inputs=True):
+    if definitions is None:
+        definitions = json.loads(subprocess.check_output(['node', str((web or root / 'web') / 'scripts/resource-inputs.mjs'), str(root)], text=True))
+    require(definitions['runtime'].get('minecraft') == '1.21.1' and definitions['runtime'].get('loader') == 'neoforge',
+            'Object resource adapters currently target Minecraft 1.21.1 / NeoForge / resource format 34')
     pins = json.loads((root / 'authoring/resource-patches.json').read_text())['sources']
     layers, native, selected, inputs, owners = {}, [], [], [], {}
     fusion = any(item['id'] == 'fusion-connected-textures' for item in definitions['inputs'])
@@ -96,10 +98,10 @@ def load_layers(root):
             raise ValueError(f'Missing selected client resource: {entry}')
     # Build-only donors are preview candidates, never implicitly enabled packs.
     for key, source in pins.items():
-        if source.get('selection') == 'build-only' and key not in layers:
+        if review_inputs and source.get('selection') == 'build-only' and key not in layers:
             archive_layer(key, root / source['path'], key, 'candidate', {'digests': {'sha512': source['sha512']}}).close()
             layers[key].version = source['version']
-    for candidate in json.loads((root / 'authoring/resource-objects.json').read_text()).get('candidates', []):
+    for candidate in json.loads((root / 'authoring/resource-objects.json').read_text()).get('candidates', []) if review_inputs else []:
         key = candidate['id']
         require(key not in layers, 'Duplicate candidate input')
         path = root / candidate['path']
@@ -139,7 +141,7 @@ def resolve_jem(stack, path, trail=()):
     return node(data)
 
 
-def materialize_candidates(root):
+def materialize_candidates(root, output=None):
     """Fetch only authored, hash-pinned preview inputs; never enable a pack."""
     import tempfile
     from urllib.parse import urlparse
@@ -152,12 +154,17 @@ def materialize_candidates(root):
         require(type(candidate['size']) is int and 0 < candidate['size'] <= 64*1024*1024, 'Candidate exceeds download limit')
         if path.is_file():
             require(hashlib.sha512(path.read_bytes()).hexdigest() == candidate['sha512'], 'Changed candidate input: ' + candidate['id'])
-            continue
-        url = urlparse(candidate['download'])
-        require(url.scheme == 'https' and url.hostname == 'cdn.modrinth.com', 'Candidate download must use the pinned Modrinth CDN')
-        with urlopen(Request(candidate['download'], headers={'User-Agent':'CreateSkyAtlas/1.0'}), timeout=60) as response:
-            raw = response.read(candidate['size']+1)
+            if output is None:
+                continue
+            raw = path.read_bytes()
+        else:
+            url = urlparse(candidate['download'])
+            require(url.scheme == 'https' and url.hostname == 'cdn.modrinth.com', 'Candidate download must use the pinned Modrinth CDN')
+            with urlopen(Request(candidate['download'], headers={'User-Agent':'CreateSkyAtlas/1.0'}), timeout=60) as response:
+                raw = response.read(candidate['size']+1)
         require(len(raw) == candidate['size'] and hashlib.sha512(raw).hexdigest() == candidate['sha512'], 'Changed candidate download: ' + candidate['id'])
+        if output is not None:
+            folder, path = output, output / path.name
         folder.mkdir(parents=True, exist_ok=True)
         with tempfile.NamedTemporaryFile(dir=folder, delete=False) as pending:
             temporary = Path(pending.name)

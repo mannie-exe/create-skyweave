@@ -1,5 +1,6 @@
 import { selectSource } from './object-workbench.mjs'
 import { test, expect } from '@playwright/test'
+import { recordWorkspaceWrites } from './workspace-fixture.mjs'
 
 async function open(page, layout = 'inline') {
   await page.goto(`/model-authoring?recipe=lootr-barrel-clasps`)
@@ -30,6 +31,7 @@ test('material tools alter explicit masks and retain drafts without writing sour
 }) => {
   const mutations = [],
     errors = []
+  recordWorkspaceWrites(page, mutations)
   page.on('request', (request) => {
     if (/\/__atlas\/models\/(save|generate)$/.test(request.url()))
       mutations.push(request.url())
@@ -37,10 +39,12 @@ test('material tools alter explicit masks and retain drafts without writing sour
   page.on('pageerror', (error) => errors.push(error.message))
   await open(page)
   const initialCount = parseInt(await page.locator('#mask-status').innerText())
-  const sourceResponse = await page.request.get('/__atlas/models')
-  const source = await sourceResponse.json()
-  const dataUrl = source.previews.find((p) => p.id === 'lootr-barrel-clasps')
-    .texture.url
+  const dataUrl = await page.evaluate(async () => {
+    const { requestJSON } = await import('/src/lib/http.ts')
+    const source = await requestJSON('/__atlas/models')
+    return source.previews.find((p) => p.id === 'lootr-barrel-clasps').texture
+      .url
+  })
   const expected = await page.evaluate(async (url) => {
     const image = new Image()
     image.src = url
@@ -223,20 +227,51 @@ test('ordered texture regions update artwork and models without publishing', asy
 test('preview spinners cover queued work and clear after success or failure', async ({
   page,
 }) => {
+  let mode = 'pass',
+    session
+  let release
+  const gate = new Promise((resolve) => {
+    release = resolve
+  })
+  await page.routeWebSocket('**/__atlas/ws', (socket) => {
+    const server = socket.connectToServer()
+    server.onMessage((message) => {
+      const frame = JSON.parse(String(message))
+      if (frame.type === 'welcome') session = frame.session
+      socket.send(message)
+    })
+    socket.onMessage(async (message) => {
+      const frame = JSON.parse(String(message))
+      if (frame.type === 'command' && frame.operation === 'models.preview') {
+        if (mode === 'delay') await gate
+        if (mode === 'fail') {
+          socket.send(
+            JSON.stringify({
+              v: 1,
+              type: 'error',
+              session,
+              requestId: frame.requestId,
+              commandId: frame.commandId,
+              error: {
+                code: 'GENERATION_FAILED',
+                message: 'Preview unavailable',
+                recovery: 'after-refresh',
+              },
+            }),
+          )
+          return
+        }
+      }
+      server.send(message)
+    })
+  })
   await open(page)
   const surfaces = ['model', 'texture'].map((kind) =>
     page.locator(`#${kind}-preview-surface`),
   )
   for (const surface of surfaces)
     await expect(surface).toHaveAttribute('aria-busy', 'false')
-  let release
-  const gate = new Promise((resolve) => {
-    release = resolve
-  })
-  await page.route('**/__atlas/models/preview', async (route) => {
-    await gate
-    await route.continue()
-  })
+  mode = 'delay'
   try {
     await page.locator('#model-depth').fill('0.75')
     for (const surface of surfaces) {
@@ -253,14 +288,7 @@ test('preview spinners cover queued work and clear after success or failure', as
   }
   for (const surface of surfaces)
     await expect(surface).toHaveAttribute('aria-busy', 'false')
-  await page.unroute('**/__atlas/models/preview')
-  await page.route('**/__atlas/models/preview', (route) =>
-    route.fulfill({
-      status: 503,
-      contentType: 'application/json',
-      body: JSON.stringify({ error: 'Preview unavailable' }),
-    }),
-  )
+  mode = 'fail'
   await page.locator('#model-depth').fill('1')
   await expect(page.locator('#models-status')).toContainText(
     'Preview unavailable',

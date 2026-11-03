@@ -36,6 +36,30 @@
       "context": "Resource Review revision 10; MC 1.21.1 / NeoForge 21.1.264; selected generated resource ZIP; shaders off. Static fixture verification, not gameplay or animation testing.",
       "evidence": "docs/development/web/verification.md#selected-resources-and-fixture-2026-11-02",
       "patchSha256": "f6a85f4069252c3e81755a40d1be9cea90dadb5fd22edec1dfa0d7e1d52c99e9"
+    },
+    "repairs-20261102": {
+      "date": "2026-11-02",
+      "context": "Create Sky 0.1.31 with uncommitted resource repairs; Minecraft 1.21.1 / NeoForge 21.1.264. Native fixture revisions 10 and 12; each matched pair uses the same fixture, camera and shader state. Rotation is a review-only treatment. Capture sidecars record effective packs and conditions.",
+      "evidence": "docs/development/compatibility.md#resource-rendering-repairs",
+      "packRevision": "06b5a3986ad24cad98ce0ab11857375d84020504"
+    },
+    "lantern-hanging-20261103": {
+      "date": "2026-11-03",
+      "context": "Isolated Minecraft 1.21.1 / NeoForge 21.1.264; shaders off, noon. Approved sloped hanging appearance; flat bridge restored to its regular standing lantern. Native interaction bounds remain pending.",
+      "evidence": "docs/development/web/verification.md#hanging-bridge-lanterns-2026-11-03",
+      "packRevision": "06b5a3986ad24cad98ce0ab11857375d84020504"
+    },
+    "window-boundaries-20261103": {
+      "date": "2026-11-03",
+      "context": "Minecraft 1.21.1 / NeoForge 21.1.264, Fusion 1.3.16, shaders off. Matched native control, old unconditional workaround and conditional added-face prototype. The prototype restores native base models; only the three Create framed-glass variants receive conditional faces. Added-face CT remains unresolved.",
+      "evidence": "docs/development/web/verification.md#conditional-window-faces-2026-11-03",
+      "packRevision": "06b5a3986ad24cad98ce0ab11857375d84020504"
+    },
+    "window-culling-20261103": {
+      "date": "2026-11-03",
+      "context": "Create Sky 0.1.31 with native window definitions; Compat 0.15.0 candidate 057777a29e61d58a8500c52cf19d29b51e6bbcaa99cc6a753eb50d5deb51107d. Same JAR and camera, adapters disabled/enabled, shaders off. Views are from inside the covering glass block.",
+      "evidence": "docs/development/web/verification.md#glass-culling-adapters-2026-11-03",
+      "packRevision": "06b5a3986ad24cad98ce0ab11857375d84020504"
     }
   },
   "media": [
@@ -2362,6 +2386,1185 @@
       "caption": "Selected 3D Vanilla loom; shaders off.",
       "sha256": "bc7e0da6c3d5cf5e8542c02aaee63375cbbe58dca8f2c8716e8abb2320868933",
       "source": "harness/images/2026-11-02-selected/studio-loom.png"
+    },
+    {
+      "id": "repairs-20261102-repair-bridge-close-bridge-baseline-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-bridge-close-bridge-baseline-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Superseded",
+      "caption": "Superseded yaw study; the requested change is pitch along the stair walking slope.",
+      "sha256": "154a39bc5e65eb24d33d5320aa16ee37680059f71ba3531765fb57832812b8d4",
+      "source": "harness/images/2026-11-02-repairs/repair-bridge-close-bridge-baseline-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-repair-bridge-close-bridge-bridge-lantern-45-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-bridge-close-bridge-bridge-lantern-45-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Superseded",
+      "caption": "Superseded yaw study; the requested change is pitch along the stair walking slope.",
+      "sha256": "75e761f202771e4a556bb1903cce057aa6abe32191132cc05a6a978cf56cbf2a",
+      "source": "harness/images/2026-11-02-repairs/repair-bridge-close-bridge-bridge-lantern-45-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-comparison-bridge-lantern-bridge",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/comparison-bridge-lantern-bridge.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Superseded",
+      "caption": "Superseded yaw study; the requested change is pitch along the stair walking slope.",
+      "sha256": "154a39bc5e65eb24d33d5320aa16ee37680059f71ba3531765fb57832812b8d4",
+      "source": "harness/images/2026-11-02-repairs/repair-bridge-close-bridge-baseline-plain.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "repairs-20261102/repair-bridge-close-bridge-baseline-plain.png"
+        },
+        {
+          "label": "B · 45° rotation",
+          "file": "repairs-20261102/repair-bridge-close-bridge-bridge-lantern-45-plain.png"
+        }
+      ],
+      "width": 2560,
+      "height": 1656,
+      "gallery": false
+    },
+    {
+      "id": "repairs-20261102-repair-bridge-close-stairs-baseline-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-bridge-close-stairs-baseline-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Superseded",
+      "caption": "Superseded yaw study; the requested change is pitch along the stair walking slope.",
+      "sha256": "94ac0d4ef337372d192454f2eaec8e295e275cf97cec00cfbfe3e009ae9ce37e",
+      "source": "harness/images/2026-11-02-repairs/repair-bridge-close-stairs-baseline-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-repair-bridge-close-stairs-bridge-lantern-45-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-bridge-close-stairs-bridge-lantern-45-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Superseded",
+      "caption": "Superseded yaw study; the requested change is pitch along the stair walking slope.",
+      "sha256": "344f604e96c8ca9ea938acb4f063625cbad8bd794c887a044c9c205437997448",
+      "source": "harness/images/2026-11-02-repairs/repair-bridge-close-stairs-bridge-lantern-45-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-comparison-bridge-lantern-stairs",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/comparison-bridge-lantern-stairs.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Superseded",
+      "caption": "Superseded yaw study; the requested change is pitch along the stair walking slope.",
+      "sha256": "94ac0d4ef337372d192454f2eaec8e295e275cf97cec00cfbfe3e009ae9ce37e",
+      "source": "harness/images/2026-11-02-repairs/repair-bridge-close-stairs-baseline-plain.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "repairs-20261102/repair-bridge-close-stairs-baseline-plain.png"
+        },
+        {
+          "label": "B · 45° rotation",
+          "file": "repairs-20261102/repair-bridge-close-stairs-bridge-lantern-45-plain.png"
+        }
+      ],
+      "width": 2560,
+      "height": 1656,
+      "gallery": false
+    },
+    {
+      "id": "repairs-20261102-repair-final-unopened-barrel-baseline-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-final-unopened-barrel-baseline-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Current",
+      "caption": "Current",
+      "sha256": "9d8a48029a41d70b835dc666aa2199c43cd3eb3720bbbc37426f44fdc5f9ef1d",
+      "source": "harness/images/2026-11-02-repairs/repair-final-unopened-barrel-baseline-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-repair-final-unopened-barrel-resource-repairs-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-final-unopened-barrel-resource-repairs-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Repaired",
+      "caption": "Repaired",
+      "sha256": "c242048cbbb3f8f560a4001d2524d1295914c5bc68442b89bb86b37ca1c6c8c0",
+      "source": "harness/images/2026-11-02-repairs/repair-final-unopened-barrel-resource-repairs-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-comparison-lootr-repairs-barrel-unopened",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/comparison-lootr-repairs-barrel-unopened.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Comparison",
+      "caption": "Unopened barrel: restored sprites and consistent materials; distinct loot palettes retained. Shaders off.",
+      "sha256": "9d8a48029a41d70b835dc666aa2199c43cd3eb3720bbbc37426f44fdc5f9ef1d",
+      "source": "harness/images/2026-11-02-repairs/repair-final-unopened-barrel-baseline-plain.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "repairs-20261102/repair-final-unopened-barrel-baseline-plain.png"
+        },
+        {
+          "label": "B · Repairs",
+          "file": "repairs-20261102/repair-final-unopened-barrel-resource-repairs-plain.png"
+        }
+      ],
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-repair-final-unopened-trapped-baseline-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-final-unopened-trapped-baseline-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Current",
+      "caption": "Current",
+      "sha256": "626d781105fbd0caacbb8e46d8110c8fc9eb16d5ee07aaef0d8ddfe33e28aef6",
+      "source": "harness/images/2026-11-02-repairs/repair-final-unopened-trapped-baseline-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-repair-final-unopened-trapped-resource-repairs-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-final-unopened-trapped-resource-repairs-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Repaired",
+      "caption": "Repaired",
+      "sha256": "086c5f2ebf2480b2c3db56f10fc31da0a3001f1899c2f0e4b32df79a043a791c",
+      "source": "harness/images/2026-11-02-repairs/repair-final-unopened-trapped-resource-repairs-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-comparison-lootr-repairs-trapped-unopened",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/comparison-lootr-repairs-trapped-unopened.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Comparison",
+      "caption": "Unopened trapped: restored sprites and consistent materials; distinct loot palettes retained. Shaders off.",
+      "sha256": "626d781105fbd0caacbb8e46d8110c8fc9eb16d5ee07aaef0d8ddfe33e28aef6",
+      "source": "harness/images/2026-11-02-repairs/repair-final-unopened-trapped-baseline-plain.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "repairs-20261102/repair-final-unopened-trapped-baseline-plain.png"
+        },
+        {
+          "label": "B · Repairs",
+          "file": "repairs-20261102/repair-final-unopened-trapped-resource-repairs-plain.png"
+        }
+      ],
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-repair-final-looted-barrel-baseline-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-final-looted-barrel-baseline-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Current",
+      "caption": "Current",
+      "sha256": "516c6c9a47b004f7641eed100f07668159c1c8ee06424c64759afcd6b9503c67",
+      "source": "harness/images/2026-11-02-repairs/repair-final-looted-barrel-baseline-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-repair-final-looted-barrel-resource-repairs-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-final-looted-barrel-resource-repairs-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Repaired",
+      "caption": "Repaired",
+      "sha256": "1c82a80c21d33aca3a3bf2cc62f9eec052c505fe665c0c7ed95476f58e6312d9",
+      "source": "harness/images/2026-11-02-repairs/repair-final-looted-barrel-resource-repairs-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-comparison-lootr-repairs-barrel-looted",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/comparison-lootr-repairs-barrel-looted.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Comparison",
+      "caption": "Looted barrel: restored sprites and consistent materials; distinct loot palettes retained. Shaders off.",
+      "sha256": "516c6c9a47b004f7641eed100f07668159c1c8ee06424c64759afcd6b9503c67",
+      "source": "harness/images/2026-11-02-repairs/repair-final-looted-barrel-baseline-plain.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "repairs-20261102/repair-final-looted-barrel-baseline-plain.png"
+        },
+        {
+          "label": "B · Repairs",
+          "file": "repairs-20261102/repair-final-looted-barrel-resource-repairs-plain.png"
+        }
+      ],
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-repair-final-looted-trapped-baseline-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-final-looted-trapped-baseline-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Current",
+      "caption": "Current",
+      "sha256": "330e2fe313e2170669ed9cff8a4a2ddd72ddfbdb506238892e27f90109cad83d",
+      "source": "harness/images/2026-11-02-repairs/repair-final-looted-trapped-baseline-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-repair-final-looted-trapped-resource-repairs-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-final-looted-trapped-resource-repairs-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Repaired",
+      "caption": "Repaired",
+      "sha256": "c4d951dabd5b9411f624a00cd90391c6429c6d5f294037f0247d1805ae8cde53",
+      "source": "harness/images/2026-11-02-repairs/repair-final-looted-trapped-resource-repairs-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-comparison-lootr-repairs-trapped-looted",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/comparison-lootr-repairs-trapped-looted.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Comparison",
+      "caption": "Looted trapped: restored sprites and consistent materials; distinct loot palettes retained. Shaders off.",
+      "sha256": "330e2fe313e2170669ed9cff8a4a2ddd72ddfbdb506238892e27f90109cad83d",
+      "source": "harness/images/2026-11-02-repairs/repair-final-looted-trapped-baseline-plain.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "repairs-20261102/repair-final-looted-trapped-baseline-plain.png"
+        },
+        {
+          "label": "B · Repairs",
+          "file": "repairs-20261102/repair-final-looted-trapped-resource-repairs-plain.png"
+        }
+      ],
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-repair-final-unopened-chest-baseline-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-final-unopened-chest-baseline-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Current",
+      "caption": "Current",
+      "sha256": "a3c06c765a53fa0f128f529b3a33e55c3af22fd89cc9deb2b8abecf90abc442f",
+      "source": "harness/images/2026-11-02-repairs/repair-final-unopened-chest-baseline-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-repair-final-unopened-chest-resource-repairs-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-final-unopened-chest-resource-repairs-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Repaired",
+      "caption": "Repaired",
+      "sha256": "bea4ec09d0115cab081a2a20f4557b7f1311d0cf3d91830d0f2ca0f6553388da",
+      "source": "harness/images/2026-11-02-repairs/repair-final-unopened-chest-resource-repairs-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-comparison-lootr-repairs-normal-control",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/comparison-lootr-repairs-normal-control.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Comparison",
+      "caption": "Normal chest: unchanged artwork control. Shaders off.",
+      "sha256": "a3c06c765a53fa0f128f529b3a33e55c3af22fd89cc9deb2b8abecf90abc442f",
+      "source": "harness/images/2026-11-02-repairs/repair-final-unopened-chest-baseline-plain.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "repairs-20261102/repair-final-unopened-chest-baseline-plain.png"
+        },
+        {
+          "label": "B · Repairs",
+          "file": "repairs-20261102/repair-final-unopened-chest-resource-repairs-plain.png"
+        }
+      ],
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-repair-pot-stems-azalea-baseline-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-pot-stems-azalea-baseline-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Current",
+      "caption": "Current",
+      "sha256": "c3e75aac2181522aafcc9369c7dd9852ff236128b493e2cfa770c00b66646678",
+      "source": "harness/images/2026-11-02-repairs/repair-pot-stems-azalea-baseline-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-repair-pot-stems-azalea-resource-repairs-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-pot-stems-azalea-resource-repairs-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Repaired",
+      "caption": "Repaired",
+      "sha256": "b80fb4749661041e2aad5de971d2783dbbee7fb2f6f7300991ceea130a3bb222",
+      "source": "harness/images/2026-11-02-repairs/repair-pot-stems-azalea-resource-repairs-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-comparison-potted-azalea-azalea",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/comparison-potted-azalea-azalea.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Comparison",
+      "caption": "Selected plant geometry above the Fresh pot and soil. Shaders off.",
+      "sha256": "c3e75aac2181522aafcc9369c7dd9852ff236128b493e2cfa770c00b66646678",
+      "source": "harness/images/2026-11-02-repairs/repair-pot-stems-azalea-baseline-plain.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "repairs-20261102/repair-pot-stems-azalea-baseline-plain.png"
+        },
+        {
+          "label": "B · Repairs",
+          "file": "repairs-20261102/repair-pot-stems-azalea-resource-repairs-plain.png"
+        }
+      ],
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-repair-pot-stems-flowering-baseline-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-pot-stems-flowering-baseline-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Current",
+      "caption": "Current",
+      "sha256": "de8d4bf10a30221b23eeadac4c68642d1c2975817990e6dd8f8647b307f3ace3",
+      "source": "harness/images/2026-11-02-repairs/repair-pot-stems-flowering-baseline-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-repair-pot-stems-flowering-resource-repairs-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-pot-stems-flowering-resource-repairs-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Repaired",
+      "caption": "Repaired",
+      "sha256": "579bc7f7db10e7269121cdb4c02e417b95e3959a9c3aca3c04feb2182d7aa5fd",
+      "source": "harness/images/2026-11-02-repairs/repair-pot-stems-flowering-resource-repairs-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-comparison-potted-azalea-flowering",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/comparison-potted-azalea-flowering.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Comparison",
+      "caption": "Selected plant geometry above the Fresh pot and soil. Shaders off.",
+      "sha256": "de8d4bf10a30221b23eeadac4c68642d1c2975817990e6dd8f8647b307f3ace3",
+      "source": "harness/images/2026-11-02-repairs/repair-pot-stems-flowering-baseline-plain.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "repairs-20261102/repair-pot-stems-flowering-baseline-plain.png"
+        },
+        {
+          "label": "B · Repairs",
+          "file": "repairs-20261102/repair-pot-stems-flowering-resource-repairs-plain.png"
+        }
+      ],
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-repair-glass-framed-baseline-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-glass-framed-baseline-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Current",
+      "caption": "Current",
+      "sha256": "39d828b5f71ce95b36044761cc00ce55e87cd5efbbb7d7b6ff54a63c920b1880",
+      "source": "harness/images/2026-11-02-repairs/repair-glass-framed-baseline-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-repair-final-glass-framed-resource-repairs-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-final-glass-framed-resource-repairs-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Repaired",
+      "caption": "Repaired",
+      "sha256": "020b2ff04f42df8c72968f8a8285cf76b384590935597ed6f67b78da511313d2",
+      "source": "harness/images/2026-11-02-repairs/repair-final-glass-framed-resource-repairs-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-comparison-window-interiors-framed",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/comparison-window-interiors-framed.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Superseded",
+      "caption": "Earlier unconditional workaround; matching-window faces were exposed incorrectly.",
+      "sha256": "39d828b5f71ce95b36044761cc00ce55e87cd5efbbb7d7b6ff54a63c920b1880",
+      "source": "harness/images/2026-11-02-repairs/repair-glass-framed-baseline-plain.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "repairs-20261102/repair-glass-framed-baseline-plain.png"
+        },
+        {
+          "label": "B · Repairs",
+          "file": "repairs-20261102/repair-final-glass-framed-resource-repairs-plain.png"
+        }
+      ],
+      "width": 2560,
+      "height": 1656,
+      "gallery": false
+    },
+    {
+      "id": "repairs-20261102-repair-glass-rechiseled-baseline-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-glass-rechiseled-baseline-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Current",
+      "caption": "Current",
+      "sha256": "8ef077e95073cb38f49ea8eeda07898259a8ce1fee5d8ce2a9bff229ec6036c0",
+      "source": "harness/images/2026-11-02-repairs/repair-glass-rechiseled-baseline-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-repair-final-glass-rechiseled-resource-repairs-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-final-glass-rechiseled-resource-repairs-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Repaired",
+      "caption": "Repaired",
+      "sha256": "f2b232356ff7dc3925735bad41e8acf01126c62d2b19042cc4c000a81c9dd890",
+      "source": "harness/images/2026-11-02-repairs/repair-final-glass-rechiseled-resource-repairs-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-comparison-window-interiors-rechiseled",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/comparison-window-interiors-rechiseled.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Superseded",
+      "caption": "Earlier unconditional workaround; matching-window faces were exposed incorrectly.",
+      "sha256": "8ef077e95073cb38f49ea8eeda07898259a8ce1fee5d8ce2a9bff229ec6036c0",
+      "source": "harness/images/2026-11-02-repairs/repair-glass-rechiseled-baseline-plain.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "repairs-20261102/repair-glass-rechiseled-baseline-plain.png"
+        },
+        {
+          "label": "B · Repairs",
+          "file": "repairs-20261102/repair-final-glass-rechiseled-resource-repairs-plain.png"
+        }
+      ],
+      "width": 2560,
+      "height": 1656,
+      "gallery": false
+    },
+    {
+      "id": "repairs-20261102-repair-glass-pane-baseline-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-glass-pane-baseline-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Current",
+      "caption": "Current",
+      "sha256": "62323b25ea60c3a17c47e61ef4380662c4cf45f8d9c162ffd9a2e77ace439b4f",
+      "source": "harness/images/2026-11-02-repairs/repair-glass-pane-baseline-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-repair-final-glass-pane-resource-repairs-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-final-glass-pane-resource-repairs-plain.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Repaired",
+      "caption": "Repaired",
+      "sha256": "4178882a8e74eef94b4ca97184a2c09fe9b8125c45004e7ce214eb8c7fb3d200",
+      "source": "harness/images/2026-11-02-repairs/repair-final-glass-pane-resource-repairs-plain.png",
+      "gallery": false,
+      "width": 2560,
+      "height": 1656
+    },
+    {
+      "id": "repairs-20261102-comparison-window-interiors-pane",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/comparison-window-interiors-pane.png",
+      "kind": "image",
+      "run": "repairs-20261102",
+      "stage": "Superseded",
+      "caption": "Earlier unconditional workaround; matching-window faces were exposed incorrectly.",
+      "sha256": "62323b25ea60c3a17c47e61ef4380662c4cf45f8d9c162ffd9a2e77ace439b4f",
+      "source": "harness/images/2026-11-02-repairs/repair-glass-pane-baseline-plain.png",
+      "originals": [
+        {
+          "label": "A · Current",
+          "file": "repairs-20261102/repair-glass-pane-baseline-plain.png"
+        },
+        {
+          "label": "B · Repairs",
+          "file": "repairs-20261102/repair-final-glass-pane-resource-repairs-plain.png"
+        }
+      ],
+      "width": 2560,
+      "height": 1656,
+      "gallery": false
+    },
+    {
+      "id": "repairs-20261102-chest-motion-normal",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-chest-motion-normal.mp4",
+      "kind": "video",
+      "run": "repairs-20261102",
+      "stage": "Verified",
+      "caption": "Normal Lootr chest: native closing and Fresh motion after the resource repairs; shaders off.",
+      "sha256": "3b1702847c3774ad28265e4e6c17822328b479fb19701d74d9de57a2262dcb47",
+      "source": "harness/images/2026-11-02-repairs/repair-chest-motion-normal.mp4"
+    },
+    {
+      "id": "repairs-20261102-chest-motion-trapped",
+      "projects": ["create-sky-resource-patches"],
+      "file": "repairs-20261102/repair-chest-motion-trapped.mp4",
+      "kind": "video",
+      "run": "repairs-20261102",
+      "stage": "Verified",
+      "caption": "Trapped Lootr chest: native closing and Fresh motion after the resource repairs; shaders off.",
+      "sha256": "19e9eb3fe82f5180e656180cc2b0104881f4757bd03478555f6f98ca3be1794e",
+      "source": "harness/images/2026-11-02-repairs/repair-chest-motion-trapped.mp4"
+    },
+    {
+      "id": "lantern-hanging-20261103-lantern-hanging-flat-baseline-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "lantern-hanging-20261103/lantern-hanging-flat-baseline-plain.png",
+      "kind": "image",
+      "run": "lantern-hanging-20261103",
+      "stage": "Selected appearance",
+      "caption": "Flat bridge: regular standing lantern retained.",
+      "sha256": "dd0343b2f97f3e28d094f948e9ab1509d4da60b4b6701e5b192473be4be1e642",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-lantern-hanging/lantern-hanging-flat-baseline-plain.png",
+      "gallery": true
+    },
+    {
+      "id": "lantern-hanging-20261103-lantern-hanging-flat-bridge-lantern-hanging-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "lantern-hanging-20261103/lantern-hanging-flat-bridge-lantern-hanging-plain.png",
+      "kind": "image",
+      "run": "lantern-hanging-20261103",
+      "stage": "Review only",
+      "caption": "Flat bridge; B · Hanging. Shaders off.",
+      "sha256": "1e6cb0d11e7af65db8869211f0ae7dec8759a11f8fdf7f5ae7e1cb5759220f51",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-lantern-hanging/lantern-hanging-flat-bridge-lantern-hanging-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "lantern-hanging-20261103-comparison-bridge-lantern-flat",
+      "projects": ["create-sky-resource-patches"],
+      "file": "lantern-hanging-20261103/comparison-bridge-lantern-flat.png",
+      "kind": "image",
+      "run": "lantern-hanging-20261103",
+      "stage": "Comparison",
+      "caption": "Flat bridge decision: retain the standing lantern (A); hanging variant rejected.",
+      "sha256": "dd0343b2f97f3e28d094f948e9ab1509d4da60b4b6701e5b192473be4be1e642",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-lantern-hanging/lantern-hanging-flat-baseline-plain.png",
+      "originals": [
+        {
+          "label": "A · Standing",
+          "file": "lantern-hanging-20261103/lantern-hanging-flat-baseline-plain.png"
+        },
+        {
+          "label": "B · Hanging",
+          "file": "lantern-hanging-20261103/lantern-hanging-flat-bridge-lantern-hanging-plain.png"
+        }
+      ],
+      "gallery": false
+    },
+    {
+      "id": "lantern-hanging-20261103-lantern-hanging-stair-baseline-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "lantern-hanging-20261103/lantern-hanging-stair-baseline-plain.png",
+      "kind": "image",
+      "run": "lantern-hanging-20261103",
+      "stage": "Review only",
+      "caption": "Stair bridge; A · Standing. Shaders off.",
+      "sha256": "4471b344b32a02de80d22c0a71cba7364efd3da64eb946e45e8441eb568aadf6",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-lantern-hanging/lantern-hanging-stair-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "lantern-hanging-20261103-lantern-hanging-stair-bridge-lantern-hanging-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "lantern-hanging-20261103/lantern-hanging-stair-bridge-lantern-hanging-plain.png",
+      "kind": "image",
+      "run": "lantern-hanging-20261103",
+      "stage": "Review only",
+      "caption": "Stair bridge; B · Hanging. Shaders off.",
+      "sha256": "338d3453524cc28b8d482edd4733cfa67d9cfa6238d2efa79cbaf1dc68ebc711",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-lantern-hanging/lantern-hanging-stair-bridge-lantern-hanging-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "lantern-hanging-20261103-comparison-bridge-lantern-stair",
+      "projects": ["create-sky-resource-patches"],
+      "file": "lantern-hanging-20261103/comparison-bridge-lantern-stair.png",
+      "kind": "image",
+      "run": "lantern-hanging-20261103",
+      "stage": "Comparison",
+      "caption": "Sloped bridge decision: use the upright, chain-hung lantern (B). Interaction bounds require adaptation before adoption.",
+      "sha256": "4471b344b32a02de80d22c0a71cba7364efd3da64eb946e45e8441eb568aadf6",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-lantern-hanging/lantern-hanging-stair-baseline-plain.png",
+      "originals": [
+        {
+          "label": "A · Standing",
+          "file": "lantern-hanging-20261103/lantern-hanging-stair-baseline-plain.png"
+        },
+        {
+          "label": "B · Hanging",
+          "file": "lantern-hanging-20261103/lantern-hanging-stair-bridge-lantern-hanging-plain.png"
+        }
+      ]
+    },
+    {
+      "id": "window-boundaries-20261103-window-boundaries-matching-window-native-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-boundaries-20261103/window-boundaries-matching-window-native-plain.png",
+      "kind": "image",
+      "run": "window-boundaries-20261103",
+      "stage": "Investigation",
+      "caption": "matching windows; A · Native.",
+      "sha256": "9b91d76907a9ac789e02858be958a13f9908e3c26da54ed44384c46f7d2bd34d",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-window-boundaries/window-boundaries-matching-window-native-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "window-boundaries-20261103-window-boundaries-matching-window-boundaries-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-boundaries-20261103/window-boundaries-matching-window-boundaries-plain.png",
+      "kind": "image",
+      "run": "window-boundaries-20261103",
+      "stage": "Investigation",
+      "caption": "matching windows; B · Conditional prototype.",
+      "sha256": "867101facacb9c2ecf49770c140b0ae6c86c1e58975368620a9649a6b1df16a8",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-window-boundaries/window-boundaries-matching-window-boundaries-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "window-boundaries-20261103-window-boundaries-matching-baseline-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-boundaries-20261103/window-boundaries-matching-baseline-plain.png",
+      "kind": "image",
+      "run": "window-boundaries-20261103",
+      "stage": "Investigation",
+      "caption": "matching windows; C · Earlier workaround.",
+      "sha256": "ae2f1d754445de4cc590160a87a0e43666bc1dcaed30702cef0c8b7df6d09f5e",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-window-boundaries/window-boundaries-matching-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "window-boundaries-20261103-comparison-window-interiors-matching",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-boundaries-20261103/comparison-window-interiors-matching.png",
+      "kind": "image",
+      "run": "window-boundaries-20261103",
+      "stage": "Comparison",
+      "caption": "Matching windows: native, conditional faces and the earlier workaround. Added-face CT remains unresolved. Shaders off.",
+      "sha256": "9b91d76907a9ac789e02858be958a13f9908e3c26da54ed44384c46f7d2bd34d",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-window-boundaries/window-boundaries-matching-window-native-plain.png",
+      "originals": [
+        {
+          "label": "A · Native",
+          "file": "window-boundaries-20261103/window-boundaries-matching-window-native-plain.png"
+        },
+        {
+          "label": "B · Conditional prototype",
+          "file": "window-boundaries-20261103/window-boundaries-matching-window-boundaries-plain.png"
+        },
+        {
+          "label": "C · Earlier workaround",
+          "file": "window-boundaries-20261103/window-boundaries-matching-baseline-plain.png"
+        }
+      ]
+    },
+    {
+      "id": "window-boundaries-20261103-window-boundaries-mixed-window-native-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-boundaries-20261103/window-boundaries-mixed-window-native-plain.png",
+      "kind": "image",
+      "run": "window-boundaries-20261103",
+      "stage": "Investigation",
+      "caption": "mixed windows; A · Native.",
+      "sha256": "00ef61f8edfaa642b77b94ab4c781bbbb1f4b5d5497a043a771d3d7b83f3436b",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-window-boundaries/window-boundaries-mixed-window-native-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "window-boundaries-20261103-window-boundaries-mixed-window-boundaries-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-boundaries-20261103/window-boundaries-mixed-window-boundaries-plain.png",
+      "kind": "image",
+      "run": "window-boundaries-20261103",
+      "stage": "Investigation",
+      "caption": "mixed windows; B · Conditional prototype.",
+      "sha256": "4e40cf725e68102fe97034a53eee0fd51ccdcf34a03f5e8bcc2db2c14fa90b98",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-window-boundaries/window-boundaries-mixed-window-boundaries-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "window-boundaries-20261103-window-boundaries-mixed-baseline-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-boundaries-20261103/window-boundaries-mixed-baseline-plain.png",
+      "kind": "image",
+      "run": "window-boundaries-20261103",
+      "stage": "Investigation",
+      "caption": "mixed windows; C · Earlier workaround.",
+      "sha256": "dc71d782a1951fa7593d5788067b479ce6a980680bdb38f3cfcdd856bdddbff3",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-window-boundaries/window-boundaries-mixed-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "window-boundaries-20261103-comparison-window-interiors-mixed",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-boundaries-20261103/comparison-window-interiors-mixed.png",
+      "kind": "image",
+      "run": "window-boundaries-20261103",
+      "stage": "Comparison",
+      "caption": "Mixed windows: native, conditional faces and the earlier workaround. Added-face CT remains unresolved. Shaders off.",
+      "sha256": "00ef61f8edfaa642b77b94ab4c781bbbb1f4b5d5497a043a771d3d7b83f3436b",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-window-boundaries/window-boundaries-mixed-window-native-plain.png",
+      "originals": [
+        {
+          "label": "A · Native",
+          "file": "window-boundaries-20261103/window-boundaries-mixed-window-native-plain.png"
+        },
+        {
+          "label": "B · Conditional prototype",
+          "file": "window-boundaries-20261103/window-boundaries-mixed-window-boundaries-plain.png"
+        },
+        {
+          "label": "C · Earlier workaround",
+          "file": "window-boundaries-20261103/window-boundaries-mixed-baseline-plain.png"
+        }
+      ]
+    },
+    {
+      "id": "window-boundaries-20261103-fusion-internal-control-vanilla-slope-lantern-and-windows-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-boundaries-20261103/fusion-internal-control-vanilla-slope-lantern-and-windows-plain.png",
+      "kind": "image",
+      "run": "window-boundaries-20261103",
+      "stage": "Control",
+      "caption": "Vanilla glass/stained-glass control with Midnighttigger Fusion textures; connected vertical surfaces remain visible through the other material. Shaders off.",
+      "sha256": "4c34ba3af3a80d29f40ac4f2f4e157ea3c41c4c546d4d6e76809ab430af92455",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-window-boundaries/fusion-internal-control-vanilla-slope-lantern-and-windows-plain.png"
+    },
+    {
+      "id": "lantern-hanging-20261103-final-lantern-choice-flat-slope-lantern-and-windows-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "lantern-hanging-20261103/final-lantern-choice-flat-slope-lantern-and-windows-plain.png",
+      "kind": "image",
+      "run": "lantern-hanging-20261103",
+      "stage": "Selected appearance",
+      "caption": "Final flat-bridge choice: regular standing lantern restored. Shaders off.",
+      "sha256": "bd248030fd34f2ecf07ae939a59df30063d60b5c526185cdb8e5593ac47a7c95",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-window-boundaries/final-lantern-choice-flat-slope-lantern-and-windows-plain.png"
+    },
+    {
+      "id": "lantern-hanging-20261103-final-lantern-choice-slope-slope-lantern-and-windows-plain",
+      "projects": ["create-sky-resource-patches"],
+      "file": "lantern-hanging-20261103/final-lantern-choice-slope-slope-lantern-and-windows-plain.png",
+      "kind": "image",
+      "run": "lantern-hanging-20261103",
+      "stage": "Selected appearance",
+      "caption": "Approved sloped appearance: upright chain-hung lantern beneath the rail. Native interaction bounds remain pending. Shaders off.",
+      "sha256": "33dcb77a29b028ce7451425cf370c1d964f446b2c8d5be024addf2ae644ae95e",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-window-boundaries/final-lantern-choice-slope-slope-lantern-and-windows-plain.png"
+    },
+    {
+      "id": "window-culling-20261103-framed-disabled",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-culling-20261103/framed-disabled.png",
+      "kind": "image",
+      "run": "window-culling-20261103",
+      "stage": "Control",
+      "caption": "Create framed glass; A · Adapters off. Native resource definitions, shaders off.",
+      "sha256": "ed22ba6b36984f972c7be7d92e956666e3380b881e5a9e32854482b82fcab6ab",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-glass-culling/final-disabled/glass-close-framed-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "window-culling-20261103-framed-enabled",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-culling-20261103/framed-enabled.png",
+      "kind": "image",
+      "run": "window-culling-20261103",
+      "stage": "Runtime fix",
+      "caption": "Create framed glass; B · Adapters on. Native resource definitions, shaders off.",
+      "sha256": "d3e32b4945a612d297bbdc2b42fde21d0fc7a89eaa7767a6298ddd6fd86e68fd",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-glass-culling/final-enabled/glass-close-framed-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "window-culling-20261103-comparison-window-interiors-framed",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-culling-20261103/comparison-window-interiors-framed.png",
+      "kind": "image",
+      "run": "window-culling-20261103",
+      "stage": "Comparison",
+      "caption": "Create framed glass: native culling versus optional Compat corrections.",
+      "sha256": "ed22ba6b36984f972c7be7d92e956666e3380b881e5a9e32854482b82fcab6ab",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-glass-culling/final-disabled/glass-close-framed-baseline-plain.png",
+      "gallery": true,
+      "originals": [
+        {
+          "label": "A · Adapters off",
+          "file": "window-culling-20261103/framed-disabled.png"
+        },
+        {
+          "label": "B · Adapters on",
+          "file": "window-culling-20261103/framed-enabled.png"
+        }
+      ]
+    },
+    {
+      "id": "window-culling-20261103-wood-disabled",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-culling-20261103/wood-disabled.png",
+      "kind": "image",
+      "run": "window-culling-20261103",
+      "stage": "Control",
+      "caption": "Create wood window; A · Adapters off. Native resource definitions, shaders off.",
+      "sha256": "206cdbc32d6d60694ccf8e9af77aa71932ea19baf8ce8701ea3f2e41ad3aa1d6",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-glass-culling/final-disabled/glass-close-wood-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "window-culling-20261103-wood-enabled",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-culling-20261103/wood-enabled.png",
+      "kind": "image",
+      "run": "window-culling-20261103",
+      "stage": "Runtime fix",
+      "caption": "Create wood window; B · Adapters on. Native resource definitions, shaders off.",
+      "sha256": "017a30d60794d151d9e6ee34cfc3473e2586f54ce5a81c66eb309818e3910fbb",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-glass-culling/final-enabled/glass-close-wood-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "window-culling-20261103-comparison-window-interiors-wood",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-culling-20261103/comparison-window-interiors-wood.png",
+      "kind": "image",
+      "run": "window-culling-20261103",
+      "stage": "Comparison",
+      "caption": "Create wood window: native culling versus optional Compat corrections.",
+      "sha256": "206cdbc32d6d60694ccf8e9af77aa71932ea19baf8ce8701ea3f2e41ad3aa1d6",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-glass-culling/final-disabled/glass-close-wood-baseline-plain.png",
+      "gallery": true,
+      "originals": [
+        {
+          "label": "A · Adapters off",
+          "file": "window-culling-20261103/wood-disabled.png"
+        },
+        {
+          "label": "B · Adapters on",
+          "file": "window-culling-20261103/wood-enabled.png"
+        }
+      ]
+    },
+    {
+      "id": "window-culling-20261103-iron-disabled",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-culling-20261103/iron-disabled.png",
+      "kind": "image",
+      "run": "window-culling-20261103",
+      "stage": "Control",
+      "caption": "Create iron window; A · Adapters off. Native resource definitions, shaders off.",
+      "sha256": "9f02e4b6e166c56cb4d20afc30a46b47093c7809e2fdf010e899fa6a9a845747",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-glass-culling/final-disabled/glass-close-iron-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "window-culling-20261103-iron-enabled",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-culling-20261103/iron-enabled.png",
+      "kind": "image",
+      "run": "window-culling-20261103",
+      "stage": "Runtime fix",
+      "caption": "Create iron window; B · Adapters on. Native resource definitions, shaders off.",
+      "sha256": "a3b1ea2e99fa5253411054399215404f8d50e1065af0bd5c1ac58eaa85c6d947",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-glass-culling/final-enabled/glass-close-iron-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "window-culling-20261103-comparison-window-interiors-iron",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-culling-20261103/comparison-window-interiors-iron.png",
+      "kind": "image",
+      "run": "window-culling-20261103",
+      "stage": "Comparison",
+      "caption": "Create iron window: native culling versus optional Compat corrections.",
+      "sha256": "9f02e4b6e166c56cb4d20afc30a46b47093c7809e2fdf010e899fa6a9a845747",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-glass-culling/final-disabled/glass-close-iron-baseline-plain.png",
+      "gallery": true,
+      "originals": [
+        {
+          "label": "A · Adapters off",
+          "file": "window-culling-20261103/iron-disabled.png"
+        },
+        {
+          "label": "B · Adapters on",
+          "file": "window-culling-20261103/iron-enabled.png"
+        }
+      ]
+    },
+    {
+      "id": "window-culling-20261103-rechiseled-y-x-disabled",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-culling-20261103/rechiseled-y-x-disabled.png",
+      "kind": "image",
+      "run": "window-culling-20261103",
+      "stage": "Control",
+      "caption": "Rechiseled vertical against horizontal; A · Adapters off. Native resource definitions, shaders off.",
+      "sha256": "19e1611ac2d5573f9d3be8568b89ec4db02829a1dc789dcc365fa1be84ed8249",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-glass-culling/final-disabled/glass-close-rechiseled-y-x-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "window-culling-20261103-rechiseled-y-x-enabled",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-culling-20261103/rechiseled-y-x-enabled.png",
+      "kind": "image",
+      "run": "window-culling-20261103",
+      "stage": "Runtime fix",
+      "caption": "Rechiseled vertical against horizontal; B · Adapters on. Native resource definitions, shaders off.",
+      "sha256": "c87c6d0170e09d1e8790df3ff8197b90707793bc0965a2bb8b8a50d62ce5eaee",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-glass-culling/final-enabled/glass-close-rechiseled-y-x-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "window-culling-20261103-comparison-window-interiors-rechiseled-y-x",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-culling-20261103/comparison-window-interiors-rechiseled-y-x.png",
+      "kind": "image",
+      "run": "window-culling-20261103",
+      "stage": "Comparison",
+      "caption": "Rechiseled vertical against horizontal: native culling versus optional Compat corrections.",
+      "sha256": "19e1611ac2d5573f9d3be8568b89ec4db02829a1dc789dcc365fa1be84ed8249",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-glass-culling/final-disabled/glass-close-rechiseled-y-x-baseline-plain.png",
+      "gallery": true,
+      "originals": [
+        {
+          "label": "A · Adapters off",
+          "file": "window-culling-20261103/rechiseled-y-x-disabled.png"
+        },
+        {
+          "label": "B · Adapters on",
+          "file": "window-culling-20261103/rechiseled-y-x-enabled.png"
+        }
+      ]
+    },
+    {
+      "id": "window-culling-20261103-matching-disabled",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-culling-20261103/matching-disabled.png",
+      "kind": "image",
+      "run": "window-culling-20261103",
+      "stage": "Control",
+      "caption": "Matching-window control; A · Adapters off. Native resource definitions, shaders off.",
+      "sha256": "68fb3ee6726906c608ef9ddd8b943c984bf2bc5ef4c69e4d14c5553f8df2793c",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-glass-culling/final-disabled/glass-close-matching-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "window-culling-20261103-matching-enabled",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-culling-20261103/matching-enabled.png",
+      "kind": "image",
+      "run": "window-culling-20261103",
+      "stage": "Runtime fix",
+      "caption": "Matching-window control; B · Adapters on. Native resource definitions, shaders off.",
+      "sha256": "48250fc9f9139ad2343231cff15e9a032502a077e55c3b0eec22d1ecfa4db09f",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-glass-culling/final-enabled/glass-close-matching-baseline-plain.png",
+      "gallery": false
+    },
+    {
+      "id": "window-culling-20261103-comparison-window-interiors-matching",
+      "projects": ["create-sky-resource-patches"],
+      "file": "window-culling-20261103/comparison-window-interiors-matching.png",
+      "kind": "image",
+      "run": "window-culling-20261103",
+      "stage": "Comparison",
+      "caption": "Matching-window control: native culling versus optional Compat corrections.",
+      "sha256": "68fb3ee6726906c608ef9ddd8b943c984bf2bc5ef4c69e4d14c5553f8df2793c",
+      "width": 2560,
+      "height": 1656,
+      "source": "harness/images/2026-11-03-glass-culling/final-disabled/glass-close-matching-baseline-plain.png",
+      "gallery": true,
+      "originals": [
+        {
+          "label": "A · Adapters off",
+          "file": "window-culling-20261103/matching-disabled.png"
+        },
+        {
+          "label": "B · Adapters on",
+          "file": "window-culling-20261103/matching-enabled.png"
+        }
+      ]
     }
   ]
 }

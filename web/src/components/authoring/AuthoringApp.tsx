@@ -3,9 +3,9 @@ import EditorActions from '../ui/EditorActions'
 import Feedback from '../ui/Feedback'
 import Button from '../ui/Button'
 import Disclosure from '../ui/Disclosure'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { requestJSON } from '../../lib/http'
-import { notify, refreshActivity } from '../../lib/activity'
+import { notify } from '../../lib/activity'
 import { authoringViews } from '../../lib/authoring-navigation'
 import { encode, assertJournalShape } from '../../lib/journal.mjs'
 import Entries from './journal/Entries'
@@ -13,10 +13,14 @@ import Disclaimers from './journal/Disclaimers'
 import Localization, { type Documents } from './journal/Localization'
 import JsonEditor from './journal/JsonEditor'
 import { DraftContext } from './journal/Drafts'
+import { workspaceClient } from '../../lib/workspace/client'
+import { observeWorkspaceChanges } from '../../lib/workspace/changes'
+import { readJSONArtifact } from '../../lib/workspace/artifacts'
 type Snapshot = {
   files: Record<string, { text: string; revision: string }>
   revision: string
-  generation: { changed: string[]; removed?: string[]; outputs: number }
+  generation?: { changed: string[]; removed?: string[]; outputs: number }
+  generationError?: string
 }
 const request = (path = '', body?: unknown) =>
   requestJSON('/__atlas/authoring' + path, body)
@@ -59,21 +63,29 @@ export default function AuthoringApp() {
     journalScope ? name.startsWith('journal/') : name === source,
   )
   const generatedCount =
-    (snapshot?.generation.changed.length || 0) +
-    (snapshot?.generation.removed?.length || 0)
-  async function load() {
-    const value = await request()
-    setSnapshot(value)
-    setDocuments(
-      Object.fromEntries(
-        Object.entries(value.files).map(([name, file]: any) => [
-          name,
-          JSON.parse(file.text),
-        ]),
-      ),
+    (snapshot?.generation?.changed.length || 0) +
+    (snapshot?.generation?.removed?.length || 0)
+  const current = useRef({ dirty, unapplied, busy, snapshot })
+  current.current = { dirty, unapplied, busy, snapshot }
+  function applySource(value: Snapshot) {
+    const documents = Object.fromEntries(
+      Object.entries(value.files).map(([name, file]) => {
+        try {
+          return [name, JSON.parse(file.text)]
+        } catch {
+          throw new Error(`${name}: invalid JSON. The current view was kept.`)
+        }
+      }),
     )
+    assertJournalShape(documents)
+    setSnapshot(value)
+    setDocuments(documents)
     setRaw({})
     setRefreshRequired(false)
+  }
+  async function load() {
+    const value = await request()
+    applySource(value)
     setStatus('Source loaded')
   }
   async function action(
@@ -90,7 +102,6 @@ export default function AuthoringApp() {
       setStatus(e instanceof Error ? e.message : String(e))
     } finally {
       setBusy(false)
-      void refreshActivity()
     }
   }
   useEffect(() => {
@@ -99,6 +110,72 @@ export default function AuthoringApp() {
     const initial = url.searchParams.get('view')
     if (initial === 'audit' || initial === 'source') setView(initial)
   }, [])
+  useEffect(
+    () =>
+      observeWorkspaceChanges({
+        sources: (id) =>
+          id.startsWith('journal/') ||
+          id.startsWith('changes/') ||
+          id.startsWith('input:pack/overrides/'),
+        projections: ['journal-preview'],
+        changed(change) {
+          if (!current.current.snapshot) return
+          if (
+            change.topic === 'sources' &&
+            change.ids.every((id) => id.startsWith('input:pack/overrides/'))
+          ) {
+            setAudit(undefined)
+            setStatus(
+              'Configuration changed. Check files to refresh the audit.',
+            )
+            return
+          }
+          const conflict = () => {
+            setRefreshRequired(true)
+            setStatusError(true)
+            setStatus(
+              'Saved source changed. Your draft is preserved; reload when ready.',
+            )
+          }
+          if (
+            current.current.dirty ||
+            current.current.unapplied ||
+            current.current.busy
+          ) {
+            conflict()
+            return
+          }
+          const before = current.current.snapshot
+          void action(async () => {
+            const next = await workspaceClient.query('journal.read', {})
+            const generation =
+              next.preview.state === 'current'
+                ? await readJSONArtifact(next.preview.artifact)
+                : undefined
+            if (
+              current.current.dirty ||
+              current.current.unapplied ||
+              current.current.snapshot !== before
+            ) {
+              conflict()
+              return
+            }
+            applySource({
+              ...next,
+              generation,
+              ...(generation
+                ? {}
+                : {
+                    generationError:
+                      'Saved source changed. Review generation is out of date.',
+                  }),
+            })
+            setStatus('Saved source refreshed')
+          }, 'Refreshing saved source…')
+        },
+      }),
+    [],
+  )
   useEffect(() => {
     if (!dirty && !unapplied) return
     const before = (e: BeforeUnloadEvent) => {
@@ -382,7 +459,12 @@ export default function AuthoringApp() {
               </ul>
             </Disclosure>
           )}
-          {snapshot && inJournal && !refreshRequired && (
+          {snapshot?.generationError && inJournal && (
+            <Feedback tone="error">
+              Generation review unavailable. {snapshot.generationError}
+            </Feedback>
+          )}
+          {snapshot?.generation && inJournal && !refreshRequired && (
             <Disclosure
               className="generation-review"
               summary={

@@ -28,9 +28,9 @@ without a game snapshot. The app binds loopback and is not deployed.
 - [Verification and limits](../docs/development/web/verification.md)
 
 Astro serves a static page and browser code. A local development plugin provides
-YAML editing and named authoring jobs. React graph views provide interactive recipe nodes, pan/zoom, a minimap and
+the shared workspace service, WebSocket updates and named authoring jobs. React graph views provide interactive recipe nodes, pan/zoom, a minimap and
 viewport culling alongside the item grid. Minecraft runtime exports, JAR resources and
-authored domains compile into ignored JSON and image files under `public/generated`.
+authored domains compile into scoped, ignored artifact generations. The CLI and app share publication; static builds materialize the admitted public projections.
 Static builds support browsing; editing requires the local development server.
 
 This is a private workspace. No distribution license is selected. Extracted game

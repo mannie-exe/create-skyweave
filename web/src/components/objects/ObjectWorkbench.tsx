@@ -15,6 +15,7 @@ import {
 import '../../styles/object-authoring.css'
 import { requestJSON } from '../../lib/http'
 import { objectLocation, writeObjectLocation } from '../../lib/object-location'
+import { observeWorkspaceChanges } from '../../lib/workspace/changes'
 
 async function read(url: string) {
   const response = await fetch(url)
@@ -23,6 +24,7 @@ async function read(url: string) {
   return response.json()
 }
 export default function ObjectWorkbench() {
+  const readOnly = !import.meta.env.DEV
   const [inspectorFlow, setInspectorFlow] = useState(false)
   useEffect(() => {
     setInspectorFlow(
@@ -67,6 +69,75 @@ export default function ObjectWorkbench() {
     [custom, setCustom] = useState<string[]>(),
     [customScene, setCustomScene] = useState<Scene>()
   const busy = sceneBusy || stackBusy
+  const [updated, setUpdated] = useState(false)
+  const liveView = useRef({
+    custom,
+    editing,
+    busy,
+    refreshing,
+    selected,
+    caseId,
+  })
+  liveView.current = { custom, editing, busy, refreshing, selected, caseId }
+  async function loadUpdatedCatalogue() {
+    const data: ObjectCatalogue = await read('/generated/objects/index.json')
+    const live = liveView.current
+    if (live.custom || live.editing || live.busy || live.refreshing) {
+      setUpdated(true)
+      return
+    }
+    const entry =
+      data.objects.find((entry) => entry.id === live.selected) ??
+      data.objects[0]
+    setCatalogue(data)
+    setSelected(entry?.id ?? '')
+    setCase(
+      entry?.cases.find((variant) => variant.id === live.caseId)?.id ??
+        entry?.cases[0]?.id ??
+        '',
+    )
+    setUpdated(false)
+    setRefreshStatus('Previews updated')
+  }
+  useEffect(
+    () =>
+      observeWorkspaceChanges({
+        sources: (id) =>
+          [
+            'resource-objects',
+            'resource-pins',
+            'resource-selections',
+            'models',
+            'texture-resources',
+          ].includes(id),
+        projections: ['objects', 'texture-resources', 'native-models'],
+        changed(change) {
+          const live = liveView.current
+          if (change.topic === 'sources') {
+            setRefreshStatus(
+              'Saved inputs changed. Refresh previews to rebuild from them.',
+            )
+            return
+          }
+          if (
+            live.custom ||
+            live.editing ||
+            live.busy ||
+            live.refreshing ||
+            !change.ids.includes('objects')
+          ) {
+            setUpdated(true)
+            setRefreshStatus(
+              'Preview inputs changed. Your current view is preserved.',
+            )
+          } else
+            void loadUpdatedCatalogue().catch((reason) =>
+              setError(String(reason)),
+            )
+        },
+      }),
+    [],
+  )
   useEffect(() => {
     let active = true
     read('/generated/objects/index.json')
@@ -196,6 +267,7 @@ export default function ObjectWorkbench() {
     openSource(kind, id)
   }
   function openSource(kind: 'models' | 'textures', id: string) {
+    if (readOnly) return
     const key = kind === 'models' ? 'recipe' : 'textureResource'
     const target = catalogue?.objects.find((entry) =>
       entry.cases.some((value) => value[key] === id),
@@ -268,17 +340,11 @@ export default function ObjectWorkbench() {
     setStackBusy(true)
     setError('')
     try {
-      const response = await fetch('/__atlas/objects/preview', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          object: object.id,
-          case: variant.id,
-          layers: names,
-        }),
+      const result = await requestJSON('/__atlas/objects/preview', {
+        object: object.id,
+        case: variant.id,
+        layers: names,
       })
-      const result = await response.json()
-      if (!response.ok) throw new Error(result.error ?? 'Preview failed')
       if (request !== stackRequest.current) return
       setCustomScene(result)
       setCustom(names)
@@ -300,6 +366,9 @@ export default function ObjectWorkbench() {
     try {
       if (download) await requestJSON('/__atlas/objects/inputs', {})
       if (exportModels) await requestJSON('/__atlas/objects/export', {})
+      setRefreshStatus('Refreshing texture previews…')
+      await requestJSON('/__atlas/textures/generate', {})
+      setRefreshStatus('Refreshing object previews…')
       await requestJSON('/__atlas/objects/generate', {})
       setCatalogue(await read('/generated/objects/index.json'))
       setRefreshStatus(
@@ -350,11 +419,14 @@ export default function ObjectWorkbench() {
         </Feedback>
         {error && (
           <div className="action-row">
-            <Button disabled={refreshing} onClick={() => void refresh(false)}>
+            <Button
+              disabled={readOnly || refreshing}
+              onClick={() => void refresh(false)}
+            >
               Refresh previews
             </Button>
             <Button
-              disabled={refreshing}
+              disabled={readOnly || refreshing}
               onClick={() => void refresh(false, true)}
             >
               Fetch candidate inputs
@@ -403,7 +475,7 @@ export default function ObjectWorkbench() {
       )}
     </Field>
   )
-  const editLinks = variant && (
+  const editLinks = !readOnly && variant && (
     <div className="action-row">
       {variant.recipe && (
         <a
@@ -488,7 +560,7 @@ export default function ObjectWorkbench() {
           <LayerStackEditor
             layers={catalogue.layers}
             value={custom ?? object.profiles[right]?.layers ?? []}
-            busy={busy}
+            busy={readOnly || busy}
             onPreview={(names) => void previewLayers(names)}
           />
         </div>
@@ -544,7 +616,7 @@ export default function ObjectWorkbench() {
 
         <div className="action-row">
           <Button
-            disabled={refreshing || busy}
+            disabled={readOnly || refreshing || busy}
             onClick={() => void refresh(false)}
           >
             Refresh previews
@@ -566,13 +638,13 @@ export default function ObjectWorkbench() {
         hidden={!previewToolsOpen}
       >
         <Button
-          disabled={refreshing || busy}
+          disabled={readOnly || refreshing || busy}
           onClick={() => void refresh(true)}
         >
           Export static models
         </Button>
         <Button
-          disabled={refreshing || busy}
+          disabled={readOnly || refreshing || busy}
           onClick={() => void refresh(false, true)}
         >
           Fetch candidate inputs
@@ -680,6 +752,18 @@ export default function ObjectWorkbench() {
         <Feedback tone={error ? 'error' : 'neutral'} role="status">
           {refreshStatus}
         </Feedback>
+      )}
+      {updated && (
+        <Button
+          disabled={busy || refreshing || Boolean(editing) || Boolean(custom)}
+          onClick={() =>
+            void loadUpdatedCatalogue().catch((reason) =>
+              setError(String(reason)),
+            )
+          }
+        >
+          Load updated previews
+        </Button>
       )}
       <div className="object-workspace">
         <details

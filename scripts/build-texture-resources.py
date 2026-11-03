@@ -1,18 +1,19 @@
 """Build registered texture previews; leave the installed resource pack unchanged."""
+import argparse
 import json
 import hashlib
 from pathlib import Path
 from zipfile import ZipFile
 
 from lootr_artwork import emit_image
-from model_authoring import require, rgba, resource
+from model_authoring import require, rgba, resource, Assets, encode_rgba
 from resource_inputs import inputs
 from cem_geometry import closed_chest
 from texture_resources import generate, artwork_fingerprint
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / 'web/public/generated/texture-resources'
-def pack_previews(case, record, patch):
+def pack_previews(case, record, patch, archives, root=ROOT, output=OUT):
     """Resolve only the two pack-owned layers, never claim a full game resolver."""
     case['geometries'] = {'native': {'label': 'Native', 'model': case['original']['model'],
                                     'source': 'Minecraft/Lootr native model'}}
@@ -48,40 +49,40 @@ def pack_previews(case, record, patch):
             alias = {'up': 'top', 'down': 'bottom'}.get(key, key) if model and 'elements' in model else key
             identifier = model['textures'][alias] if model else original_identifier
         path = resource(identifier, 'textures', '.png')
-        fixed = ROOT / 'pack-fixes' / path
+        fixed = root / 'pack-fixes' / path
         if path in patch.namelist():
             data, owner = patch.read(path), 'Resource patches'
         elif fixed.is_file():
-            require(fixed.resolve().is_relative_to((ROOT / 'pack-fixes').resolve()) and not fixed.is_symlink(),
+            require(fixed.resolve().is_relative_to((root / 'pack-fixes').resolve()) and not fixed.is_symlink(),
                     'Pack-fix texture symlinks are not supported')
             data, owner = fixed.read_bytes(), 'Pack fixes'
         else:
             data, owner = None, 'Lootr original (no pack-owned texture override)'
         if data is not None:
             _, _, pixels = rgba(data)
-            case['pack']['textures'][key] = emit_image(OUT, f'{record["id"]}-{key}-pack', pixels)
+            case['pack']['textures'][key] = emit_image(output, f'{record["id"]}-{key}-pack', pixels)
         layers.append({'binding': key, 'resource': identifier, 'originalResource': original_identifier, 'owner': owner})
     case['textureOverrides'] = {}
     for identifier in record['inputs']:
         path = resource(identifier, 'textures', '.png')
-        fixed = ROOT / 'pack-fixes' / path
+        fixed = root / 'pack-fixes' / path
         if path in patch.namelist():
             data = patch.read(path)
         elif fixed.is_file():
-            require(fixed.resolve().is_relative_to((ROOT / 'pack-fixes').resolve()) and not fixed.is_symlink(),
+            require(fixed.resolve().is_relative_to((root / 'pack-fixes').resolve()) and not fixed.is_symlink(),
                     'Pack-fix texture symlinks are not supported')
             data = fixed.read_bytes()
         else:
             continue
         digest = hashlib.sha256(data).hexdigest()
-        baseline = next(source for key, source in case['original']['textures'].items()
-                        if next(layer for layer in layers if layer['binding'] == key)['originalResource'] == identifier)
-        if digest == baseline['sha256']:
+        # Variants can share an authored record without sharing a visible binding.
+        original = Assets(archives).texture(record['source'], identifier)['pixels']
+        if digest == hashlib.sha256(encode_rgba(original)).hexdigest():
             continue
         current = next((source for source in case['pack']['textures'].values() if source['sha256'] == digest), None)
         if current is None:
             _, _, pixels = rgba(data)
-            current = emit_image(OUT, f'{record["id"]}-source-{len(case["textureOverrides"])}-pack', pixels)
+            current = emit_image(output, f'{record["id"]}-source-{len(case["textureOverrides"])}-pack', pixels)
         case['textureOverrides'][identifier] = current
     for image in case['images']:
         key = 'surface' if record['id'].startswith('chest-') else image['label']
@@ -96,24 +97,24 @@ def pack_previews(case, record, patch):
                                 for path, digest in applied['outputs'].items()))
 
 
-def main():
-    catalog = json.loads((ROOT / 'authoring/texture-resources.json').read_text())
+def build(root=ROOT, output=OUT):
+    catalog = json.loads((root / 'authoring/texture-resources.json').read_text())
     records = catalog['resources']
-    OUT.mkdir(parents=True, exist_ok=True)
-    archives = inputs(ROOT, download=False)
+    output.mkdir(parents=True, exist_ok=True)
+    archives = inputs(root, download=False)
     try:
         previews, images = generate(archives, catalog)
         for name, data in images.items():
-            (OUT / name).write_bytes(data)
-        pins = json.loads((ROOT / 'authoring/resource-patches.json').read_text())['sources']
-        recipes = json.loads((ROOT / 'authoring/model-recipes.json').read_text())['recipes']
+            (output / name).write_bytes(data)
+        pins = json.loads((root / 'authoring/resource-patches.json').read_text())['sources']
+        recipes = json.loads((root / 'authoring/model-recipes.json').read_text())['recipes']
         resources = []
-        patch_file = ROOT / 'overrides/client/resourcepacks/Create Sky Resource Patches.zip'
+        patch_file = root / 'overrides/client/resourcepacks/Create Sky Resource Patches.zip'
         with ZipFile(patch_file) as patch:
             for record in records:
                 pin = pins[record['source']]
                 case = previews[record['id']]
-                pack_previews(case, record, patch)
+                pack_previews(case, record, patch, archives, root, output)
                 case['relatedModels'] = [recipe['id'] for recipe in recipes
                                          if any(binding['id'] in record['inputs'] for binding in
                                                 [recipe['texture'], *[part.get('texture', recipe['texture'])
@@ -133,9 +134,9 @@ def main():
                                   'sourceVersion': pin['version'], 'sourceSha512': pin['sha512']})
         data = {'schema': 1, 'resources': resources,
                 'patchSha256': hashlib.sha256(patch_file.read_bytes()).hexdigest()}
-        pending = OUT / 'index.json.tmp'
+        pending = output / 'index.json.tmp'
         pending.write_text(json.dumps(data, indent=2) + '\n')
-        pending.replace(OUT / 'index.json')
+        pending.replace(output / 'index.json')
         print(f'{len(resources)} texture resources generated; installed packs unchanged')
     finally:
         for archive in archives.values():
@@ -143,4 +144,8 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--root', type=Path, default=ROOT)
+    parser.add_argument('--output', type=Path)
+    args = parser.parse_args()
+    build(args.root, args.output or args.root / 'web/public/generated/texture-resources')

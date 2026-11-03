@@ -2,25 +2,29 @@
 import argparse
 import hashlib
 import json
+import os
 import shutil
 import subprocess
 import sys
 import zipfile
 from pathlib import Path
-from paths import ROOT, paths, write_json
+from paths import ROOT, paths, write_json, tool
 from fingerprint import fingerprint
 from runtime_capture import run_capture
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--worldgen", action="store_true", help="Read the configured world seed/settings for a chunk-free spacing comparison")
 parser.add_argument("--installed-mods", action="store_true", help="Capture the configured installation instead of the complete materialized pack selection")
+parser.add_argument('--output', type=Path, help='Write runtime JSON to this trusted staging directory')
+parser.add_argument('--work', type=Path, help='Use this private capture directory instead of the CLI cache')
 args_cli = parser.parse_args()
 p = paths()
 subprocess.run([sys.executable, str(p['pack'] / 'scripts/build-fixes.py'), '--check'], check=True)
 mod_source = 'installed' if args_cli.installed_mods else 'pack'
 source_fingerprint = fingerprint(mod_source)
-inputs = json.loads(subprocess.check_output(['node', str(ROOT / 'scripts/runtime-inputs.mjs'), str(p['pack'])], text=True))
-audit = ROOT / '.cache/audit-server'
+inputs = json.loads(subprocess.check_output([tool('node', 'node'), str(ROOT / 'scripts/runtime-inputs.mjs'), str(p['pack'])], text=True))
+work = args_cli.work.resolve() if args_cli.work else ROOT / '.cache'
+audit = work / 'audit-server'
 audit.mkdir(parents=True, exist_ok=True)
 libraries = p['server'] / 'libraries'
 loader_version = inputs['runtime']['loader-version']
@@ -66,12 +70,12 @@ if bluemap.is_dir():
 # never chunks, level.dat, players, saved data or LOD databases.
 world_config=p['server']/'world/serverconfig'
 if world_config.exists(): shutil.copytree(world_config,audit/'audit-world/serverconfig',dirs_exist_ok=True)
-classes = ROOT / '.cache/exporter-classes'
+classes = work / 'exporter-classes'
 if classes.exists():
     shutil.rmtree(classes)
 # Installer libraries also contain raw/unmapped MinecraftServer classes. The patched game must win.
 classpath = ':'.join(str(f) for f in [game_jar, *sorted(libraries.rglob('*.jar')), *mods.glob('*.jar')])
-subprocess.run([str(p['java'] / 'javac'), '-proc:none', '-cp', classpath, '-d', str(classes), *[str(f) for f in sorted((ROOT / 'tools/exporter').glob('*.java'))]], check=True)
+subprocess.run([tool('javac', p.get('java', Path('.')) / 'javac'), '-proc:none', '-cp', classpath, '-d', str(classes), *[str(f) for f in sorted((ROOT / 'tools/exporter').glob('*.java'))]], check=True)
 with zipfile.ZipFile(mods / 'create-sky-atlas-exporter.jar', 'w') as jar:
     for f in classes.rglob('*.class'): jar.write(f, f.relative_to(classes))
     jar.write(ROOT / 'tools/exporter/neoforge.mods.toml', 'META-INF/neoforge.mods.toml')
@@ -80,12 +84,13 @@ with zipfile.ZipFile(mods / 'create-sky-atlas-exporter.jar', 'w') as jar:
 args = libraries / 'net/neoforged/neoforge' / inputs['runtime']['loader-version'] / 'unix_args.txt'
 if inputs['runtime']['minecraft'] != '1.21.1' or inputs['runtime']['loader'] != 'neoforge' or not args.is_file():
     raise RuntimeError('Atlas requires the locked Minecraft 1.21.1 / NeoForge runtime in the configured libraries')
-out = ROOT / 'data/generated/runtime'
+out = args_cli.output.resolve() if args_cli.output else ROOT / 'data/generated/runtime'
 out.mkdir(parents=True, exist_ok=True)
 print('Starting isolated audit server; live world is never mounted.', flush=True)
 worldgen_args = ['-Datlas.worldgen.level='+str(p['server'] / 'world/level.dat')] if args_cli.worldgen else []
-run_capture([str(p['java'] / 'java'), '-Xmx4G', *worldgen_args, '-Datlas.export.dir='+str(out), '@'+str(args), 'nogui'],
-            cwd=audit, log=ROOT / '.cache/runtime.log', complete=out / 'complete.json')
+run_capture([tool('java', p.get('java', Path('.')) / 'java'), '-Xmx4G', *worldgen_args, '-Datlas.export.dir='+str(out), '@'+str(args), 'nogui'],
+            cwd=audit, log=work / 'runtime.log', complete=out / 'complete.json',
+            nested=bool(os.environ.get('ATLAS_WORKSPACE_CONTEXT')))
 inventory = {f.name: hashlib.sha256(f.read_bytes()).hexdigest() for f in mods.glob('*.jar')}
 write_json(out / 'snapshot.json', {'mods': inventory, 'modSource':mod_source, 'sourceFingerprint':source_fingerprint,'sourceChangedDuringExport':source_fingerprint!=fingerprint(mod_source),'lockSha256': hashlib.sha256((p['pack'] / 'empack.lock').read_bytes()).hexdigest()})
 print('Runtime export complete:', json.loads((out / 'complete.json').read_text()))

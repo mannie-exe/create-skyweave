@@ -3,9 +3,9 @@
   "records": [
     {
       "path": "overrides/common/config/create_sky_compat-features.properties",
-      "sha256": "82fe6aea1b843d57492560881ef7b44a9a1ab481c45765361783c608fb0db384",
+      "sha256": "c1e5348e12f0a9627729c676a857d3565e347732da4bb53d0b98201b48a04407",
       "review": "reviewed",
-      "reason": "Enable independent terrain, machinery, journal, rendering, recovery and reviewed redstone menu/gate adapters.",
+      "reason": "Enable independent terrain, machinery, journal, rendering, recovery and reviewed redstone adapters, including client-only Create material and Rechiseled axis boundary corrections.",
       "reference": "docs/development/compatibility.md"
     },
     {

@@ -128,7 +128,8 @@ change, so copying an old override forward is not sufficient review.
 
 ## Visual patch boundaries
 
-The generated ZIP combines four 3D Crops plants with Fresh pot/soil elements and
+The generated ZIP combines four 3D Crops plants and the selected Vervada azaleas
+with Fresh pot/soil elements and
 adds Better Lanterns' `1` texture binding to Macaw's copper/golden chains. It also
 composes the approved selective models and chest geometry. Selected donor helpers,
 textures and animation metadata are isolated in private namespaces. Keep it above
@@ -138,14 +139,17 @@ retain their own priority over overlapping upstream assets.
 
 `authoring/resource-selections.json` owns the per-feature selection. `apply` selects
 explicit block roots and dependency closure; `compose` enables the reviewed single
-chest treatment; `keep` and `defer` introduce no overrides. Campfires isolate a
-shared donor template rather than replacing it globally. The comparison baseline
+chest treatment; `keep` and `defer` introduce no overrides. Campfires and azaleas isolate shared donor templates rather than replacing them
+globally. Resolve their actual blockstate roots; similarly named leaf blocks are
+not substitutes for a shrub model. The comparison baseline
 and approved selection are separate from notes saved in the Atlas.
 
 Inputs marked `selection: build-only` in `authoring/resource-patches.json` are exact
 source archives, not enabled empack dependencies. SHA-512 remains required. They
 are acquired from fixed URLs in fresh CI checkouts; installed inputs still require
-matching empack selections. `empack outdated` does not track these source-only
+matching empack selections. Installed URL inputs must match both the effective
+download URL and the lock's SHA-512 content assertion; a provider version label
+alone is insufficient. `empack outdated` does not track these source-only
 archives. Review their upstream versions separately, inspect active overlays and
 geometry/texture closure, then update pins and re-run the relevant visual review.
 Do not enable the whole packs to satisfy the builder.
@@ -194,14 +198,27 @@ and shared side consumers use the approved front face. Enabled material-mask
 recipes add 0.5-pixel corner-clasp depth on four sides. The texture catalogue links
 their model outputs to each loot state; the builder combines geometry and artwork
 for both closed/open barrel leaves. Disabling extrusion retains the textured
-native cube. Barrel open/close behavior is unchanged.
+native cube. Eight explicit block-atlas sources admit the generated directional
+sprites; PNGs under `textures/generated` are not discovered by the vanilla
+`block/` sprite scan. Barrel open/close behavior is unchanged.
 
 Lootr chest PNGs retain the native 64×64 atlas and state filenames. Exterior UVs
 in the Lootr-specific CEMs are fitted to that atlas in closed model coordinates;
 internal donor surfaces retain their existing mapping. Fresh geometry, part IDs,
 animation expressions and the vanilla chest CEMs are preserved. No fixed material
 is assigned to a Lootr rig, so its normal/looted texture selection continues.
-The visual ZIP owns these changes; the shared pack-fixes JAR has no added resources.
+Normal and trapped chest atlases share the approved relighting. The trapped
+variant retains its ten original red-marker pixels; generation rejects a changed
+upstream marker layout. The visual ZIP owns these changes; the shared pack-fixes
+JAR has no added resources.
+
+### Bridge-lantern placement review
+
+The approved sloped-bridge appearance uses the pinned Better Lanterns hanging
+model and a short link beneath the rail. Flat bridges retain their standing
+lantern. The sloped model remains review-only: the native standing-lamp
+selection/collision shape also needs to follow the moved geometry before adoption.
+Review media and the repeatable study builder live in the Resource Review harness.
 
 ### Model authoring
 
@@ -222,6 +239,37 @@ frontlight variants. The vanilla iron overlay input is the SHA-512-pinned offici
 Minecraft client JAR; review its version alongside the pack's Minecraft pin.
 
 ### Window connections and Copycat panels
+
+`compatibility.window_interior_faces` is disabled. The rejected workaround removed
+alpha-face `cullface` declarations from 246 full-window models, exposing unwanted
+framing between matching windows. Generated resources now leave these definitions
+to their upstream owners. Other model, artwork and potted-plant repairs remain.
+`scripts/window_interiors.py` remains available to reconstruct the compared study;
+do not enable it as a complete window fix.
+
+Create 6.0.10's `CTModel.createCTData` normally skips faces rejected by
+`Block.shouldRenderFace`. Its `ConnectedGlassBlock` hides boundaries against any
+other ConnectedGlassBlock; `WindowBlock` adds direction/translucency rules. An
+uncullable resource face can therefore appear without its CT data. The small
+Fusion `append_models` prototype confirms conditional visibility, but does not
+solve this Create-owned calculation.
+
+Create Sky Compat 0.15.0 provides two independently configurable client repairs.
+`create.window_culling` corrects Create's mixed-material suppression and lets its
+existing CT model calculate visible boundary data. `rechiseled.glass_culling`
+corrects asymmetric hiding between vertical and horizontal instances of the same
+Rechiseled glass pillar. Matching interfaces and opaque-neighbor occlusion remain
+native; no Fusion processor or CT atlas is replaced. Their target APIs are Create
+6.0.10 and Rechiseled 1.2.6 respectively. Content mods retain their own dependencies.
+
+The old Fusion added-face prototype remains historical evidence, not a selected
+resource treatment. See the [native comparisons](web/verification.md#glass-culling-adapters-2026-11-03)
+and [Compat maintenance guide](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/rendering.md#window-faces).
+
+When these inputs change, review the native face-removal methods, CT/Fusion
+processing and adjacency/corner views. Revisit adapter scope if upstream changes
+face ownership or adds inset geometry. This does not establish
+compatibility with every shader or every transparent modded block.
 
 Create 6.0.10 owns its glass connections through `AllSpriteShifts` and window/pane
 CT behaviours. Framed glass uses omnidirectional connections; wood windows use

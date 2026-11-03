@@ -18,34 +18,59 @@ import {
   fluidNode,
 } from '../src/lib/acquisition.mjs'
 import { domains, validateDomain } from '../src/lib/domains.mjs'
-import { configuredPack } from './authoring.mjs'
 
 export const root = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   '..',
 )
-const read = async (name) =>
-  JSON.parse(
-    await fs.readFile(
-      path.join(root, 'data/generated', name + '.json'),
-      'utf8',
-    ),
-  )
-const write = async (name, value) => {
-  const p = path.join(root, 'public/generated', name + '.json')
-  await fs.mkdir(path.dirname(p), { recursive: true })
-  await fs.writeFile(p + '.tmp', JSON.stringify(value))
-  await fs.rename(p + '.tmp', p)
-}
-export async function compile() {
-  await fs.rm(path.join(root, 'public/generated/create-sky-atlas-patch.zip'), {
-    force: true,
-  })
+export const compileInputs = [
+  'catalog',
+  'runtime/recipes',
+  'runtime/blocks',
+  'runtime/entities',
+  'runtime/loot',
+  'runtime/advancements',
+  'documents',
+  'configs',
+  'mods',
+  'diagnostics',
+  'runtime/snapshot',
+  'runtime/complete',
+  'runtime/interactions',
+  'runtime/hooks',
+  'runtime/fluids',
+  'world',
+  'runtime/resources',
+  'runtime/chiseling',
+  'runtime/brewing',
+  'runtime/trades',
+  'runtime/potion_fluids',
+  'runtime/block_recipes',
+  'runtime/loot_modifiers',
+  'structures',
+  'islands',
+]
+async function compile(context) {
+  const { web, output, pack } = context
+  const generated = context.generated ?? path.join(web, 'data/generated')
+  const read = async (name) => {
+    if (!compileInputs.includes(name))
+      throw new Error('Undeclared compile input')
+    return JSON.parse(
+      await fs.readFile(path.join(generated, name + '.json'), 'utf8'),
+    )
+  }
+  const write = async (name, value) => {
+    const p = path.join(output, name + '.json')
+    await fs.mkdir(path.dirname(p), { recursive: true })
+    await fs.writeFile(p + '.tmp', JSON.stringify(value))
+    await fs.rename(p + '.tmp', p)
+  }
   const authored = {},
     revisions = {}
   for (const name of domains) {
     const text = await fs.readFile(
-      path.join(root, 'data/authored', name + '.yml'),
+      path.join(web, 'data/authored', name + '.yml'),
       'utf8',
     )
     authored[name] = validateDomain(name, text)
@@ -256,7 +281,7 @@ export async function compile() {
   for (const [mod, bucket] of Object.entries(buckets))
     await write('details/' + mod, bucket)
   for (const mod of new Set(items.map((i) => i.mod)))
-    await fs.rm(path.join(root, 'public/generated/details', mod + '.json'), {
+    await fs.rm(path.join(output, 'details', mod + '.json'), {
       force: true,
     })
   const nodes = layout(
@@ -374,7 +399,7 @@ export async function compile() {
   if (structures) {
     const processor = await fs.readFile(
       path.join(
-        await configuredPack(root),
+        pack,
         'pack-fixes/data/skyvillages/worldgen/processor_list/house_processor.json',
       ),
     )
@@ -391,12 +416,35 @@ export async function compile() {
       throw error
     }),
   )
-  await fs.writeFile(
-    path.join(root, 'public/generated/authored.json'),
-    JSON.stringify(authored),
-  )
+  await write('authored', authored)
   console.log(
     `Compiled ${nodes.length} items, ${active.length} recipes; ${nodes.filter((n) => n.depth === null).length} unresolved crafting routes`,
   )
 }
-if (process.argv[1] === fileURLToPath(import.meta.url)) await compile()
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  const args = process.argv.slice(2)
+  if (!args.length)
+    throw new Error(
+      'Use pnpm data:compile to publish through the workspace service.',
+    )
+  else {
+    // Only the named executor supplies these roots. There is no browser path input.
+    if (
+      ![6, 8].includes(args.length) ||
+      args[0] !== '--web' ||
+      args[2] !== '--pack' ||
+      args[4] !== '--output' ||
+      [args[1], args[3], args[5]].some((value) => !path.isAbsolute(value)) ||
+      (args.length === 8 && (args[6] !== '--data' || !path.isAbsolute(args[7])))
+    )
+      throw new Error(
+        'Expected absolute --web, --pack and --output directories',
+      )
+    await compile({
+      web: args[1],
+      pack: args[3],
+      output: args[5],
+      ...(args.length === 8 ? { generated: args[7] } : {}),
+    })
+  }
+}

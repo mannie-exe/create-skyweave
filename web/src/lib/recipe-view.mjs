@@ -2,7 +2,13 @@ import { fluidState, potionNode } from './acquisition.mjs'
 
 export const safeIcon = (icon) =>
   typeof icon === 'string' &&
-  /^\/generated\/icons\/[a-f0-9]+\.(?:png|svg)$/.test(icon)
+  (/^\/generated\/icons\/[a-f0-9]+\.(?:png|svg)$/.test(icon) ||
+    /^\/workspace-snapshot\/[a-z0-9][a-z0-9_-]{0,63}\/[a-z0-9][a-z0-9_-]{0,63}\/assets\/[a-f0-9]{64}-[a-f0-9]{64}\.(?:png|svg)$/.test(
+      icon,
+    ) ||
+    /^\/__atlas\/workspaces\/[a-z0-9][a-z0-9_-]{0,63}\/packs\/[a-z0-9][a-z0-9_-]{0,63}\/artifacts\/[a-f0-9]{64}$/.test(
+      icon,
+    ))
     ? icon
     : null
 

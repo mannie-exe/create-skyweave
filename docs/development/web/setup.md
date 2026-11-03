@@ -34,7 +34,7 @@ newer runtime APIs through types alone. Review Three.js runtime and type updates
 together, including rendering migration notes.
 
 `pnpm check:unused` runs Knip across application sources, scripts and tests and is
-part of `pnpm verify`. Framework plugins discover Astro and Playwright entry points.
+part of `pnpm verify`. The server-rendered resource index loads its filesystem projection reader through Node, outside Astro SSR bundling, so source-relative tool identities retain their original URLs. Keep this boundary when upgrading Astro or Node; do not disable identity checks to accommodate a relocated bundle. Framework plugins discover Astro and Playwright entry points.
 Keep exceptions narrow and explained; a browser URL imported by a test is not a
 Node filesystem import. Review findings before removing exports or marking files
 as entry points. Do not exclude whole source areas to get a passing result.
@@ -70,7 +70,8 @@ For example, a non-Prism installation can override just the client JAR:
 ```
 
 Run `empack sync --materialize --yes` in the pack directory before capturing
-additions or removals. The exporter uses the complete locked server selection
+additions or removals. A reference-only sync can remove an old artifact while
+leaving its replacement deferred; native exports require the replacement bytes. The exporter uses the complete locked server selection
 from the pack, verifies its bytes, and checks maintained resource JARs before
 capture. The configured server supplies the locked NeoForge libraries, accepted
 EULA and copied configuration; its installed mod set need not be synchronized.
@@ -87,13 +88,13 @@ pnpm dev
 ```
 
 Open <http://127.0.0.1:4321>. `data:refresh` runs runtime capture, JAR extraction and
-compilation in order. It requires Java 21 and the configured Minecraft inputs,
+compilation and workspace publication in order. `data:compile` uses the same service as the editor, without starting an HTTP host. It requires Java 21 and the configured Minecraft inputs,
 uses up to a 4 GiB Java heap, and allows ten minutes for the isolated server.
 `data:check` exercises the current pack's recipe, loot, coverage and journal
 assertions; it is intentionally specific to this pack.
 
-The same refresh is available in Edit data. The plugin serializes authoring
-operations, including reads that run validation or previews. Run one authoring
+The same refresh is available in Edit data. The workspace admits one mutation per
+pack and one native worker; pure source queries remain available while work runs. Run one authoring
 server per pack; it does not lock separate shell processes or other dev servers.
 Do not run concurrent captures or command-line compiles while the editor is saving.
 See [named jobs](#named-authoring-jobs) for process limits and cancellation.
@@ -155,6 +156,7 @@ counts and limitations. This never opens or changes the playing world.
 | `pnpm verify`       | Formatting, Knip, JavaScript tests, Astro/TypeScript checks and static build           |
 | `pnpm test:python`  | Path resolution and Anvil reader tests; Python setup required                          |
 | `pnpm test:browser` | Browser integration tests; populated snapshot and Playwright browser required          |
+| `pnpm test:static`  | Exercise an existing static build with no workspace service                            |
 | `pnpm preview`      | Serve an existing static `dist/` build without editing endpoints                       |
 
 `pnpm build` runs type checks before building; `verify` invokes it once. The root
@@ -183,7 +185,7 @@ changing `data/local.json`, reload source in the editor.
 
 ## Named authoring jobs
 
-`scripts/jobs.mjs` owns the registry and process runner for web-launched Python.
+`scripts/jobs.mjs` owns the registry and runner for named Python and Node workers.
 Workbench handlers call a registered name with server-owned directory context;
 requests cannot choose a program, shell command, script path or argument vector.
 The registry records input validation, fixed arguments, working-directory role,
@@ -196,51 +198,70 @@ expected outputs, timeout, output cap and cancellation policy.
 | `models.preview`, `models.validate`                            | Model document on stdin, at most 1 MB; return preview JSON or validation                                                          | 30 s; 8 MiB for preview, 2 MiB for validation             |
 | `resources.generate`                                           | No inputs; generate the selected client resource ZIP                                                                              | 180 s, 2 MiB                                              |
 | `snapshot.fingerprint`, `snapshot.capture`, `snapshot.extract` | No inputs; fingerprint or explicitly regenerate implementation evidence                                                           | 30 s for fingerprint, 660 s for capture/extraction; 2 MiB |
-| `scenario.export`                                              | No inputs; export the validated recipe scenario                                                                                   | 30 s, 2 MiB                                               |
+| `scenario.export`                                              | Validated saved recipe changes on stdin; staged ZIP                                                                               | 30 s, 2 MiB                                               |
 
-Activity shows complete user operations and up to 20 recent outcomes for the
-development-server session. Reads and automatic previews do not replace them.
-An active operation exposes its current named job, bounded diagnostics and Cancel
-when supported. The subprocess runner still retains only its current and last job;
-there is no persisted history or work queue. Audit exit code 1 means differences
+Activity shows service operations and up to 20 terminal outcomes for the current
+host session. Pure reads add no outcomes; explicit previews are named operations.
+The panel exposes the current worker, bounded diagnostics, supported cancellation
+and any stages committed before a failure. The subprocess runner's current/last
+worker is not a separate authoring history. Audit exit code 1 means differences
 were found and is returned as an audit result, rather than an execution failure.
+
+The object workbench additionally uses `objects.inputs` (180 s), `objects.export`
+(60 s), `objects.generate` (180 s) and `objects.preview` (30 s). Texture previews
+use `textures.generate` (180 s). Their outputs are staged and admitted as scoped
+artifacts. `map.compile` is the named Node projection worker. Worker input/output
+locations are server-owned; none is accepted from an arbitrary browser path.
+`snapshot.check` runs only the source fingerprint. `snapshot.refresh` owns capture,
+extraction and compilation as one staged operation; browser payloads cannot enable
+world-generation probes or select capture paths. Capture retains at most 32 MiB
+of process logs and invalidates its completion marker on overflow, timeout, fatal
+diagnostics or unsuccessful shutdown. Standalone capture owns its process group;
+workspace capture inherits the named worker's group for host shutdown.
+
+Resource bundles admit at most 256 MiB total and 16 MiB per JSON file. Complete map
+bundles use a separate 512 MiB total and 32 MiB JSON budget, with 10,000 files in
+either profile. The current map's JSON is approximately 300 MiB; its detail files
+are not small preview payloads. Downloads remain scoped and do not enter the
+WebSocket control frame. Preview readers keep their separate 8 MiB default.
 
 Preview and validation jobs support cancellation on macOS/Linux. Cancellation or
 timeout terminates the process group and escalates to KILL after 500 ms. Output
 beyond the cap is discarded and stops the job. Jobs that write generated files do not offer Cancel:
 interruption can leave partial generated output, particularly during capture or
-multi-file journal generation. Resolve failures and rerun the owning generator.
+multi-file journal generation. Inspect committed stages, current files and Recovery before retrying an interrupted or unknown operation; a disconnect is not proof that it failed.
 These are trusted repository scripts, not a sandbox for arbitrary code.
 
-To add a workbench process, add a registry entry, validate its inputs, specify its
-outputs and limits, and call `jobs.run` from a protected workspace handler. Keep
-revision checks and any source publication in that handler. Add execution/failure
-tests and UI feedback; register its user-facing action in `scripts/operations.mjs`
-when it needs an Activity result. Quiet reads and previews stay out of history.
-Avoid another `spawn` or `execFile` wrapper. To remove a
-job, remove its callers, registry entry and applicable tests/docs together.
-Restart `pnpm dev` after changing the registry or middleware. Restart it also if
-a newly generated public file exists on disk but returns 404: generated paths are
-excluded from the watcher to protect editor drafts, and Vite can retain its earlier
-public-file index. Save drafts and wait for named jobs to finish before restarting.
+To add a workbench process, register its fixed worker and a typed service operation
+with explicit effect, schemas, authority, revision checks and publication contract.
+Invoke it through the native executor and expose its existing Activity state.
+Keep process steps separate from successful source saves or generated publication.
+Add focused execution/failure and UI checks; avoid another `spawn` or `execFile`
+wrapper. Remove callers, registry entries and applicable tests/docs together when
+retiring a worker.
+Restart `pnpm dev` after changing loaded Node authoring code. Activity reports the restart requirement, and the service blocks further authoring until restart. Reads and cancellation remain available. Save drafts and wait for named jobs to finish first. A degraded-monitoring warning also requires restart to restore the dedicated source watcher.
 
 Saving source, generating output and installing into Minecraft remain distinct.
-After generation, reload another open view if it uses the changed files. Direct
-YAML edits still need `pnpm data:compile`; the graph's Reload data button
+Other open views receive source and generated-revision changes over the shared socket. Clean views refresh from saved data; dirty editors retain drafts and offer deliberate reload. These refreshes do not generate outputs. Direct YAML edits still need `pnpm data:compile`; the graph's Reload data button
 only rereads existing browser JSON. It does not capture or compile anything.
 
 ## Output and cleanup
 
-| Location                                                               | Lifecycle                                                                   |
-| ---------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `data/authored/`, `tools/`, `scripts/`, `tests/`                       | Maintained source; retain                                                   |
-| `data/generated/`                                                      | Ignored evidence and survey snapshots; retain while their claims are needed |
-| `public/generated/`                                                    | Ignored browser JSON, textures and optional recipe export; rebuildable      |
-| `.cache/audit-server`, `.cache/exporter-classes`, `.cache/runtime.log` | Disposable capture outputs; retain until extraction and diagnosis finish    |
-| `.cache/python`                                                        | Local Python environment; recreate with `setup:python`                      |
-| `dist`, `.astro`, `.wrangler`, `test-results`, `playwright-report`     | Build/tool/run outputs; disposable when not in use                          |
+Use the service's `artifacts.retention` query to review a cleanup plan and `artifacts.prune` to apply it. Both require the `generation.run` grant for the `artifact-retention` projection in the selected pack. `artifacts.pin` additionally requires review-write access to `artifact-pins` and read access to the selected projection. These are service operations; they do not run a shell or native worker, and have no automatic timer or dedicated page controls.
 
-Do not hand-edit generated snapshots. Removing `public/generated` also removes
+Stop other Atlas hosts attached to the same artifact store before cleanup. Active readers, workers, unexpected files, and unverifiable ownership prevent sweeping. Do not remove the artifact directory to resolve a failed cleanup: it may contain active outputs and pinned review inputs. The [data guide](data.md#filesystem-boundary) owns retention and scope boundaries.
+
+| Location                                                               | Lifecycle                                                                                                            |
+| ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `data/authored/`, `tools/`, `scripts/`, `tests/`                       | Maintained source; retain                                                                                            |
+| `data/generated/`                                                      | Ignored evidence and survey snapshots; retain while their claims are needed                                          |
+| `public/generated/`                                                    | Extracted icon inputs, legacy generator output and reviewed media; not authoritative live projections                |
+| `.cache/audit-server`, `.cache/exporter-classes`, `.cache/runtime.log` | Disposable capture outputs; retain until extraction and diagnosis finish                                             |
+| `.cache/workspace/`                                                    | Owned staging, process markers and scoped generated artifacts; preserve active generations while the host is running |
+| `.cache/python`                                                        | Local Python environment; recreate with `setup:python`                                                               |
+| `dist`, `.astro`, `.wrangler`, `test-results`, `playwright-report`     | Build/tool/run outputs; disposable when not in use                                                                   |
+
+Live projection aliases require an active workspace generation; old files in `public/generated` are not a fallback. Run `pnpm data:compile` after CLI capture or survey imports, or rebuild saved sources in the app. Do not hand-edit generated snapshots. Removing `public/generated` also removes
 textures; `data:compile` alone cannot recreate those. Use a full refresh after
 cleaning capture dependencies. Retain evidence while it supports a documented claim; remove redundant run output.
 
@@ -252,9 +273,13 @@ builds the empty application shell and runs Wrangler's dry run. `wrangler.toml`
 configures static assets with no route, account or domain, and disables public
 Workers and preview URLs. There are no editing endpoints in the static output.
 
-A local build includes whatever is currently in `public/generated`, including
-source records and extracted assets. Before any future publication, select the
-snapshot and access policy and review asset rights and exposed source/config data.
+A local build materializes the active map, object, and texture workspace projections.
+`dist/workspace-snapshot/manifest.json` records scope, input identities, public intent,
+and unavailable projections. Native inputs and job records are excluded. A checkout
+without admitted generations builds an empty read-only shell. Existing reviewed media
+remains included; review its rights and the selected projection content before publication.
+See [data ownership](data.md#filesystem-boundary) for the materialization contract.
+Run `pnpm test:static` after building to check read-only pages without a workspace host.
 `pnpm deploy` is an actual publication command; it is not part of setup or CI.
 
 ## Diagnosis
@@ -318,7 +343,8 @@ overlap comparison only covers the archives supplied to it.
 Use images from the author's project gallery, label them as source images, and
 check the thumbnail and full-size URLs. A source gallery is not an in-pack render
 test. Research data changes reload the page during `pnpm dev`. Generated map data and
-scenario-editor domains stay excluded from automatic reloads to protect drafts. Run
+scenario-editor domains stay excluded from Vite's page reloads to protect drafts.
+The workspace watcher reports source revisions separately. Run
 `pnpm verify`, `pnpm test:python` and `PLAYWRIGHT_CHANNEL=chrome pnpm test:browser`.
 Remove temporary downloads and browser output after recording results in
 [verification](verification.md).
@@ -334,8 +360,12 @@ python3 web/scripts/export-models.py
 web/.cache/python/bin/python scripts/build-resource-objects.py
 ```
 
+These standalone commands prepare inspection caches; they do not replace the
+workspace's active projection. Use **Refresh previews** in the local workbench to
+publish a checked generation. **Preview tools** exposes explicit input-fetch and
+static-export steps when their prerequisites need refreshing.
+
 The optional static model export needs the exact mapped client and locked loader
 libraries; see [resource authoring](models.md#stack-and-static-export-maintenance).
-The local workbench exposes the same bounded operations under Preview tools.
 Source editing, shipping generation and installation remain separate. Generated
 previews and candidate archives stay in ignored cache/output directories.

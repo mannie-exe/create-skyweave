@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "id": "minecraft-1.21.1-neoforge",
+  "minecraft": "1.21.1",
+  "loader": "neoforge",
+  "resourceFormat": 34,
+  "dataFormat": 48
+}

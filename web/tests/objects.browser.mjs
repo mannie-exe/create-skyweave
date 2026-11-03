@@ -143,7 +143,19 @@ test('material variants keep the same object and expose exact authoring links', 
 test('registered custom stack previews reject arbitrary paths and do not save source', async ({
   page,
 }) => {
+  test.setTimeout(60_000)
   const writes = []
+  page.on('websocket', (socket) => {
+    if (!socket.url().endsWith('/__atlas/ws')) return
+    socket.on('framesent', ({ payload }) => {
+      const frame = JSON.parse(String(payload))
+      if (
+        frame.type === 'command' &&
+        /(?:\.save$|^(?:journal|resources)\.generate$)/.test(frame.operation)
+      )
+        writes.push(frame.operation)
+    })
+  })
   page.on('request', (request) => {
     if (
       /\/__atlas\/(models\/(save|generate)|authoring\/)/.test(request.url()) &&
@@ -154,34 +166,41 @@ test('registered custom stack previews reject arbitrary paths and do not save so
   await page.goto(query)
   await expect(page.locator('canvas[data-ready]').first()).toBeVisible()
   const result = await page.evaluate(async () => {
+    const { workspaceClient } = await import('/src/lib/workspace/client.ts')
+    // A texture refresh or exporter edit may correctly stale the cached catalogue.
+    // Establish current inputs instead of bypassing its freshness guard.
+    await workspaceClient.command('objects.export', {})
+    await workspaceClient.command('textures.generate', {})
+    await workspaceClient.command('objects.generate', {})
     const index = await (await fetch('/generated/objects/index.json')).json()
     const object = index.objects.find(
         (object) => object.id === 'entity/minecraft:creeper',
       ),
       layers = object.profiles.selected.layers
-    const response = await fetch('/__atlas/objects/preview', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ object: object.id, case: 'rest', layers }),
+    const { requestJSON } = await import('/src/lib/http.ts')
+    const response = await requestJSON('/__atlas/objects/preview', {
+      object: object.id,
+      case: 'rest',
+      layers,
     })
-    const bad = await fetch('/__atlas/objects/preview', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
+    let bad
+    try {
+      await workspaceClient.command('objects.preview', {
         object: object.id,
         case: 'rest',
         layers,
         path: '/tmp/escape',
-      }),
-    })
+      })
+    } catch (error) {
+      bad = error.failure.code
+    }
+
     return {
-      status: response.status,
-      body: await response.json(),
-      bad: bad.status,
+      body: response,
+      bad,
     }
   })
-  expect(result.status).toBe(200)
-  expect(result.bad).toBe(400)
+  expect(result.bad).toBe('INVALID_INPUT')
   expect(result.body.preview.model.meshes.length).toBeGreaterThan(0)
   expect(
     result.body.evidence.some((entry) => entry.winner === 'fresh-animations'),

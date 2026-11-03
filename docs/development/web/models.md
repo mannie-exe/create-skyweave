@@ -43,6 +43,29 @@ Recipes refer to explicit archive assets, not an inferred live resource-pack
 order. A higher-priority texture replacement must be selected as the recipe's
 input and reviewed before using its silhouette.
 
+`scripts/workspace/models.ts` separates source reads, draft previews, validated
+saves and resource generation. Preview JSON travels as a checked artifact instead
+of a large socket message. Input revisions include exact source/tool hashes and
+pinned archive bytes; large archives reuse a digest only while their filesystem
+identity is unchanged. Update the declared Python tool list when its imports change.
+
+Resource generation writes a candidate ZIP to an owned staging directory. The
+existing builder's `--check-output` validates paths, format and checksums before
+publication. Source revisions and the previous output hash are checked again before
+atomic replacement of the pack ZIP. Failed or stale candidates keep the prior ZIP;
+an unchanged result avoids replacing it. Publishing the result artifact is separate
+from building or installing any client/server instance.
+
+`textures.generate` separately rebuilds the texture catalogue from saved sources.
+It stages PNGs and JSON, checks the source/tool vector and prior resource pack,
+then publishes one immutable generation. Image and preview links resolve to that
+generation's scoped artifact references; the live legacy catalogue URL selects
+the active manifest. Missing output or changed inputs preserve the previous
+catalogue. Its provenance records the runtime/profile, adapter and input revision.
+The CLI builder accepts trusted `--root` and `--output` directories; its default
+still produces the static snapshot. This operation does not rebuild or install
+the resource pack.
+
 Disabled recipes remain editable and previewable, but emit no model override.
 Each output resource ID has one owner, including disabled recipes. Models reuse
 original texture IDs unless a recipe composes derived artwork. Derived textures
@@ -321,20 +344,40 @@ owner, independently of donor or output namespaces.
 initialize mods. Configure `mappedClient` in ignored `web/data/local.json` to an
 exact mapped Minecraft/NeoForge client JAR. The fallback is the disposable pack
 `.cache/resource-inputs/mapped-client.jar`. Materialize the locked loader libraries
-at the configured server path and Confectionery client artifact first. The export
-records source, model, CEM, mapped-client and mod hashes plus runtime versions.
+at the configured server path. The Confectionery factory is optional: when its
+locked client artifact is present, verify its digest and admit its classpath and
+reflective factory together. Vanilla factories do not link that mod. Entity
+associations whose owning optional mod is absent are omitted from the catalogue.
+The export records Java/Python source, model, CEM and mapped-client hashes plus runtime
+versions, with optional factory inputs and digest sets recorded separately.
 Do not distribute the mapped client or extracted meshes as authored source.
+
+The workspace refresh sequence is explicit: fetch any missing comparison inputs,
+optionally export static factories, generate texture previews, then generate object
+previews. Each named worker receives registered pack/web roots, staged output and
+admitted input locations. Export publishes only its three checked JSON inputs;
+compiled Java classes remain disposable staging files. Object catalogue/preview
+publication uses current scoped texture and native generations, not an implicit
+`pack/web` or public-directory copy. CLI commands retain their standalone defaults.
+Source revisions, input digests and current authority are rechecked before
+publication. An outdated catalogue must be refreshed before changing its stack.
 
 After updating Minecraft, NeoForge, Confectionery, EMF or Fresh Animations, inspect
 the admitted factories, ModelPart polygon/UV conventions, attachment transforms
 and actual CEM includes. Export again, then refresh previews. Recheck hierarchy,
 face orientation and explicit pose limits; runtime animation still needs native
 captures. Changed export source or relevant inputs makes cached mob data
-unsupported until refreshed. Preview hashes include ordered input hashes, adapter
+unsupported until refreshed. Changing only Confectionery's artifact invalidates
+its factory without discarding valid vanilla models. Preview hashes include ordered input hashes, adapter
 code and source documents; geometry equivalence and resource-byte differences are
 recorded separately. The generated index is published last from one checked source
 snapshot. Source edits, refreshes, shipping generation and installation remain
 separate operations.
+
+The environment's format profile is an admission boundary, not a porting switch.
+Update its corresponding Python/Java and browser adapters before admitting another
+Minecraft/loader pair. Static cache identity includes both exporter sources and
+the mapped-client bytes; optional factory digests remain separate.
 
 ## Selected features and comparison sources
 
@@ -399,7 +442,7 @@ Paths in this table are relative to the pack repository root.
 | PNG decoding, masks, geometry and fitting validation | `scripts/model_authoring.py`             |
 | Read-only editor bridge                              | `scripts/model-workbench.py`             |
 | Deterministic combined resource pack                 | `scripts/build-resource-patches.py`      |
-| Local file revisions, saves and generation requests  | `web/scripts/model-authoring.mjs`        |
+| Local file revisions, saves and generation requests  | `web/scripts/workspace/models.ts`        |
 | Recipe controls and draft state                      | `web/src/lib/model-authoring.ts`         |
 | Built artwork/model preview and catalogue            | `web/src/lib/resource-preview.ts`        |
 | View-only recipe texture overlay                     | `web/src/lib/model-resource-textures.ts` |
@@ -415,6 +458,8 @@ The full resource build also includes the approved per-feature donor selections
 from `authoring/resource-selections.json`. Those are separate from procedural
 model recipes. Changes to either selection source or input pins invalidate the
 editor revision before saving or generating; reload to review current inputs.
+
+External input changes preserve edited recipes and unapplied JSON. When a current saved preview exists, a clean editor can refresh it without executing a worker. If the new source needs generation, the existing view remains visible with a reload notice. Object comparisons likewise preserve custom layers and embedded editing; **Load updated previews** reads the published catalogue after leaving those staged views. Neither notification installs resources or changes Minecraft instances.
 
 ### Mob comparisons
 
@@ -440,3 +485,22 @@ vanilla mooshroom. Random skins, biome/name rules, baby transforms, animation an
 renderer-only equipment/features still require an admitted case or native check.
 After a Minecraft, EMF or FA update, review factory/attachment names, UV conventions,
 visibility and the fixed stance values before exporting again.
+
+### Generated-resource update checks
+
+Refreshing the source catalogue is separate from rebuilding and publishing
+previews. After changing texture inputs or the visual builder, generate the saved
+resource pack, then refresh texture and object projections through the workspace
+service. A changed ZIP on disk does not update an already published projection.
+Include new generator helpers in the resource input vector so loaded-code changes
+require a restart and old previews cannot be presented as current.
+
+Lootr's four authored material records also cover the trapped chest variants.
+Compare each texture against its own source, including variants that share one
+record but have no separate visible preview binding. See
+[patch boundaries](../patches.md#registered-texture-artwork) for native rendering contracts.
+
+Resource comparisons may use different dated runs. Review notes are keyed by
+capture run and feature; new repair evidence must not replace older choices or
+silently change the selected output. Native media and the unresolved bridge-lantern
+rotation belong in the existing comparison catalogue.

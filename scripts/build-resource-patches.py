@@ -3,6 +3,7 @@ import copy
 import argparse
 import hashlib
 import json
+import zipfile
 from pathlib import Path
 from archive_output import archive_bytes, publish
 from resource_inputs import inputs as load_inputs, verify_bytes
@@ -10,10 +11,24 @@ from model_authoring import generate as generate_models, require
 from lootr_models import build as build_lootr_models, fit_native_uvs
 from texture_resources import build as build_textures
 from selective_resources import build as build_selective
+from window_interiors import build as build_window_interiors
 
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT = ROOT / 'overrides/client/resourcepacks/Create Sky Resource Patches.zip'
 PLANTS = {'brown_mushroom': 2, 'red_mushroom': 3, 'crimson_fungus': 3, 'warped_fungus': 2}
+
+
+def verify_output(output):
+    with zipfile.ZipFile(output) as archive:
+        entries = archive.infolist()
+        require(len(entries) <= 20000 and sum(info.file_size for info in entries) <= 256 * 1024 * 1024,
+                'Resource archive exceeds its output limits')
+        require(all(not info.filename.startswith('/') and '\\' not in info.filename
+                    and '..' not in Path(info.filename).parts for info in entries), 'Invalid resource archive path')
+        require(len({info.filename for info in entries}) == len(entries), 'Duplicate resource archive entry')
+        require(json.loads(archive.read('pack.mcmeta'))['pack']['pack_format'] == 34,
+                'Unsupported resource archive format')
+        require(archive.testzip() is None, 'Resource archive checksum failed')
 
 
 def model(archive, path):
@@ -24,18 +39,26 @@ def face_textures(element):
     return {face['texture'] for face in element['faces'].values()}
 
 
-def compose_pot(fresh, crops, plant):
+def pot_shell(fresh, plant, plant_textures, expected_removed):
     path = f'assets/minecraft/models/block/potted_{plant}.json'
     leaf = model(fresh, path)
     namespace, parent = leaf['parent'].split(':', 1)
     pot = model(fresh, f'assets/{namespace}/models/{parent}.json')
     require('parent' not in pot, 'Fresh pot inheritance changed')
-    removed = [element for element in pot['elements'] if face_textures(element) == {'#plant'}]
-    require(len(removed) == 2, 'Expected exactly two Fresh crossed plant planes')
+    removed = [element for element in pot['elements'] if face_textures(element) & plant_textures]
+    require(len(removed) == expected_removed and
+            all(face_textures(element) <= plant_textures for element in removed),
+            'Fresh potted plant geometry changed')
     pot['elements'] = [element for element in pot['elements'] if element not in removed]
     require(len(pot['elements']) == 4, 'Fresh pot geometry changed')
     pot['textures'].update(leaf['textures'])
-    pot['textures'].pop('plant')
+    for alias in plant_textures:
+        pot['textures'].pop(alias.removeprefix('#'), None)
+    return path, pot, leaf
+
+
+def compose_pot(fresh, crops, plant):
+    path, pot, leaf = pot_shell(fresh, plant, {'#plant'}, 2)
     crop = model(crops, path)
     plants = [element for element in crop['elements']
               if face_textures(element) and face_textures(element) <= {'#mushroom', '#mushroom_top'}]
@@ -47,6 +70,22 @@ def compose_pot(fresh, crops, plant):
     pot['credit'] = 'Pot: BlueHDGaming; plant: Stridey; composition: Create Sky'
     variables = {'#' + key for key in pot['textures']}
     require(all(face_textures(e) <= variables for e in pot['elements']), 'Unbound pot texture')
+    return path, pot
+
+
+def compose_azalea(fresh, plants, plant):
+    path, pot, leaf = pot_shell(fresh, plant, {'#plant', '#plant_side', '#plant_top'}, 4)
+    donor = model(plants, 'assets/minecraft/models/block/template_potted_azalea_bush.json')
+    aliases = {'#azalea_plant', '#side', '#top'}
+    geometry = [element for element in donor['elements'] if face_textures(element) & aliases]
+    require(len(geometry) == 16 and all(face_textures(element) <= aliases for element in geometry),
+            'Selected potted azalea geometry changed')
+    pot['elements'].extend(geometry)
+    pot['textures'].update({'azalea_plant': leaf['textures']['plant'],
+                           'side': leaf['textures']['plant_side'], 'top': leaf['textures']['plant_top']})
+    pot['credit'] = 'Pot: BlueHDGaming; plant: Valdr687/Vervada; composition: Create Sky'
+    require(all(face_textures(element) <= {'#'+key for key in pot['textures']}
+                for element in pot['elements']), 'Unbound potted azalea texture')
     return path, pot
 
 
@@ -64,6 +103,13 @@ def build(archives, recipes, config, selections=None, nautilus_license=None, tex
     for plant in PLANTS:
         path, value = compose_pot(archives['fresh-flower-pots'], archives['3d-crops'], plant)
         entries[path] = value
+    if selections is not None:
+        for plant, selection in [('azalea_bush', 'plants/azalea'),
+                                 ('flowering_azalea_bush', 'plants/flowering-azalea')]:
+            if any(item['id'] == selection and item['action'] == 'apply' and item['source'] == '3d-plants'
+                   for item in selections['selections']):
+                path, value = compose_azalea(archives['fresh-flower-pots'], archives['3d-plants'], plant)
+                entries[path] = value
     chain = model(archives['better-lanterns'], 'assets/minecraft/models/block/chain.json')
     require({face for e in chain['elements'] for face in face_textures(e)} == {'#1'},
             'Better Lanterns chain texture contract changed')
@@ -84,6 +130,12 @@ def build(archives, recipes, config, selections=None, nautilus_license=None, tex
     artwork, active_textures, texture_report = build_textures(archives, textures, additions) if textures is not None else ({}, {}, [])
     require(not entries.keys() & artwork.keys(), 'Texture selection collides with a maintained resource')
     entries.update(artwork)
+    window_interiors = config.get('compatibility', {}).get('window_interior_faces', False)
+    require(type(window_interiors) is bool, 'Window interior selection must be a boolean')
+    if window_interiors:
+        windows = build_window_interiors(archives)
+        require(not entries.keys() & windows.keys(), 'Window interiors collide with a maintained model')
+        entries.update(windows)
     entries['texture-resources.json'] = {'schema': 1, 'resources': texture_report}
     lootr_enabled = config.get('compatibility', {}).get('lootr_fresh_objects', False)
     require(type(lootr_enabled) is bool, 'Lootr compatibility selection must be a boolean')
@@ -116,7 +168,8 @@ def build(archives, recipes, config, selections=None, nautilus_license=None, tex
             'builder': 'https://github.com/mannie-exe/create_sky/tree/main/scripts',
             'selections': selections,
             'textures': textures,
-            'inputs': {key: {field: source[field] for field in ('version', 'sha512', 'url')}
+            'compatibility': config.get('compatibility', {}),
+            'inputs': {key: {field: source[field] for field in ('version', 'sha512', 'url', 'provider') if field in source}
                        for key, source in config['sources'].items()},
         }, ensure_ascii=False, indent=2).encode() + b'\n'
         for key, filename in [('3d-default', 'LICENSE'), ('classic-3d', 'LICENSE.md')]:
@@ -149,6 +202,14 @@ def generate_pack(root=ROOT, output=OUTPUT, check=False):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check', action='store_true', help='Verify inputs and the existing ZIP without rewriting it')
+    parser.add_argument('--root', type=Path, default=ROOT, help='Pack source root')
+    parser.add_argument('--output', type=Path, help='Output ZIP; defaults to the pack override')
+    parser.add_argument('--check-output', type=Path, help='Validate an existing output ZIP without rebuilding')
     args = parser.parse_args()
-    changed, digest = generate_pack(check=args.check)
-    print(f'{OUTPUT.relative_to(ROOT)}: {"updated" if changed else "current"}, sha256 {digest}')
+    if args.check_output:
+        verify_output(args.check_output)
+        print('Resource archive is valid')
+        raise SystemExit(0)
+    output = args.output or args.root / 'overrides/client/resourcepacks/Create Sky Resource Patches.zip'
+    changed, digest = generate_pack(root=args.root, output=output, check=args.check)
+    print(f'{output}: {"updated" if changed else "current"}, sha256 {digest}')

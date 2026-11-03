@@ -11,7 +11,10 @@ const { title, activityDock = false } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en">
+<html
+  lang="en"
+  data-workspace-delivery={import.meta.env.DEV ? 'open-local' : 'open-static'}
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

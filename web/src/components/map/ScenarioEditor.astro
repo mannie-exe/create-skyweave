@@ -1,18 +1,24 @@
 ---
 import Button from '../ui/Button.astro'
+import EditorActions from '../ui/EditorActions.astro'
 import SourceEditor from '../ui/SourceEditor.astro'
 ---
 
 <section id="editor-view" class="view" hidden>
   <div class="toolbar">
     <select id="edit-domain" aria-label="Edit domain"></select>
-    <Button id="reload-editor">Reload from disk</Button>
-    <Button intent="primary" id="save-editor">
-      Save & rebuild map
-    </Button>
-    <Button id="refresh-data">Refresh data</Button>
-    <Button id="export-patch">Export recipe datapack</Button>
-    <span id="editor-status" role="status"></span>
+    <EditorActions>
+      <Button id="reload-editor">Reload from disk</Button>
+      <Button intent="primary" id="save-editor">
+        Save & rebuild map
+      </Button>
+      <Button id="rebuild-map" hidden>
+        Rebuild saved map
+      </Button>
+      <Button id="refresh-data">Refresh data</Button>
+      <Button id="export-patch">Export recipe datapack</Button>
+      <span slot="status" id="editor-status" role="status"></span>
+    </EditorActions>
   </div>
   <p class="editor-hint">
     Files: <code>data/authored/*.yml</code> · Recipe edits are scenarios until

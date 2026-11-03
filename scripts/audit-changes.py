@@ -47,8 +47,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--json', action='store_true')
     parser.add_argument('--validate', action='store_true', help='Validate register structure only')
+    parser.add_argument('--root', type=Path, default=ROOT, help='Pack root to inspect')
     args = parser.parse_args()
-    report = audit()
+    report = audit(args.root)
     if args.validate:
         print('Config register structure is valid')
         raise SystemExit(0)

@@ -60,7 +60,8 @@
       "source": "lootr",
       "generator": "lootr-metal",
       "inputs": [
-        "lootr:chest"
+        "lootr:chest",
+        "lootr:chest_trapped"
       ],
       "approval": {
         "status": "approved",
@@ -84,7 +85,8 @@
       "source": "lootr",
       "generator": "lootr-metal",
       "inputs": [
-        "lootr:chest_opened"
+        "lootr:chest_opened",
+        "lootr:chest_trapped_opened"
       ],
       "approval": {
         "status": "approved",

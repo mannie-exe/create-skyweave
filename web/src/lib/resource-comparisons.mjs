@@ -48,66 +48,109 @@ const descriptions = {
     limit:
       'These are selective model treatments. Candidate UI, global shaders and broad texture changes are excluded.',
   },
+  'bridge-lantern': {
+    run: 'lantern-hanging-20261103',
+    title: 'Sloped bridge lantern',
+    question: 'Approved appearance: chain-hung lantern on the sloped bridge.',
+    limit:
+      'Flat bridge keeps its regular lantern. Sloped appearance is approved; native interaction bounds still need adjustment.',
+  },
+  'lootr-repairs': {
+    run: 'repairs-20261102',
+    title: 'Lootr repairs',
+    question: 'Are the barrel sides and trapped-chest materials consistent?',
+    limit:
+      'Normal and trapped chests retain distinct redstone behavior. Looted and unlooted materials remain separate.',
+  },
+  'potted-azalea': {
+    run: 'repairs-20261102',
+    title: 'Azalea composites',
+    question: 'Does the selected plant geometry fit the Fresh pots?',
+    limit:
+      'The selected shrub templates and potted plants are composed separately. Existing mushroom pots remain controls.',
+  },
+  'window-interiors': {
+    run: 'window-culling-20261103',
+    title: 'Window boundaries',
+    question: 'Do different window materials retain their connected faces?',
+    limit:
+      'Optional Compat corrections preserve material and axis boundaries. Matching interfaces stay hidden; native Fusion textures are retained.',
+  },
 }
 
 export const comparisonRun = 'selective-20261101'
 const mediaUrl = (file) => `/generated/resource-review/${file}`
-export const comparisons = Object.entries(descriptions).map(
-  ([id, description]) => ({
-    id,
-    run: comparisonRun,
-    ...description,
-    date: localMedia.runs[comparisonRun].date,
-    context: localMedia.runs[comparisonRun].context,
-    captures: localMedia.media
-      .filter(
-        (media) =>
-          media.run === comparisonRun &&
-          media.gallery !== false &&
-          media.file.startsWith(`${comparisonRun}/comparison-${id}-`) &&
-          'originals' in media,
-      )
-      .map((media) => ({
-        id: media.id,
-        sha256: media.sha256,
-        caption: media.caption.replace(
-          ' Same crop and scale; unedited originals below.',
-          '',
-        ),
-        sheet: mediaUrl(media.file),
-        originals:
-          ('originals' in media ? media.originals : undefined)?.map(
-            (original) => ({
-              id: original.label
-                .replace(/^[A-Z] · /, '')
-                .toLowerCase()
-                .replace(/[^a-z0-9]+/g, '-')
-                .replace(/-$/, ''),
-              sha256: localMedia.media.find(
-                (item) => item.file === original.file,
-              )?.sha256,
-              label: original.label,
-              url: mediaUrl(original.file),
-            }),
-          ) ?? [],
-      }))
-      // Start with shader-off captures; retain shader-on evidence as separate scenes.
-      .sort(
-        (a, b) =>
-          Number(a.id.endsWith('-shader')) - Number(b.id.endsWith('-shader')),
-      ),
-    videos: localMedia.media
-      .filter(
-        (media) =>
-          media.run === comparisonRun &&
-          media.kind === 'video' &&
-          id === 'chest' &&
-          media.gallery !== false,
-      )
-      .map((media) => ({
-        caption: media.caption,
-        url: mediaUrl(media.file),
-        sha256: media.sha256,
-      })),
-  }),
-)
+/** @param {typeof localMedia} catalogue */
+export function createComparisons(catalogue) {
+  return Object.entries(descriptions)
+    .map(([id, description]) => {
+      const run = 'run' in description ? description.run : comparisonRun
+      return {
+        id,
+        run,
+        ...description,
+        date: catalogue.runs[run].date,
+        context: catalogue.runs[run].context,
+        captures: catalogue.media
+          .filter(
+            (media) =>
+              media.run === run &&
+              media.gallery !== false &&
+              media.file.startsWith(`${run}/comparison-${id}-`) &&
+              'originals' in media,
+          )
+          .map((media) => ({
+            id: media.id,
+            sha256: media.sha256,
+            caption: media.caption.replace(
+              ' Same crop and scale; unedited originals below.',
+              '',
+            ),
+            sheet: mediaUrl(media.file),
+            originals:
+              ('originals' in media ? media.originals : undefined)?.map(
+                (original) => ({
+                  id: original.label
+                    .replace(/^[A-Z] · /, '')
+                    .toLowerCase()
+                    .replace(/[^a-z0-9]+/g, '-')
+                    .replace(/-$/, ''),
+                  sha256: catalogue.media.find(
+                    (item) => item.file === original.file,
+                  )?.sha256,
+                  width:
+                    catalogue.media.find((item) => item.file === original.file)
+                      ?.width ?? 2880,
+                  height:
+                    catalogue.media.find((item) => item.file === original.file)
+                      ?.height ?? 1856,
+                  label: original.label,
+                  url: mediaUrl(original.file),
+                }),
+              ) ?? [],
+          }))
+          // Start with shader-off captures; retain shader-on evidence as separate scenes.
+          .sort(
+            (a, b) =>
+              Number(a.id.endsWith('-shader')) -
+              Number(b.id.endsWith('-shader')),
+          ),
+        videos: catalogue.media
+          .filter(
+            (media) =>
+              media.run === run &&
+              media.kind === 'video' &&
+              ['chest', 'lootr-repairs'].includes(id) &&
+              media.gallery !== false,
+          )
+          .map((media) => ({
+            caption: media.caption,
+            url: mediaUrl(media.file),
+            sha256: media.sha256,
+          })),
+      }
+    })
+    .filter((feature) => feature.captures.length > 0)
+}
+
+export const comparisons = createComparisons(localMedia)

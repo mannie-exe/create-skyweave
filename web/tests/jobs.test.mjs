@@ -149,3 +149,18 @@ time.sleep(30)
   assert.equal(stopped, true)
   assert.equal(runner.snapshot().current, null)
 })
+
+test('nested named tools use the host-resolved search path without shell execution', async (t) => {
+  const { runner, context, dir } = await fixture(
+    t,
+    "import subprocess\nprint(subprocess.check_output(['node','--version'],text=True).strip())",
+  )
+  const bin = path.join(dir, 'bin')
+  await fs.mkdir(bin)
+  const node = path.join(bin, 'node')
+  await fs.writeFile(node, '#!/bin/sh\nprintf "%s\\n" "fixture-node"\n', {
+    mode: 0o755,
+  })
+  const result = await runner.run('job', { ...context, tools: { node } })
+  assert.equal(result.stdout.trim(), 'fixture-node')
+})

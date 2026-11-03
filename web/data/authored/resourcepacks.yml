@@ -34,7 +34,7 @@ candidates:
       Confines its changes to a decorative object family instead of replacing the
       terrain palette.
     concern: Create Sky Resource Patches combines the four overlapping 3D Crops
-      plants with Fresh pots for local playtesting. Keep the generated patch
+      plants and selected azaleas with Fresh pots. Keep the generated patch
       above both inputs; its pinned models need review after upstream updates.
     nextCheck: Compare all potted plants and mushrooms; keep pot silhouettes
       consistent with any modded counterparts.
@@ -541,8 +541,10 @@ candidates:
     description: Combines client model repairs, selected donor geometry and chest animations.
     fit: Gives potted plants, Create and Deco bars, Macaw lanterns, cage lamps,
       DnD frontlights and Lootr storage compatible models, including barrel corner clasps and relit storage artwork.
-    concern: Must load above its source packs. The archived comparisons show
-      earlier patch revisions, not a new verification of the current build.
+    concern: Must load above its source packs. Dated comparisons retain their
+      original conditions. Lootr materials and azalea pots have native repair checks;
+      the window-face workaround stays disabled; Compat handles native window culling.
+      Coverage does not include every model or shader.
       Copycat panel geometry comes from the separate Copycat Bar Extrusion mod.
     nextCheck: Rebuild and inspect the affected families when an input pack,
       model or renderer changes; keep exact input hashes in the patch manifest.

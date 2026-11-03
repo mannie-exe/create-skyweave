@@ -160,6 +160,10 @@ for (const path of [
       await expect(
         page.getByLabel('Find object', { exact: true }),
       ).toBeVisible()
+    if (path === '/authoring')
+      await expect(
+        page.getByRole('status').filter({ hasText: 'Source loaded' }),
+      ).toBeVisible()
     const main = page.getByRole('main')
     await expect(main).toBeVisible()
     const skip = page.getByRole('link', { name: 'Skip to content' })

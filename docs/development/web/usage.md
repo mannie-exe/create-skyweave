@@ -100,7 +100,7 @@ to every displayed node and connection, including contributing route records.
 
 Reload data preserves selections and camera while rereading compiled JSON. Direct
 source edits require compilation first; saves through Edit data rebuild the projection
-and refresh it on the next graph visit. Refresh the page to recheck the runtime
+and refresh the visible view while retaining graph navigation. Refresh the page to recheck the runtime
 fingerprint after external changes.
 
 The canvas mounts a bounded viewport projection. Large scenes simplify at low zoom;
@@ -174,7 +174,7 @@ Refresh data captures an isolated runtime and rebuilds resources and routes.
 It does not rescan the world. A stale indicator calls for review or refresh;
 the app does not continuously follow the running game.
 
-Editing and refresh controls work only through `pnpm dev`. Static preview and
+Domain drafts survive switching between source files. External source changes keep each draft tied to its original revision; reload discards only the selected file's draft. Editing and refresh controls work only through `pnpm dev`. Static preview and
 future static deployments provide browsing only.
 
 ## Resource packs
@@ -204,6 +204,8 @@ compare, then save or **Revert draft**. Changed sources refuse stale writes.
 A warning identifies saved reviews whose evidence has changed. Static builds show
 the saved review snapshot and do not offer editing. Old comparison-preview links
 redirect here.
+
+The local service reads current capture catalogues and approved selections as well as saved notes. Clean comparison views update when those sources change. Unsaved notes retain their text and show a notice; **Reload saved reviews** updates the catalogue while keeping drafts and the selected scene where available. Refreshing this view does not capture screenshots or change pack selections.
 
 The catalogue retains its existing navigation.
 Search by pack, feature or mod, then narrow by decision or scope. Filters are
@@ -236,6 +238,14 @@ Catalog screening retains all 750 ranked listings and their first-pass screening
 reasons. Its search is separate from the detailed review filters. Following a
 review link reveals its target even if the current filters hide it. The page is
 read-only and does not download, install or reorder resource packs.
+
+## Interrupted work
+
+Activity's Recovery section lists retained interrupted files. **Refresh recovery**
+reads their current status; **Clean interrupted files** removes only eligible owned
+staging or execution metadata after its owners are confirmed stopped. Source backups
+and unknown ownership require inspection and are preserved. Cleanup is explicit and
+does not restore source files or remove world data.
 
 ## Resource objects
 

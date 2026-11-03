@@ -38,6 +38,7 @@ def generate(archives, catalog):
 def build(archives, catalog, models=None):
     cases, images = generate(archives, catalog)
     entries, active, report = {}, {}, []
+    block_sprites = set()
     for record in catalog['resources']:
         require(type(record.get('enabled', False)) is bool, 'Texture inclusion must be a boolean')
         if not record.get('enabled', False):
@@ -54,7 +55,25 @@ def build(archives, catalog, models=None):
         def png(binding):
             return images[case['candidate']['textures'][binding]['url'].split('?')[0].rsplit('/', 1)[-1]]
         if record['id'].startswith('chest-'):
-            write(resource(record['inputs'][0], 'textures', '.png'), png('surface'))
+            artwork = png('surface')
+            write(resource(record['inputs'][0], 'textures', '.png'), artwork)
+            original = Assets(archives).texture('lootr', record['inputs'][0])['pixels']
+            for identifier in record['inputs'][1:]:
+                require(identifier in ('lootr:chest_trapped', 'lootr:chest_trapped_opened'),
+                        'Unknown chest artwork variant')
+                variant = Assets(archives).texture('lootr', identifier)['pixels']
+                require(len(variant) == len(original) and
+                        all(len(a) == len(b) for a, b in zip(variant, original)),
+                        'Lootr chest variant dimensions changed')
+                differences = [(x, y) for y, row in enumerate(original)
+                               for x, pixel in enumerate(row) if pixel != variant[y][x]]
+                require(len(differences) == 10 and
+                        all(47 <= x <= 50 and 39 <= y <= 41 for x, y in differences),
+                        'Lootr trapped-chest marker layout changed')
+                pixels = rgba(artwork)[2]
+                for x, y in differences:
+                    pixels[y][x] = variant[y][x]
+                write(resource(identifier, 'textures', '.png'), encode_rgba(pixels))
         else:
             model_name = 'lootr_barrel_unopened' if record['id'] == 'barrel-unlooted' else 'lootr_opened_barrel'
             original = Assets(archives).model('lootr', f'lootr:block/{model_name}')
@@ -67,6 +86,7 @@ def build(archives, catalog, models=None):
                 identifier = f'create_sky:generated/lootr/{record["id"]}/{direction}'
                 model['textures'][direction] = identifier
                 write(resource(identifier, 'textures', '.png'), png(direction))
+                block_sprites.add(identifier)
             for direction, index in [('up', 1), ('down', 2)]:
                 identifier = record['inputs'][index]
                 model['textures'][direction] = identifier
@@ -111,4 +131,10 @@ def build(archives, catalog, models=None):
                    for path, value in output.items()}
         report.append({'id': record['id'], 'artworkSha256': digest,
                        'outputs': {path: hashlib.sha256(value).hexdigest() for path, value in encoded.items()}})
+    if block_sprites:
+        # Vanilla's block atlas scans block/ and item/, not arbitrary generated/.
+        # Admit only the exact directional sprites used by these block models.
+        entries['assets/minecraft/atlases/blocks.json'] = {
+            'sources': [{'type': 'minecraft:single', 'resource': identifier}
+                        for identifier in sorted(block_sprites)]}
     return entries, active, report

@@ -3,6 +3,8 @@ import { setFeedback } from './ui'
 import { mapOrientation } from './map-orientation'
 import { recipeMounts } from './recipe-mount'
 import { requestJSON as fetchJSON } from './http'
+import { workspaceClient, WorkspaceClientError } from './workspace/client'
+import { observeWorkspaceChanges } from './workspace/changes'
 import { scrollNavigation } from './minimap'
 import { readColorTokens } from './style-tokens'
 import { coverageStates, coverageStatus } from './coverage.mjs'
@@ -57,6 +59,7 @@ let scale = 1,
   renderQueued = false,
   editorFiles: RecordData = {},
   domainReady = false
+const editorDrafts = new Map<string, { text: string; revision: string }>()
 let itemCatalog = new Map<string, Node>()
 let orientation: ReturnType<typeof mapOrientation> | undefined
 let orientationSource: Node[] | undefined
@@ -72,6 +75,7 @@ const mapNavigation = scrollNavigation(
 )
 const notice = notify
 async function loadCatalog() {
+  const preserveViewport = nodes.length > 0
   clearRouteData()
   const data = await fetchJSON('/generated/catalog.json')
   nodes = data.nodes
@@ -112,7 +116,7 @@ async function loadCatalog() {
         filter()
       }),
     )
-  filter()
+  filter(preserveViewport)
 }
 function applyPolicy() {
   const policy = el<HTMLSelectElement>('progression-policy').value
@@ -130,7 +134,7 @@ el('progression-policy').addEventListener('change', () => {
   viewport.scrollTo(0, 0)
   filter()
 })
-function filter() {
+function filter(preserveViewport = false) {
   const query = el<HTMLInputElement>('search').value.toLowerCase(),
     mod = el<HTMLSelectElement>('mod-filter').value,
     route = el<HTMLSelectElement>('route-filter').value
@@ -149,7 +153,7 @@ function filter() {
   grid.style.width = `${(Math.max(0, ...filtered.map((n) => n.x)) + 1) * 108 * scale}px`
   grid.style.height = `${(Math.max(0, ...filtered.map((n) => n.y)) + 1) * 100 * scale}px`
   grid.style.backgroundSize = `${108 * scale}px ${100 * scale}px`
-  if (query || mod || route) {
+  if (!preserveViewport && (query || mod || route)) {
     const first = filtered[0]
     if (first) {
       viewport.scrollLeft = Math.max(0, first.x * 108 * scale - 25)
@@ -257,7 +261,7 @@ grid.addEventListener('pointerout', (event) => {
     tooltip.hidden = true
 })
 for (const id of ['search', 'mod-filter', 'route-filter'])
-  el(id).addEventListener('input', filter)
+  el(id).addEventListener('input', () => filter())
 el<HTMLInputElement>('zoom').addEventListener('input', (event) => {
   const old = scale
   scale = Number((event.target as HTMLInputElement).value)
@@ -442,7 +446,9 @@ async function domains() {
 }
 let graph: ReturnType<typeof import('./atlas-graph').createGraph> | undefined
 let graphStale = true
+let currentView = 'map'
 async function showView(name: string) {
+  currentView = name
   document
     .querySelectorAll<HTMLElement>('.view')
     .forEach((view) => (view.hidden = view.id !== name + '-view'))
@@ -750,6 +756,7 @@ async function initEditor() {
     )
     for (const id of [
       'save-editor',
+      'rebuild-map',
       'export-patch',
       'refresh-data',
       'reload-editor',
@@ -782,13 +789,77 @@ function updateEditorActions() {
     editorFiles[name] &&
     el<HTMLTextAreaElement>('domain-editor').value !== editorFiles[name].text
   el('reload-editor').dataset.intent = changed ? 'destructive' : 'default'
+  el('rebuild-map').hidden =
+    !domainReady ||
+    Object.entries(editorFiles).every(
+      ([name, file]) =>
+        (file as RecordData).revision === meta.revisions?.[name],
+    )
 }
-el('domain-editor').addEventListener('input', updateEditorActions)
+el('domain-editor').addEventListener('input', () => {
+  const name = el<HTMLSelectElement>('edit-domain').value,
+    text = el<HTMLTextAreaElement>('domain-editor').value,
+    saved = editorFiles[name]
+  if (saved) {
+    if (text === saved.text) editorDrafts.delete(name)
+    else
+      editorDrafts.set(name, {
+        text,
+        revision: editorDrafts.get(name)?.revision ?? saved.revision,
+      })
+  }
+  updateEditorActions()
+})
+const stopWatching = observeWorkspaceChanges({
+  sources: (id) => id.startsWith('map:'),
+  projections: ['map'],
+  changed(change) {
+    if (change.topic === 'sources' && domainReady) {
+      void workspaceClient
+        .query('map.sources.read', {})
+        .then((data) => {
+          editorFiles = data.files
+          loadEditor(el<HTMLSelectElement>('edit-domain').value)
+        })
+        .catch((error) =>
+          setFeedback(el('editor-status'), String(error), 'error'),
+        )
+    }
+    if (change.topic === 'projections') {
+      domainData = null
+      world = null
+      graphStale = true
+      detailCache.clear()
+      void loadCatalog()
+        .then(async () => {
+          updateEditorActions()
+          if (currentView === 'graph' && graph) {
+            await graph.load(true)
+            graphStale = false
+          }
+          if (currentView === 'world') await loadWorld()
+          if (currentView === 'evidence') await loadEvidence(false)
+          if (selected && !el('inspector').hidden) await inspect(selected)
+        })
+        .catch((error) => notice(String(error), { tone: 'error' }))
+    }
+  },
+})
+if (import.meta.hot) import.meta.hot.dispose(stopWatching)
 function loadEditor(name: string) {
   if (!editorFiles[name]) return
   el<HTMLSelectElement>('edit-domain').value = name
-  el<HTMLTextAreaElement>('domain-editor').value = editorFiles[name].text
-  setFeedback(el('editor-status'), `data/authored/${name}.yml`)
+  const draft = editorDrafts.get(name)
+  el<HTMLTextAreaElement>('domain-editor').value =
+    draft?.text ?? editorFiles[name].text
+  const conflict = draft && draft.revision !== editorFiles[name].revision
+  setFeedback(
+    el('editor-status'),
+    conflict
+      ? 'Saved source changed. Your draft is preserved; reload when ready.'
+      : `data/authored/${name}.yml`,
+    conflict ? 'error' : 'neutral',
+  )
   updateEditorActions()
 }
 el('edit-domain').addEventListener('change', (event) =>
@@ -796,9 +867,15 @@ el('edit-domain').addEventListener('change', (event) =>
 )
 el('reload-editor').addEventListener('click', async () => {
   const name = el<HTMLSelectElement>('edit-domain').value
-  domainReady = false
-  await initEditor()
-  loadEditor(name)
+  const before = editorDrafts.get(name)
+  try {
+    const saved = await workspaceClient.query('map.sources.read', {})
+    editorFiles = saved.files
+    if (editorDrafts.get(name) === before) editorDrafts.delete(name)
+    loadEditor(el<HTMLSelectElement>('edit-domain').value)
+  } catch (error) {
+    setFeedback(el('editor-status'), String(error), 'error')
+  }
 })
 el('save-editor').addEventListener('click', async () => {
   const name = el<HTMLSelectElement>('edit-domain').value,
@@ -807,16 +884,36 @@ el('save-editor').addEventListener('click', async () => {
   setFeedback(el('editor-status'), 'Validating and rebuilding…')
   try {
     const text = el<HTMLTextAreaElement>('domain-editor').value
-    const result = await fetchJSON(`/__atlas/domain/${name}`, {
+    const result = await workspaceClient.command('map.source.save', {
+      name,
       text,
-      revision: editorFiles[name].revision,
+      revision: editorDrafts.get(name)?.revision ?? editorFiles[name].revision,
     })
     editorFiles[name] = { text, revision: result.revision }
+    const draft = editorDrafts.get(name)
+    if (draft?.text === text) editorDrafts.delete(name)
+    else if (draft)
+      editorDrafts.set(name, { ...draft, revision: result.revision })
     updateEditorActions()
+    try {
+      const saved = await workspaceClient.query('map.sources.read', {})
+      await workspaceClient.command('map.compile', { revision: saved.revision })
+    } catch (error) {
+      const uncertain =
+        error instanceof WorkspaceClientError &&
+        ['OUTCOME_UNKNOWN', 'SESSION_CHANGED'].includes(error.failure.code)
+      setFeedback(
+        el('editor-status'),
+        `Source saved; map refresh ${uncertain ? 'unconfirmed' : 'failed'}. ${String(error)}`,
+        'error',
+      )
+      return
+    }
     domainData = null
     graphStale = true
     detailCache.clear()
     await loadCatalog()
+    updateEditorActions()
     setFeedback(
       el('editor-status'),
       'Saved to disk; map rebuilt. Runtime evidence preserved.',
@@ -827,9 +924,34 @@ el('save-editor').addEventListener('click', async () => {
     button.disabled = false
   }
 })
+el('rebuild-map').addEventListener('click', async () => {
+  const button = el<HTMLButtonElement>('rebuild-map')
+  button.disabled = true
+  setFeedback(el('editor-status'), 'Rebuilding saved sources…')
+  try {
+    const saved = await workspaceClient.query('map.sources.read', {})
+    await workspaceClient.command('map.compile', { revision: saved.revision })
+    domainData = null
+    graphStale = true
+    detailCache.clear()
+    await loadCatalog()
+    updateEditorActions()
+    setFeedback(
+      el('editor-status'),
+      'Map rebuilt from saved sources. Unsaved edits were kept.',
+    )
+  } catch (error) {
+    setFeedback(el('editor-status'), String(error), 'error')
+  } finally {
+    button.disabled = false
+  }
+})
 el('export-patch').addEventListener('click', async () => {
   try {
-    const result = await fetchJSON('/__atlas/export', {})
+    const saved = await workspaceClient.query('map.sources.read', {})
+    const result = await fetchJSON('/__atlas/export', {
+      revision: saved.revision,
+    })
     const link = document.createElement('a')
     link.href = result.url
     link.download = 'create-sky-atlas-patch.zip'

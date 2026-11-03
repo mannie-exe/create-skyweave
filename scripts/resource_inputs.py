@@ -28,8 +28,19 @@ def inputs(root, *, download=True, recipe=None):
         if key != 'minecraft' and source.get('selection') != 'build-only':
             info = json.loads(subprocess.check_output(
                 [empack, '--workdir', str(root), 'manifest', 'explain', key, '--json'], text=True))
-            require(info['selection_satisfied'] and info['source_binding_current']
-                    and info['locked_selection'] == {'id': source['version'], 'provider': 'modrinth'},
+            if source.get('provider', 'modrinth') == 'url':
+                effective = info['effective']
+                selected = effective['selection']
+                current = (info['locked_selection'] is None and info['source_binding_current'] is None
+                           and effective['source']['kind'] == 'url'
+                           and source['url'] in effective['source']['downloads']
+                           and selected['mode'] == 'content-assertions'
+                           and selected['digests'].get('sha512') == source['sha512'])
+            else:
+                require(source.get('provider', 'modrinth') == 'modrinth', 'Unknown patch input provider')
+                current = (info['source_binding_current'] and
+                           info['locked_selection'] == {'id': source['version'], 'provider': 'modrinth'})
+            require(info['selection_satisfied'] and current,
                     f'{key}: patch recipe no longer matches the selected dependency')
         path = root / source['path']
         if path.is_file():

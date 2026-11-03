@@ -10,7 +10,7 @@ def fingerprint(mod_source=None):
     if mod_source not in {'pack', 'installed'}: raise ValueError('Unknown runtime mod source')
     sources = [p['server']/'mods'] if mod_source == 'installed' else [p['pack']/'pack/mods',p['pack']/'overrides/server/mods']
     authored = [p['pack']/'overrides'/layer/folder for layer in ['common', 'server'] for folder in ['config', 'defaultconfigs']]
-    for base in [*sources,p['server']/'config',p['server']/'defaultconfigs',p['server']/'world/serverconfig',*authored,p['pack']/'overrides/common/mods',p['server']/'world/datapacks']:
+    for base in [*sources,p['server']/'config',p['server']/'defaultconfigs',p['server']/'world/serverconfig',*authored,p['pack']/'overrides/common/mods']:
         if base.exists():
             for file in sorted(base.rglob('*')):
                 if file.is_file() and file.suffix in ('.jar','.json','.toml','.properties'):

@@ -4,6 +4,185 @@ Checks apply to the recorded source or artifact, not every later checkout. Brows
 checks establish interface behavior; native game checks and survey evidence have
 separate owners and limits. Commands and prerequisites live in [setup](setup.md).
 
+## Release checks, 2026-11-03
+
+Create Sky 0.1.32 was prepared from `06b5a39` and the completed workspace/resource
+changes. `pnpm verify` passed formatting, unused-code checks, 158 unit tests,
+Astro checking and the production build. The full `pnpm test:browser` run passed
+105 tests; `pnpm test:static` passed the checked-assets/no-live-connection case.
+`pnpm test:python` passed 33 tests with the opt-in native case skipped. Running
+`ATLAS_NATIVE_MODELS=1 .cache/python/bin/python -m unittest discover -s tests -p test_static_models.py -v`
+then passed both native factory/profile checks.
+
+The initial browser run had one native object-generation failure because a
+reference-only dependency sync left the replacement Compat JAR deferred.
+Materializing the lock corrected the setup; the focused retry and full suite
+passed without changing the test. Native exporters require materialized inputs.
+
+Pack checks passed 56 unit tests, the 256-file configuration audit, current journal
+and resource generation, and all three reference builds. Archive inspection checked
+CRC/asset hashes, Compat 0.15.0 references, enabled glass adapters, client-only visual
+resources, server-only BlueMap and the Unix terminal shim. The generated resource
+ZIP matches the digest in the glass evidence below. These packaging and browser
+checks do not replace that earlier native visual verification. Personal instances,
+worlds and running services were not changed for this release.
+
+## Glass culling adapters, 2026-11-03
+
+The current window comparison uses Compat 0.15.0 release SHA-256
+`057777a29e61d58a8500c52cf19d29b51e6bbcaa99cc6a753eb50d5deb51107d`.
+Matched captures use the same full-pack JAR, native window definitions and cameras,
+with the adapters disabled/enabled. The close views place the camera inside the
+covering glass block; earlier exterior captures remain supporting evidence.
+
+Create's framed, wood and iron boundaries now expose faces with CT identical to
+the uncovered reference. Create Deco shares that block implementation. A separate
+Rechiseled defect hides a vertical pillar face against a horizontal instance of
+itself, while the reverse direction stays visible. Its optional adapter preserves
+both directions and leaves Fusion's connection predicates intact. Matching glass,
+opaque neighbors and unrelated native controls retain their expected behavior.
+
+The final shader-off native pass covers 16 cases with face-visibility and CT
+reference assertions. Shader-on checks use Complementary Unbound 5.9.3 with
+Euphoria 1.10.5. The mod's maintained verification guide owns dependency loading,
+reload/reopen evidence and remaining runtime limits. No personal instance was
+changed; the resource-only appended-face prototype is not selected.
+
+Atlas run `window-culling-20261103` replaces the prototype as the active window
+comparison. Earlier runs keep their source conditions and review notes. This does
+not establish every transparent modded object, shader or moving construct.
+
+## Conditional window faces, 2026-11-03
+
+The archived `window-boundaries-20261103` run compares native models, an
+unconditional resource workaround and a Fusion conditional-face prototype. The
+prototype hides matching interfaces and exposes mixed interfaces, but its added
+faces lack Create CT. A vanilla glass/stained-glass control retains connected
+surfaces through the other transparent material. These studies are superseded by
+the [runtime adapters](#glass-culling-adapters-2026-11-03).
+
+The shipping ZIP leaves native window definitions intact. The rejected workaround
+would override 246 models: Create 21, Create Deco 6 and Rechiseled Create 219.
+Its removal changed only those overrides and provenance metadata; other repairs
+remain byte-identical. Current ZIP SHA-256:
+`fced999f35246bb66905e8c73d211dc8cf252cf2255865606bcc38cf9db3d8ee`.
+The historical conditional study is
+`48493f350011f16f9d13b0fdadcc7c4207a737bb7a769401b6d9e917c2416539`.
+[Patch maintenance](../patches.md#window-connections-and-copycat-panels) owns the
+source boundaries and update procedure.
+
+## Hanging bridge lanterns, 2026-11-03
+
+The approved sloped appearance uses Better Lanterns' hanging body and a short chain
+beneath the wooden rail. Flat bridges retain their original standing lantern.
+No placement pitch or yaw is applied. Fresh exact-PID captures confirm both choices
+in the same shader-off review stack. The sloped model remains review-only until
+native selection/collision bounds follow its new placement; shipping recipes are
+unchanged. Review artifact SHA-256:
+`b5c25a003cb688dc29f83363c08acfcca1b0a352053e785d9d797baae5a18801`.
+
+Atlas run `lantern-hanging-20261103` retains the comparison and the flat restoration;
+`window-boundaries-20261103` retains the window studies and vanilla Fusion control.
+The initial yaw, pitch and flat hanging studies are superseded. These checks do
+not establish every bridge material or native interaction shape.
+
+## Resource rendering repairs, 2026-11-02
+
+Native checks used Create Sky 0.1.31, Minecraft 1.21.1, NeoForge 21.1.264 and
+Java 21 in a marked seed-42 flat fixture with shaders off. Six Lootr barrel
+facings, looted/unlooted and normal/trapped materials, native menus and closing
+motion were checked. Reload reports no missing Lootr sprites. Approved artwork
+fingerprints, Fresh rigs, animation expressions and trapped red markers remain
+intact.
+
+Both azalea pots, their shrubs, the four mushroom/fungus pots and unchanged potted
+cactus were inspected. The fixture classifies 254 glass/pane/mesh entries across
+six pages and excludes doors/pipes by registered class. Its stopped Anvil check
+verifies 10,213 placements, 31 equipment slots and 27 specimens with no mismatches.
+
+The initial bundle `c56583594b12991acbe020e3b6b7a7aa3d96d52d4a4320a05c68ae22709ec2c4`
+also included the rejected window workaround. The current bundle above retains
+the other repairs. The earlier yaw/pitch lantern studies remain unselected;
+[hanging-lantern review](#hanging-bridge-lanterns-2026-11-03) owns the current choice.
+Atlas run `repairs-20261102` preserves matched source conditions, unedited captures
+and Lootr closing recordings. Hostile Skies, Struts and DnD model warnings are
+outside these repairs. Personal instances, worlds and LODs were untouched.
+
+## Workspace service, 2026-11-02
+
+Uncommitted implementation based on `06b5a3986ad24cad98ce0ab11857375d84020504`.
+Final web/scripts identity:
+`08016693ee159796c11b9ce97e4bc75b5fcffb113634254bd3953e0a9376dcd9`
+(136 changed/untracked existing files). Hash each sorted relative path, NUL,
+its file SHA-256, and newline. Retired authoring/model facades, operations tracker,
+generated-file fallback and their superseded tests are additionally absent.
+
+| Check                                                                                                      | Result and scope                                                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pnpm verify`                                                                                              | 157 JavaScript tests; formatting and Knip pass; zero Astro errors/warnings, one informational hint; 16-page materialized build in 23.76 seconds |
+| `pnpm test:browser`                                                                                        | 105 pass before the final shared map-action wrapper; 25 focused UI/Activity/workspace checks pass afterward                                     |
+| `pnpm test:static`                                                                                         | One pass on the final build: map icons and posed Creeper load with checked hashes, authoring disabled, no backend requests or sockets           |
+| `pnpm test:python`                                                                                         | 33 pass, one opt-in native check skipped                                                                                                        |
+| `.cache/python/bin/python -m unittest discover -s ../tests`                                                | 52 pass                                                                                                                                         |
+| `ATLAS_NATIVE_MODELS=1 .cache/python/bin/python -m unittest discover -s tests -p test_static_models.py -v` | Two pass: mapped factories with optional content absent/present; no game launch                                                                 |
+| `pnpm data:compile` then `pnpm data:check`                                                                 | Actual shared-service publication and admitted-data validation pass; 10,116 items and 77 journal entries                                        |
+
+The final compiler published generation `26d71b6d-e179-4ced-b01e-afec361b70ce`,
+input `6609431d5dcfd9dfe58b814a5ea2e88fd5b90538869a27c12a72341616620370`.
+It reused observed exports; it did not recapture Minecraft or the server world.
+The prior isolated snapshot command published generation
+`692144db-eea1-4eef-9491-e5fcb70ec66e`, input
+`f0c62c229b997299c561c659157e69ceffcc5f88b44b758557974facc06a9e15`.
+That capture preserved saved survey bytes, kept source reads responsive, served a
+scoped icon, and reported current fingerprints immediately afterward.
+
+Service fixtures exercise exact-byte revisions, batch rollback preserving external
+edits, pure queries, two logical scopes, denied counts/events/results/receipts,
+current grants at commit, cancellation after source commit, and owned shutdown.
+Transport fixtures use actual sockets, a paused TCP peer and snapshot overflow;
+large replies check scope, expiry, capacity, checksums and revocation. Mutations
+are not replayed after ambiguous disconnects. Journal CRUD/locales and model
+validation tests now use the shipping service rather than retired facades.
+
+Artifact checks cover immutable scope references, same-length corruption,
+GET/HEAD/ranges, stale publication, reader leases, dependencies and bounded
+retention. Recovery fixtures preserve live/unknown ownership and source backups;
+only confirmed-dead owned temporary data is eligible for explicit cleanup.
+Static fixtures verify active-head consistency across page rendering, rewritten
+links/checksums, missing projections, dependency generations and exclusion of
+native inputs. Raw Vite cache/module access is rejected while normal application
+modules and scoped projection downloads remain usable. These are open local and
+static delivery modes, not an authenticated hosting system or security audit.
+
+Filesystem fixtures exercise atomic and chunked saves, publication barriers,
+scoped removals, coalesced reconciliation and loaded-code restart requirements.
+Browser checks preserve domain drafts, journal text, custom previews, selected
+objects and graph navigation while clean published views refresh. Confirmed saves
+remain saved when compilation fails or its result becomes uncertain. Activity
+checks dock/overlay behavior at 1440, 1024 and 390 pixels, keyboard focus return,
+persistent failures and absence of duplicate completion toasts. Other resource,
+comparison and map checks cover their relevant narrow/intermediate layouts.
+
+Real resource generation previously exported 166 object records, four texture
+records and 14 image roles, including a registered 40-mesh Creeper comparison.
+Candidate archives were cached; uncached acquisition is not established here.
+Mapped Java factory verification with Confectionery absent/present yields 19/20
+models with identical vanilla/static-CEM geometry and starts no Minecraft process.
+Browser rendering does not establish native animation, shader or gameplay behavior.
+
+After an idle Atlas reload, its actual socket reported 475 admitted source records,
+monitoring ready, no restart requirement, no active operation and no recovery
+entries. A headless check of the normal host loaded the map and posed Creeper with
+no page errors. These observations are separate from fixture-server results.
+
+The measured map output required a 512 MiB projection budget and 32 MiB JSON cap;
+resources retain 256/16 MiB limits. A retention dry run proposed no deletion in
+3,513 ms; actual destructive pruning is tested only in disposable stores. Personal
+instances, Minecraft server state, worlds, seeds, LODs, user backups and review
+captures remain outside this task. No commit, release, deployment or instance
+installation was performed. Hosted identity, full model animation, arbitrary block
+behavior and audio preview remain deferred.
+
 ## Selected resources and fixture, 2026-11-02
 
 Worktree based on `86752bd`. Approved object selections add individual workstation,
@@ -547,7 +726,7 @@ It hashes these paths in order, each followed by NUL, file bytes and NUL:
 `scripts/model_authoring.py`, `scripts/resource_inputs.py`,
 `scripts/lootr_models.py`, `scripts/build-resource-patches.py`,
 `web/src/lib/model-authoring.ts`, `web/src/lib/model-preview.ts`, and
-`web/scripts/model-authoring.mjs`.
+`web/scripts/model-authoring.mjs` (the retired facade in that historical snapshot).
 
 | Check                                                  | Result and scope                                                                                                                                   |
 | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -804,77 +983,29 @@ interaction tests were not repeated. Native menu, circuit and Ponder evidence
 belongs to Compat's redstone verification reference. The existing chunk-size
 warning remains.
 
-## Workspace preparation and dependency checks, 2026-11-02
+## Dependency and interface checks, 2026-11-02
 
-Prepared against `86752bd` plus the existing resource-authoring worktree, using Node
-24.22.0 and pnpm 12.16.1. The workspace rewrite remains specified rather than
-implemented. Existing resource selections, generated pack artifacts and Minecraft
-instances were unchanged.
+Node 24.22.0 and pnpm 12.16.1 run the checked dependency set: Astro 7.4.4,
+React integration 7.1.2, Three.js/types 0.187.0, prettier-plugin-astro 1.1.2,
+Wrangler 4.156.0, Knip 6.44.1, ws 8.22.1, Zod 4.6.7 and Chokidar 6.0.0. Knip is part of
+`pnpm verify`; its unresolved-import exceptions are exact Vite browser module
+URLs used by Playwright, not a general missing-module exemption.
 
-The dependency review updated Astro to 7.4.4, its React integration to 7.1.2,
-Three.js and its types to 0.187.0, prettier-plugin-astro to 1.1.2 and Wrangler to
-4.156.0. Knip 6.44.1 is part of `pnpm verify`; inspected private helpers/types no
-longer export unused API names. Its only unresolved-import exception is the
-Playwright test's literal Vite browser URL.
+An actual TypeScript 7.0.2 check failed Astro's supported-version check. Retained
+TypeScript 6.0.3 and Node 24 typings 24.19.2; the dependency review's peer check
+reported no issues. New server modules also run through Node's native type stripping.
+Browser close handling follows the [WebSocket API's permitted codes](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/close#parameters);
+server-side ws codes are not interchangeable with browser-initiated ones.
 
-`pnpm outdated --format json` now lists only TypeScript 7.0.2 and Node 26 typings.
-An actual TypeScript 7.0.2 check failed with Astro's explicit unsupported-version
-error; the stable checker requires TypeScript below 7. Retained 6.0.3 and Node 24
-typings 24.19.2. `pnpm peers check` reports no issues.
+The approved Activity interface uses one header button, optional authoring dock
+and modal overlay on narrow or dense views. Open/pin preferences survive page
+navigation; closing the panel does not cancel work. Browser checks exercise
+Escape, focus return, status alignment, draft retention and notification lifetimes.
+The retired workspace preview redirects to `/authoring`.
 
-Baseline and upgraded `pnpm verify` pass: formatting, 88 JavaScript tests, zero
-Astro diagnostics and a static build. The final build contains 16 pages including
-the read-only workspace preview. The final lock SHA-256 is
-`2d1f865d490c674eb7b8f9c086de0ba658fff39ee64009b476dabc8f608711e0`.
-
-`pnpm test:browser tests/objects.browser.mjs tests/models.browser.mjs
-tests/activity.browser.mjs tests/navigation.browser.mjs` passes all 15 tests.
-This exercises static entity/resource comparisons, model drafts, existing Activity
-behavior and navigation after the renderer upgrade; it is not a full browser-suite
-or native Minecraft check. One dev-toolbar audit fetch diagnostic occurred during
-server shutdown; no test failed.
-
-A separate headless check at 1440px and 390px verifies the workspace preview's
-dock/overlay switch, Pin/Unpin, Close/Escape, conflict example and absence of
-document overflow. It recorded no page errors and no non-GET requests. The preview
-uses real journal prose, one current Activity read and simulated source-state
-examples; it cannot save source or start jobs. The owner selected status beside actions and requested right alignment. A follow-up
-check at 1440px, 1024px and 390px verifies alignment with the task edge and no document overflow. The future
-service, policy, invalidation and WebSocket behavior are not established by these
-checks. Python/native sources were unchanged, so their suites were not repeated.
-
-A disposable `node .cache/workspace-runtime-probe/probe.ts` check used exact ws
-8.22.1, Zod 4.6.7 and Chokidar 6.0.0 with Vite 8.3.5 under Node 24.22.0. It passes
-native TypeScript loading, strict unknown-key rejection, an actual `atlas.v1`
-socket exchange beside Vite's token-checked HMR socket, foreign-Origin rejection
-(403), oversize rejection (1009) and one atomic-save change event. The first
-watcher observation missed an early ready event; registering the listener before
-awaiting server startup fixed the probe. This was an API investigation, not the
-workspace implementation or a policy/security test. Its fixture and temporary
-dependency tree were removed after retaining the compact result.
-
-## Activity interface, 2026-11-02
-
-The approved workspace preview is now used by the live pages: one Activity button
-in the header, an optional authoring dock, and a modal overlay on narrow or dense
-views. Open/pin preferences survive page navigation within the tab. Journal, model
-and texture editors share right-aligned action/status grouping. The prototype
-component/styles were removed; `/workspace-preview` redirects to `/authoring`.
-
-`pnpm verify` passes formatting, Knip, 88 JavaScript tests, zero Astro diagnostics
-and the static build. The Activity, model and navigation browser files pass all
-nine checks, covering notifications, cancellation, dock/overlay transitions,
-Escape/focus, drafts and navigation. Additional live-page checks at 1440px and
-390px confirm status alignment, no document overflow and no page errors.
-
-This change retains the existing HTTP endpoints, polling and authoring behavior.
-The environment/service/WebSocket/policy rewrite remains separate work.
-
-The object toolbar's Preview tools control expands into a separate row. Its
-search field and action buttons retain their position and size through opening
-and closing at 1440px, 800px and 390px. `pnpm test:browser
-tests/objects.browser.mjs` passes all seven tests, including that regression;
-`pnpm verify` also passes.
+The object toolbar expands Preview tools below its action row, preserving control
+position and size at 1440px, 800px and 390px. Its browser regression remains in
+`tests/objects.browser.mjs`.
 
 ## Semantic UI consistency, 2026-11-02
 

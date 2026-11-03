@@ -41,3 +41,24 @@ class PathTests(unittest.TestCase):
             with patch.object(paths, 'ROOT', root):
                 with self.assertRaises(json.JSONDecodeError):
                     paths.paths()
+
+    def test_private_invocation_freezes_registered_roots_and_tools(self):
+        import os
+        import subprocess
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            context = root / 'context.json'
+            document = {'schema': 1, 'web': str(root), 'pack': str(root / 'pack'),
+                        'paths': {'server': str(root / 'readonly-server'), 'java': '/selected/jdk'},
+                        'tools': {'java': '/selected/jdk/java', 'python': None}}
+            context.write_text(json.dumps(document))
+            code = "import json,paths;print(json.dumps({'root':str(paths.ROOT),'pack':str(paths.paths()['pack']),'java':paths.tool('java','fallback')}))"
+            command = [sys.executable, '-c', code]
+            environment = {**os.environ, 'ATLAS_WORKSPACE_CONTEXT': str(context),
+                           'PYTHONPATH': str(Path(__file__).resolve().parents[1] / 'scripts')}
+            result = subprocess.run(command, env=environment, text=True, capture_output=True)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertEqual(json.loads(result.stdout), {'root': str(root), 'pack': str(root / 'pack'), 'java': '/selected/jdk/java'})
+            document['paths']['server'] = '../outside'
+            context.write_text(json.dumps(document))
+            self.assertNotEqual(subprocess.run(command, env=environment, capture_output=True).returncode, 0)

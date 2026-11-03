@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { activity, refreshActivity, watchActivity } from '../../lib/activity'
 import { createPortal } from 'react-dom'
-import { requestJSON } from '../../lib/http'
+import { workspaceClient } from '../../lib/workspace/client.ts'
 import ActivityPanel from './ActivityPanel'
 import Button from '../ui/Button'
 
@@ -76,18 +76,21 @@ export default function ActivityHost({ live = false }: { live?: boolean }) {
   }, [live])
   async function cancel(id: string) {
     try {
-      await requestJSON('/__atlas/jobs/cancel', { id })
+      await workspaceClient.command('operation.cancel', { id })
       await refreshActivity()
     } catch (error) {
       activity.notify(String(error), { tone: 'error' })
     }
   }
   const label =
-    state.connection === 'offline'
-      ? 'Activity · disconnected'
-      : state.current
-        ? 'Activity · running'
-        : 'Activity'
+    state.workspaceIssue ||
+    state.recovery?.entries.some((entry) => entry.kind !== 'staging')
+      ? 'Activity · needs attention'
+      : state.connection === 'offline' || state.connection === 'reconnecting'
+        ? 'Activity · disconnected'
+        : state.current
+          ? 'Activity · running'
+          : 'Activity'
   const panel = (
     <>
       <div className="section-heading">
@@ -107,6 +110,7 @@ export default function ActivityHost({ live = false }: { live?: boolean }) {
           <Button onClick={close}>Close</Button>
         </div>
       </div>
+      {state.workspaceIssue && <p role="status">{state.workspaceIssue}</p>}
       <ActivityPanel
         state={state}
         cancel={live ? cancel : undefined}

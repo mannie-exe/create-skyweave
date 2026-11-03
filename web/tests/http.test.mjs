@@ -16,7 +16,7 @@ test('shared JSON transport preserves GET and explicit JSON POST semantics', asy
   assert.deepEqual(await requestJSON('/generated/catalog.json'), {
     revision: 'saved',
   })
-  await requestJSON('/__atlas/domain/recipes', {
+  await requestJSON('/legacy-write', {
     text: 'source',
     revision: 'before',
   })
@@ -34,10 +34,7 @@ test('shared transport preserves conflict messages and explains absent local end
   const fetch = t.mock.method(globalThis, 'fetch', async () =>
     Response.json({ error: 'File changed on disk' }, { status: 409 }),
   )
-  await assert.rejects(
-    requestJSON('/__atlas/authoring/save', {}),
-    /File changed on disk/,
-  )
+  await assert.rejects(requestJSON('/legacy-write', {}), /File changed on disk/)
   fetch.mock.mockImplementation(
     async () =>
       new Response('<html>404</html>', {
@@ -46,7 +43,7 @@ test('shared transport preserves conflict messages and explains absent local end
       }),
   )
   await assert.rejects(
-    requestJSON('/__atlas/authoring'),
+    requestJSON('/__atlas/missing'),
     /Local editing requires pnpm dev/,
   )
   await assert.rejects(

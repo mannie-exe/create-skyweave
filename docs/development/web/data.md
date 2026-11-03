@@ -1,8 +1,8 @@
 # Data pipeline
 
 The app builds a local snapshot from registered Minecraft content, JAR resources,
-editable YAML and an optional survey of existing chunks. The browser reads static
-JSON and images; it does not query the playing server.
+editable YAML and an optional survey of existing chunks. The browser reads generated JSON and images, using scoped references while the
+local workspace is running. It does not query the playing server.
 
 ```mermaid
 flowchart TD
@@ -16,15 +16,17 @@ flowchart TD
     YAML[data/authored domains] --> Compile[Recipe adapters and route solver]
     Catalog --> Compile
     Evidence --> Compile
-    Compile --> Public[public/generated JSON and textures]
-    Public --> Browser[Astro pages and interactive views]
+    Compile --> Artifacts[Scoped artifact generations]
+    Artifacts --> Browser[Astro pages and interactive views]
+    Artifacts --> Build[Read-only static snapshot]
 ```
 
 ## Registered content
 
 [`scripts/runtime.py`](../../../web/scripts/runtime.py) compiles
 [`AtlasExporter.java`](../../../web/tools/exporter/AtlasExporter.java) against the installed
-server libraries, then boots a disposable NeoForge server under `.cache/audit-server`.
+server libraries, then boots a disposable NeoForge server. The CLI uses
+`.cache/audit-server`; workspace refresh uses a private operation directory.
 By default it uses the complete materialized server selection from `empack.lock`,
 plus checked maintained resource JARs. `scripts/runtime-inputs.mjs` verifies every
 selected JAR's locked size and digests before capture; missing or modified files
@@ -48,8 +50,9 @@ before compiling its output.
 
 The adapter is specific to this pack and Minecraft 1.21.1 / NeoForge. Adding a mod
 can require new Java or graph adapters. User-world datapacks and gamerules are not
-imported. The disposable world can persist between captures; its state is not
-an observation of the playing world.
+imported. The CLI audit world can persist between captures. Workspace captures start in a
+new private directory and discard it afterward. Neither is an observation of the
+playing world.
 
 ## Runtime compatibility and weight coverage
 
@@ -87,7 +90,7 @@ so installer cache order cannot shadow the game's patched API.
 ## Textures and names
 
 [`scripts/extract.py`](../../../web/scripts/extract.py) reads the configured vanilla client
-JAR, `pack/mods`, common override JARs and nested JARs. It indexes resource JSON and
+JAR, locked participating client mod JARs, common override JARs and nested JARs. It indexes resource JSON and
 English translations. For duplicate asset paths, later scanned files replace
 earlier files; this scanner order does not reproduce every client resource-pack
 priority rule. User-selected resource packs are not scanned.
@@ -129,7 +132,7 @@ remain after extraction; generated assets are rebuildable and excluded from Git.
 | `data/generated/runtime/`         | Exact registered game evidence; never hand-edit                                              |
 | `data/generated/world.json`       | Read-only Anvil survey and sampling method                                                   |
 | `data/generated/documents.json`   | All discovered JAR resource versions and provenance                                          |
-| `public/generated/`               | Rebuildable browser projection and extracted game textures                                   |
+| `public/generated/`               | Extracted icon inputs, reviewed media and rebuildable CLI caches                             |
 | `tools/exporter/`                 | Java 21 NeoForge development exporter, never installed in play instances                     |
 
 Generated data and game assets stay local and ignored by Git. Their licenses are
@@ -371,37 +374,155 @@ The editor has no database or hosted backend.
   contracts and explains the retained exceptions.
 
 Keep page markup and rendering components separate from filesystem operations in
-`scripts/workspace.mjs` and `scripts/authoring.mjs`. Reuse the shared layouts, controls and semantic style tokens across pages.
+`scripts/workspace/`. The Vite plugin and command-line adapter delegate to the same service. Reuse the shared layouts, controls and semantic style tokens across pages.
 
 ## Filesystem boundary
+
+`environment.read` separates locked selections, observed runtime evidence, resource
+order, available tools and adapter support. `profiles/minecraft-1.21.1-neoforge.json`
+owns the admitted format profile. Other runtimes are explicitly unsupported;
+installed EMF or Fusion alone does not establish complete browser emulation.
+Tool availability is a filesystem observation, with unknown versions left unknown.
+Pinned bytes and native contracts are checked by their generation jobs.
+
+Environment identity excludes workstation paths and capture timestamps. Resource
+order remains significant. Optional factory inputs have their own identity so a
+Confectionery change does not invalidate the vanilla factory adapter. The host
+retains executable and installation paths privately. Named jobs use its Python
+entry point and tool search path; preserving the virtualenv symlink path retains
+that environment's packages. Python workers receive a private, server-owned
+invocation document containing the registered roots and selected tools. It is
+removed when the owned worker stops; browser payloads cannot supply it. These
+facts are not accounts or access grants.
 
 [`scripts/workspace.mjs`](../../../web/scripts/workspace.mjs) adds `/__atlas/` endpoints
 only to the development server. Requests require loopback addresses and hosts;
 writes require a matching Origin and JSON content type. Domain names are allowlisted.
-Saves validate YAML shape and compare revision hashes before replacing a file.
-A failed compile restores the previous authored file and attempts to rebuild it.
-Compilation publishes individual files, not one atomic snapshot transaction.
-`jobs.mjs` centralizes fixed Python processes; the workspace serializes entire
-operations, including temporary validation and subsequent source publication.
-Status/cancellation endpoints remain available while the operation lock is held.
+Authoring and capture use the typed service in `scripts/workspace/`. Queries remain
+available during native work. During a source commit or generated-input directory switch, data
+reads return a bounded BUSY response; Activity and cancellation stay available. Saves validate YAML and compare exact-byte revision hashes;
+partial multi-file failures retain recovery markers without overwriting external edits.
+A successful save stays saved if rebuilding fails. **Rebuild saved map** retries
+generation without replacing a draft or recapturing runtime evidence.
+
+Map compilation runs as a bounded named Node job with explicit input/output
+context. It builds to an owned staging directory and rechecks its source, runtime
+and tool input vector before publication. Source and Activity queries remain
+available while the compiler runs.
+Immutable artifact bytes have separate scoped references; the active manifest is
+replaced last. Failed or stale candidates keep the previous displayed generation.
+Local `/generated/` projection aliases resolve only through active manifests and return 404 when unavailable. They never fall through to old public files. `pnpm data:compile` uses a short-lived workspace service and the same named compiler, validation and staged publication as the app; `data:check` reads its admitted map generation. The internal compiler accepts explicit executor roots rather than publishing a second default snapshot. `scenario.export` checks the
+expected saved-source revision, compiles the map, and passes validated recipe
+changes through JSON stdin. Its staged ZIP is checked against those changes before
+publication as a scoped artifact; it never applies the scenario to an instance.
+Artifacts support policy-checked GET/HEAD and byte ranges. Knowing a content hash
+or another pack's reference does not grant access.
+
+Artifact reads verify reference membership in its generation and the stored byte digest. Parsed generation records and verified file observations are bounded caches; a same-length edit does not bypass validation. Long HTTP reads and explicit generation readers hold leases through completion, including overlapping readers of the same generation.
+
+`artifacts.retention` previews cleanup; `artifacts.prune` applies it through the same service. Retention keeps active heads, the two newest generations per namespace, generations from the last 24 hours, 30-minute reader leases, explicit review pins, and their transitive generation dependencies. `artifacts.pin` changes a generation's review retention without changing its content. Existing capture files outside this artifact store remain source evidence and are not targets of this cleanup.
+
+Cleanup removes only checked store records and old orphan bytes or recognized staging/atomic-write temporaries. It refuses an active reader or writer, another potentially live Atlas host, malformed entries, and symlinks. It rechecks authority and metadata before deletion, and records a committed stage as soon as a phase removes anything. The inventory admits at most 2,000 generation records, 50,000 references or blobs, and 64 MiB of parsed metadata; these limits stop cleanup rather than guessing what is safe to delete. This is a retention policy, not a disk quota or an automatic background collector.
+
+A scoped cleanup retains other packs' metadata and referenced bytes. With several packs registered, it does not sweep shared orphan blobs or global staging: a single-pack request cannot carry another pack's result-read grants. Store-wide cleanup needs a separate authority contract. Host markers prevent concurrent maintenance across processes; PID observations never adopt or terminate a process. An interrupted maintenance lock remains evidence, and ordinary reads can proceed only if its owner is confirmed absent. Recovery is explicit through `recovery.read` and `recovery.cleanup`. Activity lists interrupted execution metadata, staging, source transactions, and maintenance locks. New staging keeps owner metadata beside the payload, so generators cannot accidentally publish it. Cleanup requires current authority, an unchanged recovery revision, and confirmed absence of the recorded local host, child, and process group. It never adopts or kills an old process. Unknown, foreign-host, legacy, and still-running data remains for inspection; Windows process-group absence is unsupported.
+
+Source and generated-input transaction backups are always retained for manual reconciliation. Recovery returns logical source IDs and status, not previous source text or execution contexts. Metadata is bounded to 2,000 directory entries and 32 MiB per scan, with at most 100 displayed candidates. Cleanup does not inspect personal worlds or LODs and is not a general filesystem browser.
+
+`/__atlas/bootstrap` and the `atlas.v1` socket share Vite's loopback host. Closed
+schemas, per-connection bounds, session-scoped command receipts and snapshot
+subscriptions live in `lib/workspace/contracts.ts` and the transport/service modules.
+The browser client shares one connection, reconciles uncertain command outcomes
+after reconnect and never automatically replays a mutation. Map, journal, model and review
+source reads use this client. Their preview operations are explicit named commands;
+queries reuse current preview references without launching a process. Registry
+handlers declare result-read targets as well as execution targets: permission to
+run a job does not grant access to its result artifact. Vite and static delivery explicitly reject restrictive policy providers;
+their public modules and assets are open content, not a protected deployment.
+
+Static builds use `scripts/static-snapshot.mjs`, an Astro build integration, and `workspace/static.ts`. `astro.config.ts` explicitly admits map, object, and texture projections for open-static delivery. The build records public projection heads before rendering pages. At build completion, the materializer requires those heads to remain unchanged and reads active scoped generations through the artifact repository and holds generation leases while copying. Declared older public dependencies remain available when a newer texture head exists. Native input manifests, execution contexts, source backups, and job records are not public projections.
+
+`workspace-snapshot/manifest.json` records public intent, scope, generation/input identities, missing projections, and rewritten asset references. Assets have format extensions and content hashes; rewritten JSON and embedded artifact descriptors receive updated hashes and lengths. `/generated/` aliases use those same rewritten bytes. The build rechecks active heads and the source inventory before publication, and rejects dangling or cross-scope workspace links. A clean checkout with no generated workspace publishes an explicitly empty snapshot rather than silently adopting old `public/generated` data. Existing review media and design captures remain separate open evidence.
+
+Static pages declare their delivery mode and do not attempt a workspace connection. The object comparison remains readable with materialized models/textures; generation and source-edit controls require the local service. These boundaries do not grant redistribution rights or protect an already public build. Review admitted content and licensing before deployment.
+
+Only pure compatibility reads remain over HTTP: workspace sources, journal sources, models, reviews and Activity. Browser commands use the shared socket client; retired HTTP mutation paths return 405, and GET requests cannot start an audit or capture. Command-line operations own their short-lived service and dispose it on exit or interruption. This is not a cross-process pack lock: do not run concurrent CLI generation and editor mutations.
+
+Vite's raw-module delivery separately excludes `.cache`, machine-local config, runtime input caches and raw public projection directories while retaining Vite 8's default secret-file deny rules. Scoped artifact delivery uses the Node repository, so these exclusions do not block its downloads. Reviewed captures remain explicitly open assets. Recheck the deny defaults and alternate module paths on Vite upgrades; [Vite's filesystem rules](https://vite.dev/config/server-options#server-fs-deny) do not turn the development host into an authenticated deployment.
+
+`jobs.mjs` centralizes fixed Python and Node processes. Service commands own
+validation, publication and their committed stages; source reads do not acquire
+the native slot. Snapshot checks and refresh use that same operation registry;
+there is no independent middleware job lock.
 [Setup](setup.md#named-authoring-jobs) owns job registration and execution limits.
 
-`operations.mjs` records user-action outcomes around the complete middleware
-operation, including file publication. Named jobs are steps within that action;
-a successful validator does not establish a successful save. `/__atlas/jobs`
-returns both layers, with a session identity and a bounded operation history.
-The history lives in server memory and resets when the development server restarts.
+`snapshot.refresh` stages capture, extraction and compilation against the saved
+sources. It verifies locked mod/client bytes, exporter completion, reported errors,
+source/tool revisions and supported runtime before publication. Existing surveys
+and unrelated generated records are carried forward byte-for-byte. Capture itself
+never imports the playing world's chunks or LODs.
 
-`lib/activity.ts` owns the shared browser subscription store. `ActivityHost` renders
-notifications and one shared header control. `Base` supplies an optional dock;
-the host uses it only when the authoring task retains enough width. Dense views
-and narrow screens use a modal overlay. Both presentations use `ActivityPanel`;
-React islands and DOM consumers use the same store. Each page mounts a single
-host for polling and toasts.
-Polling is single-flight, pauses while the document is hidden and refreshes on
-return. Connection failures retain last-known results but mark them disconnected.
-There is no filesystem watcher, background recapture or automatic draft reload.
+The generated-input directory and map are published under a service read barrier.
+Readers begun before a directory switch cannot return a mixed snapshot. A failed
+publication restores the previous directory only while its candidate bytes remain
+owned and unchanged. Concurrent external edits retain a recovery marker and backup
+instead of being overwritten. This is an optimistic local transaction, not a
+filesystem CAS or crash-atomic installation across independent processes.
 
+Map generations admit their exact PNG or passive layered-SVG icons and replace
+embedded image paths with scoped references. Icon filenames must match content
+hashes. SVG admits only the maintained PNG-layer template; artifact delivery also
+sets a restrictive content policy. A later generation cannot change the icon bytes
+an older map references. The standalone extractor retains its observed-input
+cache. The compiler publishes through the workspace service, including when
+invoked with `pnpm data:compile`.
+
+`workspace/native.ts` supplies one owned native slot to service handlers. It masks
+workstation paths in diagnostics, writes process ownership markers, and stops only
+its runner's child on shutdown. Old markers report unknown outcomes; their PIDs
+are never adopted or killed. Cancellation remains available only for supported
+worker stages and does not undo an earlier source commit. Activity wire summaries
+are bounded; `operation.read` retains full input hashes, stages and diagnostics.
+Declared adapter availability is checked before native dispatch. Model/texture
+adapters also capture their loaded source identity and refuse generation after
+those source files change until the host is restarted.
+
+The service records complete authoring operations, including committed source and
+publication stages. Named workers are steps within an action: a successful validator
+is not a successful save. Activity retains at most 20 terminal outcomes for the
+service session; command receipts are separately bounded to 512 and 30 minutes.
+The HTTP compatibility Activity endpoint reads this same state. There is no second
+middleware operation history.
+
+`workspace/inventory.ts` admits authored sources, maintained configuration, processor code, resource declarations, and survey metadata. `sources.inventory` and `projections.inventory` filter targets before returning revisions or counts. Neither exposes source text, private roots, or a general filesystem browser. Active generation manifests represent all registered projection namespaces.
+
+`workspace/watch.ts` uses Chokidar to observe those narrow roots and active manifests. It excludes installed worlds, LODs, dependency downloads, staging, and generated image trees. Atomic and chunked saves settle before a bounded revision reconciliation. A changed revision must also persist across scans, so an unrelated event cannot expose another file mid-write. Unchanged hashes and exact acknowledged save revisions suppress duplicate filesystem events; an external edit after that save still invalidates its own revision. Publication epochs defer scans across directory switches and source batches. Watch events never run generators.
+
+Loaded Node adapter changes require a host restart before further authoring. Queries and cancellation remain available. Activity reports restart requirements and degraded monitoring. A watcher failure reconciles the admitted inventory but retains its degraded warning until restart; it does not pretend that polling restored a healthy watch.
+
+`lib/workspace/client.ts` owns one browser connection and its subscription store. Source, projection, and environment events coalesce into pure metadata queries. The shared change observer compares revisions, suppresses exact own-save acknowledgements, and leaves draft ownership with each editor. Clean journal sources and saved review data refresh without native work. Dirty text, JSON drafts, and custom object previews remain intact with a local notice. Model sources needing a fresh native preview require deliberate reload; external changes cannot silently dispatch that job. Object catalogues and map data refresh from published outputs while retaining current selection where available.
+`lib/activity.ts` adds page-local notices without polling for job state.
+`ActivityHost` renders notifications and the shared header control. The optional
+authoring dock and modal overlay use the same `ActivityPanel`; closing either
+presentation never cancels a command. Disconnects retain last-known records and
+mark uncertainty. A reconnect obtains an authoritative snapshot and checks ambiguous
+command receipts without replaying mutations. Unconfirmed commands remain visible
+when a service restart or expired receipt prevents reconciliation.
+
+Activity distinguishes failed, cancelled and unknown outcomes. It shows committed
+stages even when later work fails, marks shortened diagnostics, and loads the full
+operation record on request. Cancellation uses the authoring operation ID, not a
+worker PID or a free-form process name. Static pages show read-only status and do
+not open a socket.
+
+Control frames stay below 256 KiB. Larger query, command and subscription results
+use scoped, checksum-checked JSON downloads: at most 16 MiB per reply, 128 retained
+references and 64 MiB total, expiring after five minutes or host shutdown.
+GET/HEAD recheck both the originating read permissions and the reply's own access;
+a known URL is not authority. These ephemeral replies are not source files or
+persistent generated projections. Snapshot events arriving during a download are
+buffered within bounds and applied after its subscription snapshot.
+
+File observation never starts background recapture or overwrites dirty drafts.
 Notices have separate timers, pause on hover/focus and retain at most 20 messages
 for the page session. At most three toasts are visible. Errors remain until
 dismissed or displaced by the bounded stack; the message remains in Activity.
@@ -552,12 +673,12 @@ the viewing state, not review evidence or saved decisions.
 
 `data/authored/resource-reviews.json` owns saved preferences and notes, keyed by
 capture run and feature. This is review evidence, not pack-selection authority.
-`ResourceComparisons.tsx` holds unsaved drafts; `scripts/resource-reviews.mjs`
-validates the fixed save operation behind the loopback workspace middleware.
-GET `/__atlas/resource-reviews` reads source; POST `/__atlas/resource-reviews/save`
-saves one feature with source and evidence revisions. Saves use an exclusive
-staging file and replacement, reject symlinks and stale source/evidence, preserve
-other dated reviews, and appear in Activity. They run no generator or subprocess.
+`ResourceComparisons.tsx` holds unsaved drafts. `reviews.read` and `reviews.save`
+use the shared service and source repository; `scripts/resource-reviews.mjs` owns
+the common validator and public static-page read. The capture catalogue is built
+from the registered workspace's media source. Saving checks both the review-file
+revision and capture-evidence revision, rejects symlinks, and preserves other
+dated reviews. The read-only HTTP adapter delegates to the same query; saves use the socket command. These operations run no generator or subprocess. The shared Activity stream records saves.
 The dev watcher ignores this source so saving does not reload away drafts.
 Static builds embed a read-only snapshot.
 
@@ -701,9 +822,16 @@ path; runtime capture and world imports remain separate explicit operations.
 The Resources workbench projects existing model recipes, artwork records, selective
 features and runtime registry IDs into one catalogue. Object origin, artifacts and
 ordered contributors have separate identities. `resource_stack.py` resolves
-admitted dependencies; `build-resource-objects.py` writes content-addressed scenes
-and images under `web/public/generated/objects/`. Neither directory is source.
-Static factory/CEM exports are disposable `web/.cache/resource-exporter` inputs;
-[resource authoring](models.md) owns coverage, refresh and update requirements.
-Temporary comparison stacks use registered layer IDs through `objects.preview`;
-source saves, output generation and instance installation use their existing owners.
+admitted dependencies. The CLI writes content-addressed scenes and images to
+`web/public/generated/objects/`; workspace jobs instead publish checked, scoped
+object generations. Static factory/CEM exports have their own generation and
+retain the CLI's disposable cache fallback only when no current generation exists.
+A denied or incomplete current export cannot fall through to that cache.
+
+Object generation stages the current texture index and native export, records
+their dependency generations, and rechecks the full input vector before changing
+the active manifest. Custom comparisons admit only catalogue object/case/layer
+IDs, reject duplicate layers and require a current catalogue. Failed or stale
+outputs preserve the previous generation. None of these operations changes source
+selections or installs resources. [Resource authoring](models.md) owns supported
+rendering, refresh and update requirements.

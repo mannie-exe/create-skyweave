@@ -263,6 +263,7 @@ function Canvas(props: Props) {
     if (
       size.width &&
       size.height &&
+      scene.nodes.size &&
       fitSource.current !== source &&
       (viewport as any).fit
     ) {

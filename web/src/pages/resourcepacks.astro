@@ -24,18 +24,24 @@ import {
 import '../styles/resourcepacks.css'
 import '../styles/resource-index.css'
 import objectSources from '../../../authoring/resource-objects.json'
-import { readFileSync } from 'node:fs'
+import { createRequire } from 'node:module'
+import { configuredPack } from '../../scripts/configuration.mjs'
 import { resolve } from 'node:path'
 import type { ObjectCatalogue } from '../lib/object-resources'
+// Keep host modules native: their tool guards use original source URLs.
+const { publicProjectionJSON } = createRequire(resolve('package.json'))(
+  './scripts/workspace/public-read.ts',
+)
 const categories = [...new Set(reviews.map((r) => r.category))].sort()
-let objectCatalogue: ObjectCatalogue | undefined
-try {
-  objectCatalogue = JSON.parse(
-    readFileSync(resolve('public/generated/objects/index.json'), 'utf8'),
-  )
-} catch {
-  /* Previews are optional generated local data. */
-}
+const objectCatalogue: ObjectCatalogue | undefined = await publicProjectionJSON(
+  {
+    scope: { workspaceId: 'local', packId: 'create_sky' },
+    web: resolve('.'),
+    pack: await configuredPack(resolve('.')),
+  },
+  'objects',
+  'index.json',
+)
 function candidateLink(candidate: (typeof objectSources.candidates)[number]) {
   let object = candidate.objects[0],
     caseId = ''

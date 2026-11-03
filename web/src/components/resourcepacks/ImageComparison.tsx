@@ -2,7 +2,7 @@ import { useId, useState, type CSSProperties, type PointerEvent } from 'react'
 import Button from '../ui/Button'
 import Field from '../ui/Field'
 
-type Image = { url: string; label: string }
+type Image = { url: string; label: string; width: number; height: number }
 type Mode = 'swipe' | 'vertical' | 'horizontal'
 const modes: { id: Mode; label: string }[] = [
   { id: 'swipe', label: 'Swipe' },
@@ -106,8 +106,8 @@ export default function ImageComparison({
           className="image-comparison-before"
           src={before.url}
           alt={`${before.label}. ${description}`}
-          width={2880}
-          height={1856}
+          width={before.width}
+          height={before.height}
           draggable={false}
           onLoad={() =>
             setLoaded((current) => ({ ...current, before: before.url }))
@@ -119,8 +119,8 @@ export default function ImageComparison({
             key={after.url}
             src={after.url}
             alt={`${after.label}. ${description}`}
-            width={2880}
-            height={1856}
+            width={after.width}
+            height={after.height}
             draggable={false}
             onLoad={() =>
               setLoaded((current) => ({ ...current, after: after.url }))

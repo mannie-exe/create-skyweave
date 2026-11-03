@@ -364,7 +364,8 @@
       "blocks": [
         "minecraft:azalea"
       ],
-      "action": "apply"
+      "action": "apply",
+      "inherit_template": true
     },
     {
       "id": "plants/flowering-azalea",
@@ -374,7 +375,8 @@
       "blocks": [
         "minecraft:flowering_azalea"
       ],
-      "action": "apply"
+      "action": "apply",
+      "inherit_template": true
     },
     {
       "id": "plants/pitchers",

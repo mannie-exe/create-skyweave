@@ -1,6 +1,8 @@
 import subprocess
 import sys
 import tempfile
+import os
+import time
 import unittest
 from pathlib import Path
 
@@ -43,3 +45,26 @@ class RuntimeCaptureTests(unittest.TestCase):
         with self.assertRaises(subprocess.TimeoutExpired):
             self.run_fixture("from pathlib import Path; import time; Path('complete.json').write_text('{}'); time.sleep(5)", timeout=0.2)
         self.assertFalse(self.complete.exists())
+
+    def test_overflow_bounds_the_log_and_invalidates_completion(self):
+        with self.assertRaisesRegex(RuntimeError, 'log limit'):
+            run_capture([sys.executable, '-c', "from pathlib import Path; Path('complete.json').write_text('{}'); print('x'*20000)"],
+                        cwd=self.root, log=self.root/'runtime.log', complete=self.complete,
+                        timeout=5, max_bytes=1024)
+        self.assertLessEqual((self.root/'runtime.log').stat().st_size, 1024)
+        self.assertFalse(self.complete.exists())
+
+    def test_fatal_text_across_read_boundaries_is_not_lost(self):
+        with self.assertRaises(RuntimeError):
+            self.run_fixture("from pathlib import Path; Path('complete.json').write_text('{}'); print('x'*8188+'OutOfMemoryError')")
+        self.assertFalse(self.complete.exists())
+
+    @unittest.skipUnless(os.name == 'posix', 'Owned process groups require POSIX')
+    def test_timeout_stops_a_descendant_as_well_as_the_parent(self):
+        worker = "from pathlib import Path\nimport time\ni=0\nwhile True:\n Path('heartbeat').write_text(str(i)); i+=1; time.sleep(.02)"
+        parent = f"import subprocess,sys,time\nsubprocess.Popen([sys.executable,'-c',{worker!r}])\ntime.sleep(20)"
+        with self.assertRaises(subprocess.TimeoutExpired):
+            self.run_fixture(parent, timeout=.4)
+        before = (self.root/'heartbeat').read_text()
+        time.sleep(.1)
+        self.assertEqual((self.root/'heartbeat').read_text(), before)

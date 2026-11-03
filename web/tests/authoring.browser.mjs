@@ -2,8 +2,10 @@ import { test, expect } from '@playwright/test'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { mockWorkspace } from './workspace-fixture.mjs'
+import { createHash } from 'node:crypto'
 const source = fileURLToPath(new URL('../../authoring', import.meta.url))
-async function fixture(page) {
+async function fixture(page, live = false) {
   const files = {}
   for (const dir of [
     'journal',
@@ -22,51 +24,73 @@ async function fixture(page) {
     files,
     saves: 0,
     generated: 0,
+    previews: 0,
     fail: false,
     failRead: false,
     last: null,
   }
-  await page.route('**/__atlas/authoring**', async (route) => {
-    const url = new URL(route.request().url()).pathname
-    if (url.endsWith('/save')) {
-      if (state.fail)
-        return route.fulfill({
-          status: 400,
-          json: { error: 'File changed on disk. Reload before saving.' },
-        })
-      const input = route.request().postDataJSON()
-      expect(input.revision).toBe('snapshot-' + state.saves)
-      state.last = input
-      state.saves++
-      for (const [name, text] of Object.entries(input.changes)) {
-        if (text === null) delete files[name]
-        else files[name] = { text, revision: 'saved-' + state.saves }
+  const inventory = () => ({
+    entries: Object.entries(files).map(([id, file]) => ({
+      id,
+      revision: createHash('sha256').update(file.text).digest('hex'),
+    })),
+    revision: String(state.saves).padStart(64, '0'),
+    monitoring: 'ready',
+    restartRequired: false,
+  })
+  state.wire = await mockWorkspace(
+    page,
+    async (frame, { artifact }) => {
+      const operation = frame.operation
+      if (operation === 'sources.inventory') return inventory()
+      if (['journal.save', 'config.source.save'].includes(operation)) {
+        if (state.fail)
+          throw Object.assign(
+            new Error('File changed on disk. Reload before saving.'),
+            { code: 'REVISION_CONFLICT' },
+          )
+        const input = frame.payload
+        expect(input.revision).toBe('snapshot-' + state.saves)
+        state.last = input
+        state.saves++
+        for (const [name, text] of Object.entries(input.changes)) {
+          if (text === null) delete files[name]
+          else files[name] = { text, revision: 'saved-' + state.saves }
+        }
+        return { revision: 'snapshot-' + state.saves }
       }
-      return route.fulfill({ json: { revision: 'snapshot-' + state.saves } })
-    }
-    if (url.endsWith('/generate')) {
-      state.generated++
-      return route.fulfill({ json: { output: 'Generated' } })
-    }
-    if (state.failRead && state.saves) {
-      state.failRead = false
-      return route.fulfill({
-        status: 503,
-        json: { error: 'Read temporarily unavailable' },
-      })
-    }
-    return route.fulfill({
-      json: {
-        files,
-        revision: 'snapshot-' + state.saves,
-        generation: {
+      if (operation === 'journal.generate') {
+        state.generated++
+        return { output: 'Generated' }
+      }
+      if (operation === 'journal.preview') {
+        state.previews++
+        return artifact({
           changed: state.generated ? [] : ['quest.json'],
           removed: [],
           outputs: 57,
-        },
-      },
-    })
-  })
+        })
+      }
+      if (state.failRead && state.saves) {
+        state.failRead = false
+        throw new Error('Read temporarily unavailable')
+      }
+      return {
+        files,
+        revision: 'snapshot-' + state.saves,
+        preview: { state: 'unavailable' },
+      }
+    },
+    [
+      'journal.read',
+      'journal.preview',
+      'journal.save',
+      'config.source.save',
+      'journal.generate',
+      ...(live ? ['sources.inventory'] : []),
+    ],
+    { snapshot: () => inventory() },
+  )
   await page.goto('/authoring')
   await expect(
     page.getByRole('status').filter({ hasText: 'Source loaded' }),
@@ -75,6 +99,57 @@ async function fixture(page) {
 }
 const button = (page, name) => page.getByRole('button', { name, exact: true })
 const en = (state) => JSON.parse(state.files['journal/locales/en_us.json'].text)
+
+test('external journal changes refresh clean text, preserve drafts and never start preview jobs', async ({
+  page,
+}) => {
+  const state = await fixture(page, true)
+  await button(page, 'Localization').click()
+  await page
+    .getByLabel('Find key or text', { exact: true })
+    .fill('entries.travel/glider.title')
+  const field = page.getByLabel('Source entries.travel/glider.title', {
+    exact: true,
+  })
+  const before = state.previews
+  function change(title) {
+    const document = en(state)
+    document.entries['travel/glider'].title = title
+    state.files['journal/locales/en_us.json'].text = JSON.stringify(document)
+    state.saves++
+    state.wire.emit('sources', {
+      kind: 'invalidated',
+      sources: ['journal/locales/en_us.json'],
+      external: true,
+    })
+  }
+  change('External glider')
+  await expect(field).toHaveValue('External glider')
+  expect(state.previews).toBe(before)
+  const valid = state.files['journal/locales/en_us.json'].text
+  state.files['journal/locales/en_us.json'].text = '{'
+  state.saves++
+  state.wire.emit('sources', {
+    kind: 'invalidated',
+    sources: ['journal/locales/en_us.json'],
+    external: true,
+  })
+  await expect(
+    page
+      .getByRole('status')
+      .filter({ hasText: 'invalid JSON. The current view was kept.' }),
+  ).toBeVisible()
+  await expect(field).toHaveValue('External glider')
+  state.files['journal/locales/en_us.json'].text = valid
+  await field.fill('Unsaved glider')
+  change('Another external glider')
+  await expect(
+    page.getByRole('status').filter({ hasText: 'Your draft is preserved' }),
+  ).toBeVisible()
+  await expect(field).toHaveValue('Unsaved glider')
+  expect(state.previews).toBe(before)
+  expect(state.generated).toBe(0)
+})
 
 test('acknowledged saves remain saved when the follow-up read fails', async ({
   page,
@@ -355,7 +430,7 @@ test('real source audit and local write boundaries remain available', async ({
   await expect(page.locator('tbody')).toContainText(
     'pack-fixes/data/skyvillages/worldgen/processor_list/house_processor.json',
   )
-  const data = { name: '../../outside', revision: '', text: '{}' }
+  const data = { name: '../../outside', revision: '0'.repeat(64), text: '{}' }
   expect(
     (
       await request.post('/__atlas/authoring/save', {
@@ -364,10 +439,22 @@ test('real source audit and local write boundaries remain available', async ({
       })
     ).status(),
   ).toBe(403)
-  const traversal = await request.post('/__atlas/authoring/save', {
-    data,
-    headers: { Origin: 'http://127.0.0.1:4322' },
-  })
-  expect(traversal.status()).toBe(400)
-  expect((await traversal.json()).error).toBe('Unknown authoring file')
+  const traversal = await page.evaluate(async (input) => {
+    const { workspaceClient } = await import('/src/lib/workspace/client.ts')
+    try {
+      await workspaceClient.command('journal.save', input)
+    } catch (error) {
+      return error.failure
+    }
+  }, data)
+  expect(traversal.code).toBe('INVALID_INPUT')
+  expect(traversal.message).toBe('Unknown authoring file')
+  expect(
+    (
+      await request.post('/__atlas/authoring/save', {
+        data,
+        headers: { Origin: 'http://127.0.0.1:4322' },
+      })
+    ).status(),
+  ).toBe(405)
 })

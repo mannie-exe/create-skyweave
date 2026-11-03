@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test'
+import { mockWorkspace } from './workspace-fixture.mjs'
 
 // Exercise editing against a disposable in-memory source, never the user's reviews.
 async function mockSource(page) {
@@ -7,40 +8,98 @@ async function mockSource(page) {
   ).json()
   snapshot = { ...snapshot, document: { schema: 1, reviews: {} } }
   let conflict = false
-  await page.route('**/__atlas/resource-reviews', (route) =>
-    route.fulfill({ json: snapshot }),
-  )
-  await page.route('**/__atlas/resource-reviews/save', async (route) => {
-    const input = route.request().postDataJSON()
-    if (conflict)
-      return route.fulfill({
-        status: 409,
-        json: {
-          error: 'Reviews changed. Reload saved reviews before saving again.',
-        },
-      })
-    snapshot = {
-      ...snapshot,
-      revision: 'saved-' + input.feature,
-      document: {
-        schema: 1,
-        reviews: {
-          ...snapshot.document.reviews,
-          ['selective-20261101/' + input.feature]: {
-            ...input.review,
-            evidence: snapshot.evidence,
+  let version = 0
+  const inventory = () => ({
+    entries: [
+      { id: 'review-media', revision: String(version).padStart(64, '0') },
+    ],
+    revision: String(version).padStart(64, '0'),
+    monitoring: 'ready',
+    restartRequired: false,
+  })
+  const wire = await mockWorkspace(
+    page,
+    async (frame) => {
+      if (frame.operation === 'sources.inventory') return inventory()
+      if (frame.operation === 'reviews.read') return snapshot
+      if (frame.operation !== 'reviews.save')
+        throw new Error('Unexpected review operation')
+      const input = frame.payload
+      if (conflict)
+        throw Object.assign(
+          new Error(
+            'Reviews changed. Reload saved reviews before saving again.',
+          ),
+          { code: 'REVISION_CONFLICT' },
+        )
+      snapshot = {
+        ...snapshot,
+        revision: 'saved-' + input.feature,
+        document: {
+          schema: 1,
+          reviews: {
+            ...snapshot.document.reviews,
+            ['selective-20261101/' + input.feature]: {
+              ...input.review,
+              evidence: snapshot.evidence,
+            },
           },
         },
-      },
-    }
-    await route.fulfill({ json: snapshot })
-  })
+      }
+      return snapshot
+    },
+    ['reviews.read', 'reviews.save', 'sources.inventory'],
+    { snapshot: () => inventory() },
+  )
   return {
     conflict: () => {
       conflict = true
     },
+    changeCatalogue(title) {
+      snapshot = {
+        ...snapshot,
+        catalogue: snapshot.catalogue.map((feature) =>
+          feature.id === 'barrels' ? { ...feature, title } : feature,
+        ),
+      }
+      version++
+      wire.emit('sources', {
+        kind: 'invalidated',
+        sources: ['review-media'],
+        external: true,
+      })
+    },
   }
 }
+
+test('live capture catalogues refresh clean views and keep notes while evidence changes', async ({
+  page,
+}) => {
+  const source = await mockSource(page)
+  await page.goto('/resourcepacks/reviews')
+  await expect(
+    page.getByRole('button', { name: 'Barrels', exact: false }),
+  ).toBeVisible()
+  source.changeCatalogue('Updated barrels')
+  await expect(
+    page.getByRole('button', { name: 'Updated barrels', exact: false }),
+  ).toBeVisible()
+  await page.getByLabel('What works or needs changing?').fill('Keep my notes')
+  source.changeCatalogue('New capture set')
+  await expect(page.getByRole('alert')).toContainText(
+    'Your drafts are preserved',
+  )
+  await expect(page.getByLabel('What works or needs changing?')).toHaveValue(
+    'Keep my notes',
+  )
+  await page.getByRole('button', { name: 'Reload saved reviews' }).click()
+  await expect(
+    page.getByRole('button', { name: 'New capture set', exact: false }),
+  ).toBeVisible()
+  await expect(page.getByLabel('What works or needs changing?')).toHaveValue(
+    'Keep my notes',
+  )
+})
 
 test('find comparisons, save dated notes, retain other drafts and preserve edits on conflict', async ({
   page,
@@ -139,12 +198,23 @@ test('matched scenes, old links, responsive views and hidden animation playback'
       await page
         .getByLabel('Scene', { exact: true })
         .selectOption(await option.getAttribute('value'))
-      await expect(
-        page.locator('.image-comparison-canvas img').first(),
-      ).toHaveJSProperty('naturalWidth', 2880)
-      await expect(
-        page.locator('.image-comparison-canvas img').last(),
-      ).toHaveJSProperty('naturalWidth', 2880)
+      const images = page.locator('.image-comparison-canvas img')
+      await expect(page.locator('.image-comparison-canvas')).toHaveAttribute(
+        'data-ready',
+        'true',
+      )
+      const sizes = await images.evaluateAll((nodes) =>
+        nodes.map((node) => ({
+          width: node.naturalWidth,
+          height: node.naturalHeight,
+          declaredWidth: Number(node.getAttribute('width')),
+          declaredHeight: Number(node.getAttribute('height')),
+        })),
+      )
+      expect(sizes[0]).toEqual(sizes[1])
+      expect(sizes[0].width).toBeGreaterThan(0)
+      expect(sizes[0].width).toBe(sizes[0].declaredWidth)
+      expect(sizes[0].height).toBe(sizes[0].declaredHeight)
     }
   }
   await page.getByRole('button', { name: 'Chests and Lootr' }).click()

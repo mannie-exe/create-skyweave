@@ -221,9 +221,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check', action='store_true', help='Fail if generated files differ; write nothing')
     parser.add_argument('--preview', action='store_true', help='Print affected paths; write nothing')
+    parser.add_argument('--root', type=Path, default=ROOT, help='Source/output pack root')
     args = parser.parse_args()
-    outputs = compile_journal()
-    changed, stale = output_changes(ROOT, outputs)
+    outputs = compile_journal(args.root)
+    changed, stale = output_changes(args.root, outputs)
     if args.preview:
         print(json.dumps({'changed': changed, 'removed': stale, 'outputs': len(outputs)}))
         return
@@ -232,13 +233,13 @@ def main():
             raise SystemExit('Journal output drift: ' + ', '.join(changed + stale))
     else:
         for rel in changed:
-            destination = ROOT / rel
+            destination = args.root / rel
             destination.parent.mkdir(parents=True, exist_ok=True)
             temporary = destination.with_name(destination.name + '.tmp')
             temporary.write_text(outputs[rel])
             temporary.replace(destination)
         for rel in stale:
-            (ROOT / rel).unlink()
+            (args.root / rel).unlink()
     print(f'Journal: {len(outputs)} outputs, {len(changed)} changed, {len(stale)} removed')
 
 

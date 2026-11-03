@@ -10,6 +10,9 @@ import { requestJSON } from './http'
 import { ModelPreview, type Preview, type TextureSource } from './model-preview'
 import { applyModpackTextures } from './model-resource-textures'
 import { loadResourceCatalogue, type TextureResource } from './resource-preview'
+import { workspaceClient } from './workspace/client'
+import { observeWorkspaceChanges } from './workspace/changes'
+import { readJSONArtifact } from './workspace/artifacts'
 
 type Binding = { source: string; id: string }
 type Plane = {
@@ -528,10 +531,15 @@ async function operation(action: 'save' | 'generate') {
   running = true
   controls()
   try {
-    const result = await request('/' + action, {
-      revision: workspace.revision,
-      document: workspace.document,
-    })
+    const result = await request(
+      '/' + action,
+      action === 'save'
+        ? {
+            revision: workspace.revision,
+            document: workspace.document,
+          }
+        : { revision: workspace.revision },
+    )
     if (action === 'save') {
       workspace.revision = result.revision
       dirty = requested !== draftVersion
@@ -796,6 +804,54 @@ try {
   error(reason)
 }
 const ready = load()
+const stopWatching = observeWorkspaceChanges({
+  sources: (id) =>
+    [
+      'models',
+      'resource-pins',
+      'resource-selections',
+      'texture-resources',
+    ].includes(id),
+  projections: ['models-preview', 'texture-resources', 'resource-build'],
+  changed() {
+    if (!workspace) return
+    if (dirty || jsonDrafts.size || running) {
+      setFeedback(
+        status,
+        'Saved model inputs changed. Your draft is preserved; reload when ready.',
+        'error',
+      )
+      return
+    }
+    const before = workspace
+    void (async () => {
+      try {
+        const saved = await workspaceClient.query('models.read', {})
+        if (saved.preview.state !== 'current') {
+          setFeedback(
+            status,
+            'Saved model inputs changed. Reload source to rebuild previews.',
+          )
+          return
+        }
+        const projection = await readJSONArtifact(saved.preview.artifact)
+        if (dirty || jsonDrafts.size || running || workspace !== before) return
+        workspace = { ...saved, ...projection }
+        resourceTextures = await loadResourceCatalogue().catch(() => [])
+        previewMemo = undefined
+        if (
+          !workspace.document.recipes.some((recipe) => recipe.id === selected)
+        )
+          selected = workspace.document.recipes[0]?.id ?? ''
+        render()
+        setFeedback(status, 'Saved source refreshed')
+      } catch (reason) {
+        error(reason)
+      }
+    })()
+  },
+})
+if (import.meta.hot) import.meta.hot.dispose(stopWatching)
 export async function selectFromURL() {
   await ready
   const params = new URLSearchParams(location.search)

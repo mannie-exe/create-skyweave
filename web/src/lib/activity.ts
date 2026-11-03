@@ -1,21 +1,11 @@
-import { requestJSON } from './http'
+import { workspaceClient, type TrackedCommand } from './workspace/client.ts'
+import {
+  activitySnapshotSchema,
+  type ActivityOperation,
+  type RecoverySnapshot,
+} from './workspace/contracts.ts'
 
-export type Operation = {
-  id: string
-  label: string
-  href: string
-  state: 'running' | 'succeeded' | 'failed' | 'cancelled'
-  message: string
-  startedAt: string
-  finishedAt?: string
-  job?: {
-    id: string
-    name: string
-    cancellable: boolean
-    diagnostic?: string
-    state: string
-  }
-}
+export type Operation = ActivityOperation
 type Notice = {
   id: string
   message: string
@@ -26,9 +16,14 @@ type Notice = {
 export type ActivityState = {
   current: Operation | null
   history: Operation[]
-  connection: 'connecting' | 'online' | 'offline' | 'static'
+  connection: 'connecting' | 'online' | 'offline' | 'reconnecting' | 'static'
   notices: Notice[]
   toasts: Notice[]
+  unresolved: TrackedCommand[]
+  workspaceIssue?: string
+  recovery?: RecoverySnapshot
+  recoveryError?: string
+  recoveryLoading?: boolean
 }
 
 // Shared by independent React islands and ordinary DOM consumers; no React owner.
@@ -39,6 +34,7 @@ function createActivityStore() {
     connection: 'connecting',
     notices: [],
     toasts: [],
+    unresolved: [],
   }
   let session = ''
   const listeners = new Set<() => void>()
@@ -169,11 +165,14 @@ export function refreshActivity() {
   if (refreshing) return refreshing
   refreshing = (async () => {
     try {
-      const response = await requestJSON('/__atlas/jobs')
-      if (response.operations) activity.accept(response.operations)
-      else activity.update({ connection: 'online' })
-    } catch {
-      activity.update({ connection: 'offline' })
+      const response = await workspaceClient.query('activity.read', {})
+      activity.accept(activitySnapshotSchema.parse(response))
+    } catch (error) {
+      activity.update({ connection: workspaceClient.getSnapshot().connection })
+      activity.notify(
+        error instanceof Error ? error.message : 'Activity unavailable',
+        { tone: 'error' },
+      )
     } finally {
       refreshing = undefined
     }
@@ -181,14 +180,35 @@ export function refreshActivity() {
   return refreshing
 }
 export function watchActivity() {
-  void refreshActivity()
+  let previous: unknown
   const refresh = () => {
-    if (!document.hidden) void refreshActivity()
+    const state = workspaceClient.getSnapshot()
+    const snapshot = state.topics.activity?.snapshot
+    const sources = state.topics.sources?.snapshot as
+      { restartRequired?: boolean; monitoring?: string } | undefined
+    if (snapshot && snapshot !== previous && !state.topics.activity?.stale) {
+      const parsed = activitySnapshotSchema.safeParse(snapshot)
+      if (parsed.success) {
+        activity.accept(parsed.data)
+        previous = snapshot
+      }
+    }
+    activity.update({
+      connection: state.connection,
+      unresolved: state.commands.filter(
+        (command) => command.state === 'unknown',
+      ),
+      recovery: state.recovery,
+      recoveryError: state.recoveryError?.message,
+      recoveryLoading: state.recoveryLoading,
+      workspaceIssue: sources?.restartRequired
+        ? 'Authoring code changed. Restart the Atlas server before editing or generating.'
+        : sources?.monitoring === 'degraded'
+          ? 'Source monitoring is unavailable. Reload saved sources before editing; restart Atlas to restore monitoring.'
+          : undefined,
+    })
   }
-  const timer = setInterval(refresh, 1000)
-  document.addEventListener('visibilitychange', refresh)
-  return () => {
-    clearInterval(timer)
-    document.removeEventListener('visibilitychange', refresh)
-  }
+  const unsubscribe = workspaceClient.subscribe(refresh)
+  refresh()
+  return unsubscribe
 }

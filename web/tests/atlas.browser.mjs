@@ -118,19 +118,20 @@ test('workspace presents editable domains and rejects malformed recipe paths', a
   await page.getByRole('button', { name: 'Edit data', exact: true }).click()
   await expect(page.locator('#domain-editor')).toHaveValue(/schema: 1/)
   const response = await page.evaluate(async () => {
-    const workspace = await fetch('/__atlas/workspace').then((r) => r.json())
-    const result = await fetch('/__atlas/domain/recipes', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
+    const { workspaceClient } = await import('/src/lib/workspace/client.ts')
+    const workspace = await workspaceClient.query('map.sources.read', {})
+    try {
+      await workspaceClient.command('map.source.save', {
+        name: 'recipes',
         revision: workspace.files.recipes.revision,
         text: 'schema: 1\nchanges: [{id: "bad:../escape", disabled: true}]',
-      }),
-    })
-    return { status: result.status, body: await result.json() }
+      })
+    } catch (error) {
+      return error.failure
+    }
   })
-  expect(response.status).toBe(400)
-  expect(response.body.error).toBe('Invalid recipe id')
+  expect(response.code).toBe('INVALID_INPUT')
+  expect(response.message).toBe('Invalid recipe id')
 })
 
 test('coverage filters, blocked routes and editable acquisition domain', async ({

@@ -1,11 +1,20 @@
 """Extract versioned source evidence and real textures, including nested mod JARs."""
-import collections, hashlib, io, json, re, tomllib, zipfile
+import argparse, collections, hashlib, io, json, re, subprocess, tomllib, zipfile
 from pathlib import Path
-from paths import ROOT, paths, write_json
+from paths import ROOT, paths, write_json, tool
 from item_icons import model_textures, texture_path, layered_icon
 from feature_switches import FILENAME as FEATURE_FILE, parse_feature_switches
 
-p = paths(); runtime = ROOT/'data/generated/runtime'
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--runtime', type=Path)
+parser.add_argument('--output', type=Path)
+parser.add_argument('--icons', type=Path)
+parser.add_argument('--work', type=Path)
+args_cli = parser.parse_args()
+p = paths()
+runtime = args_cli.runtime.resolve() if args_cli.runtime else ROOT/'data/generated/runtime'
+output = args_cli.output.resolve() if args_cli.output else ROOT/'data/generated'
+work = args_cli.work.resolve() if args_cli.work else ROOT/'.cache'
 items = json.loads((runtime/'items.json').read_text())
 assets, translations, sources, documents, mods = {}, {}, {}, {}, []
 def visit(blob, origin):
@@ -37,10 +46,13 @@ def visit(blob, origin):
 vanilla=p['vanilla']
 if not vanilla.exists(): raise SystemExit('Minecraft client JAR is required for vanilla textures: '+str(vanilla))
 visit(vanilla.read_bytes(),vanilla.name)
-for base in [p['pack']/'pack/mods',p['pack']/'overrides/common/mods']:
-    for jar in sorted(base.glob('*.jar')): visit(jar.read_bytes(),jar.name)
+selection = json.loads(subprocess.check_output([tool('node', 'node'), str(ROOT/'scripts/resource-inputs.mjs'), str(p['pack'])], text=True))
+selected = sorted({Path(item['path']) for item in selection['inputs'] if item['destination'].startswith('mods/')})
+for jar in [*selected, *sorted((p['pack']/'overrides/common/mods').glob('*.jar'))]:
+    visit(jar.read_bytes(),jar.name)
 
-icon_dir=ROOT/'public/generated/icons'; icon_dir.mkdir(parents=True,exist_ok=True)
+icon_dir=args_cli.icons.resolve() if args_cli.icons else ROOT/'public/generated/icons'
+icon_dir.mkdir(parents=True,exist_ok=True)
 catalog=[]
 for item in items:
     identifier=item['id']; ns,path=identifier.split(':',1)
@@ -66,7 +78,7 @@ for item in items:
     catalog.append({**item,'name':name,'mod':ns,'icon':icon,'ponder':ponder})
 
 configs=[]
-for base,label in [(p['pack']/'overrides/common/config','authored'),(ROOT/'.cache/audit-server/config','runtime-defaults')]:
+for base,label in [(p['pack']/'overrides/common/config','authored'),(work/'audit-server/config','runtime-defaults')]:
     for file in sorted(base.rglob('*')):
         if not file.is_file() or (file.suffix not in ('.toml','.json') and file.name != FEATURE_FILE) or file.stat().st_size>2_000_000:continue
         try:
@@ -75,13 +87,13 @@ for base,label in [(p['pack']/'overrides/common/config','authored'),(ROOT/'.cach
                     else tomllib.loads(text) if file.suffix=='.toml' else json.loads(text))
             configs.append({'path':str(file.relative_to(base)),'layer':label,'sha256':hashlib.sha256(file.read_bytes()).hexdigest(),'values':parsed,'text':text})
         except Exception: pass
-log_path=ROOT/'.cache/runtime.log'
+log_path=work/'runtime.log'
 log=log_path.read_text(errors='replace') if log_path.exists() else ''
 diagnostics=[line for line in log.splitlines() if ('/ERROR]' in line or 'ATLAS_EXPORT_COMPLETE' in line)]
-write_json(ROOT/'data/generated/catalog.json',catalog)
-write_json(ROOT/'data/generated/documents.json',documents)
-write_json(ROOT/'data/generated/mods.json',mods)
-write_json(ROOT/'data/generated/configs.json',configs)
-write_json(ROOT/'data/generated/diagnostics.json',diagnostics)
-write_json(ROOT/'data/generated/translations.json',translations)
+write_json(output/'catalog.json',catalog)
+write_json(output/'documents.json',documents)
+write_json(output/'mods.json',mods)
+write_json(output/'configs.json',configs)
+write_json(output/'diagnostics.json',diagnostics)
+write_json(output/'translations.json',translations)
 print(f'Extracted {len(catalog)} items, {len(documents)} resource paths, {len(mods)} JARs; {sum(bool(i["icon"]) for i in catalog)} texture previews')

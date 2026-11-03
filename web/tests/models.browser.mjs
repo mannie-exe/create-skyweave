@@ -1,6 +1,7 @@
 import { selectSource } from './object-workbench.mjs'
 import { test, expect } from '@playwright/test'
 import { readFileSync } from 'node:fs'
+import { recordWorkspaceWrites } from './workspace-fixture.mjs'
 
 const recipes = JSON.parse(
   readFileSync(new URL('../../authoring/model-recipes.json', import.meta.url)),
@@ -10,6 +11,8 @@ test('model workbench previews extrusion and fitting without saving', async ({
   page,
 }) => {
   const errors = []
+  const writes = []
+  recordWorkspaceWrites(page, writes)
   page.on('pageerror', (error) => errors.push(error.message))
   await page.goto('/model-authoring')
   await expect(page.locator('#models-status')).toHaveText('Source loaded')
@@ -41,11 +44,17 @@ test('model workbench previews extrusion and fitting without saving', async ({
   expect(Object.values(window.faces)[0].uv[0]).toBe(2)
   await selectSource(page, 'models', 'industrial-bars-post')
   await expect(page.getByLabel('Depth', { exact: true })).toHaveValue('1.5')
+  const hostileLabel = 'Fixture <img src=x onerror="window.atlasInjected=1">'
+  await page.locator('#model-label').fill(hostileLabel)
+  await expect(page.locator('#model-list')).toContainText(hostileLabel)
+  await expect(page.locator('#model-list img[src="x"]')).toHaveCount(0)
+  expect(await page.evaluate(() => window.atlasInjected)).toBeUndefined()
   expect(errors).toEqual([])
   page.on('dialog', (dialog) => dialog.accept())
   await page.locator('#models-reload').click()
   await expect(page.locator('#models-status')).toHaveText('Source loaded')
   await expect(page.getByLabel('Depth', { exact: true })).toHaveValue('2')
+  expect(writes).toEqual([])
 })
 
 test('mobile model workbench fits viewport', async ({ page }) => {

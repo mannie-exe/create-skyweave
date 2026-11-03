@@ -128,10 +128,18 @@
       "sha512": "65c635f1b838aff23cc7190dc5e77cc917997357db9b970a3461c34e30a9688d6fee2bd21af8506cacefa983ef618cff8d0765d66dddbd08ca3f67403ec68c7d",
       "url": "https://cdn.modrinth.com/data/ejmzg9VI/versions/vRQx6yxi/UltiCraft-Models3D-2.97.0.zip",
       "selection": "build-only"
+    },
+    "rechiseled-create": {
+      "version": "VnOezhJR",
+      "path": "pack/mods/rechiseledcreate-1.1.1-neoforge-mc1.21.jar",
+      "sha512": "ca77dea4dd3276105176578855b0ffd9f48256bed58701a86171b05db1116a29592871ca7d6d5acc9a023270a45654feb4ab7153026eb751d567e7bf892ca560",
+      "url": "https://cdn.modrinth.com/data/E6867niZ/versions/VnOezhJR/rechiseledcreate-1.1.1-neoforge-mc1.21.jar",
+      "provider": "url"
     }
   },
   "compatibility": {
-    "lootr_fresh_objects": true
+    "lootr_fresh_objects": true,
+    "window_interior_faces": false
   },
   "credits": [
     "Fresh Flower Pots \u2014 BlueHDGaming: https://modrinth.com/resourcepack/fresh-flower-pots",

@@ -4,7 +4,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import os from 'node:os'
 import { fileURLToPath } from 'node:url'
-import { authoring } from '../scripts/authoring.mjs'
+import { domainFixture } from './domain-fixture.mjs'
 import {
   createEntry,
   removeEntry,
@@ -18,7 +18,6 @@ async function fixture(t) {
   const root = await fs.realpath(
     await fs.mkdtemp(path.join(os.tmpdir(), 'atlas-journal-crud-')),
   )
-  t.after(() => fs.rm(root, { recursive: true, force: true }))
   await fs.cp(path.join(pack, 'authoring'), path.join(root, 'authoring'), {
     recursive: true,
   })
@@ -28,7 +27,7 @@ async function fixture(t) {
       path.join(pack, 'scripts', name),
       path.join(root, 'scripts', name),
     )
-  const editor = authoring(root),
+  const editor = domainFixture(t, root, 'journal'),
     snapshot = await editor.read()
   return {
     root,
@@ -123,7 +122,9 @@ test('entry CRUD, sparse locales and native generation share one source contract
   await editor.save({ revision: saved.revision, changes: diff(saved, docs) })
   saved = await editor.read()
   assert.ok(
-    saved.generation.removed.includes(
+    (
+      await editor.artifactJSON(await editor.preview(saved.revision))
+    ).removed.includes(
       'overrides/common/config/questlog/quests/travel/test_route.json',
     ),
   )
@@ -176,8 +177,8 @@ test('invalid coordinated saves, stale revisions and symlinked new locales canno
   )
   assert.equal((await editor.read()).revision, snapshot.revision)
   await assert.rejects(
-    editor.save({ revision: 'stale', changes: diff(snapshot, docs) }),
-    /changed on disk/,
+    editor.save({ revision: '0'.repeat(64), changes: diff(snapshot, docs) }),
+    (error) => error.code === 'REVISION_CONFLICT',
   )
   await assert.rejects(
     editor.save({
@@ -191,7 +192,7 @@ test('invalid coordinated saves, stale revisions and symlinked new locales canno
       revision: snapshot.revision,
       changes: { 'journal/locales/en_us.json': null },
     }),
-    /additional locale/,
+    /English fallback locale is required/,
   )
   await fs.symlink(
     path.join(root, 'authoring/journal/locales/en_us.json'),
@@ -249,14 +250,22 @@ test('coordinated writes roll back ordinary replacement failures', async (t) => 
   const original = fs.rename.bind(fs)
   let calls = 0
   const mocked = t.mock.method(fs, 'rename', async (...args) => {
-    if (++calls === 2) throw new Error('Injected replacement failure')
+    if (
+      String(args[1]).startsWith(path.join(root, 'authoring') + path.sep) &&
+      ++calls === 2
+    )
+      throw new Error('Injected replacement failure')
     return original(...args)
   })
   await assert.rejects(
     editor.save({ revision: snapshot.revision, changes: diff(snapshot, docs) }),
-    /Injected replacement failure/,
+    (error) => error.code === 'STORAGE_UNAVAILABLE',
   )
   mocked.mock.restore()
+  assert(
+    calls >= 3,
+    'the first committed source was restored after the second replacement failed',
+  )
   assert.equal((await editor.read()).revision, snapshot.revision)
   for (const dir of ['journal/chapters', 'journal/locales'])
     assert.ok(
