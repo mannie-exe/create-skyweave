@@ -1,7 +1,7 @@
 schema: 5
 pack:
   name: Create Sky
-  version: 0.1.31
+  version: 0.1.32
   id: create_sky
   authors:
     - mannie-exe

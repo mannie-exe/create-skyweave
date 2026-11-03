@@ -3,9 +3,9 @@
 header = """
 # Changelog
 
-Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).\n
-"""
+Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md)."""
 body = """
+
 {% if version %}## {{ version }} · {{ timestamp | date(format="%Y-%m-%d") }}{% else %}## Unreleased{% endif %}
 {% for group, commits in commits | group_by(attribute="group") %}
 ### {{ group | striptags | trim }}
@@ -14,7 +14,7 @@ body = """
 {% endfor %}
 {% endfor %}
 """
-trim = true
+trim = false
 render_always = false
 postprocessors = [
   { pattern = '\n{3,}', replace = "\n\n" },

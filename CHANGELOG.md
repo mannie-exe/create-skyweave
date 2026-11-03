@@ -2,6 +2,12 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.1.32 · 2026-11-03
+
+### Features
+
+- Unify Atlas workspace and repair resources ([4a479fa](https://github.com/mannie-exe/create_sky/commit/4a479fac7b13d1877302bbce4b3aa8670837005d))
+
 ## v0.1.31 · 2026-11-02
 
 ### Features
@@ -13,16 +19,19 @@ Generated from Git history. Player-facing release summaries are in [release note
 ### Build and verification
 
 - **release:** Generate changelogs with git-cliff ([fda4eb2](https://github.com/mannie-exe/create_sky/commit/fda4eb243b177ccff1822ba3c672d4e6ba4dbf3e))
+
 ## v0.1.30 · 2026-11-01
 
 ### Features
 
 - **pack:** Add guarded redstone controls ([86752bd](https://github.com/mannie-exe/create_sky/commit/86752bdbefc182da1f63fc7539765fa87a57fe88))
+
 ## v0.1.29 · 2026-11-01
 
 ### Fixes
 
 - **pack:** Protect linked machinery from Carry On pickup ([f28a10f](https://github.com/mannie-exe/create_sky/commit/f28a10fc973eb73770dd0d4fe8b15bf23eba6771))
+
 ## v0.1.28 · 2026-11-01
 
 ### Features
@@ -32,16 +41,19 @@ Generated from Git history. Player-facing release summaries are in [release note
 ### Documentation
 
 - Refresh selected content versions ([9fdbe50](https://github.com/mannie-exe/create_sky/commit/9fdbe5061da724a17620130a736d292441758043))
+
 ## v0.1.27 · 2026-11-01
 
 ### Features
 
 - Add ship-aware recovery and audio timing ([9bc3416](https://github.com/mannie-exe/create_sky/commit/9bc34167549b78893d4b9f1dd382172fa9c79346))
+
 ## v0.1.26 · 2026-11-01
 
 ### Features
 
 - Add Transmission and Linkage machinery ([c8de24e](https://github.com/mannie-exe/create_sky/commit/c8de24e2cdd3a6b093c63f17273dfd5a5c222019))
+
 ## v0.1.25 · 2026-11-01
 
 ### Features
@@ -59,6 +71,7 @@ Generated from Git history. Player-facing release summaries are in [release note
 - Refresh compatible pack dependencies ([0ff02b5](https://github.com/mannie-exe/create_sky/commit/0ff02b5839c74f890573d75bc8de33224b93a4c5))
 
 - Drop unused animation patch inputs ([19d4f32](https://github.com/mannie-exe/create_sky/commit/19d4f32f02677ba007bef487b02a1984c96a5d97))
+
 ## v0.1.24 · 2026-11-01
 
 ### Features
@@ -68,16 +81,19 @@ Generated from Git history. Player-facing release summaries are in [release note
 ### Fixes
 
 - Capture the complete selected pack in Atlas ([f5093c0](https://github.com/mannie-exe/create_sky/commit/f5093c055586ce97ea19db1dfc0bb36f61d5ad70))
+
 ## v0.1.23 · 2026-11-01
 
 ### Features
 
 - Release Create Sky 0.1.23 ([7fbd33a](https://github.com/mannie-exe/create_sky/commit/7fbd33aa624a2a8c8726786ec15e4e0681134d2b))
+
 ## v0.1.22 · 2026-10-31
 
 ### Features
 
 - Release journal interface update in Create Sky 0.1.22 ([5a62562](https://github.com/mannie-exe/create_sky/commit/5a625626f7d5b54fa45286c56d04367f37596927))
+
 ## v0.1.21 · 2026-10-31
 
 ### Features
@@ -87,6 +103,7 @@ Generated from Git history. Player-facing release summaries are in [release note
 ### Fixes
 
 - Expose Compat feature settings in Atlas ([c8889a2](https://github.com/mannie-exe/create_sky/commit/c8889a2c06d7c247c85fb55950e81d6f40eec10b))
+
 ## v0.1.20 · 2026-10-29
 
 ### Features
@@ -100,6 +117,7 @@ Generated from Git history. Player-facing release summaries are in [release note
 ### Documentation
 
 - Record release and stopped instance verification ([0110606](https://github.com/mannie-exe/create_sky/commit/0110606261e891edd5e601bfe851012297bf9b4d))
+
 ## v0.1.19 · 2026-10-29
 
 ### Fixes
@@ -109,11 +127,13 @@ Generated from Git history. Player-facing release summaries are in [release note
 ### Documentation
 
 - Record verified 0.1.18 publication and installs ([c01417e](https://github.com/mannie-exe/create_sky/commit/c01417e46be0529eb1069829e04a2913725422ac))
+
 ## v0.1.18 · 2026-10-29
 
 ### Features
 
 - Release expanded building weights in 0.1.18 ([045784a](https://github.com/mannie-exe/create_sky/commit/045784a79d5d7ed75fb6ac4eb5d8c3371733599b))
+
 ## v0.1.17 · 2026-10-28
 
 ### Fixes
@@ -123,11 +143,13 @@ Generated from Git history. Player-facing release summaries are in [release note
 ### Documentation
 
 - Record published instance verification ([5786750](https://github.com/mannie-exe/create_sky/commit/5786750cfbaa2bac6e39c4fc1f6efecdbf5c6374))
+
 ## v0.1.16 · 2026-10-27
 
 ### Features
 
 - Release expanded island generation and LOD tuning ([87a49e1](https://github.com/mannie-exe/create_sky/commit/87a49e12b43f32d77b969a171d72c0644a7ddb7e))
+
 ## v0.1.15 · 2026-10-25
 
 ### Fixes
@@ -137,11 +159,13 @@ Generated from Git history. Player-facing release summaries are in [release note
 ### Documentation
 
 - Consolidate pack and Atlas documentation ([e216b42](https://github.com/mannie-exe/create_sky/commit/e216b421260164e4e1b646481816217f89b515f2))
+
 ## v0.1.14 · 2026-10-25
 
 ### Features
 
 - Release Create Sky 0.1.14 terrain update ([7c9e18a](https://github.com/mannie-exe/create_sky/commit/7c9e18a7cdf1cbe96600b0b907cb89863b64c710))
+
 ## v0.1.13 · 2026-10-25
 
 ### Features
@@ -149,6 +173,7 @@ Generated from Git history. Player-facing release summaries are in [release note
 - **web:** Clarify acquisition and world evidence ([0135af0](https://github.com/mannie-exe/create_sky/commit/0135af078bec5ae7539b23f24d1b6203c5c17e59))
 
 - Release sparse variable-height islands ([6999661](https://github.com/mannie-exe/create_sky/commit/69996618159f314e16930300477ce6e88c35118e))
+
 ## v0.1.12 · 2026-10-25
 
 ### Features
@@ -158,6 +183,7 @@ Generated from Git history. Player-facing release summaries are in [release note
 ### Documentation
 
 - Record v0.1.11 release verification ([59aa21f](https://github.com/mannie-exe/create_sky/commit/59aa21ff5017c9dca6ba8dbb3ea4c300cf5f1949))
+
 ## v0.1.11 · 2026-10-24
 
 ### Features
@@ -167,6 +193,7 @@ Generated from Git history. Player-facing release summaries are in [release note
 ### Documentation
 
 - Record v0.1.10 release verification ([7cf5797](https://github.com/mannie-exe/create_sky/commit/7cf5797a8ba3ef18512a5be3c334f3fb17565ede))
+
 ## v0.1.10 · 2026-10-24
 
 ### Features
@@ -180,6 +207,7 @@ Generated from Git history. Player-facing release summaries are in [release note
 ### Maintenance
 
 - Trim resource input helper whitespace ([95e97e9](https://github.com/mannie-exe/create_sky/commit/95e97e9d5ea4062d67c67916ae4eb867eacc4ec6))
+
 ## v0.1.9 · 2026-10-23
 
 ### Features
@@ -187,16 +215,19 @@ Generated from Git history. Player-facing release summaries are in [release note
 - Prepare Create Sky 0.1.9 placement update ([25a5a20](https://github.com/mannie-exe/create_sky/commit/25a5a2094003b391607f388e382b52734f41451f))
 
 - Release Create Sky 0.1.9 ([30f2bbb](https://github.com/mannie-exe/create_sky/commit/30f2bbb9c8a5a45b0965958acc95bc81669667bf))
+
 ## v0.1.8 · 2026-10-23
 
 ### Features
 
 - Release Create Sky v0.1.8 ([e53f791](https://github.com/mannie-exe/create_sky/commit/e53f7912cdca4d1820dd118eb9fd7785799812e1))
+
 ## v0.1.7 · 2026-10-22
 
 ### Fixes
 
 - Release Create Sky v0.1.7 ([df12fe5](https://github.com/mannie-exe/create_sky/commit/df12fe55fb5e903e39b470fd0cabc0337405941f))
+
 ## v0.1.6 · 2026-10-22
 
 ### Features
@@ -226,16 +257,19 @@ Generated from Git history. Player-facing release summaries are in [release note
 ### Maintenance
 
 - Consolidate web authoring into the pack repository ([23d271c](https://github.com/mannie-exe/create_sky/commit/23d271ce9beaf9afce709dabba9e7d653fd49f2f))
+
 ## v0.1.5 · 2026-10-21
 
 ### Features
 
 - Release Create Sky v0.1.5 ([b70bfa8](https://github.com/mannie-exe/create_sky/commit/b70bfa866f2056b3ca6de7d10dd41639fb64bdb5))
+
 ## v0.1.4 · 2026-10-20
 
 ### Features
 
 - Release Create Sky v0.1.4 ([b5d0e2d](https://github.com/mannie-exe/create_sky/commit/b5d0e2d56c6c0f092125ffbaae6cf25eec60e607))
+
 ## v0.1.3 · 2026-10-20
 
 ### Features
@@ -243,11 +277,13 @@ Generated from Git history. Player-facing release summaries are in [release note
 - Add client DH polygon fix ([fa7055e](https://github.com/mannie-exe/create_sky/commit/fa7055e3619ec4c15cf8c4cfd4895a6c051d7743))
 
 - Release Create Sky v0.1.3 ([34bb757](https://github.com/mannie-exe/create_sky/commit/34bb75758eeab50eb4f4963ac823621f8a1364d4))
+
 ## v0.1.2 · 2026-10-19
 
 ### Features
 
 - Release Create Sky v0.1.2 ([bfb2c10](https://github.com/mannie-exe/create_sky/commit/bfb2c10e0314e663dd5eb7dd4ac4eb12b63ab29d))
+
 ## v0.1.1 · 2026-10-18
 
 ### Features
@@ -255,6 +291,7 @@ Generated from Git history. Player-facing release summaries are in [release note
 - Verify world defaults and release assets ([31a45ef](https://github.com/mannie-exe/create_sky/commit/31a45efe25c7c3da2a7b1dd50e9eace49d788fed))
 
 - Release Create Sky v0.1.1 ([c67d577](https://github.com/mannie-exe/create_sky/commit/c67d577bec51ac5f4e01e204f530a3e19f8ef087))
+
 ## v0.1.0 · 2026-10-18
 
 ### Features
