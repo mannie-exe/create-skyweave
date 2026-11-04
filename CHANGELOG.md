@@ -2,6 +2,12 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.1.37 · 2026-11-04
+
+### Features
+
+- **debug:** Add reproducible debug world tools ([a5d8b2d](https://github.com/mannie-exe/create_sky/commit/a5d8b2d7837aeb2c264a4bb880de3c059ed7c378))
+
 ## v0.1.36 · 2026-11-04
 
 ### Fixes
