@@ -13,7 +13,7 @@ import time
 
 from .registry import read_json
 
-OWNER = "create_sky/debug-world"
+OWNER = "create_skyweave/debug-world"
 
 
 @contextmanager

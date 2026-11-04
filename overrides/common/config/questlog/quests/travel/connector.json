@@ -15,7 +15,7 @@
       "type": "questlog:item_obtain",
       "item": "create_aeronautics_throwable_rope_connector:throwable_rope_connector",
       "required_amount": 1,
-      "name": "createsky.journal.travel.connector.objective.0",
+      "name": "create_skyweave.journal.travel.connector.objective.0",
       "translatable": true
     }
   ],
@@ -24,9 +24,9 @@
   "title_color": "#18242b",
   "completed_text_color": "#356b52",
   "progress_text_color": "#435b68",
-  "title": "createsky.journal.travel.connector.title",
+  "title": "create_skyweave.journal.travel.connector.title",
   "translatable": true,
   "description": {
-    "translate": "createsky.journal.travel.connector.description"
+    "translate": "create_skyweave.journal.travel.connector.description"
   }
 }

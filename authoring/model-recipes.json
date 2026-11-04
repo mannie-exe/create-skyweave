@@ -24652,7 +24652,7 @@
       "label": "Lootr barrel: unlooted clasps",
       "kind": "extrusion",
       "enabled": true,
-      "output": "create_sky:block/lootr_barrel_clasps",
+      "output": "create_skyweave:block/lootr_barrel_clasps",
       "texture": {
         "source": "lootr",
         "id": "lootr:block/barrel_side"
@@ -25067,7 +25067,7 @@
       "label": "Lootr barrel: looted clasps",
       "kind": "extrusion",
       "enabled": true,
-      "output": "create_sky:block/lootr_barrel_looted_clasps",
+      "output": "create_skyweave:block/lootr_barrel_looted_clasps",
       "texture": {
         "source": "lootr",
         "id": "lootr:block/opened_barrel_side"

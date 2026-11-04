@@ -17,7 +17,7 @@ registered inputs. None of these actions enables a pack or changes recipes.
 object. Drafts survive switches between cases, source views and comparisons.
 Source links and browser history retain the corresponding object/case. Save
 recipes validates and writes the recipe document; Generate resource pack builds
-the saved enabled recipes into `Create Sky Resource Patches.zip`. Installation is
+the saved enabled recipes into `Create Skyweave Resource Patches.zip`. Installation is
 separate. Refresh previews rebuilds the disposable object catalogue; Export static
 models refreshes the admitted client meshes before rebuilding that catalogue.
 Both run through named jobs and Activity; neither changes installed instances.
@@ -89,7 +89,7 @@ still differs from Minecraft's renderer.
 Recipe JSON stores `texture_edits`, keyed by a bound texture resource ID. Each
 entry contains ordered `source` and `target` rectangles, optional `flip_u`,
 `flip_v`, `rotation` and `enabled` fields. Generation emits recipe-owned PNGs
-under `create_sky:generated/<recipe>/` and retains the input texture metadata.
+under `create_skyweave:generated/<recipe>/` and retains the input texture metadata.
 Disabled recipes emit neither models nor derived artwork. Color adjustment and
 cross-texture compositing are not implemented.
 

@@ -37,4 +37,4 @@ operator-permission-level=4
 function-permission-level=2
 
 # Explicit sky-island generation for new dedicated worlds.
-level-type=create_sky_compat:islands_v1
+level-type=skyweave_compat:islands_v1

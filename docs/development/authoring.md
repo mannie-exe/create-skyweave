@@ -26,7 +26,7 @@ generation; the Atlas edits the same files and must not maintain separate rules.
 | `authoring/journal/defaults.json` | Shared native display properties |
 | `authoring/journal/locales/<locale>.json` | Chapter names, entry text, shared disclaimers and short objective labels |
 | `overrides/common/config/questlog/` | Generated native chapters and quests |
-| `pack-fixes/assets/createsky/lang/` | Generated Minecraft language resources |
+| `pack-fixes/assets/create_skyweave/lang/` | Generated Minecraft language resources |
 
 Each locale entry has `title`, optional `flavor`, full `requirements`, a
 `description` paragraph array, a shared `disclaimer` key or null, and `labels`.
@@ -64,11 +64,11 @@ not inherit. Unknown keys and invalid resolved text fail compilation.
 The Atlas creates sparse locales and maintains entry IDs across mechanics and
 translations when adding or deleting entries. Existing complete locale files
 remain valid. Native keys are derived from stable chapter/entry IDs:
-`createsky.journal.<chapter>.<entry>.title`, `.description`, and `.objective.<position>`.
+`create_skyweave.journal.<chapter>.<entry>.title`, `.description`, and `.objective.<position>`.
 The description key composes the authored sections and resolved disclaimer.
 Additional languages receive full resolved output, so mixed translated/fallback
 sections agree with the editor preview. Chapter names use
-`createsky.journal.chapter.<chapter>`.
+`create_skyweave.journal.chapter.<chapter>`.
 
 Generated descriptions use JSON translation components to retain client-side
 locale selection. Inline Markdown-like Questlog links are not parsed inside

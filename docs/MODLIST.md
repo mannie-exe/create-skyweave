@@ -39,7 +39,7 @@ mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_
 | Controlling | 19.0.5 | [Exact version](https://modrinth.com/mod/controlling/version/FaNppCJJ) |
 | Cool Rain Reforged | 1.0.2 | [Exact version](https://modrinth.com/mod/cool-rain-reforged/version/SwSSfJQQ) |
 | Copycat Bar Extrusion | 0.1.0 | [Exact release](https://github.com/mannie-exe/copycat-bar-extrusion/releases/tag/v0.1.0) |
-| Create Sky Compat | 0.19.0 | [GitHub release](https://github.com/mannie-exe/create-sky-compat/releases/tag/v0.19.0) |
+| Skyweave Compat | 0.19.0 | [GitHub release](https://github.com/mannie-exe/skyweave-compat/releases/tag/v0.19.0) |
 | Create Accessories Compat | 1.0 | [Exact version](https://modrinth.com/mod/create-accessories-compat/version/2r7hvkCQ) |
 | Create Aeronautics | 1.3.2+mc1.21.1 | [Exact version](https://modrinth.com/mod/create-aeronautics/version/44pLdPGg) |
 | Create Aeronautics: Transmission & Linkage | 0.2.9 | [Exact version](https://modrinth.com/mod/create-aeronautics-transmission-linkage/version/WoUjC6d4) |
@@ -50,8 +50,8 @@ mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_
 | Create Confectionery | 1.1.3.b | [Exact version](https://modrinth.com/mod/create-confectionery/version/ndnETBEN) |
 | Create Deco | 2.1.3 | [Exact version](https://modrinth.com/mod/create-deco/version/qrcMVoBD) |
 | Create Propulsion: Simulated | 1.1.5 | [Exact version](https://modrinth.com/mod/create-propulsion-simulated/version/H13U56dc) |
-| Create Sky Resource Patches | Generated from pinned inputs | [Recipe and generator](development/patches.md#visual-patch-boundaries) |
-| Create Sky resources | 0.1.0 (local) | [Maintained sources](../pack-fixes/) |
+| Create Skyweave Resource Patches | Generated from pinned inputs | [Recipe and generator](development/patches.md#visual-patch-boundaries) |
+| Create Skyweave resources | 0.1.0 (local) | [Maintained sources](../pack-fixes/) |
 | Create Touch-Ups | 1.0 | [Exact version](https://modrinth.com/version/aoJf3Iu6) |
 | Create | 6.0.10+mc1.21.1 | [Exact version](https://modrinth.com/mod/create/version/UjX6dr61) |
 | Create: Addon Compatibility | 1.0.0 | [Exact version](https://modrinth.com/mod/createaddoncompatibility/version/tL1Tayuh) |

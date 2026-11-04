@@ -21,7 +21,7 @@ def pack_previews(case, record, patch, archives, root=ROOT, output=OUT):
         name = 'assets/minecraft/emf/cem/lootr_lootr_chest.jem'
         rig = json.loads(patch.read(name))
         case['geometries']['patches'] = {'label': 'Resource patches', 'model': closed_chest(rig),
-                                       'source': 'Create Sky Resource Patches.zip/' + name}
+                                       'source': 'Create Skyweave Resource Patches.zip/' + name}
     else:
         leaf = 'lootr_barrel_unopened' if record['id'] == 'barrel-unlooted' else 'lootr_opened_barrel'
         path = f'assets/lootr/models/block/{leaf}.json'
@@ -30,13 +30,13 @@ def pack_previews(case, record, patch, archives, root=ROOT, output=OUT):
             require('elements' in model or model.get('parent') == 'minecraft:block/cube', 'New barrel geometry needs a preview adapter')
             geometry = json.loads(json.dumps(model if 'elements' in model else case['original']['model']))
             if 'elements' in model:
-                bindings = {f'create_sky:generated/lootr/{record["id"]}/{direction}': direction
+                bindings = {f'create_skyweave:generated/lootr/{record["id"]}/{direction}': direction
                             for direction in ('north', 'south', 'east', 'west')}
                 bindings.update({record['inputs'][1]: 'up', record['inputs'][2]: 'down'})
                 require(set(geometry['textures'].values()) <= bindings.keys(), 'Unknown barrel geometry binding')
                 geometry['textures'] = {alias: bindings[identifier] for alias, identifier in geometry['textures'].items()}
             case['geometries']['patches'] = {'label': 'Resource patches', 'model': geometry,
-                                           'source': 'Create Sky Resource Patches.zip/' + path}
+                                           'source': 'Create Skyweave Resource Patches.zip/' + path}
         else:
             model = None
     case['pack'] = {**case['original'], 'textures': dict(case['original']['textures'])}
@@ -109,7 +109,7 @@ def build(root=ROOT, output=OUT):
         pins = json.loads((root / 'authoring/resource-patches.json').read_text())['sources']
         recipes = json.loads((root / 'authoring/model-recipes.json').read_text())['recipes']
         resources = []
-        patch_file = root / 'overrides/client/resourcepacks/Create Sky Resource Patches.zip'
+        patch_file = root / 'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip'
         with ZipFile(patch_file) as patch:
             for record in records:
                 pin = pins[record['source']]

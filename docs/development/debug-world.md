@@ -39,7 +39,7 @@ exact runtime JAR hashes, expected states and explicit omissions. Adding a case
 moves later layout rows when needed; its identity does not depend on coordinates.
 The datapack belongs only in marked debug saves, never normal pack overrides.
 
-The profiles are `create_sky`, `smoke` and `vanilla`. Smoke exercises placement
+The profiles are `create_skyweave`, `smoke` and `vanilla`. Smoke exercises placement
 strategies in one compact district. Vanilla uses genuine Mojang reports and the
 original vanilla server, without NeoForge, Compat or a required client probe.
 A namespace filter on modpack metadata is not a vanilla-runtime check.
@@ -60,11 +60,11 @@ REGISTRY=.cache/debug-world/runtime/debug_registry.json
 
 # Creates an isolated exporter runtime; does not read the playing server world.
 $PY web/scripts/runtime.py --output .cache/debug-world/runtime --work .cache/debug-world/capture
-$PY scripts/debug-world.py plan --registry "$REGISTRY" --profile create_sky
-$PY scripts/debug-world.py compile --registry "$REGISTRY" --profile create_sky --output .cache/debug-world/compiled
+$PY scripts/debug-world.py plan --registry "$REGISTRY" --profile create_skyweave
+$PY scripts/debug-world.py compile --registry "$REGISTRY" --profile create_skyweave --output .cache/debug-world/compiled
 $PY scripts/debug-world.py generate --compiled .cache/debug-world/compiled --output .cache/debug-world/world --work .cache/debug-world/native --server "$SERVER" --java "$JAVA"
 $PY scripts/debug-world.py verify --world .cache/debug-world/world
-$PY scripts/debug-world.py install --world .cache/debug-world/world --client-game "$HOME/Library/Application Support/PrismLauncher/instances/Create Sky/.minecraft"
+$PY scripts/debug-world.py install --world .cache/debug-world/world --client-game "$HOME/Library/Application Support/PrismLauncher/instances/Create Skyweave/.minecraft"
 ```
 
 Choose fresh `--work` and world `--output` paths for another native generation.
@@ -175,7 +175,7 @@ part of fixture cleanup.
 
 ## Coverage
 
-The curated Create Sky profile has 791 comparison cases in 43 groups across 14
+The curated Create Skyweave profile has 791 comparison cases in 43 groups across 14
 districts. A case may contain a connected wall or paired states rather than one
 block. Revision 12 had 582 sample records in 27 sections; those record units are
 not identical. Added coverage includes 179 Macaw windows, mosaics, waxed grates,

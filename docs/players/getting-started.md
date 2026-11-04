@@ -1,10 +1,10 @@
 # Installation and worlds
 
-Create Sky runs on Minecraft 1.21.1, NeoForge 21.1.264 and Java 21.
+Create Skyweave runs on Minecraft 1.21.1, NeoForge 21.1.264 and Java 21.
 
 ## Client installation
 
-1. Download a pack from [GitHub Releases](https://github.com/mannie-exe/create_sky/releases).
+1. Download a pack from [GitHub Releases](https://github.com/mannie-exe/create-skyweave/releases).
 2. Import the `prism-references.zip` into Prism Launcher, or import the `.mrpack`
    into a launcher that supports Modrinth packs. For Prism, install
    [empack 0.8.2-beta](https://github.com/inherent-design/empack/releases/tag/v0.8.2-beta)
@@ -56,7 +56,7 @@ needs comparison with G1 in this pack. See the
 
 ## New worlds
 
-New single-player worlds default to **Create Sky Islands**. Dedicated-server
+New single-player worlds default to **Skyweave Islands**. Dedicated-server
 creation uses the same preset. Deep large islands have smaller companions and
 wide gaps between clusters. Build bounds are Y=-128 through 767; the terrain band
 leaves room above the islands for building and flight.

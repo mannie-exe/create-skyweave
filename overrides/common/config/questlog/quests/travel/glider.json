@@ -15,7 +15,7 @@
       "type": "questlog:item_obtain",
       "item": "reliable_gliders:glider",
       "required_amount": 1,
-      "name": "createsky.journal.travel.glider.objective.0",
+      "name": "create_skyweave.journal.travel.glider.objective.0",
       "translatable": true
     }
   ],
@@ -30,9 +30,9 @@
   "title_color": "#18242b",
   "completed_text_color": "#356b52",
   "progress_text_color": "#435b68",
-  "title": "createsky.journal.travel.glider.title",
+  "title": "create_skyweave.journal.travel.glider.title",
   "translatable": true,
   "description": {
-    "translate": "createsky.journal.travel.glider.description"
+    "translate": "create_skyweave.journal.travel.glider.description"
   }
 }

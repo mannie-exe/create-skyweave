@@ -15,14 +15,14 @@
       "type": "questlog:block_interact",
       "block": "aeronautics_delivery_quests:delivery_quests_table",
       "required_amount": 1,
-      "name": "createsky.journal.cargo.deliveries.objective.0",
+      "name": "create_skyweave.journal.cargo.deliveries.objective.0",
       "translatable": true
     }
   ],
   "rewards": [],
-  "title": "createsky.journal.cargo.deliveries.title",
+  "title": "create_skyweave.journal.cargo.deliveries.title",
   "translatable": true,
   "description": {
-    "translate": "createsky.journal.cargo.deliveries.description"
+    "translate": "create_skyweave.journal.cargo.deliveries.description"
   }
 }

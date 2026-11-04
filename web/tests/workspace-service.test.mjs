@@ -29,7 +29,7 @@ const actor = {
   connectionId: randomUUID(),
 }
 const gate = () => Promise.withResolvers()
-async function fixture(t, id = 'create_sky') {
+async function fixture(t, id = 'create_skyweave') {
   const root = await fs.mkdtemp(path.join(os.tmpdir(), 'atlas-service-'))
   t.after(() => fs.rm(root, { recursive: true, force: true }))
   const web = path.join(root, 'web'),
@@ -398,13 +398,13 @@ test('source paths reject traversal/symlinks and partial rollback never overwrit
   assert.equal(await fs.readFile(file, 'utf8'), 'schema: 1\nchanges: []\n')
   const transactions = path.join(
     registration.web,
-    '.cache/workspace/local/create_sky/transactions',
+    '.cache/workspace/local/create_skyweave/transactions',
   )
   assert.equal((await fs.readdir(transactions)).length, 1)
 })
 
 test('protocol rejects unknown actor/execution fields, deep JSON and non-finite identity inputs', () => {
-  const scope = { workspaceId: 'local', packId: 'create_sky' }
+  const scope = { workspaceId: 'local', packId: 'create_skyweave' }
   const hello = { v: 1, type: 'hello', requestId: randomUUID(), scope }
   assert.equal(parseClientFrame(JSON.stringify(hello)).type, 'hello')
   assert.throws(() =>

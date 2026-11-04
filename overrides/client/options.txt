@@ -48,7 +48,7 @@ mouseSensitivity:0.5
 damageTiltStrength:1.0
 highContrast:false
 narratorHotkey:true
-resourcePacks:["vanilla","fabric","mod_resources","mod/analogaudio:resourcepacks/3d_cassettes","file/FreshAnimations_v1.11.1_1.20+.zip","file/Redstone Tweaks 2.4.5.zip","file/§3Fresh §bFlower Pots.zip","file/crops-3d(2).zip","file/3D Sugar Cane.zip","file/simple-3d-iron-bars.zip","file/Create Touch-Ups v1.0.zip","file/Midnighttigger's Default Connected Textures.zip","file/RAYs_3D_Ladders_v2.4.zip","file/RAYs_3D_Rails_v3.6.zip","file/Low Shield.zip","file/Soft-Weather-1.0-Universal.zip","file/cubic-sun-moon-v1.8.5.zip","file/LowOnFire v26.2§8.zip","file/FA+Details-v2.4.zip","file/FA+Objects-v2.1.2.zip","file/Better+Lanterns+v1.2(mc-1.21).zip","file/Create Sky Resource Patches.zip"]
+resourcePacks:["vanilla","fabric","mod_resources","mod/analogaudio:resourcepacks/3d_cassettes","file/FreshAnimations_v1.11.1_1.20+.zip","file/Redstone Tweaks 2.4.5.zip","file/§3Fresh §bFlower Pots.zip","file/crops-3d(2).zip","file/3D Sugar Cane.zip","file/simple-3d-iron-bars.zip","file/Create Touch-Ups v1.0.zip","file/Midnighttigger's Default Connected Textures.zip","file/RAYs_3D_Ladders_v2.4.zip","file/RAYs_3D_Rails_v3.6.zip","file/Low Shield.zip","file/Soft-Weather-1.0-Universal.zip","file/cubic-sun-moon-v1.8.5.zip","file/LowOnFire v26.2§8.zip","file/FA+Details-v2.4.zip","file/FA+Objects-v2.1.2.zip","file/Better+Lanterns+v1.2(mc-1.21).zip","file/Create Skyweave Resource Patches.zip"]
 incompatibleResourcePacks:["file/crops-3d(2).zip"]
 lang:en_us
 chatVisibility:0

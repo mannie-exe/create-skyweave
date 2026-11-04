@@ -2,6 +2,6 @@ modLoader="javafml"
 loaderVersion="[4,)"
 license="MIT"
 [[mods]]
-modId="create_sky_structure_survey"
+modId="create_skyweave_structure_survey"
 version="1.0.0"
-displayName="Create Sky structure survey (development only)"
+displayName="Create Skyweave structure survey (development only)"

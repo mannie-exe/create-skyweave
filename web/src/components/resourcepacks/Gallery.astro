@@ -13,12 +13,12 @@ const groups = [
     images: images.filter((image) => image.origin !== 'local'),
   },
   {
-    name: 'Create Sky tests',
+    name: 'Create: Skyweave tests',
     images: images.filter((image) => image.origin === 'local'),
   },
 ].filter((group) => group.images.length)
 const credit = (image: GalleryImage) =>
-  image.credit || `${authorCount} images · not a Create Sky test`
+  image.credit || `${authorCount} images · not a Create: Skyweave test`
 ---
 
 <section class="pack-gallery" aria-label={`${title} gallery`} data-gallery>
@@ -57,7 +57,7 @@ const credit = (image: GalleryImage) =>
   </figure>
   {groups.map((group) => (
     <div class="gallery-group" role="group" aria-label={group.name}>
-      {(groups.length > 1 || group.name === 'Create Sky tests') && (
+      {(groups.length > 1 || group.name === 'Create: Skyweave tests') && (
         <p class="gallery-group-title">{group.name}</p>
       )}
       <div class="gallery-thumbnails" aria-label="Choose an image or recording">

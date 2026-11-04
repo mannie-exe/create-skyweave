@@ -74,7 +74,7 @@ for verifying downloaded release assets.
 
 `authoring/resource-patches.json` pins the archive inputs for the client model patch.
 `build-resource-patches.py` checks selected empack versions for installed inputs
-and SHA-512 hashes for all archives, then writes `Create Sky Resource Patches.zip` in client overrides.
+and SHA-512 hashes for all archives, then writes `Create Skyweave Resource Patches.zip` in client overrides.
 It combines four Crops plants with Fresh Flower Pots, restores Macaw's chain
 texture bindings, and includes enabled model-authoring recipes and compatibility
 adapters. Approved texture inclusion comes from `authoring/texture-resources.json`;
@@ -102,20 +102,20 @@ the tested JAR and limits; no server installation or saved-data migration is nee
 
 ### Terrain and rendering mods
 
-[Create Sky Compat](https://github.com/mannie-exe/create-sky-compat) owns optional
+[Skyweave Compat](https://github.com/mannie-exe/skyweave-compat) owns optional
 terrain, gameplay, and rendering adapters and belongs on both pack sides. It
 incorporates the former Veil Iris Fix; do not include that standalone JAR or Sky
 Village Neighbors in any payload. Runtime code does not belong in the resource-only
-`create-sky-fixes` JAR.
+`create-skyweave-fixes` JAR.
 
 Publish and verify Compat before updating its URL and digest pins in `empack.yml`.
 Use empack to regenerate bindings and the lock; inspect exports for duplicate or
-obsolete JARs. `overrides/common/config/create_sky_compat-features.properties`
+obsolete JARs. `overrides/common/config/skyweave_compat-features.properties`
 explicitly selects the pack's adaptations. Unknown feature keys fail startup, so
 review this file whenever removing or renaming upstreamed adapters. The local
 configuration sidebar edits this same file for next startup; existing keys and
 omitted defaults remain authoritative. Review Compat’s
-[editor maintenance](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/configuration.md)
+[editor maintenance](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/configuration.md)
 when updating its configuration facilities.
 
 Remove retired dependencies with `empack remove`, then inspect the lock and exports.
@@ -125,9 +125,9 @@ unknown dependency evidence; `--forget` deliberately retains installed content.
 
 The mod itself requires no content mods. The pack deliberately installs Sky
 Archipelago and enables its expanded preset. Geometry remains in
-`create_sky_compat-generation.json`; village tuning remains in
-`create_sky_compat-common.toml`. Client defaults and the server template select
-`create_sky_compat:islands_v1` only for new worlds. Distributed seeds remain blank.
+`skyweave_compat-generation.json`; village tuning remains in
+`skyweave_compat-common.toml`. Client defaults and the server template select
+`skyweave_compat:islands_v1` only for new worlds. Distributed seeds remain blank.
 
 For development, use a marked disposable empack workspace with local JAR inputs
 and the same three reference profiles. Never publish local-input manifests or
@@ -136,7 +136,7 @@ install changed generation into existing play saves.
 ### Distant Horizons updates
 
 Keep DH and Compat's supported version pins aligned. Before updating either,
-review Compat's [DH hooks](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/lod.md)
+review Compat's [DH hooks](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/lod.md)
 and the separate DH Polygon Fix implementation. Shader behavior also depends on
 Iris, Complementary/Euphoria and Compat’s optional rendering adapters; a successful
 terrain-generation check does not establish renderer compatibility.
@@ -172,8 +172,8 @@ and includes the complete Compat vertical range. New local defaults do not repla
 existing seed files automatically; review and apply intended changes separately.
 See [server webmap setup](../players/server.md#webmap).
 
-Create Sky Compat optionally adapts the BlueMap 5.7 browser viewer on dedicated
-servers. `overrides/server/config/create_sky_compat-bluemap.json` selects `world`;
+Skyweave Compat optionally adapts the BlueMap 5.7 browser viewer on dedicated
+servers. `overrides/server/config/skyweave_compat-bluemap.json` selects `world`;
 its seed policy preserves operator edits. Other maps retain the stock renderer.
 The adapter uses actual world bounds, extends detailed rendering with bounded
 loading, and clips empty-edge triangles in the finest overview layer. It does not
@@ -181,7 +181,7 @@ change generation, DH data or stored tiles. Keep full-height map bounds and cave
 culling disabled to retain island undersides in detailed tiles. Coarse overview
 layers remain height fields: distant stacked terrain and undersides are not fully
 represented, and coarse sheets can remain visible from below. The adapter's
-configuration and update checks are owned by Create Sky Compat's
+configuration and update checks are owned by Skyweave Compat's
 `docs/development/bluemap.md`.
 
 ## Dependency updates
@@ -296,3 +296,5 @@ job. Windows and Modrinth installations do not use this helper.
 Remove this packaging step only after an empack upgrade passes real terminal
 input, Ctrl-C and shutdown checks. The patcher deliberately rejects unfamiliar
 launcher templates rather than silently accommodating an upstream change.
+
+Empack uses the portable pack name `Create Skyweave` for archive filenames; the product display name is Create: Skyweave. The `create_skyweave` pack identity starts a distinct consumer lineage. Existing `create_sky` instances and saves are not converted or synchronized by this release. Install a fresh instance for the renamed registry identities.

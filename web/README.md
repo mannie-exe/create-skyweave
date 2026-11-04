@@ -1,7 +1,7 @@
-# Create Sky Atlas
+# Create: Skyweave Atlas
 
 Internal item, recipe and progression map, pack authoring and resource-pack review
-for the Create Sky modpack.
+for the Create Skyweave modpack.
 
 ## Local development
 

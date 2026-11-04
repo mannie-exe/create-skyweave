@@ -14,7 +14,7 @@ from selective_resources import build as build_selective
 from window_interiors import build as build_window_interiors
 
 ROOT = Path(__file__).resolve().parent.parent
-OUTPUT = ROOT / 'overrides/client/resourcepacks/Create Sky Resource Patches.zip'
+OUTPUT = ROOT / 'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip'
 PLANTS = {'brown_mushroom': 2, 'red_mushroom': 3, 'crimson_fungus': 3, 'warped_fungus': 2}
 
 
@@ -67,7 +67,7 @@ def compose_pot(fresh, crops, plant):
     pot['elements'].extend(plants)
     pot['textures'].update({key: value for key, value in crop['textures'].items()
                             if key in ('mushroom', 'mushroom_top')})
-    pot['credit'] = 'Pot: BlueHDGaming; plant: Stridey; composition: Create Sky'
+    pot['credit'] = 'Pot: BlueHDGaming; plant: Stridey; composition: Create Skyweave'
     variables = {'#' + key for key in pot['textures']}
     require(all(face_textures(e) <= variables for e in pot['elements']), 'Unbound pot texture')
     return path, pot
@@ -83,7 +83,7 @@ def compose_azalea(fresh, plants, plant):
     pot['elements'].extend(geometry)
     pot['textures'].update({'azalea_plant': leaf['textures']['plant'],
                            'side': leaf['textures']['plant_side'], 'top': leaf['textures']['plant_top']})
-    pot['credit'] = 'Pot: BlueHDGaming; plant: Valdr687/Vervada; composition: Create Sky'
+    pot['credit'] = 'Pot: BlueHDGaming; plant: Valdr687/Vervada; composition: Create Skyweave'
     require(all(face_textures(element) <= {'#'+key for key in pot['textures']}
                 for element in pot['elements']), 'Unbound potted azalea texture')
     return path, pot
@@ -99,7 +99,7 @@ def patch_chain(original):
 
 def build(archives, recipes, config, selections=None, nautilus_license=None, textures=None):
     entries = {'pack.mcmeta': {'pack': {'pack_format': 34,
-                'description': 'Create Sky resource compatibility'}}}
+                'description': 'Create Skyweave resource compatibility'}}}
     for plant in PLANTS:
         path, value = compose_pot(archives['fresh-flower-pots'], archives['3d-crops'], plant)
         entries[path] = value
@@ -165,7 +165,7 @@ def build(archives, recipes, config, selections=None, nautilus_license=None, tex
     if selections is not None:
         require(isinstance(nautilus_license, bytes), 'Missing Nautilus license text')
         encoded['SOURCES.json'] = json.dumps({
-            'builder': 'https://github.com/mannie-exe/create_sky/tree/main/scripts',
+            'builder': 'https://github.com/mannie-exe/create-skyweave/tree/main/scripts',
             'selections': selections,
             'textures': textures,
             'compatibility': config.get('compatibility', {}),
@@ -210,6 +210,6 @@ if __name__ == '__main__':
         verify_output(args.check_output)
         print('Resource archive is valid')
         raise SystemExit(0)
-    output = args.output or args.root / 'overrides/client/resourcepacks/Create Sky Resource Patches.zip'
+    output = args.output or args.root / 'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip'
     changed, digest = generate_pack(root=args.root, output=output, check=args.check)
     print(f'{output}: {"updated" if changed else "current"}, sha256 {digest}')

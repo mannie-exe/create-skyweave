@@ -10,23 +10,23 @@ The manifest and lock own exact selections. This guide owns update procedures;
 | Component                       | Source / output                                                              | Update together                                                                                                                                                    | Required check or removal condition                                                                                                                                                                                                                                                                                                                                               |
 | ------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | DH Polygon Fix 1.0.2            | Separate `dh-polygon-fix` repository; URL pin and placement in empack        | DH 3.3.3, SSRD, Iris/Sodium and the native GL query                                                                                                                | The patch requires DH 3.3.3. When updating DH, verify the upstream query fix and remove the incompatible patch; test native query/restore and shader pipelines.                                                                                                                                                                                                                   |
-| Create Sky Compat               | `create-sky-compat` source project; common referenced JAR                    | Sky Archipelago 1.3.6; optional Sky Villages 1.0.6 + Architectury 13.x, Sable 2.0.6 and ADQ 1.1.1                                                                  | Revalidate terrain, geology, climate, village footprint/count policy, pressure and generation identity. For ADQ, review private route calls, horizontal-distance checks, chunk-ticket lifetime and success/failure cleanup. Rerun native endpoint checks; retain safety predicates. Replace the old neighbor dependency rather than installing both; see [worldgen](worldgen.md). |
+| Skyweave Compat               | `skyweave-compat` source project; common referenced JAR                    | Sky Archipelago 1.3.6; optional Sky Villages 1.0.6 + Architectury 13.x, Sable 2.0.6 and ADQ 1.1.1                                                                  | Revalidate terrain, geology, climate, village footprint/count policy, pressure and generation identity. For ADQ, review private route calls, horizontal-distance checks, chunk-ticket lifetime and success/failure cleanup. Rerun native endpoint checks; retain safety predicates. Replace the old neighbor dependency rather than installing both; see [worldgen](worldgen.md). |
 | Copycat Bar Extrusion 0.1.0     | Separate `copycat-bar-extrusion` repository; client-only URL JAR             | Create 6.0.10 (`UjX6dr61`), Create Deco 2.1.3 bar artwork and active resource stack                                                                                | Recheck `CopycatBarsModel` delegation, exact Create SHA-512 and required Mixin; run `./gradlew check build`, then six facings, adjacency, reload, supported materials and shader-off/on native checks. Retire only if the selected Create version supplies equivalent bounded depth and native fallback behavior.                                                                 |
 | Worldgen configuration          | `overrides/common/config/sky_archipelago*`, `zfastnoise.mixin.properties`    | Sky Archipelago, Zfastnoise and generation/optimization mods                                                                                                       | Preserve CONSISTENT 1494 for ordinary legacy Sky worlds. The expanded preset owns its embedded terrain settings. Recheck biome redirects and generation identity before generating new terrain.                                                                                                                                                                                   |
-| Shared data fixes               | `pack-fixes/data/` → `create-sky-fixes-0.1.0.jar`                            | Mods owning the replaced recipe, loot, tag or processor resources                                                                                                  | Compare new upstream JSON by exact resource ID. Remove bug overrides only when the installed artifact contains the fix; retain deliberate pack policy. Run native recipe/loot checks.                                                                                                                                                                                             |
+| Shared data fixes               | `pack-fixes/data/` → `create-skyweave-fixes-0.1.0.jar`                            | Mods owning the replaced recipe, loot, tag or processor resources                                                                                                  | Compare new upstream JSON by exact resource ID. Remove bug overrides only when the installed artifact contains the fix; retain deliberate pack policy. Run native recipe/loot checks.                                                                                                                                                                                             |
 | Journal                         | `authoring/journal/` → Questlog config and language assets in the shared JAR | Questlog, item/tag/advancement IDs, recipes and condition handlers                                                                                                 | Follow [journal update checks](journal.md#update-checks): review saved IDs and positions, trigger meaning, setup costs and rewards; generate and validate native behavior, persistence and label fit. Locale edits alone do not change mechanics.                                                                                                                                 |
 | Visual model patch              | `authoring/resource-patches.json`, `build-resource-patches.py` → client ZIP  | Fresh Flower Pots, 3D Crops, Better Lanterns, Macaw's Lights and Lamps, Create, Create Deco, DnD, Macaw’s Bridges, Fresh Animations/Details/Objects, EMF and Lootr | Exact versions/hashes and model contracts must pass. Compare pots/chains, bar connections, lantern variants and chest motion in Resource Review.                                                                                                                                                                                                                                  |
 | Carry On Animation Fix          | Client-only upstream URL dependency                                          | Carry On, EMF/ETF and Fresh Animations                                                                                                                             | Check pickup, movement, camera views, placement and ordinary animation. Its optional injections can stop applying after an upstream method change; successful loading alone is insufficient. Remove when the selected Carry On version supplies stable entity identity and animation inputs.                                                                                      |
 | Ponder sprite registration      | Explicit upstream Ponder dependency                                          | Create's bundled Ponder, Create Deco and other Catnip users                                                                                                        | Retain the thread-safe sprite registry from Ponder 1.0.87. Remove the explicit dependency when Create bundles a verified replacement; check startup and Ponder scenes.                                                                                                                                                                                                            |
 | Server terminal wrapper         | `foreground-runtime.py`, `patch-server-archives.py` → Unix launch scripts    | empack 0.8.2-beta and its generated launch templates                                                                                                               | Unknown templates must fail. Remove only after an upgraded empack passes real terminal input, Ctrl-C, direct SIGINT, non-TTY execution and clean shutdown.                                                                                                                                                                                                                        |
-| BlueMap viewer adaptation       | Create Sky Compat; server-only settings                                      | BlueMap 5.7 API and exact browser bundle                                                                                                                           | Keep the physical-server/version gates, explicit map opt-in and actual dimension bounds. Rerun native absence, selection/reload and browser budget/teardown checks. Do not clear tiles for viewer-only changes; see [server webmap](build.md#server-webmap).                                                                                                                      |
-| Analog Audio radio registration | Create Sky Compat optional runtime hook                                      | Analog Audio 0.1.5-hotfix.1 and Create 6.0.10                                                                                                                      | Recheck erased method signatures and public registry access. Remove the hook when upstream fixes registration; otherwise revalidate its exact-version gates, absence matrix and native registry/callback checks. Client playback and GUI support need separate testing.                                                                                                           |
+| BlueMap viewer adaptation       | Skyweave Compat; server-only settings                                      | BlueMap 5.7 API and exact browser bundle                                                                                                                           | Keep the physical-server/version gates, explicit map opt-in and actual dimension bounds. Rerun native absence, selection/reload and browser budget/teardown checks. Do not clear tiles for viewer-only changes; see [server webmap](build.md#server-webmap).                                                                                                                      |
+| Analog Audio radio registration | Skyweave Compat optional runtime hook                                      | Analog Audio 0.1.5-hotfix.1 and Create 6.0.10                                                                                                                      | Recheck erased method signatures and public registry access. Remove the hook when upstream fixes registration; otherwise revalidate its exact-version gates, absence matrix and native registry/callback checks. Client playback and GUI support need separate testing.                                                                                                           |
 | Atlas exporter                  | `web/tools/exporter/` and runtime/extraction scripts                         | Minecraft/NeoForge, Create recipe codecs and queried mod APIs                                                                                                      | Align the installed server with the selected pack, compile with Java 21, capture into the isolated audit server and run `pnpm data:check`. Never install the exporter in play instances.                                                                                                                                                                                          |
 
 The shared fixes JAR and visual patch have different load paths. The first supplies
 server datapack resources and journal translations; the second overrides client
 models at the top of the selected resource stack. Neither replaces DH Polygon Fix
-or Create Sky Compat, which now owns the incorporated Veil/Iris framebuffer adapter.
+or Skyweave Compat, which now owns the incorporated Veil/Iris framebuffer adapter.
 Executable Java remains separate from both resource artifacts. A successful resource build cannot validate Java mixins,
 world generation, recipe execution or GPU behavior.
 
@@ -38,7 +38,7 @@ the exact nested playback engine and native inventory integrations. Recheck
 loading/standby timing, plot ownership, removal/unload/disassembly, single claims,
 compass locations and equipped nested contents. Keep ordinary attenuation and
 backpack item protections separate from death-placement policy. The mod's
-[adapter reference](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/adapters.md)
+[adapter reference](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/adapters.md)
 owns hook maintenance; [pack compatibility](compatibility.md#audio-and-death-recovery)
 owns the selected configuration.
 
@@ -51,7 +51,7 @@ and install affected outputs together. Refresh relevant Atlas records and captur
 when mechanics change; wording changes alone do not require a world survey.
 
 A Sable update affects more than mass tags: inspect its bundled Veil, Aeronautics'
-bundled Simulated, Create Sky Compat's pressure adapter, and Escalated/CBC paths.
+bundled Simulated, Skyweave Compat's pressure adapter, and Escalated/CBC paths.
 Recheck Compat’s framebuffer, construct material-ID, single-block model-data, and
 balloon adapters before changing Sable, Veil, Iris, Sodium, or Aeronautics. Their
 startup switches and exact artifact guards have independent removal conditions. A successful weight comparison does not validate rendering.
@@ -65,15 +65,15 @@ constraint alongside the Compat terrain/preview integration and shader stack.
 
 The independent patch repositories own their builds and detailed procedures:
 [DH Polygon Fix](https://github.com/mannie-exe/dh-polygon-fix/blob/main/docs/development.md),
-[Compat rendering](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/rendering.md),
+[Compat rendering](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/rendering.md),
 [Copycat Bar Extrusion](https://github.com/mannie-exe/copycat-bar-extrusion/blob/main/docs/development.md),
-and [Create Sky Compat](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/README.md).
+and [Skyweave Compat](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/README.md).
 Publish changed runtime mods first, verify downloaded release assets, then update
 the pack's URL/version/hash and placement bindings together. Never manufacture a
 mod release for resource-only policy changes. Retain client-only placement for standalone rendering patches. Compat and shared
 data belong on both sides; Compat selects its rendering hooks only on clients.
 
-Compat’s [adapter reference](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/adapters.md)
+Compat’s [adapter reference](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/adapters.md)
 owns its supported combinations and retirement procedures. Every adaptation can
 be disabled before target mixins/classes load, including for unsupported installed
 versions. Keep the pack’s explicit feature file aligned with that reference.
@@ -249,12 +249,12 @@ Window models remain owned by their upstream packs. Keep
 exposes matching interfaces and does not establish correct connected textures.
 Other model, artwork and potted-plant repairs remain independent.
 
-Create Sky Compat separates two visibility decisions:
+Skyweave Compat separates two visibility decisions:
 
 - `create.window_culling` and `rechiseled.glass_culling` preserve exposed material
   and orientation boundaries while retaining matching/opaque neighbor occlusion.
 - `create.glass_backfaces` and `fusion.glass_backfaces` make those exposed surfaces
-  visible from behind, after native connected-texture processing. Create Sky
+  visible from behind, after native connected-texture processing. Create Skyweave
   explicitly enables these opt-in adapters.
 
 Create omits CT context for hidden directions. Adding reversed resource geometry
@@ -269,7 +269,7 @@ pillars. This is not a general two-sided material setting for fluids, block-enti
 renderers, Copycats or DH terrain. Review native face removal, CT/Fusion processing,
 vertex format and Sodium batching together when updating these dependencies.
 [Native comparisons](web/verification.md#glass-backfaces-2026-11-03) record tested
-cases; [Compat](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/rendering.md#glass-backfaces)
+cases; [Compat](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/rendering.md#glass-backfaces)
 owns runtime hooks and update/removal conditions.
 
 Create 6.0.10 owns its glass connections through `AllSpriteShifts` and window/pane

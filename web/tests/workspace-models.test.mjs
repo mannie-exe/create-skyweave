@@ -125,7 +125,7 @@ test('model queries stay pure, validation protects source, and checked resource 
   assert.equal(generated.operation.state, 'succeeded', generated.error?.message)
   const destination = path.join(
     root,
-    'overrides/client/resourcepacks/Create Sky Resource Patches.zip',
+    'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip',
   )
   const published = await fs.readFile(destination)
   const reference = await artifacts.resolve(

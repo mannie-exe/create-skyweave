@@ -95,7 +95,7 @@ def compile_journal(root=ROOT):
     for chapter, data in chapters.items():
         assert data['schema'] == 1
         native = copy.deepcopy(data['chapter'])
-        native.update(name=f'createsky.journal.chapter.{chapter}', translatable=True)
+        native.update(name=f'create_skyweave.journal.chapter.{chapter}', translatable=True)
         outputs[f'overrides/common/config/questlog/chapters/{chapter}.json'] = native
         for entry in data['entries']:
             id = chapter + '/' + identifier(entry['id'])
@@ -119,7 +119,7 @@ def compile_journal(root=ROOT):
             raise ValueError(f'{locale}: locale IDs must match mechanics exactly')
         lang = languages[locale]
         for chapter in chapters:
-            lang[f'createsky.journal.chapter.{chapter}'] = text['chapters'][chapter]
+            lang[f'create_skyweave.journal.chapter.{chapter}'] = text['chapters'][chapter]
         for id, entry in entries.items():
             words = text['entries'][id]
             if set(words) != {'title', 'flavor', 'requirements', 'description', 'disclaimer', 'labels'}:
@@ -134,7 +134,7 @@ def compile_journal(root=ROOT):
             disclaimer = words['disclaimer']
             if disclaimer is not None and (not isinstance(disclaimer, str) or disclaimer not in shared):
                 raise ValueError(f'{locale}/{id}: unknown disclaimer')
-            key = 'createsky.journal.' + id.replace('/', '.')
+            key = 'create_skyweave.journal.' + id.replace('/', '.')
             lang[key + '.title'] = words['title']
             sections = [words['flavor'], words['requirements'], *words['description']]
             if disclaimer is not None:
@@ -166,7 +166,7 @@ def compile_journal(root=ROOT):
             outputs[f'overrides/common/config/questlog/quests/{id}.json'] = native
         if any(not isinstance(v, str) for v in lang.values()):
             raise ValueError(f'{locale}: translation values must be strings')
-        outputs[f'pack-fixes/assets/createsky/lang/{locale}.json'] = lang
+        outputs[f'pack-fixes/assets/create_skyweave/lang/{locale}.json'] = lang
     rendered = {path: json.dumps(value, ensure_ascii=False, indent=2) + '\n' for path, value in outputs.items()}
     # empack defaults config/ to seed. Authored definitions must update and retire
     # with the journal, while unrelated configuration keeps its own policy.
@@ -207,12 +207,12 @@ def output_changes(root, outputs):
     stale = []
     for folder, marker in [('overrides/common/config/questlog/quests', 'title'),
                            ('overrides/common/config/questlog/chapters', 'name'),
-                           ('pack-fixes/assets/createsky/lang', None)]:
+                           ('pack-fixes/assets/create_skyweave/lang', None)]:
         for p in (root / folder).rglob('*.json'):
             rel = str(p.relative_to(root))
             if rel in outputs: continue
             data = read(p)
-            owned = (isinstance(data.get(marker), str) and data[marker].startswith('createsky.journal.')) if marker else bool(data) and all(k.startswith('createsky.journal.') for k in data)
+            owned = (isinstance(data.get(marker), str) and data[marker].startswith('create_skyweave.journal.')) if marker else bool(data) and all(k.startswith('create_skyweave.journal.') for k in data)
             if owned: stale.append(rel)
     return changed, sorted(stale)
 

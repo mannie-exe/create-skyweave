@@ -1,4 +1,4 @@
-# Create Sky documentation
+# Create Skyweave documentation
 
 Player guides explain installation and operation. Development documents describe
 pack authoring, compatibility constraints and verification. Historical decisions

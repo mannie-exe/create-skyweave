@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "profiles": {
-    "create_sky": {
+    "create_skyweave": {
       "loader": "neoforge",
       "districts": [
         "glass",

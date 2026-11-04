@@ -1,8 +1,8 @@
 schema: 5
 pack:
-  name: Create Sky
-  version: 0.1.37
-  id: create_sky
+  name: Create Skyweave
+  version: 0.2.0
+  id: create_skyweave
   authors:
     - mannie-exe
     - TimdoesLive
@@ -724,14 +724,14 @@ dependencies:
     environment:
       client: required
       server: unsupported
-  create-sky-compat:
+  skyweave-compat:
     source:
       kind: url
       downloads:
-        - https://github.com/mannie-exe/create-sky-compat/releases/download/v0.19.0/create-sky-compat-0.19.0-mc1.21.1-neoforge.jar
+        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.20.0/skyweave-compat-0.20.0-mc1.21.1-neoforge.jar
     digests:
-      sha1: 976e5dc069721e2b1927a412c4273acd21188830
-      sha512: b556d02ce5ab61d73626be38134cf4f7d1ad53a12933323627cb9e723623fcd57b109726bda6928ca562eba2ff370cb5c4f36a0343fc39e8b9f3fdc871e095da
+      sha1: 9ceac6a344bbf7c6339601ef182117b3c4c18c3a
+      sha512: 1bbcbad4bca58ea3c2298336556dd21a85785e3dee170dbddb1704435b02e8e88866c727a14f0087ad590d2cc3fd94d66862e7a70dabe902ab2db7db031ce589
     environment:
       client: required
       server: required

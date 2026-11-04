@@ -1,7 +1,7 @@
-# Create Sky
+# Create: Skyweave
 
-Create Sky is the playable Create/Aeronautics island modpack. Reserve **Skyweave**
-for the separate civilization mod. Start with `docs/README.md`; read only the
+Create: Skyweave is the playable Create/Aeronautics island modpack. Skyweave is
+the separate, unfinished civilization mod; Skyweave Compat supplies optional adaptations. Start with `docs/README.md`; read only the
 documents relevant to the task. Runtime and dependency pins live in `empack.yml`.
 
 ## Direction

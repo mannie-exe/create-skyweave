@@ -18,116 +18,116 @@
           "type": "questlog:item_obtain",
           "item": "simulated:white_portable_engine",
           "required_amount": 1,
-          "name": "createsky.journal.engines.portable.objective.0.0",
+          "name": "create_skyweave.journal.engines.portable.objective.0.0",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "simulated:orange_portable_engine",
           "required_amount": 1,
-          "name": "createsky.journal.engines.portable.objective.0.1",
+          "name": "create_skyweave.journal.engines.portable.objective.0.1",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "simulated:magenta_portable_engine",
           "required_amount": 1,
-          "name": "createsky.journal.engines.portable.objective.0.2",
+          "name": "create_skyweave.journal.engines.portable.objective.0.2",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "simulated:light_blue_portable_engine",
           "required_amount": 1,
-          "name": "createsky.journal.engines.portable.objective.0.3",
+          "name": "create_skyweave.journal.engines.portable.objective.0.3",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "simulated:yellow_portable_engine",
           "required_amount": 1,
-          "name": "createsky.journal.engines.portable.objective.0.4",
+          "name": "create_skyweave.journal.engines.portable.objective.0.4",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "simulated:lime_portable_engine",
           "required_amount": 1,
-          "name": "createsky.journal.engines.portable.objective.0.5",
+          "name": "create_skyweave.journal.engines.portable.objective.0.5",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "simulated:pink_portable_engine",
           "required_amount": 1,
-          "name": "createsky.journal.engines.portable.objective.0.6",
+          "name": "create_skyweave.journal.engines.portable.objective.0.6",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "simulated:gray_portable_engine",
           "required_amount": 1,
-          "name": "createsky.journal.engines.portable.objective.0.7",
+          "name": "create_skyweave.journal.engines.portable.objective.0.7",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "simulated:light_gray_portable_engine",
           "required_amount": 1,
-          "name": "createsky.journal.engines.portable.objective.0.8",
+          "name": "create_skyweave.journal.engines.portable.objective.0.8",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "simulated:cyan_portable_engine",
           "required_amount": 1,
-          "name": "createsky.journal.engines.portable.objective.0.9",
+          "name": "create_skyweave.journal.engines.portable.objective.0.9",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "simulated:purple_portable_engine",
           "required_amount": 1,
-          "name": "createsky.journal.engines.portable.objective.0.10",
+          "name": "create_skyweave.journal.engines.portable.objective.0.10",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "simulated:blue_portable_engine",
           "required_amount": 1,
-          "name": "createsky.journal.engines.portable.objective.0.11",
+          "name": "create_skyweave.journal.engines.portable.objective.0.11",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "simulated:brown_portable_engine",
           "required_amount": 1,
-          "name": "createsky.journal.engines.portable.objective.0.12",
+          "name": "create_skyweave.journal.engines.portable.objective.0.12",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "simulated:green_portable_engine",
           "required_amount": 1,
-          "name": "createsky.journal.engines.portable.objective.0.13",
+          "name": "create_skyweave.journal.engines.portable.objective.0.13",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "simulated:red_portable_engine",
           "required_amount": 1,
-          "name": "createsky.journal.engines.portable.objective.0.14",
+          "name": "create_skyweave.journal.engines.portable.objective.0.14",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "simulated:black_portable_engine",
           "required_amount": 1,
-          "name": "createsky.journal.engines.portable.objective.0.15",
+          "name": "create_skyweave.journal.engines.portable.objective.0.15",
           "translatable": true
         }
       ],
-      "name": "createsky.journal.engines.portable.objective.0",
+      "name": "create_skyweave.journal.engines.portable.objective.0",
       "translatable": true
     }
   ],
@@ -136,9 +136,9 @@
   "title_color": "#18242b",
   "completed_text_color": "#356b52",
   "progress_text_color": "#435b68",
-  "title": "createsky.journal.engines.portable.title",
+  "title": "create_skyweave.journal.engines.portable.title",
   "translatable": true,
   "description": {
-    "translate": "createsky.journal.engines.portable.description"
+    "translate": "create_skyweave.journal.engines.portable.description"
   }
 }

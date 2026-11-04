@@ -4,7 +4,7 @@
   "records": [
     {
       "path": "overrides/client/options.txt",
-      "sha256": "353f9ae67ee1c0a32d4b6bb4faaf25a5d09d78421fbc590381f5c0da6fe6c2f0",
+      "sha256": "2641a6a9494b9db81827cd57a2c77d01f198396d64d5caf13c60a876aae5bb1c",
       "review": "reviewed",
       "reason": "Select the reviewed visual stack, including Better Lanterns and the generated pot/chain overrides at highest priority. Accept the inspected 3D Crops format mismatch; dedicated cane and rails retain priority. Existing instance options are seeded, not replaced. Shader reload uses F8 to avoid ordinary R interactions and recipe lookup.",
       "reference": "docs/players/graphics.md#resource-packs"

@@ -109,7 +109,7 @@
     },
     {
       "path": "overrides/common/config/carryon-common.toml",
-      "sha256": "ad2a47b90aa043d25be43029a1cae266274ba0773420744148c94a4c4ab99ed3",
+      "sha256": "479ff6dfb65d556283461030384ee5f664cebadd9bf690553f0ef6ec7eccb6ee",
       "review": "reviewed",
       "reason": "Retain ordinary container carrying; exclude reviewed construct joints and linked endpoints through the pack-owned relocation tag. Keep upstream Create, protected-container and native-backpack exclusions.",
       "reference": "docs/development/compatibility.md#carry-on-machinery"
@@ -564,7 +564,7 @@
     },
     {
       "path": "templates/server/game/server.properties.template",
-      "sha256": "80b64c8dcb28fc566ec0239be5c558817322f459baef9f8cc84804da4e3b9039",
+      "sha256": "1cd82b832f9ef4648f7ac62021bc07eb9cfca2c39d560d524e4935643fcd39c5",
       "review": "reviewed",
       "reason": "Server export defaults include the sky world preset and whitelist. Playing-world seeds belong only in local instance configuration.",
       "reference": "docs/players/server.md"
@@ -620,7 +620,7 @@
     },
     {
       "path": "overrides/server/config/bluemap/maps/world.conf",
-      "sha256": "056f56782c203dc72173a218219924e331fac99b35c632351f27fa271a5563de",
+      "sha256": "43f18e56b9b0c0d89eef9a9c5291f95937dc8da84b6db2218e5ae8dd30cec0bb",
       "review": "reviewed",
       "reason": "Map all saved Overworld chunks across the full Compat height range, preserving island undersides without horizontal coverage limits.",
       "reference": "docs/development/build.md#server-webmap"
@@ -640,7 +640,7 @@
       "reference": "docs/development/build.md#server-webmap"
     },
     {
-      "path": "overrides/server/config/create_sky_compat-bluemap.json",
+      "path": "overrides/server/config/skyweave_compat-bluemap.json",
       "sha256": "1f3e769440d8c5b892cdda7148aa5f932f1c38494fcaa43cab6f438c681c2865",
       "review": "reviewed",
       "reason": "Opt the Overworld into the optional server-only BlueMap viewer adapter, with bounded detailed geometry and requests.",
@@ -668,7 +668,7 @@
       "reference": "docs/development/weights.md"
     },
     {
-      "path": "pack-fixes/data/createsky/tags/block/carry_on_restricted.json",
+      "path": "pack-fixes/data/create_skyweave/tags/block/carry_on_restricted.json",
       "sha256": "51002e42c040ada7132270a70b9e9f26c0592676e52c42826780481ac97699df",
       "review": "reviewed",
       "reason": "Restrict relocation of reviewed joints, assembly helpers and linked endpoints without excluding unrelated blocks from their mods. Optional IDs tolerate removed dependencies.",

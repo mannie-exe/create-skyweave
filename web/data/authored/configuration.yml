@@ -27,7 +27,7 @@ records:
     detail: Fixed Create Deco's white-placard ingredient; gated six optional integration recipes on their actual dependencies; corrected 32 Interiors chair recoloring dye tags and the metro-window glass tag. The audit server loads the recipes without the original seven parsing errors. No new technology gate or ingredient cost was introduced.
     sources:
       [
-        '~/Minecraft/create_sky/pack-fixes/data',
+        '~/Minecraft/create-skyweave/pack-fixes/data',
         'runtime/recipes.json',
         'runtime/resources.json',
       ]
@@ -129,5 +129,5 @@ records:
     detail: Native radio and speaker ranges are 128 blocks with existing volume, spatiality and attenuation. Compat's client timeline correction joins the current media position after loading and reconciles standby playback. Internet loading can remain silent; synchronization is not sample-perfect.
     sources:
       - overrides/common/config/analogaudio/analogaudio.server.toml
-      - overrides/common/config/create_sky_compat-features.properties
-      - https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/audio.md
+      - overrides/common/config/skyweave_compat-features.properties
+      - https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/audio.md

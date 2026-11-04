@@ -22,7 +22,7 @@ export function recordWorkspaceWrites(page, writes) {
 // by the Node service and actual-socket tests, not inferred from these responses.
 export async function mockWorkspace(page, handler, capabilities, options = {}) {
   const session = randomUUID(),
-    scope = { workspaceId: 'local', packId: 'create_sky' },
+    scope = { workspaceId: 'local', packId: 'create_skyweave' },
     artifacts = new Map(),
     connections = new Map()
   let connectionCount = 0
@@ -32,7 +32,7 @@ export async function mockWorkspace(page, handler, capabilities, options = {}) {
     const id = createHash('sha256')
       .update(randomUUID() + sha256)
       .digest('hex')
-    const url = `/__atlas/workspaces/local/packs/create_sky/artifacts/${id}`
+    const url = `/__atlas/workspaces/local/packs/create_skyweave/artifacts/${id}`
     artifacts.set(url, text)
     return {
       id,
@@ -74,7 +74,7 @@ export async function mockWorkspace(page, handler, capabilities, options = {}) {
         if (Buffer.byteLength(text) < 250000)
           return send('result', { ...correlation, payload })
         const id = randomUUID(),
-          url = `/__atlas/workspaces/local/packs/create_sky/results/${id}`
+          url = `/__atlas/workspaces/local/packs/create_skyweave/results/${id}`
         artifacts.set(url, text)
         send('result-reference', {
           ...correlation,
@@ -190,7 +190,7 @@ export function activityOperation(overrides = {}) {
   return {
     id: randomUUID(),
     commandId: randomUUID(),
-    scope: { workspaceId: 'local', packId: 'create_sky' },
+    scope: { workspaceId: 'local', packId: 'create_skyweave' },
     name: 'fixture.generate',
     effect: 'generate',
     label: 'Fixture',

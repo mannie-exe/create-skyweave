@@ -1,7 +1,7 @@
 """Read the authored boolean subset of Compat's startup properties file."""
 import re
 
-FILENAME = 'create_sky_compat-features.properties'
+FILENAME = 'skyweave_compat-features.properties'
 
 
 def parse_feature_switches(text):

@@ -30,7 +30,7 @@ def build(archives, selections):
         key = selection['source']
         require(key in archives, f'{key}: missing selective input')
         _, source = resources(archives[key])
-        namespace = 'create_sky_' + key.replace('-', '_')
+        namespace = 'create_skyweave_' + key.replace('-', '_')
         local, visited, roots = {}, set(), set()
         adaptation = selection.get('adaptation')
         require(adaptation in (None, 'neoforge-root-rotations'), 'Unknown selected model adaptation')

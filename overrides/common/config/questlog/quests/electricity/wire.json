@@ -15,7 +15,7 @@
       "type": "questlog:item_obtain",
       "item": "powergrid:wire_connector",
       "required_amount": 2,
-      "name": "createsky.journal.electricity.wire.objective.0",
+      "name": "create_skyweave.journal.electricity.wire.objective.0",
       "translatable": true
     }
   ],
@@ -24,9 +24,9 @@
   "title_color": "#18242b",
   "completed_text_color": "#356b52",
   "progress_text_color": "#435b68",
-  "title": "createsky.journal.electricity.wire.title",
+  "title": "create_skyweave.journal.electricity.wire.title",
   "translatable": true,
   "description": {
-    "translate": "createsky.journal.electricity.wire.description"
+    "translate": "create_skyweave.journal.electricity.wire.description"
   }
 }

@@ -33,7 +33,8 @@ candidates:
     fit:
       Confines its changes to a decorative object family instead of replacing the
       terrain palette.
-    concern: Create Sky Resource Patches combines the four overlapping 3D Crops
+    concern:
+      Create Skyweave Resource Patches combines the four overlapping 3D Crops
       plants and selected azaleas with Fresh pots. Keep the generated patch
       above both inputs; its pinned models need review after upstream updates.
     nextCheck: Compare all potted plants and mushrooms; keep pot silhouettes
@@ -535,7 +536,7 @@ candidates:
     nextCheck:
       Prefer individual geometry improvements; adopting the full pack would
       need renderer and mod-art adaptation.
-  - id: create-sky-resource-patches
+  - id: create-skyweave-resource-patches
     category: Pack-owned
     status: installed
     description: Combines client model repairs, selected donor geometry and chest animations.
@@ -548,7 +549,7 @@ candidates:
       Copycat panel geometry comes from the separate Copycat Bar Extrusion mod.
     nextCheck: Rebuild and inspect the affected families when an input pack,
       model or renderer changes; keep exact input hashes in the patch manifest.
-  - id: create-sky-fixes
+  - id: create-skyweave-fixes
     category: Pack-owned
     status: installed
     description: Packages shared data repairs and journal presentation as a resource-only mod.
@@ -560,9 +561,9 @@ candidates:
       introduce item-count-based ship weights.
     concern:
       This JAR is loaded as a mod, not selected in the client resource-pack
-      list. It contains no Java gameplay hooks. Create Sky Compat, DH Polygon Fix,
+      list. It contains no Java gameplay hooks. Skyweave Compat, DH Polygon Fix,
       and animation or geometry mods remain separate dependencies. Veil/Iris
-      runtime hooks are incorporated in Create Sky Compat.
+      runtime hooks are incorporated in Skyweave Compat.
     nextCheck: Check upstream recipe, loot, tag and journal changes before
       rebuilding. A resource build alone does not verify runtime behavior.
 

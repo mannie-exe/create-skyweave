@@ -1,14 +1,14 @@
 # World generation
 
-New worlds use **Create Sky Islands**, preset `create_sky_compat:islands_v1`, from
-[Create Sky Compat](https://github.com/mannie-exe/create-sky-compat). The manifest
+New worlds use **Skyweave Islands**, preset `skyweave_compat:islands_v1`, from
+[Skyweave Compat](https://github.com/mannie-exe/skyweave-compat). The manifest
 pins the installed mod version. Compat extends Sky Archipelago 1.3.6 and is
 required on both client and server. Ordinary Sky Archipelago presets retain
 upstream generation with the village-neighbor filter.
 
 ## Terrain
 
-The authored profile is `overrides/common/config/create_sky_compat-generation.json`.
+The authored profile is `overrides/common/config/skyweave_compat-generation.json`.
 
 | Control | Pack setting | Meaning |
 | --- | --- | --- |
@@ -57,13 +57,13 @@ one island's hollow cannot erase another island's rock. The exterior shape and
 taper remain unchanged. Geological depth uses the original anchor frame, not
 the thickness of a remaining cavern roof.
 
-`create_sky_compat-interiors.json` selects noise interiors with probability 0.55,
+`skyweave_compat-interiors.json` selects noise interiors with probability 0.55,
 hollows with 0.18, and baseline interiors otherwise. These are descriptor choices,
 not measured percentages of land. The shell is 12 blocks; selected openings can
 cut through it. Hollows retain rock pillars. Native classic carvers remain enabled.
 These custom cavities do not import the complete vanilla continental density router.
 
-`create_sky_compat-water.json` attempts local basins on 0.22 of eligible anchors,
+`skyweave_compat-water.json` attempts local basins on 0.22 of eligible anchors,
 then rejects unsupported layouts. Radii are 20 to 36 and depths 6 to 12 blocks.
 Overflow and underside-outlet choices are 0.25 and 0.20; other admitted basins are
 enclosed. The outlet budget is one, two blocks wide, with three-block lining.
@@ -75,15 +75,15 @@ Lush and dripstone biome projection includes retained lower bodies. Deep Dark an
 ancient-city eligibility retain the upper exterior's geological band; lower bodies
 do not independently acquire another city band or exterior grass cap.
 
-`create_sky_compat-oceans.json` keeps ocean experiments disabled. The available
+`skyweave_compat-oceans.json` keeps ocean experiments disabled. The available
 forms are an enclosed ocean basin, a beach/coast basin and a small water island
 with a falling perimeter. Native vegetation and biome spawn lists are present in
 tested examples; natural populations, coral acquisition and ocean progression are
 not certified. Enabling them changes generation identity and requires a fresh world.
 
-The mod's [terrain reference](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/terrain.md)
+The mod's [terrain reference](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/terrain.md)
 owns feature coverage and implementation. Its
-[configuration reference](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/configuration.md)
+[configuration reference](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/configuration.md)
 owns geometry validation. Pack configuration above owns the selected values.
 
 ### Villages and atmosphere
@@ -122,7 +122,7 @@ and an outward/return crossing of roughly 1.5 km each way. Those are historical
 checks on the earlier terrain version, not current-grid fuel budgets or wing-borne
 flight evidence. Delivery endpoint checks do not establish completed deliveries.
 Exact versions, hashes, samples and limits belong in the mod's
-[verification record](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/verification.md).
+[verification record](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/verification.md).
 
 The Atlas keeps saved-world surveys separate from imported isolated surveys.
 [World data](web/data.md#island-generation-surveys) describes provenance and import.

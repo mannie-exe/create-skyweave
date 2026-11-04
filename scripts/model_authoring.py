@@ -561,7 +561,7 @@ def generate(document, archives):
             current = textures[texture_id]
             if 'originalUrl' not in current:
                 continue
-            derived = f'create_sky:generated/{identifier}/texture_{index}'
+            derived = f'create_skyweave:generated/{identifier}/texture_{index}'
             path = resource(derived, 'textures', '.png')
             require(path not in outputs, 'Duplicate derived texture')
             outputs[path] = encode_rgba(current['pixels']) if recipe['enabled'] else None

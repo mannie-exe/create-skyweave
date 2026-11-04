@@ -13,7 +13,7 @@ import { attachWorkspaceTransport } from '../scripts/workspace/transport.ts'
 import { serverFrameSchema, limits } from '../src/lib/workspace/contracts.ts'
 import { target } from '../scripts/workspace/policy.ts'
 
-const scope = { workspaceId: 'local', packId: 'create_sky' }
+const scope = { workspaceId: 'local', packId: 'create_skyweave' }
 const gate = () => Promise.withResolvers()
 const frame = (type, fields = {}) => ({
   v: 1,

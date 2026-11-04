@@ -1,4 +1,4 @@
-# Create Sky balanced defaults for BSL v10.1.8.
+# Create Skyweave balanced defaults for BSL v10.1.8.
 # Preserve HIGH lighting/reflections; reduce shadow coverage from 256 to 128 blocks.
 shadowDistance=128.0
 shadowMapResolution=2048

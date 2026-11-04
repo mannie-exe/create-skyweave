@@ -50,9 +50,9 @@ class AuthoringTests(unittest.TestCase):
         other['entries']['travel/membranes']['requirements'] = 'Bedingung.'
         self.write_locale(other, 'de_de')
         output = compile_journal(self.root)
-        en = json.loads(output['pack-fixes/assets/createsky/lang/en_us.json'])
-        de = json.loads(output['pack-fixes/assets/createsky/lang/de_de.json'])
-        key = 'createsky.journal.travel.membranes'
+        en = json.loads(output['pack-fixes/assets/create_skyweave/lang/en_us.json'])
+        de = json.loads(output['pack-fixes/assets/create_skyweave/lang/de_de.json'])
+        key = 'create_skyweave.journal.travel.membranes'
         self.assertEqual(en[key + '.description'], '\n\n'.join(['Quote.', 'Full condition.', 'First paragraph.', 'Second paragraph.', text['shared']['inventory']]))
         self.assertEqual(en[key + '.objective.0'], '2 membranes')
         self.assertIn('Bedingung.', de[key + '.description'])
@@ -75,10 +75,10 @@ class AuthoringTests(unittest.TestCase):
         text['shared']['new_message'] = 'A separate message.'
         text['entries']['travel/membranes']['disclaimer'] = 'new_message'
         self.write_locale(text)
-        output = json.loads(compile_journal(self.root)['pack-fixes/assets/createsky/lang/en_us.json'])
+        output = json.loads(compile_journal(self.root)['pack-fixes/assets/create_skyweave/lang/en_us.json'])
         for id, entry in text['entries'].items():
             if entry['disclaimer']:
-                self.assertTrue(output['createsky.journal.' + id.replace('/', '.') + '.description'].endswith(text['shared'][entry['disclaimer']]))
+                self.assertTrue(output['create_skyweave.journal.' + id.replace('/', '.') + '.description'].endswith(text['shared'][entry['disclaimer']]))
         text['entries']['travel/membranes']['disclaimer'] = None
         del text['shared']['new_message']
         self.write_locale(text)

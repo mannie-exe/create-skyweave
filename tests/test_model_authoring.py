@@ -194,7 +194,7 @@ class SourcesAndFitting(unittest.TestCase):
             self.assertEqual(generate(doc, {'test': archive}), (output, previews))
             recipe['texture_edits'] = {'test:block/light': [{'source': [0, 0, 16, 16], 'target': [0, 0, 16, 16], 'flip_u': True}]}
             composed, previews = generate(doc, {'test': archive})
-            derived = 'create_sky:generated/fitting/texture_0'
+            derived = 'create_skyweave:generated/fitting/texture_0'
             self.assertEqual(composed['assets/test/models/block/fitted.json']['textures']['lantern'], derived)
             self.assertEqual(composed[resource(derived, 'textures', '.png') + '.mcmeta'], {'texture': {'blur': False}})
             self.assertEqual(rgba(composed[resource(derived, 'textures', '.png')])[2], [[(1, 2, 3, 255)]])

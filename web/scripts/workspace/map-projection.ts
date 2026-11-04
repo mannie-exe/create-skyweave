@@ -256,15 +256,15 @@ export function mapProjectionDefinitions(
             { changes: scenario.changes },
             { staging },
           )
-          const file = path.join(staging, 'create-sky-atlas-patch.zip')
+          const file = path.join(staging, 'create-skyweave-atlas-patch.zip')
           const generation = await artifacts.publish(ctx, {
             namespace: 'scenario',
             staging,
-            files: { 'create-sky-atlas-patch.zip': file },
+            files: { 'create-skyweave-atlas-patch.zip': file },
             inputs: { ...ctx.inputRevisions },
             recheck: () => recheck(ctx),
           })
-          return generation.files['create-sky-atlas-patch.zip']
+          return generation.files['create-skyweave-atlas-patch.zip']
         } finally {
           await disposeStaging(ctx, staging)
         }

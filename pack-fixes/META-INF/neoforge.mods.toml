@@ -2,37 +2,37 @@ modLoader="lowcodefml"
 loaderVersion="[1,)"
 license="MIT"
 [[mods]]
-modId="createskyfixes"
+modId="create_skyweave_fixes"
 version="0.1.0"
-displayName="Create Sky resources"
-description='''Resource repairs and journal presentation for Create Sky.'''
-[[dependencies.createskyfixes]]
+displayName="Create Skyweave resources"
+description='''Resource repairs and journal presentation for Create Skyweave.'''
+[[dependencies.create_skyweave_fixes]]
 modId="skyvillages"
 type="optional"
 versionRange="[1.0.6,)"
 ordering="AFTER"
 side="BOTH"
-[[dependencies.createskyfixes]]
+[[dependencies.create_skyweave_fixes]]
 modId="createdeco"
 type="required"
 versionRange="[0,)"
 ordering="AFTER"
 side="BOTH"
-[[dependencies.createskyfixes]]
+[[dependencies.create_skyweave_fixes]]
 modId="createaddoncompatibility"
 type="optional"
 versionRange="[0,)"
 ordering="AFTER"
 side="BOTH"
 
-[[dependencies.createskyfixes]]
+[[dependencies.create_skyweave_fixes]]
 modId="questlog"
 type="optional"
 versionRange="[3.4.1,)"
 ordering="AFTER"
 side="BOTH"
 
-[[dependencies.createskyfixes]]
+[[dependencies.create_skyweave_fixes]]
 modId="create_radar"
 type="optional"
 versionRange="[0,)"

@@ -954,7 +954,7 @@ el('export-patch').addEventListener('click', async () => {
     })
     const link = document.createElement('a')
     link.href = result.url
-    link.download = 'create-sky-atlas-patch.zip'
+    link.download = 'create-skyweave-atlas-patch.zip'
     link.click()
     notice(
       'Recipe scenario exported. Test it in a disposable instance before applying to a world.',

@@ -346,7 +346,10 @@ test('named compiler leaves reads responsive and publishes the saved scenario as
   )
   await assert.rejects(
     fs.stat(
-      path.join(f.directory, 'public/generated/create-sky-atlas-patch.zip'),
+      path.join(
+        f.directory,
+        'public/generated/create-skyweave-atlas-patch.zip',
+      ),
     ),
     { code: 'ENOENT' },
   )

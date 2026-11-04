@@ -6,7 +6,7 @@ retain superseded implementations and release details.
 
 ## Identity and progression
 
-Create Sky centers on islands, Create production and Aeronautics transport.
+Create Skyweave centers on islands, Create production and Aeronautics transport.
 Skyweave remains the separate civilization mod. Automated Logistics is deferred
 because that future system should own route/service authority. Earlier technologies
 need repeated uses and natural resource constraints, not compulsory recipe gates.
@@ -35,7 +35,7 @@ pack policy, not a claim that DYNAMIC is defective. See [world generation](world
 The expanded preset instead uses the authored Compat geometry, with island-relative
 geology and clearance. Its current values belong in [world generation](worldgen.md).
 
-Sky Villages was selected over Create: Sky Village. Create Sky Compat places
+Sky Villages was selected over Create: Sky Village. Skyweave Compat places
 floating settlements around sampled archipelago terrain, rather than directly on
 islands or anywhere in the void. Foundation ore/crop rules reduce easily stripped
 wealth while retaining useful settlement supplies. Placement and resource evidence,

@@ -49,7 +49,7 @@ test('save validates real journal source without generating; generation checks s
   await editor.generate({ revision: (await editor.read()).revision })
   assert.equal(
     JSON.parse(await fs.readFile(destination, 'utf8')).title,
-    'createsky.journal.travel.glider.title',
+    'create_skyweave.journal.travel.glider.title',
   )
 })
 

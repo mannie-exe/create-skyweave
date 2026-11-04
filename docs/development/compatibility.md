@@ -6,6 +6,12 @@ Player instructions belong in [graphics](../players/graphics.md) and
 [content list](../MODLIST.md), with authoritative selections in `empack.yml` and
 `empack.lock`.
 
+## Identity migration, 0.2.0
+
+The three default reference exports (Modrinth, Prism, server) build from the renamed checkout. Archive integrity, embedded asset SHA-256 values, Compat URL/checksum pins, and client/server exclusions pass. All 161 retained dependency selections and Minecraft/NeoForge pins match the previous lock exactly; only Create Sky Compat is replaced by published Skyweave Compat 0.20.0. Old Compat and fixes JARs are absent from the exports.
+
+The 61 pack Python tests, journal generation/check, 256-file configuration audit, shader-lab builder, fixes builder, and visual resource builder/check pass. Changed audit hashes were limited to verified identity substitutions; configuration values and resource selection order were preserved. New namespace-bearing worlds are required. Existing personal instances, worlds, and LODs were not changed. Native client verification for the renamed release remains pending; prior rendering evidence below identifies its actual artifacts.
+
 ## Redstone control
 
 Redstone Link GUI keeps Create's ghost frequencies and personal presets. Open it
@@ -28,7 +34,7 @@ The journal introduces copper scraping and acquiring signal components without
 claiming a completed circuit or making them mandatory for flight. Existing remote
 control guidance explains the frequency UI. Recipes remain upstream-owned; scarce
 materials are not granted through these entries. Recheck the exact dependency pins,
-resource overrides and [adapter contract](https://github.com/mannie-exe/create-sky-compat/blob/v0.14.0/docs/development/redstone.md)
+resource overrides and [adapter contract](https://github.com/mannie-exe/skyweave-compat/blob/v0.14.0/docs/development/redstone.md)
 together when upgrading. Remove overlapping repairs after native verification.
 
 ## Audio and death recovery
@@ -60,8 +66,8 @@ coordinates and uses bounded local fallback without duplicating contents.
 Temporary unloading differs from construct removal. Spawn protection and the
 adapter's cancellable placement event are checked; compatibility with every
 external claims mod is not established. See the maintained
-[recovery contract](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/recovery.md)
-and [audio boundary](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/audio.md)
+[recovery contract](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/recovery.md)
+and [audio boundary](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/audio.md)
 before upgrading their dependencies.
 
 ## Carry On machinery
@@ -71,7 +77,7 @@ pickup removes the block entity and block; it does not run Sable's assembly-move
 callbacks. Coordinate-bearing links and native sneak interactions therefore need
 separate review from ordinary inventories.
 
-The common blacklist references `#createsky:carry_on_restricted`, owned by the
+The common blacklist references `#create_skyweave:carry_on_restricted`, owned by the
 resource-only fixes JAR. Carry On supports [tag-based exclusions](https://github.com/Tschipp/CarryOn/wiki/Black---and-Whitelist-Config). Its optional block IDs cover these reviewed families:
 
 | Content                | Restricted parts                                                                                                      |
@@ -83,7 +89,7 @@ resource-only fixes JAR. Carry On supports [tag-based exclusions](https://github
 | Aerocables             | The two cable endpoint blocks                                                                                         |
 
 Carry On configuration uses the seed policy. Existing installations must merge
-`#createsky:carry_on_restricted` into `blacklist.forbiddenTiles` and restart;
+`#create_skyweave:carry_on_restricted` into `blacklist.forbiddenTiles` and restart;
 replacing the resource JAR alone does not add the blacklist reference. Preserve
 other operator settings.
 
@@ -122,7 +128,7 @@ Transmission & Linkage 0.2.9 uses Compat 0.11.1's optional interaction and Jade
 adapters. Visible rods disconnect by sneak-using a Create wrench, rather than
 ordinary attacks. Server checks protect endpoint/settings edits and resolved
 binding selections; Jade reports actual link, actuator and extra kinetic output
-state. The [adapter reference](https://github.com/mannie-exe/create-sky-compat/blob/v0.11.1/docs/development/transmission-linkage.md)
+state. The [adapter reference](https://github.com/mannie-exe/skyweave-compat/blob/v0.11.1/docs/development/transmission-linkage.md)
 owns exact pins, protection limits and update/removal procedures.
 
 Native world-to-ship and rotated ship-to-ship fixtures retained mutual references,
@@ -151,7 +157,7 @@ load and stalling. The gyro is an angular-rate signal with zero stress capacity.
 Checked assembly and aligned empty-hand recovery preserve cargo and refuse
 occupied destinations. No recipes, weights or hidden actuator are added.
 
-The [mod's machinery reference](https://github.com/mannie-exe/create-sky-compat/blob/v0.9.0/docs/development/linear-bearing.md)
+The [mod's machinery reference](https://github.com/mannie-exe/skyweave-compat/blob/v0.9.0/docs/development/linear-bearing.md)
 owns the contracts and dependency-update procedure. Native tests cover free/braked
 motion, multiple orientations, moving parents, recovery, cold reload, driven
 coupling controls, overload and source removal. An isolated client also exercised
@@ -173,7 +179,7 @@ Compat's `linear_bearing.ponder` and `linear_bearing.jade` switches add machiner
 tutorials and server-backed inspection. The shared fixes resource supplies English
 names for internal carriage blocks and corrects the gyro acquisition advancement's
 old stabilization claim. Guidance does not add another drive or progression gate.
-The mod's [machinery reference](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/linear-bearing.md#ponder-and-jade)
+The mod's [machinery reference](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/linear-bearing.md#ponder-and-jade)
 owns registration, optional loading and update procedures.
 
 ## Dependency update constraints
@@ -228,7 +234,7 @@ allocation or disable shaders to mask that failure.
 Native checks cover shader on/off backend selection, static and assembled glass /
 Copycats, moving Sable/Create geometry, press/propeller Ponder, a Macaw lamp,
 shader reload, and minimum optional loading. Full dedicated-server startup selects
-no client hooks. See the [exact verification and limits](https://github.com/mannie-exe/create-sky-compat/blob/v0.8.0/docs/development/verification.md#release-080).
+no client hooks. See the [exact verification and limits](https://github.com/mannie-exe/skyweave-compat/blob/v0.8.0/docs/development/verification.md#release-080).
 No measured performance gain or general shadow repair is claimed. Keep patch
 retirement tied to the actual released Colorwheel/Sable implementations.
 
@@ -258,7 +264,7 @@ the pack. Neutral lighting uses Iris fallback programs for selected text batches
 later color grading/exposure can still affect color. Entity-body shading, signs,
 item/block displays and other text keep their native paths. Custom nametags that
 bypass Minecraft's base renderer are outside coverage. Review the
-[rendering contracts](https://github.com/mannie-exe/create-sky-compat/blob/v0.19.0/docs/development/rendering.md#world-text-lighting)
+[rendering contracts](https://github.com/mannie-exe/skyweave-compat/blob/v0.19.0/docs/development/rendering.md#world-text-lighting)
 when updating Minecraft, Iris or shaders.
 
 Complementary r5.9.3, Euphoria 1.10.5 and Photon 1.4 have native Colorwheel support.
@@ -297,7 +303,7 @@ No server mod or authoritative lighting change is required.
 Lamb's exact universal JAR is URL-pinned because its catalog requires Fabric API
 even though the artifact bundles a native NeoForge runtime and its supporting
 libraries. Both new JARs match the SHA-256 hashes used in the earlier
-[Compat lighting checks](https://github.com/mannie-exe/create-sky-compat/blob/v0.8.0/docs/development/lighting.md#artifacts-and-updates).
+[Compat lighting checks](https://github.com/mannie-exe/skyweave-compat/blob/v0.8.0/docs/development/lighting.md#artifacts-and-updates).
 Keep that pair aligned with Compat's exact version guards. Do not add another
 Fabric API or a competing dynamic-light engine for this integration.
 
@@ -350,13 +356,13 @@ Compat passed 73 unit cases, package/pin checks, five dedicated loading/shutdown
 selections and isolated minimal/full-pack client checks. Actual reward collection
 also works with an unadapted Questlog server. Spoken narration and arbitrary
 third-party reward implementations remain unverified. The
-[mod verification](https://github.com/mannie-exe/create-sky-compat/blob/v0.7.0/docs/development/verification.md#release-070)
+[mod verification](https://github.com/mannie-exe/skyweave-compat/blob/v0.7.0/docs/development/verification.md#release-070)
 owns artifact identifiers and detailed limits.
 
 ## Rendering baseline, 2026-10-29
 
 Create Sky 0.1.20 selects Compat 0.6.1 and removes standalone Veil Iris Fix.
-`create_sky_compat-features.properties` explicitly selects pack behavior; the cache
+`skyweave_compat-features.properties` explicitly selects pack behavior; the cache
 identity option remains off. Compat's own minimum installation needs NeoForge
 alone. Disabled adapters select no target mixins, callbacks, or integration data,
 and do not reject target versions. Terrain identity remains protected.
@@ -365,7 +371,7 @@ Compat 0.6.1 passed 64 JUnit cases, five release-tool checks, exact artifact/pac
 checks, and standalone/full dedicated-server startup and shutdown. The 0.6.0
 boundary matrix passed seven selections, and native minimal island generation /
 reopen retained ore counts. No generation algorithms changed in 0.6.1.
-See [the exact artifacts and limits](https://github.com/mannie-exe/create-sky-compat/blob/v0.6.1/docs/development/verification.md#release-061).
+See [the exact artifacts and limits](https://github.com/mannie-exe/skyweave-compat/blob/v0.6.1/docs/development/verification.md#release-061).
 
 Full-stack Prism checks on macOS arm64 used Complementary Unbound r5.9.3 and
 Euphoria Patches 1.10.5. Ponder, shader toggling/reload, heated balloon fixtures,
@@ -405,7 +411,7 @@ Sky Archipelago requires LODs from its actual island chunks. The pack uses
 The worker count was chosen for a 14-processor host, not measured as optimal
 for all machines.
 
-New worlds use Create Sky Compat's expanded preset and geometry configuration.
+New worlds use Skyweave Compat's expanded preset and geometry configuration.
 The **eee** preset and common Sky Archipelago TOML apply to ordinary upstream
 worlds; their RANDOM sizing leaves SPECIFIC bands dormant. Keep those files with
 ordinary saves. See [world generation](worldgen.md) for preset boundaries.
@@ -436,8 +442,8 @@ The check used Complementary Unbound r5.9.3 with Euphoria 1.10.5, with shaders
 enabled and disabled. Glow lichen was also identified on the reported live cliff.
 That supports this explanation for the observed pale patches, but does not
 establish that every historical liquid-color symptom has the same cause. Modded
-fluids and other shaders remain untested. See Create Sky Compat's
-[DH development notes](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/lod.md)
+fluids and other shaders remain untested. See Skyweave Compat's
+[DH development notes](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/lod.md)
 for the conversion boundary and upstream report candidate.
 
 ## Dependency constraints
@@ -461,7 +467,7 @@ owns the source contracts and update procedure.
 - URL pins handle provider metadata conflicts involving old exact versions,
   Connector/Forgified Fabric API and client-only dependencies. Check runtime
   metadata before replacing them with provider roots or downgrading dependencies.
-- Published URL pins select DH Polygon Fix, Copycat Bar Extrusion, Create Sky
+- Published URL pins select DH Polygon Fix, Copycat Bar Extrusion, Create Skyweave
   Compat with content digests. Compat itself requires no content mods; this pack
   enables its Sky Archipelago 1.3.6 preset and Sky Villages/Architectury adapters.
   Compat also owns the optional client framebuffer, balloon, and construct-model
@@ -495,7 +501,7 @@ map scales 1..10, equivalent to display pixels per block. `-2` is outside the
 declared range and has no additional zoom-out semantics.
 
 Keep the current pack default pending an adapter. The
-[Compat investigation](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/hoofprint.md)
+[Compat investigation](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/hoofprint.md)
 owns the source/bytecode evidence and proposed fractional client zoom, including
 initialization, dimension changes and pointer anchoring. It is not implemented
 or verified in game; the pack retains the existing default.
@@ -564,13 +570,13 @@ light-shaft sampling may show more noise in motion.
 
 [Building weights](weights.md#verification-2026-10-29) records the exact resource
 artifact, all-state comparison, representative assemblies and limits. The
-resource-only change needs no Create Sky Compat update.
+resource-only change needs no Skyweave Compat update.
 
 ## Analog Audio release verification, 0.1.19
 
-[Create Sky 0.1.19](https://github.com/mannie-exe/create_sky/releases/tag/v0.1.19)
+[Create Sky 0.1.19](https://github.com/mannie-exe/create-skyweave/releases/tag/v0.1.19)
 was published from `59ed4fecdb1cdbad2e64475adf03dd829da81ce5` by
-[release run 40845603600](https://github.com/mannie-exe/create_sky/actions/runs/40845603600).
+[release run 40845603600](https://github.com/mannie-exe/create-skyweave/actions/runs/40845603600).
 Validation and release CI passed. Downloaded Prism, Modrinth and server archives
 match `SHA256SUMS`; archive integrity, Compat path/hash, shared resources,
 client visual patches and app-source exclusion checks passed on those downloads.
@@ -587,7 +593,7 @@ Analog Audio alone, the pair and the full 0.1.18 dependency set. The pair and fu
 pack registered the original radio handler, retained Create's drill handler, and
 completed radio server callbacks without client class loading. The full startup
 no longer reported the reflection error. No other dependency selection changed.
-[Compat verification](https://github.com/mannie-exe/create-sky-compat/blob/v0.5.2/docs/development/verification.md#release-052)
+[Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/v0.5.2/docs/development/verification.md#release-052)
 owns the commands and runtime scope.
 
 The isolated staged source passed 28 Python tests, the 242-file configuration
@@ -620,13 +626,13 @@ pregeneration occurred. The server process exited and port 25565 had no listener
 
 ## Release verification, 2026-10-29
 
-[Create Sky 0.1.18](https://github.com/mannie-exe/create_sky/releases/tag/v0.1.18)
+[Create Sky 0.1.18](https://github.com/mannie-exe/create-skyweave/releases/tag/v0.1.18)
 was published from `045784a79d5d7ed75fb6ac4eb5d8c3371733599b` by
-[release run 40834796342](https://github.com/mannie-exe/create_sky/actions/runs/40834796342).
+[release run 40834796342](https://github.com/mannie-exe/create-skyweave/actions/runs/40834796342).
 The isolated pack checkout passed 28 Python tests, the 242-file audit, both
 resource builders, all three reference builds and the server archive patch/check.
 No Atlas or unrelated journal-authoring edits entered the commit or builds.
-Create Sky Compat remained at 0.5.1 because its distributable behavior did not change.
+Skyweave Compat remained at 0.5.1 because its distributable behavior did not change.
 
 Downloaded assets matched `SHA256SUMS`. Archive CRCs, embedded asset hashes,
 runtime pins, dependency sidedness and the native-tested fixes JAR passed inspection.
@@ -972,7 +978,7 @@ bars, and both fill and individual placement validate registry IDs before genera
 
 ## BlueMap model parsing
 
-The optional Create Sky Compat viewer adapter targets BlueMap 5.7 on dedicated
+The optional Skyweave Compat viewer adapter targets BlueMap 5.7 on dedicated
 servers; see [server webmap](build.md#server-webmap). Browser checks on saved tiles
 confirmed bounded detailed rendering, reduced empty-edge stretching, disable and
 re-enable behavior, and camera movement across the floating-origin boundary.
@@ -992,7 +998,7 @@ not repair upstream model JSON. No broad resource overrides were added for this.
 
 On 2026-10-26, islands became visible from spawn after the player approached them
 and returned. The client log at 21:32 confirmed the DH handshake and the current
-`create-sky-20261026-a0fb6687aa24` level key. Both sides used CHUNKS_ONLY,
+`create-skyweave-20261026-a0fb6687aa24` level key. Both sides used CHUNKS_ONLY,
 INTERNAL_SERVER, enabled synchronization and generation, and 4096-chunk request
 caps. No exploration prerequisite was found in the inspected request paths.
 DH's [multiplayer FAQ](https://modrinth.com/mod/distanthorizons) distinguishes
@@ -1087,7 +1093,7 @@ server reopened the existing prototype-10 world and served BlueMap's adapter.
 The same pregen request was accepted once and left running. No new Minecraft
 client visual pass was performed for this metadata/configuration release.
 
-[Compat's DH integration](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/lod.md)
+[Compat's DH integration](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/lod.md)
 owns lifecycle and optional cache-isolation hooks. It does not provide a separate
 terrain predictor. SeedGen and Voxy/Roxy are not included in the pack.
 

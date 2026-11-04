@@ -14,7 +14,7 @@ owns their hashes and purpose. Build with `python3 scripts/build-fixes.py`.
 | Height | Base start Y 160 to 224; Compat shifts it relative to the host island in the expanded preset |
 | Layout | Upstream jigsaw depth 7 and maximum distance 128 blocks |
 | Distribution | Expanded preset: per-anchor allowance 0 to 3, candidate grid 24/12 chunks. Ordinary preset: upstream 70/65 chunks, salt 23734816 |
-| Island proximity | Create Sky Compat: minimum gap 64, maximum host distance 512, minimum host radius 96 |
+| Island proximity | Skyweave Compat: minimum gap 64, maximum host distance 512, minimum host radius 96 |
 | Biomes | Ocean, river, jungle and forest tags, plus dark forest |
 | Pools | Installed templates and explicit empty entries only |
 | Village discovery | Include `skyvillages:skyvillage` in `#minecraft:village` |
@@ -138,9 +138,9 @@ Changing separation alone spreads candidate positions but does not reduce their
 number. The earlier four-seed generation survey measured a 74% valid-start rate;
 that is a sample, not a universal density guarantee.
 
-[Create Sky Compat](https://github.com/mannie-exe/create-sky-compat) replaces
+[Skyweave Compat](https://github.com/mannie-exe/skyweave-compat) replaces
 Sky Village Neighbors. Common placement controls live in
-`create_sky_compat-common.toml`. Its expanded preset shifts the structure altitude
+`skyweave_compat-common.toml`. Its expanded preset shifts the structure altitude
 into the island band and assigns each anchor an allowance of zero to three
 villages, weighted `96:24:8:3`. Biome, layout and terrain rejection can lower the
 count. Companions share their anchor's allowance. The preset uses a separate

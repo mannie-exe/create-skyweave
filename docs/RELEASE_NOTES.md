@@ -1,16 +1,15 @@
-# Create Sky 0.1.37
+# Create: Skyweave 0.2.0
 
-Debug World now has maintained profiles and a generator for 791 cases across 14
-floating districts. It includes navigation, group resets, readable full-bright
-labels, valid plant supports, paired storage and native placement checks. The
-fixture remains a development tool and is not installed into ordinary worlds.
+Create Sky is now Create: Skyweave. The repository is `mannie-exe/create-skyweave`, the pack identity is `create_skyweave`, and portable archive filenames use Create Skyweave.
 
-The Atlas exporter now captures block properties, inheritance, tags and build
-bounds for the generator. Sources, regeneration and guarded installation are
-covered in the Debug World guide.
+- Pin the published Skyweave Compat 0.20.0 artifact with verified checksums. It remains independently installable; the unfinished Skyweave civilization mod is not included or required.
+- Rename owned configuration, resource/data namespaces, journal translations, fixes metadata, visual patches, templates, authoring tools, and Atlas/exporter identity together.
+- Preserve Minecraft 1.21.1, NeoForge 21.1.264, all other dependency selections, terrain parameters, resource selections, journal progression, and the Atlas architecture.
 
-Create Sky Compat remains pinned to 0.19.0, including the default-on Iris text
-lighting and shadow options. Minecraft, NeoForge, gameplay configuration and the
-selected resource stack are unchanged. Existing worlds and LODs need no reset.
+Install a fresh instance and create a fresh world. The new registry and pack identities do not convert existing Create Sky worlds or empack consumer lineages. Keep existing installations on their original releases; do not rename or delete generation markers. Personal worlds, player data, LODs, and server settings are not synchronized by this release.
 
-Previous release: [0.1.36](releases/0.1.36.md).
+The local Atlas retains read-only support for historical world surveys and generation markers. Historical releases and their original asset filenames remain available. No Cloudflare deployment accompanies this release.
+
+The renamed Compat artifact passed minimum/full dedicated-server loading and fresh-world generation/reopening. A new interactive Minecraft client check remains pending; prior rendering evidence stays attributable to its recorded artifacts. See [compatibility](development/compatibility.md) and [Atlas verification](development/web/verification.md) for current checks and limits.
+
+Previous release: [0.1.37](releases/0.1.37.md).

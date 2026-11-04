@@ -33,7 +33,7 @@ class ProvenanceTests(unittest.TestCase):
             if isinstance(value,int): return b'\x04'+string(name)+struct.pack('>q',value)
             return b'\x08'+string(name)+string(value)
         seed=-9007199254740993
-        data={'Data':{'WorldGenSettings':{'seed':seed,'dimensions':{'minecraft:overworld':{'type':'create_sky_compat:islands_v1','generator':{'type':'sky_archipelago:sky_island','settings':'create_sky_compat:islands_v1'}}}},'Player':{'private':'omit'}}}
+        data={'Data':{'WorldGenSettings':{'seed':seed,'dimensions':{'minecraft:overworld':{'type':'skyweave_compat:islands_v1','generator':{'type':'sky_archipelago:sky_island','settings':'skyweave_compat:islands_v1'}}}},'Player':{'private':'omit'}}}
         with tempfile.TemporaryDirectory() as temporary:
             world=Path(temporary)
             (world/'level.dat').write_bytes(gzip.compress(tag('',data)))
@@ -41,10 +41,15 @@ class ProvenanceTests(unittest.TestCase):
             result=survey_source(world)
             self.assertEqual(result['seed'],str(seed))
             self.assertEqual(result['generationIdentity']['seed'],str(seed))
-            self.assertEqual(result['dimensionType'],'create_sky_compat:islands_v1')
+            self.assertEqual(result['dimensionType'],'skyweave_compat:islands_v1')
             self.assertEqual(len(result['generationIdentitySha256']),64)
             self.assertNotIn('Player',json.dumps(result))
             self.assertNotIn('private',json.dumps(result))
+            (world/'create-sky-generation.json').rename(world/'skyweave-generation.json')
+            self.assertEqual(survey_source(world), result)
+            (world/'create-sky-generation.json').write_text('{}')
+            with self.assertRaises(ValueError): survey_source(world)
+            (world/'skyweave-generation.json').unlink()
             (world/'create-sky-generation.json').unlink()
             self.assertIsNone(survey_source(world)['generationIdentity'])
 

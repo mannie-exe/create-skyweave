@@ -1,6 +1,6 @@
-Create Sky
+Create Skyweave
 
 Modpack authors: mannie-exe and TimdoesLive
 
 Included mods, shaders and other third-party content belong to their respective authors.
-https://github.com/mannie-exe/create_sky
+https://github.com/mannie-exe/create-skyweave

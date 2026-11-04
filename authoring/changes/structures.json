@@ -46,7 +46,7 @@
       "reference": "docs/development/structures.md"
     },
     {
-      "path": "overrides/common/config/create_sky_compat-common.toml",
+      "path": "overrides/common/config/skyweave_compat-common.toml",
       "sha256": "c5c37f3d896fe9f6efd613e3f82ded5dc9d46f39c705e6ce66a9ffeba41d1787",
       "review": "reviewed",
       "reason": "Village distance tuning; adaptation activation is owned by the startup feature file.",

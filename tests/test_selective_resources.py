@@ -62,7 +62,7 @@ class SelectiveResources(unittest.TestCase):
                  'blocks': ['minecraft:azalea'], 'inherit_template': True},
             ]})
         root = 'assets/minecraft/models/block/azalea.json'
-        self.assertEqual(output[root]['parent'], 'create_sky_donor:minecraft/block/template_azalea')
+        self.assertEqual(output[root]['parent'], 'create_skyweave_donor:minecraft/block/template_azalea')
         self.assertEqual(report[0]['roots'], [root])
         self.assertNotIn('assets/minecraft/models/block/azalea_leaves.json', output)
 
@@ -80,8 +80,8 @@ class SelectiveResources(unittest.TestCase):
                 {'id': 'plants/cactus', 'action': 'apply', 'source': 'donor', 'blocks': ['minecraft:cactus']},
                 {'id': 'shelves/current', 'action': 'keep', 'source': 'current', 'blocks': ['minecraft:bookshelf']},
             ]})
-        self.assertEqual(output['assets/minecraft/models/block/cactus.json']['parent'], 'create_sky_donor:minecraft/block/custom')
-        self.assertEqual(output['assets/create_sky_donor/textures/block/minecraft/custom/skin.png.mcmeta'], b'{"animation":{}}')
+        self.assertEqual(output['assets/minecraft/models/block/cactus.json']['parent'], 'create_skyweave_donor:minecraft/block/custom')
+        self.assertEqual(output['assets/create_skyweave_donor/textures/block/minecraft/custom/skin.png.mcmeta'], b'{"animation":{}}')
         self.assertNotIn('assets/minecraft/models/block/bookshelf.json', output)
         self.assertNotIn('assets/minecraft/models/block/custom.json', output)
 

@@ -408,7 +408,7 @@ export function createObjectInputs(
       (await fileHash(
         path.join(
           ctx.registration.pack,
-          'overrides/common/mods/create-sky-fixes-0.1.0.jar',
+          'overrides/common/mods/create-skyweave-fixes-0.1.0.jar',
         ),
         true,
       )) ?? hash('')

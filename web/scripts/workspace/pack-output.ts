@@ -7,7 +7,7 @@ import { ownedDirectory } from './paths.ts'
 import { WorkspaceError } from './errors.ts'
 
 const resourceOutput =
-  'overrides/client/resourcepacks/Create Sky Resource Patches.zip'
+  'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip'
 export function createPackOutput() {
   const digest = createInputDigests()
   async function current(context: Pick<Execution, 'registration'>) {

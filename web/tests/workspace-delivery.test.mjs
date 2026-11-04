@@ -18,7 +18,7 @@ async function fixture(t) {
   const root = await fs.realpath(
       await fs.mkdtemp(path.join(os.tmpdir(), 'atlas-delivery-')),
     ),
-    scope = { workspaceId: 'local', packId: 'create_sky' },
+    scope = { workspaceId: 'local', packId: 'create_skyweave' },
     registration = { scope, web: root, pack: root },
     actor = {
       principal: { kind: 'anonymous', id: 'fixture' },
@@ -146,7 +146,9 @@ test('CLI runtime reads current scoped projections without a socket, native job 
     assert.equal(activity.history.length, 0)
   })
   await assert.rejects(
-    fs.access(path.join(f.root, '.cache/workspace/local/create_sky/processes')),
+    fs.access(
+      path.join(f.root, '.cache/workspace/local/create_skyweave/processes'),
+    ),
   )
   assert.equal(first.namespace, 'map')
 })

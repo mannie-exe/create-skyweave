@@ -259,7 +259,7 @@ test('expanded-world profile exposes its source and keeps high ores in the chart
         boundsBlocks: {},
         provenance: {
           seed: '-9007199254740993',
-          dimensionType: 'create_sky_compat:islands_v1',
+          dimensionType: 'skyweave_compat:islands_v1',
           generationIdentity: {
             dimension: { min_y: -128, height: 896 },
             algorithm: 'captured-fixture',

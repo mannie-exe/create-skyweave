@@ -166,7 +166,7 @@ export function galleryFor(project: string): GalleryImage[] {
             label: original.label,
             url: `/generated/resource-review/${original.file}`,
           })),
-          credit: `Create Sky test · ${run.date} · ${run.context} Current pack may differ.`,
+          credit: `Create: Skyweave test · ${run.date} · ${run.context} Current pack may differ.`,
         }
       }),
   ]

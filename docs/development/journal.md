@@ -1,6 +1,6 @@
 # Journal design and definitions
 
-Questlog provides an optional, bookless journal for Create Sky. The selected
+Questlog provides an optional, bookless journal for Create Skyweave. The selected
 artifact is recorded in `empack.yml`; the current implementation review covers
 Questlog 3.5.3 on Minecraft 1.21.1 / NeoForge.
 
@@ -22,7 +22,7 @@ all user presentation settings.
 - `overrides/client/config/questlog-client.json` owns client display defaults.
 - `pack-fixes/assets/questlog/` owns journal interface wording; native Questlog
   artwork supplies the parchment panels and controls;
-  `pack-fixes/assets/createsky/lang/` contains generated entry translations.
+  `pack-fixes/assets/create_skyweave/lang/` contains generated entry translations.
 - `scripts/build-fixes.py` packages language assets with maintained data fixes.
 
 [Pack authoring](authoring.md) owns editing, localization and generation procedures.

@@ -18,116 +18,116 @@
           "type": "questlog:item_obtain",
           "item": "aeronautics:white_envelope",
           "required_amount": 4,
-          "name": "createsky.journal.flight.envelopes.objective.0.0",
+          "name": "create_skyweave.journal.flight.envelopes.objective.0.0",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "aeronautics:orange_envelope",
           "required_amount": 4,
-          "name": "createsky.journal.flight.envelopes.objective.0.1",
+          "name": "create_skyweave.journal.flight.envelopes.objective.0.1",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "aeronautics:magenta_envelope",
           "required_amount": 4,
-          "name": "createsky.journal.flight.envelopes.objective.0.2",
+          "name": "create_skyweave.journal.flight.envelopes.objective.0.2",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "aeronautics:light_blue_envelope",
           "required_amount": 4,
-          "name": "createsky.journal.flight.envelopes.objective.0.3",
+          "name": "create_skyweave.journal.flight.envelopes.objective.0.3",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "aeronautics:yellow_envelope",
           "required_amount": 4,
-          "name": "createsky.journal.flight.envelopes.objective.0.4",
+          "name": "create_skyweave.journal.flight.envelopes.objective.0.4",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "aeronautics:lime_envelope",
           "required_amount": 4,
-          "name": "createsky.journal.flight.envelopes.objective.0.5",
+          "name": "create_skyweave.journal.flight.envelopes.objective.0.5",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "aeronautics:pink_envelope",
           "required_amount": 4,
-          "name": "createsky.journal.flight.envelopes.objective.0.6",
+          "name": "create_skyweave.journal.flight.envelopes.objective.0.6",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "aeronautics:gray_envelope",
           "required_amount": 4,
-          "name": "createsky.journal.flight.envelopes.objective.0.7",
+          "name": "create_skyweave.journal.flight.envelopes.objective.0.7",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "aeronautics:light_gray_envelope",
           "required_amount": 4,
-          "name": "createsky.journal.flight.envelopes.objective.0.8",
+          "name": "create_skyweave.journal.flight.envelopes.objective.0.8",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "aeronautics:cyan_envelope",
           "required_amount": 4,
-          "name": "createsky.journal.flight.envelopes.objective.0.9",
+          "name": "create_skyweave.journal.flight.envelopes.objective.0.9",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "aeronautics:purple_envelope",
           "required_amount": 4,
-          "name": "createsky.journal.flight.envelopes.objective.0.10",
+          "name": "create_skyweave.journal.flight.envelopes.objective.0.10",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "aeronautics:blue_envelope",
           "required_amount": 4,
-          "name": "createsky.journal.flight.envelopes.objective.0.11",
+          "name": "create_skyweave.journal.flight.envelopes.objective.0.11",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "aeronautics:brown_envelope",
           "required_amount": 4,
-          "name": "createsky.journal.flight.envelopes.objective.0.12",
+          "name": "create_skyweave.journal.flight.envelopes.objective.0.12",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "aeronautics:green_envelope",
           "required_amount": 4,
-          "name": "createsky.journal.flight.envelopes.objective.0.13",
+          "name": "create_skyweave.journal.flight.envelopes.objective.0.13",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "aeronautics:red_envelope",
           "required_amount": 4,
-          "name": "createsky.journal.flight.envelopes.objective.0.14",
+          "name": "create_skyweave.journal.flight.envelopes.objective.0.14",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "aeronautics:black_envelope",
           "required_amount": 4,
-          "name": "createsky.journal.flight.envelopes.objective.0.15",
+          "name": "create_skyweave.journal.flight.envelopes.objective.0.15",
           "translatable": true
         }
       ],
-      "name": "createsky.journal.flight.envelopes.objective.0",
+      "name": "create_skyweave.journal.flight.envelopes.objective.0",
       "translatable": true
     }
   ],
@@ -136,9 +136,9 @@
   "title_color": "#18242b",
   "completed_text_color": "#356b52",
   "progress_text_color": "#435b68",
-  "title": "createsky.journal.flight.envelopes.title",
+  "title": "create_skyweave.journal.flight.envelopes.title",
   "translatable": true,
   "description": {
-    "translate": "createsky.journal.flight.envelopes.description"
+    "translate": "create_skyweave.journal.flight.envelopes.description"
   }
 }

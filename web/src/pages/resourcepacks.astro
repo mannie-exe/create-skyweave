@@ -35,7 +35,7 @@ const { publicProjectionJSON } = createRequire(resolve('package.json'))(
 const categories = [...new Set(reviews.map((r) => r.category))].sort()
 const objectCatalogue: ObjectCatalogue | undefined = await publicProjectionJSON(
   {
-    scope: { workspaceId: 'local', packId: 'create_sky' },
+    scope: { workspaceId: 'local', packId: 'create_skyweave' },
     web: resolve('.'),
     pack: await configuredPack(resolve('.')),
   },
@@ -72,7 +72,7 @@ function candidateLink(candidate: (typeof objectSources.candidates)[number]) {
 }
 ---
 
-<Base title="Resource packs · Create Sky">
+<Base title="Resource packs · Create: Skyweave">
   <AppHeader slot="header" page="resources" />
   <main id="main-content" tabindex="-1" class="resource-review">
     <div class="review-toolbar">
@@ -117,7 +117,7 @@ function candidateLink(candidate: (typeof objectSources.candidates)[number]) {
       </span>
     </div>
     <p class="review-stack" data-text-role="caption">
-      Create Sky {pack.pack.version} · {enabledThirdParty} enabled packs ·{' '}
+      Create: Skyweave {pack.pack.version} · {enabledThirdParty} enabled packs ·{' '}
       {partialSources.size} sources with selected features · {ownedArtifacts}{' '}
       pack-owned artifacts. {checkedSelections}/{thirdParty.length} locked
       resource-pack files match the archived inspection. Defaults come from the
@@ -132,8 +132,8 @@ function candidateLink(candidate: (typeof objectSources.candidates)[number]) {
       <summary>Object comparisons · selected and deferred</summary>
       <div class="content-stack">
         <p data-text-role="caption">
-          Selected features are built into Create Sky Resource Patches. Full
-          donor packs stay disabled. Compare the built result with upstream
+          Selected features are built into Create Skyweave Resource Patches.
+          Full donor packs stay disabled. Compare the built result with upstream
           resources; deferred features remain available for review.
         </p>
         <div class="table-scroll">
@@ -184,7 +184,7 @@ function candidateLink(candidate: (typeof objectSources.candidates)[number]) {
         )}
       </p>
       <p>
-        Shortlisted files were inspected against Create Sky {target.pack},
+        Shortlisted files were inspected against Create: Skyweave {target.pack},
         resource format {target.resourceFormat} and the installed resources.
         Selection status is separate from that inspection baseline. “Try first”
         means a useful next playtest, not certified compatibility.
@@ -197,10 +197,10 @@ function candidateLink(candidate: (typeof objectSources.candidates)[number]) {
       </p>
       <p>
         <a href="/resourcepacks/reviews">Visual comparisons</a> groups matched
-        captures by feature. Create Sky test images and recordings also appear
-        beside author thumbnails in each relevant gallery. Captions identify the
-        archived test and shader state; they do not establish how the current
-        pack renders. The
+        captures by feature. Create: Skyweave test images and recordings also
+        appear beside author thumbnails in each relevant gallery. Captions
+        identify the archived test and shader state; they do not establish how
+        the current pack renders. The
         <a href="/generated/resource-review/fixture-overview.png">
           earlier Resource Review layout
         </a>

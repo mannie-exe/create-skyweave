@@ -18,7 +18,7 @@ import java.nio.file.*;
 import java.util.*;
 
 /** Pack-specific instrumentation. Installed only in disposable survey servers. */
-@Mod("create_sky_structure_survey")
+@Mod("create_skyweave_structure_survey")
 public final class StructureSurvey {
   private static final Gson JSON = new GsonBuilder().disableHtmlEscaping().create();
   private static final ResourceLocation ID = ResourceLocation.parse("skyvillages:skyvillage");

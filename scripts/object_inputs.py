@@ -66,11 +66,11 @@ def load_layers(root, definitions=None, web=None, review_inputs=True):
         layers[key].version = item.get('version') or ''
         if kind == 'mod': native.append(key)
         else: destinations['file/' + path.name] = key
-    fixes = root / 'overrides/common/mods/create-sky-fixes-0.1.0.jar'
+    fixes = root / 'overrides/common/mods/create-skyweave-fixes-0.1.0.jar'
     if fixes.is_file():
         archive_layer('pack-fixes', fixes, 'Pack fixes', 'mod').close()
         native.append('pack-fixes')
-    patch = root / 'overrides/client/resourcepacks/Create Sky Resource Patches.zip'
+    patch = root / 'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip'
     if patch.is_file():
         archive_layer('resource-patches', patch, 'Resource patches', 'patch').close()
         destinations['file/' + patch.name] = 'resource-patches'
@@ -160,7 +160,7 @@ def materialize_candidates(root, output=None):
         else:
             url = urlparse(candidate['download'])
             require(url.scheme == 'https' and url.hostname == 'cdn.modrinth.com', 'Candidate download must use the pinned Modrinth CDN')
-            with urlopen(Request(candidate['download'], headers={'User-Agent':'CreateSkyAtlas/1.0'}), timeout=60) as response:
+            with urlopen(Request(candidate['download'], headers={'User-Agent':'CreateSkyweaveAtlas/1.0'}), timeout=60) as response:
                 raw = response.read(candidate['size']+1)
         require(len(raw) == candidate['size'] and hashlib.sha512(raw).hexdigest() == candidate['sha512'], 'Changed candidate download: ' + candidate['id'])
         if output is not None:

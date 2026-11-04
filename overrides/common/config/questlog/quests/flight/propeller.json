@@ -18,18 +18,18 @@
           "type": "questlog:item_obtain",
           "item": "aeronautics:andesite_propeller",
           "required_amount": 1,
-          "name": "createsky.journal.flight.propeller.objective.0.0",
+          "name": "create_skyweave.journal.flight.propeller.objective.0.0",
           "translatable": true
         },
         {
           "type": "questlog:item_obtain",
           "item": "aeronautics:wooden_propeller",
           "required_amount": 1,
-          "name": "createsky.journal.flight.propeller.objective.0.1",
+          "name": "create_skyweave.journal.flight.propeller.objective.0.1",
           "translatable": true
         }
       ],
-      "name": "createsky.journal.flight.propeller.objective.0",
+      "name": "create_skyweave.journal.flight.propeller.objective.0",
       "translatable": true
     }
   ],
@@ -38,9 +38,9 @@
   "title_color": "#18242b",
   "completed_text_color": "#356b52",
   "progress_text_color": "#435b68",
-  "title": "createsky.journal.flight.propeller.title",
+  "title": "create_skyweave.journal.flight.propeller.title",
   "translatable": true,
   "description": {
-    "translate": "createsky.journal.flight.propeller.description"
+    "translate": "create_skyweave.journal.flight.propeller.description"
   }
 }

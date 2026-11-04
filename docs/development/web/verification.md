@@ -4,6 +4,16 @@ Checks apply to the recorded source or artifact, not every later checkout. Brows
 checks establish interface behavior; native game checks and survey evidence have
 separate owners and limits. Commands and prerequisites live in [setup](setup.md).
 
+## Identity migration, 0.2.0
+
+Verified on 2026-11-04 from `~/Minecraft/create-skyweave` with published Skyweave Compat 0.20.0. `pnpm verify` passes 158 tests, type checks, and the 16-page static build. `pnpm test:python` passes 35 tests with one existing skip. The runtime exporter compiled and ran in its isolated server; extraction produced 10,116 items, 31,641 resource paths, and 10,050 texture previews. `pnpm data:check` passes after the portable pack-name correction.
+
+The focused workspace, jobs, authoring, and resource-pack browser suites pass 27 checks, including real WebSockets, draft preservation, progress/error delivery, and private-cache exclusion. Model/object views initially reported missing projections under the renamed scope. The normal input, static-model export, texture, and object jobs rebuilt them. The mapped-client cache link was retargeted to the renamed Compat build after verifying its bytes against prior exporter evidence. All 15 model, object, and texture browser checks then passed, including preview generation, draft retention, native/static model views, and rejection of arbitrary job inputs. Historical artifact generations and source media were preserved.
+
+The built static map and posed-resource browser check also passes without a workspace connection.
+
+`pnpm deploy:preview` passes with Wrangler 4.156.0 for `create-skyweave-atlas`. This was a local dry run; no deployment, routes, credentials, or Cloudflare resources changed. Historical native observations below retain their original project/release identities.
+
 ## Debug World
 
 Verified on 2026-11-04 against Create Sky 0.1.34, Minecraft 1.21.1 and NeoForge
@@ -125,7 +135,7 @@ runtime evidence under `images/2026-11-03-glass-backfaces`,
 `images/2026-11-03-glass-backface-compat`. The last includes the exact final artifact,
 registered-target inventory, native UV records and executed protocol. These are
 native rendering checks; Atlas previews do not simulate CT or renderer culling.
-[Compat verification](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/verification.md)
+[Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/verification.md)
 owns dependency combinations, performance limits and unsupported paths.
 
 ## Release checks, 0.1.33
@@ -568,7 +578,7 @@ For Create Sky 0.1.22, the source configuration and resource-pack notes reflect
 configuration projection: 10,125 items, 9,253 recipes and 648 unresolved routes.
 No world scan or runtime recipe recapture was needed for this presentation change.
 `pnpm verify` passes 76 tests, Astro checks and eight page builds. Game-interface
-checks belong to the [Compat verification](https://github.com/mannie-exe/create-sky-compat/blob/v0.7.0/docs/development/verification.md#release-070).
+checks belong to the [Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/v0.7.0/docs/development/verification.md#release-070).
 
 ## Journal redesign, 2026-10-30
 

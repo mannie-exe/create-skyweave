@@ -73,7 +73,7 @@ async function fixture(t) {
   await fs.writeFile(path.join(root, 'data/local.example.json'), '{}')
   const patch = path.join(
     root,
-    'overrides/client/resourcepacks/Create Sky Resource Patches.zip',
+    'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip',
   )
   await fs.writeFile(patch, 'unchanged fixture shipping output')
   // Real admission, source identity and artifact publication; only the PNG/index producer

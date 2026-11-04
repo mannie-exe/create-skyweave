@@ -81,7 +81,7 @@ the isolated updated client. No empack or provider issue was submitted.
 - Analog Audio 0.1.5-hotfix.1 requests a typed reflective registry method that
   Create 6.0.10 exposes with erased parameters. Create Sky Compat 0.5.2 repairs
   this lookup and restores the upstream radio movement handler. Recheck the
-  [adapter procedure](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/README.md#analog-audio)
+  [adapter procedure](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/README.md#analog-audio)
   when updating either dependency; remove the hook when upstream fixes the lookup.
   Ordinary contraption GUI support and audible moving playback remain separate
   checks. Upstream issue #114 is closed, but the selected Analog Audio binary
@@ -140,14 +140,14 @@ The server-side mixin probe leaves the target byte-identical. Native checks used
 Java 21.0.13/macOS arm64; other graphics drivers and shader packs remain unverified.
 That standalone 0.1.0 release is now incorporated in Compat 0.6.0. Existing
 Veil uniform-type warnings remain outside the correction. Compat’s
-[rendering reference](https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/rendering.md)
+[rendering reference](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/rendering.md)
 owns active update/removal procedures. Native checks of the combined release
 remain pending; the earlier A/B observation above is historical evidence.
 
 ## Delivery endpoint integration, 2026-10-24
 
 Installed ADQ 1.1.1's `QuestGenerator.lambda$generateNewQuestAsync$4` resolves the
-structure locate position to a dry 3×3 surface. In two native Create Sky Compat
+structure locate position to a dry 3×3 surface. In two native Skyweave Compat
 villages, locate returned a start-chunk corner beside void and that predicate
 rejected the route despite valid ground two blocks away. Compat's optional,
 version-guarded adapter retries within eight blocks and the known village bounds,

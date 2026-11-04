@@ -78,8 +78,12 @@ def survey_source(world):
     data = NBT(gzip.decompress(level_bytes)).root()['Data']
     settings = data['WorldGenSettings']
     dimension = settings['dimensions']['minecraft:overworld']
-    marker = world/'create-sky-generation.json'
-    identity_bytes = marker.read_bytes() if marker.exists() else None
+    # Read-only evidence may come from an unchanged pre-rename personal instance.
+    markers = [world/name for name in ('skyweave-generation.json', 'create-sky-generation.json')
+               if (world/name).exists()]
+    if len(markers) > 1:
+        raise ValueError('Ambiguous generation identity markers')
+    identity_bytes = markers[0].read_bytes() if markers else None
     identity = json.loads(identity_bytes) if identity_bytes else None
     if identity and 'seed' in identity: identity['seed'] = str(identity['seed'])
     return {
@@ -113,6 +117,7 @@ def scan(samples, source=None):
         with path.open('rb') as f:
             header=f.read(4096); locations=chunk_locations(header)
             row['chunks']=len(locations); result['populatedChunks']+=len(locations)
+            # Stable sampling salt preserves comparable historical world evidence.
             rng=random.Random(f'create-sky-atlas-v1:{rx}:{rz}')
             chosen=locations if samples==0 else rng.sample(locations,min(samples,len(locations)))
             for ci,offset in chosen:

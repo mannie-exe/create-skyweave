@@ -15,7 +15,7 @@
       "type": "questlog:advancement",
       "advancement": "aeronautics:head_in_the_clouds",
       "required_amount": 1,
-      "name": "createsky.journal.flight.hot_air.objective.0",
+      "name": "create_skyweave.journal.flight.hot_air.objective.0",
       "translatable": true
     }
   ],
@@ -35,9 +35,9 @@
   "title_color": "#18242b",
   "completed_text_color": "#356b52",
   "progress_text_color": "#435b68",
-  "title": "createsky.journal.flight.hot_air.title",
+  "title": "create_skyweave.journal.flight.hot_air.title",
   "translatable": true,
   "description": {
-    "translate": "createsky.journal.flight.hot_air.description"
+    "translate": "create_skyweave.journal.flight.hot_air.description"
   }
 }

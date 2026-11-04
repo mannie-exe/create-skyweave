@@ -148,7 +148,7 @@
     "Macaw\u2019s Lights and Lamps \u2014 sketch_macaw: https://modrinth.com/mod/macaws-lights-and-lamps",
     "Create Deco \u2014 talrey, Ordana and Baileybun: https://modrinth.com/mod/create-deco",
     "Fresh Animations: Objects \u2014 FreshLX: https://modrinth.com/resourcepack/fresh-animations-objects",
-    "Compatibility adaptations and generated geometry \u2014 Create Sky",
+    "Compatibility adaptations and generated geometry \u2014 Create Skyweave",
     "Original assets retain their authors\u2019 licenses. Required packs/mods supply unmodified textures; selected donor textures are included with their models.",
     "Create \u2014 simibubi and contributors: https://modrinth.com/mod/create",
     "Macaw\u2019s Bridges \u2014 sketch_macaw: https://modrinth.com/mod/macaws-bridges",
@@ -160,11 +160,11 @@
     "classic-3d: GPL-3.0-only; selected assets adapted into isolated namespaces. Source: https://github.thepinkhacker.com/classic-3d-redux",
     "Nautilus 3D \u2014 Waschtl and playtrix: https://github.com/FabianMPunkt/Nautilus3D",
     "nautilus3d: AGPL-3.0-only; selected assets adapted into isolated namespaces. Source: https://github.com/FabianMPunkt/Nautilus3D",
-    "Lootr storage artwork: native Lootr textures, relit by Create Sky. Original source: https://modrinth.com/mod/lootr; exact inputs and approved artwork fingerprints are recorded in SOURCES.json.",
-    "Vervada's enhanced plants: selected model/texture features adapted by Create Sky. Source: https://modrinth.com/resourcepack/3d-plants; license: CC-BY-SA-4.0. Unselected assets are not included.",
-    "3D Vanilla: selected model/texture features adapted by Create Sky. Source: https://modrinth.com/resourcepack/3dvanilla; license: Apache-2.0. Unselected assets are not included.",
-    "Jacob\u2019s 3D Workspace+: selected model/texture features adapted by Create Sky. Source: https://modrinth.com/resourcepack/jacobs-workspace-plus; license: CC-BY-NC-4.0. Unselected assets are not included.",
-    "Toasty's Perfect Pitchers (3d pitcher plants): selected model/texture features adapted by Create Sky. Source: https://modrinth.com/resourcepack/toastys-perfect-pitchers-3d-pitcher-plants; license: LicenseRef-All-Rights-Reserved. Unselected assets are not included.",
-    "3D Models: selected model/texture features adapted by Create Sky. Source: https://modrinth.com/resourcepack/ulticraft-models-3d; license: CC-BY-NC-SA-4.0. Unselected assets are not included."
+    "Lootr storage artwork: native Lootr textures, relit by Create Skyweave. Original source: https://modrinth.com/mod/lootr; exact inputs and approved artwork fingerprints are recorded in SOURCES.json.",
+    "Vervada's enhanced plants: selected model/texture features adapted by Create Skyweave. Source: https://modrinth.com/resourcepack/3d-plants; license: CC-BY-SA-4.0. Unselected assets are not included.",
+    "3D Vanilla: selected model/texture features adapted by Create Skyweave. Source: https://modrinth.com/resourcepack/3dvanilla; license: Apache-2.0. Unselected assets are not included.",
+    "Jacob\u2019s 3D Workspace+: selected model/texture features adapted by Create Skyweave. Source: https://modrinth.com/resourcepack/jacobs-workspace-plus; license: CC-BY-NC-4.0. Unselected assets are not included.",
+    "Toasty's Perfect Pitchers (3d pitcher plants): selected model/texture features adapted by Create Skyweave. Source: https://modrinth.com/resourcepack/toastys-perfect-pitchers-3d-pitcher-plants; license: LicenseRef-All-Rights-Reserved. Unselected assets are not included.",
+    "3D Models: selected model/texture features adapted by Create Skyweave. Source: https://modrinth.com/resourcepack/ulticraft-models-3d; license: CC-BY-NC-SA-4.0. Unselected assets are not included."
   ]
 }

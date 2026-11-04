@@ -33,7 +33,7 @@ def patch_members(changes):
         recipes[path] = recipe
     return {'pack.mcmeta': {'pack': {
         'pack_format': 48,
-        'description': 'Create Sky atlas recipe scenario; review and test before applying',
+        'description': 'Create Skyweave atlas recipe scenario; review and test before applying',
     }}, **recipes}
 
 
@@ -68,7 +68,7 @@ def export_patch(changes, target):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--stdin', action='store_true', help='Read validated scenario changes as JSON')
-    parser.add_argument('--output', type=Path, default=ROOT / 'public/generated/create-sky-atlas-patch.zip')
+    parser.add_argument('--output', type=Path, default=ROOT / 'public/generated/create-skyweave-atlas-patch.zip')
     args = parser.parse_args()
     data = (json.load(sys.stdin)['changes'] if args.stdin else
             json.loads((ROOT / 'public/generated/authored.json').read_text())['recipes']['changes'])

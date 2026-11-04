@@ -1,4 +1,4 @@
-# Create Sky defaults for Photon 1.4, retaining its native High profile.
+# Create Skyweave defaults for Photon 1.4, retaining its native High profile.
 # Keep its lighting features; include machine shadows and avoid camera blur.
 shadowDistance=128.0
 shadowMapResolution=2048

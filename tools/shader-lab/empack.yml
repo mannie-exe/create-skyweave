@@ -1,7 +1,7 @@
 schema: 5
 pack:
-  id: create_sky_shader_lab
-  name: Create Sky Shader Lab
+  id: create_skyweave_shader_lab
+  name: Create Skyweave Shader Lab
   version: 0.1.0
   authors: [mannie-exe]
 runtime:

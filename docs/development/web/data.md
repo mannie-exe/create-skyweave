@@ -56,7 +56,7 @@ playing world.
 
 ## Runtime compatibility and weight coverage
 
-Create Sky Compat’s Analog Audio and rendering adapters add no recipes,
+Skyweave Compat’s Analog Audio and rendering adapters add no recipes,
 acquisition routes, textures, or mass values for the Atlas to project. Its startup
 feature file selects adapters before loading their hooks and built-in data packs;
 raw JAR resources alone no longer establish that an integration’s tags are active.
@@ -196,7 +196,7 @@ and deterministic random chunk sampling within each populated Overworld region.
 Estimates weight each sample by that region's populated chunk count. It records
 block counts, ore height distributions, land-column fractions, read errors and
 files that changed during the survey. New captures retain the seed as a decimal
-string, dimension/generator identifiers, the level.dat hash, and the Create Sky
+string, dimension/generator identifiers, the level.dat hash, and the Create Skyweave
 generation identity with its original-file hash when present. Player records and
 private source paths are not exported. An optional `--world` selects a stopped
 copy for read-only sampling; it does not change the server's configured path.
@@ -597,7 +597,7 @@ include `.properties` files so mixin configuration changes mark captures stale.
 ## Island generation surveys
 
 `pnpm data:islands --terrain /path/to/terrain.json --resources /path/to/islands-42.json /path/to/islands-8675309.json`
-imports the maintained Create Sky Compat native probes. Run `pnpm data:compile`
+imports the maintained Skyweave Compat native probes. Run `pnpm data:compile`
 after import. This CLI reads reports, not worlds, and does not run Java or alter
 the installed pack. `tools/probe.py --terrain --samples 4` and `--islands --seed N --heap 6G`
 in that mod project own generation and native descriptor export.

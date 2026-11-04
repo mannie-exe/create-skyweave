@@ -14,10 +14,10 @@ records:
     inputs: [[analogaudio:radio]]
     outputs: []
     evidence: isolated-registration-and-server-callbacks
-    detail: Create Sky Compat restores Analog Audio's existing movement-handler registration for Analog Audio 0.1.5-hotfix.1 with Create 6.0.10. Recipes, controls and Sable audio behavior are unchanged. Registration and server callbacks were verified; audible playback and GUI behavior on ordinary moving contraptions still need playtesting.
+    detail: Skyweave Compat restores Analog Audio's existing movement-handler registration for Analog Audio 0.1.5-hotfix.1 with Create 6.0.10. Recipes, controls and Sable audio behavior are unchanged. Registration and server callbacks were verified; audible playback and GUI behavior on ordinary moving contraptions still need playtesting.
     sources:
       - docs/development/compatibility.md
-      - https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/README.md#analog-audio
+      - https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/README.md#analog-audio
   - id: travel/glider
     title: Glide and climb local updrafts
     inputs: [[reliable_gliders:glider]]
@@ -105,7 +105,7 @@ records:
     sources:
       [
         'docs/development/progression.md',
-        'https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/transmission-linkage.md',
+        'https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/transmission-linkage.md',
       ]
   - id: linkage/physical-conversion
     title: Physical rotation recovery
@@ -115,7 +115,7 @@ records:
     detail: The assembled bearing measures physical rotation and publishes rear shaft output while resisting the motion. A controlled 2-rad/s fixture produced 19 RPM and about 3711 SU with native defaults. This is a supplied test drive, not a demonstrated self-powered machine or a sustained production budget.
     sources:
       [
-        'https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/verification.md',
+        'https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/verification.md',
       ]
   - id: controls/link-frequencies
     title: Edit link frequencies

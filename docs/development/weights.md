@@ -64,7 +64,7 @@ attached all nine positions. Simulated moved all nine into the ship in each axis
 and Sable reported 18.0 including nine 1.0 backing blocks. The wheel alone therefore
 contributed 9.0 before and after assembly. A large three-block machine has no
 established whole-object precedent requiring the ordinary cogwheel's 0.5 mass.
-No tag adjustment or Create Sky Compat hook is justified by this accounting.
+No tag adjustment or Skyweave Compat hook is justified by this accounting.
 This does not establish unglued connectivity, powered rotation or every moving
 contraption lifecycle.
 
@@ -76,7 +76,7 @@ source-inspected, not included in the new powered-machinery runtime fixtures.
 
 ## Verification, 2026-10-29
 
-The 2026-10-29 headless comparison used Create Sky source `8aed6cb` before and
+The 2026-10-29 headless comparison used Create Skyweave source `8aed6cb` before and
 after the classifications above, NeoForge 21.1.264, Java 21, Sable 2.0.6 and
 Aeronautics/Simulated 1.3.2. The 101 installed
 dependency JARs were identical between runs and matched the pack's downloaded
@@ -84,7 +84,7 @@ artifacts; only the shared fixes JAR changed. Its SHA-256 changed from
 `11eb87e393fa886645a3039ca7f757a3de6de8779e715135704a41202e500ead` to
 `08889c597b21623c2353ab677738209ec7e6bacc6a7d2eed8794a270478210c8`.
 The packaged delta contains only the Sable `light`, `super_light` and
-`super_heavy` block tags. Create Sky Compat `9e674ff` was not modified.
+`super_heavy` block tags. Skyweave Compat `9e674ff` was not modified.
 
 Native property queries covered all 9,545 registered blocks and 330,524 states
 at a fixed flat-world fixture coordinate. The independently reviewed selection

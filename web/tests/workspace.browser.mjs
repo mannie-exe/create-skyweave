@@ -300,7 +300,7 @@ test('ambiguous mutation is reconciled after reconnect without replay, and a seq
       type: 'event',
       session,
       subscriptionId: subId,
-      scope: { workspaceId: 'local', packId: 'create_sky' },
+      scope: { workspaceId: 'local', packId: 'create_skyweave' },
       topic: 'activity',
       sequence: 3,
       payload: {},

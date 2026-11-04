@@ -12,7 +12,7 @@ def main():
     args = parser.parse_args()
     root = Path(__file__).resolve().parent.parent
     subprocess.run([sys.executable, str(root / 'scripts/generate-journal.py'), '--check'], check=True)
-    output = root / 'overrides/common/mods/create-sky-fixes-0.1.0.jar'
+    output = root / 'overrides/common/mods/create-skyweave-fixes-0.1.0.jar'
     entries = {source.relative_to(root / 'pack-fixes').as_posix(): source.read_bytes()
                for source in (root / 'pack-fixes').rglob('*') if source.is_file()}
     changed = publish(output, archive_bytes(entries, (2026, 10, 21, 0, 0, 0)), args.check)

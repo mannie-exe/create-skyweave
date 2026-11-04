@@ -15,14 +15,14 @@
       "type": "questlog:block_interact",
       "block": "powergrid:circuit_design_table",
       "required_amount": 1,
-      "name": "createsky.journal.electricity.use_design.objective.0",
+      "name": "create_skyweave.journal.electricity.use_design.objective.0",
       "translatable": true
     }
   ],
   "rewards": [],
-  "title": "createsky.journal.electricity.use_design.title",
+  "title": "create_skyweave.journal.electricity.use_design.title",
   "translatable": true,
   "description": {
-    "translate": "createsky.journal.electricity.use_design.description"
+    "translate": "create_skyweave.journal.electricity.use_design.description"
   }
 }

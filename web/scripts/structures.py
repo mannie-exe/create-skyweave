@@ -54,7 +54,7 @@ def run():
                     (fixture/'libraries').symlink_to((audit/'libraries').resolve(), target_is_directory=True)
                     (fixture/'mods').mkdir()
                     for f in (audit/'mods').glob('*.jar'):
-                        if f.name != 'create-sky-atlas-exporter.jar': (fixture/'mods'/f.name).symlink_to(f.resolve())
+                        if f.name != 'create-skyweave-atlas-exporter.jar': (fixture/'mods'/f.name).symlink_to(f.resolve())
                     (fixture/'mods'/jar.name).symlink_to(jar)
                     for name in ['config','defaultconfigs']:
                         if (audit/name).exists(): shutil.copytree(audit/name,fixture/name)

@@ -1,3 +1,3 @@
 [world-preset]
-world-preset = "create_sky_compat:islands_v1"
+world-preset = "skyweave_compat:islands_v1"
 disable-button = false

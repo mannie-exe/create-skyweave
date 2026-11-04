@@ -18,7 +18,7 @@ const additionalLocale = /^journal\/locales\/(?!en_us\.json$)[a-z0-9_]+\.json$/
 const outputFolders = {
   chapter: 'overrides/common/config/questlog/chapters',
   quest: 'overrides/common/config/questlog/quests',
-  locale: 'pack-fixes/assets/createsky/lang',
+  locale: 'pack-fixes/assets/create_skyweave/lang',
 } as const
 function generated(id: string) {
   const match = /^generated:journal:(chapter|quest|locale):([a-z0-9_/]+)$/.exec(

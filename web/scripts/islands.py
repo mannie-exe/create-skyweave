@@ -1,4 +1,4 @@
-"""Import bounded native Create Sky Compat surveys without opening a Minecraft world."""
+"""Import bounded native Skyweave Compat surveys without opening a Minecraft world."""
 import argparse
 import hashlib
 import json
@@ -22,7 +22,8 @@ def read_survey(path):
 
 
 def resource_survey(data, digest):
-    if data.get('kind') != 'create-sky-island-survey' or data.get('schema') != 1 or data.get('complete') is not True:
+    # Historical captures retain their original kind and artifact hashes.
+    if data.get('kind') not in {'skyweave-island-survey', 'create-sky-island-survey'} or data.get('schema') != 1 or data.get('complete') is not True:
         raise ValueError('Expected a complete native island resource survey, schema 1')
     if not data.get('artifacts') or not 1 <= len(data.get('islands', [])) <= 16:
         raise ValueError('Missing artifact provenance or bounded island samples')

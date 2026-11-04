@@ -81,7 +81,8 @@ test('icon URLs only admit generated local assets', () => {
   assert.equal(safeIcon('/generated/icons/../../unsafe.svg'), null)
   assert.equal(safeIcon('https://example.com/icon.png'), null)
   const scoped =
-    '/__atlas/workspaces/local/packs/create_sky/artifacts/' + 'a'.repeat(64)
+    '/__atlas/workspaces/local/packs/create_skyweave/artifacts/' +
+    'a'.repeat(64)
   assert.equal(safeIcon(scoped), scoped)
   assert.equal(safeIcon(scoped + '?url=https://elsewhere.invalid'), null)
   assert.equal(

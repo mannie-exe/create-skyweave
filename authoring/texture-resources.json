@@ -25,7 +25,7 @@
         "kind": "mod",
         "id": "lootr"
       },
-      "model": "create_sky:block/lootr_barrel_clasps"
+      "model": "create_skyweave:block/lootr_barrel_clasps"
     },
     {
       "id": "barrel-looted",
@@ -51,7 +51,7 @@
         "kind": "mod",
         "id": "lootr"
       },
-      "model": "create_sky:block/lootr_barrel_looted_clasps"
+      "model": "create_skyweave:block/lootr_barrel_looted_clasps"
     },
     {
       "id": "chest-unlooted",

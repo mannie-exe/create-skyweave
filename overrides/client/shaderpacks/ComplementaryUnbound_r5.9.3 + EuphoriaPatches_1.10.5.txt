@@ -1,4 +1,4 @@
-# Create Sky balanced defaults for Complementary r5.9.3 / Euphoria 1.10.5.
+# Create Skyweave balanced defaults for Complementary r5.9.3 / Euphoria 1.10.5.
 # Low block reflections keep the DH composite pass below Iris's 14-unit budget.
 BLOCK_REFLECT_QUALITY=1
 shadowDistance=128.0

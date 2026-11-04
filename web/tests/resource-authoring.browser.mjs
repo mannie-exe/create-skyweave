@@ -160,7 +160,7 @@ test('model recipes toggle built textures per face and keep drafts across relate
   await page.locator('#model-plane').selectOption('1')
   await expect(page.locator('#model-texture')).toHaveAttribute(
     'data-applied-texture',
-    'create_sky:generated/lootr/barrel-unlooted/north',
+    'create_skyweave:generated/lootr/barrel-unlooted/north',
   )
   await checkbox.uncheck()
   await expect(page.locator('#model-texture')).toHaveAttribute(
@@ -176,7 +176,7 @@ test('model recipes toggle built textures per face and keep drafts across relate
   await checkbox.check()
   await expect(page.locator('#model-texture')).toHaveAttribute(
     'data-applied-texture',
-    'create_sky:generated/lootr/barrel-unlooted/north',
+    'create_skyweave:generated/lootr/barrel-unlooted/north',
   )
   await page.locator('#model-label').fill('Unsaved material study')
   await expect(page.locator('#models-status')).toHaveText(

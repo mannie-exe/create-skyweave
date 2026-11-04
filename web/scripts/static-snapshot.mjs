@@ -20,7 +20,7 @@ export function staticSnapshot(options) {
       },
       'astro:build:start': async () => {
         registration = {
-          scope: { workspaceId: 'local', packId: 'create_sky' },
+          scope: { workspaceId: 'local', packId: 'create_skyweave' },
           web: path.resolve(web),
           pack: await configuredPack(web),
         }

@@ -153,13 +153,13 @@ export function stringRows(documents) {
         group: chapter.id,
         title: 'Chapter title',
         value: text.chapters[chapter.id],
-        native: `createsky.journal.chapter.${chapter.id}`,
+        native: `create_skyweave.journal.chapter.${chapter.id}`,
       },
       ...entryList(documents)
         .filter((e) => e.id.startsWith(chapter.id + '/'))
         .flatMap(({ id }) => {
           const entry = text.entries[id],
-            key = 'createsky.journal.' + id.replace('/', '.')
+            key = 'create_skyweave.journal.' + id.replace('/', '.')
           return [
             ...['title', 'flavor', 'requirements', 'description'].map(
               (field) => ({

@@ -76,7 +76,7 @@ if classes.exists():
 # Installer libraries also contain raw/unmapped MinecraftServer classes. The patched game must win.
 classpath = ':'.join(str(f) for f in [game_jar, *sorted(libraries.rglob('*.jar')), *mods.glob('*.jar')])
 subprocess.run([tool('javac', p.get('java', Path('.')) / 'javac'), '-proc:none', '-cp', classpath, '-d', str(classes), *[str(f) for f in sorted((ROOT / 'tools/exporter').glob('*.java'))]], check=True)
-with zipfile.ZipFile(mods / 'create-sky-atlas-exporter.jar', 'w') as jar:
+with zipfile.ZipFile(mods / 'create-skyweave-atlas-exporter.jar', 'w') as jar:
     for f in classes.rglob('*.class'): jar.write(f, f.relative_to(classes))
     jar.write(ROOT / 'tools/exporter/neoforge.mods.toml', 'META-INF/neoforge.mods.toml')
 (audit / 'eula.txt').write_text((p['server'] / 'eula.txt').read_text())

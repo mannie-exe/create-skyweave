@@ -112,7 +112,7 @@ dependencies:
       provider: modrinth
       selector: colorwheel-patcher
     title: Colorwheel Patcher
-intent-revision: 20434bad203f5438d3e9386dd9402b7fff4c355ba0c13b479d5de14ba7121c31
+intent-revision: a6f3b73c3c6b7539371f20ad9f4d86a564883a7ef1e4bbdc72827dc7f84dec16
 required-edges: {}
 resolver: empack-synchronization-v0.5
 runtime:

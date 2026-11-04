@@ -1,14 +1,14 @@
 schema: 1
 records:
   - id: islands/current
-    title: Create Sky Islands
+    title: Skyweave Islands
     evidence: configuration
-    detail: New worlds default to create_sky_compat:islands_v1, with a 2400-block anchor grid, bounded 750-block jitter and 0.85 activation before biome and support-clearance rejection. Anchor centers vary between Y=200 and 490 within body-specific safety bounds; target heights are 250–400 blocks. The expanded preset owns its terrain settings. CONSISTENT 1494 remains for ordinary legacy Sky Archipelago worlds; the former DYNAMIC setting chose one spacing for a whole world. Distributed server templates leave the seed blank.
+    detail: New worlds default to skyweave_compat:islands_v1, with a 2400-block anchor grid, bounded 750-block jitter and 0.85 activation before biome and support-clearance rejection. Anchor centers vary between Y=200 and 490 within body-specific safety bounds; target heights are 250–400 blocks. The expanded preset owns its terrain settings. CONSISTENT 1494 remains for ordinary legacy Sky Archipelago worlds; the former DYNAMIC setting chose one spacing for a whole world. Distributed server templates leave the seed blank.
     sources:
       [
-        'create_sky_compat:islands_v1',
+        'skyweave_compat:islands_v1',
         'pack docs/development/worldgen.md',
-        'overrides/common/config/create_sky_compat-generation.json',
+        'overrides/common/config/skyweave_compat-generation.json',
       ]
   - id: ores/pregen
     title: Early saved terrain sample
@@ -23,7 +23,7 @@ records:
   - id: structures/deferred
     title: Structure generation tuning is a separate pass
     evidence: decision
-    detail: Sky Villages retains the repaired pools, village-tag membership and existing crop/loot policy. Create Sky Compat replaces Sky Village Neighbors and draws zero to three villages per anchor with weights 96:24:8:3; rejection can reduce the count. Structures Arise and broader structure tuning remain deferred. Delivery availability depends on valid reachable endpoints.
+    detail: Sky Villages retains the repaired pools, village-tag membership and existing crop/loot policy. Skyweave Compat replaces Sky Village Neighbors and draws zero to three villages per anchor with weights 96:24:8:3; rejection can reduce the count. Structures Arise and broader structure tuning remain deferred. Delivery availability depends on valid reachable endpoints.
     sources: ['user direction, 2026-10-21']
   - id: structures/sky-village-resources
     title: Village foundations and crops
@@ -38,7 +38,7 @@ records:
   - id: islands/compat-candidate
     title: Island terrain and resource samples
     evidence: native-generation-samples
-    detail: Create Sky Compat adds a -128 to 768 build envelope, deep large anchors, independently sized companions, relative geology and a scoped altitude-pressure curve. Published Compat 0.4.0’s historical five-seed density samples averaged 2335–2585 blocks between nearest anchors. These are center distances, not shoreline gaps. The current development resource survey separately samples three seed-42 anchors with caves, veins and local water enabled; it records geological depth and exposure as well as quantities. Exposure to air or fluid does not prove reachable mining access. Counts, estimates, descriptors and artifact hashes appear separately under World & ores. These are isolated development samples, not a survey of the personal server world or proof of survival balance.
+    detail: Skyweave Compat adds a -128 to 768 build envelope, deep large anchors, independently sized companions, relative geology and a scoped altitude-pressure curve. Published Compat 0.4.0’s historical five-seed density samples averaged 2335–2585 blocks between nearest anchors. These are center distances, not shoreline gaps. The current development resource survey separately samples three seed-42 anchors with caves, veins and local water enabled; it records geological depth and exposure as well as quantities. Exposure to air or fluid does not prove reachable mining access. Counts, estimates, descriptors and artifact hashes appear separately under World & ores. These are isolated development samples, not a survey of the personal server world or proof of survival balance.
     sources:
       ['pack docs/development/worldgen.md', 'data/generated/islands.json']
   - id: islands/interiors-water
@@ -48,7 +48,7 @@ records:
     sources:
       [
         'pack docs/development/worldgen.md',
-        'overrides/common/config/create_sky_compat-interiors.json',
-        'overrides/common/config/create_sky_compat-water.json',
-        'overrides/common/config/create_sky_compat-oceans.json',
+        'overrides/common/config/skyweave_compat-interiors.json',
+        'overrides/common/config/skyweave_compat-water.json',
+        'overrides/common/config/skyweave_compat-oceans.json',
       ]

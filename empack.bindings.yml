@@ -261,9 +261,9 @@ bindings:
             client: required
             server: unsupported
           layer: client
-  create-sky-compat:
+  skyweave-compat:
     placement:
-    - destination: mods/create-sky-compat.jar
+    - destination: mods/skyweave-compat.jar
       environment:
         client: required
         server: required

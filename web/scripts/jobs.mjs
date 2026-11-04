@@ -110,7 +110,7 @@ export const jobRegistry = Object.freeze({
   'journal.generate': python(
     'generate-journal.py',
     'pack',
-    ['config/questlog', 'pack-fixes/assets/createsky/lang'],
+    ['config/questlog', 'pack-fixes/assets/create_skyweave/lang'],
     { args: (context) => ['--root', context.validation ?? context.pack] },
   ),
   'config.audit': python(
@@ -152,7 +152,7 @@ export const jobRegistry = Object.freeze({
   'resources.generate': python(
     'build-resource-patches.py',
     'pack',
-    ['overrides/client/resourcepacks/Create Sky Resource Patches.zip'],
+    ['overrides/client/resourcepacks/Create Skyweave Resource Patches.zip'],
     {
       capability: 'resource-authoring',
       timeoutMs: 180000,
@@ -286,13 +286,13 @@ export const jobRegistry = Object.freeze({
   'scenario.export': python(
     'export_patch.py',
     'web',
-    ['public/generated/create-sky-atlas-patch.zip'],
+    ['public/generated/create-skyweave-atlas-patch.zip'],
     {
       capability: 'block-models',
       args: (context) => [
         '--stdin',
         '--output',
-        path.join(context.staging, 'create-sky-atlas-patch.zip'),
+        path.join(context.staging, 'create-skyweave-atlas-patch.zip'),
       ],
       inputs: 'changes: validated saved recipe scenarios',
       validate(input) {

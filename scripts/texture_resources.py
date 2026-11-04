@@ -83,7 +83,7 @@ def build(archives, catalog, models=None):
             model['parent'] = 'minecraft:block/cube'
             model['textures'] = {'particle': original['textures']['particle']}
             for direction in ('north', 'south', 'east', 'west'):
-                identifier = f'create_sky:generated/lootr/{record["id"]}/{direction}'
+                identifier = f'create_skyweave:generated/lootr/{record["id"]}/{direction}'
                 model['textures'][direction] = identifier
                 write(resource(identifier, 'textures', '.png'), png(direction))
                 block_sprites.add(identifier)

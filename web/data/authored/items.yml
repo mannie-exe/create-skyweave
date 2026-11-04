@@ -52,7 +52,7 @@ notes:
     sources:
       [
         'docs/development/progression.md',
-        'https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/transmission-linkage.md',
+        'https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/transmission-linkage.md',
       ]
   aeronautics_utility_objects:brass_universal_joint:
     text: Both joint rod types use these craftable heads. Andesite rods reach farther and hold near their linked rest length; brass rods permit shorter elastic connections. Use an actual shaft source and load. The legacy andesite head is hidden and is not a missing required recipe.
@@ -68,7 +68,7 @@ notes:
     sources:
       [
         'docs/development/progression.md',
-        'https://github.com/mannie-exe/create-sky-compat/blob/main/docs/development/verification.md',
+        'https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/verification.md',
       ]
   travelersbackpack:standard:
     text: Equipped backpack contents follow YiGD's grave recovery rather than separate backpack placement. Native death, cold reload and an owner claim preserved the equipped backpack and named contents. Loose-item protections remain enabled.
@@ -96,5 +96,5 @@ notes:
     sources:
       [
         'docs/development/compatibility.md#redstone-control',
-        'Create Sky Compat 0.14.0 native scraping fixture',
+        'Skyweave Compat 0.14.0 native scraping fixture',
       ]

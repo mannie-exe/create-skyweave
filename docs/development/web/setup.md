@@ -122,7 +122,7 @@ are generated and no world or LOD files are written. Keep new-world refreshes
 pending while an unattended pregen is running; do not treat acceptance as completion.
 
 New captures include the exact seed, dimension/generator identifiers and the
-recorded Create Sky generation identity when present. Older captures lack that
+recorded Create Skyweave generation identity when present. Older captures lack that
 identity and are labelled as legacy. Without a survey, the map omits terrain-derived
 acquisition routes; explicit YAML gathering assumptions still apply.
 

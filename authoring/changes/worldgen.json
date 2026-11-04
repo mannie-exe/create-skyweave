@@ -4,9 +4,9 @@
   "records": [
     {
       "path": "overrides/client/config/defaultworldtype/client-config.toml",
-      "sha256": "8c656f60d20f17b267c9824231b9108ac243a4a158cf2f98b5ddb7d60d1c0174",
+      "sha256": "b312418b1606c2fd7e05c915a5b70c1b5182f5b2f230c6cab1d3555f7bc22070",
       "review": "reviewed",
-      "reason": "Default new worlds to Create Sky Islands; keep the world-type selector available.",
+      "reason": "Default new worlds to Skyweave Islands; keep the world-type selector available.",
       "reference": "docs/development/worldgen.md"
     },
     {
@@ -45,28 +45,28 @@
       "reference": "docs/development/worldgen.md"
     },
     {
-      "path": "overrides/common/config/create_sky_compat-generation.json",
+      "path": "overrides/common/config/skyweave_compat-generation.json",
       "sha256": "75b42a9ff5d72f82598c76f166697c8f44506a54525eb9146c3a3bf6a559cbae",
       "review": "reviewed",
       "reason": "Irregular cluster positions with bounded support clearance; varied anchor heights and preserved taper require a fresh world.",
       "reference": "docs/development/worldgen.md"
     },
     {
-      "path": "overrides/common/config/create_sky_compat-interiors.json",
+      "path": "overrides/common/config/skyweave_compat-interiors.json",
       "sha256": "963704ff7b478371d35cb0aadd6230cefb052a63e7386ec381a62687a35c80df",
       "review": "reviewed",
       "reason": "Independent noise and hollow interiors preserve exterior geometry and stable geological depth; classic carvers remain enabled.",
       "reference": "docs/development/worldgen.md"
     },
     {
-      "path": "overrides/common/config/create_sky_compat-water.json",
+      "path": "overrides/common/config/skyweave_compat-water.json",
       "sha256": "f6b325136170a645494240dc393860b8122822074191f9240e2d82fe69724eec",
       "review": "reviewed",
       "reason": "Local basins and bounded intentional outlets retain native fluid flow without changing global sea level.",
       "reference": "docs/development/worldgen.md"
     },
     {
-      "path": "overrides/common/config/create_sky_compat-oceans.json",
+      "path": "overrides/common/config/skyweave_compat-oceans.json",
       "sha256": "34d10fcda0e02d956f9915d64bf8e89c85ec1ece7b947f7fa1da9cddef308864",
       "review": "reviewed",
       "reason": "Ocean basin, coast and falling-perimeter experiments remain disabled by default pending wider habitat and progression review.",

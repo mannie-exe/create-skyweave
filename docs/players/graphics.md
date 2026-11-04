@@ -22,10 +22,10 @@ The fix is version-specific; remove it when upgrading DH.
 
 ## Compatibility adaptations
 
-Create Sky Compat includes the Veil/Iris framebuffer correction and optional
+Skyweave Compat includes the Veil/Iris framebuffer correction and optional
 balloon shadow-pass, construct-material, and single-block render-pass adaptations. Do not install the old
 standalone Veil Iris Fix JAR. Their `rendering.*` switches live in
-`config/create_sky_compat-features.properties`; change them only with the game
+`config/skyweave_compat-features.properties`; change them only with the game
 stopped and restart to apply. Other feature switches are independent.
 
 Native checks covered the selected shader stack, Ponder, heated balloons, and
@@ -70,7 +70,7 @@ selected. The [content list](../MODLIST.md) records exact dependencies.
 
 Dedicated Sugar Cane and RAY's Rails sit above 3D Crops and
 Redstone Tweaks respectively. Keep 3D Crops above Fresh Flower Pots for the
-four shared potted mushrooms and fungi as a fallback. **Create Sky Resource Patches**
+four shared potted mushrooms and fungi as a fallback. **Create Skyweave Resource Patches**
 sits above both and combines the 3D plants with Fresh pots. It also keeps Macaw's
 copper and golden chains correctly colored with Better Lanterns. Keep the patch
 at highest priority. Objects owns trapped-chest textures, reducing the front-face distinction
@@ -97,7 +97,7 @@ artwork fitting and authored bar/lamp geometry. It does not restyle every mod.
 Maintainers can use a disposable scene with labeled samples; the local Resource
 Review fixture and captured comparisons are described in
 [Atlas verification](../development/web/verification.md). Test saves and optional
-comparison packs are not distributed with Create Sky.
+comparison packs are not distributed with Create Skyweave.
 
 ## Shader selection
 
@@ -142,7 +142,7 @@ that choice and exceed the tested macOS texture-unit budget.
 
 Shader settings files live beside their shader packs in `shaderpacks/`. Their
 names must match the exact shader ZIP or generated folder. Use the settings from
-the same Create Sky release as the shader. BSL is included as an alternative.
+the same Create Skyweave release as the shader. BSL is included as an alternative.
 The [maintainer reference](../development/compatibility.md#shader-verification)
 records the sampler measurements and their limits.
 

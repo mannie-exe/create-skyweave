@@ -15,7 +15,7 @@
       "type": "questlog:item_obtain",
       "item": "powergrid:generator_induction_rotor",
       "required_amount": 1,
-      "name": "createsky.journal.electricity.rotor.objective.0",
+      "name": "create_skyweave.journal.electricity.rotor.objective.0",
       "translatable": true
     }
   ],
@@ -24,9 +24,9 @@
   "title_color": "#18242b",
   "completed_text_color": "#356b52",
   "progress_text_color": "#435b68",
-  "title": "createsky.journal.electricity.rotor.title",
+  "title": "create_skyweave.journal.electricity.rotor.title",
   "translatable": true,
   "description": {
-    "translate": "createsky.journal.electricity.rotor.description"
+    "translate": "create_skyweave.journal.electricity.rotor.description"
   }
 }

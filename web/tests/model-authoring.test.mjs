@@ -65,7 +65,7 @@ test('preview is read-only; save validates and generation is explicit', async (t
     fs.stat(
       path.join(
         root,
-        'overrides/client/resourcepacks/Create Sky Resource Patches.zip',
+        'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip',
       ),
     ),
     {
@@ -78,7 +78,7 @@ test('preview is read-only; save validates and generation is explicit', async (t
       await fs.readFile(
         path.join(
           root,
-          'overrides/client/resourcepacks/Create Sky Resource Patches.zip',
+          'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip',
         ),
       )
     )
@@ -111,7 +111,7 @@ test('invalid source and stale pins cannot overwrite or generate', async (t) => 
     fs.stat(
       path.join(
         root,
-        'overrides/client/resourcepacks/Create Sky Resource Patches.zip',
+        'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip',
       ),
     ),
     {
@@ -154,7 +154,7 @@ test('changed resource selections invalidate generation and preserve model edits
     fs.stat(
       path.join(
         root,
-        'overrides/client/resourcepacks/Create Sky Resource Patches.zip',
+        'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip',
       ),
     ),
     {
@@ -175,7 +175,7 @@ test('changed texture approvals invalidate generation', async (t) => {
     fs.stat(
       path.join(
         root,
-        'overrides/client/resourcepacks/Create Sky Resource Patches.zip',
+        'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip',
       ),
     ),
     {

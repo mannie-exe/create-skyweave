@@ -43,7 +43,7 @@ export function createWorkspaceRuntime(options: {
   pack: string
   watch?: boolean
 }) {
-  const scope = { workspaceId: 'local', packId: 'create_sky' }
+  const scope = { workspaceId: 'local', packId: 'create_skyweave' }
   const registration: Registration = {
     scope,
     web: options.web,
