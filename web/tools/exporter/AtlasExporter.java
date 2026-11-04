@@ -41,6 +41,7 @@ public final class AtlasExporter {
     try {
       Path out = Path.of(destination); Files.createDirectories(out);
       var ops = RegistryOps.create(JsonOps.INSTANCE, server.registryAccess());
+      Files.writeString(out.resolve("debug_registry.json"), GSON.toJson(DebugRegistry.capture(server)));
       JsonArray items = new JsonArray(), blocks = new JsonArray(), recipes = new JsonArray(), entities = new JsonArray();
       JsonArray errors = new JsonArray();
       JsonArray interactions = new JsonArray(), hooks = new JsonArray(), fluids = new JsonArray();

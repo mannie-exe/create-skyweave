@@ -4,6 +4,80 @@ Checks apply to the recorded source or artifact, not every later checkout. Brows
 checks establish interface behavior; native game checks and survey evidence have
 separate owners and limits. Commands and prerequisites live in [setup](setup.md).
 
+## Debug World
+
+Verified on 2026-11-04 against Create Sky 0.1.34, Minecraft 1.21.1 and NeoForge
+21.1.264. The configuration and commands are owned by the [Debug World guide](../debug-world.md).
+The compact 791-case profile has 43 groups across 14 floating districts, with
+12-block flight lanes and floors at Y 152, 160 and 168. Its source SHA-256 is
+`1b3cd480bbefd3d378a0de3341f99bd433fb0e3226af9ec13ae9394d5acc849a`.
+
+The compact world passed native generation in 66.71 seconds. Its saved-world
+check covered 15,026 block states, 1,764 connections, 52 entities, 24 inventory
+slots and six block-entity contracts, including Copycat materials and the live
+32 RPM network. No temporary forced chunks remained. The initial Mojang vanilla
+profile independently passed 259 cases, 7,275 states and 462 connections in
+31.63 seconds, without NeoForge or Compat. Its source SHA-256 is
+`e0a26139ac97a8292edfa680f301c48a7aff934756ff3d5edfd3a859bdaf75cc`.
+Vanilla rendering was not separately inspected in a vanilla client.
+
+The initial layout was visually inspected in an isolated native client with all
+22 selected resource entries, including the
+public resource patch ZIP `d421942c36acec63636489fa8ef2857c99aff8914ab97f264e011d9943ded605`
+and Compat 0.17.0. Captures cover enlarged labels, crops/pots, the grounded
+mooshroom, Copycats, waterlogging, paired storage and the hanging stair lantern.
+Label and crop views were checked with shaders off and with Complementary Unbound
+5.9.3 plus Euphoria 1.10.5. Double storage opens with 54 container slots; Lootr
+opens with 27. This does not establish every animation or machine operation.
+
+Physical directory, return, group-reset and time buttons passed. An unchanged
+`/reload` preserved edited specimens; resetting one group restored its specimens
+and preserved an edit in another district. Both test edits were subsequently
+restored. Saved native control results were 18,000 for Night and 6,000 for Noon.
+The same world survived cold reopening and the full saved-world verifier after
+interaction. Installation into the loaded test save was refused by Minecraft's
+actual session lock. The verified pristine world was then installed as **Debug
+World** in the local Create Sky client.
+The compact replacement is installed in that same Debug World save. The retired
+Resource Review save was deleted at the owner’s request. The personal server and
+its world/LODs were not changed. All 1,731 saved native text displays match their
+color roles, 96% background opacity, fully opaque text and native block/sky
+brightness overrides of 15/15. All text roles are now
+twice their original scale (791 names, 789 IDs, 107 controls and 44 headings),
+with per-line horizontal padding of approximately 0.4 em. Native vertical insets
+remain fixed. The compact arrangement
+and new label treatment have not received a separate client visual pass.
+
+Checks: `python3 -m unittest discover -s tests -v` (61 passed), `pnpm test:python`
+(34 tests, one existing skip), Ruff formatting/unused-import checks and
+`git diff --check`. Current exporter sources compile with the pinned native
+classpath; registry capture was also exercised in an isolated server. Selected
+native captures, control results, manifests and generation logs are retained in
+`modpack-testing/projects/create-sky-resources/images/2026-11-03-debug-world/`.
+Compact native generation, manifest and label checks are retained in its
+`compact-layout/` and `large-labels/` subdirectories. Earlier captures without the lab's rejected
+symlinked resource packs were discarded. Commands and extension/update procedures have one owner in the
+guide; no Atlas page redesign or release was performed.
+
+### Release 0.1.37 checks
+
+A fresh isolated full-pack capture compiled the exporter and recorded 9,536
+blocks, 10,116 items and 187 entity types on Minecraft 1.21.1 / NeoForge 21.1.264,
+with the published Compat 0.19.0 artifact. The 791-case profile compiled to 163
+stages and generated in 66.2 seconds. Its source SHA-256 is
+`954a75b31914989d9fba4c2968d21c7dd95143c4f3db2681231dee2d9f53093c`.
+The saved-world verifier passed 15,026 block states, 1,764 connections, 52 entities,
+24 inventory slots and six block-entity contracts, with no temporary forced chunks.
+This was a new disposable server; the playing server and loaded client save were
+not modified. The verifier refused the loaded personal fixture through its native
+world lock. No new visual review was claimed from this background run.
+
+The 61 pack tests pass. `pnpm verify` passes formatting, unused-code checks, 158
+JavaScript tests, Astro checks and the static build. `pnpm test:python` passes 34
+tests with one existing opt-in skip. Journal generation, the 256-file configuration
+audit and both resource builders pass. The generated resource patch remains
+`578c511eb1f426cc7ca3e642eb29e8f35db102b773956e83361311306f532804`.
+
 ## Release checks, 0.1.34
 
 The 56 pack tests, seven resource-review/stack tests, current journal/resource generation and 256-file configuration audit pass. All three reference distributions build with Compat 0.17.0 and the shared Macaw switch enabled. ZIP checks verify CRCs, every embedded payload hash, client-only resource/shader content and the server terminal helper. The lock changes only Compat’s public artifact and the intent fingerprint. Debug World exporter changes are excluded from the release.

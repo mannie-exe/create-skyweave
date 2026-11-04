@@ -1,0 +1,59 @@
+{
+  "id": "props",
+  "title": "Props and materials",
+  "anchor": [
+    -120,
+    168,
+    228
+  ],
+  "color": "blue",
+  "groups": [
+    {
+      "id": "selected-props",
+      "title": "Selected props",
+      "recipe": "block",
+      "selector": {
+        "ids": [
+          "minecraft:lodestone",
+          "minecraft:hay_block",
+          "minecraft:bookshelf",
+          "minecraft:chiseled_bookshelf",
+          "minecraft:beehive",
+          "minecraft:bee_nest",
+          "minecraft:target",
+          "minecraft:redstone_torch",
+          "minecraft:redstone_lamp",
+          "minecraft:bell",
+          "minecraft:scaffolding"
+        ],
+        "optional": false
+      }
+    },
+    {
+      "id": "campfires",
+      "title": "Campfires",
+      "recipe": "campfire",
+      "selector": {
+        "ids": [
+          "minecraft:campfire",
+          "minecraft:soul_campfire"
+        ],
+        "optional": false
+      }
+    },
+    {
+      "id": "bulbs",
+      "title": "Copper bulbs",
+      "recipe": "light",
+      "selector": {
+        "ids": [
+          "minecraft:copper_bulb",
+          "minecraft:exposed_copper_bulb",
+          "minecraft:weathered_copper_bulb",
+          "minecraft:oxidized_copper_bulb"
+        ],
+        "optional": false
+      }
+    }
+  ]
+}

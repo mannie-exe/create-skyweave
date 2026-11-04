@@ -1,0 +1,36 @@
+{
+  "id": "workstations",
+  "title": "Workstations",
+  "anchor": [
+    8,
+    152,
+    296
+  ],
+  "color": "red",
+  "groups": [
+    {
+      "id": "workstations",
+      "title": "Selected workstations",
+      "recipe": "workstation",
+      "selector": {
+        "ids": [
+          "minecraft:crafting_table",
+          "minecraft:furnace",
+          "minecraft:blast_furnace",
+          "minecraft:smoker",
+          "minecraft:smithing_table",
+          "minecraft:fletching_table",
+          "minecraft:cartography_table",
+          "minecraft:brewing_stand",
+          "minecraft:crafter",
+          "minecraft:loom",
+          "minecraft:stonecutter",
+          "minecraft:grindstone",
+          "minecraft:anvil",
+          "minecraft:enchanting_table"
+        ],
+        "optional": false
+      }
+    }
+  ]
+}

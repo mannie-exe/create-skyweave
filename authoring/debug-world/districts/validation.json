@@ -1,0 +1,157 @@
+{
+  "id": "validation",
+  "title": "Placement checks",
+  "anchor": [
+    96,
+    128,
+    0
+  ],
+  "color": "white",
+  "groups": [
+    {
+      "id": "placements",
+      "title": "Placement checks",
+      "recipe": "block",
+      "cases": [
+        {
+          "recipe": "glass",
+          "block": "minecraft:glass"
+        },
+        {
+          "recipe": "window",
+          "block": "mcwwindows:birch_window"
+        },
+        {
+          "recipe": "pane",
+          "block": "minecraft:glass_pane"
+        },
+        {
+          "recipe": "copycat",
+          "block": "create:copycat_panel",
+          "material": "minecraft:iron_bars"
+        },
+        {
+          "recipe": "crop",
+          "block": "minecraft:pitcher_crop",
+          "state": {
+            "age": "4"
+          }
+        },
+        {
+          "recipe": "plant",
+          "block": "minecraft:pitcher_plant"
+        },
+        {
+          "recipe": "aquatic",
+          "block": "minecraft:tall_seagrass"
+        },
+        {
+          "recipe": "block",
+          "block": "minecraft:potted_azalea_bush"
+        },
+        {
+          "recipe": "lantern",
+          "block": "minecraft:lantern"
+        },
+        {
+          "recipe": "wall_light",
+          "block": "mcwlights:bell_wall_lantern"
+        },
+        {
+          "recipe": "light",
+          "block": "createdeco:yellow_iron_lamp"
+        },
+        {
+          "recipe": "bridge",
+          "block": "mcwbridges:bridge_lantern",
+          "variant": "stair-east"
+        },
+        {
+          "recipe": "storage",
+          "block": "lootr:lootr_barrel"
+        },
+        {
+          "recipe": "double_chest",
+          "block": "minecraft:chest"
+        },
+        {
+          "recipe": "stairs",
+          "block": "minecraft:oak_stairs"
+        },
+        {
+          "recipe": "slab",
+          "block": "minecraft:oak_slab"
+        },
+        {
+          "recipe": "ladder",
+          "block": "minecraft:ladder"
+        },
+        {
+          "recipe": "rail",
+          "block": "minecraft:powered_rail"
+        },
+        {
+          "recipe": "door",
+          "block": "minecraft:oak_door"
+        },
+        {
+          "recipe": "workstation",
+          "block": "minecraft:brewing_stand"
+        },
+        {
+          "recipe": "campfire",
+          "block": "minecraft:campfire"
+        },
+        {
+          "recipe": "fluid",
+          "block": "minecraft:lava"
+        },
+        {
+          "recipe": "kinetic",
+          "block": "create:creative_motor"
+        },
+        {
+          "recipe": "entity",
+          "entity": "minecraft:mooshroom"
+        },
+        {
+          "recipe": "entity",
+          "entity": "minecraft:villager",
+          "baby": true
+        },
+        {
+          "recipe": "entity",
+          "entity": "minecraft:pig",
+          "motion": true
+        },
+        {
+          "recipe": "equipment",
+          "material": "iron"
+        },
+        {
+          "recipe": "effect",
+          "variant": "bubbles"
+        },
+        {
+          "recipe": "plant",
+          "block": "minecraft:sugar_cane"
+        },
+        {
+          "recipe": "aquatic",
+          "block": "minecraft:kelp"
+        },
+        {
+          "recipe": "storage",
+          "block": "minecraft:barrel"
+        },
+        {
+          "recipe": "waterlogged",
+          "block": "minecraft:oak_slab",
+          "state": {
+            "type": "bottom"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "profiles": {
+    "create_sky": {
+      "loader": "neoforge",
+      "districts": [
+        "glass",
+        "windows",
+        "panes",
+        "mesh",
+        "crops",
+        "pots",
+        "lighting",
+        "storage",
+        "partials",
+        "entities",
+        "workstations",
+        "props",
+        "fluids",
+        "mechanisms"
+      ]
+    },
+    "vanilla": {
+      "loader": "vanilla",
+      "districts": [
+        "glass",
+        "windows",
+        "panes",
+        "mesh",
+        "crops",
+        "pots",
+        "lighting",
+        "storage",
+        "partials",
+        "entities",
+        "workstations",
+        "props",
+        "fluids",
+        "mechanisms"
+      ],
+      "namespaces": [
+        "minecraft"
+      ]
+    },
+    "smoke": {
+      "loader": "neoforge",
+      "districts": [
+        "validation"
+      ]
+    }
+  }
+}

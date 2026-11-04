@@ -46,7 +46,7 @@ documents relevant to the task. Runtime and dependency pins live in `empack.yml`
   together when updating a patched dependency. Do not silently edit downloaded packs.
 - Prefer vanilla-compatible visuals across vanilla and modded content. Inspect
   model inheritance, UVs, animations and renderer ownership before adding overrides.
-  Reuse the Resource Review world and harness for visual checks; ask before taking
+  Reuse the generated Debug World and existing harness for visual checks; ask before taking
   desktop focus. Preserve the useful fixture, clean up disposable runs, and report
   source inspection separately from what was actually seen in game.
 - Verify builds and relevant runtime behavior. Separate inspection, automated

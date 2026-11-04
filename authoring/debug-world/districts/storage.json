@@ -1,0 +1,110 @@
+{
+  "id": "storage",
+  "title": "Storage",
+  "anchor": [
+    8,
+    168,
+    48
+  ],
+  "color": "purple",
+  "groups": [
+    {
+      "id": "containers",
+      "title": "Containers",
+      "recipe": "storage",
+      "selector": {
+        "ids": [
+          "minecraft:chest",
+          "minecraft:trapped_chest",
+          "minecraft:ender_chest",
+          "minecraft:barrel",
+          "minecraft:shulker_box",
+          "minecraft:decorated_pot"
+        ],
+        "optional": false
+      }
+    },
+    {
+      "id": "double-chests",
+      "title": "Double chests",
+      "recipe": "double_chest",
+      "selector": {
+        "ids": [
+          "minecraft:chest",
+          "minecraft:trapped_chest"
+        ],
+        "optional": false
+      }
+    },
+    {
+      "id": "lootr",
+      "title": "Lootr interactions",
+      "recipe": "storage",
+      "selector": {
+        "ids": [
+          "lootr:lootr_chest",
+          "lootr:lootr_trapped_chest",
+          "lootr:lootr_barrel",
+          "lootr:lootr_shulker"
+        ],
+        "optional": true
+      }
+    },
+    {
+      "id": "lootr-barrels",
+      "title": "Lootr barrel directions",
+      "recipe": "storage",
+      "cases": [
+        {
+          "block": "lootr:lootr_barrel",
+          "state": {
+            "facing": "up"
+          }
+        },
+        {
+          "block": "lootr:lootr_barrel",
+          "state": {
+            "facing": "down"
+          }
+        },
+        {
+          "block": "lootr:lootr_barrel",
+          "state": {
+            "facing": "north"
+          }
+        },
+        {
+          "block": "lootr:lootr_barrel",
+          "state": {
+            "facing": "south"
+          }
+        },
+        {
+          "block": "lootr:lootr_barrel",
+          "state": {
+            "facing": "east"
+          }
+        },
+        {
+          "block": "lootr:lootr_barrel",
+          "state": {
+            "facing": "west"
+          }
+        }
+      ]
+    },
+    {
+      "id": "lootr-references",
+      "title": "Unopened Lootr references",
+      "recipe": "storage",
+      "selector": {
+        "ids": [
+          "lootr:lootr_chest",
+          "lootr:lootr_trapped_chest",
+          "lootr:lootr_barrel"
+        ],
+        "optional": true
+      }
+    }
+  ]
+}

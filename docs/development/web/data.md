@@ -81,6 +81,12 @@ evidence that the exporter loaded it. Keep an older capture's provenance and
 stale indication until its inputs can be refreshed. Runtime refresh does not
 replace the separately dated world, island or structure surveys.
 
+The exporter also writes `debug_registry.json`: versioned block properties,
+inheritance, tags, item/entity IDs and observed build bounds for the
+[Debug World compiler](../debug-world.md). This capture owns available native
+content; authored profiles own which cases to display. Keep its adjacent
+`snapshot.json` when moving the registry so construction can verify runtime JARs.
+
 Use `python3 scripts/runtime.py --installed-mods` only for an explicit comparison
 with the configured installation. Both modes use the locked NeoForge libraries
 and maintained resource overrides; neither installs mods into a playing instance.

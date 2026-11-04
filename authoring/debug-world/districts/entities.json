@@ -1,0 +1,206 @@
+{
+  "id": "entities",
+  "title": "Entities and equipment",
+  "anchor": [
+    -248,
+    160,
+    208
+  ],
+  "color": "brown",
+  "groups": [
+    {
+      "id": "static-entities",
+      "title": "Static specimens",
+      "recipe": "entity",
+      "cases": [
+        {
+          "entity": "minecraft:cow"
+        },
+        {
+          "entity": "minecraft:mooshroom"
+        },
+        {
+          "entity": "minecraft:pig"
+        },
+        {
+          "entity": "minecraft:sheep"
+        },
+        {
+          "entity": "minecraft:chicken"
+        },
+        {
+          "entity": "minecraft:rabbit"
+        },
+        {
+          "entity": "minecraft:horse"
+        },
+        {
+          "entity": "minecraft:donkey"
+        },
+        {
+          "entity": "minecraft:llama"
+        },
+        {
+          "entity": "minecraft:cat"
+        },
+        {
+          "entity": "minecraft:wolf"
+        },
+        {
+          "entity": "minecraft:fox"
+        },
+        {
+          "entity": "minecraft:goat"
+        },
+        {
+          "entity": "minecraft:villager"
+        },
+        {
+          "entity": "minecraft:wandering_trader"
+        },
+        {
+          "entity": "minecraft:iron_golem"
+        },
+        {
+          "entity": "minecraft:snow_golem"
+        },
+        {
+          "entity": "minecraft:creeper"
+        },
+        {
+          "entity": "minecraft:zombie"
+        },
+        {
+          "entity": "minecraft:skeleton"
+        },
+        {
+          "entity": "minecraft:spider"
+        },
+        {
+          "entity": "minecraft:cave_spider"
+        },
+        {
+          "entity": "minecraft:enderman"
+        },
+        {
+          "entity": "minecraft:piglin"
+        },
+        {
+          "entity": "minecraft:zombified_piglin"
+        },
+        {
+          "entity": "minecraft:witch"
+        },
+        {
+          "entity": "minecraft:pillager"
+        },
+        {
+          "entity": "minecraft:vindicator"
+        },
+        {
+          "entity": "minecraft:evoker"
+        },
+        {
+          "entity": "minecraft:breeze"
+        },
+        {
+          "entity": "minecraft:allay"
+        },
+        {
+          "entity": "minecraft:armadillo"
+        },
+        {
+          "entity": "minecraft:sniffer"
+        },
+        {
+          "entity": "minecraft:camel"
+        },
+        {
+          "entity": "minecraft:turtle"
+        },
+        {
+          "entity": "minecraft:frog"
+        }
+      ]
+    },
+    {
+      "id": "babies",
+      "title": "Adults and young",
+      "recipe": "entity",
+      "cases": [
+        {
+          "entity": "minecraft:cow",
+          "baby": true
+        },
+        {
+          "entity": "minecraft:mooshroom",
+          "baby": true
+        },
+        {
+          "entity": "minecraft:pig",
+          "baby": true
+        },
+        {
+          "entity": "minecraft:sheep",
+          "baby": true
+        },
+        {
+          "entity": "minecraft:chicken",
+          "baby": true
+        },
+        {
+          "entity": "minecraft:villager",
+          "baby": true
+        },
+        {
+          "entity": "minecraft:sniffer",
+          "baby": true
+        },
+        {
+          "entity": "minecraft:camel",
+          "baby": true
+        }
+      ]
+    },
+    {
+      "id": "motion",
+      "title": "Motion pens",
+      "recipe": "entity",
+      "cases": [
+        {
+          "entity": "minecraft:pig",
+          "motion": true
+        },
+        {
+          "entity": "minecraft:chicken",
+          "motion": true
+        }
+      ]
+    },
+    {
+      "id": "equipment",
+      "title": "Equipment",
+      "recipe": "equipment",
+      "cases": [
+        {
+          "material": "leather"
+        },
+        {
+          "material": "chainmail"
+        },
+        {
+          "material": "iron"
+        },
+        {
+          "material": "golden"
+        },
+        {
+          "material": "diamond"
+        },
+        {
+          "material": "netherite"
+        }
+      ]
+    }
+  ]
+}

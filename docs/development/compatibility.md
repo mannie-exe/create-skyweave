@@ -1136,8 +1136,9 @@ standalone Compat installations default them off. Neighbor visibility remains a
 separate decision, so matching interfaces and opaque-neighbor occlusion retain
 their native rules. The [patch reference](patches.md) owns coverage and update checks.
 
-Resource Review classifies glass blocks, panes and mesh/grates by registered
-implementation class, with bounded pages. Doors and pipes are excluded. The
+The [generated Debug World](debug-world.md) classifies glass blocks, panes and
+mesh/grates by registered inheritance, tags and explicit family choices. Doors
+and pipes are excluded from those groups. The
 Macaw's sloped chain-hung appearance is approved; flat bridges retain the regular
 standing lantern. The matching optional Compat adaptation moves the stair outline and preserves
 selection outside its owning cell. Physical collision remains empty. Their matched views are in the

@@ -1,0 +1,108 @@
+{
+  "id": "mesh",
+  "title": "Bars and mesh",
+  "anchor": [
+    -120,
+    152,
+    48
+  ],
+  "color": "green",
+  "groups": [
+    {
+      "id": "bars",
+      "title": "Bars and overlays",
+      "recipe": "pane",
+      "selector": {
+        "ids": [
+          "minecraft:iron_bars"
+        ],
+        "classes": [
+          "IronBarsBlock",
+          "MeshFenceBlock"
+        ],
+        "namespaces": [
+          "minecraft",
+          "create",
+          "createdeco"
+        ],
+        "optional": false,
+        "excludeClasses": [
+          "GlassPaneBlock",
+          "StainedGlassPaneBlock",
+          "ConnectedGlassPaneBlock"
+        ]
+      }
+    },
+    {
+      "id": "grates",
+      "title": "Grates",
+      "recipe": "glass",
+      "selector": {
+        "ids": [
+          "minecraft:copper_grate",
+          "minecraft:exposed_copper_grate",
+          "minecraft:weathered_copper_grate",
+          "minecraft:oxidized_copper_grate",
+          "minecraft:waxed_copper_grate",
+          "minecraft:waxed_exposed_copper_grate",
+          "minecraft:waxed_weathered_copper_grate",
+          "minecraft:waxed_oxidized_copper_grate"
+        ],
+        "classes": [
+          "WeatheringCopperGrateBlock",
+          "OrnateGrateBlock"
+        ],
+        "namespaces": [
+          "minecraft",
+          "dndecor"
+        ],
+        "optional": false
+      }
+    },
+    {
+      "id": "rechiseled-mesh",
+      "title": "Rechiseled mesh",
+      "recipe": "glass",
+      "selector": {
+        "ids": [
+          "rechiseledcreate:birch_window_bars",
+          "rechiseledcreate:birch_window_bars_connecting",
+          "rechiseledcreate:crimson_window_bars",
+          "rechiseledcreate:crimson_window_bars_connecting",
+          "rechiseledcreate:dark_oak_window_bars",
+          "rechiseledcreate:dark_oak_window_bars_connecting",
+          "rechiseledcreate:jungle_window_bars",
+          "rechiseledcreate:jungle_window_bars_connecting",
+          "rechiseledcreate:mangrove_window_bars",
+          "rechiseledcreate:mangrove_window_bars_connecting",
+          "rechiseledcreate:oak_window_bars",
+          "rechiseledcreate:oak_window_bars_connecting",
+          "rechiseledcreate:spruce_window_bars",
+          "rechiseledcreate:spruce_window_bars_connecting",
+          "rechiseledcreate:warped_window_bars",
+          "rechiseledcreate:warped_window_bars_connecting"
+        ],
+        "optional": true
+      }
+    },
+    {
+      "id": "copycats",
+      "title": "Copycat materials",
+      "recipe": "copycat",
+      "cases": [
+        {
+          "block": "create:copycat_panel",
+          "material": "minecraft:iron_bars"
+        },
+        {
+          "block": "create:copycat_panel",
+          "material": "create:brass_bars"
+        },
+        {
+          "block": "create:copycat_panel",
+          "material": "createdeco:copper_bars"
+        }
+      ]
+    }
+  ]
+}

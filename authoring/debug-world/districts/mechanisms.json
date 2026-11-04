@@ -1,0 +1,45 @@
+{
+  "id": "mechanisms",
+  "title": "Create mechanisms",
+  "anchor": [
+    8,
+    160,
+    350
+  ],
+  "color": "light_gray",
+  "groups": [
+    {
+      "id": "kinetic-models",
+      "title": "Unpowered kinetic blocks",
+      "recipe": "block",
+      "selector": {
+        "ids": [
+          "create:shaft",
+          "create:cogwheel",
+          "create:large_cogwheel",
+          "create:gearbox",
+          "create:depot",
+          "create:mechanical_crafter",
+          "create:spout",
+          "create:item_drain",
+          "create:smart_chute",
+          "create:fluid_tank",
+          "create:fluid_pipe",
+          "create:glass_fluid_pipe"
+        ],
+        "optional": true
+      }
+    },
+    {
+      "id": "power",
+      "title": "Bounded rotation",
+      "recipe": "kinetic",
+      "cases": [
+        {
+          "block": "create:creative_motor"
+        }
+      ],
+      "optional": true
+    }
+  ]
+}

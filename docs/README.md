@@ -24,6 +24,7 @@ record what was tested at the time; they do not define current defaults.
 | [Compatibility and verification](development/compatibility.md) | Dependency constraints, shader evidence and test scope |
 | [Journal design and definitions](development/journal.md) | Capabilities, reward budgets, conditions and update checks |
 | [Pack authoring](development/authoring.md) | Journal generation, locale editing and categorized configuration audit |
+| [Debug World](development/debug-world.md) | Generated districts, native placement checks and safe fixture installation |
 | [Web map and authoring](development/web/README.md) | App setup, editor controls, data pipeline and verification |
 | [Journal integrations](development/journal-integrations.md) | EMI/JEI, translation and Ponder findings |
 | [World generation](development/worldgen.md) | Spacing policy and biome compatibility |

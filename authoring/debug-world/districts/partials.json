@@ -1,0 +1,119 @@
+{
+  "id": "partials",
+  "title": "Connections and partial blocks",
+  "anchor": [
+    136,
+    152,
+    248
+  ],
+  "color": "pink",
+  "groups": [
+    {
+      "id": "stairs",
+      "title": "Stairs",
+      "recipe": "stairs",
+      "selector": {
+        "ids": [
+          "minecraft:oak_stairs",
+          "minecraft:stone_brick_stairs",
+          "minecraft:cut_copper_stairs"
+        ],
+        "optional": false
+      }
+    },
+    {
+      "id": "slabs",
+      "title": "Slabs",
+      "recipe": "slab",
+      "selector": {
+        "ids": [
+          "minecraft:oak_slab",
+          "minecraft:stone_brick_slab",
+          "minecraft:cut_copper_slab"
+        ],
+        "optional": false
+      }
+    },
+    {
+      "id": "fences",
+      "title": "Fences and walls",
+      "recipe": "pane",
+      "selector": {
+        "ids": [
+          "minecraft:oak_fence",
+          "minecraft:nether_brick_fence",
+          "minecraft:cobblestone_wall",
+          "minecraft:stone_brick_wall"
+        ],
+        "optional": false
+      }
+    },
+    {
+      "id": "ladders",
+      "title": "Ladders",
+      "recipe": "ladder",
+      "selector": {
+        "ids": [
+          "minecraft:ladder"
+        ],
+        "optional": false
+      }
+    },
+    {
+      "id": "rails",
+      "title": "Rails",
+      "recipe": "rail",
+      "selector": {
+        "ids": [
+          "minecraft:rail",
+          "minecraft:powered_rail",
+          "minecraft:detector_rail",
+          "minecraft:activator_rail"
+        ],
+        "optional": false
+      }
+    },
+    {
+      "id": "doors",
+      "title": "Doors and trapdoors",
+      "recipe": "door",
+      "selector": {
+        "ids": [
+          "minecraft:oak_door",
+          "minecraft:iron_door",
+          "minecraft:oak_trapdoor",
+          "minecraft:iron_trapdoor",
+          "create:framed_glass_door",
+          "create:framed_glass_trapdoor"
+        ],
+        "optional": true
+      }
+    },
+    {
+      "id": "waterlogged",
+      "title": "Waterlogged blocks",
+      "recipe": "waterlogged",
+      "cases": [
+        {
+          "block": "minecraft:oak_slab",
+          "state": {
+            "type": "bottom"
+          }
+        },
+        {
+          "block": "minecraft:oak_stairs",
+          "state": {
+            "facing": "north",
+            "half": "bottom"
+          }
+        },
+        {
+          "block": "minecraft:glass_pane"
+        },
+        {
+          "block": "create:copper_bars"
+        }
+      ]
+    }
+  ]
+}

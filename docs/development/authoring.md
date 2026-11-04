@@ -6,6 +6,10 @@ or install changes into Minecraft. The [editor guide](web/authoring.md) describe
 the journal and disclaimer workbenches; [model authoring](web/models.md) covers
 texture extrusion, UV fitting and resource-pack generation.
 
+The [Debug World guide](debug-world.md) owns curated native displays, profile
+configuration, regeneration and guarded installation. It is separate from Atlas
+world-generation surveys and the playable server world.
+
 The [shader lab](../../tools/shader-lab/README.md) owns BSL and its Colorwheel
 patcher inputs. Run its builder before `empack sync` or a pack build. The playable
 pack consumes the generated complete shader, not the lab's plain BSL or patcher.

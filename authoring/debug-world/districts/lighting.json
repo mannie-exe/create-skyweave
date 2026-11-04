@@ -1,0 +1,118 @@
+{
+  "id": "lighting",
+  "title": "Lanterns and lamps",
+  "anchor": [
+    -120,
+    160,
+    -268
+  ],
+  "color": "orange",
+  "groups": [
+    {
+      "id": "lanterns",
+      "title": "Standing and hanging lanterns",
+      "recipe": "lantern",
+      "selector": {
+        "ids": [
+          "minecraft:lantern",
+          "minecraft:soul_lantern"
+        ],
+        "classes": [
+          "LanternBlock"
+        ],
+        "namespaces": [
+          "minecraft",
+          "mcwlights"
+        ],
+        "optional": false
+      }
+    },
+    {
+      "id": "wall-lanterns",
+      "title": "Wall lanterns",
+      "recipe": "wall_light",
+      "selector": {
+        "classes": [
+          "WallLantern"
+        ],
+        "namespaces": [
+          "mcwlights"
+        ],
+        "optional": true
+      }
+    },
+    {
+      "id": "cage-lamps",
+      "title": "Cage lamps",
+      "recipe": "light",
+      "selector": {
+        "classes": [
+          "CageLampBlock"
+        ],
+        "namespaces": [
+          "createdeco"
+        ],
+        "optional": true
+      }
+    },
+    {
+      "id": "dnd-lights",
+      "title": "Hoods and lamps",
+      "recipe": "light",
+      "selector": {
+        "classes": [
+          "FrontlightBlock",
+          "LampBlock"
+        ],
+        "namespaces": [
+          "dndecor"
+        ],
+        "optional": true
+      }
+    },
+    {
+      "id": "bridge-lanterns",
+      "title": "Bridge lanterns",
+      "recipe": "bridge",
+      "cases": [
+        {
+          "block": "mcwbridges:bridge_lantern",
+          "variant": "flat"
+        },
+        {
+          "block": "mcwbridges:bridge_lantern",
+          "variant": "stair-east"
+        },
+        {
+          "block": "mcwbridges:bridge_lantern",
+          "variant": "stair-south"
+        },
+        {
+          "block": "mcwbridges:bridge_lantern",
+          "variant": "stair-west"
+        },
+        {
+          "block": "mcwbridges:bridge_lantern",
+          "variant": "stair-north"
+        }
+      ]
+    },
+    {
+      "id": "emissive",
+      "title": "Emissive blocks",
+      "recipe": "block",
+      "selector": {
+        "ids": [
+          "minecraft:sea_lantern",
+          "minecraft:glowstone",
+          "minecraft:shroomlight",
+          "minecraft:jack_o_lantern",
+          "minecraft:ochre_froglight",
+          "minecraft:verdant_froglight",
+          "minecraft:pearlescent_froglight"
+        ],
+        "optional": false
+      }
+    }
+  ]
+}

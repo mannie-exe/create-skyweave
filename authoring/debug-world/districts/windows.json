@@ -1,0 +1,29 @@
+{
+  "id": "windows",
+  "title": "Window frames",
+  "anchor": [
+    136,
+    160,
+    -196
+  ],
+  "color": "cyan",
+  "groups": [
+    {
+      "id": "macaw-windows",
+      "title": "Macaw windows",
+      "recipe": "window",
+      "selector": {
+        "classes": [
+          "Window",
+          "WindowBarred",
+          "GothicWindow",
+          "ConnectedWindow"
+        ],
+        "namespaces": [
+          "mcwwindows"
+        ],
+        "optional": true
+      }
+    }
+  ]
+}

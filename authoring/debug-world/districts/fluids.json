@@ -1,0 +1,53 @@
+{
+  "id": "fluids",
+  "title": "Fluids and effects",
+  "anchor": [
+    136,
+    168,
+    152
+  ],
+  "color": "magenta",
+  "groups": [
+    {
+      "id": "fluids",
+      "title": "Source and flowing fluids",
+      "recipe": "fluid",
+      "cases": [
+        {
+          "block": "minecraft:water"
+        },
+        {
+          "block": "minecraft:lava"
+        }
+      ]
+    },
+    {
+      "id": "materials",
+      "title": "Transparent material boundaries",
+      "recipe": "glass",
+      "selector": {
+        "ids": [
+          "minecraft:ice",
+          "minecraft:packed_ice",
+          "minecraft:blue_ice",
+          "minecraft:slime_block",
+          "minecraft:honey_block"
+        ],
+        "optional": false
+      }
+    },
+    {
+      "id": "effects",
+      "title": "Effects",
+      "recipe": "effect",
+      "cases": [
+        {
+          "variant": "bubbles"
+        },
+        {
+          "variant": "smoke"
+        }
+      ]
+    }
+  ]
+}

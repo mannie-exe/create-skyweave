@@ -1,0 +1,72 @@
+{
+  "id": "crops",
+  "title": "Crops and water plants",
+  "anchor": [
+    8,
+    152,
+    -184
+  ],
+  "color": "lime",
+  "groups": [
+    {
+      "id": "growth",
+      "title": "Growth stages",
+      "recipe": "crop",
+      "selector": {
+        "ids": [
+          "minecraft:wheat",
+          "minecraft:carrots",
+          "minecraft:potatoes",
+          "minecraft:beetroots",
+          "minecraft:nether_wart",
+          "minecraft:sweet_berry_bush",
+          "minecraft:torchflower_crop",
+          "minecraft:pitcher_crop",
+          "minecraft:pumpkin_stem",
+          "minecraft:melon_stem"
+        ],
+        "optional": false
+      },
+      "variants": "growth"
+    },
+    {
+      "id": "rooted",
+      "title": "Rooted plants",
+      "recipe": "plant",
+      "selector": {
+        "ids": [
+          "minecraft:sugar_cane",
+          "minecraft:bamboo",
+          "minecraft:cactus",
+          "minecraft:azalea",
+          "minecraft:flowering_azalea",
+          "minecraft:dead_bush",
+          "minecraft:pitcher_plant",
+          "minecraft:sunflower",
+          "minecraft:lilac",
+          "minecraft:rose_bush",
+          "minecraft:peony",
+          "minecraft:tall_grass",
+          "minecraft:large_fern",
+          "minecraft:mangrove_propagule"
+        ],
+        "optional": false
+      }
+    },
+    {
+      "id": "aquatics",
+      "title": "Aquatic plants",
+      "recipe": "aquatic",
+      "selector": {
+        "ids": [
+          "minecraft:lily_pad",
+          "minecraft:kelp",
+          "minecraft:seagrass",
+          "minecraft:tall_seagrass",
+          "minecraft:sea_pickle"
+        ],
+        "optional": false
+      }
+    }
+  ]
+}
