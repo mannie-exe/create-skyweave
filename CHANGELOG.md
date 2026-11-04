@@ -2,6 +2,13 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.2.0 · 2026-11-04
+
+### Features
+
+- Migrate the pack and Atlas to Create Skyweave ([3e24378](https://github.com/mannie-exe/create-skyweave/commit/3e243786765d048f8d53944738ae5eca817fd45e))
+
+
 ## v0.1.37 · 2026-11-04
 
 ### Features
