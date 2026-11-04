@@ -3,9 +3,9 @@
   "records": [
     {
       "path": "overrides/common/config/create_sky_compat-features.properties",
-      "sha256": "55679564cb1b9db0541cedf42e7bee828b5eb7b5734e6fd5c44f6ba89e80ad9e",
+      "sha256": "081a13b0d158cf5287f4bb1239295f5de8fc1fc85fd33870aa762740c296d89e",
       "review": "reviewed",
-      "reason": "Enable reviewed terrain, machinery, journal, rendering and recovery adapters. Client glass adapters preserve material/axis boundaries and show reverse surfaces after native Create/Fusion connected-texture processing. Match Macaw stair-lantern selection to the hanging resource model on both sides.",
+      "reason": "Enable reviewed terrain, machinery, journal, rendering and recovery adapters. Client glass adapters preserve material/axis boundaries and show reverse surfaces after native Create/Fusion connected-texture processing. Match Macaw stair-lantern selection to the hanging resource model on both sides. Keep text displays and nametags readable with neutral Iris lighting and independent cast-shadow exclusions.",
       "reference": "docs/development/compatibility.md"
     },
     {

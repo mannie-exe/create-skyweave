@@ -3111,14 +3111,14 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://github.com/mannie-exe/create-sky-compat/releases/download/v0.18.0/create-sky-compat-0.18.0-mc1.21.1-neoforge.jar
+          https://github.com/mannie-exe/create-sky-compat/releases/download/v0.19.0/create-sky-compat-0.19.0-mc1.21.1-neoforge.jar
         kind: url
       expected:
         accepted-observation: null
         digests:
-          sha1: c585f15951ca806b22092da7fa5f36f8c8a95da0
+          sha1: 976e5dc069721e2b1927a412c4273acd21188830
           sha512: >-
-            d4b9ba1c0f53fc3491d1ab880d9469580bf4ab5dd97611dc6984f7762717c46f91714dde43164e8b14cd5b2cb5a1343d60e02c23e7639dc311b0b94b51a9b839
+            b556d02ce5ab61d73626be38134cf4f7d1ad53a12933323627cb9e723623fcd57b109726bda6928ca562eba2ff370cb5c4f36a0343fc39e8b9f3fdc871e095da
         size: null
       placements:
       - destination: mods/create-sky-compat.jar
@@ -3129,9 +3129,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: c585f15951ca806b22092da7fa5f36f8c8a95da0
+          sha1: 976e5dc069721e2b1927a412c4273acd21188830
           sha512: >-
-            d4b9ba1c0f53fc3491d1ab880d9469580bf4ab5dd97611dc6984f7762717c46f91714dde43164e8b14cd5b2cb5a1343d60e02c23e7639dc311b0b94b51a9b839
+            b556d02ce5ab61d73626be38134cf4f7d1ad53a12933323627cb9e723623fcd57b109726bda6928ca562eba2ff370cb5c4f36a0343fc39e8b9f3fdc871e095da
         location: null
         source: url-file
       slot: primary
@@ -8734,7 +8734,7 @@ dependencies:
       provider: modrinth
       selector: OnlVIpq5
     title: Fast Noise
-intent-revision: 8a45060f827be8bb8f3c7a3f960ae73408def40d6a5fdd8e5644135fac82c513
+intent-revision: 650ec909cd0c4f0ae0e0218d0c66b7e83ce72925fc1552a6f49fa762b4d07790
 required-edges:
   accessories:
   - owo-lib

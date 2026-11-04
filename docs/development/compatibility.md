@@ -252,12 +252,14 @@ verified the complete shader in the client reference exports, its editable prese
 policy, and no shader content in the server export. Neither plain BSL nor the
 patcher mod remains in the shipping lock or exports.
 
-Compat 0.18.0 uses one scrollable configuration document. Its independent
-text-display and nametag shadow exclusions are client-only Iris options, disabled
-by default. Enable them under Client → Iris when desired. Ordinary text rendering,
-entity-body shadows and item/block displays retain their native behavior. Custom
-renderers bypassing the vanilla boundaries are outside this coverage. Recheck
-Iris shadow-pass hooks when updating Minecraft or Iris.
+Compat 0.19.0 uses one scrollable configuration document. Client → Iris exposes
+independent text-display/nametag lighting and cast-shadow options, all enabled by
+the pack. Neutral lighting uses Iris fallback programs for selected text batches;
+later color grading/exposure can still affect color. Entity-body shading, signs,
+item/block displays and other text keep their native paths. Custom nametags that
+bypass Minecraft's base renderer are outside coverage. Review the
+[rendering contracts](https://github.com/mannie-exe/create-sky-compat/blob/v0.19.0/docs/development/rendering.md#world-text-lighting)
+when updating Minecraft, Iris or shaders.
 
 Complementary r5.9.3, Euphoria 1.10.5 and Photon 1.4 have native Colorwheel support.
 The patcher's older Photon 1.3a patch must not be forced onto 1.4. Select the
