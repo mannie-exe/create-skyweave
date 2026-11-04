@@ -53,7 +53,7 @@ const descriptions = {
     title: 'Sloped bridge lantern',
     question: 'Approved appearance: chain-hung lantern on the sloped bridge.',
     limit:
-      'Flat bridge keeps its regular lantern. Sloped appearance is approved; native interaction bounds still need adjustment.',
+      'Flat bridges keep their regular lantern. Sloped bridges use the approved hanging model with matching Compat selection.',
   },
   'lootr-repairs': {
     run: 'repairs-20261102',

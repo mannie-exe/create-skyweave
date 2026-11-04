@@ -4,6 +4,31 @@ Checks apply to the recorded source or artifact, not every later checkout. Brows
 checks establish interface behavior; native game checks and survey evidence have
 separate owners and limits. Commands and prerequisites live in [setup](setup.md).
 
+## Release checks, 0.1.34
+
+The 56 pack tests, seven resource-review/stack tests, current journal/resource generation and 256-file configuration audit pass. All three reference distributions build with Compat 0.17.0 and the shared Macaw switch enabled. ZIP checks verify CRCs, every embedded payload hash, client-only resource/shader content and the server terminal helper. The lock changes only Compat’s public artifact and the intent fingerprint. Debug World exporter changes are excluded from the release.
+
+## Hanging stair lanterns, 2026-11-03
+
+The maintained stair recipe emits the approved short-chain hanging model exactly; flat model bytes are unchanged. Compat 0.17.0 supplies the corresponding opt-in outline and outside-cell selection. Native checks cover four facings, above/below views, empty collision, segment limits, solid/bridge obstruction, nearest hits, removal, item placement, breaking/replacement, resource reload and cold reopening. The shared configuration group renders its label and model prerequisite.
+
+The isolated harness retains `images/2026-11-03-macaw-shapes` and `macaw_lantern_review.py`. Its 28 ray assertions and shader-off captures establish this pinned block/model combination, not arbitrary moving constructs or later Macaw versions. No other enabled model recipe exceeds the two-pixel out-of-cell audit threshold; small decorative extrusion was not treated as a reason to alter native collision.
+
+## Lootr barrel item transforms, 2026-11-03
+
+The 0.1.33 resource stack reproduces a flat GUI icon and oversized held barrel.
+Restoring `minecraft:block/block` inheritance on the four generated barrel leaves
+corrects the icon angle and first/third-person scale in the isolated native client.
+Vanilla barrel, furnace and Lootr chest GUI controls are unchanged. These captures
+use shaders off; dropped items and item frames were not visually checked.
+
+Evidence is retained in the resource harness at `images/2026-11-03-lootr-items`.
+The generated ZIP is SHA-256
+`45e573f9885334a2084474bb4843f9d24e64369d1096db9f27d3cff3e6691a5b`.
+Its only payload changes from the tested baseline are those four parent fields
+and their catalogue hashes. `python3 scripts/build-resource-patches.py --check`
+and `python3 -m unittest discover -s tests -v` pass (56 tests).
+
 ## Glass backfaces, 2026-11-03
 
 Create Sky Compat 0.16.0 adds opt-in runtime backfaces after native texture
@@ -115,9 +140,9 @@ source boundaries and update procedure.
 The approved sloped appearance uses Better Lanterns' hanging body and a short chain
 beneath the wooden rail. Flat bridges retain their original standing lantern.
 No placement pitch or yaw is applied. Fresh exact-PID captures confirm both choices
-in the same shader-off review stack. The sloped model remains review-only until
-native selection/collision bounds follow its new placement; shipping recipes are
-unchanged. Review artifact SHA-256:
+in the same shader-off review stack. The appearance study is now promoted through the maintained stair recipe and
+[matching runtime selection](#hanging-stair-lanterns-2026-11-03); native physical
+collision remains empty. Review artifact SHA-256:
 `b5c25a003cb688dc29f83363c08acfcca1b0a352053e785d9d797baae5a18801`.
 
 Atlas run `lantern-hanging-20261103` retains the comparison and the flat restoration;

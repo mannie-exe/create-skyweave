@@ -103,6 +103,9 @@ def build(archives, catalog, models=None):
                     else:
                         require(identifier in record['inputs'][1:], 'Unexpected barrel recipe texture')
                 model = geometry
+                # Flattened geometry still needs vanilla block-item transforms.
+                # The original cube_bottom_top parent supplied these through block/block.
+                model['parent'] = 'minecraft:block/block'
             # Shared side artwork remains useful to particles and other consumers;
             # placed blocks use the four explicit directional bindings above.
             write(resource(record['inputs'][0], 'textures', '.png'), png('south'))

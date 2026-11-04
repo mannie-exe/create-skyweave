@@ -200,7 +200,10 @@ their model outputs to each loot state; the builder combines geometry and artwor
 for both closed/open barrel leaves. Disabling extrusion retains the textured
 native cube. Eight explicit block-atlas sources admit the generated directional
 sprites; PNGs under `textures/generated` are not discovered by the vanilla
-`block/` sprite scan. Barrel open/close behavior is unchanged.
+`block/` sprite scan. Flattened barrel leaves inherit `minecraft:block/block`
+to retain vanilla GUI, hand, ground and item-frame transforms. The item still
+uses Lootr's native block-model parent; it does not need a custom renderer.
+Barrel open/close behavior is unchanged.
 
 Lootr chest PNGs retain the native 64×64 atlas and state filenames. Exterior UVs
 in the Lootr-specific CEMs are fitted to that atlas in closed model coordinates;
@@ -216,8 +219,9 @@ JAR has no added resources.
 
 The approved sloped-bridge appearance uses the pinned Better Lanterns hanging
 model and a short link beneath the rail. Flat bridges retain their standing
-lantern. The sloped model remains review-only: the native standing-lamp
-selection/collision shape also needs to follow the moved geometry before adoption.
+lantern. The pack enables Compat’s `macaw.bridge_lantern_shape` to match the hanging
+outline and select its overhang. Native collision remains empty; flat shapes stay
+unchanged. Resource geometry and the runtime switch must be updated together.
 Review media and the repeatable study builder live in the Resource Review harness.
 
 ### Model authoring

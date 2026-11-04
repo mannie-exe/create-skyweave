@@ -1,16 +1,9 @@
-# Create Sky 0.1.33
+# Create Sky 0.1.34
 
-Update Create Sky Compat to 0.16.0 and enable two-sided glass for the selected
-Create and Fusion models. Exposed glass can be seen from behind while retaining
-its connected textures, including the thick-window case. Create Deco windows
-using Create's implementation are included.
+Macaw’s sloped bridge lanterns now hang beneath the railing on a short chain. Flat bridges retain the standing lantern. Create Sky Compat 0.17.0 matches the stair-lantern outline and selection to the model, including its overhang; physical collision remains empty.
 
-Neighbor-face visibility remains separate. Matching glass interfaces and opaque
-neighbors keep their native culling; the resource pack adds no duplicate reverse
-surfaces. The two new adapters are opt-in in standalone Compat installations and
-enabled explicitly by this pack.
+Lootr barrel inventory icons and held-item scale now inherit vanilla block transforms. Approved barrel geometry, textures and open/looted variants are unchanged.
 
-Minecraft, loader and other dependency selections are unchanged. Existing worlds,
-seeds and LOD caches remain usable without regeneration.
+The Atlas resource review identifies the hanging model as part of the selected pack. Minecraft, loader and other dependency selections are unchanged. Existing worlds, seeds and LOD caches remain usable without regeneration.
 
-Previous release: [0.1.32](releases/0.1.32.md).
+Previous release: [0.1.33](releases/0.1.33.md).
