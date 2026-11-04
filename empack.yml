@@ -1,7 +1,7 @@
 schema: 5
 pack:
   name: Create Sky
-  version: 0.1.34
+  version: 0.1.35
   id: create_sky
   authors:
     - mannie-exe
@@ -81,11 +81,10 @@ dependencies:
   bellsandwhistles:
     source: modrinth:gJ5afkVv
     pin: w0mifib8
-  bsl-shaders:
+  bsl-colorwheel:
     side: client
-    source: modrinth:Q1vvjJYV
+    path: tools/shader-lab/dist/BSL_v10.1.8 + Clrwl_1.0.5.zip
     type: shader-pack
-    pin: Y68yiql9
   c2me-neoforge:
     source: modrinth:COlSi5iR
     pin: VACgDPOc
@@ -729,10 +728,10 @@ dependencies:
     source:
       kind: url
       downloads:
-        - https://github.com/mannie-exe/create-sky-compat/releases/download/v0.17.0/create-sky-compat-0.17.0-mc1.21.1-neoforge.jar
+        - https://github.com/mannie-exe/create-sky-compat/releases/download/v0.18.0/create-sky-compat-0.18.0-mc1.21.1-neoforge.jar
     digests:
-      sha1: 60a6aa132473a0ea280f4a4ed9a038af6313ff79
-      sha512: 8751a110ca1619562861efe4c7026c724657fba76625e8094a2847c853708df280d4eb56adb269069fdc00b431e59c9dbe80483f1d8a31cbd902e9d70a6f91b2
+      sha1: c585f15951ca806b22092da7fa5f36f8c8a95da0
+      sha512: d4b9ba1c0f53fc3491d1ab880d9469580bf4ab5dd97611dc6984f7762717c46f91714dde43164e8b14cd5b2cb5a1343d60e02c23e7639dc311b0b94b51a9b839
     environment:
       client: required
       server: required
@@ -753,10 +752,6 @@ dependencies:
     environment:
       client: required
       server: required
-  colorwheel-patcher:
-    pin: dQqV3sci
-    side: client
-    source: modrinth:colorwheel-patcher
   photon-shader:
     pin: BnGklH5y
     side: client

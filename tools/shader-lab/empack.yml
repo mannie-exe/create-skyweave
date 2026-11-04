@@ -1,0 +1,22 @@
+schema: 5
+pack:
+  id: create_sky_shader_lab
+  name: Create Sky Shader Lab
+  version: 0.1.0
+  authors: [mannie-exe]
+runtime:
+  minecraft: 1.21.1
+  loader:
+    kind: neoforge
+    pin: 21.1.264
+  java: 21
+dependencies:
+  bsl-shaders:
+    source: modrinth:Q1vvjJYV
+    type: shader-pack
+    pin: Y68yiql9
+    side: client
+  colorwheel-patcher:
+    source: modrinth:colorwheel-patcher
+    pin: dQqV3sci
+    side: client

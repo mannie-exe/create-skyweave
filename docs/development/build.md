@@ -16,6 +16,7 @@ clients or servers.
 | `overrides/client/`     | Client-only content and shader presets                             |
 | `templates/`            | Prism memory and Java arguments, and server properties             |
 | `web/`                  | Internal map and journal editor; excluded from pack payloads       |
+| `tools/shader-lab/`     | Author-only shader inputs and patched BSL generator                |
 | `docs/players/`         | Player and server-owner instructions                               |
 | `docs/development/`     | Maintainer procedures and dated evidence                           |
 | `docs/RELEASE_NOTES.md` | Notes consumed by release CI                                       |
@@ -44,6 +45,7 @@ After editing dependency intent, synchronize and materialize the selected files,
 then rebuild maintained resources and build all supported exports:
 
 ```sh
+python3 tools/shader-lab/build.py
 python3 scripts/generate-journal.py --check
 python3 scripts/audit-changes.py
 python3 scripts/build-fixes.py
@@ -53,6 +55,12 @@ python3 scripts/build-resource-patches.py
 empack build --profile prism --profile modrinth --profile server --yes --optional-defaults
 python3 scripts/patch-server-archives.py
 ```
+
+The [shader lab](../../tools/shader-lab/README.md) must run before root sync/build,
+including in fresh CI checkouts. Empack consumes its deterministic complete BSL
+result as a local client-only dependency. Plain BSL and Colorwheel Patcher are
+lab inputs and do not ship. The lab owns shader-input update procedures; its
+generated files are ignored rather than committed.
 
 The defaults build reference Modrinth, Prism and server archives under `dist/`.
 Prism and server recipients need empack 0.8.2-beta on `PATH`; the generated hooks

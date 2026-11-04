@@ -284,15 +284,6 @@ bindings:
             client: required
             server: required
           layer: common
-  colorwheel-patcher:
-    placement:
-      files:
-        colorwheel_patcher-neoforge-1.0.5+mc1.21.1.jar:
-        - destination: mods/colorwheel_patcher-neoforge-1.0.5+mc1.21.1.jar
-          environment:
-            client: required
-            server: unsupported
-          layer: client
   photon-shader:
     placement:
       files:
@@ -311,7 +302,7 @@ policies:
   config/bluemap/webapp.conf: seed
   icon.png: seed
   options.txt: seed
-  "shaderpacks/BSL_v10.1.8.zip.txt": seed
+  "shaderpacks/BSL_v10.1.8 + Clrwl_1.0.5.zip.txt": seed
   "shaderpacks/ComplementaryUnbound_r5.9.3 + EuphoriaPatches_1.10.5.txt": seed
   "shaderpacks/ComplementaryUnbound_r5.9.3.zip.txt": seed
   config/questlog/chapters/cargo.json: managed

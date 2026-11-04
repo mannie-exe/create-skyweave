@@ -6,6 +6,10 @@ or install changes into Minecraft. The [editor guide](web/authoring.md) describe
 the journal and disclaimer workbenches; [model authoring](web/models.md) covers
 texture extrusion, UV fitting and resource-pack generation.
 
+The [shader lab](../../tools/shader-lab/README.md) owns BSL and its Colorwheel
+patcher inputs. Run its builder before `empack sync` or a pack build. The playable
+pack consumes the generated complete shader, not the lab's plain BSL or patcher.
+
 ## Journal source
 
 The [journal design reference](journal.md#design-policy) owns entry purpose,

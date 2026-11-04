@@ -32,6 +32,7 @@ jobs:
         run: python3 .github/scripts/empack-ci.py install
       - name: Build maintained resources
         run: |
+          python3 tools/shader-lab/build.py
           python3 -m unittest discover -s tests -v
           python3 scripts/audit-changes.py
           python3 scripts/build-fixes.py

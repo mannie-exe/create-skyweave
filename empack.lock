@@ -16,7 +16,7 @@ coverage:
   better-lanterns: complete
   better-third-person: complete
   bluemap: complete
-  bsl-shaders: complete
+  bsl-colorwheel: unknown
   c2me-neoforge: complete
   cable-facades: complete
   carry-on: complete
@@ -26,7 +26,6 @@ coverage:
   cloth-config: complete
   collective: complete
   colorwheel: complete
-  colorwheel-patcher: complete
   complementary-unbound: complete
   connector: complete
   controlling: complete
@@ -1026,60 +1025,35 @@ dependencies:
       provider: modrinth
       selector: swbUV1cr
     title: BlueMap
-  bsl-shaders:
+  bsl-colorwheel:
     content: shader-pack
     files:
     - acquisition:
-        downloads:
-        - https://cdn.modrinth.com/data/Q1vvjJYV/versions/Y68yiql9/BSL_v10.1.8.zip
-        kind: provider
-        pin:
-          project:
-            project: Q1vvjJYV
-            provider: modrinth
-          selection:
-            id: Y68yiql9
-            provider: modrinth
-        slot: BSL_v10.1.8.zip
+        kind: local
+        path: tools/shader-lab/dist/BSL_v10.1.8 + Clrwl_1.0.5.zip
       expected:
-        accepted-observation: null
-        digests:
-          sha1: e89818c8827d0131c102fb480c3c3446624db0df
-          sha512: >-
-            94a3c25d6820868db624e11347873e6b572e7cd571967d9ac6f4690ca5d37ca302a7645d85eec800e0654541e3825fba14d37b5a25d3996aaf038178552be26f
-        size: 1134153
+        accepted-observation: bada3ea92fd09fc1edcb6f2fd7702abad1b7cf8290cebcbfff80f3b9ef1af48a
+        digests: null
+        size: 1141301
       placements:
-      - destination: shaderpacks/BSL_v10.1.8.zip
+      - destination: shaderpacks/BSL_v10.1.8 + Clrwl_1.0.5.zip
         environment:
           client: required
           server: unsupported
         layer: common
       provenance:
         conversions: []
-        declared-digests:
-          sha1: e89818c8827d0131c102fb480c3c3446624db0df
-          sha512: >-
-            94a3c25d6820868db624e11347873e6b572e7cd571967d9ac6f4690ca5d37ca302a7645d85eec800e0654541e3825fba14d37b5a25d3996aaf038178552be26f
-        location: Q1vvjJYV
-        source: provider-catalog
+        declared-digests: null
+        location: null
+        source: local-file
       slot: primary
     identity:
-      kind: provider
-      project:
-        project: Q1vvjJYV
-        provider: modrinth
+      key: bsl-colorwheel
+      kind: local
     incompatibilities: []
-    selection:
-      project:
-        project: Q1vvjJYV
-        provider: modrinth
-      selection:
-        id: Y68yiql9
-        provider: modrinth
-    source-selector:
-      provider: modrinth
-      selector: Q1vvjJYV
-    title: BSL Shaders
+    selection: null
+    source-selector: null
+    title: bsl-colorwheel
   c2me-neoforge:
     content: mod
     files:
@@ -1559,61 +1533,6 @@ dependencies:
       provider: modrinth
       selector: colorwheel
     title: Colorwheel
-  colorwheel-patcher:
-    content: mod
-    files:
-    - acquisition:
-        downloads:
-        - >-
-          https://cdn.modrinth.com/data/KPsw5jDu/versions/dQqV3sci/colorwheel_patcher-neoforge-1.0.5%2Bmc1.21.1.jar
-        kind: provider
-        pin:
-          project:
-            project: KPsw5jDu
-            provider: modrinth
-          selection:
-            id: dQqV3sci
-            provider: modrinth
-        slot: colorwheel_patcher-neoforge-1.0.5+mc1.21.1.jar
-      expected:
-        accepted-observation: null
-        digests:
-          sha1: 0e63780e5b8af294bf58609ac866b9866ab9537b
-          sha512: >-
-            902bca40ac980f4aab2564d64cf47a698b18f44234f9757c9125f755f9890d3350ca4e28e25e601ea8031139cab5b6bf897298bc4033e39ef86c9d7054705cb2
-        size: 210569
-      placements:
-      - destination: mods/colorwheel_patcher-neoforge-1.0.5+mc1.21.1.jar
-        environment:
-          client: required
-          server: unsupported
-        layer: client
-      provenance:
-        conversions: []
-        declared-digests:
-          sha1: 0e63780e5b8af294bf58609ac866b9866ab9537b
-          sha512: >-
-            902bca40ac980f4aab2564d64cf47a698b18f44234f9757c9125f755f9890d3350ca4e28e25e601ea8031139cab5b6bf897298bc4033e39ef86c9d7054705cb2
-        location: KPsw5jDu
-        source: provider-catalog
-      slot: colorwheel_patcher-neoforge-1.0.5+mc1.21.1.jar
-    identity:
-      kind: provider
-      project:
-        project: KPsw5jDu
-        provider: modrinth
-    incompatibilities: []
-    selection:
-      project:
-        project: KPsw5jDu
-        provider: modrinth
-      selection:
-        id: dQqV3sci
-        provider: modrinth
-    source-selector:
-      provider: modrinth
-      selector: colorwheel-patcher
-    title: Colorwheel Patcher
   complementary-unbound:
     content: shader-pack
     files:
@@ -3192,14 +3111,14 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://github.com/mannie-exe/create-sky-compat/releases/download/v0.17.0/create-sky-compat-0.17.0-mc1.21.1-neoforge.jar
+          https://github.com/mannie-exe/create-sky-compat/releases/download/v0.18.0/create-sky-compat-0.18.0-mc1.21.1-neoforge.jar
         kind: url
       expected:
         accepted-observation: null
         digests:
-          sha1: 60a6aa132473a0ea280f4a4ed9a038af6313ff79
+          sha1: c585f15951ca806b22092da7fa5f36f8c8a95da0
           sha512: >-
-            8751a110ca1619562861efe4c7026c724657fba76625e8094a2847c853708df280d4eb56adb269069fdc00b431e59c9dbe80483f1d8a31cbd902e9d70a6f91b2
+            d4b9ba1c0f53fc3491d1ab880d9469580bf4ab5dd97611dc6984f7762717c46f91714dde43164e8b14cd5b2cb5a1343d60e02c23e7639dc311b0b94b51a9b839
         size: null
       placements:
       - destination: mods/create-sky-compat.jar
@@ -3210,9 +3129,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: 60a6aa132473a0ea280f4a4ed9a038af6313ff79
+          sha1: c585f15951ca806b22092da7fa5f36f8c8a95da0
           sha512: >-
-            8751a110ca1619562861efe4c7026c724657fba76625e8094a2847c853708df280d4eb56adb269069fdc00b431e59c9dbe80483f1d8a31cbd902e9d70a6f91b2
+            d4b9ba1c0f53fc3491d1ab880d9469580bf4ab5dd97611dc6984f7762717c46f91714dde43164e8b14cd5b2cb5a1343d60e02c23e7639dc311b0b94b51a9b839
         location: null
         source: url-file
       slot: primary
@@ -8815,7 +8734,7 @@ dependencies:
       provider: modrinth
       selector: OnlVIpq5
     title: Fast Noise
-intent-revision: bcee92196a8f6212f5ea26ad7b6d6ea76111646886f71e983ace66fb12d99f5d
+intent-revision: 8a45060f827be8bb8f3c7a3f960ae73408def40d6a5fdd8e5644135fac82c513
 required-edges:
   accessories:
   - owo-lib

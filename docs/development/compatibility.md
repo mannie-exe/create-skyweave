@@ -215,7 +215,7 @@ add a second coordinate conversion based only on source-space positions.
 
 The manifest selects client-only Colorwheel 1.3.0+mc1.21.1 with Compat's optional
 rendering adaptations. Explicit client placements keep Colorwheel, Iris, Sodium
-and Colorwheel Patcher out of server exports. Existing renderer versions remain
+and generated shader content out of server exports. Existing renderer versions remain
 pinned.
 
 Compat supplies terrain/emission metadata on Sable's direct non-AO model path
@@ -234,16 +234,30 @@ retirement tied to the actual released Colorwheel/Sable implementations.
 
 ### Shader patching
 
-Colorwheel Patcher 1.0.5 overlays its embedded shader patches onto matching input
-archives at client startup. Its BSL version check accepts filenames containing
-`10.1`, including the selected 10.1.8. It generates
-`BSL_v10.1.8 + Clrwl_1.0.5.zip`, copies the original settings file and leaves the
-original archive intact. A second initialization skips an existing current output.
-The native released-JAR check generated the archive, changed 22 paths, passed ZIP
-integrity/path checks, preserved settings and left its output unchanged on rerun.
-The isolated full-pack client also compiled and rendered the generated BSL pack
-and an assembled carriage on the Apple M4 Pro. This does not establish every
-rendering path or performance.
+The [shader lab](../../tools/shader-lab/README.md) tracks BSL 10.1.8 and
+Colorwheel Patcher 1.0.5 in a separate empack workspace. Its automated builder
+copies BSL and overlays the patcher's embedded `patches/BSL.zip`, producing the
+complete `BSL_v10.1.8 + Clrwl_1.0.5.zip`. The playable pack consumes that local
+artifact with its matching preset; plain BSL and the patcher mod are not shipped.
+
+All 314 output file payloads match the real patcher's previously generated
+archive. ZIP metadata is normalized for repeatable builds. The native released-JAR
+check changed 22 paths and preserved settings. The isolated full-pack client
+compiled and rendered that shader and an assembled carriage on the Apple M4 Pro.
+The new headless generator has equivalent payloads; it has not received another
+client visual pass. This does not establish every rendering path or performance.
+
+The generator's `--check`, archive CRC checks and release/index inspection
+verified the complete shader in the client reference exports, its editable preset
+policy, and no shader content in the server export. Neither plain BSL nor the
+patcher mod remains in the shipping lock or exports.
+
+Compat 0.18.0 uses one scrollable configuration document. Its independent
+text-display and nametag shadow exclusions are client-only Iris options, disabled
+by default. Enable them under Client → Iris when desired. Ordinary text rendering,
+entity-body shadows and item/block displays retain their native behavior. Custom
+renderers bypassing the vanilla boundaries are outside this coverage. Recheck
+Iris shadow-pass hooks when updating Minecraft or Iris.
 
 Complementary r5.9.3, Euphoria 1.10.5 and Photon 1.4 have native Colorwheel support.
 The patcher's older Photon 1.3a patch must not be forced onto 1.4. Select the
@@ -260,13 +274,10 @@ accommodate macOS. The options were checked against the exact 1.4 sources; the
 preset has not been GPU-tested on a supported platform. Complementary/Euphoria
 remains the default. No additional runtime adapter is introduced.
 
-Keep the original shader downloads as referenced dependencies. Generate patched
-copies locally instead of distributing their modified archives. On updates,
-review the patcher's embedded `config.json`, filename matching and patched files;
-its broad substring match is not proof that a future BSL revision is compatible.
-Recheck settings copying, generated names, Iris/Colorwheel startup, moving geometry
-and DH before recommending a new combination. The patcher follows Euphoria in
-loader ordering and does not replace Euphoria's generator.
+The lab README owns acquisition, generation and dependency-update procedures.
+Recheck exact patch contents, output/preset names, Iris/Colorwheel startup, moving
+geometry and DH when updating either input. Euphoria retains its independent
+client-side generator; the lab does not replace it.
 
 Sources: [Colorwheel](https://modrinth.com/mod/colorwheel),
 [Patcher](https://modrinth.com/mod/colorwheel-patcher),

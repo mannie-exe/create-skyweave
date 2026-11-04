@@ -1,0 +1,5 @@
+/pack/
+/dist/
+/.cache/
+/.empack-cache/
+/.host-state/

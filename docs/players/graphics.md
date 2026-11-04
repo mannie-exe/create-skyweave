@@ -38,7 +38,7 @@ changes the artifact. Do not clear worlds or LOD caches to troubleshoot it.
 
 Colorwheel enables shader-aware Flywheel rendering with compatible shaders.
 Complementary and the generated Euphoria selection include native support; no
-Colorwheel Patcher is included. Shader-off rendering keeps Flywheel's ordinary
+extra patcher is needed. Shader-off rendering keeps Flywheel's ordinary
 backend. The Mac uses instancing; indirect rendering and Colorwheel OIT are
 unavailable there. Compat releases unused OIT sampler slots on that renderer and
 supplies material metadata for direct Sable model draws.
@@ -46,8 +46,7 @@ supplies material metadata for direct Sable model draws.
 These are separate `rendering.colorwheel_samplers` and
 `rendering.colorwheel_materials` startup switches. They complement the existing
 framebuffer and glass fixes. This does not promise improved FPS or corrected
-moving-airship shadows. BSL has no native Colorwheel programs in the selected
-archive and remains an alternative without Colorwheel acceleration.
+moving-airship shadows. The included BSL alternative is pre-patched for Colorwheel.
 
 ## Moving lights
 
@@ -108,7 +107,7 @@ Shaders are off by default. Select a pack through Iris's shader settings:
 | --- | --- | --- |
 | Complementary Unbound | r5.9.3 | Balanced preset with Low block reflections |
 | Complementary + Euphoria | 1.10.5 patches for r5.9.3 | Generated at launch; retains the pack's fog and night-sky settings |
-| BSL + Colorwheel | 10.1.8 + Clrwl 1.0.5 | Generated at launch; copies the supplied BSL settings |
+| BSL + Colorwheel | 10.1.8 + Clrwl 1.0.5 | Pre-patched shader with the supplied BSL settings |
 | Photon | 1.4 | High defaults with machinery shadows; native Colorwheel and DH support |
 
 The supplied Complementary, Euphoria and BSL presets use 128-block shadow distance.
@@ -120,10 +119,9 @@ These settings reduce selected rendering costs while retaining most effects;
 there is no measured FPS guarantee. Check moving ships, water and glass, island
 edges, and sunrise/sunset after changing settings.
 
-Colorwheel Patcher creates `BSL_v10.1.8 + Clrwl_1.0.5.zip` beside the original BSL
-archive. Select that generated pack for Colorwheel support; the original remains
-available. Current Complementary, Euphoria and Photon already support Colorwheel
-and do not need generated copies.
+Select `BSL_v10.1.8 + Clrwl_1.0.5.zip` for the BSL alternative. It is already
+patched for Colorwheel; no launch-time patching or plain BSL copy is required.
+Current Complementary, Euphoria and Photon support Colorwheel natively.
 
 Photon retains its native High lighting settings, including SH Skylight and colored
 shadows, with block-entity shadows enabled for machinery. Shadow distance is 128
@@ -132,7 +130,7 @@ profile and colored-lighting options remain available through the shader menu.
 
 Complementary + Euphoria remains the default selection. Photon is a manually
 selected alternative for supported GPUs; its author does not support Apple GPUs.
-Use Complementary/Euphoria on Apple hardware. Colorwheel Patcher does not change
+Use Complementary/Euphoria on Apple hardware. Shader patching does not change
 that hardware limitation.
 
 ## Texture-unit errors

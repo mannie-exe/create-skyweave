@@ -1,0 +1,122 @@
+acceptable-versions: []
+coverage:
+  bsl-shaders: complete
+  colorwheel-patcher: complete
+dependencies:
+  bsl-shaders:
+    content: shader-pack
+    files:
+    - acquisition:
+        downloads:
+        - https://cdn.modrinth.com/data/Q1vvjJYV/versions/Y68yiql9/BSL_v10.1.8.zip
+        kind: provider
+        pin:
+          project:
+            project: Q1vvjJYV
+            provider: modrinth
+          selection:
+            id: Y68yiql9
+            provider: modrinth
+        slot: BSL_v10.1.8.zip
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: e89818c8827d0131c102fb480c3c3446624db0df
+          sha512: >-
+            94a3c25d6820868db624e11347873e6b572e7cd571967d9ac6f4690ca5d37ca302a7645d85eec800e0654541e3825fba14d37b5a25d3996aaf038178552be26f
+        size: 1134153
+      placements:
+      - destination: shaderpacks/BSL_v10.1.8.zip
+        environment:
+          client: required
+          server: unsupported
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: e89818c8827d0131c102fb480c3c3446624db0df
+          sha512: >-
+            94a3c25d6820868db624e11347873e6b572e7cd571967d9ac6f4690ca5d37ca302a7645d85eec800e0654541e3825fba14d37b5a25d3996aaf038178552be26f
+        location: Q1vvjJYV
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: Q1vvjJYV
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: Q1vvjJYV
+        provider: modrinth
+      selection:
+        id: Y68yiql9
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: Q1vvjJYV
+    title: BSL Shaders
+  colorwheel-patcher:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/KPsw5jDu/versions/dQqV3sci/colorwheel_patcher-neoforge-1.0.5%2Bmc1.21.1.jar
+        kind: provider
+        pin:
+          project:
+            project: KPsw5jDu
+            provider: modrinth
+          selection:
+            id: dQqV3sci
+            provider: modrinth
+        slot: colorwheel_patcher-neoforge-1.0.5+mc1.21.1.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 0e63780e5b8af294bf58609ac866b9866ab9537b
+          sha512: >-
+            902bca40ac980f4aab2564d64cf47a698b18f44234f9757c9125f755f9890d3350ca4e28e25e601ea8031139cab5b6bf897298bc4033e39ef86c9d7054705cb2
+        size: 210569
+      placements:
+      - destination: mods/colorwheel_patcher-neoforge-1.0.5+mc1.21.1.jar
+        environment:
+          client: required
+          server: unsupported
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 0e63780e5b8af294bf58609ac866b9866ab9537b
+          sha512: >-
+            902bca40ac980f4aab2564d64cf47a698b18f44234f9757c9125f755f9890d3350ca4e28e25e601ea8031139cab5b6bf897298bc4033e39ef86c9d7054705cb2
+        location: KPsw5jDu
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: KPsw5jDu
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: KPsw5jDu
+        provider: modrinth
+      selection:
+        id: dQqV3sci
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: colorwheel-patcher
+    title: Colorwheel Patcher
+intent-revision: 20434bad203f5438d3e9386dd9402b7fff4c355ba0c13b479d5de14ba7121c31
+required-edges: {}
+resolver: empack-synchronization-v0.5
+runtime:
+  loader: neoforge
+  loader-version: "21.1.264"
+  minecraft: "1.21.1"
+schema: 2

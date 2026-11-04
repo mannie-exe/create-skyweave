@@ -3,7 +3,7 @@
   "baseline": "b5465d2aaf4b685baa46093fc805da0a51047bd9",
   "records": [
     {
-      "path": "overrides/client/shaderpacks/BSL_v10.1.8.zip.txt",
+      "path": "overrides/client/shaderpacks/BSL_v10.1.8 + Clrwl_1.0.5.zip.txt",
       "sha256": "8a51d3ea74f1e8e550ad9ed68bd8953a3b81b413e40f49f56bc44e5616e391ef",
       "review": "reviewed",
       "reason": "Reduce sampler pressure and shadow distance while retaining the tested shader effects.",

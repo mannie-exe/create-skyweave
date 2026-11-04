@@ -24,7 +24,7 @@ mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_
 | Better Lanterns | 1.2+1.21 | [Exact version](https://modrinth.com/version/jRAsb6KQ) |
 | Better Third Person | 1.9.0 | [Exact version](https://modrinth.com/mod/better-third-person/version/aG5y4JUQ) |
 | BlueMap (server only) | 5.7-neoforge | [Exact version](https://modrinth.com/mod/bluemap/version/8iJcPOHJ) |
-| BSL Shaders | 10.1.8 | [Exact version](https://modrinth.com/shader/bsl-shaders/version/Y68yiql9) |
+| BSL + Colorwheel | 10.1.8 + Clrwl 1.0.5 | [Generated shader](../tools/shader-lab/README.md) |
 | Cable Facades | 2.1.4 | [Exact version](https://modrinth.com/mod/cable-facades/version/XWCAtdzJ) |
 | Carry On Animation Fix | 1.0.0 | [Exact release](https://github.com/Pelly-the-Crafter/carryon-animation-fix/releases/tag/v1.0.0) |
 | Carry On | 2.2.6.13 | [Exact version](https://modrinth.com/version/PV8oLZ1q) |
@@ -33,14 +33,13 @@ mods. Euphoria builds its patched shader at launch. See [release notes](RELEASE_
 | Climbable Ropes for Create Aeronautics | 2.2.0 | [Exact version](https://modrinth.com/mod/create-aeronautics-climbable-rope/version/TTGedLb3) |
 | Cloth Config API | 15.0.140+neoforge | [Exact version](https://modrinth.com/mod/cloth-config/version/izKINKFg) |
 | Collective | 1.21.1-8.65-fabric+forge+neo | [Exact version](https://modrinth.com/mod/collective/version/d78uVgbq) |
-| Colorwheel Patcher | 1.0.5+mc1.21.1 | [Exact version](https://modrinth.com/mod/colorwheel-patcher/version/dQqV3sci) |
 | Colorwheel | 1.3.0+mc1.21.1 | [Exact version](https://modrinth.com/mod/colorwheel/version/8rq5KP4U) |
 | Complementary Unbound | r5.9.3 | [Exact version](https://modrinth.com/version/B1kyfoUZ) |
 | Concurrent Chunk Management Engine (NeoForge) | 0.4.0-alpha.0.124+1.21.1 | [Exact version](https://modrinth.com/mod/c2me-neoforge/version/VACgDPOc) |
 | Controlling | 19.0.5 | [Exact version](https://modrinth.com/mod/controlling/version/FaNppCJJ) |
 | Cool Rain Reforged | 1.0.2 | [Exact version](https://modrinth.com/mod/cool-rain-reforged/version/SwSSfJQQ) |
 | Copycat Bar Extrusion | 0.1.0 | [Exact release](https://github.com/mannie-exe/copycat-bar-extrusion/releases/tag/v0.1.0) |
-| Create Sky Compat | 0.15.0 | [GitHub release](https://github.com/mannie-exe/create-sky-compat/releases/tag/v0.15.0) |
+| Create Sky Compat | 0.18.0 | [GitHub release](https://github.com/mannie-exe/create-sky-compat/releases/tag/v0.18.0) |
 | Create Accessories Compat | 1.0 | [Exact version](https://modrinth.com/mod/create-accessories-compat/version/2r7hvkCQ) |
 | Create Aeronautics | 1.3.2+mc1.21.1 | [Exact version](https://modrinth.com/mod/create-aeronautics/version/44pLdPGg) |
 | Create Aeronautics: Transmission & Linkage | 0.2.9 | [Exact version](https://modrinth.com/mod/create-aeronautics-transmission-linkage/version/WoUjC6d4) |
