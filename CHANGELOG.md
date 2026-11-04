@@ -2,6 +2,12 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.1.36 · 2026-11-04
+
+### Fixes
+
+- **rendering:** Enable neutral world-text lighting ([024fc76](https://github.com/mannie-exe/create_sky/commit/024fc768c37a05f27a281e07ce3b6acea366fbc1))
+
 ## v0.1.35 · 2026-11-04
 
 ### Features
