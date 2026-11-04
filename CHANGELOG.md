@@ -2,6 +2,24 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.1.35 · 2026-11-04
+
+### Features
+
+- **pack:** Update Compat and prebuild BSL shaders ([9fd681f](https://github.com/mannie-exe/create_sky/commit/9fd681fd57a43de1001484d7272467764b2049e6))
+
+## v0.1.34 · 2026-11-04
+
+### Fixes
+
+- **resources:** Ship hanging bridge lanterns and barrel transforms ([9e17837](https://github.com/mannie-exe/create_sky/commit/9e1783741f82c2d2803c4bea105ad63ed4b87a36))
+
+## v0.1.33 · 2026-11-03
+
+### Fixes
+
+- **rendering:** Enable connected glass backfaces ([6eb6884](https://github.com/mannie-exe/create_sky/commit/6eb68843e19df6cb6df887ee40b7b3302c34cd1c))
+
 ## v0.1.32 · 2026-11-03
 
 ### Features
