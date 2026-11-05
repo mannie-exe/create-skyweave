@@ -2,6 +2,11 @@ acceptable-versions: []
 coverage:
   bsl-shaders: complete
   colorwheel-patcher: complete
+  complementary-unbound: complete
+  create: complete
+  euphoria-patches: complete
+  shader-json: unknown
+  shader-runner: unknown
 dependencies:
   bsl-shaders:
     content: shader-pack
@@ -112,7 +117,238 @@ dependencies:
       provider: modrinth
       selector: colorwheel-patcher
     title: Colorwheel Patcher
-intent-revision: a6f3b73c3c6b7539371f20ad9f4d86a564883a7ef1e4bbdc72827dc7f84dec16
+  complementary-unbound:
+    content: shader-pack
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/R6NEzAwj/versions/B1kyfoUZ/ComplementaryUnbound_r5.9.3.zip
+        kind: provider
+        pin:
+          project:
+            project: R6NEzAwj
+            provider: modrinth
+          selection:
+            id: B1kyfoUZ
+            provider: modrinth
+        slot: ComplementaryUnbound_r5.9.3.zip
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 2ee08300e1d6f039e63eae8484dddf57b3aaaf67
+          sha512: >-
+            a085d1d8cda67cd17a2b414eeba48bbd809da069f269bab46246235ec8fe714a275013c70d0504527b0987d810deddddba4564332414ab3b3bd7435932ff808c
+        size: 553400
+      placements:
+      - destination: shaderpacks/ComplementaryUnbound_r5.9.3.zip
+        environment:
+          client: required
+          server: unsupported
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 2ee08300e1d6f039e63eae8484dddf57b3aaaf67
+          sha512: >-
+            a085d1d8cda67cd17a2b414eeba48bbd809da069f269bab46246235ec8fe714a275013c70d0504527b0987d810deddddba4564332414ab3b3bd7435932ff808c
+        location: R6NEzAwj
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: R6NEzAwj
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: R6NEzAwj
+        provider: modrinth
+      selection:
+        id: B1kyfoUZ
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: R6NEzAwj
+    title: Complementary Shaders - Unbound
+  create:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/LNytGWDc/versions/UjX6dr61/create-1.21.1-6.0.10.jar
+        kind: provider
+        pin:
+          project:
+            project: LNytGWDc
+            provider: modrinth
+          selection:
+            id: UjX6dr61
+            provider: modrinth
+        slot: create-1.21.1-6.0.10.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 0e97e49837bed766e6f28a4c95b04885d6acc353
+          sha512: >-
+            11cc8fc049d2f67f6548c7abfada6b82a3adb5c7ca410a742de04bbca76e03862c518721b88d806f6e6d768a4d68531fdb903a85859b25d1484d550cc7bafd4b
+        size: 19123767
+      placements:
+      - destination: mods/create-1.21.1-6.0.10.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 0e97e49837bed766e6f28a4c95b04885d6acc353
+          sha512: >-
+            11cc8fc049d2f67f6548c7abfada6b82a3adb5c7ca410a742de04bbca76e03862c518721b88d806f6e6d768a4d68531fdb903a85859b25d1484d550cc7bafd4b
+        location: LNytGWDc
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: LNytGWDc
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: LNytGWDc
+        provider: modrinth
+      selection:
+        id: UjX6dr61
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: LNytGWDc
+    title: Create
+  euphoria-patches:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/4H6sumDB/versions/QMsRXtSJ/EuphoriaPatcher-1.10.5-r5.9.3-neoforge.jar
+        kind: provider
+        pin:
+          project:
+            project: 4H6sumDB
+            provider: modrinth
+          selection:
+            id: QMsRXtSJ
+            provider: modrinth
+        slot: EuphoriaPatcher-1.10.5-r5.9.3-neoforge.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 2b3f92878d6867fa0199937da25ba882b9db7902
+          sha512: >-
+            19e5528f6284f68d28e9e8b17a9531bb0f8e0ab862e3ab93a1b53fe3f18765cfa38cc512e66c2d4b308e6783307d132e8b5c337db4a39b016d75e6830376070a
+        size: 4492151
+      placements:
+      - destination: mods/EuphoriaPatcher-1.10.5-r5.9.3-neoforge.jar
+        environment:
+          client: required
+          server: unsupported
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 2b3f92878d6867fa0199937da25ba882b9db7902
+          sha512: >-
+            19e5528f6284f68d28e9e8b17a9531bb0f8e0ab862e3ab93a1b53fe3f18765cfa38cc512e66c2d4b308e6783307d132e8b5c337db4a39b016d75e6830376070a
+        location: 4H6sumDB
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: 4H6sumDB
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: 4H6sumDB
+        provider: modrinth
+      selection:
+        id: QMsRXtSJ
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: 4H6sumDB
+    title: Euphoria Patches
+  shader-json:
+    content: other-file
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar
+        kind: url
+      expected:
+        accepted-observation: null
+        digests:
+          sha256: 4241c14a7727c34feea6507ec801318a3d4a90f070e4525681079fb94ee4c593
+        size: null
+      placements:
+      - destination: shader-tools/gson.jar
+        environment:
+          client: required
+          server: unsupported
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha256: 4241c14a7727c34feea6507ec801318a3d4a90f070e4525681079fb94ee4c593
+        location: null
+        source: url-file
+      slot: content
+    identity:
+      key: shader-json
+      kind: url
+    incompatibilities: []
+    selection: null
+    source-selector: null
+    title: shader-json
+  shader-runner:
+    content: other-file
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.21.0/skyweave-compat-0.21.0-mc1.21.1-neoforge.jar
+        kind: url
+      expected:
+        accepted-observation: null
+        digests:
+          sha256: b54189160996a769bc38f30bf31c4050e65e06983b809b2af9680bab076caa69
+        size: null
+      placements:
+      - destination: shader-tools/runner.jar
+        environment:
+          client: required
+          server: unsupported
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha256: b54189160996a769bc38f30bf31c4050e65e06983b809b2af9680bab076caa69
+        location: null
+        source: url-file
+      slot: content
+    identity:
+      key: shader-runner
+      kind: url
+    incompatibilities: []
+    selection: null
+    source-selector: null
+    title: shader-runner
+intent-revision: 83e3df864f0ae238729f386ed6dd2e9f1fef0dbfd5b369d5c5471cd4ff879045
 required-edges: {}
 resolver: empack-synchronization-v0.5
 runtime:

@@ -8,7 +8,7 @@
     "jump": true,
     "sneak": "Maintain",
     "sneak_disallowed": "Maintain",
-    "sneak_flying": "Pressed",
+    "sneak_flying": "MaintainWhilePressed",
     "dismount": false,
     "textFieldDisables": true,
     "unrecognizedScreenDefault": false

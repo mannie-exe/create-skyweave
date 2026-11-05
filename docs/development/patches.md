@@ -309,8 +309,10 @@ validates the complete model after composition; source templates remain unchange
 The tavern, chain and striped lantern recipes reuse the fitted detailed body.
 Eight wall variants retain Macaw's bracket and attachment position. The DnD hood
 uses two plates extending two and one pixels, with the outer plate inset one pixel
-at each side. Cage connectors bridge the transition between side struts and top
-struts. These are authored cuboids and texture-mask extrusion, not boolean geometry.
+at each side. Cage connectors overlap the side and top struts; they do not form
+continuous bends or remove intersecting geometry. These are authored cuboids and
+texture-mask extrusion, not boolean geometry. See the generator's
+[extrusion limits](web/models.md#extrusion).
 The combined models were inspected in Resource Review with shaders off and with
 Complementary Unbound/Euphoria; see [verification](compatibility.md#visual-compatibility-pass).
 

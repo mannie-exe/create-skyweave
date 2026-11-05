@@ -445,9 +445,9 @@
     },
     {
       "path": "overrides/client/config/invmove.json",
-      "sha256": "64418b74f502b8a7115d7e32e360b35df126611cb3f6a58558ded3d1206b0e64",
+      "sha256": "86e8fc022573107a8381e3f38af8b1220b21485041ff5dfc82965c72f435fac3",
       "review": "reviewed",
-      "reason": "Native defaults reviewed for the controls, equipment and resource-pack integration; intentional settings are described in compatibility.md.",
+      "reason": "Keep inventory movement and text-focus protection. Creative-flight descent is maintained only until its pre-existing sneak key is released; fresh GUI Shift presses do not start descent.",
       "reference": "docs/development/compatibility.md#controls-and-resource-packs"
     },
     {

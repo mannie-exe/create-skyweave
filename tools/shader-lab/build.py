@@ -1,87 +1,92 @@
 #!/usr/bin/env python3
-"""Build complete BSL + Colorwheel archives from the lab's verified empack inputs."""
-
+"""Acquire pinned inputs and invoke the same Java recipe engine used by recipients."""
 import argparse
-import io
+import hashlib
 import json
-from pathlib import Path, PurePosixPath
+import os
+from pathlib import Path
+import re
 import shutil
 import subprocess
 import sys
-import tomllib
 import zipfile
 
 LAB = Path(__file__).resolve().parent
 ROOT = LAB.parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
-from archive_output import archive_bytes, publish
+from archive_output import publish
+from materials import classify
 
 
-def entries(archive):
-    result = {}
-    for info in archive.infolist():
-        name = info.filename
-        path = PurePosixPath(name)
-        if path.is_absolute() or ".." in path.parts or "\\" in name:
-            raise ValueError(f"Unsafe archive member: {name}")
-        if info.is_dir():
-            continue
-        if name in result or info.file_size > 32 * 1024 * 1024:
-            raise ValueError(f"Duplicate or oversized archive member: {name}")
-        result[name] = archive.read(info)
-    return result
-
-
-def build(empack, check=False):
-    # empack owns provider pins, acquisition and digest verification in this workspace.
-    subprocess.run(
-        [empack, "--workdir", str(LAB), "--yes", "sync", "--materialize"], check=True
-    )
-    shaders = list((LAB / "pack/shaderpacks").glob("BSL_*.zip"))
-    patchers = list((LAB / "pack/mods").glob("colorwheel_patcher-*.jar"))
-    if len(shaders) != 1 or len(patchers) != 1:
-        raise ValueError(
-            "The lab must materialize exactly one BSL input and one patcher"
-        )
-    base, patcher = shaders[0], patchers[0]
-    with zipfile.ZipFile(base) as archive:
-        merged = entries(archive)
-    with zipfile.ZipFile(patcher) as archive:
-        config = json.loads(archive.read("config.json"))
-        bsl = [p for p in config["patches"] if p["shaderName"] == "BSL"]
-        if len(bsl) != 1 or not any(v in base.name for v in bsl[0]["versions"]):
-            raise ValueError("The selected patcher does not advertise this BSL version")
-        metadata = tomllib.loads(archive.read("META-INF/neoforge.mods.toml").decode())
-        version = next(
-            m["version"] for m in metadata["mods"] if m["modId"] == "colorwheel_patcher"
-        ).split("+")[0]
-        with zipfile.ZipFile(io.BytesIO(archive.read("patches/BSL.zip"))) as patch:
-            overlay = entries(patch)
-    # Match upstream: unpack BSL, then extract its embedded overlay beside shaders/.
-    if not any(n.startswith("shaders/") for n in merged):
-        raise ValueError("Review a changed BSL archive root before patching")
-    if not overlay or not all(n.startswith("shaders/") for n in overlay):
-        raise ValueError("Review changed Colorwheel overlay paths before patching")
-    merged.update(overlay)
-    destination = LAB / "dist" / f"{base.stem} + Clrwl_{version}.zip"
-    publish(destination, archive_bytes(merged, (1980, 1, 1, 0, 0, 0)), check=check)
-    print(destination.relative_to(ROOT))
-    return destination
+def build(empack, check=False, runner=None):
+    for name in ("create", "euphoria-patches"):
+        pins = []
+        for manifest in (ROOT / "empack.yml", LAB / "empack.yml"):
+            text = manifest.read_text()
+            block = re.search(rf"^  {name}:\n(.*?)(?=^  [a-z0-9_-]+:|\Z)", text, re.M | re.S)
+            pin = re.search(r"^    pin: (\S+)$", block[1], re.M) if block else None
+            if pin is None:
+                raise ValueError(f"Review {name} pin representation in {manifest}")
+            pins.append(pin[1])
+        if pins[0] != pins[1]:
+            raise ValueError(f"Align {name} pins in the pack and shader lab before generating")
+    subprocess.run([empack, "--workdir", str(LAB), "--yes", "sync", "--materialize"], check=True)
+    runner = Path(runner) if runner else LAB / "pack/shader-tools/runner.jar"
+    if not runner.is_file():
+        raise ValueError("Shader runner is missing; use --runner with a verified candidate Compat JAR during development")
+    workspace = LAB / ".cache/recipient"
+    recipes = ROOT / "overrides/client/config/skyweave-shaders/recipes"
+    target = workspace / "config/skyweave-shaders/recipes"
+    target.mkdir(parents=True, exist_ok=True)
+    known = set()
+    for recipe_file in sorted(recipes.glob("*.json")):
+        recipe = json.loads(recipe_file.read_text())
+        known.add(recipe_file.name)
+        shutil.copy2(recipe_file, target / recipe_file.name)
+        for definition in recipe["inputs"].values():
+            name = Path(definition["path"]).name
+            sources = [p for p in (LAB / "pack").rglob(name) if p.is_file()]
+            if len(sources) != 1:
+                raise ValueError(f"Expected one materialized input: {name}")
+            if hashlib.sha256(sources[0].read_bytes()).hexdigest() != definition["sha256"]:
+                raise ValueError(f"Update the qualified recipe after reviewing changed input: {name}")
+            destination = workspace / definition["path"]
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(sources[0], destination)
+        # Classification is an authoring qualification, not a second patch implementation.
+        for step in recipe["steps"]:
+            if step.get("path") == "skyweave-glass.json":
+                report = json.loads(step["replace"])["blocks"]
+                create = workspace / recipe["inputs"]["create"]["path"]
+                with zipfile.ZipFile(create) as archive:
+                    if classify(archive, [row["id"] for row in report]) != report:
+                        raise ValueError("Create texture bindings/alpha changed; review material policy")
+    for old in target.glob("*.json"):
+        if old.name not in known:
+            old.unlink()  # This entire workspace is lab-owned staging.
+    gson = LAB / "pack/shader-tools/gson.jar"
+    command = ["java", "-cp", os.pathsep.join([str(runner.resolve()), str(gson)]),
+               "design.inherent.skyweavecompat.shader.ShaderCli", str(workspace)]
+    if check:
+        command.append("--check")
+    subprocess.run(command, check=True)
+    outputs = []
+    for recipe_file in sorted(recipes.glob("*.json")):
+        recipe = json.loads(recipe_file.read_text())
+        destination = LAB / "dist" / recipe["output"]
+        publish(destination, (workspace / "shaderpacks" / recipe["output"]).read_bytes(), check=check)
+        outputs.append(destination)
+        print(destination.relative_to(ROOT))
+    return outputs
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
-        "--empack",
-        default=shutil.which("empack") or str(Path.home() / ".local/bin/empack"),
-    )
-    parser.add_argument(
-        "--check",
-        action="store_true",
-        help="Verify the existing generated archive without replacing it",
-    )
+    parser.add_argument("--empack", default=shutil.which("empack") or str(Path.home() / ".local/bin/empack"))
+    parser.add_argument("--runner", type=Path, help="Use an explicit candidate Compat JAR instead of the pinned lab runner")
+    parser.add_argument("--check", action="store_true", help="Rebuild and compare without replacing generated outputs")
     args = parser.parse_args()
     try:
-        build(args.empack, args.check)
+        build(args.empack, args.check, args.runner)
     except (ValueError, OSError, subprocess.CalledProcessError) as error:
         parser.exit(1, f"Shader lab: {error}\n")

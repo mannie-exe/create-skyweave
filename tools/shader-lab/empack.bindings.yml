@@ -1,0 +1,20 @@
+schema: 1
+bindings:
+  shader-json:
+    placement:
+      files:
+        content:
+        - destination: shader-tools/gson.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: common
+  shader-runner:
+    placement:
+      files:
+        content:
+        - destination: shader-tools/runner.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: common

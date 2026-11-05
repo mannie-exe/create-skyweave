@@ -1,11 +1,24 @@
-# Create: Skyweave 0.2.1
+# Create: Skyweave 0.2.2
 
-Correct product names in documentation, credits, BlueMap defaults, Atlas descriptions, and development exporter metadata. Launcher and archive labels use Skyweave modpack.
+Generate the maintained shaders on clients from verified provider inputs. Only
+complete BSL/Colorwheel and Complementary Unbound/Euphoria/Skyweave results enter
+Iris's list. The shared Java engine runs before first shader load, caches verified
+outputs and supports rebuilding from Compat settings. No recipient Python or
+launcher-specific shader command is needed. Source inputs are installed outside
+`shaderpacks/`; merged shader ZIPs are no longer shipped as pack content.
 
-Include Skyweave: Compatibility Patches 0.20.1 with verified release checksums. Its internal identity remains `skyweave-compat`; gameplay, registry IDs, generation behavior, resource selections, and other dependency pins are unchanged from 0.2.0.
+Include Skyweave: Compatibility Patches 0.21.0, with completed Tiled Glass/pane
+backfaces and touching-surface separation. Stable adaptations default on when
+qualified; existing explicit choices remain authoritative. Keep the current
+Complementary/Euphoria quality preset and shader enablement policy. Photon remains
+an optional unmodified shader for supported hardware.
 
-The `create_skyweave` installation lineage remains separate from old `create_sky` instances. Existing Create Sky worlds must stay on their original releases. This update does not convert worlds or authorize deleting generation markers.
+Inventory Shift presses no longer begin creative-flight descent while moving
+items. An already held descent key remains active until released.
 
-Automated checks and exported payload verification are recorded in [compatibility](development/compatibility.md) and [Atlas verification](development/web/verification.md). Interactive Minecraft rendering was not rechecked for this text-only update.
+Generation formulas, the seed and resource distribution are unchanged. Existing
+worlds and LODs do not need regeneration. The Debug World and existing approved
+resource selections remain in place.
 
-Previous release: [0.2.0](releases/0.2.0.md).
+See [compatibility](development/compatibility.md#shader-assembly-022) for verification
+and renderer limits. Previous release: [0.2.1](releases/0.2.1.md).

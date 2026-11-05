@@ -20,3 +20,25 @@ dependencies:
     source: modrinth:colorwheel-patcher
     pin: dQqV3sci
     side: client
+  complementary-unbound:
+    source: modrinth:R6NEzAwj
+    type: shader-pack
+    pin: B1kyfoUZ
+    side: client
+  euphoria-patches:
+    source: modrinth:4H6sumDB
+    pin: QMsRXtSJ
+    side: client
+  create:
+    source: modrinth:LNytGWDc
+    pin: UjX6dr61
+  shader-json:
+    url: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar
+    sha256: 4241c14a7727c34feea6507ec801318a3d4a90f070e4525681079fb94ee4c593
+    type: other-file
+    side: client
+  shader-runner:
+    url: https://github.com/mannie-exe/skyweave-compat/releases/download/v0.21.0/skyweave-compat-0.21.0-mc1.21.1-neoforge.jar
+    sha256: b54189160996a769bc38f30bf31c4050e65e06983b809b2af9680bab076caa69
+    type: other-file
+    side: client

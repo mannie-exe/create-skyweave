@@ -116,3 +116,6 @@ coverage.xml
 /docs/config-audit/
 /docs/**/*.json
 /docs/TASK.md
+
+# Recipient shader inputs are materialized from pinned provider references.
+/overrides/client/shader-inputs/

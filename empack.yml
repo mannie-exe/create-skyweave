@@ -1,7 +1,7 @@
 schema: 5
 pack:
   name: Skyweave modpack
-  version: 0.2.1
+  version: 0.2.2
   id: create_skyweave
   authors:
     - mannie-exe
@@ -81,10 +81,15 @@ dependencies:
   bellsandwhistles:
     source: modrinth:gJ5afkVv
     pin: w0mifib8
-  bsl-colorwheel:
-    side: client
-    path: tools/shader-lab/dist/BSL_v10.1.8 + Clrwl_1.0.5.zip
+  bsl-shaders:
+    source: modrinth:Q1vvjJYV
     type: shader-pack
+    pin: Y68yiql9
+    side: client
+  colorwheel-patcher:
+    source: modrinth:colorwheel-patcher
+    pin: dQqV3sci
+    side: client
   c2me-neoforge:
     source: modrinth:COlSi5iR
     pin: VACgDPOc
@@ -98,10 +103,10 @@ dependencies:
     source: modrinth:9s6osm5g
     pin: izKINKFg
   complementary-unbound:
-    side: client
     source: modrinth:R6NEzAwj
     type: shader-pack
     pin: B1kyfoUZ
+    side: client
   connector:
     source: modrinth:u58R1TMW
     pin: IITF0PRC
@@ -728,10 +733,10 @@ dependencies:
     source:
       kind: url
       downloads:
-        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.20.1/skyweave-compat-0.20.1-mc1.21.1-neoforge.jar
+        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.21.0/skyweave-compat-0.21.0-mc1.21.1-neoforge.jar
     digests:
-      sha1: 980742b976efce7f3d6908fbb928f3f65a037be8
-      sha512: 1578e740c9ee26f1554062012486dc0964c6974907a58aaddafe713e5ddc03850f979cb8ad85ebdaa8e6591ba43229523d863650b7be574dfa180aa33a30f3dc
+      sha1: 9b7414b28c29755f4ad0b68d203af645357a0f07
+      sha512: 478339f296dbda610e21761f8835f673393cd58abf68a8a910c29a7326fc2541898da589db64b48ee267af652083c769e9b5a8b804a2ddb59b63ba4687b5542c
     environment:
       client: required
       server: required

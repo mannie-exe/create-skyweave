@@ -16,7 +16,7 @@ clients or servers.
 | `overrides/client/`     | Client-only content and shader presets                             |
 | `templates/`            | Prism memory and Java arguments, and server properties             |
 | `web/`                  | Internal map and journal editor; excluded from pack payloads       |
-| `tools/shader-lab/`     | Author-only shader inputs and patched BSL generator                |
+| `tools/shader-lab/`     | Pinned shader inputs and shared-engine author builds         |
 | `docs/players/`         | Player and server-owner instructions                               |
 | `docs/development/`     | Maintainer procedures and dated evidence                           |
 | `docs/RELEASE_NOTES.md` | Notes consumed by release CI                                       |
@@ -56,11 +56,13 @@ empack build --profile prism --profile modrinth --profile server --yes --optiona
 python3 scripts/patch-server-archives.py
 ```
 
-The [shader lab](../../tools/shader-lab/README.md) must run before root sync/build,
-including in fresh CI checkouts. Empack consumes its deterministic complete BSL
-result as a local client-only dependency. Plain BSL and Colorwheel Patcher are
-lab inputs and do not ship. The lab owns shader-input update procedures; its
-generated files are ignored rather than committed.
+The [shader lab](../../tools/shader-lab/README.md) qualifies both recipes through
+Compat's shared Java engine. Authoring/CI builds materialize exact inputs and
+produce complete review ZIPs; exports reference original shader/payload inputs in
+`shader-inputs/` and include the managed recipes. The client generates its finished
+ZIPs before Iris opens them. Complete merged shaders are not published as pack
+assets or simultaneously managed by empack. Euphoria and Colorwheel retain their
+runtime roles. The lab owns recipe and input update procedures.
 
 The defaults build reference Modrinth, Prism and server archives under `dist/`.
 Prism and server recipients need empack 0.8.2-beta on `PATH`; the generated hooks
@@ -143,8 +145,8 @@ terrain-generation check does not establish renderer compatibility.
 
 SeedGen is excluded. Do not add native worker inputs, prediction settings or seed
 sharing to distributed defaults. Preserve existing world and LOD cache identities
-when syncing an authorized update. Opt-in cache isolation requires an explicit
-operator decision because selecting a new key does not migrate old client data.
+when syncing an authorized update. Preserve explicit cache-isolation choices: selecting a new key does not migrate
+old client data, even though stable adaptations default on in new installations.
 
 ### Generation profiles
 

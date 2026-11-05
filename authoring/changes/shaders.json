@@ -10,17 +10,10 @@
       "reference": "docs/development/compatibility.md"
     },
     {
-      "path": "overrides/client/shaderpacks/ComplementaryUnbound_r5.9.3 + EuphoriaPatches_1.10.5.txt",
+      "path": "overrides/client/shaderpacks/Complementary Unbound r5.9.3 + Euphoria 1.10.5 + Skyweave 0.1.0.zip.txt",
       "sha256": "2fc1c28379ab492264449a35e86799b19c0726d752c4f927c4fcc20700ab8297",
       "review": "reviewed",
-      "reason": "Reduce sampler pressure and shadow distance while retaining the tested shader effects.",
-      "reference": "docs/development/compatibility.md"
-    },
-    {
-      "path": "overrides/client/shaderpacks/ComplementaryUnbound_r5.9.3.zip.txt",
-      "sha256": "641dff2499fe7b629844721ea08814f5be8446b0990f89d3189cce23bd81ea98",
-      "review": "reviewed",
-      "reason": "Reduce sampler pressure and shadow distance while retaining the tested shader effects.",
+      "reason": "Retain the existing preset for the lab-generated shader with texture-aware window layers and opaque frame materials.",
       "reference": "docs/development/compatibility.md"
     },
     {
@@ -32,9 +25,9 @@
     },
     {
       "path": "overrides/common/config/iris.properties",
-      "sha256": "a78a8f89aad9bc6dcc3e815d3ce555e9bcff365613ac1a13acbaed6aa475f503",
+      "sha256": "0ae29375025e8fe999de107d1c2e8fc55a77eddda8de277e94c41432e546dc6d",
       "review": "inherited",
-      "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
+      "reason": "Select the lab-generated Complementary/Euphoria shader with the Skyweave Glass patch; preserve the existing enablement and Iris settings.",
       "reference": "docs/development/decisions.md"
     },
     {
@@ -43,6 +36,20 @@
       "review": "reviewed",
       "reason": "Retain native High lighting, add block-entity shadows for machinery, and use 128-block shadows without depth of field or motion blur. No macOS workaround or non-Apple GPU validation.",
       "reference": "docs/development/compatibility.md#shader-patching"
+    },
+    {
+      "path": "overrides/client/config/skyweave-shaders/recipes/bsl-colorwheel.json",
+      "sha256": "213315c31974e8b62960efe5d15162662fe458acb0ed9637fae468e0b46a8046",
+      "review": "reviewed",
+      "reason": "Generate the qualified complete shader from pinned inputs through the shared Java engine; keep source archives outside the shader list.",
+      "reference": "tools/shader-lab/README.md"
+    },
+    {
+      "path": "overrides/client/config/skyweave-shaders/recipes/complementary-euphoria-skyweave.json",
+      "sha256": "66fd7684e3967e2097b084242fafd3752d186a75b9553e92a7fdc86020ec5ba5",
+      "review": "reviewed",
+      "reason": "Generate the qualified complete shader from pinned inputs through the shared Java engine; keep source archives outside the shader list.",
+      "reference": "tools/shader-lab/README.md"
     }
   ]
 }

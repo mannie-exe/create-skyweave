@@ -231,7 +231,7 @@ Opacity or an explicit material palette selects the mask. Material selection
 supports color tolerance, restricted regions and included/excluded pixel corrections.
 The generator merges adjacent occupied regions into
 rectangles for the front and back surfaces, then emits only the exposed perimeter.
-Concave holes retain their boundaries; internal faces are omitted. Perimeter UVs
+Concave holes retain their boundaries; internal faces within each plane are omitted. Perimeter UVs
 sample the adjacent opaque texel strip across the depth. This is a deliberate edge
 rule, not an inferred material or bevel. The recipe can restrict emitted face
 directions to keep post ends separate from vertical surfaces.
@@ -245,6 +245,15 @@ different geometry rules.
 Keep post, post-end, side and alternate-side outputs separate. Review all native
 connection rotations, isolated posts, corners, crossings and stacked blocks.
 Static model validity does not establish contraption rendering or performance.
+
+Planes and appended elements are composed independently, not united as solids.
+Intersections between them can retain hidden faces, overlaps and unfilled corners.
+The current cage lamp combines five extruded planes with eight rotated cuboids;
+the cuboids do not trim the straight ribs into continuous bends. Its generated
+model has 150 elements and 228 face definitions, including zero-thickness surfaces.
+These counts describe the output, not Minecraft draw calls or measured performance.
+Repairing a bend requires defining its path, cross-section, joins and UV mapping;
+an opacity mask alone does not establish that topology.
 
 ## Artwork fitting
 

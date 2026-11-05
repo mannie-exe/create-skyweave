@@ -6,6 +6,35 @@ Player instructions belong in [graphics](../players/graphics.md) and
 [content list](../MODLIST.md), with authoritative selections in `empack.yml` and
 `empack.lock`.
 
+## Shader assembly, 0.2.2
+
+Skyweave: Compatibility Patches 0.21.0 supplies the physical-client runner. Both
+qualified chains use the same Java engine for lab and recipient builds. Canonical
+recipe and input hashes qualify ordered overlays, Euphoria's binary delta and
+Skyweave Glass 0.1.0. The prior shader file payloads are unchanged; controlled ZIP
+metadata makes generated archives reproducible across the two build paths.
+
+Native Apple Silicon checks with Java 21.0.13, NeoForge 21.1.264 and Iris
+1.8.14-beta.1+mc1.21.1 cover missing-output startup, BSL without Euphoria, the full
+Euphoria stack, cached loads, forced rebuilds, shader switching, resource reload,
+failed preconditions and same-reload output-name migration. The glass and
+static/assembled material fixtures rendered with both shaders. The minimal client
+loads without Iris/Euphoria; disposable standalone/full dedicated checks pass.
+Native Windows GPU rendering and Photon on Apple hardware were not tested.
+
+A disposable reference export installs managed inputs and recipes without a
+finished shader ZIP. After client generation, empack prepare reports zero exact
+changes and no file conflicts. Unrelated shaders, option seeds, personal worlds
+and LODs are outside runner ownership. The shader lab's exact-byte check, pack
+unit tests, journal generator and categorized configuration audit pass. Export
+checks enforce client-only inputs/recipes, absent merged-shader assets and a
+payload-only Colorwheel Patcher outside `mods/`.
+
+The [shader lab](../../tools/shader-lab/README.md) owns recipes and upgrade checks;
+Compat's [rendering guide](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/rendering.md#shader-assembly)
+owns runtime hooks and cache/settings behavior. Existing limits for moving
+shadows, resource-pack texture assumptions and other GPU paths remain below.
+
 ## Display text, 0.2.1
 
 Verified on 2026-11-04 with published Skyweave: Compatibility Patches 0.20.1. The 61 pack tests, 88 generated journal outputs, 256-file configuration audit, shader-lab check, and fixes/resource builders pass. Changes to audited configuration are display strings and comments only. The lock changes only the compatibility mod selection and intent revision; all 161 other dependencies and runtime pins remain unchanged.
@@ -247,6 +276,33 @@ No measured performance gain or general shadow repair is claimed. Keep patch
 retirement tied to the actual released Colorwheel/Sable implementations.
 
 ### Shader patching
+
+The Skyweave Glass patch produces the merged Complementary Unbound 5.9.3 /
+Euphoria 1.10.5 / Skyweave shader. Euphoria's broad Create translucent-layer override and generic glass
+materials caused opaque window frames to receive glass shading. The builder uses
+texture alpha to select 32 cutout and six translucent Create blocks, preserving
+partial-alpha glazing and glints. Opaque frame texels no longer receive built-in
+glass reflections; authored custom PBR is unchanged. Create retains CT ownership.
+This material correction does not fix coincident backfaces or pane intersections.
+The [lab guide](../../tools/shader-lab/README.md) owns inputs, update checks, and
+the unresolved modified-shader distribution requirement.
+
+On 2026-11-04, the isolated Java 21/macOS ARM64 client loaded the generated shader
+with Minecraft 1.21.1, NeoForge 21.1.264, Create 6.0.10, Sodium 0.8.13, and the
+selected Iris/Colorwheel stack. Eighteen matched captures cover oak, birch,
+framed glass, weathered iron, ornate iron, and an oak pane with upstream shaders,
+the adaptation, and shaders off. Frame reflections are reduced while glazing and
+pane details remain visible. The water, cutout, and shadow programs compile;
+inherited derivative-extension warnings remain. Custom PBR, moving constructs,
+DH material fidelity, and touching-surface ordering were not verified by this test.
+Evidence and the executed protocol remain in the resource harness under
+`images/2026-11-04-shader-glass`.
+
+The tested shader SHA-256 is
+`4980eb3f34d0100e6c00ab5ca2bc61ec4147d9e862370f9fb7a31325f7d99de3`.
+`python3 tools/shader-lab/build.py --check`, 64 pack tests, the 255-file config
+audit, and the isolated bundled Prism build pass. Default release profiles remain
+references. No personal installation or server was changed.
 
 The [shader lab](../../tools/shader-lab/README.md) tracks BSL 10.1.8 and
 Colorwheel Patcher 1.0.5 in a separate empack workspace. Its automated builder
@@ -529,6 +585,22 @@ and Searchables satisfy the corresponding dependencies. Exact selections are in 
 | Tooltips           | Keep durability/enchantment information, omit extra blank-line spacing. Shulker Box Tooltip retains its native preview defaults.                                                                                             |
 | Workstations       | Keep generated Easy Anvils costs and maintenance settings. Easy Magic shows all enchantments while retaining paid rerolls. Do not disable old vanilla workstations.                                                          |
 | Visual resources   | Use the current selection and ordering in [Graphics](../players/graphics.md#resource-packs). Retain EMF/ETF defaults. Existing options remain seed-managed; explicit syncs update only the reviewed selection.               |
+
+Creative-flight inventory sneaking uses InvMove's `MaintainWhilePressed`: descent
+already active when the screen opens continues until the sneak key is released.
+A fresh Shift press inside the screen does not start descent, so Shift-clicking
+items does not move the flying player down. Ordinary inventory sneaking remains
+`Maintain` for edge protection. This policy is source-reviewed for held sneak;
+toggle-sneak behavior and a new native flight check remain separate verification.
+Existing installations retain their seeded config until explicitly updated.
+
+InvMove 0.9.3 applies this flight policy in its held-sneak path. Toggle crouch
+uses a separate path, so it needs its own native check before claiming the same
+protection. Its key polling refreshes keyboard key-symbol bindings, not mouse or
+scan-code bindings. Text-focus protection covers vanilla edit boxes, recipe-book
+search and supported integrations; arbitrary nested mod widgets are not covered
+by that inspection alone. Ctrl/sprint, Space/jump and passenger dismount behavior
+also need separate checks when changing bindings or adding interactive screens.
 
 Better Climbing and Inventory Totem expose no generated tuning file in this
 version. Their native behavior is retained. InvMoveCompats and Ping Wheel are
@@ -820,11 +892,11 @@ debug datapack updates its layout on the next load; it selects no resources.
 
 | Family                           | Installed behavior and remaining work                                                                                                                                                                                                                                                                                                                                                                                              |
 | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Macaw lanterns                   | Bell, covered, cross and festive standing/hanging variants use fitted artwork. Flat bridges retain the detailed standing lantern; stair bridges use a short-chain hanging model and matching optional Compat selection. The bridge must be directly below the lantern; its state selects the elevation. Native shader-off/on views cover representative variants. Wall variants retain their brackets with fitted lantern bodies.                                              |
+| Macaw lanterns                   | Bell, covered, cross and festive standing/hanging variants use fitted artwork. Flat bridges retain the detailed standing lantern; stair bridges use a short-chain hanging model and matching optional Compat selection. The bridge must be directly below the lantern; its state selects the elevation. Native shader-off/on views cover representative variants. Wall variants retain their brackets with fitted lantern bodies.  |
 | Create and Deco bars             | Texture-mask extrusion covers all three Create families and Deco's andesite, brass, copper, industrial iron, iron and zinc model families, including overlays. Native posts, ends, corners, crossings and three-block stacks were reviewed. Deco overlays are connected bars with additional panels, not wall decals. Connection blockstates remain upstream-owned.                                                                |
 | Cage lamps and frontlights       | Deco's cage surfaces have depth while its base, light and material/color bindings remain intact. Eight DnD hood templates retain their bodies, texture bindings, rotation, lit and no-base variants. Representative straight/rotated and powered/unpowered views passed with shaders on and off.                                                                                                                                   |
 | Mooshrooms                       | Details 2.4 uses the current shared cow rig; no pack rig replacement remains. The isolated updated client rendered adult/baby mooshrooms and a sleeping villager with visible feet. Stationary fixture specimens still need `OnGround:1b`. Rare random variants, every animation state and all equipped models remain untested.                                                                                                    |
-| Aquatic plants and pitcher plant | Lily pads now use 3D Default, and pitcher plants/crops use Toasty V3 with the maintained angle adaptation. Kelp and seagrass retain the existing stack by review decision; their flat geometry is not a load-order fault.                                                                                                                                                                                             |
+| Aquatic plants and pitcher plant | Lily pads now use 3D Default, and pitcher plants/crops use Toasty V3 with the maintained angle adaptation. Kelp and seagrass retain the existing stack by review decision; their flat geometry is not a load-order fault.                                                                                                                                                                                                          |
 | Barrels                          | Fresh Objects 2.1.2 supplies no barrel CEM model. A barrel changes its block-state model/texture when opened; it has no chest-style lid renderer. An open-state model can change the silhouette, but smooth lid motion would require a renderer and transition state.                                                                                                                                                              |
 | Lootr chests                     | The [adapter](patches.md#lootr-and-fresh-objects) supplies the exact `lootr_lootr_chest` and `lootr_lootr_trapped_chest` model names requested by EMF, with literal body/latch bindings and an isolated animation resource. Native opening/closing, body motion, generated loot, state textures and neighboring-chest independence passed locally. Lootr continues to select its own materials; `vanilla_textures` stays disabled. |
 | Other models                     | Connected glass families, decorative machinery and moving objects need family-specific checks. Sharing a texture or parent is not proof of matching UVs, connection rules or renderer behavior. New creature animations need a rig/part mapping; extrusion cannot infer joints or behavior from a sprite.                                                                                                                          |
@@ -869,24 +941,24 @@ Minecraft 1.21.1 and NeoForge 21.1.264. They remain dated comparisons against th
 pre-selection stack. The production selection is owned by
 `authoring/resource-selections.json`; the full donor packs are not enabled.
 
-| Feature                                  | Approved treatment                         | Scope                                                                                                                                                               |
-| ---------------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Crafting table, stonecutter              | Classic 3D Alpha 9                         | Other workstations are selected individually below.                                                                                                                 |
-| Lily pads, cactus                        | 3D Default 1.16.0                          | Existing flowers, mushrooms, fungi, pots, sugar cane and seagrass remain unchanged.                                                                                 |
-| Doors and trapdoors                      | 3D Default 1.16.0                          | All supplied vanilla wood, iron and copper families; masonry and other surfaces remain unchanged.                                                                   |
-| Lodestone, copper bulbs, hay bales       | 3D Default 1.16.0                          | Bulb oxidation/power variants are included; waxed states use the same native roots.                                                                                 |
-| Campfires                                | 3D Default 1.16.0                          | The shared template is isolated under the lit campfire roots. Earlier selective screenshots did not activate this template; a fresh visual check remains necessary. |
-| Redstone torches                         | Nautilus 3D V2.2                           | Floor/wall and on/off models with their required textures.                                                                                                          |
-| Single ordinary/trapped and Lootr chests | C: 3D Default geometry + Fresh Objects rig | All four JEMs match the reviewed prototype. Large and ender chests retain their existing rigs and were controls in C.                                               |
-| Smoker, furnace, fletching table | UltiCraft 3D Models | Selected roots and their private model/texture dependencies. |
-| Smithing table, brewing stand | Jacob’s 3D Workspace+ | Other Jacob models remain unselected. |
-| Cartography table, blast furnace, crafter, loom | 3D Vanilla | Upright crafter cases are explicit in the Atlas. |
-| Azalea, flowering azalea | Vervada’s enhanced plants | Dead bush and seagrass retain the existing stack. |
-| Pitcher plant and crop | Toasty’s Perfect Pitchers V3 | Original angles retained through NeoForge composite root transforms. |
-| Kelp | Current stack | Bushier Kelp deferred after visual review. |
-| Bookshelves, hives/nests                 | Current stack                              | Connected bookshelf framing is retained.                                                                                                                            |
-| Vanilla barrels                          | Current stack                              | No new vanilla barrel override is selected.                                                                                                                             |
-| Lootr barrels                            | Native cube + approved trim artwork        | Directional artwork and approved corner-clasp extrusion preserve Lootr material/state selection.                                                 |
+| Feature                                         | Approved treatment                         | Scope                                                                                                                                                               |
+| ----------------------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Crafting table, stonecutter                     | Classic 3D Alpha 9                         | Other workstations are selected individually below.                                                                                                                 |
+| Lily pads, cactus                               | 3D Default 1.16.0                          | Existing flowers, mushrooms, fungi, pots, sugar cane and seagrass remain unchanged.                                                                                 |
+| Doors and trapdoors                             | 3D Default 1.16.0                          | All supplied vanilla wood, iron and copper families; masonry and other surfaces remain unchanged.                                                                   |
+| Lodestone, copper bulbs, hay bales              | 3D Default 1.16.0                          | Bulb oxidation/power variants are included; waxed states use the same native roots.                                                                                 |
+| Campfires                                       | 3D Default 1.16.0                          | The shared template is isolated under the lit campfire roots. Earlier selective screenshots did not activate this template; a fresh visual check remains necessary. |
+| Redstone torches                                | Nautilus 3D V2.2                           | Floor/wall and on/off models with their required textures.                                                                                                          |
+| Single ordinary/trapped and Lootr chests        | C: 3D Default geometry + Fresh Objects rig | All four JEMs match the reviewed prototype. Large and ender chests retain their existing rigs and were controls in C.                                               |
+| Smoker, furnace, fletching table                | UltiCraft 3D Models                        | Selected roots and their private model/texture dependencies.                                                                                                        |
+| Smithing table, brewing stand                   | Jacob’s 3D Workspace+                      | Other Jacob models remain unselected.                                                                                                                               |
+| Cartography table, blast furnace, crafter, loom | 3D Vanilla                                 | Upright crafter cases are explicit in the Atlas.                                                                                                                    |
+| Azalea, flowering azalea                        | Vervada’s enhanced plants                  | Dead bush and seagrass retain the existing stack.                                                                                                                   |
+| Pitcher plant and crop                          | Toasty’s Perfect Pitchers V3               | Original angles retained through NeoForge composite root transforms.                                                                                                |
+| Kelp                                            | Current stack                              | Bushier Kelp deferred after visual review.                                                                                                                          |
+| Bookshelves, hives/nests                        | Current stack                              | Connected bookshelf framing is retained.                                                                                                                            |
+| Vanilla barrels                                 | Current stack                              | No new vanilla barrel override is selected.                                                                                                                         |
+| Lootr barrels                                   | Native cube + approved trim artwork        | Directional artwork and approved corner-clasp extrusion preserve Lootr material/state selection.                                                                    |
 
 The [visual comparison page](http://127.0.0.1:4321/resourcepacks/reviews) displays
 this matrix beside the archived evidence. The source gallery also retains those

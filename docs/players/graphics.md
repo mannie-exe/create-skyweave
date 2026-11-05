@@ -37,8 +37,8 @@ changes the artifact. Do not clear worlds or LOD caches to troubleshoot it.
 ## Colorwheel
 
 Colorwheel enables shader-aware Flywheel rendering with compatible shaders.
-Complementary and the generated Euphoria selection include native support; no
-extra patcher is needed. Shader-off rendering keeps Flywheel's ordinary
+The generated Complementary/Euphoria/Skyweave selection includes native support. Its Euphoria mod
+supplies runtime integration. Shader-off rendering keeps Flywheel's ordinary
 backend. The Mac uses instancing; indirect rendering and Colorwheel OIT are
 unavailable there. Skyweave: Compatibility Patches releases unused OIT sampler slots on that renderer and
 supplies material metadata for direct Sable model draws.
@@ -46,7 +46,7 @@ supplies material metadata for direct Sable model draws.
 These are separate `rendering.colorwheel_samplers` and
 `rendering.colorwheel_materials` startup switches. They complement the existing
 framebuffer and glass fixes. This does not promise improved FPS or corrected
-moving-airship shadows. The included BSL alternative is pre-patched for Colorwheel.
+moving-airship shadows. The BSL alternative is assembled with the Colorwheel overlay on first launch.
 
 ## Moving lights
 
@@ -103,12 +103,12 @@ comparison packs are not distributed with Create: Skyweave.
 
 Shaders are off by default. Select a pack through Iris's shader settings:
 
-| Pack | Included version | Notes |
-| --- | --- | --- |
-| Complementary Unbound | r5.9.3 | Balanced preset with Low block reflections |
-| Complementary + Euphoria | 1.10.5 patches for r5.9.3 | Generated at launch; retains the pack's fog and night-sky settings |
-| BSL + Colorwheel | 10.1.8 + Clrwl 1.0.5 | Pre-patched shader with the supplied BSL settings |
-| Photon | 1.4 | High defaults with machinery shadows; native Colorwheel and DH support |
+| Pack                     | Included version          | Notes                                                                  |
+| ------------------------ | ------------------------- | ---------------------------------------------------------------------- |
+| Complementary Unbound    | r5.9.3                    | Balanced preset with Low block reflections                             |
+| Complementary + Euphoria | 1.10.5 patches for r5.9.3 | Generated at launch; retains the pack's fog and night-sky settings     |
+| BSL + Colorwheel         | 10.1.8 + Clrwl 1.0.5      | Pre-patched shader with the supplied BSL settings                      |
+| Photon                   | 1.4                       | High defaults with machinery shadows; native Colorwheel and DH support |
 
 The supplied Complementary, Euphoria and BSL presets use 128-block shadow distance.
 Complementary and Euphoria also use Low light-shaft sampling. Their clouds, water reflections, ambient occlusion,
@@ -170,3 +170,14 @@ world generator and [SeedGen compatibility](../development/compatibility.md#worl
 F8 reloads the selected shader. R remains available for recipe lookup and
 Power Grid interactions. Existing installations retain their other key choices;
 check Controls if you have assigned F8 yourself.
+
+## Shader generation
+
+The first client launch assembles the two qualified shader choices from verified
+installed inputs. Later launches check their cache without rewriting shaders.
+Only complete results appear in Iris. Keep the default Complementary/Euphoria/
+Skyweave selection, or select BSL/Colorwheel; your enablement and quality options
+remain yours. Compat settings list recipe status and **Rebuild shaders**. A failed
+recipe is reported there and in the log; the client does not silently select an
+unpatched shader. This works with ordinary launchers and needs no Python or
+launcher-specific patching command.

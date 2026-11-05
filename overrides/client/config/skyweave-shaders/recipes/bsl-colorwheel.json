@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "id": "bsl-colorwheel",
+  "version": "1",
+  "output": "BSL_v10.1.8 + Clrwl_1.0.5.zip",
+  "base": "bsl",
+  "inputs": {
+    "bsl": {
+      "path": "shader-inputs/BSL_v10.1.8.zip",
+      "sha256": "36b0a50ff7918bf10e9422c401d93779f9d0088a26acea975b435243f96930b5"
+    },
+    "colorwheel": {
+      "path": "shader-inputs/colorwheel_patcher-neoforge-1.0.5+mc1.21.1.jar",
+      "sha256": "2285a5154739d2e9889d979e3bdf54104b56d7966dac8d43367305e5aaedcce8"
+    }
+  },
+  "steps": [
+    {
+      "type": "overlay",
+      "input": "colorwheel",
+      "member": "patches/BSL.zip",
+      "before": "7e8d9a8d645c1cf9d51da9a3d1822c4ab8aa8a8675b59fc99be9327cb24c640c"
+    }
+  ],
+  "requires": {
+    "iris": "1.8.14-beta.1+mc1.21.1",
+    "colorwheel": "1.3.0+mc1.21.1"
+  },
+  "expected": "27485687413db3d32608bfdf2333a7be3db3716358d6b3de30bae7be2c87e599",
+  "settings": {
+    "compatible": true,
+    "seedSha256": "6f76fd65f400a54d9098ef031f8221ecb8ab1a73b7b1a16a7e505e1a046c809e"
+  }
+}

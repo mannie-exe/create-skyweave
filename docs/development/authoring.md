@@ -10,9 +10,10 @@ The [Debug World guide](debug-world.md) owns curated native displays, profile
 configuration, regeneration and guarded installation. It is separate from Atlas
 world-generation surveys and the playable server world.
 
-The [shader lab](../../tools/shader-lab/README.md) owns BSL and its Colorwheel
-patcher inputs. Run its builder before `empack sync` or a pack build. The playable
-pack consumes the generated complete shader, not the lab's plain BSL or patcher.
+The [shader lab](../../tools/shader-lab/README.md) owns BSL/Colorwheel and
+Complementary/Euphoria shader generation, including texture-based Create window
+material changes. Run its builder before `empack sync` or a pack build. The pack
+consumes generated shaders; source inputs and runtime integrations have separate roles.
 
 ## Journal source
 
@@ -20,13 +21,13 @@ The [journal design reference](journal.md#design-policy) owns entry purpose,
 completion evidence and reward budgets. This guide owns source editing and
 generation; the Atlas edits the same files and must not maintain separate rules.
 
-| Path | Content |
-| --- | --- |
-| `authoring/journal/chapters/*.json` | Native chapter properties and quest mechanics, split by chapter |
-| `authoring/journal/defaults.json` | Shared native display properties |
+| Path                                      | Content                                                                  |
+| ----------------------------------------- | ------------------------------------------------------------------------ |
+| `authoring/journal/chapters/*.json`       | Native chapter properties and quest mechanics, split by chapter          |
+| `authoring/journal/defaults.json`         | Shared native display properties                                         |
 | `authoring/journal/locales/<locale>.json` | Chapter names, entry text, shared disclaimers and short objective labels |
-| `overrides/common/config/questlog/` | Generated native chapters and quests |
-| `pack-fixes/assets/create_skyweave/lang/` | Generated Minecraft language resources |
+| `overrides/common/config/questlog/`       | Generated native chapters and quests                                     |
+| `pack-fixes/assets/create_skyweave/lang/` | Generated Minecraft language resources                                   |
 
 Each locale entry has `title`, optional `flavor`, full `requirements`, a
 `description` paragraph array, a shared `disclaimer` key or null, and `labels`.

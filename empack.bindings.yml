@@ -294,6 +294,33 @@ bindings:
             server: unsupported
           layer: common
 
+  bsl-shaders:
+    placement:
+      files:
+        primary:
+        - destination: shader-inputs/BSL_v10.1.8.zip
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  complementary-unbound:
+    placement:
+      files:
+        primary:
+        - destination: shader-inputs/ComplementaryUnbound_r5.9.3.zip
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  colorwheel-patcher:
+    placement:
+      files:
+        primary:
+        - destination: shader-inputs/colorwheel_patcher-neoforge-1.0.5+mc1.21.1.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
 policies:
   shaderpacks/photon_v1.4.zip.txt: seed
   config/bluemap/core.conf: seed
@@ -303,8 +330,9 @@ policies:
   icon.png: seed
   options.txt: seed
   "shaderpacks/BSL_v10.1.8 + Clrwl_1.0.5.zip.txt": seed
-  "shaderpacks/ComplementaryUnbound_r5.9.3 + EuphoriaPatches_1.10.5.txt": seed
-  "shaderpacks/ComplementaryUnbound_r5.9.3.zip.txt": seed
+  "shaderpacks/Complementary Unbound r5.9.3 + Euphoria 1.10.5 + Skyweave 0.1.0.zip.txt": seed
+  config/skyweave-shaders/recipes/bsl-colorwheel.json: managed
+  config/skyweave-shaders/recipes/complementary-euphoria-skyweave.json: managed
   config/questlog/chapters/cargo.json: managed
   config/questlog/chapters/electricity.json: managed
   config/questlog/chapters/engines.json: managed
