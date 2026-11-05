@@ -2,6 +2,13 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.2.1 · 2026-11-05
+
+### Fixes
+
+- Align pack and Atlas public names ([7b39800](https://github.com/mannie-exe/create-skyweave/commit/7b398008c6d348608b840635786b5f1b1c0cb62c))
+
+
 ## v0.2.0 · 2026-11-04
 
 ### Features
