@@ -4,4 +4,4 @@ license="MIT"
 [[mods]]
 modId="create_skyweave_structure_survey"
 version="1.0.0"
-displayName="Create Skyweave structure survey (development only)"
+displayName="Create: Skyweave structure survey (development only)"

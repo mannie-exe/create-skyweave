@@ -67,7 +67,7 @@ def compose_pot(fresh, crops, plant):
     pot['elements'].extend(plants)
     pot['textures'].update({key: value for key, value in crop['textures'].items()
                             if key in ('mushroom', 'mushroom_top')})
-    pot['credit'] = 'Pot: BlueHDGaming; plant: Stridey; composition: Create Skyweave'
+    pot['credit'] = 'Pot: BlueHDGaming; plant: Stridey; composition: Create: Skyweave'
     variables = {'#' + key for key in pot['textures']}
     require(all(face_textures(e) <= variables for e in pot['elements']), 'Unbound pot texture')
     return path, pot
@@ -83,7 +83,7 @@ def compose_azalea(fresh, plants, plant):
     pot['elements'].extend(geometry)
     pot['textures'].update({'azalea_plant': leaf['textures']['plant'],
                            'side': leaf['textures']['plant_side'], 'top': leaf['textures']['plant_top']})
-    pot['credit'] = 'Pot: BlueHDGaming; plant: Valdr687/Vervada; composition: Create Skyweave'
+    pot['credit'] = 'Pot: BlueHDGaming; plant: Valdr687/Vervada; composition: Create: Skyweave'
     require(all(face_textures(element) <= {'#'+key for key in pot['textures']}
                 for element in pot['elements']), 'Unbound potted azalea texture')
     return path, pot
@@ -99,7 +99,7 @@ def patch_chain(original):
 
 def build(archives, recipes, config, selections=None, nautilus_license=None, textures=None):
     entries = {'pack.mcmeta': {'pack': {'pack_format': 34,
-                'description': 'Create Skyweave resource compatibility'}}}
+                'description': 'Create: Skyweave resource compatibility'}}}
     for plant in PLANTS:
         path, value = compose_pot(archives['fresh-flower-pots'], archives['3d-crops'], plant)
         entries[path] = value

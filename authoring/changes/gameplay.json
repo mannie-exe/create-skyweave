@@ -620,7 +620,7 @@
     },
     {
       "path": "overrides/server/config/bluemap/maps/world.conf",
-      "sha256": "43f18e56b9b0c0d89eef9a9c5291f95937dc8da84b6db2218e5ae8dd30cec0bb",
+      "sha256": "ca1addfa3c783471282eaf05a404a56b723ceea08206e0b6d2e116d4d83e6e00",
       "review": "reviewed",
       "reason": "Map all saved Overworld chunks across the full Compat height range, preserving island undersides without horizontal coverage limits.",
       "reference": "docs/development/build.md#server-webmap"

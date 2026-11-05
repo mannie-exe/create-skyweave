@@ -1,6 +1,6 @@
 # Installation and worlds
 
-Create Skyweave runs on Minecraft 1.21.1, NeoForge 21.1.264 and Java 21.
+Create: Skyweave runs on Minecraft 1.21.1, NeoForge 21.1.264 and Java 21.
 
 ## Client installation
 

@@ -1,6 +1,6 @@
 # Server setup and maintenance
 
-Use the server archive from the same Create Skyweave release as your clients.
+Use the server archive from the same Create: Skyweave release as your clients.
 
 ## First launch
 
@@ -29,7 +29,7 @@ memory use with the same workload. No server-specific GC tuning is shipped.
 
 ## Terrain and distant generation
 
-New dedicated worlds use `skyweave_compat:islands_v1`. Keep Skyweave Compat
+New dedicated worlds use `skyweave_compat:islands_v1`. Keep Skyweave: Compatibility Patches
 and the generation configuration with the world. The preset requires a new world;
 changing `level-type` does not convert an existing save. Generation identity checks
 reject incompatible changes to a marked world.
@@ -79,7 +79,7 @@ preserve local edits. If upgrading the earlier local setup, remove active `min-x
 Stop the server cleanly before replacing files. Retain:
 
 - The entire world directory, including dimension data, DH databases and Sable sublevels.
-- The world's Sky Archipelago and Skyweave Compat configuration and presets.
+- The world's Sky Archipelago and Skyweave: Compatibility Patches configuration and presets.
 - Server-specific settings, whitelist, operators and ban lists.
 - DH's installation-specific configuration, including its generated `serverId`.
 

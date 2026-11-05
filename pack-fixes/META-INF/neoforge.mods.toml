@@ -5,7 +5,7 @@ license="MIT"
 modId="create_skyweave_fixes"
 version="0.1.0"
 displayName="Create Skyweave resources"
-description='''Resource repairs and journal presentation for Create Skyweave.'''
+description='''Resource repairs and journal presentation for Create: Skyweave.'''
 [[dependencies.create_skyweave_fixes]]
 modId="skyvillages"
 type="optional"

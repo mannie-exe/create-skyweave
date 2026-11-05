@@ -1,8 +1,8 @@
 # World generation
 
 New worlds use **Skyweave Islands**, preset `skyweave_compat:islands_v1`, from
-[Skyweave Compat](https://github.com/mannie-exe/skyweave-compat). The manifest
-pins the installed mod version. Compat extends Sky Archipelago 1.3.6 and is
+[Skyweave: Compatibility Patches](https://github.com/mannie-exe/skyweave-compat). The manifest
+pins the installed mod version. Skyweave: Compatibility Patches extends Sky Archipelago 1.3.6 and is
 required on both client and server. Ordinary Sky Archipelago presets retain
 upstream generation with the village-neighbor filter.
 
@@ -43,7 +43,7 @@ not receive a complete compressed ore column.
 Native vein shapes, replacement rules, exposure checks and initial attempt counts
 remain authoritative. Coverage includes vanilla Overworld ores, Create zinc and
 striated deposits, and Propulsion platinum. Nether/End generation is unchanged.
-Compat 0.5.0 also restores native large iron/copper veins in
+Skyweave: Compatibility Patches 0.5.0 also restores native large iron/copper veins in
 the same geological frame, including their raw-ore blocks and associated stone.
 Ordinary ore features remain separate. No large zinc or platinum veins are added.
 Temperature queries use reference Y=64 so biome climate is independent of island
@@ -96,7 +96,7 @@ surface datum. [Structures](structures.md) owns pack loot, crop and salvage poli
 Aeronautics Delivery Quests uses a 500-block horizontal route minimum, a
 6000-block destination-search offset limit and a 120-minute time limit. The
 locator can resolve farther away; the search offset is not a final route cap.
-Compat retains endpoint chunk tickets until finalization and retries rejected
+Skyweave: Compatibility Patches retains endpoint chunk tickets until finalization and retries rejected
 Sky Village landings within their bounds using ADQ's original safety predicate.
 
 The Sable integration sets pressure to 1.0 at Y=508, 0.8 at 600, 0.5 at 680 and
@@ -193,7 +193,7 @@ of data readiness, not sufficient evidence of a render-distance or fog cutoff.
 ## Ordinary Sky Archipelago worlds
 
 The retained TOML and `eee` preset use CONSISTENT spacing 1494. They preserve the
-ordinary preset used before 0.1.12 and do not control Compat's expanded geometry.
+ordinary preset used before 0.1.12 and do not control Skyweave: Compatibility Patches' expanded geometry.
 Keep those settings with existing ordinary worlds.
 
 Sky Archipelago 1.3.6 DYNAMIC selects one spacing for the whole world from its
@@ -211,7 +211,7 @@ optimization conflicts with Sky Archipelago's Deep Dark projection redirect.
 `mixin.perf.noise=true` remains enabled. The configured boots no longer reported
 the collision; that does not establish ancient-city availability.
 
-Compat records generation identity in each expanded-preset world and rejects
+Skyweave: Compatibility Patches records generation identity in each expanded-preset world and rejects
 incompatible changes or unmarked existing terrain. Preserve the original mod,
 configuration and marker with a save. Never delete the marker to force adoption
 of incompatible chunks. New geometry requires a separate new world.

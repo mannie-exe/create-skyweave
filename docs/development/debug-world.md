@@ -175,7 +175,7 @@ part of fixture cleanup.
 
 ## Coverage
 
-The curated Create Skyweave profile has 791 comparison cases in 43 groups across 14
+The curated Create: Skyweave profile has 791 comparison cases in 43 groups across 14
 districts. A case may contain a connected wall or paired states rather than one
 block. Revision 12 had 582 sample records in 27 sections; those record units are
 not identical. Added coverage includes 179 Macaw windows, mosaics, waxed grates,

@@ -102,19 +102,19 @@ the tested JAR and limits; no server installation or saved-data migration is nee
 
 ### Terrain and rendering mods
 
-[Skyweave Compat](https://github.com/mannie-exe/skyweave-compat) owns optional
+[Skyweave: Compatibility Patches](https://github.com/mannie-exe/skyweave-compat) owns optional
 terrain, gameplay, and rendering adapters and belongs on both pack sides. It
 incorporates the former Veil Iris Fix; do not include that standalone JAR or Sky
 Village Neighbors in any payload. Runtime code does not belong in the resource-only
 `create-skyweave-fixes` JAR.
 
-Publish and verify Compat before updating its URL and digest pins in `empack.yml`.
+Publish and verify Skyweave: Compatibility Patches before updating its URL and digest pins in `empack.yml`.
 Use empack to regenerate bindings and the lock; inspect exports for duplicate or
 obsolete JARs. `overrides/common/config/skyweave_compat-features.properties`
 explicitly selects the pack's adaptations. Unknown feature keys fail startup, so
 review this file whenever removing or renaming upstreamed adapters. The local
 configuration sidebar edits this same file for next startup; existing keys and
-omitted defaults remain authoritative. Review Compat’s
+omitted defaults remain authoritative. Review Skyweave: Compatibility Patches’
 [editor maintenance](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/configuration.md)
 when updating its configuration facilities.
 
@@ -135,10 +135,10 @@ install changed generation into existing play saves.
 
 ### Distant Horizons updates
 
-Keep DH and Compat's supported version pins aligned. Before updating either,
-review Compat's [DH hooks](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/lod.md)
+Keep DH and Skyweave: Compatibility Patches' supported version pins aligned. Before updating either,
+review Skyweave: Compatibility Patches' [DH hooks](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/lod.md)
 and the separate DH Polygon Fix implementation. Shader behavior also depends on
-Iris, Complementary/Euphoria and Compat’s optional rendering adapters; a successful
+Iris, Complementary/Euphoria and Skyweave: Compatibility Patches’ optional rendering adapters; a successful
 terrain-generation check does not establish renderer compatibility.
 
 SeedGen is excluded. Do not add native worker inputs, prediction settings or seed
@@ -153,7 +153,7 @@ Geometry, interiors, water and ocean profiles are shared authored JSON files in
 their categorized audit baselines. New terrain must use a fresh world; the saved
 generation marker is not a migration switch.
 
-Compat’s verification guide owns adapter loading, terrain, and rendering evidence.
+Skyweave: Compatibility Patches’ verification guide owns adapter loading, terrain, and rendering evidence.
 Historical standalone Ponder checks do not establish native rendering behavior
 for a new combined artifact; retain pending interactive checks explicitly.
 [Patch maintenance](patches.md) owns coupled updates and removal criteria.
@@ -168,11 +168,11 @@ metadata and server overrides. Check the resulting archives after dependency cha
 BlueMap configuration uses empack's `seed` policy to preserve operator settings,
 including download acceptance, ports and map definitions. Fresh installs leave
 resource-download consent to the owner. The default Overworld map has no X/Z limits
-and includes the complete Compat vertical range. New local defaults do not replace
+and includes the complete Skyweave: Compatibility Patches vertical range. New local defaults do not replace
 existing seed files automatically; review and apply intended changes separately.
 See [server webmap setup](../players/server.md#webmap).
 
-Skyweave Compat optionally adapts the BlueMap 5.7 browser viewer on dedicated
+Skyweave: Compatibility Patches optionally adapts the BlueMap 5.7 browser viewer on dedicated
 servers. `overrides/server/config/skyweave_compat-bluemap.json` selects `world`;
 its seed policy preserves operator edits. Other maps retain the stock renderer.
 The adapter uses actual world bounds, extends detailed rendering with bounded
@@ -181,7 +181,7 @@ change generation, DH data or stored tiles. Keep full-height map bounds and cave
 culling disabled to retain island undersides in detailed tiles. Coarse overview
 layers remain height fields: distant stacked terrain and undersides are not fully
 represented, and coarse sheets can remain visible from below. The adapter's
-configuration and update checks are owned by Skyweave Compat's
+configuration and update checks are owned by Skyweave: Compatibility Patches'
 `docs/development/bluemap.md`.
 
 ## Dependency updates
@@ -297,4 +297,4 @@ Remove this packaging step only after an empack upgrade passes real terminal
 input, Ctrl-C and shutdown checks. The patcher deliberately rejects unfamiliar
 launcher templates rather than silently accommodating an upstream change.
 
-Empack uses the portable pack name `Create Skyweave` for archive filenames; the product display name is Create: Skyweave. The `create_skyweave` pack identity starts a distinct consumer lineage. Existing `create_sky` instances and saves are not converted or synchronized by this release. Install a fresh instance for the renamed registry identities.
+The `create_skyweave` pack identity starts a distinct consumer lineage. Existing `create_sky` instances and saves are not converted or synchronized by this release. Install a fresh instance for the renamed registry identities.

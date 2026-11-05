@@ -23,7 +23,7 @@ records:
   - id: structures/deferred
     title: Structure generation tuning is a separate pass
     evidence: decision
-    detail: Sky Villages retains the repaired pools, village-tag membership and existing crop/loot policy. Skyweave Compat replaces Sky Village Neighbors and draws zero to three villages per anchor with weights 96:24:8:3; rejection can reduce the count. Structures Arise and broader structure tuning remain deferred. Delivery availability depends on valid reachable endpoints.
+    detail: 'Sky Villages retains the repaired pools, village-tag membership and existing crop/loot policy. Skyweave: Compatibility Patches replaces Sky Village Neighbors and draws zero to three villages per anchor with weights 96:24:8:3; rejection can reduce the count. Structures Arise and broader structure tuning remain deferred. Delivery availability depends on valid reachable endpoints.'
     sources: ['user direction, 2026-10-21']
   - id: structures/sky-village-resources
     title: Village foundations and crops
@@ -38,7 +38,7 @@ records:
   - id: islands/compat-candidate
     title: Island terrain and resource samples
     evidence: native-generation-samples
-    detail: Skyweave Compat adds a -128 to 768 build envelope, deep large anchors, independently sized companions, relative geology and a scoped altitude-pressure curve. Published Compat 0.4.0’s historical five-seed density samples averaged 2335–2585 blocks between nearest anchors. These are center distances, not shoreline gaps. The current development resource survey separately samples three seed-42 anchors with caves, veins and local water enabled; it records geological depth and exposure as well as quantities. Exposure to air or fluid does not prove reachable mining access. Counts, estimates, descriptors and artifact hashes appear separately under World & ores. These are isolated development samples, not a survey of the personal server world or proof of survival balance.
+    detail: 'Skyweave: Compatibility Patches adds a -128 to 768 build envelope, deep large anchors, independently sized companions, relative geology and a scoped altitude-pressure curve. Published Compat 0.4.0’s historical five-seed density samples averaged 2335–2585 blocks between nearest anchors. These are center distances, not shoreline gaps. The current development resource survey separately samples three seed-42 anchors with caves, veins and local water enabled; it records geological depth and exposure as well as quantities. Exposure to air or fluid does not prove reachable mining access. Counts, estimates, descriptors and artifact hashes appear separately under World & ores. These are isolated development samples, not a survey of the personal server world or proof of survival balance.'
     sources:
       ['pack docs/development/worldgen.md', 'data/generated/islands.json']
   - id: islands/interiors-water

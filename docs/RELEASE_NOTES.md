@@ -1,15 +1,11 @@
-# Create: Skyweave 0.2.0
+# Create: Skyweave 0.2.1
 
-Create Sky is now Create: Skyweave. The repository is `mannie-exe/create-skyweave`, the pack identity is `create_skyweave`, and portable archive filenames use Create Skyweave.
+Correct product names in documentation, credits, BlueMap defaults, Atlas descriptions, and development exporter metadata. Launcher and archive labels use Skyweave modpack.
 
-- Pin the published Skyweave Compat 0.20.0 artifact with verified checksums. It remains independently installable; the unfinished Skyweave civilization mod is not included or required.
-- Rename owned configuration, resource/data namespaces, journal translations, fixes metadata, visual patches, templates, authoring tools, and Atlas/exporter identity together.
-- Preserve Minecraft 1.21.1, NeoForge 21.1.264, all other dependency selections, terrain parameters, resource selections, journal progression, and the Atlas architecture.
+Include Skyweave: Compatibility Patches 0.20.1 with verified release checksums. Its internal identity remains `skyweave-compat`; gameplay, registry IDs, generation behavior, resource selections, and other dependency pins are unchanged from 0.2.0.
 
-Install a fresh instance and create a fresh world. The new registry and pack identities do not convert existing Create Sky worlds or empack consumer lineages. Keep existing installations on their original releases; do not rename or delete generation markers. Personal worlds, player data, LODs, and server settings are not synchronized by this release.
+The `create_skyweave` installation lineage remains separate from old `create_sky` instances. Existing Create Sky worlds must stay on their original releases. This update does not convert worlds or authorize deleting generation markers.
 
-The local Atlas retains read-only support for historical world surveys and generation markers. Historical releases and their original asset filenames remain available. No Cloudflare deployment accompanies this release.
+Automated checks and exported payload verification are recorded in [compatibility](development/compatibility.md) and [Atlas verification](development/web/verification.md). Interactive Minecraft rendering was not rechecked for this text-only update.
 
-The renamed Compat artifact passed minimum/full dedicated-server loading and fresh-world generation/reopening. A new interactive Minecraft client check remains pending; prior rendering evidence stays attributable to its recorded artifacts. See [compatibility](development/compatibility.md) and [Atlas verification](development/web/verification.md) for current checks and limits.
-
-Previous release: [0.1.37](releases/0.1.37.md).
+Previous release: [0.2.0](releases/0.2.0.md).

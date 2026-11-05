@@ -6,6 +6,14 @@ Player instructions belong in [graphics](../players/graphics.md) and
 [content list](../MODLIST.md), with authoritative selections in `empack.yml` and
 `empack.lock`.
 
+## Display text, 0.2.1
+
+Verified on 2026-11-04 with published Skyweave: Compatibility Patches 0.20.1. The 61 pack tests, 88 generated journal outputs, 256-file configuration audit, shader-lab check, and fixes/resource builders pass. Changes to audited configuration are display strings and comments only. The lock changes only the compatibility mod selection and intent revision; all 161 other dependencies and runtime pins remain unchanged.
+
+All three reference exports build and pass ZIP integrity, unique-destination, embedded-asset hash, published compatibility-mod pin, and client/server exclusion checks. Prism and Modrinth labels read Skyweave modpack. The generated fixes and visual-resource descriptions identify Create: Skyweave; independently named resource artifacts retain their existing filenames. The server launcher patch passes its check.
+
+The compatibility mod passed standalone/full disposable dedicated startup. Interactive Minecraft layout/rendering was not rechecked for this text-only update. Existing pre-0.20.0 worlds remain incompatible with the new registry identity and must not be started with it.
+
 ## Identity migration, 0.2.0
 
 The three default reference exports (Modrinth, Prism, server) build from the renamed checkout. Archive integrity, embedded asset SHA-256 values, Compat URL/checksum pins, and client/server exclusions pass. All 161 retained dependency selections and Minecraft/NeoForge pins match the previous lock exactly; only Create Sky Compat is replaced by published Skyweave Compat 0.20.0. Old Compat and fixes JARs are absent from the exports.
@@ -411,7 +419,7 @@ Sky Archipelago requires LODs from its actual island chunks. The pack uses
 The worker count was chosen for a 14-processor host, not measured as optimal
 for all machines.
 
-New worlds use Skyweave Compat's expanded preset and geometry configuration.
+New worlds use Skyweave: Compatibility Patches' expanded preset and geometry configuration.
 The **eee** preset and common Sky Archipelago TOML apply to ordinary upstream
 worlds; their RANDOM sizing leaves SPECIFIC bands dormant. Keep those files with
 ordinary saves. See [world generation](worldgen.md) for preset boundaries.
@@ -442,7 +450,7 @@ The check used Complementary Unbound r5.9.3 with Euphoria 1.10.5, with shaders
 enabled and disabled. Glow lichen was also identified on the reported live cliff.
 That supports this explanation for the observed pale patches, but does not
 establish that every historical liquid-color symptom has the same cause. Modded
-fluids and other shaders remain untested. See Skyweave Compat's
+fluids and other shaders remain untested. See Skyweave: Compatibility Patches'
 [DH development notes](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/lod.md)
 for the conversion boundary and upstream report candidate.
 
@@ -467,8 +475,8 @@ owns the source contracts and update procedure.
 - URL pins handle provider metadata conflicts involving old exact versions,
   Connector/Forgified Fabric API and client-only dependencies. Check runtime
   metadata before replacing them with provider roots or downgrading dependencies.
-- Published URL pins select DH Polygon Fix, Copycat Bar Extrusion, Create Skyweave
-  Compat with content digests. Compat itself requires no content mods; this pack
+- Published URL pins select DH Polygon Fix, Copycat Bar Extrusion, Skyweave: Compatibility Patches
+  with content digests. The compatibility mod itself requires no content mods; this pack
   enables its Sky Archipelago 1.3.6 preset and Sky Villages/Architectury adapters.
   Compat also owns the optional client framebuffer, balloon, and construct-model
   corrections. Do not install the former standalone Veil Iris Fix alongside it.
@@ -570,7 +578,7 @@ light-shaft sampling may show more noise in motion.
 
 [Building weights](weights.md#verification-2026-10-29) records the exact resource
 artifact, all-state comparison, representative assemblies and limits. The
-resource-only change needs no Skyweave Compat update.
+resource-only change needs no Skyweave: Compatibility Patches update.
 
 ## Analog Audio release verification, 0.1.19
 
@@ -978,7 +986,7 @@ bars, and both fill and individual placement validate registry IDs before genera
 
 ## BlueMap model parsing
 
-The optional Skyweave Compat viewer adapter targets BlueMap 5.7 on dedicated
+The optional Skyweave: Compatibility Patches viewer adapter targets BlueMap 5.7 on dedicated
 servers; see [server webmap](build.md#server-webmap). Browser checks on saved tiles
 confirmed bounded detailed rendering, reduced empty-edge stretching, disable and
 re-enable behavior, and camera movement across the floating-origin boundary.

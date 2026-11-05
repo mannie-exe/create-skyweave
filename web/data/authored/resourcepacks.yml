@@ -559,11 +559,7 @@ candidates:
       Expanded weight tiers cover partial building blocks, furniture and fixtures;
       recolored DnD flywheels now match Create. These tags do not change lift or
       introduce item-count-based ship weights.
-    concern:
-      This JAR is loaded as a mod, not selected in the client resource-pack
-      list. It contains no Java gameplay hooks. Skyweave Compat, DH Polygon Fix,
-      and animation or geometry mods remain separate dependencies. Veil/Iris
-      runtime hooks are incorporated in Skyweave Compat.
+    concern: 'This JAR is loaded as a mod, not selected in the client resource-pack list. It contains no Java gameplay hooks. Skyweave: Compatibility Patches, DH Polygon Fix, and animation or geometry mods remain separate dependencies. Veil/Iris runtime hooks are incorporated in Skyweave: Compatibility Patches.'
     nextCheck: Check upstream recipe, loot, tag and journal changes before
       rebuilding. A resource build alone does not verify runtime behavior.
 

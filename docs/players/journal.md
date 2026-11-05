@@ -45,6 +45,6 @@ counts and conditions. Descriptions and objective rows wrap and scroll; compact 
 the old truncated rows.
 
 Use the Settings bookmark for item images, condition symbols and notifications.
-The same preferences are available from Mods → Skyweave Compat → Config →
+The same preferences are available from Mods → Skyweave: Compatibility Patches → Config →
 Client → Questlog. These apply immediately. Startup fixes in that screen require
 Save changes and a game restart; they do not configure a connected server.

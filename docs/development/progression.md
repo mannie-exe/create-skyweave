@@ -30,7 +30,7 @@ was applied to decorative choices.
 
 The archived survey supports vertical resource specialization: iron and coal were
 common, while diamonds and most redstone were concentrated in deepslate. Preserve
-that reason to explore deeper terrain before increasing global ore rates. Skyweave Compat maps those bands into each anchor's geological span;
+that reason to explore deeper terrain before increasing global ore rates. Skyweave: Compatibility Patches maps those bands into each anchor's geological span;
 [generated samples](worldgen.md#geology-and-features) now confirm zinc and
 other starting resources, with diamond/platinum in deep interiors. Mining access,
 travel time and whole-island quantities remain separate gameplay checks. Gold washing supplies a separate 5% platinum-nugget chance. At that

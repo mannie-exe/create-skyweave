@@ -14,7 +14,7 @@ records:
     inputs: [[analogaudio:radio]]
     outputs: []
     evidence: isolated-registration-and-server-callbacks
-    detail: Skyweave Compat restores Analog Audio's existing movement-handler registration for Analog Audio 0.1.5-hotfix.1 with Create 6.0.10. Recipes, controls and Sable audio behavior are unchanged. Registration and server callbacks were verified; audible playback and GUI behavior on ordinary moving contraptions still need playtesting.
+    detail: "Skyweave: Compatibility Patches restores Analog Audio's existing movement-handler registration for Analog Audio 0.1.5-hotfix.1 with Create 6.0.10. Recipes, controls and Sable audio behavior are unchanged. Registration and server callbacks were verified; audible playback and GUI behavior on ordinary moving contraptions still need playtesting."
     sources:
       - docs/development/compatibility.md
       - https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/README.md#analog-audio

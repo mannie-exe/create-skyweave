@@ -4,4 +4,4 @@ license="MIT"
 [[mods]]
 modId="create_skyweave_atlas_exporter"
 version="0.1.0"
-displayName="Create Skyweave Atlas Exporter (development only)"
+displayName="Create: Skyweave Atlas Exporter (development only)"

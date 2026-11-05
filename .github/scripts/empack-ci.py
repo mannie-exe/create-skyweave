@@ -105,7 +105,7 @@ def publish(destination, tag):
     # Preserve authored pack notes; all other publication behavior follows upstream.
     notes = os.environ.get("EMPACK_RELEASE_NOTES")
     note_options = ["--notes-file", notes] if notes else ["--generate-notes"]
-    run("gh", "release", "create", tag, *assets, "--verify-tag", *note_options, "--draft", *options)
+    run("gh", "release", "create", tag, *assets, "--verify-tag", "--title", f"Create: Skyweave {tag.removeprefix('v')}", *note_options, "--draft", *options)
     run("gh", "release", "edit", tag, "--draft=false", *options)
 
 

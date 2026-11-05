@@ -214,7 +214,7 @@ reviews and highlights your reading position. Select a pack to jump to its revie
 scrolling does not move keyboard focus. On narrow screens the index sits above the
 reviews, with a **Back to pack list** link. Filters apply to both the index and the
 reviews. Each row pairs the review and source links
-with a gallery. Author images and **Create Skyweave tests** share the viewer, with
+with a gallery. Author images and **Create: Skyweave tests** share the viewer, with
 separate thumbnail groups. Select an image or recording, then enlarge it if needed.
 Arrow keys move through the enlarged gallery; video controls retain their native
 keyboard behavior. Escape closes the viewer and pauses playback.

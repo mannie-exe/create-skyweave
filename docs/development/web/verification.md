@@ -4,6 +4,12 @@ Checks apply to the recorded source or artifact, not every later checkout. Brows
 checks establish interface behavior; native game checks and survey evidence have
 separate owners and limits. Commands and prerequisites live in [setup](setup.md).
 
+## Display text, 0.2.1
+
+Verified on 2026-11-04 with published Skyweave: Compatibility Patches 0.20.1. `pnpm verify` passes 158 Node tests, type checks, and the 16-page build; `pnpm test:python` passes 35 tests with one existing skip. Ten focused navigation/resource-pack browser checks pass, including narrow-page layout and resource descriptions. One full test run observed an empty PID file in the unchanged cancellation fixture; the isolated nine job tests and the full suite then passed without weakening assertions.
+
+`pnpm data:refresh` compiled and ran the isolated exporter against the new pin, extracted 10,116 items and 31,641 resource paths from 471 JARs, generated 10,050 texture previews, and published the map. Authored YAML retains the same non-text values; colon-bearing display text is quoted. Machine identities, workspace scopes, jobs, access boundaries, and recipe/resource selection remain unchanged.
+
 ## Identity migration, 0.2.0
 
 Verified on 2026-11-04 from `~/Minecraft/create-skyweave` with published Skyweave Compat 0.20.0. `pnpm verify` passes 158 tests, type checks, and the 16-page static build. `pnpm test:python` passes 35 tests with one existing skip. The runtime exporter compiled and ran in its isolated server; extraction produced 10,116 items, 31,641 resource paths, and 10,050 texture previews. `pnpm data:check` passes after the portable pack-name correction.

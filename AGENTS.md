@@ -1,7 +1,9 @@
 # Create: Skyweave
 
+Use **Create: Skyweave** for the modpack; **Skyweave modpack** or **the Skyweave modpack** is also acceptable in prose. Use **Skyweave: Compatibility Patches** for the independent compatibility mod. Preserve machine identities, including `create-skyweave`, `create_skyweave`, `skyweave-compat`, `skyweave_compat`, and Java package/class names. Put naming guidance in AGENTS.md; use the names directly in other documentation and interfaces.
+
 Create: Skyweave is the playable Create/Aeronautics island modpack. Skyweave is
-the separate, unfinished civilization mod; Skyweave Compat supplies optional adaptations. Start with `docs/README.md`; read only the
+the separate, unfinished civilization mod; Skyweave: Compatibility Patches supplies optional adaptations. Start with `docs/README.md`; read only the
 documents relevant to the task. Runtime and dependency pins live in `empack.yml`.
 
 ## Direction

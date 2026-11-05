@@ -1,4 +1,4 @@
-"""Import bounded native Skyweave Compat surveys without opening a Minecraft world."""
+"""Import bounded native Skyweave: Compatibility Patches surveys without opening a Minecraft world."""
 import argparse
 import hashlib
 import json

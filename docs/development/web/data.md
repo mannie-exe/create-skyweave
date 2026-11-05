@@ -56,7 +56,7 @@ playing world.
 
 ## Runtime compatibility and weight coverage
 
-Skyweave Compat’s Analog Audio and rendering adapters add no recipes,
+Skyweave: Compatibility Patches’ Analog Audio and rendering adapters add no recipes,
 acquisition routes, textures, or mass values for the Atlas to project. Its startup
 feature file selects adapters before loading their hooks and built-in data packs;
 raw JAR resources alone no longer establish that an integration’s tags are active.
@@ -65,7 +65,7 @@ pressure data. The exporter already reads the resolved resource manager.
 
 The Atlas does not execute Iris shaders or display native Ponder/construct shader
 materials. Its static previews cannot verify the rendering corrections. The
-configuration extractor reads the authored boolean `key=value` subset of Compat’s
+configuration extractor reads the authored boolean `key=value` subset of Skyweave: Compatibility Patches’
 properties file and displays it through the existing configuration catalog; it is not a live feature toggle for a running game.
 Pack resource fixes remain inputs to runtime export and asset extraction.
 
@@ -76,7 +76,7 @@ checks. Do not infer ship weight from item or recipe records.
 
 After materializing the selected pack dependencies, refresh the runtime snapshot and
 extraction, compile, then run `pnpm data:check`. Confirm the loaded JAR hashes in
-`runtime/snapshot.json`; a newer pack lock or Compat source checkout is not
+`runtime/snapshot.json`; a newer pack lock or Skyweave: Compatibility Patches source checkout is not
 evidence that the exporter loaded it. Keep an older capture's provenance and
 stale indication until its inputs can be refreshed. Runtime refresh does not
 replace the separately dated world, island or structure surveys.
@@ -196,7 +196,7 @@ and deterministic random chunk sampling within each populated Overworld region.
 Estimates weight each sample by that region's populated chunk count. It records
 block counts, ore height distributions, land-column fractions, read errors and
 files that changed during the survey. New captures retain the seed as a decimal
-string, dimension/generator identifiers, the level.dat hash, and the Create Skyweave
+string, dimension/generator identifiers, the level.dat hash, and the Create: Skyweave
 generation identity with its original-file hash when present. Player records and
 private source paths are not exported. An optional `--world` selects a stopped
 copy for read-only sampling; it does not change the server's configured path.
@@ -597,7 +597,7 @@ include `.properties` files so mixin configuration changes mark captures stale.
 ## Island generation surveys
 
 `pnpm data:islands --terrain /path/to/terrain.json --resources /path/to/islands-42.json /path/to/islands-8675309.json`
-imports the maintained Skyweave Compat native probes. Run `pnpm data:compile`
+imports the maintained Skyweave: Compatibility Patches native probes. Run `pnpm data:compile`
 after import. This CLI reads reports, not worlds, and does not run Java or alter
 the installed pack. `tools/probe.py --terrain --samples 4` and `--islands --seed N --heap 6G`
 in that mod project own generation and native descriptor export.

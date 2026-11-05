@@ -11,10 +11,10 @@ owns their hashes and purpose. Build with `python3 scripts/build-fixes.py`.
 
 | Control | Current choice |
 | --- | --- |
-| Height | Base start Y 160 to 224; Compat shifts it relative to the host island in the expanded preset |
+| Height | Base start Y 160 to 224; Skyweave: Compatibility Patches shifts it relative to the host island in the expanded preset |
 | Layout | Upstream jigsaw depth 7 and maximum distance 128 blocks |
 | Distribution | Expanded preset: per-anchor allowance 0 to 3, candidate grid 24/12 chunks. Ordinary preset: upstream 70/65 chunks, salt 23734816 |
-| Island proximity | Skyweave Compat: minimum gap 64, maximum host distance 512, minimum host radius 96 |
+| Island proximity | Skyweave: Compatibility Patches: minimum gap 64, maximum host distance 512, minimum host radius 96 |
 | Biomes | Ocean, river, jungle and forest tags, plus dark forest |
 | Pools | Installed templates and explicit empty entries only |
 | Village discovery | Include `skyvillages:skyvillage` in `#minecraft:village` |
@@ -23,7 +23,7 @@ owns their hashes and purpose. Build with `python3 scripts/build-fixes.py`.
 | Crops and chest loot | Upstream defaults |
 
 The base height override avoids adding 150 blocks to the upstream surface
-projection; Compat applies its host-relative altitude adaptation separately.
+projection; Skyweave: Compatibility Patches applies its host-relative altitude adaptation separately.
 It does not guarantee clearance from terrain. Removing 63 absent optional
 compatibility-template references prevents selections that cannot resolve.
 Revisit those pools when adding related content. Clearing generated jukebox
@@ -101,7 +101,7 @@ confirms that behavior. `StructurePlacementPolicy.categoryFor` classifies
 rule. `StructureRoutingPolicy.shouldRouteSkyToV2` selects the SKY engine before
 the legacy whitelist branch.
 
-Sky Archipelago 1.3.6 has these controls before Compat applies its filter:
+Sky Archipelago 1.3.6 has these controls before Skyweave: Compatibility Patches applies its filter:
 
 | Control | Effect on Sky Villages |
 | --- | --- |
@@ -125,7 +125,7 @@ generator/settings. Clearance 0 and 8 failed; 9 passed; isolated void with zero
 nearby samples passed. A native village layout ran SKY air validation normally
 and bypassed it when explicitly whitelisted. `DEFAULT` with the current tokens
 still selected SKY. The probe read `level.dat` without changing it and generated
-no chunks in the live world. These checks establish upstream behavior without Compat's neighbor filter.
+no chunks in the live world. These checks establish upstream behavior without Skyweave: Compatibility Patches' neighbor filter.
 
 Ocean biome eligibility compounds the visual effect: villages can pass their
 biome check where this pack suppresses natural terrain islands. Removing ocean
@@ -138,7 +138,7 @@ Changing separation alone spreads candidate positions but does not reduce their
 number. The earlier four-seed generation survey measured a 74% valid-start rate;
 that is a sample, not a universal density guarantee.
 
-[Skyweave Compat](https://github.com/mannie-exe/skyweave-compat) replaces
+[Skyweave: Compatibility Patches](https://github.com/mannie-exe/skyweave-compat) replaces
 Sky Village Neighbors. Common placement controls live in
 `skyweave_compat-common.toml`. Its expanded preset shifts the structure altitude
 into the island band and assigns each anchor an allowance of zero to three
@@ -202,7 +202,7 @@ Controlled placements bypass biome eligibility and natural terrain. Natural
 bounding-box resource counts include island terrain and must not be reported as
 foundation yields. No survival playthrough or multiplayer Lootr test was performed.
 
-The resource changes were introduced in 0.1.8; Compat later replaced the separate
+The resource changes were introduced in 0.1.8; Skyweave: Compatibility Patches later replaced the separate
 neighbor mod. Updates preserve a world unless its operator chooses a reset.
 Existing chunks are not retrofitted. Structures Arise and broader structure tuning
 remain a separate pass. See [progression](progression.md) for the connected fuel,

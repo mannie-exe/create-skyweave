@@ -33,7 +33,7 @@ def patch_members(changes):
         recipes[path] = recipe
     return {'pack.mcmeta': {'pack': {
         'pack_format': 48,
-        'description': 'Create Skyweave atlas recipe scenario; review and test before applying',
+        'description': 'Create: Skyweave atlas recipe scenario; review and test before applying',
     }}, **recipes}
 
 

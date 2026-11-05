@@ -22,7 +22,7 @@ The fix is version-specific; remove it when upgrading DH.
 
 ## Compatibility adaptations
 
-Skyweave Compat includes the Veil/Iris framebuffer correction and optional
+Skyweave: Compatibility Patches includes the Veil/Iris framebuffer correction and optional
 balloon shadow-pass, construct-material, and single-block render-pass adaptations. Do not install the old
 standalone Veil Iris Fix JAR. Their `rendering.*` switches live in
 `config/skyweave_compat-features.properties`; change them only with the game
@@ -40,7 +40,7 @@ Colorwheel enables shader-aware Flywheel rendering with compatible shaders.
 Complementary and the generated Euphoria selection include native support; no
 extra patcher is needed. Shader-off rendering keeps Flywheel's ordinary
 backend. The Mac uses instancing; indirect rendering and Colorwheel OIT are
-unavailable there. Compat releases unused OIT sampler slots on that renderer and
+unavailable there. Skyweave: Compatibility Patches releases unused OIT sampler slots on that renderer and
 supplies material metadata for direct Sable model draws.
 
 These are separate `rendering.colorwheel_samplers` and
@@ -51,7 +51,7 @@ moving-airship shadows. The included BSL alternative is pre-patched for Colorwhe
 ## Moving lights
 
 The pack includes Sable Dynamic Lights and LambDynamicLights for
-moving Create contraptions and Sable ships. Compat's `lighting.lifecycle` and
+moving Create contraptions and Sable ships. Skyweave: Compatibility Patches' `lighting.lifecycle` and
 `lighting.sodium` startup switches are enabled by default. These are client-only;
 the server does not need the lighting mods.
 
@@ -97,7 +97,7 @@ artwork fitting and authored bar/lamp geometry. It does not restyle every mod.
 Maintainers can use a disposable scene with labeled samples; the local Resource
 Review fixture and captured comparisons are described in
 [Atlas verification](../development/web/verification.md). Test saves and optional
-comparison packs are not distributed with Create Skyweave.
+comparison packs are not distributed with Create: Skyweave.
 
 ## Shader selection
 
@@ -142,7 +142,7 @@ that choice and exceed the tested macOS texture-unit budget.
 
 Shader settings files live beside their shader packs in `shaderpacks/`. Their
 names must match the exact shader ZIP or generated folder. Use the settings from
-the same Create Skyweave release as the shader. BSL is included as an alternative.
+the same Create: Skyweave release as the shader. BSL is included as an alternative.
 The [maintainer reference](../development/compatibility.md#shader-verification)
 records the sampler measurements and their limits.
 

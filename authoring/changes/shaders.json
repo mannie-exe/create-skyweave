@@ -4,21 +4,21 @@
   "records": [
     {
       "path": "overrides/client/shaderpacks/BSL_v10.1.8 + Clrwl_1.0.5.zip.txt",
-      "sha256": "46068daa078b887ec05f5bc8f7b877be596a2987f10ff13c4e6674b51b586044",
+      "sha256": "6f76fd65f400a54d9098ef031f8221ecb8ab1a73b7b1a16a7e505e1a046c809e",
       "review": "reviewed",
       "reason": "Reduce sampler pressure and shadow distance while retaining the tested shader effects.",
       "reference": "docs/development/compatibility.md"
     },
     {
       "path": "overrides/client/shaderpacks/ComplementaryUnbound_r5.9.3 + EuphoriaPatches_1.10.5.txt",
-      "sha256": "aed2b192f1f889a7879f70835a19b0608d6512922bc1f6e8967898b786deb4b3",
+      "sha256": "2fc1c28379ab492264449a35e86799b19c0726d752c4f927c4fcc20700ab8297",
       "review": "reviewed",
       "reason": "Reduce sampler pressure and shadow distance while retaining the tested shader effects.",
       "reference": "docs/development/compatibility.md"
     },
     {
       "path": "overrides/client/shaderpacks/ComplementaryUnbound_r5.9.3.zip.txt",
-      "sha256": "9cd9e14bb96ef4699406eacfbc509203e494bf1e5524e4457b9e4eff2e10008e",
+      "sha256": "641dff2499fe7b629844721ea08814f5be8446b0990f89d3189cce23bd81ea98",
       "review": "reviewed",
       "reason": "Reduce sampler pressure and shadow distance while retaining the tested shader effects.",
       "reference": "docs/development/compatibility.md"
@@ -39,7 +39,7 @@
     },
     {
       "path": "overrides/client/shaderpacks/photon_v1.4.zip.txt",
-      "sha256": "915f8e893a8f1b919738b76123d539cc3a82ff5817024173d532b27d2f1cd054",
+      "sha256": "33fba6d833fc9cbba34398d3f8b4b25a605a8674e00ad6b00d6b5ea1cbd61a21",
       "review": "reviewed",
       "reason": "Retain native High lighting, add block-entity shadows for machinery, and use 128-block shadows without depth of field or motion blur. No macOS workaround or non-Apple GPU validation.",
       "reference": "docs/development/compatibility.md#shader-patching"

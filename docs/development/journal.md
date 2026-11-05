@@ -1,12 +1,12 @@
 # Journal design and definitions
 
-Questlog provides an optional, bookless journal for Create Skyweave. The selected
+Questlog provides an optional, bookless journal for Create: Skyweave. The selected
 artifact is recorded in `empack.yml`; the current implementation review covers
 Questlog 3.5.3 on Minecraft 1.21.1 / NeoForge.
 
-Compat's Questlog adaptations own wrapped rows, reward previews, bookmark preferences and runtime
+Skyweave: Compatibility Patches' Questlog adaptations own wrapped rows, reward previews, bookmark preferences and runtime
 notifications. The pack enables its three independent startup switches and native
-completion flags. Review the exact Questlog pin and Compat hooks together before
+completion flags. Review the exact Questlog pin and Skyweave: Compatibility Patches hooks together before
 upgrading either. Keep the native Questlog panel textures replaceable; adding panel
 overrides also requires checking controls, ink colors and per-entry skins. Existing
 client palettes may need a reviewed color-only merge rather than replacement of
@@ -158,7 +158,7 @@ triggers.
 The guide reward is two casings toward an example twelve-casing rail setup, about
 17% of its rail cost. It supplies no new bearing or scarce slime. Other machinery
 entries have no material reward. Recheck the recipes, machinery contract and
-cross-entry reward budget when changing Linear Bearing or its Compat adapters.
+cross-entry reward budget when changing Linear Bearing or its Skyweave: Compatibility Patches adapters.
 
 ### Articulated machinery
 
