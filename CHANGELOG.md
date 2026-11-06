@@ -2,11 +2,21 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.2.3 · 2026-11-06
+
+### Features
+
+- Refresh compatibility and expand debug coverage ([644cf06](https://github.com/mannie-exe/create-skyweave/commit/644cf06876a96d8968af98164c682937d970a760))
+
 ## v0.2.2 · 2026-11-05
 
 ### Features
 
 - Generate patched shaders on clients ([231b860](https://github.com/mannie-exe/create-skyweave/commit/231b860c6a96abb49aa6e566fed6e27ac25389ae))
+
+### Maintenance
+
+- Prepare modpack release 0.2.2 ([75d5f73](https://github.com/mannie-exe/create-skyweave/commit/75d5f73ab1f58b03ca5e28b71f0b04d754e2377b))
 
 ## v0.2.1 · 2026-11-05
 
