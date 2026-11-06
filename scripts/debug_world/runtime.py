@@ -5,6 +5,7 @@ import fcntl
 import gzip
 import hashlib
 import json
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -14,6 +15,17 @@ import time
 from .registry import read_json
 
 OWNER = "create_skyweave/debug-world"
+
+
+def neoforge_args(server, version):
+    if not isinstance(version, str) or not re.fullmatch(r"21\.1\.\d+", version):
+        raise ValueError(
+            "Capture a registry with its exact NeoForge 21.1 loader version"
+        )
+    args = Path(server) / "libraries/net/neoforged/neoforge" / version / "unix_args.txt"
+    if not args.is_file():
+        raise ValueError(f"Expected captured NeoForge {version} runtime libraries")
+    return args
 
 
 @contextmanager
@@ -114,9 +126,7 @@ def generate(
             raise ValueError("NeoForge generation requires a read-only runtime home")
         server = Path(server).resolve()
         libraries = server / "libraries"
-        args = libraries / "net/neoforged/neoforge/21.1.264/unix_args.txt"
-        if not args.is_file():
-            raise ValueError("Expected NeoForge 21.1.264 runtime libraries")
+        args = neoforge_args(server, manifest["plan"].get("loaderVersion"))
         (work / "libraries").symlink_to(libraries, target_is_directory=True)
         (work / "mods").mkdir()
         for source in (server / "mods").glob("*.jar"):

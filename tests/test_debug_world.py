@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from debug_world.compiler import compile_pack
 from debug_world.plan import make_plan
 from debug_world.registry import Registry
-from debug_world.runtime import marked, world_lock
+from debug_world.runtime import marked, neoforge_args, world_lock
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -155,6 +155,23 @@ class DebugWorld(unittest.TestCase):
             "execute in minecraft:overworld",
             (a / "data/debug_world/function/reset/test/blocks.mcfunction").read_text(),
         )
+
+    def test_native_loader_uses_the_capture_without_falling_back(self):
+        for version in ("21.1.264", "21.1.265"):
+            args = (
+                self.root
+                / "libraries/net/neoforged/neoforge"
+                / version
+                / "unix_args.txt"
+            )
+            args.parent.mkdir(parents=True)
+            args.write_text("fixture")
+        self.assertEqual(neoforge_args(self.root, "21.1.265").parent.name, "21.1.265")
+        with self.assertRaisesRegex(ValueError, "Expected captured"):
+            neoforge_args(self.root, "21.1.266")
+        for invalid in (None, "../21.1.265", "21.2.1"):
+            with self.assertRaisesRegex(ValueError, "exact NeoForge"):
+                neoforge_args(self.root, invalid)
 
     def test_unmarked_and_loaded_worlds_refuse_writes(self):
         world = self.root / "world"

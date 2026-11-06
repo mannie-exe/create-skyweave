@@ -150,6 +150,28 @@
           "state": {
             "type": "bottom"
           }
+        },
+        {
+          "recipe": "samples",
+          "block": "minecraft:lever",
+          "samples": [
+            {
+              "label": "Floor",
+              "state": {
+                "face": "floor",
+                "facing": "south"
+              }
+            }
+          ]
+        },
+        {
+          "recipe": "circuit",
+          "variant": "wire"
+        },
+        {
+          "recipe": "entity",
+          "entity": "minecraft:cod",
+          "aquatic": true
         }
       ]
     }

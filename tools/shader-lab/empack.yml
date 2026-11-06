@@ -8,7 +8,7 @@ runtime:
   minecraft: 1.21.1
   loader:
     kind: neoforge
-    pin: 21.1.264
+    pin: "21.1.265"
   java: 21
 dependencies:
   bsl-shaders:
@@ -38,7 +38,7 @@ dependencies:
     type: other-file
     side: client
   shader-runner:
-    url: https://github.com/mannie-exe/skyweave-compat/releases/download/v0.21.0/skyweave-compat-0.21.0-mc1.21.1-neoforge.jar
-    sha256: b54189160996a769bc38f30bf31c4050e65e06983b809b2af9680bab076caa69
+    url: https://github.com/mannie-exe/skyweave-compat/releases/download/v0.22.1/skyweave-compat-0.22.1-mc1.21.1-neoforge.jar
+    sha256: da95628b57af390f5736a6b7838a73299a33847689c359f84a5c1d758f67384f
     type: other-file
     side: client

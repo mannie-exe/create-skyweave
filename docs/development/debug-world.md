@@ -49,8 +49,12 @@ A namespace filter on modpack metadata is not a vanilla-runtime check.
 Run from the repository root. Use the Atlas Python environment for verification;
 its Anvil decoder requires NumPy. Java must be 21. The native runtime must match
 the captured registry's adjacent `snapshot.json`; generation rejects different
-JAR inventories. The current runner targets Minecraft 1.21.1 and the pinned
-NeoForge 21.1.264 libraries.
+JAR inventories. The current runner targets Minecraft 1.21.1 and selects the
+exact NeoForge 21.1 version recorded by the registry capture. Missing or
+mismatched loader libraries stop generation rather than selecting another version. If the
+playing server is on an older release, prepare a separate server-reference
+installation and use its game directory as `--server`; do not upgrade the playing
+server merely to generate this fixture.
 
 ```sh
 PY=web/.cache/python/bin/python
@@ -145,8 +149,20 @@ have both halves. Two solid platform layers support replaced sand and soil.
 Random growth is disabled, while scheduled ticks, physics,
 container interaction and animations remain active. Entity pens have floors and
 walls, static specimens retain grounded/gravity semantics, and motion pens are
-explicit. Copycat displays record their actual material; the powered Create
-reference is a bounded 32 RPM motor/shaft/cogwheel network.
+explicit. Aquatic specimens have enclosed source-water tanks and are checked
+within that habitat rather than required to stand on the floor. Authored entity
+variants round-trip through saved NBT checks; fixture identity, persistence and
+safety fields cannot be overridden. Copycat panels, blocks and ladders receive
+and verify their actual materials. The powered Create reference is a bounded
+32 RPM motor/shaft/cogwheel network.
+
+`samples` makes up to six labeled state comparisons with explicit floor, wall or
+ceiling supports; it checks the requested properties after native updates.
+Wall-mounted bells face their support, unlike wall buttons. The `circuit` recipe
+uses native levers, wire, repeaters/comparators, lamps and pistons; no command block
+simulates their signal. Use the lever to operate a circuit and reset its group to
+restore the initial arrangement. Intentional player interactions can therefore
+change a later verification result without indicating a failed initial placement.
 
 Plan first, run the smoke profile for new placement strategies, then generate the
 full profile. Inspect native rendering with the existing desktop harness; saved
@@ -175,31 +191,32 @@ part of fixture cleanup.
 
 ## Coverage
 
-The curated Create: Skyweave profile has 791 comparison cases in 43 groups across 14
-districts. A case may contain a connected wall or paired states rather than one
-block. Revision 12 had 582 sample records in 27 sections; those record units are
-not identical. Added coverage includes 179 Macaw windows, mosaics, waxed grates,
-Rechiseled meshes, contained waterlogging and explicit storage directions.
+The curated Create: Skyweave profile has 1,088 comparison cases in 67 groups across 17 districts. A case may contain a connected wall, several labeled states or a
+working circuit rather than one block. Coverage is curated from current registered
+content, selected resource subjects, maintained fixes and useful native comparisons.
 
-| District               | Cases | Purpose                                                                                |
-| ---------------------- | ----: | -------------------------------------------------------------------------------------- |
-| Glass                  |   200 | Full-block families, mosaics, isolated blocks, corners and material boundaries         |
-| Windows                |   179 | Macaw window families, separate from ordinary full blocks                              |
-| Panes                  |    58 | Connected strips, corners and isolated panes                                           |
-| Bars and mesh          |    50 | Create/Deco bars, overlays, grates, Rechiseled meshes and Copycat materials            |
-| Crops and water plants |    50 | Growth stages, tall/rooted plants and contained aquatics                               |
-| Pots                   |    34 | Registered potted variants, including azaleas and mushrooms                            |
-| Lighting               |    69 | Standing/hanging/wall lights, cage/front lamps, four stair facings and emissive blocks |
-| Storage                |    21 | Native doubles, Lootr interactions/references and six barrel facings                   |
-| Partial blocks         |    25 | Stairs, slabs, fences, walls, ladders, rails, doors and waterlogging                   |
-| Entities and equipment |    52 | Static adults/young, two motion pens and six armor sets                                |
-| Workstations           |    14 | Selected vanilla workstation models and native interaction                             |
-| Props                  |    17 | Selected surfaces, campfires, bulbs and material accents                               |
-| Fluids and effects     |     9 | Contained falls, reflective materials, bubbles and smoke                               |
-| Mechanisms             |    13 | Unpowered machine geometry and one live kinetic reference                              |
+| District | Cases | Purpose |
+| --- | ---: | --- |
+| Glass | 202 | Full blocks, mosaics, caramel, bubble gum, corners and material boundaries |
+| Window frames | 179 | Macaw window families |
+| Panes | 58 | Connected strips, corners and isolated panes |
+| Bars and mesh | 51 | Bars, grates, industrial grating, Rechiseled meshes and Copycat materials |
+| Crops and water plants | 63 | Growth stages, rooted/hanging plants, fruit stems and aquatics |
+| Pots and shrubs | 34 | Potted plants and pot models |
+| Lanterns and lamps | 82 | Standing/wall lamps, four bridge facings, rope/stone supports and chains |
+| Storage | 21 | Single/double storage, Lootr directions and reference containers |
+| Connections and partial blocks | 80 | Ladders, grab rails, stairs/slabs, all vanilla doors/trapdoors, tracks and waterlogging |
+| Entities and equipment | 69 | Grounded adults/young, variants, aquatic tanks, motion pens and armor |
+| Workstations | 14 | Workstation models and native interaction |
+| Props and materials | 18 | Selected surfaces, campfires, bulbs and material accents |
+| Fluids and effects | 10 | Contained falls, material boundaries, bubbles, smoke and fire |
+| Create mechanisms | 53 | Create/addon components, flight parts, Linear Bearing, linkage and bounded rotation |
+| Redstone and circuits | 57 | Buttons/lever mounts, plates, signal components, working circuits and modded gates |
+| Interactions and states | 18 | Use/inventory blocks, attachment/fill states and materialized Copycats |
+| Building materials | 79 | Masonry, wood, leaf transparency, copper weathering and Create finishes |
 
 This is not an exhaustive block/entity catalogue. It does not cover every wood,
-color, state combination, rare entity variant or animation. Aquatic/flying entity
+color, state combination, rare entity variant or animation. Flying-entity
 habitats, automatic moving-ship fixtures, structure/biome generation, and every
 modded machine's operation remain outside the profile. Create vaults and shipping
 containers are omitted because they do not provide the container interaction

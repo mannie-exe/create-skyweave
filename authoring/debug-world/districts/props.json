@@ -24,9 +24,10 @@
           "minecraft:redstone_torch",
           "minecraft:redstone_lamp",
           "minecraft:bell",
-          "minecraft:scaffolding"
+          "minecraft:scaffolding",
+          "minecraft:cobweb"
         ],
-        "optional": false
+        "optional": true
       }
     },
     {

@@ -1,0 +1,132 @@
+{
+  "id": "interactions",
+  "title": "Interactions and states",
+  "anchor": [
+    264,
+    152,
+    120
+  ],
+  "color": "purple",
+  "groups": [
+    {
+      "id": "use",
+      "title": "Use and inventory interactions",
+      "recipe": "block",
+      "selector": {
+        "ids": [
+          "minecraft:lever",
+          "minecraft:bell",
+          "minecraft:flower_pot",
+          "minecraft:decorated_pot",
+          "lootr:decorated_pot",
+          "minecraft:composter",
+          "minecraft:cauldron",
+          "minecraft:water_cauldron",
+          "minecraft:powder_snow_cauldron",
+          "minecraft:lava_cauldron",
+          "minecraft:chiseled_bookshelf",
+          "minecraft:beehive",
+          "minecraft:bee_nest"
+        ],
+        "optional": true
+      }
+    },
+    {
+      "id": "states",
+      "title": "Fill and attachment states",
+      "recipe": "samples",
+      "cases": [
+        {
+          "block": "minecraft:water_cauldron",
+          "samples": [
+            {
+              "label": "Level 1",
+              "state": {
+                "level": "1"
+              }
+            },
+            {
+              "label": "Level 2",
+              "state": {
+                "level": "2"
+              }
+            },
+            {
+              "label": "Level 3",
+              "state": {
+                "level": "3"
+              }
+            }
+          ]
+        },
+        {
+          "block": "minecraft:composter",
+          "samples": [
+            {
+              "label": "Level 0",
+              "state": {
+                "level": "0"
+              }
+            },
+            {
+              "label": "Level 3",
+              "state": {
+                "level": "3"
+              }
+            },
+            {
+              "label": "Level 8",
+              "state": {
+                "level": "8"
+              }
+            }
+          ]
+        },
+        {
+          "block": "minecraft:bell",
+          "samples": [
+            {
+              "label": "Floor",
+              "state": {
+                "attachment": "floor",
+                "facing": "south"
+              }
+            },
+            {
+              "label": "Wall",
+              "state": {
+                "attachment": "single_wall",
+                "facing": "north"
+              },
+              "support": "wall"
+            },
+            {
+              "label": "Ceiling",
+              "state": {
+                "attachment": "ceiling",
+                "facing": "south"
+              },
+              "support": "ceiling"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "copycat",
+      "title": "Copycat geometry",
+      "recipe": "copycat",
+      "cases": [
+        {
+          "block": "create:copycat_panel",
+          "material": "minecraft:oak_planks"
+        },
+        {
+          "block": "copycats:copycat_block",
+          "material": "minecraft:bricks"
+        }
+      ],
+      "optional": true
+    }
+  ]
+}

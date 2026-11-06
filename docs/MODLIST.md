@@ -1,6 +1,6 @@
 # Included content
 
-Selections from `empack.yml` and `empack.lock`. Minecraft is 1.21.1 and NeoForge is 21.1.264.
+Selections from `empack.yml` and `empack.lock`. Minecraft is 1.21.1 and NeoForge is 21.1.265.
 The manifest/lock are authoritative; this list excludes libraries bundled inside
 mods. Shader inputs are assembled on clients through the [shared shader engine](../tools/shader-lab/README.md).
 See [release notes](RELEASE_NOTES.md) for the published version.
@@ -10,7 +10,7 @@ See [release notes](RELEASE_NOTES.md) for the published version.
 | 3D crops Revamped | 3 | [Exact version](https://modrinth.com/resourcepack/3d-crops/version/iKYRZwnm) |
 | 3D Sugar Cane | 2.0 | [Exact version](https://modrinth.com/resourcepack/3d-sugar-cane/version/sU6FmyoH) |
 | [EMF] Entity Model Features | 3.3.12-neoforge-1.21 | [Exact version](https://modrinth.com/mod/entity-model-features/version/197m3VoU) |
-| [ETF] Entity Texture Features | 7.2.6-neoforge-1.21 | [Exact version](https://modrinth.com/mod/entitytexturefeatures/version/lwNx1nD1) |
+| [ETF] Entity Texture Features | 7.2.7-neoforge-1.21 | [Exact version](https://modrinth.com/mod/entitytexturefeatures/version/1DVPB3a4) |
 | Absolute Kinematics | 1.0.1 | [CurseForge file](https://www.curseforge.com/minecraft/mc-mods/absolute-kinematics/files/8511680) |
 | Accessories Compatibility Layer | 0.1.13 | [Exact version](https://modrinth.com/mod/accessories-compat-layer/version/UB8bxpVn) |
 | Accessories | 1.1.0-beta.54+1.21.1 | [Exact version](https://modrinth.com/mod/accessories/version/dy9BbDEy) |
@@ -34,14 +34,14 @@ See [release notes](RELEASE_NOTES.md) for the published version.
 | Climbable Ropes for Create Aeronautics | 2.2.0 | [Exact version](https://modrinth.com/mod/create-aeronautics-climbable-rope/version/TTGedLb3) |
 | Cloth Config API | 15.0.140+neoforge | [Exact version](https://modrinth.com/mod/cloth-config/version/izKINKFg) |
 | Collective | 1.21.1-8.65-fabric+forge+neo | [Exact version](https://modrinth.com/mod/collective/version/d78uVgbq) |
-| Colorwheel | 1.3.0+mc1.21.1 | [Exact version](https://modrinth.com/mod/colorwheel/version/8rq5KP4U) |
+| Colorwheel | 1.3.2+mc1.21.1 | [Exact version](https://modrinth.com/mod/colorwheel/version/lV874ox8) |
 | Complementary Unbound (input) | r5.9.3 | [Exact version](https://modrinth.com/version/B1kyfoUZ) |
 | Colorwheel Patcher (payload only) | 1.0.5 | [Exact version](https://modrinth.com/version/dQqV3sci) |
 | Concurrent Chunk Management Engine (NeoForge) | 0.4.0-alpha.0.124+1.21.1 | [Exact version](https://modrinth.com/mod/c2me-neoforge/version/VACgDPOc) |
 | Controlling | 19.0.5 | [Exact version](https://modrinth.com/mod/controlling/version/FaNppCJJ) |
 | Cool Rain Reforged | 1.0.2 | [Exact version](https://modrinth.com/mod/cool-rain-reforged/version/SwSSfJQQ) |
 | Copycat Bar Extrusion | 0.1.0 | [Exact release](https://github.com/mannie-exe/copycat-bar-extrusion/releases/tag/v0.1.0) |
-| Skyweave: Compatibility Patches | 0.21.0 | [GitHub release](https://github.com/mannie-exe/skyweave-compat/releases/tag/v0.21.0) |
+| Skyweave: Compatibility Patches | 0.22.1 | [GitHub release](https://github.com/mannie-exe/skyweave-compat/releases/tag/v0.22.1) |
 | Create Accessories Compat | 1.0 | [Exact version](https://modrinth.com/mod/create-accessories-compat/version/2r7hvkCQ) |
 | Create Aeronautics | 1.3.2+mc1.21.1 | [Exact version](https://modrinth.com/mod/create-aeronautics/version/44pLdPGg) |
 | Create Aeronautics: Transmission & Linkage | 0.2.9 | [Exact version](https://modrinth.com/mod/create-aeronautics-transmission-linkage/version/WoUjC6d4) |
@@ -86,7 +86,7 @@ See [release notes](RELEASE_NOTES.md) for the published version.
 | Easy Anvils | v21.1.0-1.21.1-NeoForge | [Exact version](https://modrinth.com/mod/easy-anvils/version/fSQSKhdF) |
 | Easy Magic | v21.1.4-1.21.1-NeoForge | [Exact version](https://modrinth.com/mod/easy-magic/version/MxbfrOEv) |
 | Effortless Building | 4.2 | [Exact version](https://modrinth.com/mod/effortless-building/version/YxnBXtLv) |
-| EMI Loot | 0.7.9+1.21+neoforge | [Exact version](https://modrinth.com/mod/emi-loot/version/QXkODMCT) |
+| EMI Loot | 0.7.10+1.21+neoforge | [Exact version](https://modrinth.com/mod/emi-loot/version/kOwbrV11) |
 | EMI | 1.1.24+1.21.1+neoforge | [Exact version](https://modrinth.com/mod/emi/version/5sIPA1To) |
 | Entity Culling | 1.11.3 | [Exact version](https://modrinth.com/mod/entityculling/version/eieYbWYb) |
 | Euphoria Patches | 1.10.5-r5.9.3-neoforge | [Exact version](https://modrinth.com/mod/euphoria-patches/version/QMsRXtSJ) |
@@ -94,7 +94,7 @@ See [release notes](RELEASE_NOTES.md) for the published version.
 | Fast Noise | 1.0.13+1.21.1+neoforge | [Exact version](https://modrinth.com/mod/zfastnoise/version/9vSFkDAr) |
 | FerriteCore | 7.0.3-neoforge | [Exact version](https://modrinth.com/mod/ferrite-core/version/x7kQWVju) |
 | Forgified Fabric API | 0.116.15+2.3.6+1.21.1 | [Exact version](https://modrinth.com/mod/forgified-fabric-api/version/C4eskNuR) |
-| Fresh Animations | 1.11.1 | [Exact version](https://modrinth.com/resourcepack/fresh-animations/version/aQjwvDfY) |
+| Fresh Animations | 1.11.2 | [Exact version](https://modrinth.com/resourcepack/fresh-animations/version/HC1XRKGD) |
 | Fresh Animations: Details | 2.4.0 | [Exact version](https://modrinth.com/version/XM8VyQLk) |
 | Fresh Animations: Objects | 2.1.2 | [Exact version](https://modrinth.com/version/AIGgXNdl) |
 | Fresh Flower Pots | 1.5.4 | [Exact version](https://modrinth.com/version/YEM2pUsf) |
@@ -110,7 +110,7 @@ See [release notes](RELEASE_NOTES.md) for the published version.
 | Jade Addons (Neo/Forge) | 6.1.2+neoforge | [Exact version](https://modrinth.com/mod/jade-addons-forge/version/O3F6Dkle) |
 | Jade Sable Compat | 1.3.0 | [Exact version](https://modrinth.com/mod/jade-sable-compat/version/cxUohR7A) |
 | Jade 🔍 | 15.10.6+neoforge | [Exact version](https://modrinth.com/mod/jade/version/eYz2YBGT) |
-| Just Enough Items (JEI) | 19.70.0.468 | [Exact version](https://modrinth.com/mod/jei/version/j41QZiGx) |
+| Just Enough Items (JEI) | 19.70.0.469 | [Exact version](https://modrinth.com/mod/jei/version/1vC6z8wV) |
 | Kotlin for Forge | 5.12.0 | [Exact version](https://modrinth.com/mod/kotlin-for-forge/version/uhJhCT7X) |
 | LambDynamicLights | 4.8.11+1.21.1 | [Exact version](https://modrinth.com/mod/lambdynamiclights/version/ksaGCvSu) |
 | Linear Bearing | 1.3.5 | [Exact version](https://modrinth.com/mod/linear-bearing/version/8SJdnoXS) |
@@ -128,10 +128,10 @@ See [release notes](RELEASE_NOTES.md) for the published version.
 | Macaw's Trapdoors | 1.1.5 | [Exact version](https://modrinth.com/mod/macaws-trapdoors/version/StnP0RNi) |
 | Macaw's Windows | 2.4.2 | [Exact version](https://modrinth.com/mod/macaws-windows/version/rQUE4LCz) |
 | McQoy | 0.4.1+neo-1.21 | [Exact version](https://modrinth.com/mod/mcqoy/version/nfqfeKsL) |
-| MezzConfig | 0.6.8 | [Exact version](https://modrinth.com/version/idpM3DKC) |
+| MezzConfig | 0.6.11 | [Exact version](https://modrinth.com/version/sPQlt1iR) |
 | Midnighttigger's Default Connected Textures | Fusion_1.3.0 | [Exact version](https://modrinth.com/version/UPBKvt5T) |
 | ModernFix | 5.27.27+mc1.21.1 | [Exact version](https://modrinth.com/mod/modernfix/version/ZDZENbHH) |
-| More Culling | 1.0.10 | [Exact version](https://modrinth.com/mod/moreculling/version/5M4T2FfG) |
+| More Culling | 1.0.11 | [Exact version](https://modrinth.com/mod/moreculling/version/ucyxnpWe) |
 | oωo (owo-lib) | 0.12.15.6-beta.1+1.21 | [Exact version](https://modrinth.com/mod/owo-lib/version/wbdHEItB) |
 | Photon Shaders | v1.4 | [Exact version](https://modrinth.com/shader/photon-shader/version/BnGklH5y) |
 | Ping Wheel | 1.12.2 | [Exact version](https://modrinth.com/mod/ping-wheel/version/Zrh2Fmn9) |
@@ -141,19 +141,19 @@ See [release notes](RELEASE_NOTES.md) for the published version.
 | Puzzles Lib | 21.1.65 | [Exact version](https://modrinth.com/mod/puzzles-lib/version/kiX1lfse) |
 | Questlog | 3.5.3-1.21.1-neoforge | [Exact version](https://modrinth.com/mod/questlog/version/qnCcrOl2) |
 | RAY's 3D Ladders | 2.4 | [Exact version](https://modrinth.com/version/lfVriRcD) |
-| RAY's 3D Rails | 3.6 | [Exact version](https://modrinth.com/version/vTaYwBqs) |
+| RAY's 3D Rails | 3.7 | [Exact version](https://modrinth.com/version/tKWH9VdI) |
 | Rechiseled | 1.2.6-neoforge-mc1.21 | [Exact version](https://modrinth.com/mod/rechiseled/version/6muGRqvu) |
 | Rechiseled: Create | 1.1.1-neoforge-mc1.21 | [Exact version](https://modrinth.com/mod/rechiseled-create/version/VnOezhJR) |
 | Redden's Stone Lanterns | 1.0.4 | [Exact version](https://modrinth.com/mod/reddens-stone-lanterns/version/uehlsDrT) |
 | Redstone Tweaks | 2.4.5 | [Exact version](https://modrinth.com/resourcepack/redstone-tweaks/version/acYT0fGm) |
 | Reliable EMI (REMI) | 4.8.1-1.21.1-neoforge | [Exact version](https://modrinth.com/mod/reliable-emi/version/pnPjAfuO) |
-| Reliable Gliders | 2.0.0+1.21.1-neoforge | [Exact version](https://modrinth.com/mod/reliable-gliders/version/aOgcvBAo) |
+| Reliable Gliders | 2.1.0+1.21.1-neoforge | [Exact version](https://modrinth.com/mod/reliable-gliders/version/rW61WzQF) |
 | Ritchie's Projectile Library | 2.1.2 | [Exact version](https://modrinth.com/mod/rpl/version/hZ6B2Z0x) |
 | Sable | 2.0.6+mc1.21.1 | [Exact version](https://modrinth.com/mod/sable/version/fg9dTRz9) |
 | Sable Cool Rain | 1.0.1+1.21.1+neoforge | [Exact version](https://modrinth.com/mod/sable-cool-rain/version/3KLMffqk) |
 | Sable Dynamic Lights | 2.0.1 | [Exact version](https://modrinth.com/mod/sable-dynamic-lights/version/vjb0hAWB) |
 | Searchables | 1.0.2 | [Exact version](https://modrinth.com/mod/searchables/version/iEE85X0w) |
-| Separate Sable Render Distance (Create Aeronautics Addon) | 1.8.7 | [Exact version](https://modrinth.com/mod/ssrd/version/iZflRKdV) |
+| Separate Sable Render Distance (Create Aeronautics Addon) | 1.8.8 | [Exact version](https://modrinth.com/mod/ssrd/version/Zdhm9p2k) |
 | Shulker Box Tooltip | 5.1.9+1.21.1-neoforge | [Exact version](https://modrinth.com/mod/shulkerboxtooltip/version/IuqNIoAi) |
 | Simple 3D Bars | 1.0.3 | [Exact version](https://modrinth.com/resourcepack/simple-3d-iron-bars/version/harPhc3X) |
 | Sinytra Connector | 2.0.0-beta.17+1.21.1 | [Exact version](https://modrinth.com/mod/connector/version/IITF0PRC) |
@@ -166,9 +166,9 @@ See [release notes](RELEASE_NOTES.md) for the published version.
 | Spyglass Improvements | 1.5.7+mc1.21+neoforge | [Exact version](https://modrinth.com/version/F2s6rUr5) |
 | Strut Your Stuff (Struts) | 1.3.1 | [Exact version](https://modrinth.com/mod/strut-your-stuff/version/BOTN7zzN) |
 | SuperMartijn642's Config Lib | 1.1.8-neoforge-mc1.21 | [Exact version](https://modrinth.com/mod/supermartijn642s-config-lib/version/qKL9jM75) |
-| SuperMartijn642's Core Lib | 1.1.26-neoforge-mc1.21 | [Exact version](https://modrinth.com/mod/supermartijn642s-core-lib/version/HGyYs7Z4) |
+| SuperMartijn642's Core Lib | 1.1.26a-neoforge-mc1.21 | [Exact version](https://modrinth.com/mod/supermartijn642s-core-lib/version/sLRKmslC) |
 | Surveyor Map Framework | 1.2.4+1.21 | [Exact version](https://modrinth.com/mod/surveyor/version/egJBsDTn) |
-| Traveler's Backpack | 1.21.1-10.1.40 | [Exact version](https://modrinth.com/mod/travelersbackpack/version/ZqrwMSn5) |
+| Traveler's Backpack | 1.21.1-10.1.41 | [Exact version](https://modrinth.com/mod/travelersbackpack/version/JrOhWsXk) |
 | TxniLib | neoforge-1.21.1-1.0.24 | [Exact version](https://modrinth.com/mod/txnilib/version/M1CyD3Uu) |
 | YetAnotherConfigLib (YACL) | 3.8.2+1.21.1-neoforge | [Exact version](https://modrinth.com/mod/yacl/version/7TVdVtxF) |
 | You're in Grave Danger | 2.0.13 | [Exact version](https://modrinth.com/mod/yigd/version/Axk4bfXT) |

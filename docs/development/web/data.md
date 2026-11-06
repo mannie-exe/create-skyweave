@@ -93,6 +93,13 @@ and maintained resource overrides; neither installs mods into a playing instance
 The compiler puts the patched NeoForge game JAR before raw Minecraft libraries
 so installer cache order cannot shadow the game's patched API.
 
+Before syncing a loader upgrade to personal instances, pass
+`--libraries /path/to/isolated-server/libraries` to `scripts/runtime.py`. The
+capture still uses the selected pack mods and configured read-only settings;
+only its runtime libraries come from the isolated installation. The exact locked
+NeoForge JAR must exist there. The snapshot records the selected runtime, so
+preparing another loader does not silently substitute it for the lock.
+
 ## Textures and names
 
 [`scripts/extract.py`](../../../web/scripts/extract.py) reads the configured vanilla client

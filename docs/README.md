@@ -40,7 +40,7 @@ Current defaults live in `overrides/` and `templates/`. Building source does not
 update a downloaded release or an installed instance. Archived release notes
 describe their named version; the unreleased notes describe the working tree.
 
-Earlier releases: [0.1.18](releases/0.1.18.md), [0.1.17](releases/0.1.17.md), [0.1.16](releases/0.1.16.md), [0.1.15](releases/0.1.15.md), [0.1.14](releases/0.1.14.md), [0.1.13](releases/0.1.13.md), [0.1.12](releases/0.1.12.md),
+Earlier releases: [0.2.2](releases/0.2.2.md), [0.2.1](releases/0.2.1.md), [0.2.0](releases/0.2.0.md), [0.1.18](releases/0.1.18.md), [0.1.17](releases/0.1.17.md), [0.1.16](releases/0.1.16.md), [0.1.15](releases/0.1.15.md), [0.1.14](releases/0.1.14.md), [0.1.13](releases/0.1.13.md), [0.1.12](releases/0.1.12.md),
 [0.1.11](releases/0.1.11.md), [0.1.10](releases/0.1.10.md),
 [0.1.9](releases/0.1.9.md), [0.1.8](releases/0.1.8.md),
 [0.1.7](releases/0.1.7.md), [0.1.6](releases/0.1.6.md),

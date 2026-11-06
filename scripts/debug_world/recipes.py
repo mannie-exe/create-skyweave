@@ -24,6 +24,7 @@ class Specimen:
         self.inventory = []
         self.tiles = []
         self.notes = []
+        self.labels = []
 
     def block(self, dx, dy, dz, id, state=None, nbt=None, check_state=True):
         if not (-6 <= dx <= 6 and -1 <= dy <= 15 and -6 <= dz <= 6):
@@ -69,6 +70,8 @@ class Specimen:
                 "baby": self.case.get("baby", False),
                 "static": not self.case.get("motion", False),
                 "equipment": [item.get("id") for item in nbt.get("ArmorItems", [])],
+                "values": self.case.get("data", {}),
+                "aquatic": self.case.get("aquatic", False),
             }
         )
 
@@ -158,9 +161,30 @@ def window(s, case):
 def plant(s, case):
     id = case["block"]
     props = s.registry.blocks[id]["properties"]
+    if id in ("minecraft:vine", "minecraft:glow_lichen"):
+        for y in range(3):
+            s.block(0, y, -1, "minecraft:stone")
+            s.block(0, y, 0, id, {"north": "true"})
+        return
+    if id == "minecraft:cocoa":
+        s.block(0, 0, -1, "minecraft:jungle_log")
+        s.block(0, 0, 0, id, {"facing": "north", "age": "2"})
+        return
+    if id in ("minecraft:attached_melon_stem", "minecraft:attached_pumpkin_stem"):
+        s.block(0, -1, 0, "minecraft:farmland", {"moisture": "7"})
+        s.block(-1, -1, 0, "minecraft:water")
+        s.block(1, 0, 0, "minecraft:melon" if "melon" in id else "minecraft:pumpkin")
+        s.block(0, 0, 0, id, {"facing": "east"})
+        return
     soil = (
         "minecraft:sand"
         if id in ("minecraft:cactus", "minecraft:dead_bush")
+        else "minecraft:mycelium"
+        if id in ("minecraft:brown_mushroom", "minecraft:red_mushroom")
+        else "minecraft:crimson_nylium"
+        if id == "minecraft:crimson_fungus"
+        else "minecraft:warped_nylium"
+        if id == "minecraft:warped_fungus"
         else "minecraft:grass_block"
     )
     if id == "minecraft:sugar_cane":
@@ -263,18 +287,26 @@ def light(s, case):
 
 def bridge(s, case):
     variant = case.get("variant", "stair-east")
-    if variant == "flat":
-        for x in range(-2, 3):
-            s.block(x, 0, 0, "mcwbridges:oak_log_bridge_middle")
-        s.block(0, 1, 0, case["block"], {"facing": "east", "lightstate": "bridge"})
+    facing = variant.rsplit("-", 1)[-1] if variant != "flat" else "east"
+    if facing not in {"east", "south", "west", "north"}:
+        raise ValueError("Unknown bridge facing")
+    if variant.startswith("flat"):
+        support = case.get("support", "mcwbridges:oak_log_bridge_middle")
+        for offset in range(-2, 3):
+            s.block(
+                offset if facing in {"east", "west"} else 0,
+                0,
+                offset if facing in {"south", "north"} else 0,
+                support,
+            )
+        s.block(0, 1, 0, case["block"], {"facing": facing, "lightstate": "bridge"})
     else:
-        facing = variant.removeprefix("stair-")
         stairs = {"east": "north", "south": "east", "west": "south", "north": "west"}
         s.block(
             0,
             0,
             0,
-            "mcwbridges:oak_log_bridge_stair",
+            case.get("support", "mcwbridges:oak_log_bridge_stair"),
             {"facing": stairs[facing], "connection": "base"},
         )
         s.block(0, 1, 0, case["block"], {"facing": facing, "lightstate": "stair"})
@@ -314,7 +346,9 @@ def copycat(s, case):
             0,
             0,
             case["block"],
-            {"facing": "north"},
+            {"facing": "north"}
+            if "facing" in s.registry.blocks[case["block"]]["properties"]
+            else {},
             {"Material": {"Name": material}, "Item": {"id": material, "count": 1}},
         )
     s.tiles.append(
@@ -355,7 +389,89 @@ def waterlogged(s, case):
 def ladder(s, case):
     for y in range(4):
         s.block(0, y, -1, "minecraft:stone")
-        s.block(0, y, 0, case["block"], {"facing": "south"})
+        material = case.get("material")
+        nbt = (
+            {"Material": {"Name": material}, "Item": {"id": material, "count": 1}}
+            if material
+            else None
+        )
+        s.block(0, y, 0, case["block"], {"facing": "south"}, nbt)
+        if material:
+            s.registry.state(material)
+            pos = [
+                s.case["position"][0],
+                s.case["position"][1] + y,
+                s.case["position"][2],
+            ]
+            s.tiles.append({"position": pos, "values": {"Material.Name": material}})
+
+
+def samples(s, case):
+    """Small labeled comparisons; placement and stable-state expectations stay explicit."""
+    variants = case["samples"]
+    if not 1 <= len(variants) <= 6:
+        raise ValueError("Samples need one to six states")
+    for i, sample in enumerate(variants):
+        x, z = (-4, 0, 4)[i % 3], (i // 3) * 4 - 2
+        state = {**case.get("state", {}), **sample.get("state", {})}
+        support = sample.get("support", "floor")
+        if support not in {"floor", "wall", "ceiling", "none"}:
+            raise ValueError("Unknown sample support")
+        if support == "wall":
+            s.block(x, 0, z - 1, "minecraft:stone")
+        elif support == "ceiling":
+            s.block(x, 1, z, "minecraft:stone")
+        elif support == "floor":
+            s.block(x, -1, z, "minecraft:stone")
+        s.block(x, 0, z, case["block"], state, sample.get("nbt"))
+        s.labels.append(
+            {
+                "position": [
+                    s.case["position"][0] + x + 0.5,
+                    s.case["position"][1] + 2.0,
+                    s.case["position"][2] + z,
+                ],
+                "text": sample["label"],
+            }
+        )
+
+
+def circuit(s, case):
+    """Native, player-operated circuits, initially off; no command-driven simulation."""
+    kind = case["variant"]
+    s.block(-4, 0, 0, "minecraft:lever", {"face": "floor", "facing": "south"})
+    for x in range(-3, 3):
+        s.block(x, 0, 0, "minecraft:redstone_wire", check_state=False)
+    if kind in {"repeater", "comparator"}:
+        s.block(-1, 0, 0, "minecraft:" + kind, {"facing": "west"}, check_state=False)
+    elif kind not in {"wire", "piston", "sticky-piston"}:
+        raise ValueError("Unknown circuit")
+    if kind in {"piston", "sticky-piston"}:
+        s.block(
+            1,
+            0,
+            0,
+            "minecraft:sticky_piston"
+            if kind == "sticky-piston"
+            else "minecraft:piston",
+            {"facing": "east"},
+            check_state=False,
+        )
+        s.block(2, 0, 0, "minecraft:stone")
+        s.block(3, 0, 0, "minecraft:air")
+    else:
+        s.block(3, 0, 0, "minecraft:redstone_lamp")
+    s.labels.append(
+        {
+            "position": [
+                s.case["position"][0] - 3.5,
+                s.case["position"][1] + 2,
+                s.case["position"][2],
+            ],
+            "text": "Use the lever",
+        }
+    )
+    s.notes.append("Native circuit; reset this group to restore the initial state")
 
 
 def rail(s, case):
@@ -400,9 +516,34 @@ def entity(s, case):
         for z in range(-3, 4):
             s.block(x, -1, z, "minecraft:smooth_stone")
             if abs(x) == 3 or abs(z) == 3:
-                for y in range(2):
+                for y in range(4 if case.get("aquatic") else 2):
                     s.block(x, y, z, "minecraft:glass")
-    data = {"NoAI": not case.get("motion", False), "Rotation": [180, 0]}
+    extra = case.get("data", {})
+    protected = {
+        "Tags",
+        "Pos",
+        "UUID",
+        "NoAI",
+        "NoGravity",
+        "Motion",
+        "Invulnerable",
+        "PersistenceRequired",
+        "Silent",
+    }
+    if (
+        not isinstance(extra, dict)
+        or protected & extra.keys()
+        or len(json.dumps(extra)) > 2000
+    ):
+        raise ValueError(
+            "Entity variants must preserve fixture identity and safety fields"
+        )
+    data = {"NoAI": not case.get("motion", False), "Rotation": [180, 0], **extra}
+    if case.get("aquatic"):
+        for x in range(-2, 3):
+            for z in range(-2, 3):
+                for y in range(3):
+                    s.block(x, y, z, "minecraft:water")
     if case["entity"] == "minecraft:piglin":
         data["IsImmuneToZombification"] = True
     if case.get("baby"):
@@ -469,6 +610,9 @@ def effect(s, case):
     if case["variant"] == "smoke":
         s.block(0, -1, 0, "minecraft:hay_block")
         s.block(0, 0, 0, "minecraft:campfire", {"lit": "true"})
+    elif case["variant"] == "fire":
+        s.block(0, -1, 0, "minecraft:netherrack")
+        s.block(0, 0, 0, "minecraft:fire")
     elif case["variant"] == "bubbles":
         for x, z in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             for y in range(3):
@@ -522,6 +666,8 @@ RECIPES = {
         "fluid",
         "effect",
         "kinetic",
+        "samples",
+        "circuit",
     }
 }
 RECIPES["block"] = basic

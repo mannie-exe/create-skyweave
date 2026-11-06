@@ -4,7 +4,7 @@
   "anchor": [
     8,
     152,
-    -184
+    -226
   ],
   "color": "lime",
   "groups": [
@@ -48,7 +48,15 @@
           "minecraft:peony",
           "minecraft:tall_grass",
           "minecraft:large_fern",
-          "minecraft:mangrove_propagule"
+          "minecraft:mangrove_propagule",
+          "minecraft:cornflower",
+          "minecraft:dandelion",
+          "minecraft:poppy",
+          "minecraft:torchflower",
+          "minecraft:brown_mushroom",
+          "minecraft:red_mushroom",
+          "minecraft:crimson_fungus",
+          "minecraft:warped_fungus"
         ],
         "optional": false
       }
@@ -66,6 +74,21 @@
           "minecraft:sea_pickle"
         ],
         "optional": false
+      }
+    },
+    {
+      "id": "hanging-and-stems",
+      "title": "Hanging plants and fruit stems",
+      "recipe": "plant",
+      "selector": {
+        "ids": [
+          "minecraft:vine",
+          "minecraft:glow_lichen",
+          "minecraft:cocoa",
+          "minecraft:attached_melon_stem",
+          "minecraft:attached_pumpkin_stem"
+        ],
+        "optional": true
       }
     }
   ]

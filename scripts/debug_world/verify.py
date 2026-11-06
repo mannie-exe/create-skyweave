@@ -164,13 +164,21 @@ def verify_world(world, require_complete=True):
             errors.append({"entity": expected, "found": len(matches)})
             continue
         actual = matches[0]
-        if expected.get("static") and not actual.get("OnGround"):
+        if (
+            expected.get("static")
+            and not expected.get("aquatic")
+            and not actual.get("OnGround")
+        ):
             errors.append(
                 {"entity": expected, "reason": "static specimen is not grounded"}
             )
         x, y, z = expected["position"]
         px, py, pz = actual["Pos"]
-        if abs(px - x) > 3 or abs(pz - z) > 3 or not y - 0.1 <= py <= y + 2:
+        if (
+            abs(px - x) > 3
+            or abs(pz - z) > 3
+            or not y - 0.1 <= py <= y + (3 if expected.get("aquatic") else 2)
+        ):
             errors.append(
                 {
                     "entity": expected,
@@ -180,6 +188,16 @@ def verify_world(world, require_complete=True):
             )
         if expected["baby"] and actual.get("Age", 0) >= 0:
             errors.append({"entity": expected, "reason": "young specimen became adult"})
+        for key, value in expected.get("values", {}).items():
+            if actual.get(key) != value:
+                errors.append(
+                    {
+                        "entity": expected,
+                        "field": key,
+                        "expected": value,
+                        "actual": actual.get(key),
+                    }
+                )
         if (
             expected.get("equipment")
             and [i.get("id") for i in actual.get("ArmorItems", [])]

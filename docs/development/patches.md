@@ -30,6 +30,60 @@ or Skyweave: Compatibility Patches, which now owns the incorporated Veil/Iris fr
 Executable Java remains separate from both resource artifacts. A successful resource build cannot validate Java mixins,
 world generation, recipe execution or GPU behavior.
 
+## Routine dependency upgrades
+
+Resolve JEI and its retained parents together, including Aeronautics Covers.
+Review the bundled MezzConfig range as well as any standalone selection; a
+compatible installed library can remain old unless it is explicitly updated.
+The current set uses JEI 19.70.0.469 and MezzConfig 0.6.11. Preserve the reviewed
+release-channel choice rather than allowing a new dependency operation to select
+an older stable JEI implicitly.
+
+Colorwheel 1.3.2 must be paired with Compat's corresponding version/hash guards
+and the BSL recipe's runtime requirement. Keep Colorwheel Patcher 1.0.5 and the
+shader inputs pinned unless their own implementations change. Upstream buffer
+repairs alone do not establish that Compat's sampler/material hooks can retire.
+
+When updating Reliable Gliders, review newly introduced defaults explicitly.
+The pack retains updraft strength 0.7, height 15 and speed 1.0, permits the previous
+dimension coverage, and disables automatic deployment in creative mode. Backpack
+updates must preserve YiGD's ownership of death recovery. Fresh Animations and
+Rails updates also require selection filenames and Atlas archive inspections to
+match; existing captures are not evidence for newly changed animation behavior.
+
+NeoForge updates affect Compat builds, native probes, shader-lab and registry
+captures. Debug World selects the loader from its captured registry. The Atlas
+exporter can use `--libraries` for an isolated matching installation without
+changing the playing server. Keep Sky Archipelago 1.3.6 pinned;
+the separately planned 1.4 port requires reworking terrain hooks and new worlds,
+not a provider-pin substitution.
+
+### File-source exceptions
+
+Prefer exact provider version IDs when their metadata resolves the intended
+runtime and sides. A URL containing a provider version ID is still a file source:
+empack cannot use it for ordinary provider update assessment. Keep its digest and
+review the provider record separately. The 2026-11-05 review matched every
+Modrinth-hosted file below by SHA-512 before considering a conversion.
+
+| Content | Why the exact file source remains |
+| --- | --- |
+| Hostile Skies 0.2.6 | Provider requires Sable 2.0.5's Fabric version; the pack uses NeoForge Sable 2.0.6. |
+| Aeronautics/Rechiseled Compatibility 1.2.2 | Provider requires Aeronautics 1.2.1 and Rechiseled's Minecraft 1.21.11 artifact, unlike the verified 1.21.1 stack. |
+| Throwable Rope Connector 0.4.3; Vibrant Vaults 0.3.2 | Provider exact requirements select Aeronautics 1.2.1 or Create 6.0.2 rather than the pack's 1.3.2 / 6.0.10. |
+| Hoofprint 1.3.0; Surveyor 1.2.4 | Provider requirements include exact Fabric API versions; Hoofprint also forces older Surveyor. Preserve the reviewed NeoForge/Connector selections. |
+| McQoy 0.4.1 | Provider forces YACL 3.7.0, while the pack selects 3.8.2. |
+| LambDynamicLights 4.8.11 | Shared provider record requires Fabric API; the tested bridge uses Forgified Fabric API and Connector. |
+| Rechiseled 1.2.6; Rechiseled Create 1.1.1; SSRD 1.8.8 | Exact provider versions and bytes match, but empack 0.8.2-beta conversion refuses retained dependency participation. Its required closure propagates both-side participation to currently client-only Fusion/Sodium. Both add previews and a combined source-conversion sync preview failed; do not install these renderer libraries on servers merely to enable provider tracking. |
+| Absolute Kinematics 1.0.1 | CurseForge file 8511680 resolves, but the provider closure duplicates the Modrinth Create/Aeronautics/Sable selections and collides on destinations. |
+| Ponder; Carry On Animation Fix; Copycat Bar Extrusion; DH Polygon Fix; Skyweave: Compatibility Patches | Exact maintained Maven/GitHub artifacts; no matching Modrinth artifact was found. Managed-mod publication remains on GitHub. |
+
+Revisit these exceptions when upstream dependency records or empack's resolution
+and side handling change. Preview the complete closure before conversion; compare
+artifact hashes, filenames, sides and the removal of the old file selection.
+Avoid duplicate provider identities and dependency downgrades. A successful native
+run validates the recorded files, not the provider's different dependency closure.
+
 ## Coupled update boundaries
 
 Audio and recovery updates couple Analog Audio's bundled AnalogLib, Sable, YiGD,
@@ -220,8 +274,9 @@ JAR has no added resources.
 The approved sloped-bridge appearance uses the pinned Better Lanterns hanging
 model and a short link beneath the rail. Flat bridges retain their standing
 lantern. The pack enables Skyweave: Compatibility Patches’ `macaw.bridge_lantern_shape` to match the hanging
-outline and select its overhang. Native collision remains empty; flat shapes stay
-unchanged. Resource geometry and the runtime switch must be updated together.
+outline and select its overhang. The same adaptation now matches the standing
+flat-bridge model’s one-pixel overhang as well. Native physical collision remains
+empty. Resource geometry and the runtime switch must be updated together.
 Review media and the repeatable study builder live in the Resource Review harness.
 
 ### Model authoring
@@ -254,8 +309,8 @@ Skyweave: Compatibility Patches separates two visibility decisions:
 - `create.window_culling` and `rechiseled.glass_culling` preserve exposed material
   and orientation boundaries while retaining matching/opaque neighbor occlusion.
 - `create.glass_backfaces` and `fusion.glass_backfaces` make those exposed surfaces
-  visible from behind, after native connected-texture processing. Create: Skyweave
-  explicitly enables these opt-in adapters.
+  visible from behind, after native connected-texture processing. These adapters
+  default on when their optional dependencies qualify.
 
 Create omits CT context for hidden directions. Adding reversed resource geometry
 can therefore select missing CT data from the opposite direction, even when the
@@ -264,8 +319,12 @@ retaining UVs and native cull groups. Neither the visual ZIP nor resource-only J
 adds a second set of backfaces; Fusion modifier dispatch remains native.
 
 The targets are Create connected-glass/window/pane implementations, including
-Create Deco subclasses, and Fusion-backed vanilla glass/panes and Rechiseled glass
-pillars. This is not a general two-sided material setting for fluids, block-entity
+Create Deco and Design n’ Decor subclasses, and Fusion-backed vanilla glass/panes
+and Rechiseled glass pillars. Explicit static-model adapters also cover Macaw's
+mosaic blocks/panes, caramel bricks and their slab/stair variants, bubble gum,
+ornate grate and industrial grating. Each optional family has its own client
+switch; scaffolding retains its existing inward-facing geometry.
+This is not a general two-sided material setting for fluids, block-entity
 renderers, Copycats or DH terrain. Review native face removal, CT/Fusion processing,
 vertex format and Sodium batching together when updating these dependencies.
 [Native comparisons](web/verification.md#glass-backfaces-2026-11-03) record tested

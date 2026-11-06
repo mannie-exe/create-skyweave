@@ -452,9 +452,9 @@
     },
     {
       "path": "overrides/common/config/reliable_gliders.json",
-      "sha256": "497fafc8e5ed502e4f3fd746a52ac9a25742c83d92f1269536ab3d0c45ea51fb",
+      "sha256": "83f87a6cc5052064ba82993c17b92abae96291fb60dcdb2fdd0f42dc7520d674",
       "review": "reviewed",
-      "reason": "Retained survival tuning; see progression constraints and deferred playtests.",
+      "reason": "Preserve survival flight tuning and updraft availability in all dimensions; prevent glider deployment during creative building and review.",
       "reference": "docs/development/progression.md"
     },
     {
@@ -564,9 +564,9 @@
     },
     {
       "path": "templates/server/game/server.properties.template",
-      "sha256": "1cd82b832f9ef4648f7ac62021bc07eb9cfca2c39d560d524e4935643fcd39c5",
+      "sha256": "66b4eba5f8c69157e830b10a2a2d0f78bf3816045d30bf797f98f91e46cde3c8",
       "review": "reviewed",
-      "reason": "Server export defaults include the sky world preset and whitelist. Playing-world seeds belong only in local instance configuration.",
+      "reason": "Use 12-chunk server view distance and 16-chunk simulation distance; preserve the existing world preset and other server defaults.",
       "reference": "docs/players/server.md"
     },
     {

@@ -2,5 +2,7 @@
   "updraft_strength": 0.7,
   "updraft_height": 15,
   "horizontal_speed": 1.0,
-  "equip_to_chestplate": false
+  "equip_to_chestplate": false,
+  "updraft_disabled_dimensions": [],
+  "disable_in_creative": true
 }

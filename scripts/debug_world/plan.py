@@ -77,6 +77,8 @@ def make_plan(config, registry, profile):
         "effect",
         "kinetic",
         "waterlogged",
+        "samples",
+        "circuit",
     }
     for district_id in selected["districts"]:
         if not re.fullmatch("[a-z][a-z0-9_-]{0,40}", district_id):
@@ -246,6 +248,7 @@ def make_plan(config, registry, profile):
         "profile": profile,
         "minecraft": world["minecraft"],
         "loader": selected["loader"],
+        "loaderVersion": registry.data.get("loaderVersion"),
         "runtimeSha256": registry.sha256,
         "runtimeCapture": registry.capture,
         "configSha256": fingerprint(source),

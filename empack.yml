@@ -1,7 +1,7 @@
 schema: 5
 pack:
   name: Skyweave modpack
-  version: 0.2.2
+  version: 0.2.3
   id: create_skyweave
   authors:
     - mannie-exe
@@ -9,7 +9,7 @@ pack:
 runtime:
   loader:
     kind: neoforge
-    pin: 21.1.264
+    pin: "21.1.265"
   minecraft: 1.21.1
   java: 21
 dependencies:
@@ -239,7 +239,7 @@ dependencies:
     pin: 5sIPA1To
   emi-loot:
     source: modrinth:qbbO7Jns
-    pin: QXkODMCT
+    pin: kOwbrV11
   entityculling:
     side: client
     source: modrinth:NNAgCjsB
@@ -301,8 +301,8 @@ dependencies:
     source: modrinth:jCrJ4iGH
     pin: cxUohR7A
   jei:
-    pin: j41QZiGx
     source: modrinth:u6dRKJwZ
+    pin: 1vC6z8wV
   kotlin-for-forge:
     source: modrinth:ordsPcFz
     pin: uhJhCT7X
@@ -351,7 +351,7 @@ dependencies:
   moreculling:
     side: client
     source: modrinth:51shyZVL
-    pin: 5M4T2FfG
+    pin: ucyxnpWe
   owo-lib:
     source: modrinth:ccKDOlHs
     pin: wbdHEItB
@@ -426,11 +426,11 @@ dependencies:
   ssrd:
     source:
       downloads:
-        - https://cdn.modrinth.com/data/fJ183v3D/versions/iZflRKdV/SSRD-1.8.7-1.21.1.jar
+        - https://cdn.modrinth.com/data/fJ183v3D/versions/Zdhm9p2k/SSRD-1.8.8-1.21.1.jar
       kind: url
     digests:
-      sha1: 7da02fc5f783bedb55a29268e4c8ba7b0c3c9e6f
-      sha512: fb09bb6799f2f9d8b051bc87920a49ee68319c358d0d23be5beaea444542be8336a52f71b57f81e8871df274fe2e1310121b90a3aded615421e84bcd6dfbae47
+      sha1: 0639b720f16bfc817724b029433b55acbfb76ce7
+      sha512: d1f68fde1f8d1045dd7fd791a983b9bfd92aae9a7b427c2dcd55c31fbf75e33199c9be96f021d4ed97142c4e42672707572fad4ec8920624eca25d45b80411c0
   strut-your-stuff:
     source: modrinth:sHO3MhQx
     pin: BOTN7zzN
@@ -439,7 +439,7 @@ dependencies:
     pin: qKL9jM75
   supermartijn642s-core-lib:
     source: modrinth:rOUBggPv
-    pin: HGyYs7Z4
+    pin: sLRKmslC
   surveyor:
     source:
       downloads:
@@ -450,7 +450,7 @@ dependencies:
       sha512: 3a91efbc596db7192792de069e814aeb3e9e1d771267ea5a5d4371b1311bef26a7f9bd02a28619026c23e4df702d99a1bbaaf732e06179dd4999dbd01aaf920c
   travelersbackpack:
     source: modrinth:rlloIFEV
-    pin: ZqrwMSn5
+    pin: JrOhWsXk
   treechop:
     source: modrinth:gHoB7SHO
     pin: iLXWmfax
@@ -470,8 +470,8 @@ dependencies:
       client: required
       server: required
   reliable-gliders:
-    pin: aOgcvBAo
     source: modrinth:reliable-gliders
+    pin: rW61WzQF
   aeronautics-delivery-quests:
     pin: GBzcF6Il
     source: modrinth:aeronautics-delivery-quests
@@ -528,16 +528,16 @@ dependencies:
       server: required
   entity-model-features:
     source: modrinth:entity-model-features
-    pin: 197m3VoU
     environment:
       client: required
       server: unsupported
+    pin: 197m3VoU
   entitytexturefeatures:
     source: modrinth:entitytexturefeatures
-    pin: lwNx1nD1
     environment:
       client: required
       server: unsupported
+    pin: 1DVPB3a4
   inventory-totem:
     source: modrinth:inventory-totem
     pin: lgjs8TXC
@@ -584,11 +584,11 @@ dependencies:
       server: unsupported
   fresh-animations:
     source: modrinth:fresh-animations
-    pin: aQjwvDfY
     type: resource-pack
     environment:
       client: required
       server: unsupported
+    pin: HC1XRKGD
   redstone-tweaks:
     source: modrinth:redstone-tweaks
     pin: acYT0fGm
@@ -647,11 +647,11 @@ dependencies:
       server: unsupported
   rays-3d-rails:
     source: modrinth:rays-3d-rails
-    pin: vTaYwBqs
     type: resource-pack
     environment:
       client: required
       server: unsupported
+    pin: tKWH9VdI
   fresh-flower-pots:
     source: modrinth:fresh-flower-pots
     pin: YEM2pUsf
@@ -708,10 +708,10 @@ dependencies:
       server: unsupported
   colorwheel:
     source: modrinth:colorwheel
-    pin: 8rq5KP4U
     environment:
       client: required
       server: unsupported
+    pin: lV874ox8
   sable-dynamic-lights:
     source: modrinth:KKb9KQzX
     pin: vjb0hAWB
@@ -733,10 +733,10 @@ dependencies:
     source:
       kind: url
       downloads:
-        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.21.0/skyweave-compat-0.21.0-mc1.21.1-neoforge.jar
+        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.22.1/skyweave-compat-0.22.1-mc1.21.1-neoforge.jar
     digests:
-      sha1: 9b7414b28c29755f4ad0b68d203af645357a0f07
-      sha512: 478339f296dbda610e21761f8835f673393cd58abf68a8a910c29a7326fc2541898da589db64b48ee267af652083c769e9b5a8b804a2ddb59b63ba4687b5542c
+      sha1: 79fb86b352ce4309b9637188463f1efb003b6529
+      sha512: 33c54f6ba81fce25b54b05f0359c713bf7d47f756d662aac1e334e36c5fa6d0bf6fc888f9032682639cfccfdfd3120d3edfb0b4e7f19f019e240749264d9de2a
     environment:
       client: required
       server: required
@@ -774,6 +774,9 @@ dependencies:
   create-redstone-additions:
     pin: 4P4QJB3m
     source: modrinth:create-redstone-additions
+  mezzconfig:
+    pin: sPQlt1iR
+    source: modrinth:7tEfOcA7
 
 build:
   default:

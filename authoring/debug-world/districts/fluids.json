@@ -46,6 +46,9 @@
         },
         {
           "variant": "smoke"
+        },
+        {
+          "variant": "fire"
         }
       ]
     }

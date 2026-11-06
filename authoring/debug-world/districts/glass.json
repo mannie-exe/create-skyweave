@@ -58,7 +58,7 @@
     },
     {
       "id": "mosaics",
-      "title": "Mosaics and one-way glass",
+      "title": "Mosaics and translucent blocks",
       "recipe": "glass",
       "selector": {
         "classes": [
@@ -66,9 +66,15 @@
           "OneWayGlass"
         ],
         "namespaces": [
-          "mcwwindows"
+          "mcwwindows",
+          "create_confectionery",
+          "linearbearing"
         ],
-        "optional": true
+        "optional": true,
+        "ids": [
+          "create_confectionery:caramel_bricks",
+          "linearbearing:bubble_gum_block"
+        ]
       }
     }
   ]

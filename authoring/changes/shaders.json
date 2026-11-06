@@ -39,7 +39,7 @@
     },
     {
       "path": "overrides/client/config/skyweave-shaders/recipes/bsl-colorwheel.json",
-      "sha256": "213315c31974e8b62960efe5d15162662fe458acb0ed9637fae468e0b46a8046",
+      "sha256": "b95ae250955ef3ea291dc5708de5b25cd481a288100dfe3315140ae628b67c1a",
       "review": "reviewed",
       "reason": "Generate the qualified complete shader from pinned inputs through the shared Java engine; keep source archives outside the shader list.",
       "reference": "tools/shader-lab/README.md"

@@ -186,6 +186,16 @@ class Compiler:
                 district=color,
             )
         ]
+        commands.extend(
+            self.label(
+                *entry["position"],
+                entry["text"],
+                layout["controlScale"],
+                case["tag"],
+                view=0.25,
+            )
+            for entry in built.labels
+        )
         detail = case.get("block", case.get("entity", case.get("material", "")))
         if detail:
             commands.append(

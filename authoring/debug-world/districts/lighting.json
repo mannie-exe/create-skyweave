@@ -4,7 +4,7 @@
   "anchor": [
     -120,
     160,
-    -268
+    -338
   ],
   "color": "orange",
   "groups": [
@@ -77,7 +77,19 @@
       "cases": [
         {
           "block": "mcwbridges:bridge_lantern",
-          "variant": "flat"
+          "variant": "flat-east"
+        },
+        {
+          "block": "mcwbridges:bridge_lantern",
+          "variant": "flat-south"
+        },
+        {
+          "block": "mcwbridges:bridge_lantern",
+          "variant": "flat-west"
+        },
+        {
+          "block": "mcwbridges:bridge_lantern",
+          "variant": "flat-north"
         },
         {
           "block": "mcwbridges:bridge_lantern",
@@ -94,6 +106,26 @@
         {
           "block": "mcwbridges:bridge_lantern",
           "variant": "stair-north"
+        },
+        {
+          "block": "mcwbridges:bridge_lantern",
+          "variant": "flat-rope-east",
+          "support": "mcwbridges:rope_oak_bridge"
+        },
+        {
+          "block": "mcwbridges:bridge_lantern",
+          "variant": "flat-stone-east",
+          "support": "mcwbridges:stone_brick_bridge"
+        },
+        {
+          "block": "mcwbridges:bridge_lantern",
+          "variant": "stair-rope-east",
+          "support": "mcwbridges:oak_rope_bridge_stair"
+        },
+        {
+          "block": "mcwbridges:bridge_lantern",
+          "variant": "stair-stone-east",
+          "support": "mcwbridges:stone_brick_bridge_stair"
         }
       ]
     },
@@ -112,6 +144,32 @@
           "minecraft:pearlescent_froglight"
         ],
         "optional": false
+      }
+    },
+    {
+      "id": "chains",
+      "title": "Chain materials",
+      "recipe": "block",
+      "selector": {
+        "ids": [
+          "minecraft:chain",
+          "mcwlights:copper_chain",
+          "mcwlights:golden_chain"
+        ],
+        "optional": true
+      }
+    },
+    {
+      "id": "stone-lanterns",
+      "title": "Stone lanterns",
+      "recipe": "block",
+      "selector": {
+        "ids": [
+          "reddensstonelantern:broad_stone_lantern",
+          "reddensstonelantern:medium_stone_lantern",
+          "reddensstonelantern:thin_stone_lantern"
+        ],
+        "optional": true
       }
     }
   ]

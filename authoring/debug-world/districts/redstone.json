@@ -1,0 +1,600 @@
+{
+  "id": "redstone",
+  "title": "Redstone and circuits",
+  "anchor": [
+    264,
+    160,
+    -196
+  ],
+  "color": "red",
+  "groups": [
+    {
+      "id": "buttons",
+      "title": "Buttons and lever mounts",
+      "recipe": "samples",
+      "cases": [
+        {
+          "block": "minecraft:acacia_button",
+          "samples": [
+            {
+              "label": "Floor",
+              "state": {
+                "face": "floor",
+                "facing": "south"
+              }
+            },
+            {
+              "label": "Wall",
+              "state": {
+                "face": "wall",
+                "facing": "south"
+              },
+              "support": "wall"
+            },
+            {
+              "label": "Ceiling",
+              "state": {
+                "face": "ceiling",
+                "facing": "south"
+              },
+              "support": "ceiling"
+            }
+          ]
+        },
+        {
+          "block": "minecraft:bamboo_button",
+          "samples": [
+            {
+              "label": "Floor",
+              "state": {
+                "face": "floor",
+                "facing": "south"
+              }
+            },
+            {
+              "label": "Wall",
+              "state": {
+                "face": "wall",
+                "facing": "south"
+              },
+              "support": "wall"
+            },
+            {
+              "label": "Ceiling",
+              "state": {
+                "face": "ceiling",
+                "facing": "south"
+              },
+              "support": "ceiling"
+            }
+          ]
+        },
+        {
+          "block": "minecraft:birch_button",
+          "samples": [
+            {
+              "label": "Floor",
+              "state": {
+                "face": "floor",
+                "facing": "south"
+              }
+            },
+            {
+              "label": "Wall",
+              "state": {
+                "face": "wall",
+                "facing": "south"
+              },
+              "support": "wall"
+            },
+            {
+              "label": "Ceiling",
+              "state": {
+                "face": "ceiling",
+                "facing": "south"
+              },
+              "support": "ceiling"
+            }
+          ]
+        },
+        {
+          "block": "minecraft:cherry_button",
+          "samples": [
+            {
+              "label": "Floor",
+              "state": {
+                "face": "floor",
+                "facing": "south"
+              }
+            },
+            {
+              "label": "Wall",
+              "state": {
+                "face": "wall",
+                "facing": "south"
+              },
+              "support": "wall"
+            },
+            {
+              "label": "Ceiling",
+              "state": {
+                "face": "ceiling",
+                "facing": "south"
+              },
+              "support": "ceiling"
+            }
+          ]
+        },
+        {
+          "block": "minecraft:crimson_button",
+          "samples": [
+            {
+              "label": "Floor",
+              "state": {
+                "face": "floor",
+                "facing": "south"
+              }
+            },
+            {
+              "label": "Wall",
+              "state": {
+                "face": "wall",
+                "facing": "south"
+              },
+              "support": "wall"
+            },
+            {
+              "label": "Ceiling",
+              "state": {
+                "face": "ceiling",
+                "facing": "south"
+              },
+              "support": "ceiling"
+            }
+          ]
+        },
+        {
+          "block": "minecraft:dark_oak_button",
+          "samples": [
+            {
+              "label": "Floor",
+              "state": {
+                "face": "floor",
+                "facing": "south"
+              }
+            },
+            {
+              "label": "Wall",
+              "state": {
+                "face": "wall",
+                "facing": "south"
+              },
+              "support": "wall"
+            },
+            {
+              "label": "Ceiling",
+              "state": {
+                "face": "ceiling",
+                "facing": "south"
+              },
+              "support": "ceiling"
+            }
+          ]
+        },
+        {
+          "block": "minecraft:jungle_button",
+          "samples": [
+            {
+              "label": "Floor",
+              "state": {
+                "face": "floor",
+                "facing": "south"
+              }
+            },
+            {
+              "label": "Wall",
+              "state": {
+                "face": "wall",
+                "facing": "south"
+              },
+              "support": "wall"
+            },
+            {
+              "label": "Ceiling",
+              "state": {
+                "face": "ceiling",
+                "facing": "south"
+              },
+              "support": "ceiling"
+            }
+          ]
+        },
+        {
+          "block": "minecraft:lever",
+          "samples": [
+            {
+              "label": "Floor",
+              "state": {
+                "face": "floor",
+                "facing": "south"
+              }
+            },
+            {
+              "label": "Wall",
+              "state": {
+                "face": "wall",
+                "facing": "south"
+              },
+              "support": "wall"
+            },
+            {
+              "label": "Ceiling",
+              "state": {
+                "face": "ceiling",
+                "facing": "south"
+              },
+              "support": "ceiling"
+            }
+          ]
+        },
+        {
+          "block": "minecraft:mangrove_button",
+          "samples": [
+            {
+              "label": "Floor",
+              "state": {
+                "face": "floor",
+                "facing": "south"
+              }
+            },
+            {
+              "label": "Wall",
+              "state": {
+                "face": "wall",
+                "facing": "south"
+              },
+              "support": "wall"
+            },
+            {
+              "label": "Ceiling",
+              "state": {
+                "face": "ceiling",
+                "facing": "south"
+              },
+              "support": "ceiling"
+            }
+          ]
+        },
+        {
+          "block": "minecraft:oak_button",
+          "samples": [
+            {
+              "label": "Floor",
+              "state": {
+                "face": "floor",
+                "facing": "south"
+              }
+            },
+            {
+              "label": "Wall",
+              "state": {
+                "face": "wall",
+                "facing": "south"
+              },
+              "support": "wall"
+            },
+            {
+              "label": "Ceiling",
+              "state": {
+                "face": "ceiling",
+                "facing": "south"
+              },
+              "support": "ceiling"
+            }
+          ]
+        },
+        {
+          "block": "minecraft:polished_blackstone_button",
+          "samples": [
+            {
+              "label": "Floor",
+              "state": {
+                "face": "floor",
+                "facing": "south"
+              }
+            },
+            {
+              "label": "Wall",
+              "state": {
+                "face": "wall",
+                "facing": "south"
+              },
+              "support": "wall"
+            },
+            {
+              "label": "Ceiling",
+              "state": {
+                "face": "ceiling",
+                "facing": "south"
+              },
+              "support": "ceiling"
+            }
+          ]
+        },
+        {
+          "block": "minecraft:spruce_button",
+          "samples": [
+            {
+              "label": "Floor",
+              "state": {
+                "face": "floor",
+                "facing": "south"
+              }
+            },
+            {
+              "label": "Wall",
+              "state": {
+                "face": "wall",
+                "facing": "south"
+              },
+              "support": "wall"
+            },
+            {
+              "label": "Ceiling",
+              "state": {
+                "face": "ceiling",
+                "facing": "south"
+              },
+              "support": "ceiling"
+            }
+          ]
+        },
+        {
+          "block": "minecraft:stone_button",
+          "samples": [
+            {
+              "label": "Floor",
+              "state": {
+                "face": "floor",
+                "facing": "south"
+              }
+            },
+            {
+              "label": "Wall",
+              "state": {
+                "face": "wall",
+                "facing": "south"
+              },
+              "support": "wall"
+            },
+            {
+              "label": "Ceiling",
+              "state": {
+                "face": "ceiling",
+                "facing": "south"
+              },
+              "support": "ceiling"
+            }
+          ]
+        },
+        {
+          "block": "minecraft:warped_button",
+          "samples": [
+            {
+              "label": "Floor",
+              "state": {
+                "face": "floor",
+                "facing": "south"
+              }
+            },
+            {
+              "label": "Wall",
+              "state": {
+                "face": "wall",
+                "facing": "south"
+              },
+              "support": "wall"
+            },
+            {
+              "label": "Ceiling",
+              "state": {
+                "face": "ceiling",
+                "facing": "south"
+              },
+              "support": "ceiling"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "plates",
+      "title": "Pressure plates",
+      "recipe": "block",
+      "selector": {
+        "ids": [
+          "minecraft:acacia_pressure_plate",
+          "minecraft:bamboo_pressure_plate",
+          "minecraft:birch_pressure_plate",
+          "minecraft:cherry_pressure_plate",
+          "minecraft:crimson_pressure_plate",
+          "minecraft:dark_oak_pressure_plate",
+          "minecraft:heavy_weighted_pressure_plate",
+          "minecraft:jungle_pressure_plate",
+          "minecraft:light_weighted_pressure_plate",
+          "minecraft:mangrove_pressure_plate",
+          "minecraft:oak_pressure_plate",
+          "minecraft:polished_blackstone_pressure_plate",
+          "minecraft:spruce_pressure_plate",
+          "minecraft:stone_pressure_plate",
+          "minecraft:warped_pressure_plate"
+        ],
+        "optional": false
+      }
+    },
+    {
+      "id": "components",
+      "title": "Signal components and orientations",
+      "recipe": "samples",
+      "cases": [
+        {
+          "block": "minecraft:repeater",
+          "samples": [
+            {
+              "label": "1 ticks",
+              "state": {
+                "facing": "south",
+                "delay": "1"
+              }
+            },
+            {
+              "label": "2 ticks",
+              "state": {
+                "facing": "south",
+                "delay": "2"
+              }
+            },
+            {
+              "label": "4 ticks",
+              "state": {
+                "facing": "south",
+                "delay": "4"
+              }
+            }
+          ]
+        },
+        {
+          "block": "minecraft:comparator",
+          "samples": [
+            {
+              "label": "Compare",
+              "state": {
+                "facing": "south",
+                "mode": "compare"
+              }
+            },
+            {
+              "label": "Subtract",
+              "state": {
+                "facing": "south",
+                "mode": "subtract"
+              }
+            }
+          ]
+        },
+        {
+          "block": "minecraft:redstone_wall_torch",
+          "samples": [
+            {
+              "label": "Wall",
+              "state": {
+                "facing": "south"
+              },
+              "support": "wall"
+            }
+          ]
+        },
+        {
+          "block": "minecraft:observer",
+          "samples": [
+            {
+              "label": "north",
+              "state": {
+                "facing": "north"
+              }
+            },
+            {
+              "label": "east",
+              "state": {
+                "facing": "east"
+              }
+            },
+            {
+              "label": "up",
+              "state": {
+                "facing": "up"
+              }
+            }
+          ]
+        },
+        {
+          "block": "minecraft:daylight_detector",
+          "samples": [
+            {
+              "label": "Daylight",
+              "state": {
+                "inverted": "false"
+              }
+            },
+            {
+              "label": "Inverted",
+              "state": {
+                "inverted": "true"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "devices",
+      "title": "Output and storage devices",
+      "recipe": "block",
+      "selector": {
+        "ids": [
+          "minecraft:dispenser",
+          "minecraft:dropper",
+          "minecraft:hopper",
+          "minecraft:redstone_lamp",
+          "minecraft:note_block",
+          "minecraft:jukebox",
+          "minecraft:target",
+          "minecraft:crafter",
+          "minecraft:trapped_chest"
+        ],
+        "optional": false
+      }
+    },
+    {
+      "id": "circuits",
+      "title": "Working lever circuits",
+      "recipe": "circuit",
+      "cases": [
+        {
+          "variant": "wire"
+        },
+        {
+          "variant": "repeater"
+        },
+        {
+          "variant": "comparator"
+        },
+        {
+          "variant": "piston"
+        },
+        {
+          "variant": "sticky-piston"
+        }
+      ]
+    },
+    {
+      "id": "create-additions",
+      "title": "Create Redstone Additions",
+      "recipe": "block",
+      "selector": {
+        "ids": [
+          "create_redstone_additions:ceramic_resistor",
+          "create_redstone_additions:conjunctor",
+          "create_redstone_additions:crossroad",
+          "create_redstone_additions:diode",
+          "create_redstone_additions:disjunctor",
+          "create_redstone_additions:glass_resistor",
+          "create_redstone_additions:golden_resistor",
+          "create_redstone_additions:inverter",
+          "create_redstone_additions:iron_resistor"
+        ],
+        "optional": true
+      }
+    }
+  ]
+}

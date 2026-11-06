@@ -25,7 +25,25 @@
           "create:smart_chute",
           "create:fluid_tank",
           "create:fluid_pipe",
-          "create:glass_fluid_pipe"
+          "create:glass_fluid_pipe",
+          "create:basin",
+          "create:mechanical_mixer",
+          "create:mechanical_press",
+          "create:mechanical_pump",
+          "create:mechanical_saw",
+          "create:encased_fan",
+          "create:steam_engine",
+          "create:cart_assembler",
+          "create:redstone_link",
+          "create:clutch",
+          "create:gearshift",
+          "create:sequenced_gearshift",
+          "create:speedometer",
+          "create:stressometer",
+          "create:rotation_speed_controller",
+          "dndecor:industrial_cogwheel",
+          "dndecor:large_industrial_cogwheel",
+          "create:track"
         ],
         "optional": true
       }
@@ -40,6 +58,58 @@
         }
       ],
       "optional": true
+    },
+    {
+      "id": "flight",
+      "title": "Flight components",
+      "recipe": "block",
+      "selector": {
+        "ids": [
+          "aeronautics:adjustable_burner",
+          "aeronautics:andesite_propeller",
+          "aeronautics:propeller_bearing",
+          "aeronautics:gyroscopic_propeller_bearing",
+          "aeronautics:white_envelope",
+          "simulated:altitude_sensor",
+          "simulated:gimbal_sensor",
+          "simulated:docking_connector"
+        ],
+        "optional": true
+      }
+    },
+    {
+      "id": "linear-bearing",
+      "title": "Linear Bearing components",
+      "recipe": "block",
+      "selector": {
+        "ids": [
+          "linearbearing:andesite_lamp",
+          "linearbearing:gyroscopic_gearbox",
+          "linearbearing:linear_bearing",
+          "linearbearing:linear_casing",
+          "linearbearing:magnetic_port",
+          "linearbearing:redstone_converter",
+          "linearbearing:torsional_anchor"
+        ],
+        "optional": true
+      }
+    },
+    {
+      "id": "linkage",
+      "title": "Linkage and hydraulics",
+      "recipe": "block",
+      "selector": {
+        "ids": [
+          "aeronautics_utility_objects:universal_joint",
+          "aeronautics_utility_objects:brass_universal_joint",
+          "aeronautics_utility_objects:hydraulic_regulator",
+          "aeronautics_utility_objects:hydraulic_connection_head",
+          "aeronautics_utility_objects:hydraulic_hinge_head",
+          "aeronautics_utility_objects:brass_hydraulic_hinge_head",
+          "aeronautics_utility_objects:damping_stress_bearing"
+        ],
+        "optional": true
+      }
     }
   ]
 }

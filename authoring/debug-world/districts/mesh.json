@@ -46,7 +46,8 @@
           "minecraft:waxed_copper_grate",
           "minecraft:waxed_exposed_copper_grate",
           "minecraft:waxed_weathered_copper_grate",
-          "minecraft:waxed_oxidized_copper_grate"
+          "minecraft:waxed_oxidized_copper_grate",
+          "bits_n_bobs:industrial_grating"
         ],
         "classes": [
           "WeatheringCopperGrateBlock",
@@ -54,7 +55,8 @@
         ],
         "namespaces": [
           "minecraft",
-          "dndecor"
+          "dndecor",
+          "bits_n_bobs"
         ],
         "optional": false
       }

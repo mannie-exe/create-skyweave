@@ -17,7 +17,10 @@
         "workstations",
         "props",
         "fluids",
-        "mechanisms"
+        "mechanisms",
+        "redstone",
+        "interactions",
+        "construction"
       ]
     },
     "vanilla": {
@@ -36,7 +39,10 @@
         "workstations",
         "props",
         "fluids",
-        "mechanisms"
+        "mechanisms",
+        "redstone",
+        "interactions",
+        "construction"
       ],
       "namespaces": [
         "minecraft"

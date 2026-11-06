@@ -6,6 +6,28 @@ Player instructions belong in [graphics](../players/graphics.md) and
 [content list](../MODLIST.md), with authoritative selections in `empack.yml` and
 `empack.lock`.
 
+## Release 0.2.3
+
+Verified on 2026-11-06 with Minecraft 1.21.1, NeoForge 21.1.265 and public Compat
+0.22.1 (`da95628b57af390f5736a6b7838a73299a33847689c359f84a5c1d758f67384f`).
+All 64 pack Python tests, 88 journal outputs, the 257-file configuration audit,
+shader-lab generation and both resource builders pass. Generated visual patch
+SHA-256 remains `c53e933e702961bfb238b953e98afe52f296506daea8250ca721b6c1f895c191`.
+
+All three reference profiles build. Archive inspection checks CRCs, unique
+entries and destinations, every embedded asset hash, runtime and Compat pins,
+client/server renderer exclusions and the server terminal wrapper. Shader inputs
+and recipes are client-only; complete generated BSL/Complementary ZIPs are not
+included as managed payloads. The `.mrpack` retains valid external downloads
+that Modrinth hosting does not admit, including Ponder's Maven URL and Absolute
+Kinematics' CurseForge CDN. GitHub remains the distribution target.
+
+The current native UI and rendering evidence belongs to Compat's
+[verification guide](https://github.com/mannie-exe/skyweave-compat/blob/v0.22.1/docs/development/verification.md).
+The pack update changes no terrain formulas, saved world identity, seed or ore
+distribution. The separately planned Sky Archipelago 1.4 port remains deferred.
+Atlas checks and Debug World evidence are in [web verification](web/verification.md).
+
 ## Shader assembly, 0.2.2
 
 Skyweave: Compatibility Patches 0.21.0 supplies the physical-client runner. Both
@@ -34,20 +56,6 @@ The [shader lab](../../tools/shader-lab/README.md) owns recipes and upgrade chec
 Compat's [rendering guide](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/rendering.md#shader-assembly)
 owns runtime hooks and cache/settings behavior. Existing limits for moving
 shadows, resource-pack texture assumptions and other GPU paths remain below.
-
-## Display text, 0.2.1
-
-Verified on 2026-11-04 with published Skyweave: Compatibility Patches 0.20.1. The 61 pack tests, 88 generated journal outputs, 256-file configuration audit, shader-lab check, and fixes/resource builders pass. Changes to audited configuration are display strings and comments only. The lock changes only the compatibility mod selection and intent revision; all 161 other dependencies and runtime pins remain unchanged.
-
-All three reference exports build and pass ZIP integrity, unique-destination, embedded-asset hash, published compatibility-mod pin, and client/server exclusion checks. Prism and Modrinth labels read Skyweave modpack. The generated fixes and visual-resource descriptions identify Create: Skyweave; independently named resource artifacts retain their existing filenames. The server launcher patch passes its check.
-
-The compatibility mod passed standalone/full disposable dedicated startup. Interactive Minecraft layout/rendering was not rechecked for this text-only update. Existing pre-0.20.0 worlds remain incompatible with the new registry identity and must not be started with it.
-
-## Identity migration, 0.2.0
-
-The three default reference exports (Modrinth, Prism, server) build from the renamed checkout. Archive integrity, embedded asset SHA-256 values, Compat URL/checksum pins, and client/server exclusions pass. All 161 retained dependency selections and Minecraft/NeoForge pins match the previous lock exactly; only Create Sky Compat is replaced by published Skyweave Compat 0.20.0. Old Compat and fixes JARs are absent from the exports.
-
-The 61 pack Python tests, journal generation/check, 256-file configuration audit, shader-lab builder, fixes builder, and visual resource builder/check pass. Changed audit hashes were limited to verified identity substitutions; configuration values and resource selection order were preserved. New namespace-bearing worlds are required. Existing personal instances, worlds, and LODs were not changed. Native client verification for the renamed release remains pending; prior rendering evidence below identifies its actual artifacts.
 
 ## Redstone control
 
@@ -256,7 +264,7 @@ add a second coordinate conversion based only on source-space positions.
 
 ## Colorwheel
 
-The manifest selects client-only Colorwheel 1.3.0+mc1.21.1 with Compat's optional
+The manifest selects client-only Colorwheel 1.3.2+mc1.21.1 with Compat's optional
 rendering adaptations. Explicit client placements keep Colorwheel, Iris, Sodium
 and generated shader content out of server exports. Existing renderer versions remain
 pinned.
@@ -274,6 +282,15 @@ shader reload, and minimum optional loading. Full dedicated-server startup selec
 no client hooks. See the [exact verification and limits](https://github.com/mannie-exe/skyweave-compat/blob/v0.8.0/docs/development/verification.md#release-080).
 No measured performance gain or general shadow repair is claimed. Keep patch
 retirement tied to the actual released Colorwheel/Sable implementations.
+
+Colorwheel 1.3.2 requires the updated version guards introduced in Compat 0.21.1.
+The pack and shader-lab runner select the same verified Compat release. Its buffer and
+DSA repairs do not replace the sampler/material adapters: the inspected
+`ClrwlProgram` and `GlCompat` classes are unchanged from 1.3.0. The 2026-11-05
+candidate check on NeoForge 21.1.265 covered shader-off instancing, generated
+BSL and Complementary/Euphoria shaders, static and assembled material samples,
+and native emission-buffer writes. It does not repeat the earlier moving-ship,
+Ponder or minimum-client checks.
 
 ### Shader patching
 
@@ -322,9 +339,10 @@ verified the complete shader in the client reference exports, its editable prese
 policy, and no shader content in the server export. Neither plain BSL nor the
 patcher mod remains in the shipping lock or exports.
 
-Compat 0.19.0 uses one scrollable configuration document. Client → Iris exposes
-independent text-display/nametag lighting and cast-shadow options, all enabled by
-the pack. Neutral lighting uses Iris fallback programs for selected text batches;
+Compat groups configuration by gameplay system and mod page, with setting
+anchors and localized search. Rendering → Iris exposes independent
+text-display/nametag lighting and cast-shadow options; these stable adaptations
+default on when Iris qualifies. Neutral lighting uses Iris fallback programs for selected text batches;
 later color grading/exposure can still affect color. Entity-body shading, signs,
 item/block displays and other text keep their native paths. Custom nametags that
 bypass Minecraft's base renderer are outside coverage. Review the
@@ -337,7 +355,7 @@ official Photon release rather than an older compatibility fork. Photon also
 provides DH shaders, but its author does not support Apple GPUs. Its stock settings
 exceeded this Mac's 16-sampler limit in `deferred4`; that is not evidence of a
 failure on supported GPUs. Further Photon runtime testing and macOS workarounds
-are outside this pass.
+remain deferred.
 
 The Photon preset retains native High lighting, adds block-entity shadows, uses
 128-block shadows at 2048 resolution, and disables depth of field/motion blur.
@@ -450,6 +468,26 @@ checks do not establish every shader, driver or special block model. Existing
 nonfatal upstream diagnostics remain. No machine weights, recipes or core physics
 changed. Offline quickplay/LAN shutdown needed the disposable probe's explicit
 server stop; no production shutdown workaround was added from that observation.
+
+## Distant Sable rendering
+
+Compat 0.22.1 supplies two independent default-on client adaptations. The distance
+repair requires SSRD 1.8.8, Sable 2.0.6 and Iris 1.8.14-beta.1; the opaque-occlusion
+repair additionally requires DH 3.3.3. Both preserve their startup switches and
+physical-side/version checks. No authored view distance or terrain generation
+changes are required.
+
+The native fixture reproduced shader-only disappearance beyond native view distance
+without the repair. With both adapters, the hull renders at distance and remains
+hidden behind opaque DH terrain in the qualified BSL/Colorwheel and
+Complementary/Euphoria/Skyweave shaders. Shader switching, resize and dimension
+transitions were checked. Single-block and chunked construct draws retain scoped
+state restoration. Translucent composition, distant block entities/Flywheel,
+other shaderpacks and multiplayer visuals are not established by those checks.
+See Compat's [rendering contract](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/rendering.md#distant-constructs-with-shaders)
+and [verification](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/verification.md#ssrd-shader-adaptations)
+for exact scope, shader-fog limits and dependency-update checks. Upstream tracking:
+[SSRD issue 68](https://github.com/RanoldStranold/SSRD/issues/68).
 
 ## DH Polygon Fix
 

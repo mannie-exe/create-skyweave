@@ -1,24 +1,26 @@
-# Create: Skyweave 0.2.2
+# Create: Skyweave 0.2.3
 
-Generate the maintained shaders on clients from verified provider inputs. Only
-complete BSL/Colorwheel and Complementary Unbound/Euphoria/Skyweave results enter
-Iris's list. The shared Java engine runs before first shader load, caches verified
-outputs and supports rebuilding from Compat settings. No recipient Python or
-launcher-specific shader command is needed. Source inputs are installed outside
-`shaderpacks/`; merged shader ZIPs are no longer shipped as pack content.
+Update Skyweave: Compatibility Patches to 0.22.1. Configuration now has searchable
+mod pages organized by gameplay system, consistent section navigation and inline
+JSON/TOML editing with staged saves and conflict checks. The release also restores
+distant Sable constructs with the qualified Iris shaders, applies opaque DH
+occlusion, extends selected decorative-block backfaces and aligns flat bridge
+lantern selection with its model.
 
-Include Skyweave: Compatibility Patches 0.21.0, with completed Tiled Glass/pane
-backfaces and touching-surface separation. Stable adaptations default on when
-qualified; existing explicit choices remain authoritative. Keep the current
-Complementary/Euphoria quality preset and shader enablement policy. Photon remains
-an optional unmodified shader for supported hardware.
+Refresh NeoForge to 21.1.265 and compatible dependencies, including Colorwheel
+1.3.2, SSRD 1.8.8, Fresh Animations 1.11.2 and Ray's Rails 3.7. Keep Minecraft
+1.21.1, Sky Archipelago 1.3.6 and the existing terrain generation. Worlds and LOD
+caches do not need regeneration. See [included content](MODLIST.md) for exact pins
+and [compatibility](development/compatibility.md) for renderer coverage and limits.
 
-Inventory Shift presses no longer begin creative-flight descent while moving
-items. An already held descent key remains active until released.
+Expand the generated Debug World to 1,088 cases across 17 floating districts,
+including more ladders, redstone circuits, construction, interactions and entity
+variants. The fixture is maintained separately from normal player worlds. Atlas
+resource-pack records match the selected archives; exporter runs can use isolated
+matching NeoForge libraries.
 
-Generation formulas, the seed and resource distribution are unchanged. Existing
-worlds and LODs do not need regeneration. The Debug World and existing approved
-resource selections remain in place.
+Server defaults use view distance 12 and simulation distance 16. Reliable Gliders
+keeps its survival tuning and disables automatic deployment in creative mode.
+Existing editable instance settings are preserved during updates.
 
-See [compatibility](development/compatibility.md#shader-assembly-022) for verification
-and renderer limits. Previous release: [0.2.1](releases/0.2.1.md).
+Previous release: [0.2.2](releases/0.2.2.md).

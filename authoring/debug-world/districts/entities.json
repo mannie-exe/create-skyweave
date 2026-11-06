@@ -201,6 +201,143 @@
           "material": "netherite"
         }
       ]
+    },
+    {
+      "id": "variants",
+      "title": "Entity visual variants",
+      "recipe": "entity",
+      "cases": [
+        {
+          "entity": "minecraft:sheep",
+          "variant": "white",
+          "data": {
+            "Color": 0
+          }
+        },
+        {
+          "entity": "minecraft:sheep",
+          "variant": "red",
+          "data": {
+            "Color": 14
+          }
+        },
+        {
+          "entity": "minecraft:sheep",
+          "variant": "blue",
+          "data": {
+            "Color": 11
+          }
+        },
+        {
+          "entity": "minecraft:sheep",
+          "variant": "black",
+          "data": {
+            "Color": 15
+          }
+        },
+        {
+          "entity": "minecraft:sheep",
+          "variant": "sheared",
+          "data": {
+            "Sheared": true
+          }
+        },
+        {
+          "entity": "minecraft:mooshroom",
+          "variant": "brown",
+          "data": {
+            "Type": "brown"
+          }
+        },
+        {
+          "entity": "minecraft:fox",
+          "variant": "snow",
+          "data": {
+            "Type": "snow"
+          }
+        },
+        {
+          "entity": "minecraft:cat",
+          "variant": "black",
+          "data": {
+            "variant": "minecraft:black"
+          }
+        },
+        {
+          "entity": "minecraft:rabbit",
+          "variant": "black",
+          "data": {
+            "RabbitType": 2
+          }
+        },
+        {
+          "entity": "minecraft:villager",
+          "variant": "farmer",
+          "data": {
+            "VillagerData": {
+              "profession": "minecraft:farmer",
+              "type": "minecraft:plains",
+              "level": 1
+            }
+          }
+        },
+        {
+          "entity": "minecraft:villager",
+          "variant": "librarian",
+          "data": {
+            "VillagerData": {
+              "profession": "minecraft:librarian",
+              "type": "minecraft:plains",
+              "level": 1
+            }
+          }
+        },
+        {
+          "entity": "minecraft:villager",
+          "variant": "armorer",
+          "data": {
+            "VillagerData": {
+              "profession": "minecraft:armorer",
+              "type": "minecraft:plains",
+              "level": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "aquatic",
+      "title": "Aquatic specimens",
+      "recipe": "entity",
+      "cases": [
+        {
+          "entity": "minecraft:cod",
+          "aquatic": true
+        },
+        {
+          "entity": "minecraft:salmon",
+          "aquatic": true
+        },
+        {
+          "entity": "minecraft:tropical_fish",
+          "aquatic": true
+        },
+        {
+          "entity": "minecraft:axolotl",
+          "aquatic": true
+        }
+      ]
+    },
+    {
+      "id": "modded",
+      "title": "Modded creature reference",
+      "recipe": "entity",
+      "cases": [
+        {
+          "entity": "create_confectionery:little_gingerbread_man"
+        }
+      ],
+      "optional": true
     }
   ]
 }

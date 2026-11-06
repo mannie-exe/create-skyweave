@@ -16,9 +16,10 @@
         "ids": [
           "minecraft:oak_stairs",
           "minecraft:stone_brick_stairs",
-          "minecraft:cut_copper_stairs"
+          "minecraft:cut_copper_stairs",
+          "create_confectionery:caramel_bricks_stairs"
         ],
-        "optional": false
+        "optional": true
       }
     },
     {
@@ -29,9 +30,10 @@
         "ids": [
           "minecraft:oak_slab",
           "minecraft:stone_brick_slab",
-          "minecraft:cut_copper_slab"
+          "minecraft:cut_copper_slab",
+          "create_confectionery:caramel_bricks_slab"
         ],
-        "optional": false
+        "optional": true
       }
     },
     {
@@ -54,10 +56,23 @@
       "recipe": "ladder",
       "selector": {
         "ids": [
-          "minecraft:ladder"
+          "minecraft:ladder",
+          "create:andesite_ladder",
+          "create:brass_ladder",
+          "create:copper_ladder",
+          "createdeco:industrial_iron_ladder",
+          "createdeco:iron_ladder",
+          "createdeco:zinc_ladder"
         ],
-        "optional": false
-      }
+        "optional": true
+      },
+      "cases": [
+        {
+          "block": "copycats:copycat_ladder",
+          "material": "create:andesite_ladder"
+        }
+      ],
+      "optional": true
     },
     {
       "id": "rails",
@@ -68,9 +83,10 @@
           "minecraft:rail",
           "minecraft:powered_rail",
           "minecraft:detector_rail",
-          "minecraft:activator_rail"
+          "minecraft:activator_rail",
+          "create:controller_rail"
         ],
-        "optional": false
+        "optional": true
       }
     },
     {
@@ -84,7 +100,43 @@
           "minecraft:oak_trapdoor",
           "minecraft:iron_trapdoor",
           "create:framed_glass_door",
-          "create:framed_glass_trapdoor"
+          "create:framed_glass_trapdoor",
+          "minecraft:acacia_door",
+          "minecraft:acacia_trapdoor",
+          "minecraft:bamboo_door",
+          "minecraft:bamboo_trapdoor",
+          "minecraft:birch_door",
+          "minecraft:birch_trapdoor",
+          "minecraft:cherry_door",
+          "minecraft:cherry_trapdoor",
+          "minecraft:copper_door",
+          "minecraft:copper_trapdoor",
+          "minecraft:crimson_door",
+          "minecraft:crimson_trapdoor",
+          "minecraft:dark_oak_door",
+          "minecraft:dark_oak_trapdoor",
+          "minecraft:exposed_copper_door",
+          "minecraft:exposed_copper_trapdoor",
+          "minecraft:jungle_door",
+          "minecraft:jungle_trapdoor",
+          "minecraft:mangrove_door",
+          "minecraft:mangrove_trapdoor",
+          "minecraft:oxidized_copper_door",
+          "minecraft:oxidized_copper_trapdoor",
+          "minecraft:spruce_door",
+          "minecraft:spruce_trapdoor",
+          "minecraft:warped_door",
+          "minecraft:warped_trapdoor",
+          "minecraft:waxed_copper_door",
+          "minecraft:waxed_copper_trapdoor",
+          "minecraft:waxed_exposed_copper_door",
+          "minecraft:waxed_exposed_copper_trapdoor",
+          "minecraft:waxed_oxidized_copper_door",
+          "minecraft:waxed_oxidized_copper_trapdoor",
+          "minecraft:waxed_weathered_copper_door",
+          "minecraft:waxed_weathered_copper_trapdoor",
+          "minecraft:weathered_copper_door",
+          "minecraft:weathered_copper_trapdoor"
         ],
         "optional": true
       }
@@ -114,6 +166,25 @@
           "block": "create:copper_bars"
         }
       ]
+    },
+    {
+      "id": "steps-and-grab-rails",
+      "title": "Steps and grab rails",
+      "recipe": "ladder",
+      "selector": {
+        "ids": [
+          "bellsandwhistles:andesite_bogie_steps",
+          "bellsandwhistles:andesite_door_step",
+          "bellsandwhistles:andesite_grab_rails",
+          "bellsandwhistles:brass_bogie_steps",
+          "bellsandwhistles:brass_door_step",
+          "bellsandwhistles:brass_grab_rails",
+          "bellsandwhistles:copper_bogie_steps",
+          "bellsandwhistles:copper_door_step",
+          "bellsandwhistles:copper_grab_rails"
+        ],
+        "optional": true
+      }
     }
   ]
 }

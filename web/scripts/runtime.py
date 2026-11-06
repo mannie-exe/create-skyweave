@@ -17,6 +17,7 @@ parser.add_argument("--worldgen", action="store_true", help="Read the configured
 parser.add_argument("--installed-mods", action="store_true", help="Capture the configured installation instead of the complete materialized pack selection")
 parser.add_argument('--output', type=Path, help='Write runtime JSON to this trusted staging directory')
 parser.add_argument('--work', type=Path, help='Use this private capture directory instead of the CLI cache')
+parser.add_argument('--libraries', type=Path, help='Read locked runtime libraries from an isolated installation without changing the configured server')
 args_cli = parser.parse_args()
 p = paths()
 subprocess.run([sys.executable, str(p['pack'] / 'scripts/build-fixes.py'), '--check'], check=True)
@@ -26,7 +27,7 @@ inputs = json.loads(subprocess.check_output([tool('node', 'node'), str(ROOT / 's
 work = args_cli.work.resolve() if args_cli.work else ROOT / '.cache'
 audit = work / 'audit-server'
 audit.mkdir(parents=True, exist_ok=True)
-libraries = p['server'] / 'libraries'
+libraries = (args_cli.libraries or p['server'] / 'libraries').expanduser().resolve()
 loader_version = inputs['runtime']['loader-version']
 game_jar = libraries / 'net/neoforged/neoforge' / loader_version / f'neoforge-{loader_version}-server.jar'
 if not game_jar.is_file(): raise RuntimeError('Missing locked NeoForge server JAR in configured libraries')
@@ -92,5 +93,5 @@ run_capture([tool('java', p.get('java', Path('.')) / 'java'), '-Xmx4G', *worldge
             cwd=audit, log=work / 'runtime.log', complete=out / 'complete.json',
             nested=bool(os.environ.get('ATLAS_WORKSPACE_CONTEXT')))
 inventory = {f.name: hashlib.sha256(f.read_bytes()).hexdigest() for f in mods.glob('*.jar')}
-write_json(out / 'snapshot.json', {'mods': inventory, 'modSource':mod_source, 'sourceFingerprint':source_fingerprint,'sourceChangedDuringExport':source_fingerprint!=fingerprint(mod_source),'lockSha256': hashlib.sha256((p['pack'] / 'empack.lock').read_bytes()).hexdigest()})
+write_json(out / 'snapshot.json', {'mods': inventory, 'runtime': inputs['runtime'], 'modSource':mod_source, 'sourceFingerprint':source_fingerprint,'sourceChangedDuringExport':source_fingerprint!=fingerprint(mod_source),'lockSha256': hashlib.sha256((p['pack'] / 'empack.lock').read_bytes()).hexdigest()})
 print('Runtime export complete:', json.loads((out / 'complete.json').read_text()))

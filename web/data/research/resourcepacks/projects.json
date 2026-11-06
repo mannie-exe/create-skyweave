@@ -1816,7 +1816,7 @@
         }
       ],
       "inspection": {
-        "sha512": "5bac9a5e994075a867b154d77aa39bf10755589683119ebbc093d7b4c6a228f44d8fafc18ffb981724fa805e79c360d95a72aaa909d58cb9fdde63a4c75e5bdb",
+        "sha512": "203183e91f4b30e98538ff16e84e4a49a2be85e04afc2c8610c31b3110bf7794bd86251abb4f6a8df010173baa00126b15c05f3ef48fd4498fc865e181eec33e",
         "format": 97.1,
         "supportedFormats": {
           "min_inclusive": 1,
@@ -1873,11 +1873,11 @@
         "matchingInstalledAssets": 21,
         "matchingModNamespaces": ["create"],
         "version": {
-          "id": "vTaYwBqs",
-          "name": "RAY's 3D Rails 3.6",
-          "version_number": "3.6",
+          "id": "tKWH9VdI",
+          "name": "RAY's 3D Rails 3.7",
+          "version_number": "3.7",
           "version_type": "release",
-          "date_published": "2026-09-26T11:23:35.704892Z",
+          "date_published": "2026-11-03T09:05:21.318029Z",
           "game_versions": [
             "1.13",
             "1.13.1",
@@ -1915,6 +1915,8 @@
             "1.20.6",
             "1.21",
             "1.21.1",
+            "1.21.10",
+            "1.21.11",
             "1.21.2",
             "1.21.3",
             "1.21.4",
@@ -1923,8 +1925,6 @@
             "1.21.7",
             "1.21.8",
             "1.21.9",
-            "1.21.10",
-            "1.21.11",
             "26.1",
             "26.1.1",
             "26.1.2",
@@ -1934,43 +1934,7 @@
           "dependencies": [
             {
               "version_id": null,
-              "project_id": "wlep3Csi",
-              "file_name": null,
-              "dependency_type": "optional"
-            },
-            {
-              "version_id": null,
-              "project_id": "JgzAepUE",
-              "file_name": null,
-              "dependency_type": "optional"
-            },
-            {
-              "version_id": null,
-              "project_id": "krskFMfA",
-              "file_name": null,
-              "dependency_type": "optional"
-            },
-            {
-              "version_id": null,
-              "project_id": "aqnMGg9O",
-              "file_name": null,
-              "dependency_type": "optional"
-            },
-            {
-              "version_id": null,
-              "project_id": "vdIUVEqI",
-              "file_name": null,
-              "dependency_type": "optional"
-            },
-            {
-              "version_id": null,
-              "project_id": "S0xj5NHG",
-              "file_name": null,
-              "dependency_type": "optional"
-            },
-            {
-              "version_id": null,
-              "project_id": "tfjmPSbI",
+              "project_id": "Ks99wFEM",
               "file_name": null,
               "dependency_type": "optional"
             },
@@ -1982,61 +1946,7 @@
             },
             {
               "version_id": null,
-              "project_id": "73MCa9Po",
-              "file_name": null,
-              "dependency_type": "optional"
-            },
-            {
-              "version_id": null,
               "project_id": "Xbc0uyRg",
-              "file_name": null,
-              "dependency_type": "optional"
-            },
-            {
-              "version_id": null,
-              "project_id": "U6GY0xp0",
-              "file_name": null,
-              "dependency_type": "optional"
-            },
-            {
-              "version_id": null,
-              "project_id": "HPzqIR7w",
-              "file_name": null,
-              "dependency_type": "optional"
-            },
-            {
-              "version_id": null,
-              "project_id": "KE9A103T",
-              "file_name": null,
-              "dependency_type": "optional"
-            },
-            {
-              "version_id": null,
-              "project_id": "wOZRkmgG",
-              "file_name": null,
-              "dependency_type": "optional"
-            },
-            {
-              "version_id": null,
-              "project_id": "nd5KqRSE",
-              "file_name": null,
-              "dependency_type": "optional"
-            },
-            {
-              "version_id": null,
-              "project_id": "ulHcb70J",
-              "file_name": null,
-              "dependency_type": "optional"
-            },
-            {
-              "version_id": null,
-              "project_id": "Ks99wFEM",
-              "file_name": null,
-              "dependency_type": "optional"
-            },
-            {
-              "version_id": null,
-              "project_id": "MY9XTAfi",
               "file_name": null,
               "dependency_type": "optional"
             },
@@ -2048,13 +1958,13 @@
             },
             {
               "version_id": null,
-              "project_id": "P8zXItsV",
+              "project_id": "JgzAepUE",
               "file_name": null,
               "dependency_type": "optional"
             },
             {
               "version_id": null,
-              "project_id": "ucJAutrz",
+              "project_id": "U6GY0xp0",
               "file_name": null,
               "dependency_type": "optional"
             },
@@ -2072,13 +1982,7 @@
             },
             {
               "version_id": null,
-              "project_id": "IHeCQMsD",
-              "file_name": null,
-              "dependency_type": "optional"
-            },
-            {
-              "version_id": null,
-              "project_id": "8BRY0fsm",
+              "project_id": "wlep3Csi",
               "file_name": null,
               "dependency_type": "optional"
             },
@@ -2096,7 +2000,19 @@
             },
             {
               "version_id": null,
-              "project_id": "O4CaRWOP",
+              "project_id": "wOZRkmgG",
+              "file_name": null,
+              "dependency_type": "optional"
+            },
+            {
+              "version_id": null,
+              "project_id": "KE9A103T",
+              "file_name": null,
+              "dependency_type": "optional"
+            },
+            {
+              "version_id": null,
+              "project_id": "ulHcb70J",
               "file_name": null,
               "dependency_type": "optional"
             },
@@ -2105,17 +2021,104 @@
               "project_id": "5yWCVOdC",
               "file_name": null,
               "dependency_type": "optional"
+            },
+            {
+              "version_id": null,
+              "project_id": "O4CaRWOP",
+              "file_name": null,
+              "dependency_type": "optional"
+            },
+            {
+              "version_id": null,
+              "project_id": "krskFMfA",
+              "file_name": null,
+              "dependency_type": "optional"
+            },
+            {
+              "version_id": null,
+              "project_id": "nd5KqRSE",
+              "file_name": null,
+              "dependency_type": "optional"
+            },
+            {
+              "version_id": null,
+              "project_id": "MY9XTAfi",
+              "file_name": null,
+              "dependency_type": "optional"
+            },
+            {
+              "version_id": null,
+              "project_id": "ucJAutrz",
+              "file_name": null,
+              "dependency_type": "optional"
+            },
+            {
+              "version_id": null,
+              "project_id": "HPzqIR7w",
+              "file_name": null,
+              "dependency_type": "optional"
+            },
+            {
+              "version_id": null,
+              "project_id": "tfjmPSbI",
+              "file_name": null,
+              "dependency_type": "optional"
+            },
+            {
+              "version_id": null,
+              "project_id": "S0xj5NHG",
+              "file_name": null,
+              "dependency_type": "optional"
+            },
+            {
+              "version_id": null,
+              "project_id": "P8zXItsV",
+              "file_name": null,
+              "dependency_type": "optional"
+            },
+            {
+              "version_id": null,
+              "project_id": "IHeCQMsD",
+              "file_name": null,
+              "dependency_type": "optional"
+            },
+            {
+              "version_id": null,
+              "project_id": "aqnMGg9O",
+              "file_name": null,
+              "dependency_type": "optional"
+            },
+            {
+              "version_id": null,
+              "project_id": "73MCa9Po",
+              "file_name": null,
+              "dependency_type": "optional"
+            },
+            {
+              "version_id": null,
+              "project_id": "8BRY0fsm",
+              "file_name": null,
+              "dependency_type": "optional"
+            },
+            {
+              "version_id": null,
+              "project_id": "vdIUVEqI",
+              "file_name": null,
+              "dependency_type": "optional"
             }
           ]
         },
         "file": {
-          "url": "https://cdn.modrinth.com/data/jKa9Ievs/versions/vTaYwBqs/RAYs_3D_Rails_v3.6.zip",
-          "filename": "RAYs_3D_Rails_v3.6.zip",
-          "size": 6228510,
+          "id": "eLQtLS2I",
           "hashes": {
-            "sha1": "648bcc967799bb3cefb1d276558f0c8630f46b95",
-            "sha512": "5bac9a5e994075a867b154d77aa39bf10755589683119ebbc093d7b4c6a228f44d8fafc18ffb981724fa805e79c360d95a72aaa909d58cb9fdde63a4c75e5bdb"
-          }
+            "sha1": "ac30cf249fdecfff3000481f1d701bac5913fe63",
+            "sha512": "203183e91f4b30e98538ff16e84e4a49a2be85e04afc2c8610c31b3110bf7794bd86251abb4f6a8df010173baa00126b15c05f3ef48fd4498fc865e181eec33e"
+          },
+          "url": "https://cdn.modrinth.com/data/jKa9Ievs/versions/tKWH9VdI/RAYs_3D_Rails_v3.7.zip",
+          "filename": "RAYs_3D_Rails_v3.7.zip",
+          "primary": true,
+          "size": 6228445,
+          "file_type": null
         }
       },
       "links": [
@@ -5504,7 +5507,7 @@
         }
       ],
       "inspection": {
-        "sha512": "641a03d55c36920cc9a70d891bcca3347b196968bcb5637781f21b417b1ff893ce60652abcf02be872872fc1130ccc6785155ea3b19a0ed484de714b6229c922",
+        "sha512": "e64c2fc73d2c61f6814d1223ac2a2bb1dda7ed55edb75efef23449475140a42ef2a490c4789f42e022eca96ffa6b50b63de70a2858fc7b257421b36aab5c10b3",
         "format": 15,
         "supportedFormats": {
           "min_inclusive": 15,
@@ -5523,11 +5526,11 @@
         "matchingInstalledAssets": 155,
         "matchingModNamespaces": [],
         "version": {
-          "id": "aQjwvDfY",
-          "name": "Fresh Animations 1.11.1 - 1.20+",
-          "version_number": "1.11.1",
+          "id": "HC1XRKGD",
+          "name": "Fresh Animations 1.11.2 - 1.20+",
+          "version_number": "1.11.2",
           "version_type": "release",
-          "date_published": "2026-10-19T23:26:39.618065Z",
+          "date_published": "2026-11-01T11:29:00.920509Z",
           "game_versions": [
             "1.20",
             "1.20.1",
@@ -5538,6 +5541,8 @@
             "1.20.6",
             "1.21",
             "1.21.1",
+            "1.21.10",
+            "1.21.11",
             "1.21.2",
             "1.21.3",
             "1.21.4",
@@ -5545,20 +5550,21 @@
             "1.21.6",
             "1.21.7",
             "1.21.8",
-            "1.21.9",
-            "1.21.10",
-            "1.21.11"
+            "1.21.9"
           ],
           "dependencies": []
         },
         "file": {
-          "url": "https://cdn.modrinth.com/data/50dA9Sha/versions/aQjwvDfY/FreshAnimations_v1.11.1_1.20%2B.zip",
-          "filename": "FreshAnimations_v1.11.1_1.20+.zip",
-          "size": 743793,
+          "id": "vWxPiayy",
           "hashes": {
-            "sha1": "eaf28f57dee43c469534953517501a021d28cf21",
-            "sha512": "641a03d55c36920cc9a70d891bcca3347b196968bcb5637781f21b417b1ff893ce60652abcf02be872872fc1130ccc6785155ea3b19a0ed484de714b6229c922"
-          }
+            "sha1": "c0f564f3b9c12762923015eefad53edbdbbd3d96",
+            "sha512": "e64c2fc73d2c61f6814d1223ac2a2bb1dda7ed55edb75efef23449475140a42ef2a490c4789f42e022eca96ffa6b50b63de70a2858fc7b257421b36aab5c10b3"
+          },
+          "url": "https://cdn.modrinth.com/data/50dA9Sha/versions/HC1XRKGD/FreshAnimations_v1.11.2_1.20%2B.zip",
+          "filename": "FreshAnimations_v1.11.2_1.20+.zip",
+          "primary": true,
+          "size": 742790,
+          "file_type": null
         }
       },
       "links": [

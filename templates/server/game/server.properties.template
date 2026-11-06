@@ -17,7 +17,7 @@ spawn-protection=0
 max-world-size=29999984
 
 view-distance=12
-simulation-distance=10
+simulation-distance=16
 max-tick-time=60000
 spawn-npcs=true
 spawn-animals=true

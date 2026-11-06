@@ -4,95 +4,105 @@ Checks apply to the recorded source or artifact, not every later checkout. Brows
 checks establish interface behavior; native game checks and survey evidence have
 separate owners and limits. Commands and prerequisites live in [setup](setup.md).
 
-## Display text, 0.2.1
+## Release 0.2.3 checks
 
-Verified on 2026-11-04 with published Skyweave: Compatibility Patches 0.20.1. `pnpm verify` passes 158 Node tests, type checks, and the 16-page build; `pnpm test:python` passes 35 tests with one existing skip. Ten focused navigation/resource-pack browser checks pass, including narrow-page layout and resource descriptions. One full test run observed an empty PID file in the unchanged cancellation fixture; the isolated nine job tests and the full suite then passed without weakening assertions.
+On 2026-11-06, `pnpm verify` passes formatting, unused-code checks, all 158 Node
+tests, Astro diagnostics and the 16-page build. `pnpm test:python` passes 35 tests
+with one existing opt-in skip; `pnpm data:check` passes. The only application
+implementation change is the exporter's isolated-library selection and runtime
+provenance. No interface layout, header, component or semantic-style changes are
+included; existing shared controls and tokens remain in use.
 
-`pnpm data:refresh` compiled and ran the isolated exporter against the new pin, extracted 10,116 items and 31,641 resource paths from 471 JARs, generated 10,050 texture previews, and published the map. Authored YAML retains the same non-text values; colon-bearing display text is quoted. Machine identities, workspace scopes, jobs, access boundaries, and recipe/resource selection remain unchanged.
+The retained pristine Debug World again passes all 18,190 block checks, 1,764
+connections, 69 entities, 24 inventory slots and 12 block-entity contracts. The
+personal copy has two block differences where a piston moved its stone specimen;
+all other checks pass. Its playtest state is preserved. Formatting the generator
+and updating rendering adapters do not require replacing that fixture.
 
-## Identity migration, 0.2.0
+The runtime capture below retains its actual Compat 0.21.1 provenance. The new
+Compat 0.22.1 configuration and rendering adaptations add no registered item or
+block content; no new world/ore scan or runtime export was performed for this
+release pin. Historical media likewise retain their recorded artifact scope.
 
-Verified on 2026-11-04 from `~/Minecraft/create-skyweave` with published Skyweave Compat 0.20.0. `pnpm verify` passes 158 tests, type checks, and the 16-page static build. `pnpm test:python` passes 35 tests with one existing skip. The runtime exporter compiled and ran in its isolated server; extraction produced 10,116 items, 31,641 resource paths, and 10,050 texture previews. `pnpm data:check` passes after the portable pack-name correction.
+## Dependency refresh, 2026-11-05
 
-The focused workspace, jobs, authoring, and resource-pack browser suites pass 27 checks, including real WebSockets, draft preservation, progress/error delivery, and private-cache exclusion. Model/object views initially reported missing projections under the renamed scope. The normal input, static-model export, texture, and object jobs rebuilt them. The mapped-client cache link was retargeted to the renamed Compat build after verifying its bytes against prior exporter evidence. All 15 model, object, and texture browser checks then passed, including preview generation, draft retention, native/static model views, and rejection of arbitrary job inputs. Historical artifact generations and source media were preserved.
+The isolated exporter ran on Minecraft 1.21.1 / NeoForge 21.1.265 using
+`scripts/runtime.py --libraries` to select disposable loader libraries. The final
+capture used published Compat 0.21.1, byte-identical to the native rendering
+candidate (SHA-256 `99fe10b41446785c1b83f41b26fb019fd4a8bcdb95b5fcdaf80fda01c574fc9e`),
+and recorded the captured runtime without source changes during export. Extraction produced
+10,116 items, 31,641 resource paths and 10,050 texture previews from 471 JARs.
+Map compilation and the 166-object / 893-preview resource build completed.
+Existing world and ore surveys were preserved because terrain generation remains
+on Sky Archipelago 1.3.6.
 
-The built static map and posed-resource browser check also passes without a workspace connection.
+Fresh Animations 1.11.2 and Ray's Rails 3.7 inspection records now describe their
+actual selected archives. Previous comparison media remain dated observations,
+not newly captured comparisons. `pnpm data:check`, `pnpm verify` (158 Node tests,
+type checks and the 16-page build), and `pnpm test:python` (35 tests, one existing
+skip) pass. The pack's 64 Python tests include exact captured-loader selection
+and refusal of missing or invalid loader versions. No interface redesign or new
+browser interaction coverage is claimed by this data refresh.
 
-`pnpm deploy:preview` passes with Wrangler 4.156.0 for `create-skyweave-atlas`. This was a local dry run; no deployment, routes, credentials, or Cloudflare resources changed. Historical native observations below retain their original project/release identities.
+## Workspace and resource-preview checks, 2026-11-04
+
+The workspace, jobs, authoring and resource-pack browser suites passed 27 checks,
+including real WebSockets, draft preservation, progress/error delivery and
+private-cache exclusion. The model, object and texture suites passed 15 checks,
+including generated previews, native/static model views and rejection of arbitrary
+job inputs. The static map and posed-resource browser check passed without a
+workspace connection. These checks used published Compat 0.20.0; they are not
+new browser checks of the dependency refresh above.
+
+`pnpm deploy:preview` passed with Wrangler 4.156.0 as a local dry run. No deployment,
+routes, credentials or Cloudflare resources changed. Historical native observations
+below retain their recorded project identities and artifact scope.
 
 ## Debug World
 
-Verified on 2026-11-04 against Create Sky 0.1.34, Minecraft 1.21.1 and NeoForge
-21.1.264. The configuration and commands are owned by the [Debug World guide](../debug-world.md).
-The compact 791-case profile has 43 groups across 14 floating districts, with
-12-block flight lanes and floors at Y 152, 160 and 168. Its source SHA-256 is
-`1b3cd480bbefd3d378a0de3341f99bd433fb0e3226af9ec13ae9394d5acc849a`.
+The 2026-11-06 audit first saved and closed the loaded personal Debug World, then
+compared its Anvil data with its own manifest: all 15,026 recorded blocks, 1,764
+connections, 52 entities, 24 inventory slots and six block-entity contracts passed.
+Missing coverage was an authoring omission, not evidence of failed placements.
+The expanded profile also includes every block ID placed by the old Resource
+Review generator; incidental support blocks are not counted as separate cases.
 
-The compact world passed native generation in 66.71 seconds. Its saved-world
-check covered 15,026 block states, 1,764 connections, 52 entities, 24 inventory
-slots and six block-entity contracts, including Copycat materials and the live
-32 RPM network. No temporary forced chunks remained. The initial Mojang vanilla
-profile independently passed 259 cases, 7,275 states and 462 connections in
-31.63 seconds, without NeoForge or Compat. Its source SHA-256 is
-`e0a26139ac97a8292edfa680f301c48a7aff934756ff3d5edfd3a859bdaf75cc`.
-Vanilla rendering was not separately inspected in a vanilla client.
+A fresh isolated registry capture uses the current worktree's server distribution,
+Minecraft 1.21.1, NeoForge 21.1.265 and the unpublished Compat build SHA-256
+`c1fcfe24eef7eabce64ce4c937b7756d480f3a7bd483f9d07f616e7b35c0fc85`.
+It does not mount or restart the playing server. The resulting 1,088-case profile
+has 67 groups in 17 districts and compiles to 234 bounded native stages. Its
+verified source SHA-256 is
+`f09e387779b5282e9a3baf9f04dd45a6664ecc523574158a74709b152ac8cc9b`.
 
-The initial layout was visually inspected in an isolated native client with all
-22 selected resource entries, including the
-public resource patch ZIP `d421942c36acec63636489fa8ef2857c99aff8914ab97f264e011d9943ded605`
-and Compat 0.17.0. Captures cover enlarged labels, crops/pots, the grounded
-mooshroom, Copycats, waterlogging, paired storage and the hanging stair lantern.
-Label and crop views were checked with shaders off and with Complementary Unbound
-5.9.3 plus Euphoria 1.10.5. Double storage opens with 54 container slots; Lootr
-opens with 27. This does not establish every animation or machine operation.
+Native generation and saved-world verification pass 18,190 recorded blocks,
+1,764 connections, 69 entities, 24 inventory slots and 12 block-entity contracts.
+Checks include authored state samples, entity variants, aquatic habitats,
+Copycat ladder/panel/block materials and the 32 RPM reference. No temporary
+force-loaded chunks remain. The expanded smoke fixture independently passes
+35 cases, 1,061 block checks and five entities, including the new sample, circuit
+and aquatic recipes.
 
-Physical directory, return, group-reset and time buttons passed. An unchanged
-`/reload` preserved edited specimens; resetting one group restored its specimens
-and preserved an edit in another district. Both test edits were subsequently
-restored. Saved native control results were 18,000 for Night and 6,000 for Noon.
-The same world survived cold reopening and the full saved-world verifier after
-interaction. Installation into the loaded test save was refused by Minecraft's
-actual session lock. The verified pristine world was then installed as **Debug
-World** in the local Create Sky client.
-The compact replacement is installed in that same Debug World save. The retired
-Resource Review save was deleted at the owner’s request. The personal server and
-its world/LODs were not changed. All 1,731 saved native text displays match their
-color roles, 96% background opacity, fully opaque text and native block/sky
-brightness overrides of 15/15. All text roles are now
-twice their original scale (791 names, 789 IDs, 107 controls and 44 headings),
-with per-line horizontal padding of approximately 0.4 em. Native vertical insets
-remain fixed. The compact arrangement
-and new label treatment have not received a separate client visual pass.
+In the personal client, a real right-click toggles the generated wire circuit's
+lever and lamp on/off; native conditional commands confirm both lamp states.
+After saving and closing that client, all 18,190 recorded blocks and the other
+manifest checks still pass. The final copy tightens sample-state assertions
+without changing placement geometry. A wall-bell observation established that its facing
+points toward the support; the recipe uses the native orientation.
 
-Checks: `python3 -m unittest discover -s tests -v` (61 passed), `pnpm test:python`
-(34 tests, one existing skip), Ruff formatting/unused-import checks and
-`git diff --check`. Current exporter sources compile with the pinned native
-classpath; registry capture was also exercised in an isolated server. Selected
-native captures, control results, manifests and generation logs are retained in
-`modpack-testing/projects/create-sky-resources/images/2026-11-03-debug-world/`.
-Compact native generation, manifest and label checks are retained in its
-`compact-layout/` and `large-labels/` subdirectories. Earlier captures without the lab's rejected
-symlinked resource packs were discarded. Commands and extension/update procedures have one owner in the
-guide; no Atlas page redesign or release was performed.
+The earlier genuine Mojang vanilla profile passed 259 cases, 7,275 states and
+462 connections without NeoForge or Compat. That result does not qualify the
+expanded vanilla profile, which has not been regenerated in this pass.
+Likewise, earlier native tests established directory/return/time controls,
+local group reset, unchanged-reload preservation and world-lock refusal on their
+recorded builds; they are not new interaction checks of every added machine.
 
-### Release 0.1.37 checks
-
-A fresh isolated full-pack capture compiled the exporter and recorded 9,536
-blocks, 10,116 items and 187 entity types on Minecraft 1.21.1 / NeoForge 21.1.264,
-with the published Compat 0.19.0 artifact. The 791-case profile compiled to 163
-stages and generated in 66.2 seconds. Its source SHA-256 is
-`954a75b31914989d9fba4c2968d21c7dd95143c4f3db2681231dee2d9f53093c`.
-The saved-world verifier passed 15,026 block states, 1,764 connections, 52 entities,
-24 inventory slots and six block-entity contracts, with no temporary forced chunks.
-This was a new disposable server; the playing server and loaded client save were
-not modified. The verifier refused the loaded personal fixture through its native
-world lock. No new visual review was claimed from this background run.
-
-The 61 pack tests pass. `pnpm verify` passes formatting, unused-code checks, 158
-JavaScript tests, Astro checks and the static build. `pnpm test:python` passes 34
-tests with one existing opt-in skip. Journal generation, the 256-file configuration
-audit and both resource builders pass. The generated resource patch remains
-`578c511eb1f426cc7ca3e642eb29e8f35db102b773956e83361311306f532804`.
+The [Debug World guide](../debug-world.md) owns generation, installation, coverage
+and dependency-update procedures. This pass runs the six Debug World compiler
+and write-boundary tests plus `git diff --check`. Audit summaries, selected native
+logs, manifests and client captures are retained locally in
+`create-skyweave/.git/debug-world-audit/`. Disposable server installations and
+failed generation worlds are removed after useful evidence is retained.
 
 ## Release checks, 0.1.34
 
