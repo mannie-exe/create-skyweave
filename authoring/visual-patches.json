@@ -135,11 +135,18 @@
       "sha512": "ca77dea4dd3276105176578855b0ffd9f48256bed58701a86171b05db1116a29592871ca7d6d5acc9a023270a45654feb4ab7153026eb751d567e7bf892ca560",
       "url": "https://cdn.modrinth.com/data/E6867niZ/versions/VnOezhJR/rechiseledcreate-1.1.1-neoforge-mc1.21.jar",
       "provider": "url"
+    },
+    "mt-ct-d": {
+      "version": "UPBKvt5T",
+      "path": "pack/resourcepacks/Midnighttigger's Default Connected Textures.zip",
+      "sha512": "ad43b77f10a58a838e6ba2e6fd8a190f3eba823df991d8c475192b5c77ffe76abb314c008fad1d92fc8d9dc2b23b20cd0c96331787b1e63d6ab61f0249386b11",
+      "url": "https://cdn.modrinth.com/data/TjOXlt9Y/versions/UPBKvt5T/Midnighttigger%27s%20Default%20Connected%20Textures.zip"
     }
   },
   "compatibility": {
     "lootr_fresh_objects": true,
-    "window_interior_faces": false
+    "window_interior_faces": false,
+    "fusion_pane_lighting": true
   },
   "credits": [
     "Fresh Flower Pots \u2014 BlueHDGaming: https://modrinth.com/resourcepack/fresh-flower-pots",
@@ -165,6 +172,7 @@
     "3D Vanilla: selected model/texture features adapted by Create: Skyweave. Source: https://modrinth.com/resourcepack/3dvanilla; license: Apache-2.0. Unselected assets are not included.",
     "Jacob\u2019s 3D Workspace+: selected model/texture features adapted by Create: Skyweave. Source: https://modrinth.com/resourcepack/jacobs-workspace-plus; license: CC-BY-NC-4.0. Unselected assets are not included.",
     "Toasty's Perfect Pitchers (3d pitcher plants): selected model/texture features adapted by Create: Skyweave. Source: https://modrinth.com/resourcepack/toastys-perfect-pitchers-3d-pitcher-plants; license: LicenseRef-All-Rights-Reserved. Unselected assets are not included.",
-    "3D Models: selected model/texture features adapted by Create: Skyweave. Source: https://modrinth.com/resourcepack/ulticraft-models-3d; license: CC-BY-NC-SA-4.0. Unselected assets are not included."
+    "3D Models: selected model/texture features adapted by Create: Skyweave. Source: https://modrinth.com/resourcepack/ulticraft-models-3d; license: CC-BY-NC-SA-4.0. Unselected assets are not included.",
+    "Midnighttigger's Default Connected Textures: pane model ambient-occlusion property spelling adapted to Fusion's schema by Create: Skyweave; geometry and textures retained. Source: https://modrinth.com/resourcepack/mt-ct-d; exact input recorded in SOURCES.json."
   ]
 }

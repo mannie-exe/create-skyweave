@@ -138,6 +138,7 @@ export function createResourceInputs(registrations: Registration[]) {
             'lootr_artwork.py',
             'selective_resources.py',
             'window_interiors.py',
+            'pane_lighting.py',
             'resource_assets.py',
             'model_transforms.py',
           ]

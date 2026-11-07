@@ -12,6 +12,7 @@ from lootr_models import build as build_lootr_models, fit_native_uvs
 from texture_resources import build as build_textures
 from selective_resources import build as build_selective
 from window_interiors import build as build_window_interiors
+from pane_lighting import build as build_pane_lighting
 
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT = ROOT / 'overrides/client/resourcepacks/skyweave-visual-patches-0.1.0.zip'
@@ -136,6 +137,12 @@ def build(archives, recipes, config, selections=None, nautilus_license=None, tex
         windows = build_window_interiors(archives)
         require(not entries.keys() & windows.keys(), 'Window interiors collide with a maintained model')
         entries.update(windows)
+    pane_lighting = config.get('compatibility', {}).get('fusion_pane_lighting', False)
+    require(type(pane_lighting) is bool, 'Pane lighting selection must be a boolean')
+    if pane_lighting:
+        panes = build_pane_lighting(archives['mt-ct-d'])
+        require(not entries.keys() & panes.keys(), 'Pane lighting collides with a maintained model')
+        entries.update(panes)
     entries['texture-resources.json'] = {'schema': 1, 'resources': texture_report}
     lootr_enabled = config.get('compatibility', {}).get('lootr_fresh_objects', False)
     require(type(lootr_enabled) is bool, 'Lootr compatibility selection must be a boolean')

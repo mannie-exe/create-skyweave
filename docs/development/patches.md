@@ -307,6 +307,26 @@ retained body elements. Child texture keys remain intact for cage materials and
 frontlight variants. The vanilla iron overlay input is the SHA-512-pinned official
 Minecraft client JAR; review its version alongside the pack's Minecraft pin.
 
+### Pane lighting
+
+The `fusion_pane_lighting` build selection repairs Midnighttigger's connected-pane
+models through `scripts/pane_lighting.py`. Its exact `mt-ct-d` input is pinned in
+`authoring/visual-patches.json`. Fusion model nodes use `ambient_occlusion`;
+vanilla models use `ambientocclusion`. The selected pack's nested pane-center
+models used the vanilla spelling inside Fusion definitions, enabling AO on their
+centers while their arms disabled it. The generator corrects that spelling in
+68 effective pane models, retaining the authored boolean values, geometry,
+connections, UVs and textures. It does not disable global smooth lighting or
+change other modded pane materials.
+
+Keep the generated Visual Patches pack above the connected-texture input. Inspect
+Fusion's parser and effective overlay models when either dependency changes;
+retire this correction when upstream uses the proper property. Conflicting
+properties fail generation instead of silently replacing an author's intent.
+This is separate from Compat's runtime pane-edge/backface ordering repair. Native
+resource-only A/B checks confirm the lighting flag change; the owner accepted
+the combined pack and Compat corrections in the playing client.
+
 ### Window connections and Copycat panels
 
 Window models remain owned by their upstream packs. Keep
