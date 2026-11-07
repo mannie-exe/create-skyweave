@@ -2,6 +2,12 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.4.0 · 2026-11-07
+
+### Features
+
+- **worldgen:** Adopt cluster structure policy ([50b0323](https://github.com/mannie-exe/create-skyweave/commit/50b03230e6a6699528e127970adf3254f13e6989))
+
 ## v0.3.1 · 2026-11-07
 
 ### Fixes
