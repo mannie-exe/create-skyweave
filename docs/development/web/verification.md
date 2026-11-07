@@ -38,6 +38,14 @@ embedded-asset hashes, exact dependency pins, obsolete-artifact exclusion and
 client/server placement checks. Prism hooks remain portable. These local checks
 are separate from published-asset verification and installation.
 
+The published [0.3.0 downloads](https://github.com/mannie-exe/create-skyweave/releases/tag/v0.3.0)
+subsequently passed release CI, their published SHA256 manifest, CRC and embedded
+asset checks. The published visual ZIP has SHA-256
+`81f963c43eb8a54aa2f657195945bdb38f12d6c684fc7d50b8d6e7ad166145f8`.
+Its payload differs from the local ARM build only in sub-`1e-12` transform-matrix
+roundoff in two pitcher models; all 653 paths and other contents match. Installation
+uses published bytes. This is numerical equivalence, not byte identity across hosts.
+
 ## Release 0.2.3 checks
 
 On 2026-11-06, `pnpm verify` passes formatting, unused-code checks, all 158 Node

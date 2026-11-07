@@ -284,8 +284,11 @@ No measured performance gain or general shadow repair is claimed. Keep patch
 retirement tied to the actual released Colorwheel/Sable implementations.
 
 Colorwheel 1.3.2 requires the updated version guards introduced in Compat 0.21.1.
-The pack and shader-lab runner select the same verified Compat release. Its buffer and
-DSA repairs do not replace the sampler/material adapters: the inspected
+The playable pack and shader-lab runner have independent exact pins. The lab
+runner owns offline shader generation; update it when shared-engine behavior or
+recipe schemas change, and qualify outputs against the playable runtime. Compat
+0.23.0 changes generation without changing that engine, so the lab retains its
+0.22.1 runner. The buffer and DSA repairs do not replace the sampler/material adapters: the inspected
 `ClrwlProgram` and `GlCompat` classes are unchanged from 1.3.0. The 2026-11-05
 candidate check on NeoForge 21.1.265 covered shader-off instancing, generated
 BSL and Complementary/Euphoria shaders, static and assembled material samples,
