@@ -64,9 +64,9 @@ match; existing captures are not evidence for newly changed animation behavior.
 NeoForge updates affect Compat builds, native probes, shader-lab and registry
 captures. Debug World selects the loader from its captured registry. The Atlas
 exporter can use `--libraries` for an isolated matching installation without
-changing the playing server. Keep Sky Archipelago 1.3.6 pinned;
-the separately planned 1.4 port requires reworking terrain hooks and new worlds,
-not a provider-pin substitution.
+changing the playing server. Keep the selected Sky Archipelago and Compat pins
+aligned. The 1.4 generator has a new generation identity; changing a provider pin
+does not migrate a pre-1.4 expanded-preset save.
 
 ### File-source exceptions
 
