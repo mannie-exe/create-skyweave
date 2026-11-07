@@ -2,6 +2,12 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.3.0 · 2026-11-07
+
+### Features
+
+- **worldgen:** Adopt Sky Archipelago 1.4 ([c741ffb](https://github.com/mannie-exe/create-skyweave/commit/c741ffb66f47ccec429c7d8a3a5c4a816524dc8b))
+
 ## v0.2.3 · 2026-11-06
 
 ### Features
