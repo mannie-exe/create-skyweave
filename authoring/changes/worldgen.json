@@ -52,6 +52,13 @@
       "reference": "docs/development/worldgen.md"
     },
     {
+      "path": "overrides/common/config/skyweave_compat-shapes.json",
+      "sha256": "6ba90ed49dbb62ac12cd5e7047e609be042bc07f742ad454f7385df0c9f9ae56",
+      "review": "reviewed",
+      "reason": "Seeded area-preserving elongation, bounded edge disturbance, and biome-aware fractured exteriors; new-world settings preserve native vertical shaping.",
+      "reference": "docs/development/worldgen.md"
+    },
+    {
       "path": "overrides/common/config/skyweave_compat-interiors.json",
       "sha256": "963704ff7b478371d35cb0aadd6230cefb052a63e7386ec381a62687a35c80df",
       "review": "reviewed",
@@ -67,9 +74,9 @@
     },
     {
       "path": "overrides/common/config/skyweave_compat-oceans.json",
-      "sha256": "3706eaf476065306044cd9eb695bc4b9eba109d608e15f57c4a315912ebe7f48",
+      "sha256": "ae6e2632c891c0557bf7ce961560a5c5f42698cf6db3077288808fa2d76b069d",
       "review": "reviewed",
-      "reason": "Enable native floating ocean islands and coastal/perimeter extensions by default; the continuous global ocean layer stays disabled.",
+      "reason": "Admit 20% of native ocean-biome opportunities; equal Lagoon/Broken Reef weights, Lagoon-only outlet/perimeter treatments, and separate solid spires.",
       "reference": "docs/development/worldgen.md"
     },
     {

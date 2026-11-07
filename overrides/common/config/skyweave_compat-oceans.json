@@ -1,10 +1,17 @@
 {
   "enabled": true,
-  "coastalChance": 0.04,
-  "perimeterChance": 0.01,
+  "admissionChance": 0.2,
+  "lagoonWeight": 1.0,
+  "reefRingWeight": 0.0,
+  "deadOceanShelfWeight": 0.0,
+  "brokenReefWeight": 1.0,
+  "coastalChance": 0.25,
+  "perimeterChance": 0.15,
   "perimeterMinRadius": 40,
   "perimeterMaxRadius": 64,
   "outletWidth": 2,
   "outletDepth": 2,
-  "sealThickness": 4
+  "sealThickness": 4,
+  "spireCompanions": true,
+  "spireClearance": 16
 }

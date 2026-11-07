@@ -19,7 +19,7 @@ The authored profile is `overrides/common/config/skyweave_compat-generation.json
 | Activation | 0.85 | Candidate activation before biome and clearance rejection |
 | Anchor center | Y=200 to 490 | Intersected with the safe band for the selected body |
 | Anchor height target | 250 to 400 blocks | Realized height varies with relief and erosion |
-| Anchor radius | 270 to 370 blocks | Descriptor radius, not an exact shoreline |
+| Base anchor radius | 270 to 370 blocks | Before area-preserving elongation; not an exact shoreline |
 | Companion radius/orbit | 40 to 110 / 470 to 680 blocks | Relative to the host anchor |
 | Companion vertical offset | -60 to +50 blocks | Adjusted to fit the dimension |
 | Floor/building clearance | 32 / 200 blocks | Reserved inside the build range |
@@ -66,16 +66,15 @@ These custom cavities do not import the complete vanilla continental density rou
 
 `skyweave_compat-rivers.json` uses native 1.4 new-world river/lake defaults. Rivers and lakes are enabled, with anchor/satellite candidate frequencies 0.60/0.25, depth 2–4, widths 6–12/3–6, lake radii 16–30/7–14 and at most two/zero tributaries. Headwater and standalone lake chances are both 0.35. Terrain admission determines realized coverage. There is no parallel custom basin or underside-outlet generator; global ocean remains disabled.
 
-Mangrove surfaces receive mud unless an existing upstream material override applies. Lush and dripstone projection uses island-relative geological depth inside the exterior body. Deep Dark keeps native 1.4's fixed Y=-48 proxy and lower-45%-of-exterior rule in both stored biomes and structure checks. Remaining cavity roofs do not redefine that band.
+Mangrove surfaces receive mud unless an existing upstream material override applies. Lush and dripstone projection uses island-relative geological depth inside the exterior body. Ordinary cave Deep Dark keeps native 1.4's fixed Y=-48 proxy and lower-45%-of-exterior rule in both stored biomes and structure checks. A separate rare fractured Deep Dark ecology uses native climate eligibility, surface biome projection, and vanilla sculk patches; it does not guarantee a city. Remaining cavity roofs do not redefine that band.
 
 Ancient Cities use actual interior placement and final biome eligibility. `skyweave_compat-ancient-cities.json` sets minimum sampled exterior-body burial to 0.90 for normal/NOISE hosts, with separate core and floor checks. Bounded peripheral exposure is allowed; HOLLOW hosts instead require an existing cavity with floor/roof support. Piece-aware vanilla-style clearance opens room around accepted layouts while retaining the island shell, native foundations and authored water beds. An unsuitable site is rejected without a surface fallback or giant platform. Layouts, canonical starts and locate remain native.
 
-`skyweave_compat-oceans.json` enables floating ocean habitats by default. Native 1.4 owns their archetypes, materials and biome projection. Small profile extensions provide deliberate coastal outlets and falling-perimeter edges on eligible Lagoon/Reef Ring hosts; there is no separate enclosed ocean generator. Wet hosts have no land companions. The continuous global ocean layer remains disabled. Changing these values changes generation identity and requires a fresh world; explicit existing opt-outs are preserved by Compat. Aquatic progression and natural populations remain unqualified.
+`skyweave_compat-shapes.json` adds seeded horizontal variation: 65% elongation chance up to 1.96 length-to-width ratio, approximately preserving area; 26-block base broad warp; and 45% disturbed-edge selection affecting roughly 62.5% of the perimeter. Strengths vary by up to ±15% per island while occurrence probabilities remain independent. Fractured alternatives retain native Mushroom Fields or Badlands ecology, independent of NOISE/HOLLOW interiors. Their default eligible-biome selection is 35%; the separate Deep Dark climate-host selection is 1%. These are conditional settings rather than measured worldwide frequencies. Native vertical shaping and ordinary spacing retain their owners.
 
-The mod's [terrain reference](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/terrain.md)
-owns feature coverage and implementation. Its
-[configuration reference](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/configuration.md)
-owns geometry validation. Pack configuration above owns the selected values.
+`skyweave_compat-oceans.json` admits 20% of activated native ocean-biome opportunities; rejected opportunities remain void. The selected defaults equally weight Lagoon and Broken Ocean Reef, disabling Reef Ring and Dead Ocean Shelf. Lagoon-only edge treatments select 25% coastal outlet, 15% falling perimeter, and 60% native rim. Separate solid spires may accompany ocean anchors; ordinary land satellites do not. The continuous global ocean layer remains disabled. Settings enter generation identity and require a fresh world; explicit existing opt-outs remain authoritative. Aquatic progression and populations remain unqualified.
+
+The mod's [terrain reference](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/terrain.md) owns feature coverage and implementation. Its [configuration reference](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/configuration.md) owns field validation. Pack configuration above owns the selected values. [Horizontal variation and metadata discovery](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/terrain-variation.md) documents `/skyweavecompat islands search`, bounded continuation, filters, and representative-center limits. Gargantuan islands remain deferred; main-island underside changes are cancelled. The [performance procedure](performance.md) remains guidance for a separate profiling pass.
 
 ### Structure discoveries
 

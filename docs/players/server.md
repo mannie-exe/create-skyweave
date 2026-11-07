@@ -27,6 +27,8 @@ pauses alongside tick times during normal play and pre-generation. Test ZGC only
 if collection pauses contribute to stalls, and compare tick times, CPU use and
 memory use with the same workload. No server-specific GC tuning is shipped.
 
+The [performance procedure](../development/performance.md) describes bounded recordings for startup, disconnect/shutdown, GC and terrain/structure lookup. Use isolated fixtures before changing a playing server's JVM or background generation settings.
+
 ## Terrain and distant generation
 
 New dedicated worlds use `skyweave_compat:islands_v1`. Keep Skyweave: Compatibility Patches

@@ -1,0 +1,32 @@
+{
+  "enabled": true,
+  "strengthVariation": 0.15,
+  "outline": {
+    "aspectChance": 0.65,
+    "maximumAspectRatio": 1.96,
+    "warpAmplitude": 26,
+    "warpWavelength": 102
+  },
+  "edges": {
+    "chance": 0.45,
+    "affectedFraction": 0.625,
+    "bandWidth": 57,
+    "amplitude": 24,
+    "wavelength": 26
+  },
+  "fractures": {
+    "chance": 0.35,
+    "biomes": [
+      "minecraft:mushroom_fields",
+      "minecraft:badlands",
+      "minecraft:eroded_badlands",
+      "minecraft:wooded_badlands"
+    ],
+    "cellSize": 72,
+    "gapWidth": 6,
+    "verticalRange": 32,
+    "removalChance": 0.28,
+    "deepDarkChance": 0.01,
+    "sculkPatchChance": 0.25
+  }
+}
