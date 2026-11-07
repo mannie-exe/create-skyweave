@@ -44,11 +44,11 @@ records:
   - id: islands/interiors-water
     title: Interiors and local water
     evidence: implementation-and-native-samples
-    detail: OVERLAP retains lower island bodies. Per-island noise and hollow cavities preserve the exterior taper and geological frame; classic carvers remain enabled. Local basins have supported beds and deliberate overflow or underside outlets. Native large iron and copper veins are enabled. Ocean basin, coast and falling-perimeter experiments remain disabled in pack defaults. These settings require a fresh world and are recorded in generation identity; an older saved-world survey does not describe the new settings.
+    detail: OVERLAP retains lower island bodies. Per-island noise and hollow cavities preserve native 1.4 exterior shaping and the geological frame; classic carvers remain enabled. Native rivers and lakes replace the custom basin generator. Native large iron and copper veins are enabled. Native ocean habitats and their coastal-outlet/falling-perimeter extensions remain disabled in pack defaults. Ancient Cities fit inside the body; normal/NOISE hosts require at least 90% sampled burial, with independent support checks; HOLLOW hosts require a suitable existing cavity. Bounded piece-aware city clearance retains the island shell, foundations and authored water beds. These settings require a fresh world and are recorded in generation identity; an older saved-world survey does not describe the new settings.
     sources:
       [
         'pack docs/development/worldgen.md',
         'overrides/common/config/skyweave_compat-interiors.json',
-        'overrides/common/config/skyweave_compat-water.json',
+        'overrides/common/config/skyweave_compat-rivers.json',
         'overrides/common/config/skyweave_compat-oceans.json',
       ]

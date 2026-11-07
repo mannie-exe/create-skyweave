@@ -428,7 +428,7 @@ test('real source audit and local write boundaries remain available', async ({
     .getByRole('combobox', { name: 'Category', exact: true })
     .selectOption('structures')
   await expect(page.locator('tbody')).toContainText(
-    'pack-fixes/data/skyvillages/worldgen/processor_list/house_processor.json',
+    'resource-patches/data/skyvillages/worldgen/processor_list/house_processor.json',
   )
   const data = { name: '../../outside', revision: '0'.repeat(64), text: '{}' }
   expect(

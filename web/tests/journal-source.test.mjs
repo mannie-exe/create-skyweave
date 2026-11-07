@@ -107,7 +107,9 @@ test('entry CRUD, sparse locales and native generation share one source contract
   )
   assert.equal(native.title, 'create_skyweave.journal.travel.test_route.title')
   assert.equal(native.rewards[0].choices[0].count, 2)
-  const de = await read('pack-fixes/assets/create_skyweave/lang/de_de.json')
+  const de = await read(
+    'resource-patches/assets/create_skyweave/lang/de_de.json',
+  )
   assert.equal(de[native.title], 'Testweg')
   assert.equal(
     de[native.description.translate],
@@ -139,7 +141,7 @@ test('entry CRUD, sparse locales and native generation share one source contract
     { code: 'ENOENT' },
   )
   assert.equal(
-    (await read('pack-fixes/assets/create_skyweave/lang/de_de.json'))[
+    (await read('resource-patches/assets/create_skyweave/lang/de_de.json'))[
       native.title
     ],
     undefined,

@@ -121,7 +121,7 @@ export function createEnvironmentResolver(
       bytes(path.join(pack, 'empack.yml')),
       bytes(path.join(pack, 'empack.lock')),
       bytes(path.join(pack, 'overrides/client/options.txt'), true),
-      json(path.join(pack, 'authoring/resource-patches.json'), true),
+      json(path.join(pack, 'authoring/visual-patches.json'), true),
       json(path.join(pack, 'authoring/resource-objects.json'), true),
       json(path.join(web, 'data/local.example.json')),
       json(path.join(web, 'data/local.json'), true),

@@ -1,6 +1,6 @@
 # Create: Skyweave Atlas
 
-Use **Create: Skyweave** for the modpack; **Skyweave modpack** or **the Skyweave modpack** is also acceptable in prose. Use **Skyweave: Compatibility Patches** for the independent compatibility mod. Preserve machine identities, including `create-skyweave`, `create_skyweave`, `skyweave-compat`, `skyweave_compat`, and Java package/class names. Put naming guidance in AGENTS.md; use the names directly in other documentation and interfaces.
+Use **Create: Skyweave** for the modpack and **Create: Skyweave Atlas** for this application. Follow the parent [naming and artifact identity policy](../AGENTS.md#naming-and-artifact-identity), including **Skyweave: Compatibility Patches**, **Skyweave: Resource Patches**, and **Skyweave: Visual Patches**. Keep display labels separate from provider/source keys and provenance IDs; regenerate projections through their owners when an authorized identity changes.
 
 Maintain the internal Create: Skyweave progression map. Start with `../docs/development/web/README.md` and
 read only the setup, data or verification sections needed for the task.

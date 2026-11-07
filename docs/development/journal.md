@@ -20,10 +20,10 @@ all user presentation settings.
 - `overrides/common/config/questlog/` contains generated native JSON; the generator
   also owns their exact managed-file policies in `empack.bindings.yml`.
 - `overrides/client/config/questlog-client.json` owns client display defaults.
-- `pack-fixes/assets/questlog/` owns journal interface wording; native Questlog
+- `resource-patches/assets/questlog/` owns journal interface wording; native Questlog
   artwork supplies the parchment panels and controls;
-  `pack-fixes/assets/create_skyweave/lang/` contains generated entry translations.
-- `scripts/build-fixes.py` packages language assets with maintained data fixes.
+  `resource-patches/assets/create_skyweave/lang/` contains generated entry translations.
+- `scripts/build-resource-patches.py` packages language assets with maintained data fixes.
 
 [Pack authoring](authoring.md) owns editing, localization and generation procedures.
 [Progression](progression.md) owns resource, processing and travel assumptions.

@@ -28,7 +28,7 @@ async function fixture(t) {
     JSON.stringify({ schema: 1, recipes: [] }),
   )
   await fs.writeFile(
-    path.join(root, 'authoring/resource-patches.json'),
+    path.join(root, 'authoring/visual-patches.json'),
     JSON.stringify({ schema: 1, sources: {} }),
   )
   await fs.writeFile(
@@ -65,7 +65,7 @@ test('preview is read-only; save validates and generation is explicit', async (t
     fs.stat(
       path.join(
         root,
-        'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip',
+        'overrides/client/resourcepacks/skyweave-visual-patches-0.1.0.zip',
       ),
     ),
     {
@@ -78,7 +78,7 @@ test('preview is read-only; save validates and generation is explicit', async (t
       await fs.readFile(
         path.join(
           root,
-          'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip',
+          'overrides/client/resourcepacks/skyweave-visual-patches-0.1.0.zip',
         ),
       )
     )
@@ -98,7 +98,7 @@ test('invalid source and stale pins cannot overwrite or generate', async (t) => 
     /Unsupported/,
   )
   assert.deepEqual((await editor.read()).document, initial.document)
-  await fs.appendFile(path.join(root, 'authoring/resource-patches.json'), '\n')
+  await fs.appendFile(path.join(root, 'authoring/visual-patches.json'), '\n')
   await assert.rejects(
     editor.save({ document: initial.document, revision: initial.revision }),
     /changed/,
@@ -111,7 +111,7 @@ test('invalid source and stale pins cannot overwrite or generate', async (t) => 
     fs.stat(
       path.join(
         root,
-        'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip',
+        'overrides/client/resourcepacks/skyweave-visual-patches-0.1.0.zip',
       ),
     ),
     {
@@ -154,7 +154,7 @@ test('changed resource selections invalidate generation and preserve model edits
     fs.stat(
       path.join(
         root,
-        'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip',
+        'overrides/client/resourcepacks/skyweave-visual-patches-0.1.0.zip',
       ),
     ),
     {
@@ -175,7 +175,7 @@ test('changed texture approvals invalidate generation', async (t) => {
     fs.stat(
       path.join(
         root,
-        'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip',
+        'overrides/client/resourcepacks/skyweave-visual-patches-0.1.0.zip',
       ),
     ),
     {

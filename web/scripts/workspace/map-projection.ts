@@ -53,7 +53,7 @@ export async function mapInputVector(
       'pack:structure-processor',
       path.join(
         registration.pack,
-        'pack-fixes/data/skyvillages/worldgen/processor_list/house_processor.json',
+        'resource-patches/data/skyvillages/worldgen/processor_list/house_processor.json',
       ),
     ],
     ['tool:dependencies', path.join(registration.web, 'pnpm-lock.yaml')],

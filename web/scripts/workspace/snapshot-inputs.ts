@@ -133,7 +133,10 @@ export function createSnapshotInputs(
       /\.(jar|txt)$/,
     )
     files['server:eula'] = { file: path.join(configured.server, 'eula.txt') }
-    await tree(path.join(pack, 'pack-fixes'), 'pack-fix:')
+    await tree(
+      path.join(pack, 'resource-patches'),
+      'skyweave-resource-patches:',
+    )
     await tree(path.join(pack, 'authoring/journal'), 'journal:')
     await tree(
       path.join(web, 'tools/exporter'),
@@ -153,7 +156,7 @@ export function createSnapshotInputs(
     ])
       files['tool:web:' + name] = { file: path.join(web, 'scripts', name) }
     for (const name of [
-      'build-fixes.py',
+      'build-resource-patches.py',
       'archive_output.py',
       'generate-journal.py',
     ])

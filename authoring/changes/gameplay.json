@@ -647,28 +647,28 @@
       "reference": "docs/development/build.md#server-webmap"
     },
     {
-      "path": "pack-fixes/data/sable/tags/block/light.json",
+      "path": "resource-patches/data/sable/tags/block/light.json",
       "sha256": "ab7b5130a35574957c2c15a823c962f4b1b0250e14389e42b735fdc89a623f0c",
       "review": "reviewed",
       "reason": "Extend existing Sable mass conventions to unclassified equivalent building, decoration and machine variants. Preserve upstream assignments, zero-collision states, cargo and non-mass properties. Carved stone lantern parts and narrow pillars follow the finished partial-stone tier.",
       "reference": "docs/development/weights.md"
     },
     {
-      "path": "pack-fixes/data/sable/tags/block/super_light.json",
+      "path": "resource-patches/data/sable/tags/block/super_light.json",
       "sha256": "7728807480860c8482def2829ed454b954b3687e1aa9b4b95eec429806d3ad18",
       "review": "reviewed",
       "reason": "Extend existing Sable mass conventions to unclassified equivalent building, decoration and machine variants. Preserve upstream assignments, zero-collision states, cargo and non-mass properties. Miniature stone lanterns follow small decorative lanterns.",
       "reference": "docs/development/weights.md"
     },
     {
-      "path": "pack-fixes/data/sable/tags/block/super_heavy.json",
+      "path": "resource-patches/data/sable/tags/block/super_heavy.json",
       "sha256": "aa6da7cb09d439541a4f911229cd444f2a3794cb00ef8da447e03586ff6e0b7e",
       "review": "reviewed",
       "reason": "Match recolored DnD flywheels to Create flywheel mass; optional entries exclude large fans and preserve upstream physics definitions.",
       "reference": "docs/development/weights.md"
     },
     {
-      "path": "pack-fixes/data/create_skyweave/tags/block/carry_on_restricted.json",
+      "path": "resource-patches/data/create_skyweave/tags/block/carry_on_restricted.json",
       "sha256": "51002e42c040ada7132270a70b9e9f26c0592676e52c42826780481ac97699df",
       "review": "reviewed",
       "reason": "Restrict relocation of reviewed joints, assembly helpers and linked endpoints without excluding unrelated blocks from their mods. Optional IDs tolerate removed dependencies.",

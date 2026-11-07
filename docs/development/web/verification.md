@@ -4,6 +4,40 @@ Checks apply to the recorded source or artifact, not every later checkout. Brows
 checks establish interface behavior; native game checks and survey evidence have
 separate owners and limits. Commands and prerequisites live in [setup](setup.md).
 
+## Release 0.3.0 checks
+
+On 2026-11-06, the Atlas runtime export uses the actual locked Sky Archipelago 1.4
+and published Compat 0.23.0 JAR (SHA-256
+`69cdab9aa94a06be419cdc7665cc05f6a781b350ce609039975ea380f1ff06bd`),
+Minecraft 1.21.1 and NeoForge 21.1.265. Sources remained unchanged during capture.
+Extraction produced 10,116 items, 31,640 resource paths and 10,050 texture previews
+from 471 JARs; the shared resource JAR loads with its new identity. Compilation
+and `pnpm data:check` pass. Existing world/ore evidence retains its original source
+and does not establish the new generator's output. Native terrain qualification
+is recorded in [world generation](../worldgen.md).
+
+Formatting, unused-code checks, all 158 Node tests, Astro diagnostics and the
+16-page static build pass. The first static packaging attempt correctly refused
+concurrent snapshot changes from browser tests; a subsequent isolated
+`pnpm build` passed. `pnpm test:python` passes 35 tests with one existing opt-in
+skip. The pack's 64 Python tests and 258-file configuration audit pass.
+Focused journal, resource-authoring and resource-pack browser suites pass all
+20 checks. No unrelated interface redesign or new style tokens are included.
+
+The renamed resource-only JAR is `skyweave-resource-patches-0.1.0.jar` (SHA-256
+`02c83f30197aece29d9624e1b48f4d598139fe5f1d33386ffefc3d5fc1bf7ea2`);
+the client pack is `skyweave-visual-patches-0.1.0.zip` (SHA-256
+`3cd85e613938c8cdfdb74be18e17100a388bf43e8b58b3cbc0349c9b967434fe`).
+Their 78 and 653 entries differ from the previous artifacts only in metadata and
+pack descriptions. Approved geometry, textures, gameplay data and registry IDs
+remain unchanged; no new artwork capture was needed. Texture approvals remain
+valid. Earlier static native model export produced 166 objects and 924 previews.
+
+Local Modrinth, Prism-reference and server-reference archives pass CRC,
+embedded-asset hashes, exact dependency pins, obsolete-artifact exclusion and
+client/server placement checks. Prism hooks remain portable. These local checks
+are separate from published-asset verification and installation.
+
 ## Release 0.2.3 checks
 
 On 2026-11-06, `pnpm verify` passes formatting, unused-code checks, all 158 Node
@@ -126,7 +160,7 @@ Evidence is retained in the resource harness at `images/2026-11-03-lootr-items`.
 The generated ZIP is SHA-256
 `45e573f9885334a2084474bb4843f9d24e64369d1096db9f27d3cff3e6691a5b`.
 Its only payload changes from the tested baseline are those four parent fields
-and their catalogue hashes. `python3 scripts/build-resource-patches.py --check`
+and their catalogue hashes. `python3 scripts/build-visual-patches.py --check`
 and `python3 -m unittest discover -s tests -v` pass (56 tests).
 
 ## Glass backfaces, 2026-11-03
@@ -376,7 +410,7 @@ Anvil data. Continuous paths replace the district gaps; new studios group the
 selected workstations and azalea/pitcher cases. Pitchers have valid soil, hydrated
 crop beds and both halves at mature ages. The player returned to the hub at Y181.
 Native captures and exact camera/state metadata live in the harness's
-`images/2026-11-02-selected/`; the Resource Patches gallery includes the pitcher and
+`images/2026-11-02-selected/`; the Visual Patches gallery includes the pitcher and
 loom captures. These checks establish static appearance and placement, not shader,
 progression or animation correctness. Existing unrelated DnD loot and optional
 model warnings remain outside this resource-selection pass.
@@ -451,7 +485,7 @@ remain required for runtime-only behavior.
 
 Before the later approved selections, the shipping ZIP was byte-identical at SHA-256
 `87de37e8f05f1cf1823328473204c67c4ef8a957fc8a7a34d4a7ce666c77b261`
-(`python3 -B scripts/build-resource-patches.py --check`). Obsolete hashed scenes,
+(`python3 -B scripts/build-visual-patches.py --check`). Obsolete hashed scenes,
 rejected downloads and disposable build/test output were pruned after preserving
 current previews and the six pinned inputs.
 
@@ -484,7 +518,7 @@ Checks:
   14-page static build pass; the existing large-chunk warning remains.
 - `pnpm test:python`: 27 pass.
 - `python3 -m unittest discover -s tests`: 38 pass.
-- `python3 -B scripts/build-resource-patches.py --check`: deterministic ZIP matches,
+- `python3 -B scripts/build-visual-patches.py --check`: deterministic ZIP matches,
   SHA-256 `87de37e8f05f1cf1823328473204c67c4ef8a957fc8a7a34d4a7ce666c77b261`.
   Both enabled barrel recipes produce 169 elements, four directional bindings,
   unchanged approved artwork hashes and the correct open-cap texture. Disabling
@@ -886,22 +920,22 @@ copy their history into operating guides or treat old pass counts as current tes
 The tested model-authoring source digest is
 `43969a3043198c3bb99f71f82cf56c0d4fbc7b12aaeaf2ec6e4ace9b37bfbf1b`.
 It hashes these paths in order, each followed by NUL, file bytes and NUL:
-`authoring/model-recipes.json`, `authoring/resource-patches.json`,
+`authoring/model-recipes.json`, `authoring/visual-patches.json`,
 `scripts/model_authoring.py`, `scripts/resource_inputs.py`,
-`scripts/lootr_models.py`, `scripts/build-resource-patches.py`,
+`scripts/lootr_models.py`, `scripts/build-visual-patches.py`,
 `web/src/lib/model-authoring.ts`, `web/src/lib/model-preview.ts`, and
 `web/scripts/model-authoring.mjs` (the retired facade in that historical snapshot).
 
-| Check                                                  | Result and scope                                                                                                                                   |
-| ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Root Python unit discovery                             | 26 pass; guarded publication, mask coverage and exposed surface area, input rejection, isolated fitting, Lootr attachments and native lookup paths |
-| `pnpm verify`                                          | Formatting, 32 Node tests, Astro check and static build pass; Three.js produces a chunk-size warning                                               |
-| `pnpm test:python`                                     | 9 pass using the project's Python environment                                                                                                      |
-| `PLAYWRIGHT_CHANNEL=chrome pnpm test:browser`          | 19 pass, including retained JSON drafts, extrusion/fitting edits, recipe switching, reload protection and narrow-screen layout                     |
-| Actual model API read/save/generate/read               | Source roundtrip preserved recipe values; generation uses the saved source                                                                         |
-| Browser inspection                                     | Textured lantern geometry, UV selection, element controls and scrollable workbench render                                                          |
-| `python3 -B scripts/build-resource-patches.py --check` | Deterministic selected output matches; 14 block models and three Lootr model/animation resources                                                   |
-| `python3 -B scripts/audit-changes.py`                  | 228 registered files, no drift or unregistered files                                                                                               |
+| Check                                                | Result and scope                                                                                                                                   |
+| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Root Python unit discovery                           | 26 pass; guarded publication, mask coverage and exposed surface area, input rejection, isolated fitting, Lootr attachments and native lookup paths |
+| `pnpm verify`                                        | Formatting, 32 Node tests, Astro check and static build pass; Three.js produces a chunk-size warning                                               |
+| `pnpm test:python`                                   | 9 pass using the project's Python environment                                                                                                      |
+| `PLAYWRIGHT_CHANNEL=chrome pnpm test:browser`        | 19 pass, including retained JSON drafts, extrusion/fitting edits, recipe switching, reload protection and narrow-screen layout                     |
+| Actual model API read/save/generate/read             | Source roundtrip preserved recipe values; generation uses the saved source                                                                         |
+| Browser inspection                                   | Textured lantern geometry, UV selection, element controls and scrollable workbench render                                                          |
+| `python3 -B scripts/build-visual-patches.py --check` | Deterministic selected output matches; 14 block models and three Lootr model/animation resources                                                   |
+| `python3 -B scripts/audit-changes.py`                | 228 registered files, no drift or unregistered files                                                                                               |
 
 ### Native model checks, 2026-10-24
 
@@ -970,7 +1004,7 @@ only the visual ZIP changed among game files. Server content did not change.
 Commands and outcomes:
 
 - `python3 scripts/model-workbench.py --validate` and
-  `python3 scripts/build-resource-patches.py --check`: valid/current.
+  `python3 scripts/build-visual-patches.py --check`: valid/current.
 - Root Python discovery: 26 passed. `pnpm test:python`: 9 passed.
 - `pnpm data:compile`, `pnpm data:check` and `pnpm verify`: passed;
   44 JavaScript tests, zero Astro diagnostics. Existing bundle-size warning remains.

@@ -1,12 +1,10 @@
 {
   "enabled": false,
-  "basinChance": 0.04,
   "coastalChance": 0.04,
   "perimeterChance": 0.01,
-  "minRadius": 40,
-  "maxRadius": 72,
-  "minDepth": 10,
-  "maxDepth": 18,
+  "perimeterMinRadius": 40,
   "perimeterMaxRadius": 64,
-  "beachWidth": 6
+  "outletWidth": 2,
+  "outletDepth": 2,
+  "sealThickness": 4
 }

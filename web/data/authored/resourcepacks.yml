@@ -33,10 +33,9 @@ candidates:
     fit:
       Confines its changes to a decorative object family instead of replacing the
       terrain palette.
-    concern:
-      Create Skyweave Resource Patches combines the four overlapping 3D Crops
+    concern: 'Skyweave: Visual Patches combines the four overlapping 3D Crops
       plants and selected azaleas with Fresh pots. Keep the generated patch
-      above both inputs; its pinned models need review after upstream updates.
+      above both inputs; its pinned models need review after upstream updates.'
     nextCheck: Compare all potted plants and mushrooms; keep pot silhouettes
       consistent with any modded counterparts.
   - id: 3d-crops
@@ -536,7 +535,7 @@ candidates:
     nextCheck:
       Prefer individual geometry improvements; adopting the full pack would
       need renderer and mod-art adaptation.
-  - id: create-skyweave-resource-patches
+  - id: skyweave-visual-patches
     category: Pack-owned
     status: installed
     description: Combines client model repairs, selected donor geometry and chest animations.
@@ -549,7 +548,7 @@ candidates:
       Copycat panel geometry comes from the separate Copycat Bar Extrusion mod.
     nextCheck: Rebuild and inspect the affected families when an input pack,
       model or renderer changes; keep exact input hashes in the patch manifest.
-  - id: create-skyweave-fixes
+  - id: skyweave-resource-patches
     category: Pack-owned
     status: installed
     description: Packages shared data repairs and journal presentation as a resource-only mod.
@@ -567,28 +566,28 @@ candidates:
     category: Models
     status: partial
     description: Adds detailed vanilla block models.
-    fit: Smoker, furnace and fletching table are selected in Resource Patches.
+    fit: Smoker, furnace and fletching table are selected in the visual patch.
     concern: The complete pack stays disabled; shared helpers are isolated to selected objects.
     nextCheck: Compare workstation states and neighboring modded blocks in Resource Review.
   - id: jacobs-workspace-plus
     category: Models
     status: partial
     description: Adds workstation geometry and matching texture details.
-    fit: Smithing table and brewing stand are selected in Resource Patches.
+    fit: Smithing table and brewing stand are selected in the visual patch.
     concern: Other models remain unselected. The unselected loom has an unresolved visible texture binding.
     nextCheck: Check brewing bottles and workstation interactions when updating the source.
   - id: 3dvanilla
     category: Models
     status: partial
     description: Adds depth to vanilla workstations and utility blocks.
-    fit: Cartography table, blast furnace, crafter and loom are selected in Resource Patches.
+    fit: Cartography table, blast furnace, crafter and loom are selected in the visual patch.
     concern: This is 3D Vanilla, distinct from 3D Default. Other source models remain unselected.
     nextCheck: Review active furnace and upright crafter states when updating models.
   - id: 3d-plants
     category: Models
     status: partial
     description: Vervada’s enhanced plant models.
-    fit: Azalea and flowering azalea are selected in Resource Patches.
+    fit: Azalea and flowering azalea are selected in the visual patch.
     concern: Other plants remain unselected; dead bush and seagrass keep their current appearance.
     nextCheck: Check the selected shrubs beside existing plants and potted models.
   - id: toastys-perfect-pitchers-3d-pitcher-plants

@@ -38,7 +38,7 @@ async function fixture(t) {
   )
   for (const [name, value] of Object.entries({
     'model-recipes': { schema: 1, recipes: [] },
-    'resource-patches': { schema: 1, sources: {} },
+    'visual-patches': { schema: 1, sources: {} },
     'resource-selections': { schema: 1, selections: [] },
     'texture-resources': {
       schema: 1,
@@ -73,7 +73,7 @@ async function fixture(t) {
   await fs.writeFile(path.join(root, 'data/local.example.json'), '{}')
   const patch = path.join(
     root,
-    'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip',
+    'overrides/client/resourcepacks/skyweave-visual-patches-0.1.0.zip',
   )
   await fs.writeFile(patch, 'unchanged fixture shipping output')
   // Real admission, source identity and artifact publication; only the PNG/index producer
@@ -124,7 +124,7 @@ async function fixture(t) {
         allowed:
           !denied ||
           action !== 'source.read' ||
-          target.id !== 'pack-fix:minecraft:block/test',
+          target.id !== 'skyweave-resource-patches:minecraft:block/test',
       }),
     },
   })

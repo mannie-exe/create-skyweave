@@ -143,7 +143,7 @@ test('journal queries are pure; staged validation and generation use exact revis
   assert.equal(loaded.preview.state, 'stale')
   const localeFile = path.join(
     f.root,
-    'pack-fixes/assets/create_skyweave/lang/en_us.json',
+    'resource-patches/assets/create_skyweave/lang/en_us.json',
   )
   assert.ok(!(await fs.readFile(localeFile, 'utf8')).includes('Fixture glider'))
   const invalid = await f.command('journal.save', {

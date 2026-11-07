@@ -7,7 +7,7 @@ import { ownedDirectory } from './paths.ts'
 import { WorkspaceError } from './errors.ts'
 
 const resourceOutput =
-  'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip'
+  'overrides/client/resourcepacks/skyweave-visual-patches-0.1.0.zip'
 export function createPackOutput() {
   const digest = createInputDigests()
   async function current(context: Pick<Execution, 'registration'>) {
@@ -34,7 +34,7 @@ export function createPackOutput() {
     if ((await current(context)) !== expected)
       throw new WorkspaceError(
         'REVISION_CONFLICT',
-        'Resource patches changed while building',
+        'Skyweave: Visual Patches changed while building',
         'after-refresh',
       )
     if (candidateHash === expected) return candidateHash
@@ -61,12 +61,12 @@ export function createPackOutput() {
       if ((await current(context)) !== expected)
         throw new WorkspaceError(
           'REVISION_CONFLICT',
-          'Resource patches changed before publication',
+          'Skyweave: Visual Patches changed before publication',
           'after-refresh',
         )
       await fs.rename(temporary, destination)
-      context.committed('resource-patches', {
-        'resource-patches': candidateHash,
+      context.committed('skyweave-visual-patches', {
+        'skyweave-visual-patches': candidateHash,
       })
       return candidateHash
     } finally {

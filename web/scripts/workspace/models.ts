@@ -130,7 +130,7 @@ export function createResourceInputs(registrations: Registration[]) {
       'resource_inputs.py',
       ...(building
         ? [
-            'build-resource-patches.py',
+            'build-visual-patches.py',
             'archive_output.py',
             'lootr_models.py',
             'cem_geometry.py',
@@ -186,7 +186,7 @@ export function modelDefinitions(
       canonical(
         await vector(
           ctx,
-          Object.hasOwn(before, 'tool:build-resource-patches.py'),
+          Object.hasOwn(before, 'tool:build-visual-patches.py'),
         ),
       ) !== canonical(captured)
     )
@@ -370,15 +370,16 @@ export function modelDefinitions(
         output: z.string().max(4096),
         artifact: artifactSchema,
       }),
-      label: 'Generate resource patches',
+      label: 'Generate visual patches',
       href: '/resource-authoring?view=models',
-      success: 'Resource patches generated. Instances were not changed.',
+      success:
+        'Skyweave: Visual Patches generated. Instances were not changed.',
       resultTargets: (_ctx, value) => [artifactRead(value.artifact)],
       targets: async (ctx) => [
         ...(await grants(ctx)),
         {
           action: 'source.read',
-          target: target(ctx.scope, 'source', 'output:resource-patches'),
+          target: target(ctx.scope, 'source', 'output:skyweave-visual-patches'),
         },
         {
           action: 'source.read',
@@ -394,8 +395,8 @@ export function modelDefinitions(
         return {
           ...(await vector(ctx, true)),
           [before
-            ? 'output:resource-patches'
-            : 'missing:output:resource-patches']: before ?? hash(''),
+            ? 'output:skyweave-visual-patches'
+            : 'missing:output:skyweave-visual-patches']: before ?? hash(''),
         }
       },
       available: () => native.available(),
@@ -418,7 +419,7 @@ export function modelDefinitions(
             {},
             { staging: directory },
           )
-          const candidate = path.join(directory, 'resource-patches.zip')
+          const candidate = path.join(directory, 'skyweave-visual-patches.zip')
           await native.run(
             ctx,
             'resources.validate',
@@ -428,27 +429,27 @@ export function modelDefinitions(
           const applied = await output.publish(
             ctx,
             candidate,
-            ctx.inputRevisions['output:resource-patches'] ?? null,
+            ctx.inputRevisions['output:skyweave-visual-patches'] ?? null,
             () => recheck(ctx),
           )
           const generation = await artifacts.publish(ctx, {
             namespace: 'resource-build',
             staging: directory,
-            files: { 'resource-patches.zip': candidate },
+            files: { 'skyweave-visual-patches.zip': candidate },
             inputs: { ...ctx.inputRevisions },
             async recheck() {
               await recheck(ctx)
               if ((await output.current(ctx)) !== applied)
                 throw new WorkspaceError(
                   'REVISION_CONFLICT',
-                  'Resource patches changed after publication',
+                  'Skyweave: Visual Patches changed after publication',
                   'after-refresh',
                 )
             },
           })
           return {
-            output: 'Resource patches generated',
-            artifact: generation.files['resource-patches.zip'],
+            output: 'Skyweave: Visual Patches generated',
+            artifact: generation.files['skyweave-visual-patches.zip'],
           }
         } finally {
           await disposeStaging(ctx, directory)

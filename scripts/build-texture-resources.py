@@ -20,8 +20,8 @@ def pack_previews(case, record, patch, archives, root=ROOT, output=OUT):
     if record['id'].startswith('chest-'):
         name = 'assets/minecraft/emf/cem/lootr_lootr_chest.jem'
         rig = json.loads(patch.read(name))
-        case['geometries']['patches'] = {'label': 'Resource patches', 'model': closed_chest(rig),
-                                       'source': 'Create Skyweave Resource Patches.zip/' + name}
+        case['geometries']['patches'] = {'label': 'Skyweave: Visual Patches', 'model': closed_chest(rig),
+                                       'source': 'skyweave-visual-patches-0.1.0.zip/' + name}
     else:
         leaf = 'lootr_barrel_unopened' if record['id'] == 'barrel-unlooted' else 'lootr_opened_barrel'
         path = f'assets/lootr/models/block/{leaf}.json'
@@ -35,8 +35,8 @@ def pack_previews(case, record, patch, archives, root=ROOT, output=OUT):
                 bindings.update({record['inputs'][1]: 'up', record['inputs'][2]: 'down'})
                 require(set(geometry['textures'].values()) <= bindings.keys(), 'Unknown barrel geometry binding')
                 geometry['textures'] = {alias: bindings[identifier] for alias, identifier in geometry['textures'].items()}
-            case['geometries']['patches'] = {'label': 'Resource patches', 'model': geometry,
-                                           'source': 'Create Skyweave Resource Patches.zip/' + path}
+            case['geometries']['patches'] = {'label': 'Skyweave: Visual Patches', 'model': geometry,
+                                           'source': 'skyweave-visual-patches-0.1.0.zip/' + path}
         else:
             model = None
     case['pack'] = {**case['original'], 'textures': dict(case['original']['textures'])}
@@ -49,13 +49,13 @@ def pack_previews(case, record, patch, archives, root=ROOT, output=OUT):
             alias = {'up': 'top', 'down': 'bottom'}.get(key, key) if model and 'elements' in model else key
             identifier = model['textures'][alias] if model else original_identifier
         path = resource(identifier, 'textures', '.png')
-        fixed = root / 'pack-fixes' / path
+        fixed = root / 'resource-patches' / path
         if path in patch.namelist():
-            data, owner = patch.read(path), 'Resource patches'
+            data, owner = patch.read(path), 'Skyweave: Visual Patches'
         elif fixed.is_file():
-            require(fixed.resolve().is_relative_to((root / 'pack-fixes').resolve()) and not fixed.is_symlink(),
-                    'Pack-fix texture symlinks are not supported')
-            data, owner = fixed.read_bytes(), 'Pack fixes'
+            require(fixed.resolve().is_relative_to((root / 'resource-patches').resolve()) and not fixed.is_symlink(),
+                    'Resource-patch texture symlinks are not supported')
+            data, owner = fixed.read_bytes(), 'Skyweave: Resource Patches'
         else:
             data, owner = None, 'Lootr original (no pack-owned texture override)'
         if data is not None:
@@ -65,12 +65,12 @@ def pack_previews(case, record, patch, archives, root=ROOT, output=OUT):
     case['textureOverrides'] = {}
     for identifier in record['inputs']:
         path = resource(identifier, 'textures', '.png')
-        fixed = root / 'pack-fixes' / path
+        fixed = root / 'resource-patches' / path
         if path in patch.namelist():
             data = patch.read(path)
         elif fixed.is_file():
-            require(fixed.resolve().is_relative_to((root / 'pack-fixes').resolve()) and not fixed.is_symlink(),
-                    'Pack-fix texture symlinks are not supported')
+            require(fixed.resolve().is_relative_to((root / 'resource-patches').resolve()) and not fixed.is_symlink(),
+                    'Resource-patch texture symlinks are not supported')
             data = fixed.read_bytes()
         else:
             continue
@@ -106,10 +106,10 @@ def build(root=ROOT, output=OUT):
         previews, images = generate(archives, catalog)
         for name, data in images.items():
             (output / name).write_bytes(data)
-        pins = json.loads((root / 'authoring/resource-patches.json').read_text())['sources']
+        pins = json.loads((root / 'authoring/visual-patches.json').read_text())['sources']
         recipes = json.loads((root / 'authoring/model-recipes.json').read_text())['recipes']
         resources = []
-        patch_file = root / 'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip'
+        patch_file = root / 'overrides/client/resourcepacks/skyweave-visual-patches-0.1.0.zip'
         with ZipFile(patch_file) as patch:
             for record in records:
                 pin = pins[record['source']]

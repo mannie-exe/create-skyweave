@@ -12,7 +12,8 @@ clients or servers.
 | `empack.lock`           | Resolved content and hashes                                        |
 | `empack.bindings.yml`   | Selected files, names and placement                                |
 | `overrides/common/`     | Shared authored configuration                                      |
-| `authoring/`            | Journal source and categorized configuration register              |
+| `authoring/`            | Journal, model/texture authoring, visual inputs, and configuration register |
+| `resource-patches/`     | Shared gameplay data, translations, and resource-only mod metadata |
 | `overrides/client/`     | Client-only content and shader presets                             |
 | `templates/`            | Prism memory and Java arguments, and server properties             |
 | `web/`                  | Internal map and journal editor; excluded from pack payloads       |
@@ -35,7 +36,7 @@ files remain trackable; generated assets and local credentials stay ignored.
 `empack.bindings.yml` marks `icon.png`, `options.txt` and the authored shader preset
 TXT files as `seed`: initial installation writes the default, while later preparation
 preserves edits. Prism rewrites `icon.png` before its pre-launch hook. Server properties
-come from the server template and remain installation-local. Generated Questlog
+come from the server template and remain installation-local. When a visual pack filename changes, update only its matching saved resource-pack ID during an authorized stopped-client sync; seeded `options.txt` will not replace an existing player's selection. Preserve the rest of the list, its order, and other player settings. Generated Questlog
 definitions have exact `managed` policies so journal edits and removals apply on
 updates. See [journal updates](journal.md#update-checks) for older seeded definitions.
 
@@ -48,10 +49,10 @@ then rebuild maintained resources and build all supported exports:
 python3 tools/shader-lab/build.py
 python3 scripts/generate-journal.py --check
 python3 scripts/audit-changes.py
-python3 scripts/build-fixes.py
+python3 scripts/build-resource-patches.py
 empack status
 empack sync --materialize --yes
-python3 scripts/build-resource-patches.py
+python3 scripts/build-visual-patches.py
 empack build --profile prism --profile modrinth --profile server --yes --optional-defaults
 python3 scripts/patch-server-archives.py
 ```
@@ -74,9 +75,9 @@ Local edits can change an export without changing its filename. Use the publishe
 release's checksums to identify released bytes; a local rebuild is not a substitute
 for verifying downloaded release assets.
 
-`authoring/resource-patches.json` pins the archive inputs for the client model patch.
-`build-resource-patches.py` checks selected empack versions for installed inputs
-and SHA-512 hashes for all archives, then writes `Create Skyweave Resource Patches.zip` in client overrides.
+`authoring/visual-patches.json` pins the archive inputs for the client model patch.
+`build-visual-patches.py` checks selected empack versions for installed inputs
+and SHA-512 hashes for all archives, then writes `skyweave-visual-patches-0.1.0.zip` in client overrides.
 It combines four Crops plants with Fresh Flower Pots, restores Macaw's chain
 texture bindings, and includes enabled model-authoring recipes and compatibility
 adapters. Approved texture inclusion comes from `authoring/texture-resources.json`;
@@ -108,7 +109,7 @@ the tested JAR and limits; no server installation or saved-data migration is nee
 terrain, gameplay, and rendering adapters and belongs on both pack sides. It
 incorporates the former Veil Iris Fix; do not include that standalone JAR or Sky
 Village Neighbors in any payload. Runtime code does not belong in the resource-only
-`create-skyweave-fixes` JAR.
+`skyweave-resource-patches` JAR.
 
 Publish and verify Skyweave: Compatibility Patches before updating its URL and digest pins in `empack.yml`.
 Use empack to regenerate bindings and the lock; inspect exports for duplicate or
@@ -261,7 +262,7 @@ compatibility.
 
 ## Maintained resources
 
-`pack-fixes/` contains the resource-only fixes mod and journal client assets.
+`resource-patches/` contains the resource-only fixes mod and journal client assets.
 Rebuild it before exporting. The generated JAR is an ignored build artifact;
 its source files are maintained. Quest definitions ship from common config and
 client presentation settings ship from client config. See [journal authoring](journal.md).

@@ -33,7 +33,7 @@ def run():
         if snapshot['sourceChangedDuringExport'] or snapshot['sourceFingerprint'] != source:
             raise RuntimeError('Pack inputs changed during runtime capture; repeat survey')
         report = {'schema': 1, 'capturedAt': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
-                  'sourceFingerprint': source, 'processorSha256': hashlib.sha256((p['pack']/'pack-fixes/data/skyvillages/worldgen/processor_list/house_processor.json').read_bytes()).hexdigest(),
+                  'sourceFingerprint': source, 'processorSha256': hashlib.sha256((p['pack']/'resource-patches/data/skyvillages/worldgen/processor_list/house_processor.json').read_bytes()).hexdigest(),
                   'runs': [], 'limitations': [
                       'Controlled villages use native placement above flat terrain, bypassing biome eligibility; block counts are actual surviving placed blocks.',
                       'Chest contents are a no-player native loot roll, not a multiplayer Lootr entitlement test.',

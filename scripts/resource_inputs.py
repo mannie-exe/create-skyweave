@@ -18,7 +18,7 @@ def verify_bytes(data, source):
 
 def inputs(root, *, download=True, recipe=None):
     if recipe is None:
-        recipe = json.loads((root / 'authoring/resource-patches.json').read_text())
+        recipe = json.loads((root / 'authoring/visual-patches.json').read_text())
     require(recipe['schema'] == 1, 'Unsupported resource patch recipe')
     empack = shutil.which('empack') or str(Path.home() / '.local/bin/empack')
     archives = {}
@@ -48,7 +48,7 @@ def inputs(root, *, download=True, recipe=None):
         else:
             require(download, f'Materialize the pinned input first: {source["path"]}')
             # Fresh CI checkouts acquire the pinned patch inputs, not the whole pack.
-            request = Request(source['url'], headers={'User-Agent': 'Create-Sky-resource-patches/1'})
+            request = Request(source['url'], headers={'User-Agent': 'Skyweave-Visual-Patches/1'})
             with urlopen(request, timeout=60) as response:
                 data = response.read()
         archives[key] = zipfile.ZipFile(io.BytesIO(verify_bytes(data, source)))

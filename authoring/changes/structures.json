@@ -4,42 +4,42 @@
   "note": "Sky Villages placement beside island terrain and scarce foundation minerals. Candidate frequency, biome eligibility, chest loot and crop mix retain upstream defaults.",
   "records": [
     {
-      "path": "pack-fixes/data/skyvillages/worldgen/template_pool/skyvillage_bridges.json",
+      "path": "resource-patches/data/skyvillages/worldgen/template_pool/skyvillage_bridges.json",
       "sha256": "6a9b5ed7010e837ffa9e7fdc43371bd810965618bab857295db8c8ea6d67d0de",
       "review": "reviewed",
       "reason": "Retain bundled templates and empty entries only; optional compatibility templates are not installed. Preserve remaining weights and fallback.",
       "reference": "docs/development/structures.md"
     },
     {
-      "path": "pack-fixes/data/skyvillages/worldgen/template_pool/skyvillage_deco.json",
+      "path": "resource-patches/data/skyvillages/worldgen/template_pool/skyvillage_deco.json",
       "sha256": "6db90c920a018a3d5a12d0a36e2693e7c80219b6b4e531524b28db000842f630",
       "review": "reviewed",
       "reason": "Retain bundled templates and empty entries only; optional compatibility templates are not installed. Preserve remaining weights and fallback.",
       "reference": "docs/development/structures.md"
     },
     {
-      "path": "pack-fixes/data/skyvillages/worldgen/template_pool/skyvillage_houses.json",
+      "path": "resource-patches/data/skyvillages/worldgen/template_pool/skyvillage_houses.json",
       "sha256": "b52af2d77dda53138d4f13f60818b76d48f97a350b4358e341d4fe1653a9732c",
       "review": "reviewed",
       "reason": "Retain bundled templates and empty entries only; optional compatibility templates are not installed. Preserve remaining weights and fallback.",
       "reference": "docs/development/structures.md"
     },
     {
-      "path": "pack-fixes/data/skyvillages/worldgen/structure/skyvillage.json",
+      "path": "resource-patches/data/skyvillages/worldgen/structure/skyvillage.json",
       "sha256": "3936dad2c79025ea454096e1424ee820282dd5eb63bf8b417ff5ae240380e6e8",
       "review": "reviewed",
       "reason": "Use absolute start Y 160\u2013224 without terrain projection; retain jigsaw depth, radius, biome eligibility and spawn policy. Provisional sky-world placement, not final density tuning.",
       "reference": "docs/development/structures.md"
     },
     {
-      "path": "pack-fixes/data/minecraft/tags/worldgen/structure/village.json",
+      "path": "resource-patches/data/minecraft/tags/worldgen/structure/village.json",
       "sha256": "7445cb505037d5175a72c55b63ef6c0e1119dea035899a04f6083c0db7d09f40",
       "review": "reviewed",
       "reason": "Include Sky Villages in village discovery used by Aeronautics Delivery Quests; retain vanilla village membership.",
       "reference": "docs/development/structures.md"
     },
     {
-      "path": "pack-fixes/data/skyvillages/worldgen/processor_list/house_processor.json",
+      "path": "resource-patches/data/skyvillages/worldgen/processor_list/house_processor.json",
       "sha256": "46252ddb404549c95d960f5bc1f77371a800969732276fd2f981264e6d0c707e",
       "review": "reviewed",
       "reason": "Use one ordered stone replacement pass for aggregate diamond 0.025%, emerald 0.15% and diorite 20%; preserve crop rules and generated-jukebox repair.",

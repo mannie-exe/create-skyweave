@@ -13,9 +13,9 @@ The manifest and lock own exact selections. This guide owns update procedures;
 | Skyweave: Compatibility Patches               | `skyweave-compat` source project; common referenced JAR                    | Sky Archipelago 1.3.6; optional Sky Villages 1.0.6 + Architectury 13.x, Sable 2.0.6 and ADQ 1.1.1                                                                  | Revalidate terrain, geology, climate, village footprint/count policy, pressure and generation identity. For ADQ, review private route calls, horizontal-distance checks, chunk-ticket lifetime and success/failure cleanup. Rerun native endpoint checks; retain safety predicates. Replace the old neighbor dependency rather than installing both; see [worldgen](worldgen.md). |
 | Copycat Bar Extrusion 0.1.0     | Separate `copycat-bar-extrusion` repository; client-only URL JAR             | Create 6.0.10 (`UjX6dr61`), Create Deco 2.1.3 bar artwork and active resource stack                                                                                | Recheck `CopycatBarsModel` delegation, exact Create SHA-512 and required Mixin; run `./gradlew check build`, then six facings, adjacency, reload, supported materials and shader-off/on native checks. Retire only if the selected Create version supplies equivalent bounded depth and native fallback behavior.                                                                 |
 | Worldgen configuration          | `overrides/common/config/sky_archipelago*`, `zfastnoise.mixin.properties`    | Sky Archipelago, Zfastnoise and generation/optimization mods                                                                                                       | Preserve CONSISTENT 1494 for ordinary legacy Sky worlds. The expanded preset owns its embedded terrain settings. Recheck biome redirects and generation identity before generating new terrain.                                                                                                                                                                                   |
-| Shared data fixes               | `pack-fixes/data/` → `create-skyweave-fixes-0.1.0.jar`                            | Mods owning the replaced recipe, loot, tag or processor resources                                                                                                  | Compare new upstream JSON by exact resource ID. Remove bug overrides only when the installed artifact contains the fix; retain deliberate pack policy. Run native recipe/loot checks.                                                                                                                                                                                             |
+| Skyweave: Resource Patches       | `resource-patches/data/` → `skyweave-resource-patches-0.1.0.jar`                            | Mods owning the replaced recipe, loot, tag or processor resources                                                                                                  | Compare new upstream JSON by exact resource ID. Remove bug overrides only when the installed artifact contains the fix; retain deliberate pack policy. Run native recipe/loot checks.                                                                                                                                                                                             |
 | Journal                         | `authoring/journal/` → Questlog config and language assets in the shared JAR | Questlog, item/tag/advancement IDs, recipes and condition handlers                                                                                                 | Follow [journal update checks](journal.md#update-checks): review saved IDs and positions, trigger meaning, setup costs and rewards; generate and validate native behavior, persistence and label fit. Locale edits alone do not change mechanics.                                                                                                                                 |
-| Visual model patch              | `authoring/resource-patches.json`, `build-resource-patches.py` → client ZIP  | Fresh Flower Pots, 3D Crops, Better Lanterns, Macaw's Lights and Lamps, Create, Create Deco, DnD, Macaw’s Bridges, Fresh Animations/Details/Objects, EMF and Lootr | Exact versions/hashes and model contracts must pass. Compare pots/chains, bar connections, lantern variants and chest motion in Resource Review.                                                                                                                                                                                                                                  |
+| Skyweave: Visual Patches         | `authoring/visual-patches.json`, `build-visual-patches.py` → client ZIP  | Fresh Flower Pots, 3D Crops, Better Lanterns, Macaw's Lights and Lamps, Create, Create Deco, DnD, Macaw’s Bridges, Fresh Animations/Details/Objects, EMF and Lootr | Exact versions/hashes and model contracts must pass. Compare pots/chains, bar connections, lantern variants and chest motion in Resource Review.                                                                                                                                                                                                                                  |
 | Carry On Animation Fix          | Client-only upstream URL dependency                                          | Carry On, EMF/ETF and Fresh Animations                                                                                                                             | Check pickup, movement, camera views, placement and ordinary animation. Its optional injections can stop applying after an upstream method change; successful loading alone is insufficient. Remove when the selected Carry On version supplies stable entity identity and animation inputs.                                                                                      |
 | Ponder sprite registration      | Explicit upstream Ponder dependency                                          | Create's bundled Ponder, Create Deco and other Catnip users                                                                                                        | Retain the thread-safe sprite registry from Ponder 1.0.87. Remove the explicit dependency when Create bundles a verified replacement; check startup and Ponder scenes.                                                                                                                                                                                                            |
 | Server terminal wrapper         | `foreground-runtime.py`, `patch-server-archives.py` → Unix launch scripts    | empack 0.8.2-beta and its generated launch templates                                                                                                               | Unknown templates must fail. Remove only after an upgraded empack passes real terminal input, Ctrl-C, direct SIGINT, non-TTY execution and clean shutdown.                                                                                                                                                                                                                        |
@@ -23,12 +23,22 @@ The manifest and lock own exact selections. This guide owns update procedures;
 | Analog Audio radio registration | Skyweave: Compatibility Patches optional runtime hook                                      | Analog Audio 0.1.5-hotfix.1 and Create 6.0.10                                                                                                                      | Recheck erased method signatures and public registry access. Remove the hook when upstream fixes registration; otherwise revalidate its exact-version gates, absence matrix and native registry/callback checks. Client playback and GUI support need separate testing.                                                                                                           |
 | Atlas exporter                  | `web/tools/exporter/` and runtime/extraction scripts                         | Minecraft/NeoForge, Create recipe codecs and queried mod APIs                                                                                                      | Align the installed server with the selected pack, compile with Java 21, capture into the isolated audit server and run `pnpm data:check`. Never install the exporter in play instances.                                                                                                                                                                                          |
 
-The shared fixes JAR and visual patch have different load paths. The first supplies
-server datapack resources and journal translations; the second overrides client
-models at the top of the selected resource stack. Neither replaces DH Polygon Fix
-or Skyweave: Compatibility Patches, which now owns the incorporated Veil/Iris framebuffer adapter.
+Skyweave: Resource Patches supplies server datapack resources and supporting client
+assets such as journal translations through a shared resource-only JAR. Skyweave:
+Visual Patches supplies client visual overrides at the top of the selected resource
+stack. Keep their side placement and priority distinct. Neither replaces DH Polygon Fix
+or Skyweave: Compatibility Patches, which owns the incorporated Veil/Iris framebuffer adapter.
 Executable Java remains separate from both resource artifacts. A successful resource build cannot validate Java mixins,
 world generation, recipe execution or GPU behavior.
+
+When a patched dependency changes, review its exact source resources and runtime
+hooks together: a visual model can require a matching collision or rendering
+adaptation, while a data override may rely on an unchanged recipe or loot schema.
+Regenerate affected artifacts and Atlas provenance through their builders before
+requalifying the coupled behavior. When an artifact identity changes, also check
+provider/source keys, managed destinations, pack selection/order, exporter and
+preview consumers, and stale outputs; keep unrelated resource IDs stable. Follow
+the [naming policy](../../AGENTS.md#naming-and-artifact-identity) for authorized renames.
 
 ## Routine dependency upgrades
 
@@ -166,7 +176,7 @@ change, so copying an old override forward is not sufficient review.
    filename in `empack.bindings.yml` together. Check both runtime metadata and side
    requirements; resource packs and visual patches belong on clients only.
 4. Compare affected upstream resources against local overrides. For visual inputs,
-   update `authoring/resource-patches.json` only after inspecting the new model
+   update `authoring/visual-patches.json` only after inspecting the new model
    structure, active overlays and texture variables. The generator intentionally
    stops on unreviewed versions or hashes.
 5. Regenerate journal/resources, review categorized config changes and build all
@@ -198,7 +208,7 @@ globally. Resolve their actual blockstate roots; similarly named leaf blocks are
 not substitutes for a shrub model. The comparison baseline
 and approved selection are separate from notes saved in the Atlas.
 
-Inputs marked `selection: build-only` in `authoring/resource-patches.json` are exact
+Inputs marked `selection: build-only` in `authoring/visual-patches.json` are exact
 source archives, not enabled empack dependencies. SHA-512 remains required. They
 are acquired from fixed URLs in fresh CI checkouts; installed inputs still require
 matching empack selections. Installed URL inputs must match both the effective
@@ -222,7 +232,7 @@ Vanilla resource filters affect every matching lower-priority path, not one name
 pack. Source-specific subtraction needs derived input archives or a resource-loader
 adapter; neither is implemented. Review upstream terms before publishing derived
 third-party models. The generated ZIP includes source attribution and links in
-`CREDITS.txt`, maintained in `authoring/resource-patches.json`.
+`CREDITS.txt`, maintained in `authoring/visual-patches.json`.
 
 The 2026-10-24 review found explicit add-on terms in Fresh Flower Pots and remix
 terms in [Fresh Objects](https://modrinth.com/resourcepack/fresh-animations-objects).
@@ -266,7 +276,7 @@ animation expressions and the vanilla chest CEMs are preserved. No fixed materia
 is assigned to a Lootr rig, so its normal/looted texture selection continues.
 Normal and trapped chest atlases share the approved relighting. The trapped
 variant retains its ten original red-marker pixels; generation rejects a changed
-upstream marker layout. The visual ZIP owns these changes; the shared pack-fixes
+upstream marker layout. The visual ZIP owns these changes; the shared resource-patches
 JAR has no added resources.
 
 ### Bridge-lantern placement review
@@ -403,7 +413,7 @@ IDs intact, and changes animation targets/references from `base.*` to `bottom.*`
 The separate `lootr_chest_animations.jpm` avoids replacing Fresh's vanilla JPM.
 The adapter retains Fresh's ordinary/trapped motion and leaves material selection to Lootr.
 Do not add a fixed texture override or enable Lootr's `vanilla_textures` setting.
-The compatibility switch in `authoring/resource-patches.json` controls inclusion;
+The compatibility switch in `authoring/visual-patches.json` controls inclusion;
 renderer and resource archives are pinned alongside the other inputs.
 
 After an input update, verify model selection, body/latch attachments and animation
@@ -455,7 +465,7 @@ Atlas and three Workshop entries must follow any actual capability change.
 `authoring/resource-selections.json` owns the approved object list. Five additional
 build-only source pins supply the selected workstation, azalea and pitcher models;
 unselected features are excluded. Do not enable their entire archives to reproduce
-these choices. Source versions, hashes and credits stay in `resource-patches.json`.
+these choices. Source versions, hashes and credits stay in `visual-patches.json`.
 
 Toasty V3 includes element angles unsupported by Minecraft 1.21.1. The named
 `neoforge-root-rotations` adaptation re-expresses each element through the built-in

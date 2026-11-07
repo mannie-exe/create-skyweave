@@ -1,0 +1,32 @@
+{
+  "enabled": true,
+  "lakes_enabled": true,
+  "fluid_block": "minecraft:water",
+  "minimum_depth": 2,
+  "maximum_depth": 4,
+  "meander_strength": 0.65,
+  "headwater_lake_chance": 0.35,
+  "standalone_lake_chance": 0.35,
+  "temperate_biome": "minecraft:river",
+  "cold_biome": "minecraft:frozen_river",
+  "ecological_bank_width": 4,
+  "anchors": {
+    "frequency": 0.6,
+    "minimum_radius": 52,
+    "minimum_width": 6,
+    "maximum_width": 12,
+    "maximum_tributaries": 2,
+    "minimum_lake_radius": 16,
+    "maximum_lake_radius": 30
+  },
+  "satellites": {
+    "frequency": 0.25,
+    "minimum_radius": 32,
+    "minimum_width": 3,
+    "maximum_width": 6,
+    "maximum_tributaries": 0,
+    "minimum_lake_radius": 7,
+    "maximum_lake_radius": 14
+  },
+  "excluded_biomes": []
+}

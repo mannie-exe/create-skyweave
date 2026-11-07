@@ -20,7 +20,7 @@ parser.add_argument('--work', type=Path, help='Use this private capture director
 parser.add_argument('--libraries', type=Path, help='Read locked runtime libraries from an isolated installation without changing the configured server')
 args_cli = parser.parse_args()
 p = paths()
-subprocess.run([sys.executable, str(p['pack'] / 'scripts/build-fixes.py'), '--check'], check=True)
+subprocess.run([sys.executable, str(p['pack'] / 'scripts/build-resource-patches.py'), '--check'], check=True)
 mod_source = 'installed' if args_cli.installed_mods else 'pack'
 source_fingerprint = fingerprint(mod_source)
 inputs = json.loads(subprocess.check_output([tool('node', 'node'), str(ROOT / 'scripts/runtime-inputs.mjs'), str(p['pack'])], text=True))

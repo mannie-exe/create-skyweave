@@ -110,7 +110,7 @@ export const jobRegistry = Object.freeze({
   'journal.generate': python(
     'generate-journal.py',
     'pack',
-    ['config/questlog', 'pack-fixes/assets/create_skyweave/lang'],
+    ['config/questlog', 'resource-patches/assets/create_skyweave/lang'],
     { args: (context) => ['--root', context.validation ?? context.pack] },
   ),
   'config.audit': python(
@@ -150,9 +150,9 @@ export const jobRegistry = Object.freeze({
     },
   ),
   'resources.generate': python(
-    'build-resource-patches.py',
+    'build-visual-patches.py',
     'pack',
-    ['overrides/client/resourcepacks/Create Skyweave Resource Patches.zip'],
+    ['overrides/client/resourcepacks/skyweave-visual-patches-0.1.0.zip'],
     {
       capability: 'resource-authoring',
       timeoutMs: 180000,
@@ -162,7 +162,7 @@ export const jobRegistry = Object.freeze({
               '--root',
               context.pack,
               '--output',
-              path.join(context.staging, 'resource-patches.zip'),
+              path.join(context.staging, 'skyweave-visual-patches.zip'),
             ]
           : [],
     },
@@ -183,13 +183,13 @@ export const jobRegistry = Object.freeze({
     },
   ),
   'resources.validate': python(
-    'build-resource-patches.py',
+    'build-visual-patches.py',
     'pack',
     ['Validated staged resource ZIP'],
     {
       args: (context) => [
         '--check-output',
-        path.join(context.staging, 'resource-patches.zip'),
+        path.join(context.staging, 'skyweave-visual-patches.zip'),
       ],
       cancellable: true,
     },

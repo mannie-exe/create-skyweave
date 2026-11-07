@@ -11,16 +11,16 @@
     },
     {
       "path": "overrides/common/config/sky_archipelago-common.toml",
-      "sha256": "8cb453c7b5d16fb34ef4289f78966a9d65c8806d86941c6497502ae2df52703a",
+      "sha256": "35e48ebc9dd47a939202255df1e105bfce48e292a0b29f53a2dcdd26d8b69bdf",
       "review": "reviewed",
-      "reason": "Sky-island generation, consistent cluster spacing and biome redirect compatibility. Some unrelated inherited keys remain.",
+      "reason": "Retain ordinary-preset tuning using native 1.4 keys; the marked Skyweave preset owns its own geometry and river settings.",
       "reference": "docs/development/worldgen.md"
     },
     {
       "path": "overrides/common/config/sky_archipelago-server.toml",
-      "sha256": "461dc6f6f7171b7607acbb5668342ff446d741147a3018ead657af606ce002d5",
+      "sha256": "11c452a2d05387bc78fefb2429900c2c7e5b23e27f9a81ce0d9b301871b23718",
       "review": "reviewed",
-      "reason": "Sky-island generation, consistent cluster spacing and biome redirect compatibility. Some unrelated inherited keys remain.",
+      "reason": "Native diagnostics remain off; adaptive caches, crash shielding and serialized parallel structure placement retain their existing values.",
       "reference": "docs/development/worldgen.md"
     },
     {
@@ -32,9 +32,9 @@
     },
     {
       "path": "overrides/common/config/sky_archipelago/presets/eee.json",
-      "sha256": "a5a5a27b281ff2cece2e824391fdb16c523913f77588b1c6c3260e5b8693043a",
+      "sha256": "63962aab7355dffe7810ba984cbbafe2bae5271207e76e88178ee633ae1d8234",
       "review": "reviewed",
-      "reason": "Sky-island generation, consistent cluster spacing and biome redirect compatibility. Some unrelated inherited keys remain.",
+      "reason": "Retain the legacy ordinary preset with explicit disabled native rivers; fresh Skyweave worlds use their separate enabled river profile.",
       "reference": "docs/development/worldgen.md"
     },
     {
@@ -46,9 +46,9 @@
     },
     {
       "path": "overrides/common/config/skyweave_compat-generation.json",
-      "sha256": "75b42a9ff5d72f82598c76f166697c8f44506a54525eb9146c3a3bf6a559cbae",
+      "sha256": "71bb245ec656c8b0c40822b880be720236eb6cf7095570ea72d204c838654a8c",
       "review": "reviewed",
-      "reason": "Irregular cluster positions with bounded support clearance; varied anchor heights and preserved taper require a fresh world.",
+      "reason": "Displaced sparse clusters retain native 1.4 exterior bodies and independent interior/geological ownership; changes require a fresh world.",
       "reference": "docs/development/worldgen.md"
     },
     {
@@ -59,17 +59,24 @@
       "reference": "docs/development/worldgen.md"
     },
     {
-      "path": "overrides/common/config/skyweave_compat-water.json",
-      "sha256": "f6b325136170a645494240dc393860b8122822074191f9240e2d82fe69724eec",
+      "path": "overrides/common/config/skyweave_compat-rivers.json",
+      "sha256": "356038619c8b233f7e8fe702aa244f108459187e8b827693863e2a1a1e1410b0",
       "review": "reviewed",
-      "reason": "Local basins and bounded intentional outlets retain native fluid flow without changing global sea level.",
+      "reason": "Native Sky Archipelago 1.4 rivers and lakes use explicit new-world defaults; global ocean remains disabled.",
       "reference": "docs/development/worldgen.md"
     },
     {
       "path": "overrides/common/config/skyweave_compat-oceans.json",
-      "sha256": "34d10fcda0e02d956f9915d64bf8e89c85ec1ece7b947f7fa1da9cddef308864",
+      "sha256": "e31b93b85dc82170eeeb97ede23b3c05447c55c1892b17efd604192e638a1dda",
       "review": "reviewed",
-      "reason": "Ocean basin, coast and falling-perimeter experiments remain disabled by default pending wider habitat and progression review.",
+      "reason": "Floating ocean archetypes and native-profile coastal/perimeter extensions remain opt-in; global ocean stays disabled.",
+      "reference": "docs/development/worldgen.md"
+    },
+    {
+      "path": "overrides/common/config/skyweave_compat-ancient-cities.json",
+      "sha256": "75fbbacdf1ec06e84a1c8b5547f0b175c4cf5a2679f6213ab2fe12f7b123b4b1",
+      "review": "reviewed",
+      "reason": "Interior Ancient Cities require at least 90% body burial plus independent core and floor support; HOLLOW hosts retain stricter fit.",
       "reference": "docs/development/worldgen.md"
     }
   ]

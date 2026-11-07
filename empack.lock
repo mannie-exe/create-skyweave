@@ -7821,26 +7821,25 @@ dependencies:
     files:
     - acquisition:
         downloads:
-        - >-
-          https://cdn.modrinth.com/data/sHFNUlBU/versions/RwLz4CJb/sky_archipelago-1.3.6.jar
+        - https://cdn.modrinth.com/data/sHFNUlBU/versions/XPc17YJD/sky_archipelago-1.4.jar
         kind: provider
         pin:
           project:
             project: sHFNUlBU
             provider: modrinth
           selection:
-            id: RwLz4CJb
+            id: XPc17YJD
             provider: modrinth
-        slot: sky_archipelago-1.3.6.jar
+        slot: sky_archipelago-1.4.jar
       expected:
         accepted-observation: null
         digests:
-          sha1: 9594e849d072021bf4b0d7563b48e4765a0f59ae
+          sha1: ac462047df2c3887dc7b38b47af247c12293a11e
           sha512: >-
-            4acaa8fb29a6eb94ad40e0d6efceec2db561fa38e1dae1bf4803b78b3a0c4b03cac68ebbc97bed487e3c21704a0d48243e124974ac6b309f693d022c9021167c
-        size: 1566796
+            f5ba17eee21cd54577b3b306ff74560d57420fc0757577b044ef9d515cfc3d26356e0aee17c4510b3ad46e9b470b7243f2011b2efc100a602089e306d4856b4f
+        size: 2035000
       placements:
-      - destination: mods/sky_archipelago-1.3.6.jar
+      - destination: mods/sky_archipelago-1.4.jar
         environment:
           client: required
           server: required
@@ -7848,9 +7847,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: 9594e849d072021bf4b0d7563b48e4765a0f59ae
+          sha1: ac462047df2c3887dc7b38b47af247c12293a11e
           sha512: >-
-            4acaa8fb29a6eb94ad40e0d6efceec2db561fa38e1dae1bf4803b78b3a0c4b03cac68ebbc97bed487e3c21704a0d48243e124974ac6b309f693d022c9021167c
+            f5ba17eee21cd54577b3b306ff74560d57420fc0757577b044ef9d515cfc3d26356e0aee17c4510b3ad46e9b470b7243f2011b2efc100a602089e306d4856b4f
         location: sHFNUlBU
         source: provider-catalog
       slot: primary
@@ -7865,7 +7864,7 @@ dependencies:
         project: sHFNUlBU
         provider: modrinth
       selection:
-        id: RwLz4CJb
+        id: XPc17YJD
         provider: modrinth
     source-selector:
       provider: modrinth
@@ -7932,14 +7931,14 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.22.1/skyweave-compat-0.22.1-mc1.21.1-neoforge.jar
+          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.23.0/skyweave-compat-0.23.0-mc1.21.1-neoforge.jar
         kind: url
       expected:
         accepted-observation: null
         digests:
-          sha1: 79fb86b352ce4309b9637188463f1efb003b6529
+          sha1: 7fa577a8a294aa7bd8e5a02536cdfc0e2a42be2b
           sha512: >-
-            33c54f6ba81fce25b54b05f0359c713bf7d47f756d662aac1e334e36c5fa6d0bf6fc888f9032682639cfccfdfd3120d3edfb0b4e7f19f019e240749264d9de2a
+            f581b1d1dc4f4b3a8ee014d94b88e482662888263417e7c3986d7aedefb638b7e7b897ced3843ad21a660fb8474fd3ed40f945e58c8e1c71f1e86e8cc3885131
         size: null
       placements:
       - destination: mods/skyweave-compat.jar
@@ -7950,9 +7949,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: 79fb86b352ce4309b9637188463f1efb003b6529
+          sha1: 7fa577a8a294aa7bd8e5a02536cdfc0e2a42be2b
           sha512: >-
-            33c54f6ba81fce25b54b05f0359c713bf7d47f756d662aac1e334e36c5fa6d0bf6fc888f9032682639cfccfdfd3120d3edfb0b4e7f19f019e240749264d9de2a
+            f581b1d1dc4f4b3a8ee014d94b88e482662888263417e7c3986d7aedefb638b7e7b897ced3843ad21a660fb8474fd3ed40f945e58c8e1c71f1e86e8cc3885131
         location: null
         source: url-file
       slot: primary
@@ -8817,7 +8816,7 @@ dependencies:
       provider: modrinth
       selector: OnlVIpq5
     title: Fast Noise
-intent-revision: 38c116e82b8cc0a5c3620b8bb40910d92de391cf8fd0c5cdb3ff4f64a68f4f16
+intent-revision: 75efccf4554cd9065b3ecbf48f5135d372cc16902fb2e223ffe15b8d677fd620
 required-edges:
   accessories:
   - owo-lib

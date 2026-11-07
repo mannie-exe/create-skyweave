@@ -16,7 +16,7 @@ const folders = [
   'overrides/client/config',
   'overrides/server/config',
   'overrides/client/shaderpacks',
-  'pack-fixes/data',
+  'resource-patches/data',
 ]
 async function inventory(context: Resolved) {
   const root = await fs.realpath(context.registration.pack),

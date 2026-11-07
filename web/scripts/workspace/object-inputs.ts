@@ -161,11 +161,15 @@ export function createObjectInputs(
         },
         {
           action: 'source.read',
-          target: target(ctx.scope, 'source', 'output:pack-fixes'),
+          target: target(
+            ctx.scope,
+            'source',
+            'output:skyweave-resource-patches',
+          ),
         },
         {
           action: 'source.read',
-          target: target(ctx.scope, 'source', 'output:resource-patches'),
+          target: target(ctx.scope, 'source', 'output:skyweave-visual-patches'),
         },
       )
       required.push(artifactRead(await texture(ctx)))
@@ -402,13 +406,15 @@ export function createObjectInputs(
       ))!
     const zip = await output.current(ctx)
     values[
-      zip ? 'output:resource-patches' : 'missing:output:resource-patches'
+      zip
+        ? 'output:skyweave-visual-patches'
+        : 'missing:output:skyweave-visual-patches'
     ] = zip ?? hash('')
-    values['output:pack-fixes'] =
+    values['output:skyweave-resource-patches'] =
       (await fileHash(
         path.join(
           ctx.registration.pack,
-          'overrides/common/mods/create-skyweave-fixes-0.1.0.jar',
+          'overrides/common/mods/skyweave-resource-patches-0.1.0.jar',
         ),
         true,
       )) ?? hash('')

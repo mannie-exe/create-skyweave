@@ -2,9 +2,11 @@
 
 New worlds use **Skyweave Islands**, preset `skyweave_compat:islands_v1`, from
 [Skyweave: Compatibility Patches](https://github.com/mannie-exe/skyweave-compat). The manifest
-pins the installed mod version. Skyweave: Compatibility Patches extends Sky Archipelago 1.3.6 and is
+pins the installed mod version. Skyweave: Compatibility Patches extends Sky Archipelago 1.4 and is
 required on both client and server. Ordinary Sky Archipelago presets retain
 upstream generation with the village-neighbor filter.
+
+Sky Archipelago's common config and the selected legacy `eee` preset apply to ordinary upstream worlds. The legacy preset explicitly keeps rivers disabled. The marked Skyweave preset instead uses the native new-world river defaults through Compat. Removed 1.4 blending, fragmentation and old placement-fallback switches are not retained as inactive controls. The native server config keeps diagnostics off, adaptive caching, crash shielding and serialized structure mutations for parallel generation. World-specific server-config overrides take precedence over installation defaults.
 
 ## Terrain
 
@@ -28,7 +30,7 @@ would violate the minimum gap. Wider jitter can therefore remove a candidate;
 it does not allow neighboring clusters to overlap. Grid spacing is not a guaranteed
 travel distance: shores, companions, biome exclusions and missing clusters affect
 the actual crossing. The tallest target requires an anchor center
-of at least Y=268. Curved undersides avoid the upstream density discontinuity.
+of at least Y=338. Sky Archipelago 1.4 owns exterior shaping, rims and erosion; Compat does not retain a second taper implementation.
 The fresh-world fallback checks generated support and headroom before setting spawn;
 it does not relocate existing worlds or create a platform.
 
@@ -53,8 +55,7 @@ altitude. Cold biomes remain cold; altitude cooling above mountains is absent.
 
 The preset explicitly uses OVERLAP to retain lower island bodies. Cavities are
 subtracted within each contributing island before surviving rock is combined;
-one island's hollow cannot erase another island's rock. The exterior shape and
-taper remain unchanged. Geological depth uses the original anchor frame, not
+one island's hollow cannot erase another island's rock. The native exterior shape remains independent of interior selection. Geological depth uses the original anchor frame, not
 the thickness of a remaining cavern roof.
 
 `skyweave_compat-interiors.json` selects noise interiors with probability 0.55,
@@ -63,23 +64,13 @@ not measured percentages of land. The shell is 12 blocks; selected openings can
 cut through it. Hollows retain rock pillars. Native classic carvers remain enabled.
 These custom cavities do not import the complete vanilla continental density router.
 
-`skyweave_compat-water.json` attempts local basins on 0.22 of eligible anchors,
-then rejects unsupported layouts. Radii are 20 to 36 and depths 6 to 12 blocks.
-Overflow and underside-outlet choices are 0.25 and 0.20; other admitted basins are
-enclosed. The outlet budget is one, two blocks wide, with three-block lining.
-Source water and its retaining bed/rim survive classic carving. Native fluid ticks
-produce the falls; this is not a global sea-level change or complete aquifer retrofit.
+`skyweave_compat-rivers.json` uses native 1.4 new-world river/lake defaults. Rivers and lakes are enabled, with anchor/satellite candidate frequencies 0.60/0.25, depth 2–4, widths 6–12/3–6, lake radii 16–30/7–14 and at most two/zero tributaries. Headwater and standalone lake chances are both 0.35. Terrain admission determines realized coverage. There is no parallel custom basin or underside-outlet generator; global ocean remains disabled.
 
-Mangrove surfaces receive mud unless an existing upstream material override applies.
-Lush and dripstone biome projection includes retained lower bodies. Deep Dark and
-ancient-city eligibility retain the upper exterior's geological band; lower bodies
-do not independently acquire another city band or exterior grass cap.
+Mangrove surfaces receive mud unless an existing upstream material override applies. Lush and dripstone projection uses island-relative geological depth inside the exterior body. Deep Dark keeps native 1.4's fixed Y=-48 proxy and lower-45%-of-exterior rule in both stored biomes and structure checks. Remaining cavity roofs do not redefine that band.
 
-`skyweave_compat-oceans.json` keeps ocean experiments disabled. The available
-forms are an enclosed ocean basin, a beach/coast basin and a small water island
-with a falling perimeter. Native vegetation and biome spawn lists are present in
-tested examples; natural populations, coral acquisition and ocean progression are
-not certified. Enabling them changes generation identity and requires a fresh world.
+Ancient Cities use actual interior placement and final biome eligibility. `skyweave_compat-ancient-cities.json` sets minimum sampled exterior-body burial to 0.90 for normal/NOISE hosts, with separate core and floor checks. Bounded peripheral exposure is allowed; HOLLOW hosts instead require an existing cavity with floor/roof support. Piece-aware vanilla-style clearance opens room around accepted layouts while retaining the island shell, native foundations and authored water beds. An unsuitable site is rejected without a surface fallback or giant platform. Layouts, canonical starts and locate remain native.
+
+`skyweave_compat-oceans.json` keeps floating ocean habitats disabled. Native 1.4 owns their archetypes, materials and biome projection. Small profile extensions provide deliberate coastal outlets and falling-perimeter edges on eligible Lagoon/Reef Ring hosts; there is no separate enclosed ocean generator. Wet hosts have no land companions. Enabling them changes generation identity and requires a fresh world. Aquatic progression and natural populations remain unqualified.
 
 The mod's [terrain reference](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/terrain.md)
 owns feature coverage and implementation. Its
@@ -196,13 +187,11 @@ The retained TOML and `eee` preset use CONSISTENT spacing 1494. They preserve th
 ordinary preset used before 0.1.12 and do not control Skyweave: Compatibility Patches' expanded geometry.
 Keep those settings with existing ordinary worlds.
 
-Sky Archipelago 1.3.6 DYNAMIC selects one spacing for the whole world from its
-layout seed. It does not vary spacing independently between clusters. The former
-32 to 1500 range yielded 33 to 1465 across 64 inspected seeds. CONSISTENT 1494
-retained the comparison seed's scale without that cross-seed density variation.
-Shapes, biome eligibility and companions still vary; cell spacing is not edge gap.
-The comparison matched 16 descriptors and 81 column profiles for that seed, not
-ore inventories, structures or safe routes.
+Native random spacing selects one value for the whole world from its layout
+seed, rather than independently varying the distance between clusters. CONSISTENT
+1494 keeps that base density stable across seeds. Shapes, biome eligibility and
+companions still vary; cell spacing is not the distance between island edges.
+The marked Skyweave preset uses its own grid and jitter controls above.
 
 ## Biome compatibility and updates
 

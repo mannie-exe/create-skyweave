@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 def managed_paths(root):
     paths = set()
-    for folder in ['overrides/common/config', 'overrides/client/config', 'overrides/server/config', 'overrides/client/shaderpacks', 'pack-fixes/data']:
+    for folder in ['overrides/common/config', 'overrides/client/config', 'overrides/server/config', 'overrides/client/shaderpacks', 'resource-patches/data']:
         paths.update(p.relative_to(root).as_posix() for p in (root / folder).rglob('*') if p.is_file())
     paths.add('overrides/client/options.txt')
     paths.add('templates/server/game/server.properties.template')
@@ -28,7 +28,7 @@ def audit(root=ROOT):
         for record in data['records']:
             rel = record['path']
             candidate = root / rel
-            if not any(rel.startswith(prefix) for prefix in ['overrides/common/config/', 'overrides/client/config/', 'overrides/server/config/', 'overrides/client/shaderpacks/', 'pack-fixes/data/']) and rel not in ['overrides/client/options.txt', 'templates/server/game/server.properties.template']:
+            if not any(rel.startswith(prefix) for prefix in ['overrides/common/config/', 'overrides/client/config/', 'overrides/server/config/', 'overrides/client/shaderpacks/', 'resource-patches/data/']) and rel not in ['overrides/client/options.txt', 'templates/server/game/server.properties.template']:
                 raise ValueError(f'Path outside configuration inventory: {rel}')
             if rel in seen or Path(rel).is_absolute() or '..' in Path(rel).parts or not candidate.resolve().is_relative_to(root.resolve()):
                 raise ValueError(f'Invalid or duplicate audit path: {rel}')

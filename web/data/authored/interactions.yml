@@ -5,9 +5,9 @@ records:
     inputs: []
     outputs: []
     evidence: native-mass-and-assembly-checks
-    detail: Pack Fixes extends Sable's existing weight tiers to partial construction, windows, furniture, fixtures and equivalent machine variants. DnD recolored flywheels match Create at 4.0; the complete gigantic cogwheel remains 9.0 across nine physical positions. Weight belongs to placed colliding blocks, not inventory item count. Cargo, lift, volume and copied-material rules remain unchanged. The Atlas exports the tags but does not calculate assembled-ship mass.
+    detail: "Skyweave: Resource Patches extends Sable's existing weight tiers to partial construction, windows, furniture, fixtures and equivalent machine variants. DnD recolored flywheels match Create at 4.0; the complete gigantic cogwheel remains 9.0 across nine physical positions. Weight belongs to placed colliding blocks, not inventory item count. Cargo, lift, volume and copied-material rules remain unchanged. The Atlas exports the tags but does not calculate assembled-ship mass."
     sources:
-      - pack-fixes/data/sable/tags/block
+      - resource-patches/data/sable/tags/block
       - docs/development/weights.md
   - id: contraptions/radio
     title: Radio movement-handler compatibility

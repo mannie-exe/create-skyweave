@@ -9,17 +9,17 @@ from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 
-spec = importlib.util.spec_from_file_location('patches', Path(__file__).resolve().parents[1] / 'scripts/build-resource-patches.py')
+spec = importlib.util.spec_from_file_location('patches', Path(__file__).resolve().parents[1] / 'scripts/build-visual-patches.py')
 patches = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(patches)
 
 
-class ResourcePatches(unittest.TestCase):
+class VisualPatches(unittest.TestCase):
     def test_generation_rejects_changed_inputs_before_replacing_output(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             (root / 'authoring').mkdir()
-            for name in ['authoring/resource-patches.json', 'authoring/model-recipes.json',
+            for name in ['authoring/visual-patches.json', 'authoring/model-recipes.json',
                          'empack.yml', 'empack.lock', 'empack.bindings.yml', 'authoring/resource-selections.json', 'authoring/resource-licenses/nautilus3d-AGPL-3.0.txt', 'authoring/texture-resources.json']:
                 (root / name).parent.mkdir(parents=True, exist_ok=True)
                 (root / name).write_text('{}')
@@ -38,7 +38,7 @@ class ResourcePatches(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             (root / 'authoring').mkdir()
-            for name in ['authoring/resource-patches.json', 'authoring/model-recipes.json',
+            for name in ['authoring/visual-patches.json', 'authoring/model-recipes.json',
                          'empack.yml', 'empack.lock', 'empack.bindings.yml', 'authoring/resource-selections.json', 'authoring/resource-licenses/nautilus3d-AGPL-3.0.txt', 'authoring/texture-resources.json']:
                 (root / name).parent.mkdir(parents=True, exist_ok=True)
                 (root / name).write_text('{}')

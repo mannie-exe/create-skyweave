@@ -105,7 +105,7 @@ axes. Wall/ceiling attachments had support cages. Connection-driven placed state
 were recorded; explicitly requested state properties were checked. Both runs
 completed the checks and shut down normally; their disposable worlds were removed.
 
-`python3 scripts/build-fixes.py --check` and `python3 scripts/audit-changes.py`
+`python3 scripts/build-resource-patches.py --check` and `python3 scripts/audit-changes.py`
 passed after regeneration. Local fixture sources, manifests, comparison output
 and the work/future-integration ledgers are retained in `.git/weight-review/`;
 they are not distributed pack content. The local native commands were

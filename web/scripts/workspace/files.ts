@@ -18,7 +18,7 @@ const additionalLocale = /^journal\/locales\/(?!en_us\.json$)[a-z0-9_]+\.json$/
 const outputFolders = {
   chapter: 'overrides/common/config/questlog/chapters',
   quest: 'overrides/common/config/questlog/quests',
-  locale: 'pack-fixes/assets/create_skyweave/lang',
+  locale: 'resource-patches/assets/create_skyweave/lang',
 } as const
 function generated(id: string) {
   const match = /^generated:journal:(chapter|quest|locale):([a-z0-9_/]+)$/.exec(
@@ -40,7 +40,7 @@ export function journalOutputId(relative: string) {
 }
 const fixed = {
   models: ['pack', 'authoring/model-recipes.json', true],
-  'resource-pins': ['pack', 'authoring/resource-patches.json', false],
+  'resource-pins': ['pack', 'authoring/visual-patches.json', false],
   'resource-selections': ['pack', 'authoring/resource-selections.json', false],
   'texture-resources': ['pack', 'authoring/texture-resources.json', false],
   'resource-objects': ['pack', 'authoring/resource-objects.json', false],

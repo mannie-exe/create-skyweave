@@ -70,7 +70,7 @@ selected. The [content list](../MODLIST.md) records exact dependencies.
 
 Dedicated Sugar Cane and RAY's Rails sit above 3D Crops and
 Redstone Tweaks respectively. Keep 3D Crops above Fresh Flower Pots for the
-four shared potted mushrooms and fungi as a fallback. **Create Skyweave Resource Patches**
+four shared potted mushrooms and fungi as a fallback. **Skyweave: Visual Patches**
 sits above both and combines the 3D plants with Fresh pots. It also keeps Macaw's
 copper and golden chains correctly colored with Better Lanterns. Keep the patch
 at highest priority. Objects owns trapped-chest textures, reducing the front-face distinction

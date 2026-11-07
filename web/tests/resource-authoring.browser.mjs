@@ -38,7 +38,7 @@ test('texture catalogue compares approved artwork on native and patch geometry w
         `${kind}-${state.toLowerCase()}`,
       )
       await expect(page.locator('#texture-resource-model-note')).toContainText(
-        enabled ? 'Resource patches' : 'Native',
+        enabled ? 'Skyweave: Visual Patches' : 'Native',
       )
       await expect(page.locator('.texture-resource-image')).toHaveCount(
         kind === 'barrel' ? 6 : 1,

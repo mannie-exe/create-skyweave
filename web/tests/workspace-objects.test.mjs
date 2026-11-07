@@ -60,7 +60,7 @@ test('registered object previews use admitted dependencies, reject stale stacks 
     'resource-selections': { schema: 1, selections: [] },
     'texture-resources': { schema: 1, resources: [] },
     'resource-objects': { schema: 1, candidates: [] },
-    'resource-patches': {
+    'visual-patches': {
       schema: 1,
       sources: {
         minecraft: {
@@ -91,7 +91,7 @@ test('registered object previews use admitted dependencies, reject stale stacks 
   for (const name of ['blocks', 'entities'])
     await write('data/generated/runtime/' + name + '.json', [])
   await write(
-    'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip',
+    'overrides/client/resourcepacks/skyweave-visual-patches-0.1.0.zip',
     'unchanged shipping fixture',
   )
   // Only the renderer is a fixture. Admission, hashes, dependency staging and publication
@@ -274,7 +274,7 @@ test('registered object previews use admitted dependencies, reject stale stacks 
     await fs.readFile(
       path.join(
         root,
-        'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip',
+        'overrides/client/resourcepacks/skyweave-visual-patches-0.1.0.zip',
       ),
       'utf8',
     ),

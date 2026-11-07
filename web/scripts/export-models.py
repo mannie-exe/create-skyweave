@@ -69,9 +69,9 @@ def export_models(configured, inputs, output):
     for entity in admitted_entities:
         if not entity.get('cem'): continue
         for profile, names in {
-            'selected': [name for name in admitted['native'] if name != 'pack-fixes'] + [name for name in admitted['selected'] if name != 'resource-patches'],
+            'selected': [name for name in admitted['native'] if name != 'skyweave-resource-patches'] + [name for name in admitted['selected'] if name != 'skyweave-visual-patches'],
             'pack': admitted['native'] + admitted['selected'],
-            'fa-base': [name for name in admitted['native'] if name != 'pack-fixes'] + [name for name in admitted['selected'] if name not in ('resource-patches','fresh-animations-details')],
+            'fa-base': [name for name in admitted['native'] if name != 'skyweave-resource-patches'] + [name for name in admitted['selected'] if name not in ('skyweave-visual-patches','fresh-animations-details')],
         }.items():
             stack = Stack([admitted['layers'][name] for name in names])
             if not stack.exists(entity['cem']['path']): continue

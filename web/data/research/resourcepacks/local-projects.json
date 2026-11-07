@@ -1,6 +1,6 @@
 {
-  "create-skyweave-resource-patches": {
-    "title": "Create Skyweave Resource Patches",
+  "skyweave-visual-patches": {
+    "title": "Skyweave: Visual Patches",
     "url": "/resource-authoring",
     "links": [
       {
@@ -9,22 +9,22 @@
       },
       {
         "label": "Patch sources",
-        "url": "https://github.com/mannie-exe/create-skyweave/blob/main/authoring/resource-patches.json"
+        "url": "https://github.com/mannie-exe/create-skyweave/blob/main/authoring/visual-patches.json"
       }
     ],
     "gallery": [],
     "retrieved": "",
     "inspection": null,
     "artifact": {
-      "path": "overrides/client/resourcepacks/Create Skyweave Resource Patches.zip",
+      "path": "overrides/client/resourcepacks/skyweave-visual-patches-0.1.0.zip",
       "kind": "Resource pack",
       "side": "Client",
-      "source": "authoring/resource-patches.json; authoring/model-recipes.json; authoring/resource-selections.json; authoring/texture-resources.json",
-      "check": "python3 scripts/build-resource-patches.py --check"
+      "source": "authoring/visual-patches.json; authoring/model-recipes.json; authoring/resource-selections.json; authoring/texture-resources.json",
+      "check": "python3 scripts/build-visual-patches.py --check"
     }
   },
-  "create-skyweave-fixes": {
-    "title": "Create Skyweave Pack Fixes",
+  "skyweave-resource-patches": {
+    "title": "Skyweave: Resource Patches",
     "url": "/authoring",
     "links": [
       {
@@ -33,18 +33,18 @@
       },
       {
         "label": "Resource-only mod sources",
-        "url": "https://github.com/mannie-exe/create-skyweave/tree/main/pack-fixes"
+        "url": "https://github.com/mannie-exe/create-skyweave/tree/main/resource-patches"
       }
     ],
     "gallery": [],
     "retrieved": "",
     "inspection": null,
     "artifact": {
-      "path": "overrides/common/mods/create-skyweave-fixes-0.1.0.jar",
+      "path": "overrides/common/mods/skyweave-resource-patches-0.1.0.jar",
       "kind": "Resource-only mod",
       "side": "Client and server",
-      "source": "pack-fixes/; authoring/journal/",
-      "check": "python3 scripts/build-fixes.py --check"
+      "source": "resource-patches/; authoring/journal/",
+      "check": "python3 scripts/build-resource-patches.py --check"
     }
   }
 }

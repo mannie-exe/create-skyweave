@@ -166,7 +166,7 @@ def compile_journal(root=ROOT):
             outputs[f'overrides/common/config/questlog/quests/{id}.json'] = native
         if any(not isinstance(v, str) for v in lang.values()):
             raise ValueError(f'{locale}: translation values must be strings')
-        outputs[f'pack-fixes/assets/create_skyweave/lang/{locale}.json'] = lang
+        outputs[f'resource-patches/assets/create_skyweave/lang/{locale}.json'] = lang
     rendered = {path: json.dumps(value, ensure_ascii=False, indent=2) + '\n' for path, value in outputs.items()}
     # empack defaults config/ to seed. Authored definitions must update and retire
     # with the journal, while unrelated configuration keeps its own policy.
@@ -207,7 +207,7 @@ def output_changes(root, outputs):
     stale = []
     for folder, marker in [('overrides/common/config/questlog/quests', 'title'),
                            ('overrides/common/config/questlog/chapters', 'name'),
-                           ('pack-fixes/assets/create_skyweave/lang', None)]:
+                           ('resource-patches/assets/create_skyweave/lang', None)]:
         for p in (root / folder).rglob('*.json'):
             rel = str(p.relative_to(root))
             if rel in outputs: continue

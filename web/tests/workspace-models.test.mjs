@@ -28,7 +28,7 @@ test('model queries stay pure, validation protects source, and checked resource 
   })
   for (const [name, value] of Object.entries({
     'model-recipes': { schema: 1, recipes: [] },
-    'resource-patches': { schema: 1, sources: {} },
+    'visual-patches': { schema: 1, sources: {} },
     'resource-selections': { schema: 1, selections: [] },
     'texture-resources': { schema: 1, resources: [] },
   }))
@@ -125,7 +125,7 @@ test('model queries stay pure, validation protects source, and checked resource 
   assert.equal(generated.operation.state, 'succeeded', generated.error?.message)
   const destination = path.join(
     root,
-    'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip',
+    'overrides/client/resourcepacks/skyweave-visual-patches-0.1.0.zip',
   )
   const published = await fs.readFile(destination)
   const reference = await artifacts.resolve(
@@ -136,7 +136,7 @@ test('model queries stay pure, validation protects source, and checked resource 
   assert.deepEqual(await fs.readFile(reference.file), published)
   assert.ok(
     generated.operation.stages.some(
-      (stage) => stage.name === 'resource-patches',
+      (stage) => stage.name === 'skyweave-visual-patches',
     ),
   )
   await fs.writeFile(
@@ -156,7 +156,7 @@ test('model queries stay pure, validation protects source, and checked resource 
     await fs.readdir(path.join(root, '.cache/workspace/staging')),
     [],
   )
-  const pins = path.join(root, 'authoring/resource-patches.json')
+  const pins = path.join(root, 'authoring/visual-patches.json')
   await fs.writeFile(path.join(root, 'asset.zip'), 'changed resource')
   await fs.writeFile(
     pins,

@@ -400,7 +400,7 @@ async function compile(context) {
     const processor = await fs.readFile(
       path.join(
         pack,
-        'pack-fixes/data/skyvillages/worldgen/processor_list/house_processor.json',
+        'resource-patches/data/skyvillages/worldgen/processor_list/house_processor.json',
       ),
     )
     structures.stale =

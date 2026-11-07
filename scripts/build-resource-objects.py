@@ -94,7 +94,7 @@ def catalogue(admitted, context):
     assigned = set()
     for source in admitted['native']:
         files = admitted['layers'][source].files
-        if source == 'pack-fixes': continue
+        if source == 'skyweave-resource-patches': continue
         for path, raw in files.items():
             if '/blockstates/' not in path or not path.endswith('.json'): continue
             namespace, name = path.split('/')[1], path.split('/blockstates/')[1][:-5]
@@ -161,12 +161,12 @@ def profiles(admitted, entry, context):
     native = ['minecraft'] + ([origin] if origin and origin != 'minecraft' and origin in admitted['layers'] else [])
     result = {
         'native': {'label': 'Native object', 'layers': native},
-        'selected': {'label': 'Selected packs', 'layers': [name for name in admitted['native'] if name != 'pack-fixes'] +
-                     [name for name in admitted['selected'] if name != 'resource-patches']},
+        'selected': {'label': 'Selected packs', 'layers': [name for name in admitted['native'] if name != 'skyweave-resource-patches'] +
+                     [name for name in admitted['selected'] if name != 'skyweave-visual-patches']},
         'pack': {'label': 'Modpack result', 'layers': admitted['native'] + admitted['selected']},
     }
     if entry['kind']=='entity' and entry['entity'].get('cem') and 'fresh-animations' in admitted['selected']:
-        result['fa-base']={'label':'Fresh Animations base', 'layers':[name for name in admitted['native'] if name!='pack-fixes'] + [name for name in admitted['selected'] if name not in ('resource-patches','fresh-animations-details')]}
+        result['fa-base']={'label':'Fresh Animations base', 'layers':[name for name in admitted['native'] if name!='skyweave-resource-patches'] + [name for name in admitted['selected'] if name not in ('skyweave-visual-patches','fresh-animations-details')]}
     for candidate in json.loads((context.root / 'authoring/resource-objects.json').read_text()).get('candidates', []):
         if entry['registryId'] in candidate['objects']:
             selected = any(selection['source'] == candidate['id'].removeprefix('candidate-') and selection['action'] == 'apply' and entry['registryId'] in selection['blocks'] for selection in json.loads((context.root / 'authoring/resource-selections.json').read_text())['selections'])
@@ -182,8 +182,8 @@ def scene(admitted, entry, case, names, texture_previews, native_models, context
     notes = []
     if 'textureResource' in case:
         source = next(record for record in texture_previews if record['id'] == case['textureResource'])
-        patched = 'resource-patches' in names
-        require(not patched or names[-1] == 'resource-patches', 'This fixed Lootr adapter requires Resource patches at highest priority')
+        patched = 'skyweave-visual-patches' in names
+        require(not patched or names[-1] == 'skyweave-visual-patches', 'This fixed Lootr adapter requires Skyweave: Visual Patches at highest priority')
         # Existing validated storage adapter: the base and actual generated CEM are
         # distinct fixed carriers, not inferred native entity model definitions.
         preview = copy.deepcopy(source['pack' if patched else 'original'])
@@ -290,7 +290,7 @@ def build(custom=None, *, root=ROOT, web=None, output=None, native=None, texture
     context = Context(root, web, output or web / 'public/generated/objects',
                       native or web / '.cache/resource-exporter',
                       textures or web / 'public/generated/texture-resources/index.json')
-    source_paths = ['empack.lock','authoring/resource-patches.json','authoring/resource-objects.json',
+    source_paths = ['empack.lock','authoring/visual-patches.json','authoring/resource-objects.json',
                     'authoring/model-recipes.json','authoring/texture-resources.json','authoring/resource-selections.json',
                     'overrides/client/options.txt','scripts/resource_stack.py','scripts/object_inputs.py',
                     'scripts/build-resource-objects.py','scripts/resource_assets.py','scripts/model_authoring.py','scripts/cem_geometry.py','scripts/texture_resources.py','scripts/model_transforms.py']

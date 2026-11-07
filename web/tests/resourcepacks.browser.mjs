@@ -176,8 +176,8 @@ test('pack-owned artifacts distinguish client resources from shared data', async
 }) => {
   await page.goto('/resourcepacks?scope=Pack-owned')
   await expect(page.locator('[data-candidate]:visible')).toHaveCount(2)
-  const patch = page.locator('#create-skyweave-resource-patches')
-  const fixes = page.locator('#create-skyweave-fixes')
+  const patch = page.locator('#skyweave-visual-patches')
+  const fixes = page.locator('#skyweave-resource-patches')
   await expect(patch.locator('.candidate-current')).toContainText(
     'Resource pack · Client',
   )
@@ -197,7 +197,7 @@ test('pack-owned artifacts distinguish client resources from shared data', async
     'Built artifact present.',
   )
   await expect(patch.locator('.candidate-evidence')).toContainText(
-    'build-resource-patches.py --check',
+    'build-visual-patches.py --check',
   )
 })
 
@@ -209,10 +209,10 @@ test('reading rail follows the document and shares its filters', async ({
   await page.goto('/resourcepacks?decision=installed')
   const index = page.getByRole('navigation', { name: 'Resource pack index' })
   await expect(index.locator('a:visible')).toHaveCount(19)
-  await index.locator('[href="#create-skyweave-fixes"]').click()
-  await expect(page.locator('#create-skyweave-fixes h2')).toBeFocused()
+  await index.locator('[href="#skyweave-resource-patches"]').click()
+  await expect(page.locator('#skyweave-resource-patches h2')).toBeFocused()
   await expect(
-    index.locator('[href="#create-skyweave-fixes"]'),
+    index.locator('[href="#skyweave-resource-patches"]'),
   ).toHaveAttribute('aria-current', 'location')
   await expect(page.locator('[data-candidate]:visible')).toHaveCount(19)
   await page
@@ -223,26 +223,22 @@ test('reading rail follows the document and shares its filters', async ({
     'location',
   )
   // Reading changes location, not keyboard focus.
-  await expect(page.locator('#create-skyweave-fixes h2')).toBeFocused()
+  await expect(page.locator('#skyweave-resource-patches h2')).toBeFocused()
   await page.locator('#pack-search').fill('missing pack xyz')
   await expect(page.locator('#pack-empty')).toBeVisible()
   await expect(index.locator('a:visible')).toHaveCount(0)
   await page.locator('#pack-reset').click()
   await expect(index.locator('a:visible')).toHaveCount(54)
   await page.setViewportSize({ width: 390, height: 844 })
-  await index.locator('[href="#create-skyweave-resource-patches"]').click()
-  await expect(
-    page.locator('#create-skyweave-resource-patches h2'),
-  ).toBeFocused()
+  await index.locator('[href="#skyweave-visual-patches"]').click()
+  await expect(page.locator('#skyweave-visual-patches h2')).toBeFocused()
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= innerWidth,
     ),
   ).toBe(true)
   await page.locator('[data-resource-index-back]').click()
-  await expect(
-    index.locator('[href="#create-skyweave-resource-patches"]'),
-  ).toBeFocused()
+  await expect(index.locator('[href="#skyweave-visual-patches"]')).toBeFocused()
   expect(errors).toEqual([])
 })
 
@@ -251,13 +247,13 @@ test('old preview links preserve filters and reveal their target on the adopted 
 }) => {
   for (const layout of ['continuous', 'index']) {
     await page.goto(
-      `/resources-preview?layout=${layout}&decision=installed#create-skyweave-resource-patches`,
+      `/resources-preview?layout=${layout}&decision=installed#skyweave-visual-patches`,
     )
     await expect(page).toHaveURL(
-      '/resourcepacks?decision=installed#create-skyweave-resource-patches',
+      '/resourcepacks?decision=installed#skyweave-visual-patches',
     )
     const choice = page.locator(
-      '#resource-index [href="#create-skyweave-resource-patches"]',
+      '#resource-index [href="#skyweave-visual-patches"]',
     )
     await expect(choice).toHaveAttribute('aria-current', 'location')
     await expect

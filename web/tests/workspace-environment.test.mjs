@@ -65,7 +65,7 @@ async function fixture(t) {
     'overrides/client/options.txt',
     'resourcePacks:["vanilla","file/a.zip","file/b.zip"]\n',
   )
-  await write('authoring/resource-patches.json', {
+  await write('authoring/visual-patches.json', {
     sources: {
       minecraft: {
         version: '1.21.1',

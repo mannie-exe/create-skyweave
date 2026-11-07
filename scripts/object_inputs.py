@@ -26,7 +26,7 @@ def load_layers(root, definitions=None, web=None, review_inputs=True):
         definitions = json.loads(subprocess.check_output(['node', str((web or root / 'web') / 'scripts/resource-inputs.mjs'), str(root)], text=True))
     require(definitions['runtime'].get('minecraft') == '1.21.1' and definitions['runtime'].get('loader') == 'neoforge',
             'Object resource adapters currently target Minecraft 1.21.1 / NeoForge / resource format 34')
-    pins = json.loads((root / 'authoring/resource-patches.json').read_text())['sources']
+    pins = json.loads((root / 'authoring/visual-patches.json').read_text())['sources']
     layers, native, selected, inputs, owners = {}, [], [], [], {}
     fusion = any(item['id'] == 'fusion-connected-textures' for item in definitions['inputs'])
     def archive_layer(key, path, label, kind, expected=None):
@@ -66,14 +66,14 @@ def load_layers(root, definitions=None, web=None, review_inputs=True):
         layers[key].version = item.get('version') or ''
         if kind == 'mod': native.append(key)
         else: destinations['file/' + path.name] = key
-    fixes = root / 'overrides/common/mods/create-skyweave-fixes-0.1.0.jar'
+    fixes = root / 'overrides/common/mods/skyweave-resource-patches-0.1.0.jar'
     if fixes.is_file():
-        archive_layer('pack-fixes', fixes, 'Pack fixes', 'mod').close()
-        native.append('pack-fixes')
-    patch = root / 'overrides/client/resourcepacks/Create Skyweave Resource Patches.zip'
+        archive_layer('skyweave-resource-patches', fixes, 'Skyweave: Resource Patches', 'mod').close()
+        native.append('skyweave-resource-patches')
+    patch = root / 'overrides/client/resourcepacks/skyweave-visual-patches-0.1.0.zip'
     if patch.is_file():
-        archive_layer('resource-patches', patch, 'Resource patches', 'patch').close()
-        destinations['file/' + patch.name] = 'resource-patches'
+        archive_layer('skyweave-visual-patches', patch, 'Skyweave: Visual Patches', 'patch').close()
+        destinations['file/' + patch.name] = 'skyweave-visual-patches'
     for entry in selection:
         if entry in destinations:
             selected.append(destinations[entry])

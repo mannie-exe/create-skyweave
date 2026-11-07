@@ -8,7 +8,6 @@
   "anchorPlateau": 28,
   "anchorMinHeight": 250,
   "anchorMaxHeight": 400,
-  "undersideTaper": 80,
   "companionMinRadius": 40,
   "companionMaxRadius": 110,
   "companionMinOrbit": 470,

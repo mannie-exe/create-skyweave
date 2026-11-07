@@ -49,7 +49,7 @@ const roots: Root[] = [
   { owner: 'pack', relative: 'overrides/server/config', tree: true },
   { owner: 'pack', relative: 'overrides/server/defaultconfigs', tree: true },
   { owner: 'pack', relative: 'scripts', tree: true },
-  { owner: 'pack', relative: 'pack-fixes', tree: true },
+  { owner: 'pack', relative: 'resource-patches', tree: true },
   { owner: 'web', relative: 'data/authored', tree: true },
   { owner: 'web', relative: 'data/research/resourcepacks/local-media.json' },
   ...['catalog', 'projects', 'local-projects', 'object-projects'].map(

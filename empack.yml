@@ -1,7 +1,7 @@
 schema: 5
 pack:
   name: Skyweave modpack
-  version: 0.2.3
+  version: 0.3.0
   id: create_skyweave
   authors:
     - mannie-exe
@@ -404,7 +404,7 @@ dependencies:
     pin: 6zbD44Qe
   sky-archipelago:
     source: modrinth:sHFNUlBU
-    pin: RwLz4CJb
+    pin: XPc17YJD
   sodium:
     side: client
     source: modrinth:AANobbMI
@@ -733,10 +733,10 @@ dependencies:
     source:
       kind: url
       downloads:
-        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.22.1/skyweave-compat-0.22.1-mc1.21.1-neoforge.jar
+        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.23.0/skyweave-compat-0.23.0-mc1.21.1-neoforge.jar
     digests:
-      sha1: 79fb86b352ce4309b9637188463f1efb003b6529
-      sha512: 33c54f6ba81fce25b54b05f0359c713bf7d47f756d662aac1e334e36c5fa6d0bf6fc888f9032682639cfccfdfd3120d3edfb0b4e7f19f019e240749264d9de2a
+      sha1: 7fa577a8a294aa7bd8e5a02536cdfc0e2a42be2b
+      sha512: f581b1d1dc4f4b3a8ee014d94b88e482662888263417e7c3986d7aedefb638b7e7b897ced3843ad21a660fb8474fd3ed40f945e58c8e1c71f1e86e8cc3885131
     environment:
       client: required
       server: required

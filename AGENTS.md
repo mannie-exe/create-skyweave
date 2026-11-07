@@ -1,10 +1,30 @@
 # Create: Skyweave
 
-Use **Create: Skyweave** for the modpack; **Skyweave modpack** or **the Skyweave modpack** is also acceptable in prose. Use **Skyweave: Compatibility Patches** for the independent compatibility mod. Preserve machine identities, including `create-skyweave`, `create_skyweave`, `skyweave-compat`, `skyweave_compat`, and Java package/class names. Put naming guidance in AGENTS.md; use the names directly in other documentation and interfaces.
+Use **Create: Skyweave** for the modpack; **Skyweave modpack** or **the Skyweave modpack** is also acceptable in prose. **Skyweave** is the separate civilization mod. Follow the naming and artifact identity rules below; put naming guidance in AGENTS.md and use the names directly in other documentation and interfaces.
 
 Create: Skyweave is the playable Create/Aeronautics island modpack. Skyweave is
 the separate, unfinished civilization mod; Skyweave: Compatibility Patches supplies optional adaptations. Start with `docs/README.md`; read only the
 documents relevant to the task. Runtime and dependency pins live in `empack.yml`.
+
+## Naming and artifact identity
+
+This table owns the shared naming policy. Canonical slugs apply to new or explicitly authorized renamed identities; they do not establish that existing files, mod IDs, or selections have already changed.
+
+| Display name | Canonical slug | Artifact and responsibility |
+| --- | --- | --- |
+| Create: Skyweave | `create-skyweave` | Playable modpack; preserve the `create_skyweave` namespace |
+| Skyweave: Compatibility Patches | `skyweave-compat` | Executable optional adaptations; mod ID `skyweave_compat` |
+| Skyweave: Resource Patches | `skyweave-resource-patches` | Shared resource-only JAR: gameplay data and supporting assets, including translations; mod ID `skyweave_resource_patches` |
+| Skyweave: Visual Patches | `skyweave-visual-patches` | Client resource-pack ZIP: selected/composited models, textures, and animation resources; no mod ID |
+
+Use kebab-case for slugs, dependency keys, and artifact basenames; use underscores where Minecraft/NeoForge identifiers require them. Published filenames use `<slug>-<version>.jar` or `.zip`. Repository-local shared source may use `resource-patches/`; keep visual inputs with their existing authoring owners, with `authoring/visual-patches.json` as the visual build definition. Builder names are `build-resource-patches.py` for the JAR and `build-visual-patches.py` for the ZIP. The word “resource” alone must not imply executable code; both artifacts contain resources, while Compatibility Patches owns runtime hooks.
+
+For an authorized rename:
+
+- Inspect actual source paths, metadata, and outputs first. Preserve established machine identities, Java packages/classes, registry/resource IDs, and saved-world/configuration identities unless their change is explicitly in scope. Do not rename foreign namespaces or unrelated modpack content to match an artifact's branding.
+- Update source/build definitions, scripts, CI, empack selections/lock, metadata/dependency references, generated provenance, credits, Atlas labels/links, documentation, and relevant checks together. Trace consumers before moving a source or reusing a name. When reusing a builder filename, move its previous producer and consumers first; one builder name must not ambiguously identify both artifacts.
+- Handle installed identity separately from display text. A mod ID rename can affect dependency/loading references; a resource-pack filename rename affects Minecraft's saved pack selection. Validate load order and remove superseded managed outputs through the owning build/sync process without installing duplicates, losing user selections, or editing personal instances implicitly.
+- Regenerate derived outputs and verify archive contents, sides, priority, references, and affected runtime behavior. Retain one owner per naming rule and link to it from sibling AGENTS.md files. Record rename-specific history privately; maintained docs describe current behavior and maintenance procedures. Naming approval alone is not authorization to publish, sync, or rename unrelated identities.
 
 ## Direction
 
@@ -39,7 +59,7 @@ documents relevant to the task. Runtime and dependency pins live in `empack.yml`
 - Use empack and the recorded lock; reference builds are the default. Preserve
   Minecraft pins. Verify provider metadata against exact artifacts when it conflicts.
 - Keep journal sources in `authoring/journal`, configuration rationale/digests in
-  `authoring/changes`, maintained resources in `pack-fixes`, and the Atlas in `web`.
+  `authoring/changes`, maintained resources in `resource-patches`, and the Atlas in `web`.
   Regenerate derived content through its owning scripts rather than editing copies.
 - Keep static resource/data changes in pack-owned sources and generators;
   distinguish the resource-only JAR from the visual patch resource pack. Runtime

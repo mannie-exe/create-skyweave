@@ -76,11 +76,7 @@
     },
     {
       "id": "pots-composite-pots",
-      "projects": [
-        "fresh-flower-pots",
-        "3d-crops",
-        "create-skyweave-resource-patches"
-      ],
+      "projects": ["fresh-flower-pots", "3d-crops", "skyweave-visual-patches"],
       "file": "pots-composite.png",
       "kind": "image",
       "run": "pots-20261023",
@@ -102,7 +98,7 @@
     },
     {
       "id": "candidate-bars-models",
-      "projects": ["simple-3d-iron-bars", "create-skyweave-resource-patches"],
+      "projects": ["simple-3d-iron-bars", "skyweave-visual-patches"],
       "file": "models/candidate-bars.png",
       "kind": "image",
       "run": "models-20261024",
@@ -124,7 +120,7 @@
     },
     {
       "id": "candidate-bell-models",
-      "projects": ["better-lanterns", "create-skyweave-resource-patches"],
+      "projects": ["better-lanterns", "skyweave-visual-patches"],
       "file": "models/candidate-bell.png",
       "kind": "image",
       "run": "models-20261024",
@@ -146,7 +142,7 @@
     },
     {
       "id": "candidate-covered-models",
-      "projects": ["better-lanterns", "create-skyweave-resource-patches"],
+      "projects": ["better-lanterns", "skyweave-visual-patches"],
       "file": "models/candidate-covered.png",
       "kind": "image",
       "run": "models-20261024",
@@ -190,7 +186,7 @@
     },
     {
       "id": "wall-shader-compat",
-      "projects": ["better-lanterns", "create-skyweave-resource-patches"],
+      "projects": ["better-lanterns", "skyweave-visual-patches"],
       "file": "harness/2026-10-24-compat-pass/wall-shader.png",
       "kind": "image",
       "run": "compat-20261024",
@@ -201,7 +197,7 @@
     },
     {
       "id": "cage-shader-compat",
-      "projects": ["better-lanterns", "create-skyweave-resource-patches"],
+      "projects": ["better-lanterns", "skyweave-visual-patches"],
       "file": "harness/2026-10-24-compat-pass/cage-shader.png",
       "kind": "image",
       "run": "compat-20261024",
@@ -212,7 +208,7 @@
     },
     {
       "id": "hood-shader-compat",
-      "projects": ["better-lanterns", "create-skyweave-resource-patches"],
+      "projects": ["better-lanterns", "skyweave-visual-patches"],
       "file": "harness/2026-10-24-compat-pass/hood-shader.png",
       "kind": "image",
       "run": "compat-20261024",
@@ -267,10 +263,7 @@
     },
     {
       "id": "lootr-close-range-models",
-      "projects": [
-        "fresh-animations-objects",
-        "create-skyweave-resource-patches"
-      ],
+      "projects": ["fresh-animations-objects", "skyweave-visual-patches"],
       "file": "models/lootr-close-range.mp4",
       "kind": "video",
       "run": "models-20261024",
@@ -292,7 +285,7 @@
     },
     {
       "id": "final-bell-animation-models",
-      "projects": ["better-lanterns", "create-skyweave-resource-patches"],
+      "projects": ["better-lanterns", "skyweave-visual-patches"],
       "file": "models/final-bell-animation.mp4",
       "kind": "video",
       "run": "models-20261024",
@@ -303,7 +296,7 @@
     },
     {
       "id": "final-covered-animation-models",
-      "projects": ["better-lanterns", "create-skyweave-resource-patches"],
+      "projects": ["better-lanterns", "skyweave-visual-patches"],
       "file": "models/final-covered-animation.mp4",
       "kind": "video",
       "run": "models-20261024",
@@ -509,7 +502,7 @@
       "projects": [
         "3d-default",
         "fresh-animations-objects",
-        "create-skyweave-resource-patches"
+        "skyweave-visual-patches"
       ],
       "file": "selective-20261101/chest-close-lootr-baseline.mp4",
       "kind": "video",
@@ -524,7 +517,7 @@
       "projects": [
         "3d-default",
         "fresh-animations-objects",
-        "create-skyweave-resource-patches"
+        "skyweave-visual-patches"
       ],
       "file": "selective-20261101/chest-close-lootr-chest-composed.mp4",
       "kind": "video",
@@ -539,7 +532,7 @@
       "projects": [
         "3d-default",
         "fresh-animations-objects",
-        "create-skyweave-resource-patches"
+        "skyweave-visual-patches"
       ],
       "file": "selective-20261101/chest-close-lootr-chest-geometry.mp4",
       "kind": "video",
@@ -554,7 +547,7 @@
       "projects": [
         "3d-default",
         "fresh-animations-objects",
-        "create-skyweave-resource-patches"
+        "skyweave-visual-patches"
       ],
       "file": "selective-20261101/chest-close-lootr-trapped-chest-composed.mp4",
       "kind": "video",
@@ -569,7 +562,7 @@
       "projects": [
         "3d-default",
         "fresh-animations-objects",
-        "create-skyweave-resource-patches"
+        "skyweave-visual-patches"
       ],
       "file": "selective-20261101/chest-close-ordinary-baseline.mp4",
       "kind": "video",
@@ -584,7 +577,7 @@
       "projects": [
         "3d-default",
         "fresh-animations-objects",
-        "create-skyweave-resource-patches"
+        "skyweave-visual-patches"
       ],
       "file": "selective-20261101/chest-close-ordinary-chest-composed.mp4",
       "kind": "video",
@@ -599,7 +592,7 @@
       "projects": [
         "3d-default",
         "fresh-animations-objects",
-        "create-skyweave-resource-patches"
+        "skyweave-visual-patches"
       ],
       "file": "selective-20261101/chest-close-ordinary-chest-geometry.mp4",
       "kind": "video",
@@ -614,7 +607,7 @@
       "projects": [
         "3d-default",
         "fresh-animations-objects",
-        "create-skyweave-resource-patches"
+        "skyweave-visual-patches"
       ],
       "file": "selective-20261101/chest-close-trapped-chest-composed.mp4",
       "kind": "video",
@@ -629,7 +622,7 @@
       "projects": [
         "3d-default",
         "fresh-animations-objects",
-        "create-skyweave-resource-patches"
+        "skyweave-visual-patches"
       ],
       "file": "selective-20261101/chest-detail-baseline-plain.png",
       "kind": "image",
@@ -645,7 +638,7 @@
       "projects": [
         "3d-default",
         "fresh-animations-objects",
-        "create-skyweave-resource-patches"
+        "skyweave-visual-patches"
       ],
       "file": "selective-20261101/chest-detail-baseline-shader.png",
       "kind": "image",
@@ -661,7 +654,7 @@
       "projects": [
         "3d-default",
         "fresh-animations-objects",
-        "create-skyweave-resource-patches"
+        "skyweave-visual-patches"
       ],
       "file": "selective-20261101/chest-detail-chest-composed-plain.png",
       "kind": "image",
@@ -677,7 +670,7 @@
       "projects": [
         "3d-default",
         "fresh-animations-objects",
-        "create-skyweave-resource-patches"
+        "skyweave-visual-patches"
       ],
       "file": "selective-20261101/chest-detail-chest-composed-shader.png",
       "kind": "image",
@@ -693,7 +686,7 @@
       "projects": [
         "3d-default",
         "fresh-animations-objects",
-        "create-skyweave-resource-patches"
+        "skyweave-visual-patches"
       ],
       "file": "selective-20261101/chest-detail-chest-geometry-plain.png",
       "kind": "image",
@@ -709,7 +702,7 @@
       "projects": [
         "3d-default",
         "fresh-animations-objects",
-        "create-skyweave-resource-patches"
+        "skyweave-visual-patches"
       ],
       "file": "selective-20261101/chest-lootr-baseline-plain.png",
       "kind": "image",
@@ -725,7 +718,7 @@
       "projects": [
         "3d-default",
         "fresh-animations-objects",
-        "create-skyweave-resource-patches"
+        "skyweave-visual-patches"
       ],
       "file": "selective-20261101/chest-lootr-chest-composed-plain.png",
       "kind": "image",
@@ -741,7 +734,7 @@
       "projects": [
         "3d-default",
         "fresh-animations-objects",
-        "create-skyweave-resource-patches"
+        "skyweave-visual-patches"
       ],
       "file": "selective-20261101/chest-lootr-chest-geometry-plain.png",
       "kind": "image",
@@ -757,7 +750,7 @@
       "projects": [
         "3d-default",
         "fresh-animations-objects",
-        "create-skyweave-resource-patches"
+        "skyweave-visual-patches"
       ],
       "file": "selective-20261101/chest-lootr-opened-baseline-shader.png",
       "kind": "image",
@@ -773,7 +766,7 @@
       "projects": [
         "3d-default",
         "fresh-animations-objects",
-        "create-skyweave-resource-patches"
+        "skyweave-visual-patches"
       ],
       "file": "selective-20261101/chest-lootr-opened-chest-composed-shader.png",
       "kind": "image",
@@ -1752,7 +1745,7 @@
       "projects": [
         "3d-default",
         "fresh-animations-objects",
-        "create-skyweave-resource-patches"
+        "skyweave-visual-patches"
       ],
       "file": "selective-20261101/comparison-chest-detail-shader.png",
       "kind": "image",
@@ -1777,7 +1770,7 @@
       "projects": [
         "3d-default",
         "fresh-animations-objects",
-        "create-skyweave-resource-patches"
+        "skyweave-visual-patches"
       ],
       "file": "selective-20261101/comparison-chest-detail.png",
       "kind": "image",
@@ -1806,7 +1799,7 @@
       "projects": [
         "3d-default",
         "fresh-animations-objects",
-        "create-skyweave-resource-patches"
+        "skyweave-visual-patches"
       ],
       "file": "selective-20261101/comparison-chest-lootr-opened-shader.png",
       "kind": "image",
@@ -1831,7 +1824,7 @@
       "projects": [
         "3d-default",
         "fresh-animations-objects",
-        "create-skyweave-resource-patches"
+        "skyweave-visual-patches"
       ],
       "file": "selective-20261101/comparison-chest-lootr.png",
       "kind": "image",
@@ -2370,7 +2363,7 @@
     },
     {
       "id": "selected-20261102-garden-pitcher",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "selected-20261102/garden-pitcher.png",
       "kind": "image",
       "run": "selected-20261102",
@@ -2381,7 +2374,7 @@
     },
     {
       "id": "selected-20261102-studio-loom",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "selected-20261102/studio-loom.png",
       "kind": "image",
       "run": "selected-20261102",
@@ -2392,7 +2385,7 @@
     },
     {
       "id": "repairs-20261102-repair-bridge-close-bridge-baseline-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-bridge-close-bridge-baseline-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2406,7 +2399,7 @@
     },
     {
       "id": "repairs-20261102-repair-bridge-close-bridge-bridge-lantern-45-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-bridge-close-bridge-bridge-lantern-45-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2420,7 +2413,7 @@
     },
     {
       "id": "repairs-20261102-comparison-bridge-lantern-bridge",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/comparison-bridge-lantern-bridge.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2444,7 +2437,7 @@
     },
     {
       "id": "repairs-20261102-repair-bridge-close-stairs-baseline-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-bridge-close-stairs-baseline-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2458,7 +2451,7 @@
     },
     {
       "id": "repairs-20261102-repair-bridge-close-stairs-bridge-lantern-45-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-bridge-close-stairs-bridge-lantern-45-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2472,7 +2465,7 @@
     },
     {
       "id": "repairs-20261102-comparison-bridge-lantern-stairs",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/comparison-bridge-lantern-stairs.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2496,7 +2489,7 @@
     },
     {
       "id": "repairs-20261102-repair-final-unopened-barrel-baseline-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-final-unopened-barrel-baseline-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2510,7 +2503,7 @@
     },
     {
       "id": "repairs-20261102-repair-final-unopened-barrel-resource-repairs-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-final-unopened-barrel-resource-repairs-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2524,7 +2517,7 @@
     },
     {
       "id": "repairs-20261102-comparison-lootr-repairs-barrel-unopened",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/comparison-lootr-repairs-barrel-unopened.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2547,7 +2540,7 @@
     },
     {
       "id": "repairs-20261102-repair-final-unopened-trapped-baseline-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-final-unopened-trapped-baseline-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2561,7 +2554,7 @@
     },
     {
       "id": "repairs-20261102-repair-final-unopened-trapped-resource-repairs-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-final-unopened-trapped-resource-repairs-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2575,7 +2568,7 @@
     },
     {
       "id": "repairs-20261102-comparison-lootr-repairs-trapped-unopened",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/comparison-lootr-repairs-trapped-unopened.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2598,7 +2591,7 @@
     },
     {
       "id": "repairs-20261102-repair-final-looted-barrel-baseline-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-final-looted-barrel-baseline-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2612,7 +2605,7 @@
     },
     {
       "id": "repairs-20261102-repair-final-looted-barrel-resource-repairs-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-final-looted-barrel-resource-repairs-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2626,7 +2619,7 @@
     },
     {
       "id": "repairs-20261102-comparison-lootr-repairs-barrel-looted",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/comparison-lootr-repairs-barrel-looted.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2649,7 +2642,7 @@
     },
     {
       "id": "repairs-20261102-repair-final-looted-trapped-baseline-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-final-looted-trapped-baseline-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2663,7 +2656,7 @@
     },
     {
       "id": "repairs-20261102-repair-final-looted-trapped-resource-repairs-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-final-looted-trapped-resource-repairs-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2677,7 +2670,7 @@
     },
     {
       "id": "repairs-20261102-comparison-lootr-repairs-trapped-looted",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/comparison-lootr-repairs-trapped-looted.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2700,7 +2693,7 @@
     },
     {
       "id": "repairs-20261102-repair-final-unopened-chest-baseline-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-final-unopened-chest-baseline-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2714,7 +2707,7 @@
     },
     {
       "id": "repairs-20261102-repair-final-unopened-chest-resource-repairs-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-final-unopened-chest-resource-repairs-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2728,7 +2721,7 @@
     },
     {
       "id": "repairs-20261102-comparison-lootr-repairs-normal-control",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/comparison-lootr-repairs-normal-control.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2751,7 +2744,7 @@
     },
     {
       "id": "repairs-20261102-repair-pot-stems-azalea-baseline-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-pot-stems-azalea-baseline-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2765,7 +2758,7 @@
     },
     {
       "id": "repairs-20261102-repair-pot-stems-azalea-resource-repairs-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-pot-stems-azalea-resource-repairs-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2779,7 +2772,7 @@
     },
     {
       "id": "repairs-20261102-comparison-potted-azalea-azalea",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/comparison-potted-azalea-azalea.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2802,7 +2795,7 @@
     },
     {
       "id": "repairs-20261102-repair-pot-stems-flowering-baseline-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-pot-stems-flowering-baseline-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2816,7 +2809,7 @@
     },
     {
       "id": "repairs-20261102-repair-pot-stems-flowering-resource-repairs-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-pot-stems-flowering-resource-repairs-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2830,7 +2823,7 @@
     },
     {
       "id": "repairs-20261102-comparison-potted-azalea-flowering",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/comparison-potted-azalea-flowering.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2853,7 +2846,7 @@
     },
     {
       "id": "repairs-20261102-repair-glass-framed-baseline-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-glass-framed-baseline-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2867,7 +2860,7 @@
     },
     {
       "id": "repairs-20261102-repair-final-glass-framed-resource-repairs-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-final-glass-framed-resource-repairs-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2881,7 +2874,7 @@
     },
     {
       "id": "repairs-20261102-comparison-window-interiors-framed",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/comparison-window-interiors-framed.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2905,7 +2898,7 @@
     },
     {
       "id": "repairs-20261102-repair-glass-rechiseled-baseline-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-glass-rechiseled-baseline-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2919,7 +2912,7 @@
     },
     {
       "id": "repairs-20261102-repair-final-glass-rechiseled-resource-repairs-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-final-glass-rechiseled-resource-repairs-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2933,7 +2926,7 @@
     },
     {
       "id": "repairs-20261102-comparison-window-interiors-rechiseled",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/comparison-window-interiors-rechiseled.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2957,7 +2950,7 @@
     },
     {
       "id": "repairs-20261102-repair-glass-pane-baseline-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-glass-pane-baseline-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2971,7 +2964,7 @@
     },
     {
       "id": "repairs-20261102-repair-final-glass-pane-resource-repairs-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-final-glass-pane-resource-repairs-plain.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -2985,7 +2978,7 @@
     },
     {
       "id": "repairs-20261102-comparison-window-interiors-pane",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/comparison-window-interiors-pane.png",
       "kind": "image",
       "run": "repairs-20261102",
@@ -3009,7 +3002,7 @@
     },
     {
       "id": "repairs-20261102-chest-motion-normal",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-chest-motion-normal.mp4",
       "kind": "video",
       "run": "repairs-20261102",
@@ -3020,7 +3013,7 @@
     },
     {
       "id": "repairs-20261102-chest-motion-trapped",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-chest-motion-trapped.mp4",
       "kind": "video",
       "run": "repairs-20261102",
@@ -3031,7 +3024,7 @@
     },
     {
       "id": "lantern-hanging-20261103-lantern-hanging-flat-baseline-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "lantern-hanging-20261103/lantern-hanging-flat-baseline-plain.png",
       "kind": "image",
       "run": "lantern-hanging-20261103",
@@ -3045,7 +3038,7 @@
     },
     {
       "id": "lantern-hanging-20261103-lantern-hanging-flat-bridge-lantern-hanging-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "lantern-hanging-20261103/lantern-hanging-flat-bridge-lantern-hanging-plain.png",
       "kind": "image",
       "run": "lantern-hanging-20261103",
@@ -3059,7 +3052,7 @@
     },
     {
       "id": "lantern-hanging-20261103-comparison-bridge-lantern-flat",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "lantern-hanging-20261103/comparison-bridge-lantern-flat.png",
       "kind": "image",
       "run": "lantern-hanging-20261103",
@@ -3083,7 +3076,7 @@
     },
     {
       "id": "lantern-hanging-20261103-lantern-hanging-stair-baseline-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "lantern-hanging-20261103/lantern-hanging-stair-baseline-plain.png",
       "kind": "image",
       "run": "lantern-hanging-20261103",
@@ -3097,7 +3090,7 @@
     },
     {
       "id": "lantern-hanging-20261103-lantern-hanging-stair-bridge-lantern-hanging-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "lantern-hanging-20261103/lantern-hanging-stair-bridge-lantern-hanging-plain.png",
       "kind": "image",
       "run": "lantern-hanging-20261103",
@@ -3111,7 +3104,7 @@
     },
     {
       "id": "lantern-hanging-20261103-comparison-bridge-lantern-stair",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "lantern-hanging-20261103/comparison-bridge-lantern-stair.png",
       "kind": "image",
       "run": "lantern-hanging-20261103",
@@ -3134,7 +3127,7 @@
     },
     {
       "id": "window-boundaries-20261103-window-boundaries-matching-window-native-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-boundaries-20261103/window-boundaries-matching-window-native-plain.png",
       "kind": "image",
       "run": "window-boundaries-20261103",
@@ -3148,7 +3141,7 @@
     },
     {
       "id": "window-boundaries-20261103-window-boundaries-matching-window-boundaries-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-boundaries-20261103/window-boundaries-matching-window-boundaries-plain.png",
       "kind": "image",
       "run": "window-boundaries-20261103",
@@ -3162,7 +3155,7 @@
     },
     {
       "id": "window-boundaries-20261103-window-boundaries-matching-baseline-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-boundaries-20261103/window-boundaries-matching-baseline-plain.png",
       "kind": "image",
       "run": "window-boundaries-20261103",
@@ -3176,7 +3169,7 @@
     },
     {
       "id": "window-boundaries-20261103-comparison-window-interiors-matching",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-boundaries-20261103/comparison-window-interiors-matching.png",
       "kind": "image",
       "run": "window-boundaries-20261103",
@@ -3203,7 +3196,7 @@
     },
     {
       "id": "window-boundaries-20261103-window-boundaries-mixed-window-native-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-boundaries-20261103/window-boundaries-mixed-window-native-plain.png",
       "kind": "image",
       "run": "window-boundaries-20261103",
@@ -3217,7 +3210,7 @@
     },
     {
       "id": "window-boundaries-20261103-window-boundaries-mixed-window-boundaries-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-boundaries-20261103/window-boundaries-mixed-window-boundaries-plain.png",
       "kind": "image",
       "run": "window-boundaries-20261103",
@@ -3231,7 +3224,7 @@
     },
     {
       "id": "window-boundaries-20261103-window-boundaries-mixed-baseline-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-boundaries-20261103/window-boundaries-mixed-baseline-plain.png",
       "kind": "image",
       "run": "window-boundaries-20261103",
@@ -3245,7 +3238,7 @@
     },
     {
       "id": "window-boundaries-20261103-comparison-window-interiors-mixed",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-boundaries-20261103/comparison-window-interiors-mixed.png",
       "kind": "image",
       "run": "window-boundaries-20261103",
@@ -3272,7 +3265,7 @@
     },
     {
       "id": "window-boundaries-20261103-fusion-internal-control-vanilla-slope-lantern-and-windows-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-boundaries-20261103/fusion-internal-control-vanilla-slope-lantern-and-windows-plain.png",
       "kind": "image",
       "run": "window-boundaries-20261103",
@@ -3285,7 +3278,7 @@
     },
     {
       "id": "lantern-hanging-20261103-final-lantern-choice-flat-slope-lantern-and-windows-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "lantern-hanging-20261103/final-lantern-choice-flat-slope-lantern-and-windows-plain.png",
       "kind": "image",
       "run": "lantern-hanging-20261103",
@@ -3298,7 +3291,7 @@
     },
     {
       "id": "lantern-hanging-20261103-final-lantern-choice-slope-slope-lantern-and-windows-plain",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "lantern-hanging-20261103/final-lantern-choice-slope-slope-lantern-and-windows-plain.png",
       "kind": "image",
       "run": "lantern-hanging-20261103",
@@ -3311,7 +3304,7 @@
     },
     {
       "id": "window-culling-20261103-framed-disabled",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-culling-20261103/framed-disabled.png",
       "kind": "image",
       "run": "window-culling-20261103",
@@ -3325,7 +3318,7 @@
     },
     {
       "id": "window-culling-20261103-framed-enabled",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-culling-20261103/framed-enabled.png",
       "kind": "image",
       "run": "window-culling-20261103",
@@ -3339,7 +3332,7 @@
     },
     {
       "id": "window-culling-20261103-comparison-window-interiors-framed",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-culling-20261103/comparison-window-interiors-framed.png",
       "kind": "image",
       "run": "window-culling-20261103",
@@ -3363,7 +3356,7 @@
     },
     {
       "id": "window-culling-20261103-wood-disabled",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-culling-20261103/wood-disabled.png",
       "kind": "image",
       "run": "window-culling-20261103",
@@ -3377,7 +3370,7 @@
     },
     {
       "id": "window-culling-20261103-wood-enabled",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-culling-20261103/wood-enabled.png",
       "kind": "image",
       "run": "window-culling-20261103",
@@ -3391,7 +3384,7 @@
     },
     {
       "id": "window-culling-20261103-comparison-window-interiors-wood",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-culling-20261103/comparison-window-interiors-wood.png",
       "kind": "image",
       "run": "window-culling-20261103",
@@ -3415,7 +3408,7 @@
     },
     {
       "id": "window-culling-20261103-iron-disabled",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-culling-20261103/iron-disabled.png",
       "kind": "image",
       "run": "window-culling-20261103",
@@ -3429,7 +3422,7 @@
     },
     {
       "id": "window-culling-20261103-iron-enabled",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-culling-20261103/iron-enabled.png",
       "kind": "image",
       "run": "window-culling-20261103",
@@ -3443,7 +3436,7 @@
     },
     {
       "id": "window-culling-20261103-comparison-window-interiors-iron",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-culling-20261103/comparison-window-interiors-iron.png",
       "kind": "image",
       "run": "window-culling-20261103",
@@ -3467,7 +3460,7 @@
     },
     {
       "id": "window-culling-20261103-rechiseled-y-x-disabled",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-culling-20261103/rechiseled-y-x-disabled.png",
       "kind": "image",
       "run": "window-culling-20261103",
@@ -3481,7 +3474,7 @@
     },
     {
       "id": "window-culling-20261103-rechiseled-y-x-enabled",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-culling-20261103/rechiseled-y-x-enabled.png",
       "kind": "image",
       "run": "window-culling-20261103",
@@ -3495,7 +3488,7 @@
     },
     {
       "id": "window-culling-20261103-comparison-window-interiors-rechiseled-y-x",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-culling-20261103/comparison-window-interiors-rechiseled-y-x.png",
       "kind": "image",
       "run": "window-culling-20261103",
@@ -3519,7 +3512,7 @@
     },
     {
       "id": "window-culling-20261103-matching-disabled",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-culling-20261103/matching-disabled.png",
       "kind": "image",
       "run": "window-culling-20261103",
@@ -3533,7 +3526,7 @@
     },
     {
       "id": "window-culling-20261103-matching-enabled",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-culling-20261103/matching-enabled.png",
       "kind": "image",
       "run": "window-culling-20261103",
@@ -3547,7 +3540,7 @@
     },
     {
       "id": "window-culling-20261103-comparison-window-interiors-matching",
-      "projects": ["create-skyweave-resource-patches"],
+      "projects": ["skyweave-visual-patches"],
       "file": "window-culling-20261103/comparison-window-interiors-matching.png",
       "kind": "image",
       "run": "window-culling-20261103",

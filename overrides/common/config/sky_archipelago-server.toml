@@ -2,12 +2,6 @@
 structureDebugEnabled = false
 #Broadcast accepted POI coordinates in server chat for debugging.
 structureDebugBroadcastEnabled = false
-#Emit detailed accepted/rejected structure placement logs.
-structureVerboseLogsEnabled = false
-#Suppress per-structure verbose logs for SMALL LAND placements; aggregate summary still records them.
-suppressSmallLandVerboseLogs = false
-#When enabled, only emit verbose logs related to UNDERGROUND structure placement.
-undergroundVerboseOnly = false
 #Emit periodic worldgen cache metrics (hit/miss/eviction age) for tuning cache unload behavior.
 cacheMetricsLogsEnabled = false
 #Enable adaptive TTL tuning for the worldgen column cache.
@@ -52,3 +46,7 @@ strongholdCompactMode = false
 worldgenPerformanceMetricsEnabled = false
 #Serialize final structure placement mutations for compatibility with parallel worldgen mods such as C2ME. Disable only for benchmarking or debugging.
 serializeStructurePlacementForParallelWorldgen = true
+
+# Additional native diagnostics remain off.
+riverDebugPillarsEnabled = false
+worldgenStartupDiagnosticsEnabled = false

@@ -76,12 +76,12 @@ export function textureDefinitions(
         'Generate the saved resource pack before refreshing its textures.',
         'after-refresh',
       )
-    revision['output:resource-patches'] = patch
+    revision['output:skyweave-visual-patches'] = patch
     for (const identifier of await textureIDs(ctx)) {
       const [namespace, name] = identifier.split(':')
       const file = path.join(
         ctx.registration.pack,
-        'pack-fixes/assets',
+        'resource-patches/assets',
         namespace,
         'textures',
         name + '.png',
@@ -90,12 +90,14 @@ export function textureDefinitions(
         if ((await fs.realpath(file)) !== file)
           throw new WorkspaceError(
             'INVALID_INPUT',
-            'Pack-fix texture symlinks are not supported',
+            'Resource-patch texture symlinks are not supported',
           )
-        revision['pack-fix:' + identifier] = hash(await fs.readFile(file))
+        revision['skyweave-resource-patches:' + identifier] = hash(
+          await fs.readFile(file),
+        )
       } catch (error) {
         if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error
-        revision['missing:pack-fix:' + identifier] = hash('')
+        revision['missing:skyweave-resource-patches:' + identifier] = hash('')
       }
     }
     return revision
@@ -113,11 +115,15 @@ export function textureDefinitions(
         ...(await resource.grants(ctx)),
         {
           action: 'source.read',
-          target: target(ctx.scope, 'source', 'output:resource-patches'),
+          target: target(ctx.scope, 'source', 'output:skyweave-visual-patches'),
         },
         ...(await textureIDs(ctx)).map((identifier) => ({
           action: 'source.read' as const,
-          target: target(ctx.scope, 'source', 'pack-fix:' + identifier),
+          target: target(
+            ctx.scope,
+            'source',
+            'skyweave-resource-patches:' + identifier,
+          ),
         })),
         {
           action: 'generation.run',

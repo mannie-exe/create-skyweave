@@ -258,26 +258,10 @@ smallSkyMinHostStableTopCells = 7
 customStructureRulesEnabled = true
 #Whether satellite/spire companion islands generate around anchor islands.
 clusterCompanionIslandsEnabled = true
-#Whether anchor islands use extra fragmentation features that create small outcroppings/debris.
-anchorFragmentationEnabled = true
-#Whether island clusters should be skipped when sampled biome is ocean.
-disableIslandsOverOceanBiomes = true
 #Island interior below or at this Y uses deepslate substrate. Values above 320 require world-height expansion mods/settings.
 # Default: 16
 # Range: -64 ~ 2000
 deepslateStartY = 16
-#Whether river/beach terrain profiles blend into neighboring non-river/beach profiles.
-biomeProfileBlendingEnabled = true
-#Neighborhood sample radius in blocks used by biome profile blending.
-# Default: 4
-# Range: 1 ~ 16
-biomeProfileBlendingRadiusBlocks = 4
-#Blend quantization steps. Higher values are smoother but slightly more variant.
-# Default: 8
-# Range: 2 ~ 64
-biomeProfileBlendingQuantizationSteps = 8
-#If true, extra blending samples run only near river/beach boundaries.
-biomeProfileBlendingBoundaryOnly = true
 #Structures that bypass normal support/grounding validation and are committed with minimal checks.
 #Whitelisted structures still require nearby-island presence via the whitelist void guard.
 #Examples: modid:sky_temple, modid:airship_wreck, modid:floating_platform
@@ -329,12 +313,6 @@ defaultSurfaceThrottleReducedMaxSiteOffsets = 16
 defaultSurfaceThrottleRegionSizeChunks = 32
 #Whether vanilla shipwrecks may bypass their native biome restrictions and spawn anywhere.
 shipwrecksAllowedInAnyBiome = false
-#Whether smaller sky structures may use their compatibility fallback placement path.
-smallSkyPlacementFallbackEnabled = false
-#Whether larger sky-surface structures may use their compatibility fallback placement path.
-surfaceSkyPlacementFallbackEnabled = false
-#Whether legacy hamlet-category structures may use their compatibility fallback placement path.
-hamletSkyPlacementFallbackEnabled = false
 #How overlapping island terrain columns are resolved.
 #Allowed Values: VOID, OVERLAP, CRATER, RANDOM
 terrainOverlapMode = "VOID"

@@ -41,7 +41,7 @@ See [release notes](RELEASE_NOTES.md) for the published version.
 | Controlling | 19.0.5 | [Exact version](https://modrinth.com/mod/controlling/version/FaNppCJJ) |
 | Cool Rain Reforged | 1.0.2 | [Exact version](https://modrinth.com/mod/cool-rain-reforged/version/SwSSfJQQ) |
 | Copycat Bar Extrusion | 0.1.0 | [Exact release](https://github.com/mannie-exe/copycat-bar-extrusion/releases/tag/v0.1.0) |
-| Skyweave: Compatibility Patches | 0.22.1 | [GitHub release](https://github.com/mannie-exe/skyweave-compat/releases/tag/v0.22.1) |
+| Skyweave: Compatibility Patches | 0.23.0 | [GitHub release](https://github.com/mannie-exe/skyweave-compat/releases/tag/v0.23.0) |
 | Create Accessories Compat | 1.0 | [Exact version](https://modrinth.com/mod/create-accessories-compat/version/2r7hvkCQ) |
 | Create Aeronautics | 1.3.2+mc1.21.1 | [Exact version](https://modrinth.com/mod/create-aeronautics/version/44pLdPGg) |
 | Create Aeronautics: Transmission & Linkage | 0.2.9 | [Exact version](https://modrinth.com/mod/create-aeronautics-transmission-linkage/version/WoUjC6d4) |
@@ -52,8 +52,8 @@ See [release notes](RELEASE_NOTES.md) for the published version.
 | Create Confectionery | 1.1.3.b | [Exact version](https://modrinth.com/mod/create-confectionery/version/ndnETBEN) |
 | Create Deco | 2.1.3 | [Exact version](https://modrinth.com/mod/create-deco/version/qrcMVoBD) |
 | Create Propulsion: Simulated | 1.1.5 | [Exact version](https://modrinth.com/mod/create-propulsion-simulated/version/H13U56dc) |
-| Create Skyweave Resource Patches | Generated from pinned inputs | [Recipe and generator](development/patches.md#visual-patch-boundaries) |
-| Create Skyweave resources | 0.1.0 (local) | [Maintained sources](../pack-fixes/) |
+| Skyweave: Visual Patches | Generated from pinned inputs | [Recipe and generator](development/patches.md#visual-patch-boundaries) |
+| Skyweave: Resource Patches | 0.1.0 (local) | [Maintained sources](../resource-patches/) |
 | Create Touch-Ups | 1.0 | [Exact version](https://modrinth.com/version/aoJf3Iu6) |
 | Create | 6.0.10+mc1.21.1 | [Exact version](https://modrinth.com/mod/create/version/UjX6dr61) |
 | Create: Addon Compatibility | 1.0.0 | [Exact version](https://modrinth.com/mod/createaddoncompatibility/version/tL1Tayuh) |
@@ -157,7 +157,7 @@ See [release notes](RELEASE_NOTES.md) for the published version.
 | Shulker Box Tooltip | 5.1.9+1.21.1-neoforge | [Exact version](https://modrinth.com/mod/shulkerboxtooltip/version/IuqNIoAi) |
 | Simple 3D Bars | 1.0.3 | [Exact version](https://modrinth.com/resourcepack/simple-3d-iron-bars/version/harPhc3X) |
 | Sinytra Connector | 2.0.0-beta.17+1.21.1 | [Exact version](https://modrinth.com/mod/connector/version/IITF0PRC) |
-| Sky Archipelago | 1.3.6 | [Exact version](https://modrinth.com/mod/sky-archipelago/version/RwLz4CJb) |
+| Sky Archipelago | 1.4 | [Exact version](https://modrinth.com/mod/sky-archipelago/version/XPc17YJD) |
 | Sky Villages | 1.0.6 | [Exact version](https://modrinth.com/mod/sky-villages/version/3InSHTOp) |
 | Sodium Extra | mc1.21.1-0.9.5+neoforge | [Exact version](https://modrinth.com/mod/sodium-extra/version/T819dLGI) |
 | Sodium | mc1.21.1-0.8.13-neoforge | [Exact version](https://modrinth.com/mod/sodium/version/uMOpc5uV) |

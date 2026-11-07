@@ -27,7 +27,7 @@ generation; the Atlas edits the same files and must not maintain separate rules.
 | `authoring/journal/defaults.json`         | Shared native display properties                                         |
 | `authoring/journal/locales/<locale>.json` | Chapter names, entry text, shared disclaimers and short objective labels |
 | `overrides/common/config/questlog/`       | Generated native chapters and quests                                     |
-| `pack-fixes/assets/create_skyweave/lang/` | Generated Minecraft language resources                                   |
+| `resource-patches/assets/create_skyweave/lang/` | Generated Minecraft language resources                                   |
 
 Each locale entry has `title`, optional `flavor`, full `requirements`, a
 `description` paragraph array, a shared `disclaimer` key or null, and `labels`.
@@ -93,7 +93,7 @@ python3 scripts/generate-journal.py
 python3 scripts/generate-journal.py --check
 python3 scripts/audit-changes.py
 python3 -m unittest discover -s tests -v
-python3 scripts/build-fixes.py
+python3 scripts/build-resource-patches.py
 ```
 
 Generated JSON and exact `managed` policies in `empack.bindings.yml` stay in Git

@@ -27,7 +27,7 @@ records:
     detail: Fixed Create Deco's white-placard ingredient; gated six optional integration recipes on their actual dependencies; corrected 32 Interiors chair recoloring dye tags and the metro-window glass tag. The audit server loads the recipes without the original seven parsing errors. No new technology gate or ingredient cost was introduced.
     sources:
       [
-        '~/Minecraft/create-skyweave/pack-fixes/data',
+        '~/Minecraft/create-skyweave/resource-patches/data',
         'runtime/recipes.json',
         'runtime/resources.json',
       ]

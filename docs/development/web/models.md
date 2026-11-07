@@ -17,7 +17,7 @@ registered inputs. None of these actions enables a pack or changes recipes.
 object. Drafts survive switches between cases, source views and comparisons.
 Source links and browser history retain the corresponding object/case. Save
 recipes validates and writes the recipe document; Generate resource pack builds
-the saved enabled recipes into `Create Skyweave Resource Patches.zip`. Installation is
+the saved enabled recipes into `skyweave-visual-patches-0.1.0.zip`. Installation is
 separate. Refresh previews rebuilds the disposable object catalogue; Export static
 models refreshes the admitted client meshes before rebuilding that catalogue.
 Both run through named jobs and Activity; neither changes installed instances.
@@ -32,7 +32,7 @@ requires confirmation.
 ## Sources and output
 
 `authoring/model-recipes.json` owns model IDs, input bindings, extrusion settings,
-fitting edits and inclusion switches. `authoring/resource-patches.json` owns exact
+fitting edits and inclusion switches. `authoring/visual-patches.json` owns exact
 archive versions, hashes and acquisition URLs. Add new input sources there after
 reviewing their selected empack versions and active resource overlays.
 
@@ -186,7 +186,7 @@ The Lootr-specific CEM exterior UVs are fitted to the approved native atlas when
 shipping artwork is enabled. Donor interior mappings are retained.
 
 Pack-owned layers resolve texture bytes from the resource-patch ZIP, then
-`pack-fixes`, with the pinned Lootr original as fallback. The inspector records
+`resource-patches`, with the pinned Lootr original as fallback. The inspector records
 the winning owner per binding and the generated index records the patch ZIP hash.
 The generated resource pack now supplies the approved Lootr PNGs and directional
 barrel bindings. The inspector verifies its per-resource output hashes before
@@ -194,7 +194,7 @@ reporting inclusion; enabled source alone does not establish generated content. 
 third-party resource-pack stacks. Barrel previews use the actual generated clasp
 geometry and directional bindings; source-off shows the native cube.
 
-The checkbox compares the built ZIP and pack-fixes resources with their upstream
+The checkbox compares the built ZIP and resource-patches resources with their upstream
 baseline; it does not preview an ungenerated artwork draft. Barrels display every face in a two-column
 pseudo-atlas with small labels; chests show one large atlas. Generating previews
 does not install resources. Recheck material boundaries, atlas mappings, the
@@ -334,7 +334,7 @@ rules visible. Patch ownership and update procedures remain in the
 `scripts/resource_stack.py` resolves admitted paths, inheritance and bindings.
 `scripts/object_inputs.py` derives participating client assets from the empack lock
 and enabled order from `overrides/client/options.txt`, including the selected
-Analog Audio built-in pack. Native mod assets and the resource-only pack-fixes JAR
+Analog Audio built-in pack. Native mod assets and the resource-only resource-patches JAR
 are native inputs, not arbitrarily top-priority ZIPs. Conflicting unequal native
 mod definitions remain unresolved unless a known higher pack supplies the path.
 Filters follow Minecraft 1.21.1 namespace/path matching; format-34 overlays and the
@@ -450,7 +450,7 @@ Paths in this table are relative to the pack repository root.
 | Archive selection and hash verification              | `scripts/resource_inputs.py`             |
 | PNG decoding, masks, geometry and fitting validation | `scripts/model_authoring.py`             |
 | Read-only editor bridge                              | `scripts/model-workbench.py`             |
-| Deterministic combined resource pack                 | `scripts/build-resource-patches.py`      |
+| Deterministic combined resource pack                 | `scripts/build-visual-patches.py`        |
 | Local file revisions, saves and generation requests  | `web/scripts/workspace/models.ts`        |
 | Recipe controls and draft state                      | `web/src/lib/model-authoring.ts`         |
 | Built artwork/model preview and catalogue            | `web/src/lib/resource-preview.ts`        |
@@ -459,7 +459,7 @@ Paths in this table are relative to the pack repository root.
 
 Use `python3 scripts/model-workbench.py --validate` to validate saved recipes
 without publishing. `--stdin` validates or previews an unsaved JSON document.
-Run `python3 scripts/build-resource-patches.py --check` to check existing output,
+Run `python3 scripts/build-visual-patches.py --check` to check existing output,
 or omit `--check` to generate it. The owning [patch guide](../patches.md) covers
 dependency updates and the separate Lootr/Fresh Objects renderer integration.
 

@@ -83,7 +83,7 @@ test(
       vanilla: 'vanilla.jar',
     })
     await write('vanilla.jar', 'fixture vanilla bytes')
-    await write('authoring/resource-patches.json', {
+    await write('authoring/visual-patches.json', {
       schema: 1,
       sources: {
         minecraft: {
