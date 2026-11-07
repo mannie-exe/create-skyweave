@@ -7931,14 +7931,14 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.23.0/skyweave-compat-0.23.0-mc1.21.1-neoforge.jar
+          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.23.1/skyweave-compat-0.23.1-mc1.21.1-neoforge.jar
         kind: url
       expected:
         accepted-observation: null
         digests:
-          sha1: 7fa577a8a294aa7bd8e5a02536cdfc0e2a42be2b
+          sha1: 711758520c6e58a913055ba1f7bf792fcfef31e0
           sha512: >-
-            f581b1d1dc4f4b3a8ee014d94b88e482662888263417e7c3986d7aedefb638b7e7b897ced3843ad21a660fb8474fd3ed40f945e58c8e1c71f1e86e8cc3885131
+            23c798a5c17cd289c93de028094214d27345bc39a234fd14a251b349f7700aa701a3748249260e412ab205fb156e18735f6f190794c8b2af087de27e0ae3b212
         size: null
       placements:
       - destination: mods/skyweave-compat.jar
@@ -7949,9 +7949,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: 7fa577a8a294aa7bd8e5a02536cdfc0e2a42be2b
+          sha1: 711758520c6e58a913055ba1f7bf792fcfef31e0
           sha512: >-
-            f581b1d1dc4f4b3a8ee014d94b88e482662888263417e7c3986d7aedefb638b7e7b897ced3843ad21a660fb8474fd3ed40f945e58c8e1c71f1e86e8cc3885131
+            23c798a5c17cd289c93de028094214d27345bc39a234fd14a251b349f7700aa701a3748249260e412ab205fb156e18735f6f190794c8b2af087de27e0ae3b212
         location: null
         source: url-file
       slot: primary
@@ -8816,7 +8816,7 @@ dependencies:
       provider: modrinth
       selector: OnlVIpq5
     title: Fast Noise
-intent-revision: 75efccf4554cd9065b3ecbf48f5135d372cc16902fb2e223ffe15b8d677fd620
+intent-revision: 7df323a18f088dbbb9c3b1ae789b6b9c98abdf2ed4a824038a9e5ff7ad68e7c6
 required-edges:
   accessories:
   - owo-lib

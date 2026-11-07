@@ -2,6 +2,18 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.3.1 · 2026-11-07
+
+### Fixes
+
+- **resources:** Correct connected pane lighting definitions ([87a0700](https://github.com/mannie-exe/create-skyweave/commit/87a070014c8d3b76f5630d1a27344e75f89bb406))
+
+### Documentation
+
+- Record published 0.3.0 verification ([73029bd](https://github.com/mannie-exe/create-skyweave/commit/73029bd7961b90914fbb1357d0472d1c2e4217ff))
+
+- Align generation pin guidance with 1.4 ([e2ed4c8](https://github.com/mannie-exe/create-skyweave/commit/e2ed4c816dc6a525f25bdc7a1bdbc449f6a642a0))
+
 ## v0.3.0 · 2026-11-07
 
 ### Features
