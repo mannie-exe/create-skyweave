@@ -70,12 +70,23 @@ Mangrove surfaces receive mud unless an existing upstream material override appl
 
 Ancient Cities use actual interior placement and final biome eligibility. `skyweave_compat-ancient-cities.json` sets minimum sampled exterior-body burial to 0.90 for normal/NOISE hosts, with separate core and floor checks. Bounded peripheral exposure is allowed; HOLLOW hosts instead require an existing cavity with floor/roof support. Piece-aware vanilla-style clearance opens room around accepted layouts while retaining the island shell, native foundations and authored water beds. An unsuitable site is rejected without a surface fallback or giant platform. Layouts, canonical starts and locate remain native.
 
-`skyweave_compat-oceans.json` keeps floating ocean habitats disabled. Native 1.4 owns their archetypes, materials and biome projection. Small profile extensions provide deliberate coastal outlets and falling-perimeter edges on eligible Lagoon/Reef Ring hosts; there is no separate enclosed ocean generator. Wet hosts have no land companions. Enabling them changes generation identity and requires a fresh world. Aquatic progression and natural populations remain unqualified.
+`skyweave_compat-oceans.json` enables floating ocean habitats by default. Native 1.4 owns their archetypes, materials and biome projection. Small profile extensions provide deliberate coastal outlets and falling-perimeter edges on eligible Lagoon/Reef Ring hosts; there is no separate enclosed ocean generator. Wet hosts have no land companions. The continuous global ocean layer remains disabled. Changing these values changes generation identity and requires a fresh world; explicit existing opt-outs are preserved by Compat. Aquatic progression and natural populations remain unqualified.
 
 The mod's [terrain reference](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/terrain.md)
 owns feature coverage and implementation. Its
 [configuration reference](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/configuration.md)
 owns geometry validation. Pack configuration above owns the selected values.
+
+### Structure discoveries
+
+The marked preset uses Compat's cluster-family distribution defaults. Eligible
+terrain area and biome validity supply stable allowances; void relocation sources
+and variants cannot each claim another allowance. Fitted native starts retain
+layout and delivery checks. Multiple ordinary villages are allowed, with outposts
+checked against their final anchors. Sky Villages retains its separate zero-to-three
+allowance. [Structures](structures.md#cluster-discoveries) owns pack policy and the
+link to the mod's configurable rates. This changes saved generation identity;
+existing worlds require their recorded artifact/configuration or a separate fresh world.
 
 ### Villages and atmosphere
 

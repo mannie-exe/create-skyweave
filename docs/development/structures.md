@@ -3,7 +3,7 @@
 ## Placement and compatibility
 
 The source includes [Sky Villages 1.0.6 for NeoForge](https://modrinth.com/mod/sky-villages/version/3InSHTOp)
-with Minecraft 1.21.1, NeoForge 21.1.264 and Architectury 13.0.11. This is distinct from
+with Minecraft 1.21.1, the manifest-pinned NeoForge and Architectury 13.0.11. This is distinct from
 Create: Sky Village.
 Sky Villages uses datapack resources rather than a generated TOML. Maintained
 resources live in `resource-patches/data/skyvillages`; the structures audit register
@@ -32,9 +32,37 @@ player-inserted records are unaffected. No third-party NBT templates are copied.
 
 Sky Archipelago classifies `skyvillage` as `SKY` before its village-name rule.
 Village-tag membership supports Delivery Quests lookup without changing that
-classification. Ocean biomes are eligible even though terrain islands over ocean
-biomes are disabled. Eligibility alone does not establish that a usable village
+classification. Ocean biomes are eligible; native floating ocean habitats are enabled in the
+Skyweave profile. Eligibility alone does not establish that a usable village
 will appear in an ocean void; structure placement rules still apply.
+
+## Cluster discoveries
+
+Skyweave: Compatibility Patches owns the `terrain.structure_distribution`
+adaptation in the marked preset. Ordinary vanilla families share one allowance
+across a main island and its companions; eligible terrain/biomes contribute to it,
+while surrounding void and the number of registered variants do not. Deterministic
+fractional counts, finite fitting alternatives and native placement checks produce
+occasional discoveries rather than collecting every nearby source opportunity.
+
+The mod defaults own `skyweave_compat-structures.json`; this pack does not duplicate
+those values in a second profile. Its [configuration reference](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/configuration.md#structure-distribution)
+lists rates, family caps and tuning units. Rates describe expected allowances,
+not guaranteed realized starts or independent per-island probabilities.
+
+Portals and ordinary/beached wrecks each have a shared maximum of one per
+cluster. Multiple fitted ordinary villages may coexist; outposts use the
+configured square exclusion around successful final village anchors. Ordinary
+villages and Sky Villages retain separate placement owners. Cities retain their
+interior, burial and cavern checks. Strongholds, ocean monuments/ruins, unknown
+modded sets and local placed features retain their existing controls.
+
+Owned igloos and desert pyramids retain their accepted island anchors through
+native placement and saving. Loot, optional igloo basements, temple traps and
+archaeology remain native. Placement-policy changes require a fresh world;
+saved generation identity prevents silent conversion. Recheck family routing,
+final-space exclusion, reference/locate behavior and physical content when updating
+Sky Archipelago or Minecraft. Do not infer useful structures from start counts alone.
 
 ## Resources, crops and loot
 

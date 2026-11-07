@@ -129,7 +129,9 @@ unknown dependency evidence; `--forget` deliberately retains installed content.
 The mod itself requires no content mods. The pack deliberately installs Sky
 Archipelago and enables its expanded preset. Geometry remains in
 `skyweave_compat-generation.json`; village tuning remains in
-`skyweave_compat-common.toml`. Client defaults and the server template select
+`skyweave_compat-common.toml`. Structure-family defaults belong to Compat’s
+`skyweave_compat-structures.json`; [structure policy](structures.md#cluster-discoveries)
+explains its native exceptions and update checks. Client defaults and the server template select
 `skyweave_compat:islands_v1` only for new worlds. Distributed seeds remain blank.
 
 For development, use a marked disposable empack workspace with local JAR inputs

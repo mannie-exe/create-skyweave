@@ -1,5 +1,5 @@
 {
-  "enabled": false,
+  "enabled": true,
   "coastalChance": 0.04,
   "perimeterChance": 0.01,
   "perimeterMinRadius": 40,

@@ -54,7 +54,7 @@ See [missing distant terrain](graphics.md#missing-distant-terrain) for client ch
 
 ## Webmap
 
-Create Sky 0.1.15 includes BlueMap 5.7 in server exports only. Clients do not
+Server exports include BlueMap. Clients do not
 download BlueMap or its configs.
 
 On a fresh server, review BlueMap's resource-download terms and set

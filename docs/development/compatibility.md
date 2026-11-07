@@ -6,6 +6,28 @@ Player instructions belong in [graphics](../players/graphics.md) and
 [content list](../MODLIST.md), with authoritative selections in `empack.yml` and
 `empack.lock`.
 
+## Release 0.4.0
+
+Verified on 2026-11-07 with Minecraft 1.21.1, NeoForge 21.1.265 and the public
+Compat 0.24.0 JAR (`6903219861c1479a29224b1dbed7c21847c1647d50db0d995bed67a4a4ce2ff4`).
+Its published bytes match the locally tested build and the Linux/Windows/macOS
+release matrix. All 67 pack Python tests, 88 journal outputs and the 258-file
+configuration audit pass. Shader-lab and both resource builders retain their
+existing outputs. All three distributions build and their archives contain the
+new Compat pin and enabled ocean profile; the server terminal wrapper is applied.
+
+Compat's [native verification](https://github.com/mannie-exe/skyweave-compat/blob/v0.24.0/docs/development/verification.md#cluster-structure-distribution)
+owns structure-policy fixtures, specialized materialization/loot, configuration,
+parallel/order/cache/lifecycle checks and limitations. This pack changes generation
+identity and requires a fresh world. It does not qualify every structure layout,
+ocean progression or survival scarcity. Existing resource and shader choices are
+unchanged; their earlier visual evidence retains its scope.
+
+The Atlas runtime was captured from the complete locked mod set in a disposable
+server, then extracted and compiled. Snapshot checks pass. Historical world and
+village surveys remain observations of their recorded inputs, not a scan of the
+new server world. No Debug World regeneration is required by this update.
+
 ## Release 0.2.3
 
 Verified on 2026-11-06 with Minecraft 1.21.1, NeoForge 21.1.265 and public Compat
@@ -25,7 +47,7 @@ Kinematics' CurseForge CDN. GitHub remains the distribution target.
 The current native UI and rendering evidence belongs to Compat's
 [verification guide](https://github.com/mannie-exe/skyweave-compat/blob/v0.22.1/docs/development/verification.md).
 The pack update changes no terrain formulas, saved world identity, seed or ore
-distribution. The separately planned Sky Archipelago 1.4 port remains deferred.
+distribution. That release precedes the Sky Archipelago 1.4 port.
 Atlas checks and Debug World evidence are in [web verification](web/verification.md).
 
 ## Shader assembly, 0.2.2

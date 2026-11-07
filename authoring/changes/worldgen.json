@@ -67,9 +67,9 @@
     },
     {
       "path": "overrides/common/config/skyweave_compat-oceans.json",
-      "sha256": "e31b93b85dc82170eeeb97ede23b3c05447c55c1892b17efd604192e638a1dda",
+      "sha256": "3706eaf476065306044cd9eb695bc4b9eba109d608e15f57c4a315912ebe7f48",
       "review": "reviewed",
-      "reason": "Floating ocean archetypes and native-profile coastal/perimeter extensions remain opt-in; global ocean stays disabled.",
+      "reason": "Enable native floating ocean islands and coastal/perimeter extensions by default; the continuous global ocean layer stays disabled.",
       "reference": "docs/development/worldgen.md"
     },
     {
