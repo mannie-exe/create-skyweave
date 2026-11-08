@@ -1,0 +1,130 @@
+{
+  "type": "lithostitched:add_template_pool_elements",
+  "template_pools": "ctov:village/christmas/house",
+  "elements": [
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/snowy/houses/snowy_medium_house_2",
+          "processors": {
+            "processors": []
+          },
+          "projection": "rigid"
+        },
+        "name": "skyweave_compat:villages/christmas/residence",
+        "max_count": 2
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/snowy/houses/snowy_small_house_4",
+          "processors": {
+            "processors": []
+          },
+          "projection": "rigid"
+        },
+        "name": "skyweave_compat:villages/christmas/residence",
+        "max_count": 2
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/snowy/houses/snowy_armorer_house_1",
+          "processors": {
+            "processors": []
+          },
+          "projection": "rigid"
+        },
+        "name": "skyweave_compat:villages/christmas/workshop",
+        "max_count": 1
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/snowy/houses/snowy_farm_1",
+          "processors": "minecraft:farm_snowy",
+          "projection": "rigid"
+        },
+        "name": "skyweave_compat:villages/christmas/farm",
+        "max_count": 1
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "location": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_small_house_5",
+          "processors": "minecraft:street_snowy_or_taiga",
+          "projection": "rigid",
+          "element_type": "minecraft:legacy_single_pool_element"
+        },
+        "name": "skyweave_compat:villages/christmas/residence",
+        "max_count": 2
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "location": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_small_house_1",
+          "processors": "minecraft:street_snowy_or_taiga",
+          "projection": "rigid",
+          "element_type": "minecraft:legacy_single_pool_element"
+        },
+        "name": "skyweave_compat:villages/christmas/residence",
+        "max_count": 2
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "location": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_cartographer_1",
+          "processors": "minecraft:street_snowy_or_taiga",
+          "projection": "rigid",
+          "element_type": "minecraft:legacy_single_pool_element"
+        },
+        "name": "skyweave_compat:villages/christmas/workshop",
+        "max_count": 1
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "location": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_small_farm_1",
+          "processors": "minecraft:farm_snowy",
+          "projection": "rigid",
+          "element_type": "minecraft:legacy_single_pool_element"
+        },
+        "name": "skyweave_compat:villages/christmas/farm",
+        "max_count": 1
+      }
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ctov"
+    }
+  ]
+}

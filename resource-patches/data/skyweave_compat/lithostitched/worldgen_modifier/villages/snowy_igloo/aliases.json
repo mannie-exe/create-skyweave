@@ -1,0 +1,37 @@
+{
+  "type": "lithostitched:set_pool_aliases",
+  "structures": [
+    "ctov:small/village_snowy_igloo",
+    "ctov:medium/village_snowy_igloo",
+    "ctov:large/village_snowy_igloo"
+  ],
+  "pool_aliases": [
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/snowy/houses",
+      "target": "ctov:village/snowy_igloo/house"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/snowy/streets",
+      "target": "ctov:village/snowy_igloo/roads"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/snowy/decor",
+      "target": "ctov:village/snowy_igloo/deco"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/snowy/terminators",
+      "target": "ctov:village/snowy_igloo/terminator"
+    }
+  ],
+  "append": true,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ctov"
+    }
+  ]
+}

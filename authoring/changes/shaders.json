@@ -38,14 +38,14 @@
       "reference": "docs/development/compatibility.md#shader-patching"
     },
     {
-      "path": "overrides/client/config/skyweave-shaders/recipes/bsl-colorwheel.json",
+      "path": "overrides/client/config/skyweave/shaders/recipes/bsl-colorwheel.json",
       "sha256": "0db2ba67bc36296c972163ff42e85927f9f308af01a8a546732fee9785a85c88",
       "review": "reviewed",
       "reason": "Generate qualified shaders with existing material corrections and world-scoped cave/void fixes through the shared Java engine.",
       "reference": "tools/shader-lab/README.md"
     },
     {
-      "path": "overrides/client/config/skyweave-shaders/recipes/complementary-euphoria-skyweave.json",
+      "path": "overrides/client/config/skyweave/shaders/recipes/complementary-euphoria-skyweave.json",
       "sha256": "09739e1f5b4809aec59371ed7cd7464709effa620abfd606702577b0826bf303",
       "review": "reviewed",
       "reason": "Generate qualified shaders with existing material corrections and world-scoped cave/void fixes through the shared Java engine.",

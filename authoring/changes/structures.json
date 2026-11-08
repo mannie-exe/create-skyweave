@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "baseline": "b5465d2aaf4b685baa46093fc805da0a51047bd9",
-  "note": "Sky Villages placement beside island terrain and scarce foundation minerals. Candidate frequency, biome eligibility, chest loot and crop mix retain upstream defaults.",
+  "note": "Sky Villages placement and resources; staged ordinary-settlement resource exclusions. Layout composition and loot tiers remain under review.",
   "records": [
     {
       "path": "resource-patches/data/skyvillages/worldgen/template_pool/skyvillage_bridges.json",
@@ -28,7 +28,7 @@
       "path": "resource-patches/data/skyvillages/worldgen/structure/skyvillage.json",
       "sha256": "3936dad2c79025ea454096e1424ee820282dd5eb63bf8b417ff5ae240380e6e8",
       "review": "reviewed",
-      "reason": "Use absolute start Y 160\u2013224 without terrain projection; retain jigsaw depth, radius, biome eligibility and spawn policy. Provisional sky-world placement, not final density tuning.",
+      "reason": "Use absolute start Y 160–224 without terrain projection; retain jigsaw depth, radius, biome eligibility and spawn policy. Provisional sky-world placement, not final density tuning.",
       "reference": "docs/development/structures.md"
     },
     {
@@ -46,11 +46,781 @@
       "reference": "docs/development/structures.md"
     },
     {
-      "path": "overrides/common/config/skyweave_compat-common.toml",
+      "path": "overrides/common/config/skyweave/skyweave_compat-common.toml",
       "sha256": "c5c37f3d896fe9f6efd613e3f82ded5dc9d46f39c705e6ce66a9ffeba41d1787",
       "review": "reviewed",
       "reason": "Village distance tuning; adaptation activation is owned by the startup feature file.",
       "reference": "docs/development/structures.md"
+    },
+    {
+      "path": "resource-patches/data/ctov/lithostitched/worldgen_modifier/advancedperipherals/beach.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable CTOV computer-lab injection with out-of-range template palette states; preserve other optional jobs.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/ctov/lithostitched/worldgen_modifier/advancedperipherals/christmas.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable CTOV computer-lab injection with out-of-range template palette states; preserve other optional jobs.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/ctov/lithostitched/worldgen_modifier/advancedperipherals/dark_forest.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable CTOV computer-lab injection with out-of-range template palette states; preserve other optional jobs.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/ctov/lithostitched/worldgen_modifier/advancedperipherals/desert_oasis.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable CTOV computer-lab injection with out-of-range template palette states; preserve other optional jobs.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/ctov/lithostitched/worldgen_modifier/advancedperipherals/jungle.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable CTOV computer-lab injection with out-of-range template palette states; preserve other optional jobs.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/ctov/lithostitched/worldgen_modifier/advancedperipherals/jungle_tree.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable CTOV computer-lab injection with out-of-range template palette states; preserve other optional jobs.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/ctov/lithostitched/worldgen_modifier/advancedperipherals/mesa.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable CTOV computer-lab injection with out-of-range template palette states; preserve other optional jobs.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/ctov/lithostitched/worldgen_modifier/advancedperipherals/mesa_fortified.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable CTOV computer-lab injection with out-of-range template palette states; preserve other optional jobs.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/ctov/lithostitched/worldgen_modifier/advancedperipherals/mountain.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable CTOV computer-lab injection with out-of-range template palette states; preserve other optional jobs.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/ctov/lithostitched/worldgen_modifier/advancedperipherals/mountain_alpine.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable CTOV computer-lab injection with out-of-range template palette states; preserve other optional jobs.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/ctov/lithostitched/worldgen_modifier/advancedperipherals/mushroom.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable CTOV computer-lab injection with out-of-range template palette states; preserve other optional jobs.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/ctov/lithostitched/worldgen_modifier/advancedperipherals/plains.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable CTOV computer-lab injection with out-of-range template palette states; preserve other optional jobs.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/ctov/lithostitched/worldgen_modifier/advancedperipherals/plains_fortified.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable CTOV computer-lab injection with out-of-range template palette states; preserve other optional jobs.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/ctov/lithostitched/worldgen_modifier/advancedperipherals/savanna.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable CTOV computer-lab injection with out-of-range template palette states; preserve other optional jobs.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/ctov/lithostitched/worldgen_modifier/advancedperipherals/savanna_na.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable CTOV computer-lab injection with out-of-range template palette states; preserve other optional jobs.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/ctov/lithostitched/worldgen_modifier/advancedperipherals/snowy.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable CTOV computer-lab injection with out-of-range template palette states; preserve other optional jobs.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/ctov/lithostitched/worldgen_modifier/advancedperipherals/swamp.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable CTOV computer-lab injection with out-of-range template palette states; preserve other optional jobs.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/ctov/lithostitched/worldgen_modifier/advancedperipherals/swamp_fortified.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable CTOV computer-lab injection with out-of-range template palette states; preserve other optional jobs.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/ctov/lithostitched/worldgen_modifier/advancedperipherals/taiga.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable CTOV computer-lab injection with out-of-range template palette states; preserve other optional jobs.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/ctov/lithostitched/worldgen_modifier/advancedperipherals/taiga_fortified.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable CTOV computer-lab injection with out-of-range template palette states; preserve other optional jobs.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/wares/loot_table/chests/village/badlands_warehouse.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable obsolete optional CTOV/Wares warehouse loot; no Wares integration is selected.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/wares/loot_table/chests/village/beach_warehouse.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable obsolete optional CTOV/Wares warehouse loot; no Wares integration is selected.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/wares/loot_table/chests/village/dark_forest_warehouse.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable obsolete optional CTOV/Wares warehouse loot; no Wares integration is selected.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/wares/loot_table/chests/village/jungle_warehouse.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable obsolete optional CTOV/Wares warehouse loot; no Wares integration is selected.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/wares/loot_table/chests/village/mountain_warehouse.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable obsolete optional CTOV/Wares warehouse loot; no Wares integration is selected.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/wares/loot_table/chests/village/mushroom_warehouse.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable obsolete optional CTOV/Wares warehouse loot; no Wares integration is selected.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/wares/loot_table/chests/village/swamp_warehouse.json",
+      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "review": "reviewed",
+      "reason": "Disable obsolete optional CTOV/Wares warehouse loot; no Wares integration is selected.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/kaisyn/worldgen/template_pool/village/beach_lighthouse/villager_lighthouse_master.json",
+      "sha256": "8778bf79e572e95270416322908239bd4b3d4dadf239517b4ddc1fab72cdab65",
+      "review": "reviewed",
+      "reason": "Resolve the missing regional villager pool with existing adult templates; no custom leader mechanics.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/kaisyn/worldgen/template_pool/village/exclusives/mediterranean/villager_bishop.json",
+      "sha256": "e6ffeb0c0a2473b28172ee0d487242831ec2b7c8343e3cdba4e12ef647aeb2d2",
+      "review": "reviewed",
+      "reason": "Resolve the missing regional villager pool with existing adult templates; no custom leader mechanics.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/kaisyn/worldgen/template_pool/village/meadow_swiss/villagers.json",
+      "sha256": "671079d1acf16509f918cb9e23f771884a4486a9101f65b6164533fac6a9165b",
+      "review": "reviewed",
+      "reason": "Resolve the missing population pool with native plains nitwit/baby/unemployed weights 1/1/10.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/kaisyn/worldgen/template_pool/village/sparse_jungle_polynesian/villager_village_chief.json",
+      "sha256": "5d7b97177cb83a0909456696cbb2f3131c043f8ec70f0adf850c6a23b193e530",
+      "review": "reviewed",
+      "reason": "Resolve the missing regional villager pool with existing adult templates; no custom leader mechanics.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/tags/worldgen/structure/managed/desert_temples.json",
+      "sha256": "9967de67bee6c5ca1e40475f7027924d5854003115d89d36ca2f93990e696e72",
+      "review": "reviewed",
+      "reason": "Admit the qualified native YUNG replacement to the existing island structure-family allowance.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/tags/worldgen/structure/managed/jungle_temples.json",
+      "sha256": "403c3de3750476475177ea217663a2b010851a0811aef5cd9dbdbc2bf0456767",
+      "review": "reviewed",
+      "reason": "Admit the qualified native YUNG replacement to the existing island structure-family allowance.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/tags/worldgen/structure/managed/mineshafts.json",
+      "sha256": "7475e16ad73d33b8bd52e12593770ff69ea011d882179e65e106be9e90d25beb",
+      "review": "reviewed",
+      "reason": "Admit the thirteen qualified native Better Mineshaft variants to one shared island-family allowance.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/tags/worldgen/structure/managed/swamp_huts.json",
+      "sha256": "954dc127420420e59f07e4d24921d96b8a1652185c9dd155e7807c16f007a8a7",
+      "review": "reviewed",
+      "reason": "Route native YUNG witch huts and circles through one shared encounter allowance, preserving eligible weighted alternatives.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/minecraft/worldgen/structure_set/pillager_outposts.json",
+      "sha256": "6c6ac8b5b9f4d1bc2aa7864cd9fd244579220e222aea50645adeea7f0013c73b",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/minecraft/worldgen/structure_set/villages.json",
+      "sha256": "f54fa2f5080c11c595972a77baaf3674d7693325013d6c97d3d6da230fb5022a",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/beach/aliases.json",
+      "sha256": "4ea017074d053ca9298db12e5148edf09f59d97938c0f49624272016e81480a3",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/beach/house.json",
+      "sha256": "7375af34f36e4baf56d3677bf5fefd1543d67cd5498bb6b9e23371f2754ee1d2",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/beach/roads.json",
+      "sha256": "e49a764f78f41dc19069586e8cd8da8c06f7fc3fb85a2153abf02d4b1257c91c",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/beach/town_centers.json",
+      "sha256": "b5a00f53a927b04e0fa3a808ce2062b4bde7cc6685dd2fd5b750a95236abf731",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/christmas/aliases.json",
+      "sha256": "49645885150138b7c8b76003fd199cbe536314e5c3ce05f3235fdd2ccee1387e",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/christmas/house.json",
+      "sha256": "bdbf68a1f960cb3f91460b4a2e145b2d39ac121f5f532467088f79e63efd3dd4",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/christmas/roads.json",
+      "sha256": "7b3c49282178d1424db86d7d1158c261576b7b53a510dc3f9ff6fcaadaf430f9",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/christmas/town_centers.json",
+      "sha256": "cea73030b1d6a8e86129937523c0ee06b73e901808e521dfdd21860a96facb8a",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/dark_forest/aliases.json",
+      "sha256": "a5672adf977a88e8e547d13cc9e8eb8cbc5f4be4f6f37b3eaf6208b1d317d85f",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/dark_forest/house.json",
+      "sha256": "51e443b528f92a5d63b7775fe964aa4cf5500868e73669bf6663488176c1d75c",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/dark_forest/roads.json",
+      "sha256": "742cc48569fcb8899a4a61e7607805f4221102c24e88c437c73a8a9697f9759d",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/dark_forest/town_centers.json",
+      "sha256": "cf40e484eba73dfb6908f98693e413789c67ff2f3b7a64702f4940cc8a92c2ba",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/desert/aliases.json",
+      "sha256": "5673a44e1247d8a1aa67e452ccfdd05818c3534b0a4e87a23545b0ef4fe5c784",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/desert/house.json",
+      "sha256": "e6e5d3d45402b187f40d954574a0de7107c95ee35aa9852637eddc2c3676068b",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/desert/roads.json",
+      "sha256": "3b2ed9a8a696f025e78ad01be957d2f5becbd5ae13b446dd137862eedf25c34a",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/desert/town_centers.json",
+      "sha256": "9df17d88369e21b9fed743733dcb09aaab06af8c475d2dc079f58abd3b91d915",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/desert_oasis/aliases.json",
+      "sha256": "5aee1db6b29771b07877de3ccee251e94a017a8859acc5b96ab42135e7aded8f",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/desert_oasis/house.json",
+      "sha256": "bab244860afc31bd07c1481137ad0d7b5fff05857eef0e069d6ba7454931ec0e",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/desert_oasis/roads.json",
+      "sha256": "dd3890ffc03337283875b8551a4b7c16c025cfa94ea62fac7767b9f506bf0da3",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/desert_oasis/town_centers.json",
+      "sha256": "d94e686b9dad85d5119fc9f461dc440d37aab13ee76864a2546cf63ca053efd3",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/jungle/house.json",
+      "sha256": "5459313c6fcecfb600b38046052d2dfa4f8f36458d0b3f158916a375ac863549",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/jungle_tree/house.json",
+      "sha256": "f042e1c3796e011b11b40704052e2ed3f3254eccd6dccc3a116dca3f0e0c2e14",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/mesa/aliases.json",
+      "sha256": "e109bcefb87c00c49717385b52426086503aa25524e881d5f9feba9e84c2110e",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/mesa/house.json",
+      "sha256": "da7509ebe91a57b3ae9211382a5db645ff068ad3b9e985b9d0bfefd5ca514ba1",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/mesa/roads.json",
+      "sha256": "082729c46f613eac3442c69d335d4628340bb78b353a6403788afeb2e1aa2bbd",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/mesa/town_centers.json",
+      "sha256": "37d7101b5365d55658822b60072e4774425b699fe0eb2101e0033c3c39f43a28",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/mesa_fortified/aliases.json",
+      "sha256": "fdf716216b0a86d189cedb4269838684a5dac2c1d795c15f5c7ec02b236fab7f",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/mesa_fortified/house.json",
+      "sha256": "a0f6fb38db06fd72eaf755e8099dd9bb475983c8ca98d255267378b3f70eb180",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/mesa_fortified/roads.json",
+      "sha256": "4ed1474e8328a9dd16584dac1165d7dd23ae9cbf2a55354ad417b33cc395d7b3",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/mesa_fortified/town_centers.json",
+      "sha256": "f18bcbf27459699e892f7c70fa9af2ca347026417748c5fc384bb29bdc3dbaee",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/mountain/aliases.json",
+      "sha256": "3b92536d876d6d6a31859dfa5109cecd90f9786803a3783926d602a62242dea0",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/mountain/house.json",
+      "sha256": "5a9e93c23f8e0dea71b91f9c97185661148a3bacfb2c8e09594bcc197440aa97",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/mountain/roads.json",
+      "sha256": "2e7e8516bbb5b208635efb222f6f1a50c6f2de88ad4da10c22d1081c34bff6f0",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/mountain/town_centers.json",
+      "sha256": "b22991e35b2ab5372182ff2f1d7fa737af5fcb817a00780e36e9b563697b069a",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/mountain_alpine/aliases.json",
+      "sha256": "5aee0a0f0f60da141a4bf6c9f07300464656ae7f6a8063f65a60f94471b0016c",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/mountain_alpine/house.json",
+      "sha256": "4413fdb76690fe241178a101412150838c52ecd974355e54b7e6598a4c902d35",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/mountain_alpine/roads.json",
+      "sha256": "d981c197a7ca422c579461d19d00944afca1998de46da99d7642a0100d7eba4f",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/mountain_alpine/town_centers.json",
+      "sha256": "f14127e82d6346a5cb3384892d6f71453205f740ff13a9e10eaad14a57a1f4fb",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/mushroom/house.json",
+      "sha256": "21da458664880b94e61603659210b05a45a77906f35e60d3d9e313ec2b9bdfef",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/plains/aliases.json",
+      "sha256": "c365408a57f06b8eb4672cf8bb345d75430139b292e99b0b9a1edb1bb04ab531",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/plains/house.json",
+      "sha256": "a7d8b695aef4fff2b3c782703d3efa63e9aaa2a9568d17ad25774b6659229a34",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/plains/roads.json",
+      "sha256": "2fe80f53e94df9687cdca9e06a479275187c66515702f32fc89364915f9c9614",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/plains/town_centers.json",
+      "sha256": "07734de1253efb706870687dd233f0860168e639924cd1471150dd7f3a78bc00",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/plains_fortified/aliases.json",
+      "sha256": "3224e4218d22979c5dd3b78330927a1d05a00314186e4b8fef83c88f47e6cd8b",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/plains_fortified/house.json",
+      "sha256": "59774f665d00a152e99890de9377618eca4991f4a9be6c76936c317ff4319acf",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/plains_fortified/roads.json",
+      "sha256": "4aa4801c3de01d616a08a8dea3ea0bd007dfe714f5c15b99e68e3aec773f56cb",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/plains_fortified/town_centers.json",
+      "sha256": "c0e911e9638dd160a78d61b5c63675b058c48711aa7a83f69723cc8548a0d27b",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/savanna/aliases.json",
+      "sha256": "5086717219eac5fcef51909986e100721d013f24300f96ec641897848e704fc7",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/savanna/house.json",
+      "sha256": "0b7313f8547b8e6d285a0489d3be2073d46c11921e4b649fc0f4738c68b638ae",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/savanna/roads.json",
+      "sha256": "8fee6a6af99bd2181d753000b5bd55abba14e6894f3b33c5291bdbfcf0a355ac",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/savanna/town_centers.json",
+      "sha256": "dfa61ccac2e0af151a5962aba52a5c16beb307ee798e12edaaeef46af24389b0",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/savanna_na/aliases.json",
+      "sha256": "510f455219f6b1e6ab3e7c10956fb5ace17a8ae18011a9c47f6b6d0b73e15921",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/savanna_na/house.json",
+      "sha256": "0347e50af6380460a41bf65292a1ea0105551a862cdc078ce02e161f84686a21",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/savanna_na/roads.json",
+      "sha256": "949eae072a24cda2e1cfccd3f5c09c0adecfa1c3fcc94fe32ea6432a8abac9cc",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/savanna_na/town_centers.json",
+      "sha256": "b1bb11afa93b457d62c8b9183023a1a863a3efb58afb4221dbf1e47d42919490",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/snowy_igloo/aliases.json",
+      "sha256": "d18a2b86ae52682cc8fd531181915f474449ffc9553bdacda4279afab352b0df",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/snowy_igloo/house.json",
+      "sha256": "2241a782897990e68483476e70d4deb1dd95e61666b0eb32e9358725bafab702",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/snowy_igloo/roads.json",
+      "sha256": "dcac4c67a0249d8a8ed4db9dcbd194e82b26ecce65b0989ba2b2238901c19abb",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/snowy_igloo/town_centers.json",
+      "sha256": "c516f6adf09892ca22004b76ab55031aaa51b8d6519149b726de5373fc41180c",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/swamp/house.json",
+      "sha256": "2d5ea28fe89949f9885ace3c304e45351e2a53e9d34f893fcf2f94b274bbb8f9",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/swamp_fortified/house.json",
+      "sha256": "cd8c878b3c4d63892c78743566d8fd4347ef796b748717b0662ca1c781f25496",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/taiga/aliases.json",
+      "sha256": "338ce96cab2faa3b6236efedcc668b6e4ab9fd17bb63d8ed840b5b45c6f9d58b",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/taiga/house.json",
+      "sha256": "3337060a3240df160958b35a322d7f45aa2984ec7005b24f9b15a54b6a5c0df6",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/taiga/roads.json",
+      "sha256": "5e99cfcf61fe0ffb2c0e5d0ea8d7d0c423479f16f2d672f23f2778d4bbe46f97",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/taiga/town_centers.json",
+      "sha256": "ea3accfc751a41a57c4099f8ffa948c3d7ee6b6322d7b02aa7a002d2635b396b",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/taiga_fortified/aliases.json",
+      "sha256": "86d2f0692de371154b0c0008281b25f80e20a1b1f0da2c23c74c2a8bd9cc8d01",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/taiga_fortified/house.json",
+      "sha256": "b89f3ff543eac6c37f0f845e1c4dfb1b93704fd9cdd8644794410abad52bc825",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/taiga_fortified/roads.json",
+      "sha256": "4a4b38fb65e5a3686782b2fcb7824fb3c52e951f317f170c554ed392028f1a4b",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/lithostitched/worldgen_modifier/villages/taiga_fortified/town_centers.json",
+      "sha256": "be337f2cb7904bc311f241fe9d1e24092d0bb582868736f70aff5f8500eefbb7",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/tags/worldgen/structure/managed/outposts.json",
+      "sha256": "e29aa08418d6111c6aee1c55b78834e7556872b21de199000a1ec24e3792e39d",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/skyweave_compat/tags/worldgen/structure/managed/villages.json",
+      "sha256": "28df2a6fdf9fe6a6133a048b6c7d4b82a030d26a9b2d216edc74c345745ac038",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/towns_and_towers/worldgen/structure_set/towers.json",
+      "sha256": "21d3b30c2bef42db1afca0cc6cff2ac80aa2f1501b81f9e08066670759684b2c",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/towns_and_towers/worldgen/structure_set/towns.json",
+      "sha256": "80ffbb30cb9c5d486edfa12dc087ae66c02b9ebb77d1b3e4af9bc6c72f76cdb2",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
     }
   ]
 }

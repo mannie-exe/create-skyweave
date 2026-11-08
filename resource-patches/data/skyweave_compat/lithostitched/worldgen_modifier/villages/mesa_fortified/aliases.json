@@ -1,0 +1,37 @@
+{
+  "type": "lithostitched:set_pool_aliases",
+  "structures": [
+    "ctov:small/village_mesa_fortified",
+    "ctov:medium/village_mesa_fortified",
+    "ctov:large/village_mesa_fortified"
+  ],
+  "pool_aliases": [
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/savanna/houses",
+      "target": "ctov:village/mesa_fortified/house"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/savanna/streets",
+      "target": "ctov:village/mesa_fortified/roads"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/savanna/decor",
+      "target": "ctov:village/mesa_fortified/deco"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/savanna/terminators",
+      "target": "ctov:village/mesa_fortified/terminator"
+    }
+  ],
+  "append": true,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ctov"
+    }
+  ]
+}

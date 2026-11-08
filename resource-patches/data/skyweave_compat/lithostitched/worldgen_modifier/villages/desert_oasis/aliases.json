@@ -1,0 +1,37 @@
+{
+  "type": "lithostitched:set_pool_aliases",
+  "structures": [
+    "ctov:small/village_desert_oasis",
+    "ctov:medium/village_desert_oasis",
+    "ctov:large/village_desert_oasis"
+  ],
+  "pool_aliases": [
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/desert/houses",
+      "target": "ctov:village/desert_oasis/house"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/desert/streets",
+      "target": "ctov:village/desert_oasis/roads"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/desert/decor",
+      "target": "ctov:village/desert_oasis/deco"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/desert/terminators",
+      "target": "ctov:village/desert_oasis/terminator"
+    }
+  ],
+  "append": true,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ctov"
+    }
+  ]
+}

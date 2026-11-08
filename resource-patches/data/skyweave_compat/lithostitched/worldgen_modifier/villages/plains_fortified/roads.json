@@ -1,0 +1,26 @@
+{
+  "type": "lithostitched:add_template_pool_elements",
+  "template_pools": "ctov:village/plains_fortified/roads",
+  "elements": [
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/plains/streets/straight_02",
+          "processors": "minecraft:street_plains",
+          "projection": "terrain_matching"
+        },
+        "name": "skyweave_compat:villages/plains_fortified/road",
+        "max_count": 2
+      }
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ctov"
+    }
+  ]
+}

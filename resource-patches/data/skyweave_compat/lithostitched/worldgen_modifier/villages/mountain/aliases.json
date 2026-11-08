@@ -1,0 +1,37 @@
+{
+  "type": "lithostitched:set_pool_aliases",
+  "structures": [
+    "ctov:small/village_mountain",
+    "ctov:medium/village_mountain",
+    "ctov:large/village_mountain"
+  ],
+  "pool_aliases": [
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/taiga/houses",
+      "target": "ctov:village/mountain/house"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/taiga/streets",
+      "target": "ctov:village/mountain/roads"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/taiga/decor",
+      "target": "ctov:village/mountain/deco"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/taiga/terminators",
+      "target": "ctov:village/mountain/terminator"
+    }
+  ],
+  "append": true,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ctov"
+    }
+  ]
+}

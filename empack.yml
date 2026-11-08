@@ -1,7 +1,7 @@
 schema: 5
 pack:
   name: Skyweave modpack
-  version: 0.6.0
+  version: 0.7.0
   id: create_skyweave
   authors:
     - mannie-exe
@@ -736,10 +736,10 @@ dependencies:
     source:
       kind: url
       downloads:
-        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.26.0/skyweave-compat-0.26.0-mc1.21.1-neoforge.jar
+        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.27.0/skyweave-compat-0.27.0-mc1.21.1-neoforge.jar
     digests:
-      sha1: 24136d91fc97413bc7425bb7b945f8ebb485223b
-      sha512: 0513370390a81695aa2808c807db8172874a977b0fd5cadcbe129ff664aeabd5dd3ce9fd38e27a9e06b732fc2ceffd97241456e6cf53b7e0f4c9d4325e036663
+      sha1: 08491b5974dbc69d1ed431cccb3c3b175a89cc2c
+      sha512: 944dcc0544a5c2a4ac902760315c057eb271cb51366d988c7d08f038b3a004314c3067a073c7bdd6b4c44487a572856f1203e42a60e6cc520520296a5d59c9ce
     environment:
       client: required
       server: required
@@ -780,6 +780,36 @@ dependencies:
   mezzconfig:
     pin: sPQlt1iR
     source: modrinth:7tEfOcA7
+  better-village:
+    pin: 1IEc4yoG
+    source: modrinth:better-village
+  ct-overhaul-village:
+    pin: hJfyJvWt
+    source: modrinth:ct-overhaul-village
+  geophilic:
+    pin: 5kFV8CEz
+    source: modrinth:geophilic
+  lithostitched:
+    pin: cZu4cHY3
+    source: modrinth:lithostitched
+  towns-and-towers:
+    pin: DZxwgj6V
+    source: modrinth:towns-and-towers
+  yungs-better-desert-temples:
+    pin: GQ9iNWkI
+    source: modrinth:yungs-better-desert-temples
+  yungs-better-jungle-temples:
+    pin: P00i2hJn
+    source: modrinth:yungs-better-jungle-temples
+  yungs-better-mineshafts:
+    pin: Go3nbneL
+    source: modrinth:yungs-better-mineshafts
+  yungs-better-ocean-monuments:
+    pin: yFjEcj2g
+    source: modrinth:yungs-better-ocean-monuments
+  yungs-better-witch-huts:
+    pin: AvedwcIe
+    source: modrinth:yungs-better-witch-huts
 
 build:
   default:

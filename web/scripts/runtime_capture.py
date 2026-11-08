@@ -1,9 +1,36 @@
 """Accept an export only after its isolated server exits cleanly."""
 import os
+import shutil
 import signal
 import subprocess
 import threading
 import time
+
+
+def stage_configuration(installed, authored, destination):
+    """Copy read-only inputs into a disposable capture with pack-owned precedence."""
+    if destination.exists():
+        shutil.rmtree(destination)
+    nested_owner = any((layer / 'skyweave').is_dir() for layer in authored)
+    authored_journal = any((layer / 'questlog').is_dir() for layer in authored)
+
+    def ignored(directory, names):
+        relative = os.path.relpath(directory, installed)
+        if relative == '.':
+            excluded = ['questlog'] if authored_journal else []
+            if nested_owner:
+                excluded.extend(name for name in names if name.startswith('skyweave_compat-')
+                                and name.endswith(('.json', '.toml', '.properties')))
+            return excluded
+        if nested_owner and relative == 'skyweave-shaders':
+            return ['recipes'] if 'recipes' in names else []
+        return []
+
+    if installed.exists():
+        shutil.copytree(installed, destination, ignore=ignored)
+    for layer in authored:
+        if layer.exists():
+            shutil.copytree(layer, destination, dirs_exist_ok=True)
 
 
 def run_capture(command, *, cwd, log, complete, timeout=600,

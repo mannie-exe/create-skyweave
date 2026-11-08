@@ -5,6 +5,8 @@ The manifest/lock are authoritative; this list excludes libraries bundled inside
 mods. Shader inputs are assembled on clients through the [shared shader engine](../tools/shader-lab/README.md).
 See [release notes](RELEASE_NOTES.md) for the published version.
 
+The working tree also stages the [terrain and structure candidates](development/worldgen-candidates.md); those additions are not part of the published 0.6.0 release.
+
 | Project | Version | Source |
 | --- | --- | --- |
 | 3D crops Revamped | 3 | [Exact version](https://modrinth.com/resourcepack/3d-crops/version/iKYRZwnm) |
@@ -24,12 +26,14 @@ See [release notes](RELEASE_NOTES.md) for the published version.
 | Better Climbing | 4-neoforge | [Exact version](https://modrinth.com/mod/better-climbing/version/RJgDIKSn) |
 | Better Lanterns | 1.2+1.21 | [Exact version](https://modrinth.com/version/jRAsb6KQ) |
 | Better Third Person | 1.9.0 | [Exact version](https://modrinth.com/mod/better-third-person/version/aG5y4JUQ) |
+| Better Villages | 3.3.1 | [Exact version](https://modrinth.com/mod/better-village/version/1IEc4yoG) |
 | BlueMap (server only) | 5.7-neoforge | [Exact version](https://modrinth.com/mod/bluemap/version/8iJcPOHJ) |
 | BSL Shaders (input) | 10.1.8 | [Exact version](https://modrinth.com/version/Y68yiql9) |
 | Cable Facades | 2.1.4 | [Exact version](https://modrinth.com/mod/cable-facades/version/XWCAtdzJ) |
 | Carry On Animation Fix | 1.0.0 | [Exact release](https://github.com/Pelly-the-Crafter/carryon-animation-fix/releases/tag/v1.0.0) |
 | Carry On | 2.2.6.13 | [Exact version](https://modrinth.com/version/PV8oLZ1q) |
 | Chat Heads | 0.15.7 | [Exact version](https://modrinth.com/mod/chat-heads/version/ZPylso9i) |
+| ChoiceTheorem's Overhauled Village | 3.6.4 | [Exact version](https://modrinth.com/mod/ct-overhaul-village/version/hJfyJvWt) |
 | Clean Tooltips | 1.1 | [Exact version](https://modrinth.com/mod/clean-tooltips/version/F8TicG1p) |
 | Climbable Ropes for Create Aeronautics | 2.2.0 | [Exact version](https://modrinth.com/mod/create-aeronautics-climbable-rope/version/TTGedLb3) |
 | Cloth Config API | 15.0.140+neoforge | [Exact version](https://modrinth.com/mod/cloth-config/version/izKINKFg) |
@@ -41,7 +45,11 @@ See [release notes](RELEASE_NOTES.md) for the published version.
 | Controlling | 19.0.5 | [Exact version](https://modrinth.com/mod/controlling/version/FaNppCJJ) |
 | Cool Rain Reforged | 1.0.2 | [Exact version](https://modrinth.com/mod/cool-rain-reforged/version/SwSSfJQQ) |
 | Copycat Bar Extrusion | 0.1.0 | [Exact release](https://github.com/mannie-exe/copycat-bar-extrusion/releases/tag/v0.1.0) |
-| Skyweave: Compatibility Patches | 0.26.0 | [GitHub release](https://github.com/mannie-exe/skyweave-compat/releases/tag/v0.26.0) |
+| Cristel Lib | neoforge-1.21.1-3.1.7 | [Exact version](https://modrinth.com/mod/cristel-lib/version/Sduz0AWP) |
+| Geophilic | 3.7 | [Exact version](https://modrinth.com/mod/geophilic/version/5kFV8CEz) |
+| Library Ferret | 4.0.0 | [Exact version](https://modrinth.com/mod/library-ferret/version/AKcIMUil) |
+| Lithostitched | 1.8.1-neoforge-21.1 | [Exact version](https://modrinth.com/mod/lithostitched/version/cZu4cHY3) |
+| Skyweave: Compatibility Patches | 0.27.0 | [GitHub release](https://github.com/mannie-exe/skyweave-compat/releases/tag/v0.27.0) |
 | Create Accessories Compat | 1.0 | [Exact version](https://modrinth.com/mod/create-accessories-compat/version/2r7hvkCQ) |
 | Create Aeronautics | 1.3.2+mc1.21.1 | [Exact version](https://modrinth.com/mod/create-aeronautics/version/44pLdPGg) |
 | Create Aeronautics: Transmission & Linkage | 0.2.9 | [Exact version](https://modrinth.com/mod/create-aeronautics-transmission-linkage/version/WoUjC6d4) |
@@ -169,7 +177,14 @@ See [release notes](RELEASE_NOTES.md) for the published version.
 | SuperMartijn642's Config Lib | 1.1.8-neoforge-mc1.21 | [Exact version](https://modrinth.com/mod/supermartijn642s-config-lib/version/qKL9jM75) |
 | SuperMartijn642's Core Lib | 1.1.26a-neoforge-mc1.21 | [Exact version](https://modrinth.com/mod/supermartijn642s-core-lib/version/sLRKmslC) |
 | Surveyor Map Framework | 1.2.4+1.21 | [Exact version](https://modrinth.com/mod/surveyor/version/egJBsDTn) |
+| Towns and Towers | 1.13.11 | [Exact version](https://modrinth.com/mod/towns-and-towers/version/DZxwgj6V) |
 | Traveler's Backpack | 1.21.1-10.1.41 | [Exact version](https://modrinth.com/mod/travelersbackpack/version/JrOhWsXk) |
 | TxniLib | neoforge-1.21.1-1.0.24 | [Exact version](https://modrinth.com/mod/txnilib/version/M1CyD3Uu) |
 | YetAnotherConfigLib (YACL) | 3.8.2+1.21.1-neoforge | [Exact version](https://modrinth.com/mod/yacl/version/7TVdVtxF) |
 | You're in Grave Danger | 2.0.13 | [Exact version](https://modrinth.com/mod/yigd/version/Axk4bfXT) |
+| YUNG's API | 1.21.1-NeoForge-5.1.9 | [Exact version](https://modrinth.com/mod/yungs-api/version/2prKITKh) |
+| YUNG's Better Desert Temples | 1.21.1-NeoForge-4.1.5 | [Exact version](https://modrinth.com/mod/yungs-better-desert-temples/version/GQ9iNWkI) |
+| YUNG's Better Jungle Temples | 1.21.1-NeoForge-3.1.2 | [Exact version](https://modrinth.com/mod/yungs-better-jungle-temples/version/P00i2hJn) |
+| YUNG's Better Mineshafts | 1.21.1-NeoForge-5.1.1 | [Exact version](https://modrinth.com/mod/yungs-better-mineshafts/version/Go3nbneL) |
+| YUNG's Better Ocean Monuments | 1.21.1-NeoForge-4.1.2 | [Exact version](https://modrinth.com/mod/yungs-better-ocean-monuments/version/yFjEcj2g) |
+| YUNG's Better Witch Huts | 1.21.1-NeoForge-4.1.1 | [Exact version](https://modrinth.com/mod/yungs-better-witch-huts/version/AvedwcIe) |

@@ -1,0 +1,102 @@
+{
+  "type": "lithostitched:add_template_pool_elements",
+  "template_pools": "ctov:village/savanna_na/house",
+  "elements": [
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/savanna/houses/savanna_small_house_5",
+          "processors": {
+            "processors": []
+          },
+          "projection": "rigid"
+        },
+        "name": "skyweave_compat:villages/savanna_na/residence",
+        "max_count": 2
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/savanna/houses/savanna_small_house_6",
+          "processors": {
+            "processors": []
+          },
+          "projection": "rigid"
+        },
+        "name": "skyweave_compat:villages/savanna_na/residence",
+        "max_count": 2
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/savanna/houses/savanna_cartographer_1",
+          "processors": {
+            "processors": []
+          },
+          "projection": "rigid"
+        },
+        "name": "skyweave_compat:villages/savanna_na/workshop",
+        "max_count": 1
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/savanna/houses/savanna_large_farm_1",
+          "processors": "minecraft:farm_savanna",
+          "projection": "rigid"
+        },
+        "name": "skyweave_compat:villages/savanna_na/farm",
+        "max_count": 1
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "location": "kaisyn:village/wooded_badlands_tipi/houses/small_huts/wooded_badlands_small_hut_black_1",
+          "processors": "minecraft:empty",
+          "projection": "rigid",
+          "element_type": "minecraft:legacy_single_pool_element"
+        },
+        "name": "skyweave_compat:villages/savanna_na/residence",
+        "max_count": 2
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "location": "kaisyn:village/wooded_badlands_tipi/houses/small_huts/wooded_badlands_small_hut_blue_1",
+          "processors": "minecraft:empty",
+          "projection": "rigid",
+          "element_type": "minecraft:legacy_single_pool_element"
+        },
+        "name": "skyweave_compat:villages/savanna_na/residence",
+        "max_count": 2
+      }
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ctov"
+    }
+  ]
+}

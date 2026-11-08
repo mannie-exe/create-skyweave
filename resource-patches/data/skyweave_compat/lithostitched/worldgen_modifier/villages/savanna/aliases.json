@@ -1,0 +1,37 @@
+{
+  "type": "lithostitched:set_pool_aliases",
+  "structures": [
+    "ctov:small/village_savanna",
+    "ctov:medium/village_savanna",
+    "ctov:large/village_savanna"
+  ],
+  "pool_aliases": [
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/savanna/houses",
+      "target": "ctov:village/savanna/house"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/savanna/streets",
+      "target": "ctov:village/savanna/roads"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/savanna/decor",
+      "target": "ctov:village/savanna/deco"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/savanna/terminators",
+      "target": "ctov:village/savanna/terminator"
+    }
+  ],
+  "append": true,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ctov"
+    }
+  ]
+}

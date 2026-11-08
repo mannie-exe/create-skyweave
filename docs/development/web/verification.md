@@ -4,6 +4,27 @@ Checks apply to the recorded source or artifact, not every later checkout. Brows
 checks establish interface behavior; native game checks and survey evidence have
 separate owners and limits. Commands and prerequisites live in [setup](setup.md).
 
+## Pack 0.7.0 terrain and structure refresh
+
+The isolated runtime capture loads the published Compat 0.27.0 JAR with the thirteen
+selected content/library additions and composed village resources. Its SHA-256
+matches the downloaded release; the source fingerprint remains unchanged during
+capture. Extraction finds 10,122 items, 34,256 resource paths and 10,056 texture
+previews across 488 JARs. `pnpm data:refresh` and `pnpm data:check` pass using
+Node 24.22.0 and pnpm 12.16.1.
+
+The disposable server follows the authored nested configuration layout without
+inheriting legacy Compat roots, preserves foreign config locations, and replaces
+the journal set before common/server overlays. Python coverage passes 37 tests
+with one existing skip; `pnpm verify` passes lint, unused-code checks, tests and
+static build. Full structure, water, ecology and save/reopen qualification
+belongs to [terrain and structure content](../worldgen-candidates.md) and Compat's
+verification guide. Registry export alone does not establish that behavior.
+
+No application layout or personal-world survey changed. Existing world/ore surveys
+retain their recorded seed, generation and capture date; this runtime refresh does
+not turn them into observations of the replacement server world.
+
 ## Pack 0.6.0 data refresh
 
 The isolated runtime capture uses the locked Compat 0.26.0 and Dynamic Waters

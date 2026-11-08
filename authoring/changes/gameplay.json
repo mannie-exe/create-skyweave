@@ -564,9 +564,9 @@
     },
     {
       "path": "templates/server/game/server.properties.template",
-      "sha256": "66b4eba5f8c69157e830b10a2a2d0f78bf3816045d30bf797f98f91e46cde3c8",
+      "sha256": "b3f9406d3973b4ef0bef3b772ef8904eb7395f7b4c09c061683963c5277f7bf6",
       "review": "reviewed",
-      "reason": "Use 12-chunk server view distance and 16-chunk simulation distance; preserve the existing world preset and other server defaults.",
+      "reason": "Use 16-chunk server view distance and 12-chunk simulation distance; preserve the existing world preset and other server defaults.",
       "reference": "docs/players/server.md"
     },
     {
@@ -640,7 +640,7 @@
       "reference": "docs/development/build.md#server-webmap"
     },
     {
-      "path": "overrides/server/config/skyweave_compat-bluemap.json",
+      "path": "overrides/server/config/skyweave/skyweave_compat-bluemap.json",
       "sha256": "1f3e769440d8c5b892cdda7148aa5f932f1c38494fcaa43cab6f438c681c2865",
       "review": "reviewed",
       "reason": "Opt the Overworld into the optional server-only BlueMap viewer adapter, with bounded detailed geometry and requests.",

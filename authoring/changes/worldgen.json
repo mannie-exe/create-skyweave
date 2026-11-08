@@ -34,7 +34,7 @@
       "path": "overrides/common/config/sky_archipelago/presets/eee.json",
       "sha256": "63962aab7355dffe7810ba984cbbafe2bae5271207e76e88178ee633ae1d8234",
       "review": "reviewed",
-      "reason": "Retain the legacy ordinary preset with explicit disabled native rivers; fresh Skyweave worlds use their separate enabled river profile.",
+      "reason": "Retain the legacy ordinary preset with native rivers disabled; fresh Skyweave worlds use their separate Dynamic Waters adaptation.",
       "reference": "docs/development/worldgen.md"
     },
     {
@@ -45,42 +45,42 @@
       "reference": "docs/development/worldgen.md"
     },
     {
-      "path": "overrides/common/config/skyweave_compat-generation.json",
+      "path": "overrides/common/config/skyweave/skyweave_compat-generation.json",
       "sha256": "71bb245ec656c8b0c40822b880be720236eb6cf7095570ea72d204c838654a8c",
       "review": "reviewed",
       "reason": "Displaced sparse clusters retain native 1.4 exterior bodies and independent interior/geological ownership; changes require a fresh world.",
       "reference": "docs/development/worldgen.md"
     },
     {
-      "path": "overrides/common/config/skyweave_compat-shapes.json",
+      "path": "overrides/common/config/skyweave/skyweave_compat-shapes.json",
       "sha256": "453ff5ca463070419ff4cde81210d2264c9b5b70635342985dfc88ac844793db",
       "review": "reviewed",
       "reason": "Retain the current outline and intact body, add mixed/disintegrating granular aprons, and select Deep Dark for 10% of eligible native hosts.",
       "reference": "docs/development/worldgen.md"
     },
     {
-      "path": "overrides/common/config/skyweave_compat-interiors.json",
+      "path": "overrides/common/config/skyweave/skyweave_compat-interiors.json",
       "sha256": "963704ff7b478371d35cb0aadd6230cefb052a63e7386ec381a62687a35c80df",
       "review": "reviewed",
       "reason": "Independent noise and hollow interiors preserve exterior geometry and stable geological depth; classic carvers remain enabled.",
       "reference": "docs/development/worldgen.md"
     },
     {
-      "path": "overrides/common/config/skyweave_compat-rivers.json",
+      "path": "overrides/common/config/skyweave/skyweave_compat-rivers.json",
       "sha256": "3194d9d80d703384722af491c882dc934b0d053ba63c2d09a152f3ace146e942",
       "review": "reviewed",
       "reason": "Disable both native Sky Archipelago river and lake planners; the optional Dynamic Waters watershed owns local channels and lakes.",
       "reference": "docs/development/worldgen.md"
     },
     {
-      "path": "overrides/common/config/skyweave_compat-oceans.json",
-      "sha256": "ae6e2632c891c0557bf7ce961560a5c5f42698cf6db3077288808fa2d76b069d",
+      "path": "overrides/common/config/skyweave/skyweave_compat-oceans.json",
+      "sha256": "ed9a80bfe0430d7e3fe176dd884d5e6d3a4ba9d8e7087772633a7402258a5e3b",
       "review": "reviewed",
-      "reason": "Admit 20% of native ocean-biome opportunities; equal Lagoon/Broken Reef weights, Lagoon-only outlet/perimeter treatments, and separate solid spires.",
+      "reason": "Admit 20% of ocean-biome opportunities with equal Lagoon/Broken Reef weights; normal anchor sizing, 25% open-cove and 15% falling-perimeter Lagoon modes, and solid spire companions.",
       "reference": "docs/development/worldgen.md"
     },
     {
-      "path": "overrides/common/config/skyweave_compat-ancient-cities.json",
+      "path": "overrides/common/config/skyweave/skyweave_compat-ancient-cities.json",
       "sha256": "75fbbacdf1ec06e84a1c8b5547f0b175c4cf5a2679f6213ab2fe12f7b123b4b1",
       "review": "reviewed",
       "reason": "Interior Ancient Cities require at least 90% body burial plus independent core and floor support; HOLLOW hosts retain stricter fit.",
@@ -92,6 +92,69 @@
       "review": "reviewed",
       "reason": "Use island-aware mountain watersheds with VANILLA lowland mode and no tunnels; keep the pack title UI and hide upstream welcome/menu additions.",
       "reference": "docs/development/terrain.md"
+    },
+    {
+      "path": "overrides/common/config/betterdeserttemples-neoforge-1_21.toml",
+      "sha256": "d086bc41b30a69de78c1799f0d4850118fbf26919dc343a12b3230560d06f73c",
+      "review": "inherited",
+      "reason": "Stage native generated defaults for content review; island placement, scarcity and integration remain unqualified.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "overrides/common/config/betterjungletemples-neoforge-1_21.toml",
+      "sha256": "6879ca8d1bb26e900af3a960e655fa6fdbb28b9abe983526ddbab9303ecf1273",
+      "review": "inherited",
+      "reason": "Stage native generated defaults for content review; island placement, scarcity and integration remain unqualified.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "overrides/common/config/bettermineshafts-neoforge-1_21.toml",
+      "sha256": "ee344cb26d156e67baa987f193fb44947fa6b3869b80aa16ef2b257370dc1ff1",
+      "review": "inherited",
+      "reason": "Stage native generated defaults for content review; island placement, scarcity and integration remain unqualified.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "overrides/common/config/betteroceanmonuments-neoforge-1_21.toml",
+      "sha256": "25d995ddf8f2a61c241358cd806555513d7d262a326b82eb610e01cfac1d3161",
+      "review": "inherited",
+      "reason": "Stage native generated defaults for content review; island placement, scarcity and integration remain unqualified.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "overrides/common/config/betterwitchhuts-neoforge-1_21.toml",
+      "sha256": "b78cccad5e036fc43fcf0fc3f17da81b993c3985cbff54dad2053f6ebe007de5",
+      "review": "inherited",
+      "reason": "Stage native generated defaults for content review; island placement, scarcity and integration remain unqualified.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "overrides/common/config/ctov-common.toml",
+      "sha256": "ec3a5b57a8047a43ccc2114df62e822986d4d1f9c81a5141e3dd33c336557928",
+      "review": "inherited",
+      "reason": "Stage native generated defaults for content review; island placement, scarcity and integration remain unqualified.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "overrides/common/config/lithostitched.json",
+      "sha256": "ce8ab190281862b0554c92043c2bf8af106fbe4116bcd6dab433f6506781dbc0",
+      "review": "inherited",
+      "reason": "Stage native generated defaults for content review; island placement, scarcity and integration remain unqualified.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "overrides/common/config/bettervillage_1.properties",
+      "sha256": "866836ffd1448bdd190624261543e3b6f75636be11511830d5fb29237630317c",
+      "review": "reviewed",
+      "reason": "Disable Better Villages placement replacement so native/Compat placement remains authoritative; retain generated values for review.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "overrides/common/config/towns_and_towers/structure_enable_or_disable_new.json5",
+      "sha256": "f6c7989a9e44b14f012f095ee15b219cd48b5383233cb0d0b619b3111c48f908",
+      "review": "reviewed",
+      "reason": "Unified authored sets exclude ship profiles; keep Cristel Lib town/tower toggles inert to avoid rebuilding original schedules. Independent ocean wreckage stays disabled.",
+      "reference": "docs/development/worldgen-candidates.md"
     }
   ]
 }

@@ -3,6 +3,8 @@
 Distant Horizons (DH) draws simplified terrain beyond Minecraft's normal render
 distance. Shader packs change lighting and appearance; they can be enabled separately.
 
+New client instances default to a 12-chunk view distance and 10-chunk simulation distance. Existing instance options are preserved.
+
 ## Distant Horizons defaults
 
 DH rendering is enabled by default. To restore it in an existing client, use DH's
@@ -25,7 +27,7 @@ The fix is version-specific; remove it when upgrading DH.
 Skyweave: Compatibility Patches includes the Veil/Iris framebuffer correction and optional
 balloon shadow-pass, construct-material, and single-block render-pass adaptations. Do not install the old
 standalone Veil Iris Fix JAR. Their `rendering.*` switches live in
-`config/skyweave_compat-features.properties`; change them only with the game
+`config/skyweave/skyweave_compat-features.properties`; change them only with the game
 stopped and restart to apply. Other feature switches are independent.
 
 Native checks covered the selected shader stack, Ponder, heated balloons, and

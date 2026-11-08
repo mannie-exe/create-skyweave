@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "towns_and_towers:exclusives/village_piglin",
+      "weight": 5
+    }
+  ],
+  "placement": {
+    "salt": 213742069,
+    "spacing": 51,
+    "separation": 12,
+    "type": "minecraft:random_spread",
+    "exclusion_zone": {
+      "chunk_count": 5,
+      "other_set": "minecraft:villages"
+    }
+  }
+}

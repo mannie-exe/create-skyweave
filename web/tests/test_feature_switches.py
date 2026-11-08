@@ -8,7 +8,7 @@ from feature_switches import parse_feature_switches
 
 class FeatureSwitchTests(unittest.TestCase):
     def test_pack_switches_preserve_false_and_nested_keys(self):
-        source = Path(__file__).resolve().parents[2] / 'overrides/common/config/skyweave_compat-features.properties'
+        source = Path(__file__).resolve().parents[2] / 'overrides/common/config/skyweave/skyweave_compat-features.properties'
         values = parse_feature_switches(source.read_text())
         self.assertIs(values['distant_horizons.world_cache'], False)
         self.assertIs(values['rendering.veil_framebuffer'], True)

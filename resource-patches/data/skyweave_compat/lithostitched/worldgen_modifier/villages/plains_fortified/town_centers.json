@@ -1,0 +1,26 @@
+{
+  "type": "lithostitched:add_template_pool_elements",
+  "template_pools": "ctov:village/plains_fortified/town_centers",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/plains/town_centers/plains_fountain_01",
+          "processors": "minecraft:mossify_20_percent",
+          "projection": "rigid"
+        },
+        "name": "skyweave_compat:villages/plains_fortified/center",
+        "max_count": 1
+      }
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ctov"
+    }
+  ]
+}

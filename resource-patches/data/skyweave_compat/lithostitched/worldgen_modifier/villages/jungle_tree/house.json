@@ -1,0 +1,68 @@
+{
+  "type": "lithostitched:add_template_pool_elements",
+  "template_pools": "ctov:village/jungle_tree/house",
+  "elements": [
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "projection": "rigid",
+          "location": "kaisyn:village/sparse_jungle_polynesian/houses/sparse_jungle_small_house_1",
+          "processors": "kaisyn:village/street_polynesian"
+        },
+        "name": "skyweave_compat:villages/jungle_tree/residence",
+        "max_count": 2
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "projection": "rigid",
+          "location": "kaisyn:village/sparse_jungle_polynesian/houses/sparse_jungle_small_house_3",
+          "processors": "kaisyn:village/street_polynesian"
+        },
+        "name": "skyweave_compat:villages/jungle_tree/residence",
+        "max_count": 2
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "projection": "rigid",
+          "location": "kaisyn:village/sparse_jungle_polynesian/houses/sparse_jungle_fisher_and_fletcher_1",
+          "processors": "kaisyn:village/street_polynesian"
+        },
+        "name": "skyweave_compat:villages/jungle_tree/workshop",
+        "max_count": 1
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "projection": "rigid",
+          "location": "kaisyn:village/sparse_jungle_polynesian/houses/sparse_jungle_small_farm_1",
+          "processors": "minecraft:farm_savanna"
+        },
+        "name": "skyweave_compat:villages/jungle_tree/farm",
+        "max_count": 1
+      }
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ctov"
+    }
+  ]
+}

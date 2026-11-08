@@ -7,6 +7,18 @@ version="0.1.0"
 displayName="Skyweave: Resource Patches"
 description='''Resource repairs and journal presentation for Create: Skyweave.'''
 [[dependencies.skyweave_resource_patches]]
+modId="t_and_t"
+type="optional"
+versionRange="[0,)"
+ordering="AFTER"
+side="BOTH"
+[[dependencies.skyweave_resource_patches]]
+modId="ctov"
+type="optional"
+versionRange="[0,)"
+ordering="AFTER"
+side="BOTH"
+[[dependencies.skyweave_resource_patches]]
 modId="skyvillages"
 type="optional"
 versionRange="[1.0.6,)"

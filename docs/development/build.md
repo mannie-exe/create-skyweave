@@ -113,7 +113,7 @@ Village Neighbors in any payload. Runtime code does not belong in the resource-o
 
 Publish and verify Skyweave: Compatibility Patches before updating its URL and digest pins in `empack.yml`.
 Use empack to regenerate bindings and the lock; inspect exports for duplicate or
-obsolete JARs. `overrides/common/config/skyweave_compat-features.properties`
+obsolete JARs. `overrides/common/config/skyweave/skyweave_compat-features.properties`
 explicitly selects the pack's adaptations. Unknown feature keys fail startup, so
 review this file whenever removing or renaming upstreamed adapters. The local
 configuration sidebar edits this same file for next startup; existing keys and
@@ -178,7 +178,7 @@ existing seed files automatically; review and apply intended changes separately.
 See [server webmap setup](../players/server.md#webmap).
 
 Skyweave: Compatibility Patches optionally adapts the BlueMap 5.7 browser viewer on dedicated
-servers. `overrides/server/config/skyweave_compat-bluemap.json` selects `world`;
+servers. `overrides/server/config/skyweave/skyweave_compat-bluemap.json` selects `world`;
 its seed policy preserves operator edits. Other maps retain the stock renderer.
 The adapter uses actual world bounds, extends detailed rendering with bounded
 loading, and clips empty-edge triangles in the finest overview layer. It does not

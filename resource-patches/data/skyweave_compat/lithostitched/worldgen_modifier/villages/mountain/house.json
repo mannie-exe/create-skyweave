@@ -1,0 +1,110 @@
+{
+  "type": "lithostitched:add_template_pool_elements",
+  "template_pools": "ctov:village/mountain/house",
+  "elements": [
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/taiga/houses/taiga_small_house_5",
+          "processors": "minecraft:mossify_10_percent",
+          "projection": "rigid"
+        },
+        "name": "skyweave_compat:villages/mountain/residence",
+        "max_count": 2
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/taiga/houses/taiga_small_house_3",
+          "processors": "minecraft:mossify_10_percent",
+          "projection": "rigid"
+        },
+        "name": "skyweave_compat:villages/mountain/residence",
+        "max_count": 2
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/taiga/houses/taiga_masons_house_1",
+          "processors": "minecraft:mossify_10_percent",
+          "projection": "rigid"
+        },
+        "name": "skyweave_compat:villages/mountain/workshop",
+        "max_count": 1
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/taiga/houses/taiga_large_farm_2",
+          "processors": "minecraft:farm_taiga",
+          "projection": "rigid"
+        },
+        "name": "skyweave_compat:villages/mountain/farm",
+        "max_count": 1
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "location": "kaisyn:village/meadow_swiss/houses/meadow_small_house_1",
+          "processors": "kaisyn:village/common_swiss",
+          "projection": "rigid",
+          "element_type": "minecraft:legacy_single_pool_element"
+        },
+        "name": "skyweave_compat:villages/mountain/residence",
+        "max_count": 2
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "location": "kaisyn:village/meadow_swiss/houses/meadow_small_house_2",
+          "processors": "kaisyn:village/common_swiss",
+          "projection": "rigid",
+          "element_type": "minecraft:legacy_single_pool_element"
+        },
+        "name": "skyweave_compat:villages/mountain/residence",
+        "max_count": 2
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "location": "kaisyn:village/meadow_swiss/houses/meadow_armorer_and_leatherworker_1",
+          "processors": "kaisyn:village/common_swiss",
+          "projection": "rigid",
+          "element_type": "minecraft:legacy_single_pool_element"
+        },
+        "name": "skyweave_compat:villages/mountain/workshop",
+        "max_count": 1
+      }
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ctov"
+    }
+  ]
+}

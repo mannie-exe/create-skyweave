@@ -12,6 +12,7 @@ def main():
     args = parser.parse_args()
     root = Path(__file__).resolve().parent.parent
     subprocess.run([sys.executable, str(root / 'scripts/generate-journal.py'), '--check'], check=True)
+    subprocess.run([sys.executable, str(root / 'scripts/generate-villages.py')] + (['--check'] if args.check else []), check=True)
     output = root / 'overrides/common/mods/skyweave-resource-patches-0.1.0.jar'
     entries = {source.relative_to(root / 'resource-patches').as_posix(): source.read_bytes()
                for source in (root / 'resource-patches').rglob('*') if source.is_file()}

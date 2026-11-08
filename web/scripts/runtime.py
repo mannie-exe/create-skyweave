@@ -10,7 +10,7 @@ import zipfile
 from pathlib import Path
 from paths import ROOT, paths, write_json, tool
 from fingerprint import fingerprint
-from runtime_capture import run_capture
+from runtime_capture import run_capture, stage_configuration
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--worldgen", action="store_true", help="Read the configured world seed/settings for a chunk-free spacing comparison")
@@ -53,15 +53,8 @@ for layer in ['common', 'server']:
         target.symlink_to(source)
 for folder in ['config', 'defaultconfigs']:
     target = audit / folder
-    if target.exists(): shutil.rmtree(target)
-    if (p['server'] / folder).exists(): shutil.copytree(p['server'] / folder, target)
-    # Journal definitions are a complete authored set. Do not retain retired
-    # installed entries when testing a source reorganization before final sync.
-    if folder == 'config' and (p['pack'] / 'overrides/common/config/questlog').exists():
-        shutil.rmtree(target / 'questlog', ignore_errors=True)
-    for layer in ['common', 'server']:
-        authored = p['pack'] / 'overrides' / layer / folder
-        if authored.exists(): shutil.copytree(authored, target, dirs_exist_ok=True)
+    authored = [p['pack'] / 'overrides' / layer / folder for layer in ['common', 'server']]
+    stage_configuration(p['server'] / folder, authored, target)
 # Registry capture does not need a web server or downloaded map assets.
 bluemap = audit / 'config/bluemap'
 if bluemap.is_dir():

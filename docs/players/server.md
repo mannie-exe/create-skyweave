@@ -16,7 +16,7 @@ Use the server archive from the same Create: Skyweave release as your clients.
 4. Start the server and add players with `whitelist add <player>` in its console.
 
 The pack enables and enforces the whitelist. The default port is 25565, normal
-view distance is 12 chunks, and simulation distance is 16 chunks. Server files
+view distance is 16 chunks, and simulation distance is 12 chunks. Server files
 live under `game/`; the default world is `game/world`.
 
 ## Garbage collection

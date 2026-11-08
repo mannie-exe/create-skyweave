@@ -1,0 +1,26 @@
+{
+  "type": "lithostitched:add_template_pool_elements",
+  "template_pools": "ctov:village/halloween/roads",
+  "elements": [
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/taiga/streets/straight_05",
+          "processors": "minecraft:street_snowy_or_taiga",
+          "projection": "terrain_matching"
+        },
+        "name": "skyweave_compat:villages/dark_forest/road",
+        "max_count": 2
+      }
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ctov"
+    }
+  ]
+}

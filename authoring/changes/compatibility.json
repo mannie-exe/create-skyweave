@@ -2,7 +2,7 @@
   "schema": 1,
   "records": [
     {
-      "path": "overrides/common/config/skyweave_compat-features.properties",
+      "path": "overrides/common/config/skyweave/skyweave_compat-features.properties",
       "sha256": "ce7cdb4d13f856a08ec91613fc875c3523b4f8d39dcb090bbd632786910a206e",
       "review": "reviewed",
       "reason": "Enable reviewed terrain, machinery, journal, rendering and recovery adapters. Client glass adapters preserve material/axis boundaries and show reverse surfaces after native Create/Fusion connected-texture processing. Match Macaw stair-lantern selection to the hanging resource model on both sides. Keep text displays and nametags readable with neutral Iris lighting and independent cast-shadow exclusions.",

@@ -1,0 +1,1260 @@
+{
+  "schema": 1,
+  "sources": {
+    "minecraft": {
+      "version": "1.21.1",
+      "path": ".cache/resource-inputs/minecraft-1.21.1.jar",
+      "url": "https://piston-data.mojang.com/v1/objects/30c73b1c5da787909b2f73340419fdf13b9def88/client.jar",
+      "sha512": "a63c09e9b8cfe80bd5815c88818291d54cbe7c9ffcd806be6365376e865c44d5aa85e8348467e6ded8f4d9722047d3c5b075f755047a982c2e75223d2b9f68ac"
+    },
+    "ct-overhaul-village": {
+      "version": "hJfyJvWt",
+      "path": "pack/mods/[neoforge]ctov-1.21.1-3.6.4.jar",
+      "url": "https://cdn.modrinth.com/data/fgmhI8kH/versions/hJfyJvWt/%5Bneoforge%5Dctov-1.21.1-3.6.4.jar",
+      "sha512": "5e8666e25e280d619a1a8c74d35918fcfe9642416bf7c4d546284467d6ba080bd026893e9e4761ce98a1fb8395b2dcfdbdc51412263d069f6db1a3ec76bbfaa8"
+    },
+    "better-village": {
+      "version": "1IEc4yoG",
+      "path": "pack/mods/bettervillage-neoforge-1.21.1-3.3.1.jar",
+      "url": "https://cdn.modrinth.com/data/dGVX5JbJ/versions/1IEc4yoG/bettervillage-neoforge-1.21.1-3.3.1.jar",
+      "sha512": "db440863f2fd6823c3e10bb4f082b978dddbb59bb8525b1459358a46d4a5d10e92929b6bbc9033d8787467b99c2f98fa7d6685ec5e06a364eb15017e5eabd46b"
+    },
+    "towns-and-towers": {
+      "version": "DZxwgj6V",
+      "path": "pack/mods/t_and_t-fabric-neoforge-1.13.11.jar",
+      "url": "https://cdn.modrinth.com/data/DjLobEOy/versions/DZxwgj6V/t_and_t-fabric-neoforge-1.13.11.jar",
+      "sha512": "7464b1556250ceee25b4b531e07f65568c98a9d26f97232c1f6016be63ff243891de8283e072981deb968ea7d8b83bdc1579ee842b6b792446f4c26a43af4b62"
+    }
+  },
+  "sizeWeights": {
+    "small": 10,
+    "medium": 4,
+    "large": 1
+  },
+  "regionalWeight": 8,
+  "outpostWeight": 1,
+  "donorLimits": {
+    "residence": 2,
+    "workshop": 1,
+    "farm": 1,
+    "road": 2,
+    "center": 1
+  },
+  "inactiveRegionalProfiles": [
+    "towns_and_towers:village_ocean",
+    "towns_and_towers:exclusives/village_piglin"
+  ],
+  "themes": [
+    {
+      "theme": "beach",
+      "vanilla": "savanna",
+      "donors": [
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/houses",
+          "template": "minecraft:village/savanna/houses/savanna_small_house_5",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/houses",
+          "template": "minecraft:village/savanna/houses/savanna_small_house_6",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/houses",
+          "template": "minecraft:village/savanna/houses/savanna_cartographer_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/houses",
+          "template": "minecraft:village/savanna/houses/savanna_large_farm_1",
+          "role": "farm",
+          "weight": 2
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/streets",
+          "template": "minecraft:village/savanna/streets/crossroad_04",
+          "role": "road",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/town_centers",
+          "template": "minecraft:village/savanna/town_centers/savanna_meeting_point_1",
+          "role": "center",
+          "weight": 1
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/exclusives/iberian/houses",
+          "template": "kaisyn:village/exclusives/iberian/houses/iberian_small_house_2",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/exclusives/iberian/houses",
+          "template": "kaisyn:village/exclusives/iberian/houses/iberian_small_house_1",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/exclusives/iberian/houses",
+          "template": "kaisyn:village/exclusives/iberian/houses/iberian_temple_1",
+          "role": "workshop",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "theme": "christmas",
+      "vanilla": "snowy",
+      "donors": [
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/snowy/houses",
+          "template": "minecraft:village/snowy/houses/snowy_medium_house_2",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/snowy/houses",
+          "template": "minecraft:village/snowy/houses/snowy_small_house_4",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/snowy/houses",
+          "template": "minecraft:village/snowy/houses/snowy_armorer_house_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/snowy/houses",
+          "template": "minecraft:village/snowy/houses/snowy_farm_1",
+          "role": "farm",
+          "weight": 2
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/snowy/streets",
+          "template": "minecraft:village/snowy/streets/straight_06",
+          "role": "road",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/snowy/town_centers",
+          "template": "minecraft:village/snowy/town_centers/snowy_meeting_point_3",
+          "role": "center",
+          "weight": 1
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/snowy_taiga_viking/houses",
+          "template": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_small_house_5",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/snowy_taiga_viking/houses",
+          "template": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_small_house_1",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/snowy_taiga_viking/houses",
+          "template": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_cartographer_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/snowy_taiga_viking/houses",
+          "template": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_small_farm_1",
+          "role": "farm",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "theme": "desert",
+      "vanilla": "desert",
+      "donors": [
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/desert/houses",
+          "template": "minecraft:village/desert/houses/desert_medium_house_2",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/desert/houses",
+          "template": "minecraft:village/desert/houses/desert_small_house_1",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/desert/houses",
+          "template": "minecraft:village/desert/houses/desert_cartographer_house_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/desert/houses",
+          "template": "minecraft:village/desert/houses/desert_farm_2",
+          "role": "farm",
+          "weight": 2
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/desert/streets",
+          "template": "minecraft:village/desert/streets/straight_03",
+          "role": "road",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/desert/town_centers",
+          "template": "minecraft:village/desert/town_centers/desert_meeting_point_3",
+          "role": "center",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "theme": "desert_oasis",
+      "vanilla": "desert",
+      "donors": [
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/desert/houses",
+          "template": "minecraft:village/desert/houses/desert_medium_house_2",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/desert/houses",
+          "template": "minecraft:village/desert/houses/desert_small_house_1",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/desert/houses",
+          "template": "minecraft:village/desert/houses/desert_cartographer_house_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/desert/houses",
+          "template": "minecraft:village/desert/houses/desert_farm_2",
+          "role": "farm",
+          "weight": 2
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/desert/streets",
+          "template": "minecraft:village/desert/streets/straight_03",
+          "role": "road",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/desert/town_centers",
+          "template": "minecraft:village/desert/town_centers/desert_meeting_point_3",
+          "role": "center",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "theme": "dark_forest",
+      "vanilla": "taiga",
+      "donors": [
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/houses",
+          "template": "minecraft:village/taiga/houses/taiga_small_house_5",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/houses",
+          "template": "minecraft:village/taiga/houses/taiga_small_house_3",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/houses",
+          "template": "minecraft:village/taiga/houses/taiga_masons_house_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/houses",
+          "template": "minecraft:village/taiga/houses/taiga_large_farm_2",
+          "role": "farm",
+          "weight": 2
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/streets",
+          "template": "minecraft:village/taiga/streets/straight_05",
+          "role": "road",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/town_centers",
+          "template": "minecraft:village/taiga/town_centers/taiga_meeting_point_1",
+          "role": "center",
+          "weight": 1
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/forest_ruins/houses",
+          "template": "kaisyn:village/forest_ruins/houses/forest_armorer_1",
+          "role": "workshop",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "theme": "jungle",
+      "vanilla": null,
+      "donors": [
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/jungle_tribal/houses",
+          "template": "kaisyn:village/jungle_tribal/houses/jungle_small_house_1",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/jungle_tribal/houses",
+          "template": "kaisyn:village/jungle_tribal/houses/jungle_small_house_2",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/jungle_tribal/houses",
+          "template": "kaisyn:village/jungle_tribal/houses/jungle_armorer_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/jungle_tribal/houses",
+          "template": "kaisyn:village/jungle_tribal/houses/jungle_small_farm_1",
+          "role": "farm",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "theme": "jungle_tree",
+      "vanilla": null,
+      "donors": [
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/sparse_jungle_polynesian/houses",
+          "template": "kaisyn:village/sparse_jungle_polynesian/houses/sparse_jungle_small_house_1",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/sparse_jungle_polynesian/houses",
+          "template": "kaisyn:village/sparse_jungle_polynesian/houses/sparse_jungle_small_house_3",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/sparse_jungle_polynesian/houses",
+          "template": "kaisyn:village/sparse_jungle_polynesian/houses/sparse_jungle_fisher_and_fletcher_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/sparse_jungle_polynesian/houses",
+          "template": "kaisyn:village/sparse_jungle_polynesian/houses/sparse_jungle_small_farm_1",
+          "role": "farm",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "theme": "mesa",
+      "vanilla": "savanna",
+      "donors": [
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/houses",
+          "template": "minecraft:village/savanna/houses/savanna_small_house_5",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/houses",
+          "template": "minecraft:village/savanna/houses/savanna_small_house_6",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/houses",
+          "template": "minecraft:village/savanna/houses/savanna_cartographer_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/houses",
+          "template": "minecraft:village/savanna/houses/savanna_large_farm_1",
+          "role": "farm",
+          "weight": 2
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/streets",
+          "template": "minecraft:village/savanna/streets/crossroad_04",
+          "role": "road",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/town_centers",
+          "template": "minecraft:village/savanna/town_centers/savanna_meeting_point_1",
+          "role": "center",
+          "weight": 1
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/badlands_pueblo/houses",
+          "template": "kaisyn:village/badlands_pueblo/houses/badlands_medium_house_1_l",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/badlands_pueblo/houses",
+          "template": "kaisyn:village/badlands_pueblo/houses/badlands_medium_house_1_r",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/badlands_pueblo/houses",
+          "template": "kaisyn:village/badlands_pueblo/houses/badlands_cartographer_1",
+          "role": "workshop",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "theme": "mesa_fortified",
+      "vanilla": "savanna",
+      "donors": [
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/houses",
+          "template": "minecraft:village/savanna/houses/savanna_small_house_5",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/houses",
+          "template": "minecraft:village/savanna/houses/savanna_small_house_6",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/houses",
+          "template": "minecraft:village/savanna/houses/savanna_cartographer_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/houses",
+          "template": "minecraft:village/savanna/houses/savanna_large_farm_1",
+          "role": "farm",
+          "weight": 2
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/streets",
+          "template": "minecraft:village/savanna/streets/crossroad_04",
+          "role": "road",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/town_centers",
+          "template": "minecraft:village/savanna/town_centers/savanna_meeting_point_1",
+          "role": "center",
+          "weight": 1
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/badlands_pueblo/houses",
+          "template": "kaisyn:village/badlands_pueblo/houses/badlands_medium_house_1_l",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/badlands_pueblo/houses",
+          "template": "kaisyn:village/badlands_pueblo/houses/badlands_medium_house_1_r",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/badlands_pueblo/houses",
+          "template": "kaisyn:village/badlands_pueblo/houses/badlands_cartographer_1",
+          "role": "workshop",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "theme": "mountain",
+      "vanilla": "taiga",
+      "donors": [
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/houses",
+          "template": "minecraft:village/taiga/houses/taiga_small_house_5",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/houses",
+          "template": "minecraft:village/taiga/houses/taiga_small_house_3",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/houses",
+          "template": "minecraft:village/taiga/houses/taiga_masons_house_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/houses",
+          "template": "minecraft:village/taiga/houses/taiga_large_farm_2",
+          "role": "farm",
+          "weight": 2
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/streets",
+          "template": "minecraft:village/taiga/streets/straight_05",
+          "role": "road",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/town_centers",
+          "template": "minecraft:village/taiga/town_centers/taiga_meeting_point_1",
+          "role": "center",
+          "weight": 1
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/meadow_swiss/houses",
+          "template": "kaisyn:village/meadow_swiss/houses/meadow_small_house_1",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/meadow_swiss/houses",
+          "template": "kaisyn:village/meadow_swiss/houses/meadow_small_house_2",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/meadow_swiss/houses",
+          "template": "kaisyn:village/meadow_swiss/houses/meadow_armorer_and_leatherworker_1",
+          "role": "workshop",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "theme": "mountain_alpine",
+      "vanilla": "snowy",
+      "donors": [
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/snowy/houses",
+          "template": "minecraft:village/snowy/houses/snowy_medium_house_2",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/snowy/houses",
+          "template": "minecraft:village/snowy/houses/snowy_small_house_4",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/snowy/houses",
+          "template": "minecraft:village/snowy/houses/snowy_armorer_house_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/snowy/houses",
+          "template": "minecraft:village/snowy/houses/snowy_farm_1",
+          "role": "farm",
+          "weight": 2
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/snowy/streets",
+          "template": "minecraft:village/snowy/streets/straight_06",
+          "role": "road",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/snowy/town_centers",
+          "template": "minecraft:village/snowy/town_centers/snowy_meeting_point_3",
+          "role": "center",
+          "weight": 1
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/snowy_taiga_viking/houses",
+          "template": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_small_house_5",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/snowy_taiga_viking/houses",
+          "template": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_small_house_1",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/snowy_taiga_viking/houses",
+          "template": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_cartographer_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/snowy_taiga_viking/houses",
+          "template": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_small_farm_1",
+          "role": "farm",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "theme": "mushroom",
+      "vanilla": null,
+      "donors": [
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/mushroom_fields_fantasy/houses",
+          "template": "kaisyn:village/mushroom_fields_fantasy/houses/mushroom_large_house_1",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/mushroom_fields_fantasy/houses",
+          "template": "kaisyn:village/mushroom_fields_fantasy/houses/mushroom_small_house_1",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/mushroom_fields_fantasy/houses",
+          "template": "kaisyn:village/mushroom_fields_fantasy/houses/mushroom_butcher_1",
+          "role": "workshop",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "theme": "plains",
+      "vanilla": "plains",
+      "donors": [
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/plains/houses",
+          "template": "minecraft:village/plains/houses/plains_small_house_8",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/plains/houses",
+          "template": "minecraft:village/plains/houses/plains_big_house_1",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/plains/houses",
+          "template": "minecraft:village/plains/houses/plains_masons_house_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/plains/houses",
+          "template": "minecraft:village/plains/houses/plains_small_house_7",
+          "role": "farm",
+          "weight": 2
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/plains/streets",
+          "template": "minecraft:village/plains/streets/straight_02",
+          "role": "road",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/plains/town_centers",
+          "template": "minecraft:village/plains/town_centers/plains_fountain_01",
+          "role": "center",
+          "weight": 1
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/exclusives/tudor/houses",
+          "template": "kaisyn:village/exclusives/tudor/houses/tudor_small_house_1",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/exclusives/tudor/houses",
+          "template": "kaisyn:village/exclusives/tudor/houses/tudor_small_house_2",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/exclusives/tudor/houses",
+          "template": "kaisyn:village/exclusives/tudor/houses/tudor_shepherd_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/exclusives/tudor/houses",
+          "template": "kaisyn:village/exclusives/tudor/houses/tudor_farmer_1",
+          "role": "farm",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "theme": "plains_fortified",
+      "vanilla": "plains",
+      "donors": [
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/plains/houses",
+          "template": "minecraft:village/plains/houses/plains_small_house_8",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/plains/houses",
+          "template": "minecraft:village/plains/houses/plains_big_house_1",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/plains/houses",
+          "template": "minecraft:village/plains/houses/plains_masons_house_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/plains/houses",
+          "template": "minecraft:village/plains/houses/plains_small_house_7",
+          "role": "farm",
+          "weight": 2
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/plains/streets",
+          "template": "minecraft:village/plains/streets/straight_02",
+          "role": "road",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/plains/town_centers",
+          "template": "minecraft:village/plains/town_centers/plains_fountain_01",
+          "role": "center",
+          "weight": 1
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/exclusives/classic/houses",
+          "template": "kaisyn:village/exclusives/classic/houses/classic_small_farm_1",
+          "role": "farm",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "theme": "savanna",
+      "vanilla": "savanna",
+      "donors": [
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/houses",
+          "template": "minecraft:village/savanna/houses/savanna_small_house_5",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/houses",
+          "template": "minecraft:village/savanna/houses/savanna_small_house_6",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/houses",
+          "template": "minecraft:village/savanna/houses/savanna_cartographer_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/houses",
+          "template": "minecraft:village/savanna/houses/savanna_large_farm_1",
+          "role": "farm",
+          "weight": 2
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/streets",
+          "template": "minecraft:village/savanna/streets/crossroad_04",
+          "role": "road",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/town_centers",
+          "template": "minecraft:village/savanna/town_centers/savanna_meeting_point_1",
+          "role": "center",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "theme": "savanna_na",
+      "vanilla": "savanna",
+      "donors": [
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/houses",
+          "template": "minecraft:village/savanna/houses/savanna_small_house_5",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/houses",
+          "template": "minecraft:village/savanna/houses/savanna_small_house_6",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/houses",
+          "template": "minecraft:village/savanna/houses/savanna_cartographer_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/houses",
+          "template": "minecraft:village/savanna/houses/savanna_large_farm_1",
+          "role": "farm",
+          "weight": 2
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/streets",
+          "template": "minecraft:village/savanna/streets/crossroad_04",
+          "role": "road",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/savanna/town_centers",
+          "template": "minecraft:village/savanna/town_centers/savanna_meeting_point_1",
+          "role": "center",
+          "weight": 1
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/wooded_badlands_tipi/houses",
+          "template": "kaisyn:village/wooded_badlands_tipi/houses/small_huts/wooded_badlands_small_hut_black_1",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/wooded_badlands_tipi/houses",
+          "template": "kaisyn:village/wooded_badlands_tipi/houses/small_huts/wooded_badlands_small_hut_blue_1",
+          "role": "residence",
+          "weight": 4
+        }
+      ]
+    },
+    {
+      "theme": "snowy_igloo",
+      "vanilla": "snowy",
+      "donors": [
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/snowy/houses",
+          "template": "minecraft:village/snowy/houses/snowy_medium_house_2",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/snowy/houses",
+          "template": "minecraft:village/snowy/houses/snowy_small_house_4",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/snowy/houses",
+          "template": "minecraft:village/snowy/houses/snowy_armorer_house_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/snowy/houses",
+          "template": "minecraft:village/snowy/houses/snowy_farm_1",
+          "role": "farm",
+          "weight": 2
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/snowy/streets",
+          "template": "minecraft:village/snowy/streets/straight_06",
+          "role": "road",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/snowy/town_centers",
+          "template": "minecraft:village/snowy/town_centers/snowy_meeting_point_3",
+          "role": "center",
+          "weight": 1
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/snowy_taiga_viking/houses",
+          "template": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_small_house_5",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/snowy_taiga_viking/houses",
+          "template": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_small_house_1",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/snowy_taiga_viking/houses",
+          "template": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_cartographer_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/snowy_taiga_viking/houses",
+          "template": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_small_farm_1",
+          "role": "farm",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "theme": "swamp",
+      "vanilla": null,
+      "donors": [
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/swamp_boat/houses",
+          "template": "kaisyn:village/swamp_boat/houses/swamp_small_house_3",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/swamp_boat/houses",
+          "template": "kaisyn:village/swamp_boat/houses/swamp_small_house_1",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/swamp_boat/houses",
+          "template": "kaisyn:village/swamp_boat/houses/swamp_armorer_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/swamp_boat/houses",
+          "template": "kaisyn:village/swamp_boat/houses/swamp_cartographer_1",
+          "role": "farm",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "theme": "swamp_fortified",
+      "vanilla": null,
+      "donors": [
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/swamp_boat/houses",
+          "template": "kaisyn:village/swamp_boat/houses/swamp_small_house_3",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/swamp_boat/houses",
+          "template": "kaisyn:village/swamp_boat/houses/swamp_small_house_1",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/swamp_boat/houses",
+          "template": "kaisyn:village/swamp_boat/houses/swamp_armorer_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/swamp_boat/houses",
+          "template": "kaisyn:village/swamp_boat/houses/swamp_cartographer_1",
+          "role": "farm",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "theme": "taiga",
+      "vanilla": "taiga",
+      "donors": [
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/houses",
+          "template": "minecraft:village/taiga/houses/taiga_small_house_5",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/houses",
+          "template": "minecraft:village/taiga/houses/taiga_small_house_3",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/houses",
+          "template": "minecraft:village/taiga/houses/taiga_masons_house_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/houses",
+          "template": "minecraft:village/taiga/houses/taiga_large_farm_2",
+          "role": "farm",
+          "weight": 2
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/streets",
+          "template": "minecraft:village/taiga/streets/straight_05",
+          "role": "road",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/town_centers",
+          "template": "minecraft:village/taiga/town_centers/taiga_meeting_point_1",
+          "role": "center",
+          "weight": 1
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/old_growth_taiga_polish/houses",
+          "template": "kaisyn:village/old_growth_taiga_polish/houses/old_growth_taiga_medium_house_2",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/old_growth_taiga_polish/houses",
+          "template": "kaisyn:village/old_growth_taiga_polish/houses/old_growth_taiga_small_house_1",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/old_growth_taiga_polish/houses",
+          "template": "kaisyn:village/old_growth_taiga_polish/houses/old_growth_taiga_fletcher_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/old_growth_taiga_polish/houses",
+          "template": "kaisyn:village/old_growth_taiga_polish/houses/old_growth_taiga_small_farm_1",
+          "role": "farm",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "theme": "taiga_fortified",
+      "vanilla": "taiga",
+      "donors": [
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/houses",
+          "template": "minecraft:village/taiga/houses/taiga_small_house_5",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/houses",
+          "template": "minecraft:village/taiga/houses/taiga_small_house_3",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/houses",
+          "template": "minecraft:village/taiga/houses/taiga_masons_house_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/houses",
+          "template": "minecraft:village/taiga/houses/taiga_large_farm_2",
+          "role": "farm",
+          "weight": 2
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/streets",
+          "template": "minecraft:village/taiga/streets/straight_05",
+          "role": "road",
+          "weight": 3
+        },
+        {
+          "source": "better-village",
+          "pool": "minecraft:village/taiga/town_centers",
+          "template": "minecraft:village/taiga/town_centers/taiga_meeting_point_1",
+          "role": "center",
+          "weight": 1
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/old_growth_taiga_polish/houses",
+          "template": "kaisyn:village/old_growth_taiga_polish/houses/old_growth_taiga_medium_house_2",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/old_growth_taiga_polish/houses",
+          "template": "kaisyn:village/old_growth_taiga_polish/houses/old_growth_taiga_small_house_1",
+          "role": "residence",
+          "weight": 4
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/old_growth_taiga_polish/houses",
+          "template": "kaisyn:village/old_growth_taiga_polish/houses/old_growth_taiga_fletcher_1",
+          "role": "workshop",
+          "weight": 3
+        },
+        {
+          "source": "towns-and-towers",
+          "pool": "kaisyn:village/old_growth_taiga_polish/houses",
+          "template": "kaisyn:village/old_growth_taiga_polish/houses/old_growth_taiga_small_farm_1",
+          "role": "farm",
+          "weight": 2
+        }
+      ]
+    }
+  ]
+}

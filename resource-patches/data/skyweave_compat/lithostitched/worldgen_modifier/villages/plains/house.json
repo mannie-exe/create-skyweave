@@ -1,0 +1,124 @@
+{
+  "type": "lithostitched:add_template_pool_elements",
+  "template_pools": "ctov:village/plains/house",
+  "elements": [
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/plains/houses/plains_small_house_8",
+          "processors": "minecraft:mossify_10_percent",
+          "projection": "rigid"
+        },
+        "name": "skyweave_compat:villages/plains/residence",
+        "max_count": 2
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/plains/houses/plains_big_house_1",
+          "processors": "minecraft:mossify_10_percent",
+          "projection": "rigid"
+        },
+        "name": "skyweave_compat:villages/plains/residence",
+        "max_count": 2
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/plains/houses/plains_masons_house_1",
+          "processors": "minecraft:mossify_10_percent",
+          "projection": "rigid"
+        },
+        "name": "skyweave_compat:villages/plains/workshop",
+        "max_count": 1
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/plains/houses/plains_small_house_7",
+          "processors": "minecraft:mossify_10_percent",
+          "projection": "rigid"
+        },
+        "name": "skyweave_compat:villages/plains/farm",
+        "max_count": 1
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "projection": "rigid",
+          "location": "kaisyn:village/exclusives/tudor/houses/tudor_small_house_1",
+          "processors": "minecraft:empty"
+        },
+        "name": "skyweave_compat:villages/plains/residence",
+        "max_count": 2
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "projection": "rigid",
+          "location": "kaisyn:village/exclusives/tudor/houses/tudor_small_house_2",
+          "processors": "minecraft:empty"
+        },
+        "name": "skyweave_compat:villages/plains/residence",
+        "max_count": 2
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "projection": "rigid",
+          "location": "kaisyn:village/exclusives/tudor/houses/tudor_shepherd_1",
+          "processors": "minecraft:empty"
+        },
+        "name": "skyweave_compat:villages/plains/workshop",
+        "max_count": 1
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "projection": "rigid",
+          "location": "kaisyn:village/exclusives/tudor/houses/tudor_farmer_1",
+          "processors": "minecraft:farm_plains"
+        },
+        "name": "skyweave_compat:villages/plains/farm",
+        "max_count": 1
+      }
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ctov"
+    }
+  ]
+}

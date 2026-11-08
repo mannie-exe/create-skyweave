@@ -1,0 +1,15 @@
+{
+  "structures": [],
+  "placement": {
+    "salt": 213742069,
+    "spacing": 48,
+    "separation": 12,
+    "frequency": 0.2,
+    "frequency_reduction_method": "legacy_type_1",
+    "type": "minecraft:random_spread",
+    "exclusion_zone": {
+      "chunk_count": 10,
+      "other_set": "towns_and_towers:towns"
+    }
+  }
+}

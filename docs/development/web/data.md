@@ -100,6 +100,12 @@ only its runtime libraries come from the isolated installation. The exact locked
 NeoForge JAR must exist there. The snapshot records the selected runtime, so
 preparing another loader does not silently substitute it for the lock.
 
+The disposable configuration copy follows authored pack precedence. When the pack
+owns `config/skyweave/`, inherited root-level Compat settings and legacy recipe
+directories are excluded from that copy; foreign settings remain at their native
+paths. Authored journal definitions replace the inherited set. This prepares the
+capture's source layout without migrating or editing the configured installation.
+
 ## Textures and names
 
 [`scripts/extract.py`](../../../web/scripts/extract.py) reads the configured vanilla client

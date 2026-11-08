@@ -15,6 +15,7 @@ coverage:
   better-climbing: complete
   better-lanterns: complete
   better-third-person: complete
+  better-village: complete
   bluemap: complete
   bsl-shaders: complete
   c2me-neoforge: complete
@@ -61,6 +62,8 @@ coverage:
   create-transmission: complete
   create-vibrant-vaults: unknown
   createaddoncompatibility: complete
+  cristel-lib: complete
+  ct-overhaul-village: complete
   cubic-sun-moon: complete
   curios: complete
   defaultworldtype: complete
@@ -88,6 +91,7 @@ coverage:
   fresh-flower-pots: complete
   fusion-connected-textures: complete
   fzzy-config: complete
+  geophilic: complete
   hoofprint: unknown
   immediatelyfast: complete
   interiors: complete
@@ -101,9 +105,11 @@ coverage:
   jei: complete
   kotlin-for-forge: complete
   lambdynamiclights: unknown
+  library-ferret: complete
   linear-bearing: complete
   linear-bearings-fix: complete
   lithium: complete
+  lithostitched: complete
   lootr: complete
   low-on-fire: complete
   low-shield-pack: complete
@@ -158,11 +164,18 @@ coverage:
   supermartijn642s-config-lib: complete
   supermartijn642s-core-lib: complete
   surveyor: unknown
+  towns-and-towers: complete
   travelersbackpack: complete
   treechop: complete
   txnilib: complete
   yacl: complete
   yigd: complete
+  yungs-api: complete
+  yungs-better-desert-temples: complete
+  yungs-better-jungle-temples: complete
+  yungs-better-mineshafts: complete
+  yungs-better-ocean-monuments: complete
+  yungs-better-witch-huts: complete
   zfastnoise: complete
 dependencies:
   3d-crops:
@@ -972,6 +985,61 @@ dependencies:
       provider: modrinth
       selector: better-third-person
     title: Better Third Person
+  better-village:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/dGVX5JbJ/versions/1IEc4yoG/bettervillage-neoforge-1.21.1-3.3.1.jar
+        kind: provider
+        pin:
+          project:
+            project: dGVX5JbJ
+            provider: modrinth
+          selection:
+            id: 1IEc4yoG
+            provider: modrinth
+        slot: bettervillage-neoforge-1.21.1-3.3.1.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 6ad2a37bfea056ce924c62fea6e0a583723e7f4c
+          sha512: >-
+            db440863f2fd6823c3e10bb4f082b978dddbb59bb8525b1459358a46d4a5d10e92929b6bbc9033d8787467b99c2f98fa7d6685ec5e06a364eb15017e5eabd46b
+        size: 2429559
+      placements:
+      - destination: mods/bettervillage-neoforge-1.21.1-3.3.1.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 6ad2a37bfea056ce924c62fea6e0a583723e7f4c
+          sha512: >-
+            db440863f2fd6823c3e10bb4f082b978dddbb59bb8525b1459358a46d4a5d10e92929b6bbc9033d8787467b99c2f98fa7d6685ec5e06a364eb15017e5eabd46b
+        location: dGVX5JbJ
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: dGVX5JbJ
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: dGVX5JbJ
+        provider: modrinth
+      selection:
+        id: 1IEc4yoG
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: better-village
+    title: Better Villages
   bluemap:
     content: mod
     files:
@@ -3389,6 +3457,114 @@ dependencies:
       provider: modrinth
       selector: QgrK9rtJ
     title: "Create: Addon Compatibility"
+  cristel-lib:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/cl223EMc/versions/Sduz0AWP/cristellib-neoforge-1.21.1-3.1.7.jar
+        kind: provider
+        pin:
+          project:
+            project: cl223EMc
+            provider: modrinth
+          selection:
+            id: Sduz0AWP
+            provider: modrinth
+        slot: cristellib-neoforge-1.21.1-3.1.7.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: d250804b7ecea365bc736ec36ec6fc3f933917f1
+          sha512: >-
+            6d21ceb6cd91e63a248251ded3812208ed5ea4f36abb11e8c6e16aa119a95b0e714f59ec7689ae1b1248c9831e5e3e63aa681aa7dfa9b220d93741118466cbd6
+        size: 583525
+      placements:
+      - destination: mods/cristellib-neoforge-1.21.1-3.1.7.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: d250804b7ecea365bc736ec36ec6fc3f933917f1
+          sha512: >-
+            6d21ceb6cd91e63a248251ded3812208ed5ea4f36abb11e8c6e16aa119a95b0e714f59ec7689ae1b1248c9831e5e3e63aa681aa7dfa9b220d93741118466cbd6
+        location: cl223EMc
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: cl223EMc
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: cl223EMc
+        provider: modrinth
+      selection:
+        id: Sduz0AWP
+        provider: modrinth
+    source-selector: null
+    title: Cristel Lib
+  ct-overhaul-village:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/fgmhI8kH/versions/hJfyJvWt/%5Bneoforge%5Dctov-1.21.1-3.6.4.jar
+        kind: provider
+        pin:
+          project:
+            project: fgmhI8kH
+            provider: modrinth
+          selection:
+            id: hJfyJvWt
+            provider: modrinth
+        slot: "[neoforge]ctov-1.21.1-3.6.4.jar"
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 753b631f6cb258a448ac12b858e9a1cacbfefb6b
+          sha512: >-
+            5e8666e25e280d619a1a8c74d35918fcfe9642416bf7c4d546284467d6ba080bd026893e9e4761ce98a1fb8395b2dcfdbdc51412263d069f6db1a3ec76bbfaa8
+        size: 7239618
+      placements:
+      - destination: mods/[neoforge]ctov-1.21.1-3.6.4.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 753b631f6cb258a448ac12b858e9a1cacbfefb6b
+          sha512: >-
+            5e8666e25e280d619a1a8c74d35918fcfe9642416bf7c4d546284467d6ba080bd026893e9e4761ce98a1fb8395b2dcfdbdc51412263d069f6db1a3ec76bbfaa8
+        location: fgmhI8kH
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: fgmhI8kH
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: fgmhI8kH
+        provider: modrinth
+      selection:
+        id: hJfyJvWt
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: ct-overhaul-village
+    title: ChoiceTheorem's Overhauled Village
   cubic-sun-moon:
     content: resource-pack
     files:
@@ -4854,6 +5030,61 @@ dependencies:
       provider: modrinth
       selector: hYykXjDp
     title: Fzzy Config
+  geophilic:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/hl5OLM95/versions/5kFV8CEz/Geophilic%20v3.7.mod.jar
+        kind: provider
+        pin:
+          project:
+            project: hl5OLM95
+            provider: modrinth
+          selection:
+            id: 5kFV8CEz
+            provider: modrinth
+        slot: Geophilic v3.7.mod.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 4d668978e18b450c030ed4be096fce52d3a9ceca
+          sha512: >-
+            7731d6d7f85af0dc9eb232138b1dc1096f083d13a9f3e592b84f6c89a97cca0c642c68d5943e0e63bd35e93002708b945554991f519b754a04c6eec058305c19
+        size: 1115993
+      placements:
+      - destination: mods/Geophilic v3.7.mod.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 4d668978e18b450c030ed4be096fce52d3a9ceca
+          sha512: >-
+            7731d6d7f85af0dc9eb232138b1dc1096f083d13a9f3e592b84f6c89a97cca0c642c68d5943e0e63bd35e93002708b945554991f519b754a04c6eec058305c19
+        location: hl5OLM95
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: hl5OLM95
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: hl5OLM95
+        provider: modrinth
+      selection:
+        id: 5kFV8CEz
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: geophilic
+    title: Geophilic
   hoofprint:
     content: mod
     files:
@@ -5532,6 +5763,59 @@ dependencies:
     selection: null
     source-selector: null
     title: lambdynamiclights
+  library-ferret:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/DOB2l4oJ/versions/AKcIMUil/libraryferret-neoforge-1.21.1-4.0.0.jar
+        kind: provider
+        pin:
+          project:
+            project: DOB2l4oJ
+            provider: modrinth
+          selection:
+            id: AKcIMUil
+            provider: modrinth
+        slot: libraryferret-neoforge-1.21.1-4.0.0.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 9f750661168a599bdd7b2928e6588768d6105bfe
+          sha512: >-
+            493bf0c3f90f14bc4b24d46ab14026a934cf5b00db454a0126a10e6afd062f2e28fdd4500ef0c757bcf7f2e39eca6c5378e592209021b652c1b8a1650c06ac1a
+        size: 139464
+      placements:
+      - destination: mods/libraryferret-neoforge-1.21.1-4.0.0.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 9f750661168a599bdd7b2928e6588768d6105bfe
+          sha512: >-
+            493bf0c3f90f14bc4b24d46ab14026a934cf5b00db454a0126a10e6afd062f2e28fdd4500ef0c757bcf7f2e39eca6c5378e592209021b652c1b8a1650c06ac1a
+        location: DOB2l4oJ
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: DOB2l4oJ
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: DOB2l4oJ
+        provider: modrinth
+      selection:
+        id: AKcIMUil
+        provider: modrinth
+    source-selector: null
+    title: Library Ferret
   linear-bearing:
     content: mod
     files:
@@ -5696,6 +5980,61 @@ dependencies:
       provider: modrinth
       selector: gvQqBUqZ
     title: Lithium
+  lithostitched:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/XaDC71GB/versions/cZu4cHY3/lithostitched-1.8.1-neoforge-21.1.jar
+        kind: provider
+        pin:
+          project:
+            project: XaDC71GB
+            provider: modrinth
+          selection:
+            id: cZu4cHY3
+            provider: modrinth
+        slot: lithostitched-1.8.1-neoforge-21.1.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 88cdded5b617e19b4d2676948b5550699de23578
+          sha512: >-
+            6c02b8b269269d5aa84cb03bf824a1b5d52838e806c2fec8727eb4049925592dac9bb65c996858751fbb722f22ac59c4be09860e1f01e8f7b97c95be3faf7a57
+        size: 1023751
+      placements:
+      - destination: mods/lithostitched-1.8.1-neoforge-21.1.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 88cdded5b617e19b4d2676948b5550699de23578
+          sha512: >-
+            6c02b8b269269d5aa84cb03bf824a1b5d52838e806c2fec8727eb4049925592dac9bb65c996858751fbb722f22ac59c4be09860e1f01e8f7b97c95be3faf7a57
+        location: XaDC71GB
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: XaDC71GB
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: XaDC71GB
+        provider: modrinth
+      selection:
+        id: cZu4cHY3
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: lithostitched
+    title: Lithostitched
   lootr:
     content: mod
     files:
@@ -7987,14 +8326,14 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.26.0/skyweave-compat-0.26.0-mc1.21.1-neoforge.jar
+          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.27.0/skyweave-compat-0.27.0-mc1.21.1-neoforge.jar
         kind: url
       expected:
         accepted-observation: null
         digests:
-          sha1: 24136d91fc97413bc7425bb7b945f8ebb485223b
+          sha1: 08491b5974dbc69d1ed431cccb3c3b175a89cc2c
           sha512: >-
-            0513370390a81695aa2808c807db8172874a977b0fd5cadcbe129ff664aeabd5dd3ce9fd38e27a9e06b732fc2ceffd97241456e6cf53b7e0f4c9d4325e036663
+            944dcc0544a5c2a4ac902760315c057eb271cb51366d988c7d08f038b3a004314c3067a073c7bdd6b4c44487a572856f1203e42a60e6cc520520296a5d59c9ce
         size: null
       placements:
       - destination: mods/skyweave-compat.jar
@@ -8005,9 +8344,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: 24136d91fc97413bc7425bb7b945f8ebb485223b
+          sha1: 08491b5974dbc69d1ed431cccb3c3b175a89cc2c
           sha512: >-
-            0513370390a81695aa2808c807db8172874a977b0fd5cadcbe129ff664aeabd5dd3ce9fd38e27a9e06b732fc2ceffd97241456e6cf53b7e0f4c9d4325e036663
+            944dcc0544a5c2a4ac902760315c057eb271cb51366d988c7d08f038b3a004314c3067a073c7bdd6b4c44487a572856f1203e42a60e6cc520520296a5d59c9ce
         location: null
         source: url-file
       slot: primary
@@ -8530,6 +8869,61 @@ dependencies:
     selection: null
     source-selector: null
     title: surveyor
+  towns-and-towers:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/DjLobEOy/versions/DZxwgj6V/t_and_t-fabric-neoforge-1.13.11.jar
+        kind: provider
+        pin:
+          project:
+            project: DjLobEOy
+            provider: modrinth
+          selection:
+            id: DZxwgj6V
+            provider: modrinth
+        slot: t_and_t-fabric-neoforge-1.13.11.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 8f00e36a11568c0b66bbdf5c0e9ee492e511b303
+          sha512: >-
+            7464b1556250ceee25b4b531e07f65568c98a9d26f97232c1f6016be63ff243891de8283e072981deb968ea7d8b83bdc1579ee842b6b792446f4c26a43af4b62
+        size: 3553006
+      placements:
+      - destination: mods/t_and_t-fabric-neoforge-1.13.11.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 8f00e36a11568c0b66bbdf5c0e9ee492e511b303
+          sha512: >-
+            7464b1556250ceee25b4b531e07f65568c98a9d26f97232c1f6016be63ff243891de8283e072981deb968ea7d8b83bdc1579ee842b6b792446f4c26a43af4b62
+        location: DjLobEOy
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: DjLobEOy
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: DjLobEOy
+        provider: modrinth
+      selection:
+        id: DZxwgj6V
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: towns-and-towers
+    title: Towns and Towers
   travelersbackpack:
     content: mod
     files:
@@ -8805,6 +9199,334 @@ dependencies:
       provider: modrinth
       selector: yigd
     title: You're in Grave Danger
+  yungs-api:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/Ua7DFN59/versions/2prKITKh/YungsApi-1.21.1-NeoForge-5.1.9.jar
+        kind: provider
+        pin:
+          project:
+            project: Ua7DFN59
+            provider: modrinth
+          selection:
+            id: 2prKITKh
+            provider: modrinth
+        slot: YungsApi-1.21.1-NeoForge-5.1.9.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 2c4b740c8ad27bbcb2a21b85b64f011b809aed91
+          sha512: >-
+            7e3cf0b429e8a1c51dca094c2d8eabf12245bb42cbcd8b6e3e54959f931bef93201b81a08d200b417059aaa438e8eb445c3978a09568597bfb588199b7775967
+        size: 413763
+      placements:
+      - destination: mods/YungsApi-1.21.1-NeoForge-5.1.9.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 2c4b740c8ad27bbcb2a21b85b64f011b809aed91
+          sha512: >-
+            7e3cf0b429e8a1c51dca094c2d8eabf12245bb42cbcd8b6e3e54959f931bef93201b81a08d200b417059aaa438e8eb445c3978a09568597bfb588199b7775967
+        location: Ua7DFN59
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: Ua7DFN59
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: Ua7DFN59
+        provider: modrinth
+      selection:
+        id: 2prKITKh
+        provider: modrinth
+    source-selector: null
+    title: YUNG's API
+  yungs-better-desert-temples:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/XNlO7sBv/versions/GQ9iNWkI/YungsBetterDesertTemples-1.21.1-NeoForge-4.1.5.jar
+        kind: provider
+        pin:
+          project:
+            project: XNlO7sBv
+            provider: modrinth
+          selection:
+            id: GQ9iNWkI
+            provider: modrinth
+        slot: YungsBetterDesertTemples-1.21.1-NeoForge-4.1.5.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 90529257dbd92558998c65178294bc7b2fd16a64
+          sha512: >-
+            6454c955f75f66104810e967a59ae032ddf1ccc5a854346af6bfba6e44cd456e755cd8feb1e0968be4e9132ea6c5d1cb2126fe5e85d3eb18c8d3ea3c81ffdf9a
+        size: 905839
+      placements:
+      - destination: mods/YungsBetterDesertTemples-1.21.1-NeoForge-4.1.5.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 90529257dbd92558998c65178294bc7b2fd16a64
+          sha512: >-
+            6454c955f75f66104810e967a59ae032ddf1ccc5a854346af6bfba6e44cd456e755cd8feb1e0968be4e9132ea6c5d1cb2126fe5e85d3eb18c8d3ea3c81ffdf9a
+        location: XNlO7sBv
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: XNlO7sBv
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: XNlO7sBv
+        provider: modrinth
+      selection:
+        id: GQ9iNWkI
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: yungs-better-desert-temples
+    title: YUNG's Better Desert Temples
+  yungs-better-jungle-temples:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/z9Ve58Ih/versions/P00i2hJn/YungsBetterJungleTemples-1.21.1-NeoForge-3.1.2.jar
+        kind: provider
+        pin:
+          project:
+            project: z9Ve58Ih
+            provider: modrinth
+          selection:
+            id: P00i2hJn
+            provider: modrinth
+        slot: YungsBetterJungleTemples-1.21.1-NeoForge-3.1.2.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: d6b7ce6cf351b09cbd23147ff166c35cfdc572e8
+          sha512: >-
+            eca4233e874a55886c63d2111b8685d479771d3627bad2922582e65b78c51ba74733dc4624aabf91f2a2178a940a72d9209ae33eef74e34f84f07d62256709d9
+        size: 795839
+      placements:
+      - destination: mods/YungsBetterJungleTemples-1.21.1-NeoForge-3.1.2.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: d6b7ce6cf351b09cbd23147ff166c35cfdc572e8
+          sha512: >-
+            eca4233e874a55886c63d2111b8685d479771d3627bad2922582e65b78c51ba74733dc4624aabf91f2a2178a940a72d9209ae33eef74e34f84f07d62256709d9
+        location: z9Ve58Ih
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: z9Ve58Ih
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: z9Ve58Ih
+        provider: modrinth
+      selection:
+        id: P00i2hJn
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: yungs-better-jungle-temples
+    title: YUNG's Better Jungle Temples
+  yungs-better-mineshafts:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/HjmxVlSr/versions/Go3nbneL/YungsBetterMineshafts-1.21.1-NeoForge-5.1.1.jar
+        kind: provider
+        pin:
+          project:
+            project: HjmxVlSr
+            provider: modrinth
+          selection:
+            id: Go3nbneL
+            provider: modrinth
+        slot: YungsBetterMineshafts-1.21.1-NeoForge-5.1.1.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 6a14e1d8201f068ca87ef8333e471c5378955906
+          sha512: >-
+            8b01b386f53feeaa55f0c62697578b82e00501e45e428b2a68df6bda34efb6a4b3b4e3582abf13fe767ebcb61aef9368186f53c03999958bef38f31c41a7f8b2
+        size: 493967
+      placements:
+      - destination: mods/YungsBetterMineshafts-1.21.1-NeoForge-5.1.1.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 6a14e1d8201f068ca87ef8333e471c5378955906
+          sha512: >-
+            8b01b386f53feeaa55f0c62697578b82e00501e45e428b2a68df6bda34efb6a4b3b4e3582abf13fe767ebcb61aef9368186f53c03999958bef38f31c41a7f8b2
+        location: HjmxVlSr
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: HjmxVlSr
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: HjmxVlSr
+        provider: modrinth
+      selection:
+        id: Go3nbneL
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: yungs-better-mineshafts
+    title: YUNG's Better Mineshafts
+  yungs-better-ocean-monuments:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/3dT9sgt4/versions/yFjEcj2g/YungsBetterOceanMonuments-1.21.1-NeoForge-4.1.2.jar
+        kind: provider
+        pin:
+          project:
+            project: 3dT9sgt4
+            provider: modrinth
+          selection:
+            id: yFjEcj2g
+            provider: modrinth
+        slot: YungsBetterOceanMonuments-1.21.1-NeoForge-4.1.2.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: fba629defdb92ad99ec4f411895afb6e19555a18
+          sha512: >-
+            77c864da36f1d2173e6460dc335996893a804954b8a5c274173fc95dfdbf437e80d9dce32f6060306a662fc35322566eecf5dfe24e2d3fab79bf7e0ff9fa4db6
+        size: 1025571
+      placements:
+      - destination: mods/YungsBetterOceanMonuments-1.21.1-NeoForge-4.1.2.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: fba629defdb92ad99ec4f411895afb6e19555a18
+          sha512: >-
+            77c864da36f1d2173e6460dc335996893a804954b8a5c274173fc95dfdbf437e80d9dce32f6060306a662fc35322566eecf5dfe24e2d3fab79bf7e0ff9fa4db6
+        location: 3dT9sgt4
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: 3dT9sgt4
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: 3dT9sgt4
+        provider: modrinth
+      selection:
+        id: yFjEcj2g
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: yungs-better-ocean-monuments
+    title: YUNG's Better Ocean Monuments
+  yungs-better-witch-huts:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/t5FRdP87/versions/AvedwcIe/YungsBetterWitchHuts-1.21.1-NeoForge-4.1.1.jar
+        kind: provider
+        pin:
+          project:
+            project: t5FRdP87
+            provider: modrinth
+          selection:
+            id: AvedwcIe
+            provider: modrinth
+        slot: YungsBetterWitchHuts-1.21.1-NeoForge-4.1.1.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: bbf6c91f4a2829c58bc024eaaab821986bc93de6
+          sha512: >-
+            9baa8a1f36a2a36efc3df58ab9347fd9f326b551ad78e3f600ed9d68862c619752ac0770804807efb15a46fcb4d9f6e2baf6a11f622d3ebb6c865662f6c7bcfd
+        size: 174789
+      placements:
+      - destination: mods/YungsBetterWitchHuts-1.21.1-NeoForge-4.1.1.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: bbf6c91f4a2829c58bc024eaaab821986bc93de6
+          sha512: >-
+            9baa8a1f36a2a36efc3df58ab9347fd9f326b551ad78e3f600ed9d68862c619752ac0770804807efb15a46fcb4d9f6e2baf6a11f622d3ebb6c865662f6c7bcfd
+        location: t5FRdP87
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: t5FRdP87
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: t5FRdP87
+        provider: modrinth
+      selection:
+        id: AvedwcIe
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: yungs-better-witch-huts
+    title: YUNG's Better Witch Huts
   zfastnoise:
     content: mod
     files:
@@ -8872,7 +9594,7 @@ dependencies:
       provider: modrinth
       selector: OnlVIpq5
     title: Fast Noise
-intent-revision: 2b60ea2ba2dfd5d7a9f576ef94c1385cb63efebf24e104b2b92492a7b2fb71cb
+intent-revision: dd092fc6648e14a5b6c1f5ca2feab8b159198897e29b2ce3c083035695b05eb5
 required-edges:
   accessories:
   - owo-lib
@@ -8887,6 +9609,8 @@ required-edges:
   - create
   bellsandwhistles:
   - create
+  better-village:
+  - library-ferret
   colorwheel:
   - iris
   connector:
@@ -8935,6 +9659,10 @@ required-edges:
   createaddoncompatibility:
   - almostunified
   - create
+  cristel-lib:
+  - cloth-config
+  ct-overhaul-village:
+  - lithostitched
   distraction-free-recipes:
   - txnilib
   easy-anvils:
@@ -8987,8 +9715,20 @@ required-edges:
   - architectury-api
   sodium-extra:
   - sodium
+  towns-and-towers:
+  - cristel-lib
   yigd:
   - cloth-config
+  yungs-better-desert-temples:
+  - yungs-api
+  yungs-better-jungle-temples:
+  - yungs-api
+  yungs-better-mineshafts:
+  - yungs-api
+  yungs-better-ocean-monuments:
+  - yungs-api
+  yungs-better-witch-huts:
+  - yungs-api
 resolver: empack-synchronization-v0.5
 runtime:
   loader: neoforge

@@ -1,0 +1,37 @@
+{
+  "type": "lithostitched:set_pool_aliases",
+  "structures": [
+    "ctov:small/village_mountain_alpine",
+    "ctov:medium/village_mountain_alpine",
+    "ctov:large/village_mountain_alpine"
+  ],
+  "pool_aliases": [
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/snowy/houses",
+      "target": "ctov:village/mountain_alpine/house"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/snowy/streets",
+      "target": "ctov:village/mountain_alpine/roads"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/snowy/decor",
+      "target": "ctov:village/mountain_alpine/deco"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/snowy/terminators",
+      "target": "ctov:village/mountain_alpine/terminator"
+    }
+  ],
+  "append": true,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ctov"
+    }
+  ]
+}

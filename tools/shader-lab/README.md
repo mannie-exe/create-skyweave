@@ -18,7 +18,7 @@ ZIPs. Public modpack exports reference original provider inputs instead.
 
 ## Recipes
 
-`overrides/client/config/skyweave-shaders/recipes/` is the canonical source for
+`overrides/client/config/skyweave/shaders/recipes/` is the canonical source for
 patch versions, ordered operations, exact input hashes, runtime requirements,
 output names and expected payloads. The combined Skyweave correction is versioned
 independently of its inputs. Its current Complementary output is:
@@ -48,7 +48,7 @@ chosen policy, not a second transformation implementation.
 | --- | --- |
 | `shader-inputs/` | Empack-managed original shaders and Colorwheel patch payload |
 | `mods/` | Runtime integrations, including Euphoria and Create |
-| `config/skyweave-shaders/recipes/` | Authored managed recipes |
+| `config/skyweave/shaders/recipes/` | Authored managed recipes |
 | `.cache/skyweave-shaders/` | Runner receipts, verified cache and intermediates |
 | Named generated ZIPs in `shaderpacks/` | Runner |
 | Shader `.txt` options | Iris/player, with pack-provided seeds |

@@ -1,0 +1,37 @@
+{
+  "type": "lithostitched:set_pool_aliases",
+  "structures": [
+    "ctov:small/village_plains",
+    "ctov:medium/village_plains",
+    "ctov:large/village_plains"
+  ],
+  "pool_aliases": [
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/plains/houses",
+      "target": "ctov:village/plains/house"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/plains/streets",
+      "target": "ctov:village/plains/roads"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/plains/decor",
+      "target": "ctov:village/plains/deco"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/plains/terminators",
+      "target": "ctov:village/plains/terminator"
+    }
+  ],
+  "append": true,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ctov"
+    }
+  ]
+}

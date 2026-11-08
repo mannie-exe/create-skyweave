@@ -1,0 +1,68 @@
+{
+  "type": "lithostitched:add_template_pool_elements",
+  "template_pools": "ctov:village/swamp_fortified/house",
+  "elements": [
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "projection": "rigid",
+          "location": "kaisyn:village/swamp_boat/houses/swamp_small_house_3",
+          "processors": "minecraft:empty"
+        },
+        "name": "skyweave_compat:villages/swamp_fortified/residence",
+        "max_count": 2
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "projection": "rigid",
+          "location": "kaisyn:village/swamp_boat/houses/swamp_small_house_1",
+          "processors": "minecraft:empty"
+        },
+        "name": "skyweave_compat:villages/swamp_fortified/residence",
+        "max_count": 2
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "projection": "rigid",
+          "location": "kaisyn:village/swamp_boat/houses/swamp_armorer_1",
+          "processors": "minecraft:empty"
+        },
+        "name": "skyweave_compat:villages/swamp_fortified/workshop",
+        "max_count": 1
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "projection": "rigid",
+          "location": "kaisyn:village/swamp_boat/houses/swamp_cartographer_1",
+          "processors": "minecraft:empty"
+        },
+        "name": "skyweave_compat:villages/swamp_fortified/farm",
+        "max_count": 1
+      }
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ctov"
+    }
+  ]
+}

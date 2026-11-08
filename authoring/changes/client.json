@@ -4,9 +4,9 @@
   "records": [
     {
       "path": "overrides/client/options.txt",
-      "sha256": "400ac842659f8d67d5a726c737948e858d556c832acd3b153697db4402bf6c9d",
+      "sha256": "eee04108e243cc19250b28c9f9fc6878a5fc03a3498134adbe85d7e4c1f26932",
       "review": "reviewed",
-      "reason": "Select the reviewed visual stack, including Better Lanterns and the generated pot/chain overrides at highest priority. Accept the inspected 3D Crops format mismatch; dedicated cane and rails retain priority. Existing instance options are seeded, not replaced. Shader reload uses F8 to avoid ordinary R interactions and recipe lookup.",
+      "reason": "Select the reviewed visual stack, including Better Lanterns and the generated pot/chain overrides at highest priority. Accept the inspected 3D Crops format mismatch; dedicated cane and rails retain priority. Existing instance options are seeded, not replaced. Shader reload uses F8 to avoid ordinary R interactions and recipe lookup. Client defaults use 12-chunk view distance and 10-chunk simulation distance.",
       "reference": "docs/players/graphics.md#resource-packs"
     },
     {

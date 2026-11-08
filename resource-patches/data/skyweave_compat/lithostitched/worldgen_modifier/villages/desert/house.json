@@ -1,0 +1,74 @@
+{
+  "type": "lithostitched:add_template_pool_elements",
+  "template_pools": "ctov:village/desert/house",
+  "elements": [
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/desert/houses/desert_medium_house_2",
+          "processors": {
+            "processors": []
+          },
+          "projection": "rigid"
+        },
+        "name": "skyweave_compat:villages/desert/residence",
+        "max_count": 2
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/desert/houses/desert_small_house_1",
+          "processors": {
+            "processors": []
+          },
+          "projection": "rigid"
+        },
+        "name": "skyweave_compat:villages/desert/residence",
+        "max_count": 2
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/desert/houses/desert_cartographer_house_1",
+          "processors": {
+            "processors": []
+          },
+          "projection": "rigid"
+        },
+        "name": "skyweave_compat:villages/desert/workshop",
+        "max_count": 1
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/desert/houses/desert_farm_2",
+          "processors": "minecraft:farm_desert",
+          "projection": "rigid"
+        },
+        "name": "skyweave_compat:villages/desert/farm",
+        "max_count": 1
+      }
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ctov"
+    }
+  ]
+}

@@ -322,8 +322,8 @@ policies:
   options.txt: seed
   "shaderpacks/BSL_v10.1.8 + Clrwl_1.0.5.zip.txt": seed
   "shaderpacks/Complementary Unbound r5.9.3 + Euphoria 1.10.5 + Skyweave 0.1.0.zip.txt": seed
-  config/skyweave-shaders/recipes/bsl-colorwheel.json: managed
-  config/skyweave-shaders/recipes/complementary-euphoria-skyweave.json: managed
+  config/skyweave/shaders/recipes/bsl-colorwheel.json: managed
+  config/skyweave/shaders/recipes/complementary-euphoria-skyweave.json: managed
   config/questlog/chapters/cargo.json: managed
   config/questlog/chapters/electricity.json: managed
   config/questlog/chapters/engines.json: managed

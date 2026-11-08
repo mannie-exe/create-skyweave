@@ -28,6 +28,7 @@ record what was tested at the time; they do not define current defaults.
 | [Web map and authoring](development/web/README.md) | App setup, editor controls, data pipeline and verification |
 | [Journal integrations](development/journal-integrations.md) | EMI/JEI, translation and Ponder findings |
 | [World generation](development/worldgen.md) | Spacing policy and biome compatibility |
+| [Terrain and structure candidates](development/worldgen-candidates.md) | Selected projects, exclusions and integration review |
 | [Performance investigation](development/performance.md) | Bounded startup, teardown, GC, terrain and server-work profiling |
 | [Structures](development/structures.md) | Sky Villages placement, loot and delivery integration |
 | [Building weights](development/weights.md) | Classification policy, multipart decisions and native verification |

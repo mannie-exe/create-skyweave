@@ -35,8 +35,8 @@ def build(empack, check=False, runner=None):
     if not runner.is_file():
         raise ValueError("Shader runner is missing; use --runner with a verified candidate Compat JAR during development")
     workspace = LAB / ".cache/recipient"
-    recipes = ROOT / "overrides/client/config/skyweave-shaders/recipes"
-    target = workspace / "config/skyweave-shaders/recipes"
+    recipes = ROOT / "overrides/client/config/skyweave/shaders/recipes"
+    target = workspace / "config/skyweave/shaders/recipes"
     target.mkdir(parents=True, exist_ok=True)
     known = set()
     for recipe_file in sorted(recipes.glob("*.json")):

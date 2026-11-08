@@ -1,0 +1,37 @@
+{
+  "type": "lithostitched:set_pool_aliases",
+  "structures": [
+    "ctov:small/village_christmas",
+    "ctov:medium/village_christmas",
+    "ctov:large/village_christmas"
+  ],
+  "pool_aliases": [
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/snowy/houses",
+      "target": "ctov:village/christmas/house"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/snowy/streets",
+      "target": "ctov:village/christmas/roads"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/snowy/decor",
+      "target": "ctov:village/christmas/deco"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "minecraft:village/snowy/terminators",
+      "target": "ctov:village/christmas/terminator"
+    }
+  ],
+  "append": true,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ctov"
+    }
+  ]
+}
