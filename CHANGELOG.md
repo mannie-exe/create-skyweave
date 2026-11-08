@@ -2,6 +2,18 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.6.0 · 2026-11-08
+
+### Features
+
+- **worldgen:** Add island watersheds and granular edges ([324bf59](https://github.com/mannie-exe/create-skyweave/commit/324bf5936e2cf1ccf4ba55fab5055859e3142e01))
+
+## v0.5.0 · 2026-11-07
+
+### Features
+
+- **worldgen:** Adopt varied island terrain ([9cc2e47](https://github.com/mannie-exe/create-skyweave/commit/9cc2e470c4f39e491fdace48220a2e0d0f4e10fd))
+
 ## v0.4.0 · 2026-11-07
 
 ### Features
