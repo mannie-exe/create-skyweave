@@ -2,6 +2,12 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.7.0 · 2026-11-08
+
+### Features
+
+- **pack:** Compose villages and update island generation ([1c0dc4f](https://github.com/mannie-exe/create-skyweave/commit/1c0dc4f3daff7beb7e394ee7792b4ce2558ba34a))
+
 ## v0.6.0 · 2026-11-08
 
 ### Features
