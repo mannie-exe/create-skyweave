@@ -4,7 +4,7 @@ Checks apply to the recorded source or artifact, not every later checkout. Brows
 checks establish interface behavior; native game checks and survey evidence have
 separate owners and limits. Commands and prerequisites live in [setup](setup.md).
 
-## Pack 0.7.0 terrain and structure refresh
+## Pack 0.7.1 terrain and structure refresh
 
 The isolated runtime capture loads the published Compat 0.27.0 JAR with the thirteen
 selected content/library additions and composed village resources. Its SHA-256

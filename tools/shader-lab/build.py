@@ -18,6 +18,15 @@ from archive_output import publish
 from materials import classify
 
 
+def verify_released_runner(runner, manifest):
+    block = re.search(r"^  skyweave-compat:\n(.*?)(?=^  [a-z0-9_-]+:|\Z)", manifest, re.M | re.S)
+    digest = re.search(r"^      sha512: ([0-9a-f]{128})$", block[1], re.M) if block else None
+    if digest is None:
+        raise ValueError("Review the playable Compat digest before generating shaders")
+    if hashlib.sha512(runner.read_bytes()).hexdigest() != digest[1]:
+        raise ValueError("Align shader-runner with the playable Compat pin; cached outputs do not qualify another runner")
+
+
 def build(empack, check=False, runner=None):
     for name in ("create", "euphoria-patches"):
         pins = []
@@ -31,11 +40,16 @@ def build(empack, check=False, runner=None):
         if pins[0] != pins[1]:
             raise ValueError(f"Align {name} pins in the pack and shader lab before generating")
     subprocess.run([empack, "--workdir", str(LAB), "--yes", "sync", "--materialize"], check=True)
-    runner = Path(runner) if runner else LAB / "pack/shader-tools/runner.jar"
+    candidate = runner is not None
+    runner = Path(runner) if candidate else LAB / "pack/shader-tools/runner.jar"
     if not runner.is_file():
         raise ValueError("Shader runner is missing; use --runner with a verified candidate Compat JAR during development")
+    if not candidate:
+        verify_released_runner(runner, (ROOT / "empack.yml").read_text())
     workspace = LAB / ".cache/recipient"
     recipes = ROOT / "overrides/client/config/skyweave/shaders/recipes"
+    if not any(recipes.glob("*.json")):
+        raise ValueError("No managed shader recipes found in config/skyweave/shaders/recipes")
     target = workspace / "config/skyweave/shaders/recipes"
     target.mkdir(parents=True, exist_ok=True)
     known = set()

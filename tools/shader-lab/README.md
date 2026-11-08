@@ -108,6 +108,9 @@ Run `empack --workdir tools/shader-lab outdated` to inspect updates. Review and
 change exact pins deliberately. Keep root and lab Create/Euphoria pins aligned.
 For an engine update, qualify the candidate through `--runner`, publish Compat,
 then update the lab and playable manifest to its verified released artifact.
+The default runner must match the playable pin by SHA-512. Qualify a cold
+`.cache/recipient/` as well as warm cache reuse when changing recipe locations;
+a cached ZIP does not establish that the runner found the current recipes.
 
 For BSL, inspect Colorwheel Patcher's `config.json`, advertised shader version and
 `patches/BSL.zip`. For Euphoria, recheck the shaded BSDIFF API, normalized TAR

@@ -321,12 +321,12 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.26.0/skyweave-compat-0.26.0-mc1.21.1-neoforge.jar
+          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.27.0/skyweave-compat-0.27.0-mc1.21.1-neoforge.jar
         kind: url
       expected:
         accepted-observation: null
         digests:
-          sha256: 7c4ef971b83fc4efe61ca81c711066f496652691e30bc29d56789463505e2b60
+          sha256: d59bc85042821189f389ce1ab7af2f51c7ea8bb942c665e2492b7d188500804e
         size: null
       placements:
       - destination: shader-tools/runner.jar
@@ -337,7 +337,7 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha256: 7c4ef971b83fc4efe61ca81c711066f496652691e30bc29d56789463505e2b60
+          sha256: d59bc85042821189f389ce1ab7af2f51c7ea8bb942c665e2492b7d188500804e
         location: null
         source: url-file
       slot: content
@@ -348,7 +348,7 @@ dependencies:
     selection: null
     source-selector: null
     title: shader-runner
-intent-revision: 7f2532d25a36ef831983c40361e114f97101b3af6142318a3eb6f22fd73d9388
+intent-revision: ed1369a2d38c835b1df64ce67b7e7e05cc9563c8ec53d260cf2ff3a06ffd56d5
 required-edges: {}
 resolver: empack-synchronization-v0.5
 runtime:
