@@ -1,24 +1,32 @@
-# Create: Skyweave 0.5.0
+# Create: Skyweave 0.6.0
 
-Update Skyweave: Compatibility Patches to 0.25.0 for more varied island outlines,
-selective broken edges, fractured biome exteriors and probabilistic ocean habitats.
+Update Skyweave: Compatibility Patches to 0.26.0 and add Dynamic Waters 13.1.0.
 Minecraft remains 1.21.1 and NeoForge remains 21.1.265.
 
-- Keep sparse cluster spacing, native vertical shaping and island-relative geology.
-  Area-preserving elongation and seeded strength variation change horizontal outlines.
-- Admit 20% of eligible ocean-biome opportunities. Lagoon and Broken Reef share
-  the enabled weights; Ring and Shelf remain available but default off.
-- Give Lagoons 25% coastal-outlet, 15% falling-perimeter and 60% native edge modes.
-  Separate solid spires may accompany ocean anchors.
-- Add configurable fractured Mushroom/Badlands alternatives and rare native-climate
-  Deep Dark ecology while preserving independent interiors and ordinary city checks.
-- Add the operator-only island metadata locator and reduce unnecessary native
-  structure-lookup work. Find supported dry spawn ground around wet hosts.
-- Keep startup/editor validation and saved-world identity protection together;
-  accept released Ocean configuration files without silently rewriting their values.
-- Add bounded performance-investigation guidance; no JVM tuning campaign or new
-  profiling infrastructure is included.
+- Add shorter, uneven granular island edges with varied fragments that shrink
+  and thin outward. Mixed remains the ordinary profile; Disintegrating adds
+  broader breakup around an intact core. Existing spacing and geology remain.
+- Replace this preset's native Sky Archipelago rivers/lakes with supported
+  Dynamic Waters mountain rivers, basin lakes and edge falls. Keep continental
+  density rewriting and mountain tunnels off. Native ocean habitats remain.
+- Increase Deep Dark selection to 10% of eligible native underground hosts.
+  An island profile does not guarantee an Ancient City.
+- Align island temperature-sensitive weather and Iris precipitation at reference
+  Y64, map native clouds to Y469.3333, and remove height-triggered native void
+  darkening in marked worlds.
+- Generate the versioned Skyweave 0.2.0 environment corrections with the existing
+  Complementary/Euphoria and BSL/Colorwheel shader chains. Glass material policy
+  remains Skyweave Glass 0.1.0. Original inputs stay outside Iris's shader list.
+- Continue bounded island locator searches automatically, with concise progress,
+  cancellation and clickable results. Add typed water settings and protect live
+  singleplayer generation from registered config saves.
 
-These terrain changes require a fresh world. Existing marked saves are not converted.
-Existing explicitly edited profiles remain authoritative; review them before creating
-new worlds. See the world-generation guide for controls and conditional probabilities.
+**Create a fresh world for these terrain changes.** Existing marked worlds are
+not converted. Main shape, water and profile controls remain editable for future
+experiments; changing generation inputs can require another fresh world.
+
+Native checks cover generated water and fluid ticks, reopening, remote-client
+flow/reconnection, conservative fragment bounds, the four land archetypes,
+climate/environment controls and optional loading. A bounded Sable current test
+is not a certification of every vessel or machine. Unknown shaders and Photon
+on unsupported Apple hardware retain their existing limitations.

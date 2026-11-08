@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "id": "bsl-colorwheel",
-  "version": "1",
-  "output": "BSL_v10.1.8 + Clrwl_1.0.5.zip",
+  "version": "2",
+  "output": "BSL_v10.1.8 + Clrwl_1.0.5 + Skyweave_0.2.0.zip",
   "base": "bsl",
   "inputs": {
     "bsl": {
@@ -20,15 +20,127 @@
       "input": "colorwheel",
       "member": "patches/BSL.zip",
       "before": "7e8d9a8d645c1cf9d51da9a3d1822c4ab8aa8a8675b59fc99be9327cb24c640c"
+    },
+    {
+      "type": "text",
+      "path": "shaders/lib/skyweaveEnvironment.glsl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "find": "",
+      "replace": "#ifndef SKYWEAVE_ENVIRONMENT\n#define SKYWEAVE_ENVIRONMENT\nuniform bool skyweaveWorld;\nuniform bool skyweaveVoidVisuals;\nuniform bool skyweaveOpenSky;\n#endif\n",
+      "count": 0
+    },
+    {
+      "type": "text",
+      "path": "shaders/lib/atmospherics/fog.glsl",
+      "sha256": "6bfd4b1946f7c0eac4f85e561f453f5628215e2a309b238a356c89a0ebd6ce86",
+      "find": "#ifdef OVERWORLD\r\nvec3 GetFogColor(vec3 viewPos) {\r\n\tvec3 nViewPos = normalize(viewPos);\r\n",
+      "replace": "#include \"/lib/skyweaveEnvironment.glsl\"\n#ifdef OVERWORLD\r\nvec3 GetFogColor(vec3 viewPos) {\r\n\tvec3 nViewPos = normalize(viewPos);\r\n",
+      "count": 1
+    },
+    {
+      "type": "text",
+      "path": "shaders/lib/atmospherics/fog.glsl",
+      "sha256": "a8ee2f06c98a89aecc3615b68c8d6f32606a54e1dc3280a5eb68a7db555593bc",
+      "find": "clamp((cameraPosition.y - bedrockLevel + 6.0) / 8.0, 0.0, 1.0)",
+      "replace": "(skyweaveVoidVisuals ? 1.0 : clamp((cameraPosition.y - bedrockLevel + 6.0) / 8.0, 0.0, 1.0))",
+      "count": 1
+    },
+    {
+      "type": "text",
+      "path": "shaders/lib/atmospherics/clouds.glsl",
+      "sha256": "c0e21ee39082d8154f6aa8792a77f8a60c7fd3967614d56b1abaa06887256750",
+      "find": "#ifdef OVERWORLD\r\n\r\nfloat CloudSampleBasePerlin(vec2 coord) {\r\n",
+      "replace": "#include \"/lib/skyweaveEnvironment.glsl\"\n#ifdef OVERWORLD\r\n\r\nfloat CloudSampleBasePerlin(vec2 coord) {\r\n",
+      "count": 1
+    },
+    {
+      "type": "text",
+      "path": "shaders/lib/atmospherics/clouds.glsl",
+      "sha256": "6377ec38b249f9d280625c08032cdabeab1ab22d052e434db1cdeff18dffa414",
+      "find": "clamp((cameraPosition.y - bedrockLevel + 6.0) / 8.0, 0.0, 1.0)",
+      "replace": "(skyweaveVoidVisuals ? 1.0 : clamp((cameraPosition.y - bedrockLevel + 6.0) / 8.0, 0.0, 1.0))",
+      "count": 4
+    },
+    {
+      "type": "text",
+      "path": "shaders/lib/atmospherics/lightShafts.glsl",
+      "sha256": "968a34ffcfe1ee2057297188361bc3bd6a00e6355f6ae714281141ec9e9f223c",
+      "find": "float GetLightShaftsFalloff(vec3 viewPos, float hand) {\r\n\tfloat viewLength = length(viewPos);\r\n\tviewPos = normalize(viewPos);\r\n",
+      "replace": "#include \"/lib/skyweaveEnvironment.glsl\"\nfloat GetLightShaftsFalloff(vec3 viewPos, float hand) {\r\n\tfloat viewLength = length(viewPos);\r\n\tviewPos = normalize(viewPos);\r\n",
+      "count": 1
+    },
+    {
+      "type": "text",
+      "path": "shaders/lib/atmospherics/lightShafts.glsl",
+      "sha256": "f7ad7303e14704acb61dae6950e6b2c7483763cbbaecdece3d5c3764df1b516a",
+      "find": "clamp((cameraPosition.y - bedrockLevel + 6.0) / 8.0, 0.0, 1.0)",
+      "replace": "(skyweaveVoidVisuals ? 1.0 : clamp((cameraPosition.y - bedrockLevel + 6.0) / 8.0, 0.0, 1.0))",
+      "count": 1
+    },
+    {
+      "type": "text",
+      "path": "shaders/lib/atmospherics/sky.glsl",
+      "sha256": "c4fb90736835fffe61bddc3f07471424e97fc52ab02529aa85253e8135d8a5a2",
+      "find": "#ifdef OVERWORLD\r\nvec3 GetSkyColor(vec3 viewPos, bool isReflection) {\r\n    vec3 nViewPos = normalize(viewPos);\r\n",
+      "replace": "#include \"/lib/skyweaveEnvironment.glsl\"\n#ifdef OVERWORLD\r\nvec3 GetSkyColor(vec3 viewPos, bool isReflection) {\r\n    vec3 nViewPos = normalize(viewPos);\r\n",
+      "count": 1
+    },
+    {
+      "type": "text",
+      "path": "shaders/lib/atmospherics/sky.glsl",
+      "sha256": "054e7fd9613b680303bb5c3ed34b0023b97098af274ed1e4696c532afb48349d",
+      "find": "clamp((cameraPosition.y - bedrockLevel + 6.0) / 8.0, 0.0, 1.0)",
+      "replace": "(skyweaveVoidVisuals ? 1.0 : clamp((cameraPosition.y - bedrockLevel + 6.0) / 8.0, 0.0, 1.0))",
+      "count": 1
+    },
+    {
+      "type": "text",
+      "path": "shaders/lib/atmospherics/sunmoon.glsl",
+      "sha256": "8c0b770d982f4cb026a0d74248dd7beb11641662bb57fc42b668fe4919990ba2",
+      "find": "vec3 moonPhaseVecs[8] = vec3[8](\r\n\tvec3( 0.0 ,  0.0 ,  1.0 ),\r\n\tvec3( 0.0 , -0.89,  0.45),\r\n",
+      "replace": "#include \"/lib/skyweaveEnvironment.glsl\"\nvec3 moonPhaseVecs[8] = vec3[8](\r\n\tvec3( 0.0 ,  0.0 ,  1.0 ),\r\n\tvec3( 0.0 , -0.89,  0.45),\r\n",
+      "count": 1
+    },
+    {
+      "type": "text",
+      "path": "shaders/lib/atmospherics/sunmoon.glsl",
+      "sha256": "fe9459078066cb4f24699888ee9543ff19da4c7dc7e0a2e2bfe3a45e21ffb97b",
+      "find": "clamp((cameraPosition.y - bedrockLevel + 6.0) / 8.0, 0.0, 1.0)",
+      "replace": "(skyweaveVoidVisuals ? 1.0 : clamp((cameraPosition.y - bedrockLevel + 6.0) / 8.0, 0.0, 1.0))",
+      "count": 1
+    },
+    {
+      "type": "text",
+      "path": "shaders/lib/atmospherics/fog.glsl",
+      "sha256": "7cb12197a394896c7162f6e2e945b772dfe697228ea017a291537566f40874ac",
+      "find": "float exteriorFactor = eBS;",
+      "replace": "float exteriorFactor = skyweaveWorld ? max(eBS, float(skyweaveOpenSky)) : eBS;",
+      "count": 2
+    },
+    {
+      "type": "text",
+      "path": "shaders/lib/atmospherics/fog.glsl",
+      "sha256": "ddd4bed8007bdfa62e071d0345094b64b3e93a0c995f9edc290665e13eb6cd36",
+      "find": "exteriorFactor = max(exteriorFactor, clamp((cameraPosition.y - 48.0) / 16.0, 0.0, 1.0));",
+      "replace": "if (!skyweaveWorld) exteriorFactor = max(exteriorFactor, clamp((cameraPosition.y - 48.0) / 16.0, 0.0, 1.0));",
+      "count": 2
+    },
+    {
+      "type": "text",
+      "path": "SKYWEAVE.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "find": "",
+      "replace": "Skyweave 0.2.0: local recipient-generated shader adaptations.\nInputs: BSL 10.1.8 and Colorwheel Patcher 1.0.5.\nEnvironment correction: scoped Skyweave-world cave/void fades through Compat environment uniforms.\nUpstream notices and licenses remain authoritative. Report adaptation issues to Skyweave.\n",
+      "count": 0
     }
   ],
   "requires": {
     "iris": "1.8.14-beta.1+mc1.21.1",
     "colorwheel": "1.3.2+mc1.21.1"
   },
-  "expected": "27485687413db3d32608bfdf2333a7be3db3716358d6b3de30bae7be2c87e599",
   "settings": {
     "compatible": true,
     "seedSha256": "6f76fd65f400a54d9098ef031f8221ecb8ab1a73b7b1a16a7e505e1a046c809e"
-  }
+  },
+  "expected": "e547bde9d48293b54010f49db1afb2beab0515e7d3e4052043a582f22d222a1f"
 }

@@ -20,13 +20,17 @@ ZIPs. Public modpack exports reference original provider inputs instead.
 
 `overrides/client/config/skyweave-shaders/recipes/` is the canonical source for
 patch versions, ordered operations, exact input hashes, runtime requirements,
-output names and expected payloads. Skyweave Glass is versioned independently,
-currently 0.1.0. Its complete output is:
+output names and expected payloads. The combined Skyweave correction is versioned
+independently of its inputs. Its current Complementary output is:
 
-`Complementary Unbound r5.9.3 + Euphoria 1.10.5 + Skyweave 0.1.0.zip`
+`Complementary Unbound r5.9.3 + Euphoria 1.10.5 + Skyweave 0.2.0.zip`
 
-The two qualified chains are Complementary → Euphoria → Skyweave Glass, and
-BSL → Colorwheel overlay. They use bounded archive overlays, the exact Euphoria
+Skyweave Glass remains the material-classification patch within that result; its
+0.1.0 material report is unchanged by the environment corrections.
+
+The two qualified chains are Complementary → Euphoria → Skyweave, and
+BSL → Colorwheel → Skyweave. BSL outputs
+`BSL_v10.1.8 + Clrwl_1.0.5 + Skyweave_0.2.0.zip`. They use bounded archive overlays, the exact Euphoria
 binary engine and authored text edits with source/occurrence preconditions.
 Recipes cannot run commands or choose executable plugins. Keep upstream material
 changes in the recipe, rather than recreating them in Python or Java constants.
@@ -83,6 +87,21 @@ Shader stained-glass edge rewriting skips these windows because Create owns thei
 connected textures. The shader correction does not alter collision, neighbor
 culling or backface geometry; those are independent Compat adaptations.
 
+## Island environment
+
+Both chains also consume narrow Compat uniforms: `skyweaveWorld`,
+`skyweaveVoidVisuals` and `skyweaveOpenSky`. In marked worlds they replace selected
+vanilla-altitude cave/bedrock fades with available exposure and light. Foreign
+worlds, underwater rendering, genuine enclosed rooms and status effects retain
+their own paths. This is separate from the glass material classification.
+
+Native cloud height comes from Compat's dimension-effects provider; independent
+shader cloud layers need not share that height. Iris precipitation uses the same
+reference-temperature policy as native island weather. Do not globally rescale
+camera altitude, sea level or every atmospheric option. Unknown shaders do not
+automatically gain these corrections. Photon remains source/config reviewed on
+unsupported Apple hardware.
+
 ## Updates
 
 Run `empack --workdir tools/shader-lab outdated` to inspect updates. Review and
@@ -95,8 +114,11 @@ For BSL, inspect Colorwheel Patcher's `config.json`, advertised shader version a
 headers/directories/style, source preconditions, material IDs and runtime scanner
 hooks. The reviewed Euphoria engine digest is an executable allowlist in Compat;
 a recipe hash alone cannot authorize a different engine. Recheck Create alpha and
-model bindings, including resource-pack replacements. Bump Skyweave Glass when
-its behavior changes, then regenerate provenance, output names and preset paths.
+model bindings, including resource-pack replacements. Recheck uniform registration,
+per-frame updates, dimension switching, disabled controls and low-open-sky versus
+real-cave behavior. Bump the combined Skyweave version for environment changes;
+bump the material patch when classification changes. Regenerate provenance,
+output names and preset paths together.
 
 Regenerate with the shared engine, qualify payload hashes, compare recipient and
 author bytes, and verify native startup/reload and moving geometry. Update the

@@ -105,9 +105,8 @@ Shaders are off by default. Select a pack through Iris's shader settings:
 
 | Pack                     | Included version          | Notes                                                                  |
 | ------------------------ | ------------------------- | ---------------------------------------------------------------------- |
-| Complementary Unbound    | r5.9.3                    | Balanced preset with Low block reflections                             |
-| Complementary + Euphoria | 1.10.5 patches for r5.9.3 | Generated at launch; retains the pack's fog and night-sky settings     |
-| BSL + Colorwheel         | 10.1.8 + Clrwl 1.0.5      | Pre-patched shader with the supplied BSL settings                      |
+| Complementary + Euphoria + Skyweave | r5.9.3 + 1.10.5 + 0.2.0 | Generated shader with window and island-environment corrections |
+| BSL + Colorwheel + Skyweave | 10.1.8 + 1.0.5 + 0.2.0 | Generated alternative with the supplied BSL settings |
 | Photon                   | 1.4                       | High defaults with machinery shadows; native Colorwheel and DH support |
 
 The supplied Complementary, Euphoria and BSL presets use 128-block shadow distance.
@@ -119,8 +118,9 @@ These settings reduce selected rendering costs while retaining most effects;
 there is no measured FPS guarantee. Check moving ships, water and glass, island
 edges, and sunrise/sunset after changing settings.
 
-Select `BSL_v10.1.8 + Clrwl_1.0.5.zip` for the BSL alternative. It is already
-patched for Colorwheel; no launch-time patching or plain BSL copy is required.
+Select `BSL_v10.1.8 + Clrwl_1.0.5 + Skyweave_0.2.0.zip` for the BSL alternative.
+The installed runner assembles supported outputs before Iris opens them; original
+inputs stay outside the shader selection list.
 Current Complementary, Euphoria and Photon support Colorwheel natively.
 
 Photon retains its native High lighting settings, including SH Skylight and colored

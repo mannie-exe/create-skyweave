@@ -4,6 +4,17 @@ Checks apply to the recorded source or artifact, not every later checkout. Brows
 checks establish interface behavior; native game checks and survey evidence have
 separate owners and limits. Commands and prerequisites live in [setup](setup.md).
 
+## Pack 0.6.0 data refresh
+
+The isolated runtime capture uses the locked Compat 0.26.0 and Dynamic Waters
+13.1.0 selections. `pnpm data:refresh`, `pnpm data:check` and `pnpm verify` pass
+under the pinned Node and pnpm versions. The resulting snapshot contains 10,117
+items, 9,538 blocks, 9,247 recipes and 188 entities. Existing coverage gaps remain;
+these counts do not establish gameplay balance or complete acquisition coverage.
+
+The preview server's published snapshot manifest matches the current build.
+No application layout changes or personal-world survey are included.
+
 ## Release 0.3.0 checks
 
 On 2026-11-06, the Atlas runtime export uses the actual locked Sky Archipelago 1.4

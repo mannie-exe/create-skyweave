@@ -68,6 +68,7 @@ coverage:
   distanthorizons: complete
   distraction-free-recipes: complete
   dynamic-fps: complete
+  dynamic-waters: complete
   easy-anvils: complete
   easy-magic: complete
   effortless-building: complete
@@ -3755,6 +3756,61 @@ dependencies:
       provider: modrinth
       selector: LQ3K71Q1
     title: Dynamic FPS
+  dynamic-waters:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/wL4lvEci/versions/At4uOo4s/dynamicwaters-13.1.0-neoforge%2B1.21.1.jar
+        kind: provider
+        pin:
+          project:
+            project: wL4lvEci
+            provider: modrinth
+          selection:
+            id: At4uOo4s
+            provider: modrinth
+        slot: dynamicwaters-13.1.0-neoforge+1.21.1.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 83072f64208b906117b395a0315f821f42ce2968
+          sha512: >-
+            8a1eed3810e1e7a375e6ed50e21e7950d08d0b115903877c44fc1645c8f237e0cd3cac0ae325aa4988677b161317ce5ce0e22e8f2695109a286fee374c956e51
+        size: 10547798
+      placements:
+      - destination: mods/dynamicwaters-13.1.0-neoforge+1.21.1.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 83072f64208b906117b395a0315f821f42ce2968
+          sha512: >-
+            8a1eed3810e1e7a375e6ed50e21e7950d08d0b115903877c44fc1645c8f237e0cd3cac0ae325aa4988677b161317ce5ce0e22e8f2695109a286fee374c956e51
+        location: wL4lvEci
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: wL4lvEci
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: wL4lvEci
+        provider: modrinth
+      selection:
+        id: At4uOo4s
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: wL4lvEci
+    title: "Dynamic Waters: Realistic Flowing Rivers"
   easy-anvils:
     content: mod
     files:
@@ -7931,14 +7987,14 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.25.0/skyweave-compat-0.25.0-mc1.21.1-neoforge.jar
+          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.26.0/skyweave-compat-0.26.0-mc1.21.1-neoforge.jar
         kind: url
       expected:
         accepted-observation: null
         digests:
-          sha1: 6d89581a44bff5a423999b4c60086f927a451021
+          sha1: 24136d91fc97413bc7425bb7b945f8ebb485223b
           sha512: >-
-            b9113979c968a26abe47d4fb1866f686288c365ead1fc09d8ada7ca3c1a8190f252ef4ee9f7614f6fcb7082dc4555f9b68dda447322f6803853b7cff65be7ad3
+            0513370390a81695aa2808c807db8172874a977b0fd5cadcbe129ff664aeabd5dd3ce9fd38e27a9e06b732fc2ceffd97241456e6cf53b7e0f4c9d4325e036663
         size: null
       placements:
       - destination: mods/skyweave-compat.jar
@@ -7949,9 +8005,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: 6d89581a44bff5a423999b4c60086f927a451021
+          sha1: 24136d91fc97413bc7425bb7b945f8ebb485223b
           sha512: >-
-            b9113979c968a26abe47d4fb1866f686288c365ead1fc09d8ada7ca3c1a8190f252ef4ee9f7614f6fcb7082dc4555f9b68dda447322f6803853b7cff65be7ad3
+            0513370390a81695aa2808c807db8172874a977b0fd5cadcbe129ff664aeabd5dd3ce9fd38e27a9e06b732fc2ceffd97241456e6cf53b7e0f4c9d4325e036663
         location: null
         source: url-file
       slot: primary
@@ -8816,7 +8872,7 @@ dependencies:
       provider: modrinth
       selector: OnlVIpq5
     title: Fast Noise
-intent-revision: e9a8cf112ee97b8b0a549e9c48be699fb0b6da198c2c607061e24406ea2296f9
+intent-revision: 2b60ea2ba2dfd5d7a9f576ef94c1385cb63efebf24e104b2b92492a7b2fb71cb
 required-edges:
   accessories:
   - owo-lib

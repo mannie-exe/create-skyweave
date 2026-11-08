@@ -1,7 +1,7 @@
 schema: 5
 pack:
   name: Skyweave modpack
-  version: 0.5.0
+  version: 0.6.0
   id: create_skyweave
   authors:
     - mannie-exe
@@ -66,6 +66,9 @@ dependencies:
   almostunified:
     source: modrinth:sdaSaQEz
     pin: e8iYxxI3
+  dynamic-waters:
+    source: modrinth:wL4lvEci
+    pin: At4uOo4s
   analog-audio:
     source: modrinth:iMAVG2nH
     pin: BshMjyFt
@@ -733,10 +736,10 @@ dependencies:
     source:
       kind: url
       downloads:
-        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.25.0/skyweave-compat-0.25.0-mc1.21.1-neoforge.jar
+        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.26.0/skyweave-compat-0.26.0-mc1.21.1-neoforge.jar
     digests:
-      sha1: 6d89581a44bff5a423999b4c60086f927a451021
-      sha512: b9113979c968a26abe47d4fb1866f686288c365ead1fc09d8ada7ca3c1a8190f252ef4ee9f7614f6fcb7082dc4555f9b68dda447322f6803853b7cff65be7ad3
+      sha1: 24136d91fc97413bc7425bb7b945f8ebb485223b
+      sha512: 0513370390a81695aa2808c807db8172874a977b0fd5cadcbe129ff664aeabd5dd3ce9fd38e27a9e06b732fc2ceffd97241456e6cf53b7e0f4c9d4325e036663
     environment:
       client: required
       server: required

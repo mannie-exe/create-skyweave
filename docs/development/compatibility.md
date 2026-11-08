@@ -6,6 +6,48 @@ Player instructions belong in [graphics](../players/graphics.md) and
 [content list](../MODLIST.md), with authoritative selections in `empack.yml` and
 `empack.lock`.
 
+## Release 0.6.0
+
+Verified with Minecraft 1.21.1, NeoForge 21.1.265 and public Compat 0.26.0
+(SHA-256 `7c4ef971b83fc4efe61ca81c711066f496652691e30bc29d56789463505e2b60`).
+The downloaded JAR matches the tested native build and published checksum manifests;
+its Linux, Windows and macOS release checks pass. Pack checks pass all 67 Python
+tests, the 260-file configuration audit and 88 unchanged journal outputs. Both
+resource builders and shader-lab generation with the published runner pass.
+
+All three local distributions build with the new Compat and Dynamic Waters pins.
+Archive CRC, duplicate-entry, side placement and shader-input separation checks
+pass; the server terminal wrapper is applied. These are local export checks,
+separate from verification of the eventual published pack assets.
+
+The Atlas uses a fresh isolated export of the locked dependencies. Data checks,
+formatting, unused-code checks, tests and the 16-page build pass. Historical
+world/ore surveys retain their recorded inputs; this refresh does not rescan the
+personal server world or alter application layouts.
+
+## Island water and environment
+
+Skyweave's marked island preset disables Sky Archipelago's native rivers and
+lakes. Dynamic Waters 13.1.0 supplies terrain-following mountain watersheds and
+basin lakes through Compat's supported-column bridge. Its lowland mode remains
+`VANILLA`; `NONE` also rewrites density inputs. Mountain tunnels are disabled.
+Native Lagoon/Broken Reef habitats and their coastal/falling-edge treatments
+remain independent. Generation settings belong to the saved world identity;
+these changes require a fresh world rather than modifying old chunks in place.
+
+Temperature-sensitive island consumers use reference Y64 while block positions,
+light and collision remain real. Cloud height maps to Y469.3333. Native void
+height darkening is disabled only in marked worlds; the supported shader recipes
+use scoped exposure signals for their corresponding cave/void heuristics.
+Other shaders retain their own behavior. Settings and limitations belong to
+Compat's [configuration](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/configuration.md)
+and [verification](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/verification.md).
+
+Native full-pack checks include ordinary fluid ticks, a natural edge waterfall,
+reopening, source/height-query agreement, and bounded Sable current submission.
+A real DH job persists terrain and water palettes. These checks do not certify
+all boats, Create machines, distant fluid colors, aquatic progression or scarcity.
+
 ## Release 0.4.0
 
 Verified on 2026-11-07 with Minecraft 1.21.1, NeoForge 21.1.265 and the public
@@ -346,23 +388,19 @@ The tested shader SHA-256 is
 audit, and the isolated bundled Prism build pass. Default release profiles remain
 references. No personal installation or server was changed.
 
-The [shader lab](../../tools/shader-lab/README.md) tracks BSL 10.1.8 and
-Colorwheel Patcher 1.0.5 in a separate empack workspace. Its automated builder
-copies BSL and overlays the patcher's embedded `patches/BSL.zip`, producing the
-complete `BSL_v10.1.8 + Clrwl_1.0.5.zip`. The playable pack consumes that local
-artifact with its matching preset; plain BSL and the patcher mod are not shipped.
+The [shader lab](../../tools/shader-lab/README.md) pins BSL 10.1.8 and
+Colorwheel Patcher 1.0.5 as original inputs. Compat's shared recipient engine
+applies the embedded Colorwheel overlay and scoped Skyweave environment edits,
+producing `BSL_v10.1.8 + Clrwl_1.0.5 + Skyweave_0.2.0.zip` locally. Neither plain
+BSL nor a managed premerged shader is placed in Iris's list. The patcher archive
+is input data rather than a runtime mod; Colorwheel's runtime remains installed.
 
-All 314 output file payloads match the real patcher's previously generated
-archive. ZIP metadata is normalized for repeatable builds. The native released-JAR
-check changed 22 paths and preserved settings. The isolated full-pack client
-compiled and rendered that shader and an assembled carriage on the Apple M4 Pro.
-The new headless generator has equivalent payloads; it has not received another
-client visual pass. This does not establish every rendering path or performance.
-
-The generator's `--check`, archive CRC checks and release/index inspection
-verified the complete shader in the client reference exports, its editable preset
-policy, and no shader content in the server export. Neither plain BSL nor the
-patcher mod remains in the shipping lock or exports.
+Complementary/Euphoria uses the same engine and adds Skyweave 0.2.0 environment
+corrections while retaining the separately versioned Skyweave Glass 0.1.0 material
+policy. Native candidate checks compile/reload both corrected chains, distinguish
+low open sky from an enclosed room, and preserve the existing material corrections.
+Unknown shaderpacks and Photon on Apple hardware remain outside that evidence.
+The lab guide owns canonical recipes, payload qualification and distribution.
 
 Compat groups configuration by gameplay system and mod page, with setting
 anchors and localized search. Rendering → Iris exposes independent

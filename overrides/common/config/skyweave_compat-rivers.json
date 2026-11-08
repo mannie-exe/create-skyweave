@@ -1,6 +1,6 @@
 {
-  "enabled": true,
-  "lakes_enabled": true,
+  "enabled": false,
+  "lakes_enabled": false,
   "fluid_block": "minecraft:water",
   "minimum_depth": 2,
   "maximum_depth": 4,

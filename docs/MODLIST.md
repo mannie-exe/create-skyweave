@@ -41,7 +41,7 @@ See [release notes](RELEASE_NOTES.md) for the published version.
 | Controlling | 19.0.5 | [Exact version](https://modrinth.com/mod/controlling/version/FaNppCJJ) |
 | Cool Rain Reforged | 1.0.2 | [Exact version](https://modrinth.com/mod/cool-rain-reforged/version/SwSSfJQQ) |
 | Copycat Bar Extrusion | 0.1.0 | [Exact release](https://github.com/mannie-exe/copycat-bar-extrusion/releases/tag/v0.1.0) |
-| Skyweave: Compatibility Patches | 0.24.0 | [GitHub release](https://github.com/mannie-exe/skyweave-compat/releases/tag/v0.24.0) |
+| Skyweave: Compatibility Patches | 0.26.0 | [GitHub release](https://github.com/mannie-exe/skyweave-compat/releases/tag/v0.26.0) |
 | Create Accessories Compat | 1.0 | [Exact version](https://modrinth.com/mod/create-accessories-compat/version/2r7hvkCQ) |
 | Create Aeronautics | 1.3.2+mc1.21.1 | [Exact version](https://modrinth.com/mod/create-aeronautics/version/44pLdPGg) |
 | Create Aeronautics: Transmission & Linkage | 0.2.9 | [Exact version](https://modrinth.com/mod/create-aeronautics-transmission-linkage/version/WoUjC6d4) |
@@ -83,6 +83,7 @@ See [release notes](RELEASE_NOTES.md) for the published version.
 | Distant Horizons | 3.3.3-1.21.1 | [Exact version](https://modrinth.com/mod/distanthorizons/version/9w34y8ai) |
 | Distraction Free Recipes (EMI / REI / JEI) | 1.2.1 | [Exact version](https://modrinth.com/mod/distraction-free-recipes/version/H0rFJIiC) |
 | Dynamic FPS | 3.11.4 | [Exact version](https://modrinth.com/mod/dynamic-fps/version/T238FZpQ) |
+| Dynamic Waters | 13.1.0 | [Exact version](https://modrinth.com/mod/wL4lvEci/version/At4uOo4s) |
 | Easy Anvils | v21.1.0-1.21.1-NeoForge | [Exact version](https://modrinth.com/mod/easy-anvils/version/fSQSKhdF) |
 | Easy Magic | v21.1.4-1.21.1-NeoForge | [Exact version](https://modrinth.com/mod/easy-magic/version/MxbfrOEv) |
 | Effortless Building | 4.2 | [Exact version](https://modrinth.com/mod/effortless-building/version/YxnBXtLv) |

@@ -3,14 +3,14 @@
   "baseline": "b5465d2aaf4b685baa46093fc805da0a51047bd9",
   "records": [
     {
-      "path": "overrides/client/shaderpacks/BSL_v10.1.8 + Clrwl_1.0.5.zip.txt",
+      "path": "overrides/client/shaderpacks/BSL_v10.1.8 + Clrwl_1.0.5 + Skyweave_0.2.0.zip.txt",
       "sha256": "6f76fd65f400a54d9098ef031f8221ecb8ab1a73b7b1a16a7e505e1a046c809e",
       "review": "reviewed",
       "reason": "Reduce sampler pressure and shadow distance while retaining the tested shader effects.",
       "reference": "docs/development/compatibility.md"
     },
     {
-      "path": "overrides/client/shaderpacks/Complementary Unbound r5.9.3 + Euphoria 1.10.5 + Skyweave 0.1.0.zip.txt",
+      "path": "overrides/client/shaderpacks/Complementary Unbound r5.9.3 + Euphoria 1.10.5 + Skyweave 0.2.0.zip.txt",
       "sha256": "2fc1c28379ab492264449a35e86799b19c0726d752c4f927c4fcc20700ab8297",
       "review": "reviewed",
       "reason": "Retain the existing preset for the lab-generated shader with texture-aware window layers and opaque frame materials.",
@@ -25,9 +25,9 @@
     },
     {
       "path": "overrides/common/config/iris.properties",
-      "sha256": "0ae29375025e8fe999de107d1c2e8fc55a77eddda8de277e94c41432e546dc6d",
-      "review": "inherited",
-      "reason": "Select the lab-generated Complementary/Euphoria shader with the Skyweave Glass patch; preserve the existing enablement and Iris settings.",
+      "sha256": "5fe152fc28c07df049a7cb0e86806bb6cf71eaa06ce6dd1fa74dd28401db36d4",
+      "review": "reviewed",
+      "reason": "Select the generated Complementary/Euphoria/Skyweave shader; preserve shader enablement and player rendering policy.",
       "reference": "docs/development/decisions.md"
     },
     {
@@ -39,16 +39,16 @@
     },
     {
       "path": "overrides/client/config/skyweave-shaders/recipes/bsl-colorwheel.json",
-      "sha256": "b95ae250955ef3ea291dc5708de5b25cd481a288100dfe3315140ae628b67c1a",
+      "sha256": "0db2ba67bc36296c972163ff42e85927f9f308af01a8a546732fee9785a85c88",
       "review": "reviewed",
-      "reason": "Generate the qualified complete shader from pinned inputs through the shared Java engine; keep source archives outside the shader list.",
+      "reason": "Generate qualified shaders with existing material corrections and world-scoped cave/void fixes through the shared Java engine.",
       "reference": "tools/shader-lab/README.md"
     },
     {
       "path": "overrides/client/config/skyweave-shaders/recipes/complementary-euphoria-skyweave.json",
-      "sha256": "66fd7684e3967e2097b084242fafd3752d186a75b9553e92a7fdc86020ec5ba5",
+      "sha256": "09739e1f5b4809aec59371ed7cd7464709effa620abfd606702577b0826bf303",
       "review": "reviewed",
-      "reason": "Generate the qualified complete shader from pinned inputs through the shared Java engine; keep source archives outside the shader list.",
+      "reason": "Generate qualified shaders with existing material corrections and world-scoped cave/void fixes through the shared Java engine.",
       "reference": "tools/shader-lab/README.md"
     }
   ]

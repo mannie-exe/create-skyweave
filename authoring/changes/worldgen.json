@@ -53,9 +53,9 @@
     },
     {
       "path": "overrides/common/config/skyweave_compat-shapes.json",
-      "sha256": "6ba90ed49dbb62ac12cd5e7047e609be042bc07f742ad454f7385df0c9f9ae56",
+      "sha256": "453ff5ca463070419ff4cde81210d2264c9b5b70635342985dfc88ac844793db",
       "review": "reviewed",
-      "reason": "Seeded area-preserving elongation, bounded edge disturbance, and biome-aware fractured exteriors; new-world settings preserve native vertical shaping.",
+      "reason": "Retain the current outline and intact body, add mixed/disintegrating granular aprons, and select Deep Dark for 10% of eligible native hosts.",
       "reference": "docs/development/worldgen.md"
     },
     {
@@ -67,9 +67,9 @@
     },
     {
       "path": "overrides/common/config/skyweave_compat-rivers.json",
-      "sha256": "356038619c8b233f7e8fe702aa244f108459187e8b827693863e2a1a1e1410b0",
+      "sha256": "3194d9d80d703384722af491c882dc934b0d053ba63c2d09a152f3ace146e942",
       "review": "reviewed",
-      "reason": "Native Sky Archipelago 1.4 rivers and lakes use explicit new-world defaults; global ocean remains disabled.",
+      "reason": "Disable both native Sky Archipelago river and lake planners; the optional Dynamic Waters watershed owns local channels and lakes.",
       "reference": "docs/development/worldgen.md"
     },
     {
@@ -85,6 +85,13 @@
       "review": "reviewed",
       "reason": "Interior Ancient Cities require at least 90% body burial plus independent core and floor support; HOLLOW hosts retain stricter fit.",
       "reference": "docs/development/worldgen.md"
+    },
+    {
+      "path": "overrides/common/config/dynamicwaters-common.toml",
+      "sha256": "dbcf04f4bb8f290577331894187168ed4daf380d5556b7189baee2905eafa1a9",
+      "review": "reviewed",
+      "reason": "Use island-aware mountain watersheds with VANILLA lowland mode and no tunnels; keep the pack title UI and hide upstream welcome/menu additions.",
+      "reference": "docs/development/terrain.md"
     }
   ]
 }
