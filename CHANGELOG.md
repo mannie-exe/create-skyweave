@@ -2,6 +2,12 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.8.1 · 2026-11-08
+
+### Fixes
+
+- **instance:** Preserve shader options and isolate LOD caches ([b4c4e3f](https://github.com/mannie-exe/create-skyweave/commit/b4c4e3feb6ba8108065059fad65bf4931d3579e8))
+
 ## v0.8.0 · 2026-11-08
 
 ### Features
