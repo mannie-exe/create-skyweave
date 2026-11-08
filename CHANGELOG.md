@@ -2,6 +2,12 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.8.0 · 2026-11-08
+
+### Features
+
+- **terrain:** Update island repairs and discovery ([a5437dd](https://github.com/mannie-exe/create-skyweave/commit/a5437dd7d5ed582fcb44eaf7cdbf70360b0c44f8))
+
 ## v0.7.1 · 2026-11-08
 
 ### Fixes
