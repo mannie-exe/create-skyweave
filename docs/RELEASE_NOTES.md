@@ -1,30 +1,13 @@
-# Create: Skyweave 0.8.0
+# Create: Skyweave 0.8.1
 
-Update Skyweave: Compatibility Patches to 0.28.0 for river continuity, local
-outlets, water-biome freezing and safer structure discovery. Minecraft remains
-1.21.1 and NeoForge remains 21.1.265.
+Enable the existing per-world DH cache adaptation by removing the testing opt-out.
+New server worlds receive separate LOD cache identities, so cached terrain from a
+discarded world is not reused. Existing client cache files are preserved; changing
+the cache key does not migrate their contents. Keep matching Compat configuration
+on both endpoints.
 
-- Preserve supported river beds across NOISE and HOLLOW interiors without filling
-  the void. Rivers terminate at island rims or actual water connections rather
-  than a fictitious global sea-level mouth. Keep Dynamic Waters density HIGH.
-- Correct warm water freezing beneath a neighboring cold-air biome while keeping
-  genuine cold terrain, snow and ice.
-- Vary skylight outlines by seed, opening selected HOLLOW roofs into their
-  cavities. NOISE skylights default off; existing side passages remain available.
-- Disable falling-perimeter lagoon selection. Admitted lagoons retain the existing
-  25% coastal/open-cove treatment and 75% native treatment.
-- Add the operator command `/skyweavecompat structures search <radius> family=villages`
-  or `structure=<id|#tag>`, with automatic bounded continuation, progress, pages
-  and cancellation. Results identify real structure starts and suggest teleports.
-  Vanilla `/locate` retains its synchronous behavior.
-- Include validated structure-search limits and skylight controls in the existing
-  World generation → Sky Archipelago settings, with authored defaults under
-  `config/skyweave/`.
+Shader-option files use seed ownership under their current generated names, so
+normal Iris option edits do not block later instance preparation.
 
-**Create a fresh world.** Terrain/drainage identities changed; existing marked
-worlds are not silently reinterpreted. Bounded structure searches can save early
-chunk metadata, and partial results do not establish absence or the nearest match.
-Unsupported placement types and historical starts without current placement grids
-remain explicitly outside the command's supported search domain.
-
-Client view12/simulation10 and server view16/simulation12 remain unchanged.
+Compat remains 0.28.0; all terrain, structure-search and configuration changes from
+[0.8.0](releases/0.8.0.md) remain. Minecraft and NeoForge pins are unchanged.

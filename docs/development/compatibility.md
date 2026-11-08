@@ -6,6 +6,16 @@ Player instructions belong in [graphics](../players/graphics.md) and
 [content list](../MODLIST.md), with authoritative selections in `empack.yml` and
 `empack.lock`.
 
+## Release 0.8.1
+
+The pack enables Compat's existing per-world DH cache identity and corrects the
+seed policies for the current generated shader-option filenames. Local client
+and server installation and preparation pass on the 0.8.1 snapshot without
+replacing modified managed files. Both reference recipes mark shader presets as
+`seed`; all three exports pass CRC, duplicate-entry and version checks. The
+380-file configuration audit, 88 journal outputs and 73 Python tests pass.
+Compat remains the public 0.28.0 artifact verified below.
+
 ## Release 0.8.0
 
 The public Compat 0.28.0 artifact matches its tested candidate and both published
@@ -1340,8 +1350,8 @@ requirements and [verification](web/verification.md#resource-rendering-repairs-2
 for the tested cases and limitations.
 
 `create.glass_backfaces` and `fusion.glass_backfaces` additionally show exposed
-surfaces from behind after native texture processing. The pack enables both;
-standalone Compat installations default them off. Neighbor visibility remains a
+surfaces from behind after native texture processing. Both default on when their
+optional dependencies qualify. Neighbor visibility remains a
 separate decision, so matching interfaces and opaque-neighbor occlusion retain
 their native rules. The [patch reference](patches.md) owns coverage and update checks.
 

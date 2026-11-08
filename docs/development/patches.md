@@ -103,6 +103,8 @@ artifact hashes, filenames, sides and the removal of the old file selection.
 Avoid duplicate provider identities and dependency downgrades. A successful native
 run validates the recorded files, not the provider's different dependency closure.
 
+When a shader recipe changes its output name, move its authored `.zip.txt` preset and update the exact `seed` path in `empack.bindings.yml` together. Verify the built recipe's policy; a stale old-name entry makes the new preset managed and Iris's normal option writes then block instance updates. Keep generated shader ZIP ownership with Compat's runner.
+
 ## Coupled update boundaries
 
 Audio and recovery updates couple Analog Audio's bundled AnalogLib, Sable, YiGD,

@@ -4,6 +4,14 @@ Checks apply to the recorded source or artifact, not every later checkout. Brows
 checks establish interface behavior; native game checks and survey evidence have
 separate owners and limits. Commands and prerequisites live in [setup](setup.md).
 
+## Pack 0.8.1 configuration refresh
+
+The isolated runtime export records the 0.8.1 lock fingerprint, no source changes
+during capture and the same public Compat 0.28.0 artifact as the terrain refresh
+below. `pnpm data:refresh` and `pnpm data:check` pass with unchanged registry and
+resource counts. The refresh includes the enabled DH cache setting; it does not
+survey the replacement personal world or establish DH rendering behavior.
+
 ## Pack 0.8.0 terrain repair refresh
 
 `pnpm data:refresh` captures the current lock and the public Compat 0.28.0 JAR
