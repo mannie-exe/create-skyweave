@@ -6,7 +6,7 @@ Player instructions belong in [graphics](../players/graphics.md) and
 [content list](../MODLIST.md), with authoritative selections in `empack.yml` and
 `empack.lock`.
 
-## Release 0.8.1
+## Release 0.8.2
 
 The pack enables Compat's existing per-world DH cache identity and corrects the
 seed policies for the current generated shader-option filenames. Local client
@@ -14,7 +14,9 @@ and server installation and preparation pass on the 0.8.1 snapshot without
 replacing modified managed files. Both reference recipes mark shader presets as
 `seed`; all three exports pass CRC, duplicate-entry and version checks. The
 380-file configuration audit, 88 journal outputs and 73 Python tests pass.
-Compat remains the public 0.28.0 artifact verified below.
+The web Python suite passes 37 tests with one existing skip; explicit-false
+parser coverage uses a fixture independent of the enabled pack default. Compat
+remains the public 0.28.0 artifact verified below.
 
 ## Release 0.8.0
 

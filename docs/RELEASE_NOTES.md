@@ -1,4 +1,4 @@
-# Create: Skyweave 0.8.1
+# Create: Skyweave 0.8.2
 
 Enable the existing per-world DH cache adaptation by removing the testing opt-out.
 New server worlds receive separate LOD cache identities, so cached terrain from a
@@ -8,6 +8,9 @@ on both endpoints.
 
 Shader-option files use seed ownership under their current generated names, so
 normal Iris option edits do not block later instance preparation.
+
+Boolean-parser regression coverage preserves explicit opt-outs independently of
+the authored pack defaults.
 
 Compat remains 0.28.0; all terrain, structure-search and configuration changes from
 [0.8.0](releases/0.8.0.md) remain. Minecraft and NeoForge pins are unchanged.
