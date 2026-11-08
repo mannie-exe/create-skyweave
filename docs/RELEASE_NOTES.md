@@ -1,4 +1,4 @@
-# Create: Skyweave 0.7.0
+# Create: Skyweave 0.7.1
 
 Compose ordinary villages from CTOV, Better Villages and Towns and Towers; add
 selected YUNG structures and Geophilic ecology. Minecraft remains 1.21.1 and
@@ -25,6 +25,8 @@ NeoForge remains 21.1.265.
   during the explicit stopped-instance move.
 - Set new client defaults to view12/simulation10 and the server template to
   view16/simulation12. Existing seeded player settings remain installation-local.
+- Align the shader-lab runner with the playable Compat artifact and verify cold
+  generation, so cached outputs cannot hide a config-layout mismatch.
 - Keep Atlas captures isolated and source-owned, including the nested config
   layout and complete authored journal set.
 

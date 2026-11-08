@@ -2,6 +2,12 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.7.1 · 2026-11-08
+
+### Fixes
+
+- **shader-lab:** Align and verify the released runner ([845bd9e](https://github.com/mannie-exe/create-skyweave/commit/845bd9ea6ad030a8228bcf43c25cdb8800d4d61a))
+
 ## v0.7.0 · 2026-11-08
 
 ### Features
