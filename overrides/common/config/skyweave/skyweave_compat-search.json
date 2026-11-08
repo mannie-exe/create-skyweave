@@ -1,0 +1,6 @@
+{
+  "candidateLimit": 65536,
+  "timeLimitSeconds": 120,
+  "concurrentChunks": 2,
+  "tickBudgetMillis": 5
+}

@@ -60,9 +60,9 @@
     },
     {
       "path": "overrides/common/config/skyweave/skyweave_compat-interiors.json",
-      "sha256": "963704ff7b478371d35cb0aadd6230cefb052a63e7386ec381a62687a35c80df",
+      "sha256": "8e76c9253ddbd9fddf810faab23ae0d8dd31532044d5fa7632c3f00c4936216f",
       "review": "reviewed",
-      "reason": "Independent noise and hollow interiors preserve exterior geometry and stable geological depth; classic carvers remain enabled.",
+      "reason": "Independent NOISE/HOLLOW interiors retain planned water beds; selected HOLLOW skylights use bounded seeded outlines while side entrances remain independent.",
       "reference": "docs/development/worldgen.md"
     },
     {
@@ -74,9 +74,9 @@
     },
     {
       "path": "overrides/common/config/skyweave/skyweave_compat-oceans.json",
-      "sha256": "ed9a80bfe0430d7e3fe176dd884d5e6d3a4ba9d8e7087772633a7402258a5e3b",
+      "sha256": "293a9097b24ae025040a548313197a8c96a2587f5133a77db93662f116f2b1a7",
       "review": "reviewed",
-      "reason": "Admit 20% of ocean-biome opportunities with equal Lagoon/Broken Reef weights; normal anchor sizing, 25% open-cove and 15% falling-perimeter Lagoon modes, and solid spire companions.",
+      "reason": "Admit 20% of ocean-biome opportunities with equal Lagoon/Broken Reef weights; retain 25% open-cove lagoons, disable falling-perimeter selection, preserve normal sizing and solid spire companions.",
       "reference": "docs/development/worldgen.md"
     },
     {
@@ -155,6 +155,13 @@
       "review": "reviewed",
       "reason": "Unified authored sets exclude ship profiles; keep Cristel Lib town/tower toggles inert to avoid rebuilding original schedules. Independent ocean wreckage stays disabled.",
       "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "overrides/common/config/skyweave/skyweave_compat-search.json",
+      "sha256": "56008b836660306ecb3a1add15a2c814dd639191596ff46d43482bf76b84794b",
+      "review": "reviewed",
+      "reason": "Bound operator structure discovery to 65536 candidates, 120 seconds, two native structure-start requests and 5ms per-tick bookkeeping; exhaustion reports partial results. These limits do not change terrain identity.",
+      "reference": "docs/development/worldgen.md"
     }
   ]
 }

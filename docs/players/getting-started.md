@@ -70,6 +70,8 @@ Create a new world to use this preset. Existing worlds are not converted. Keep
 the generation configuration with each world; changing a marked world's
 generation identity is rejected instead of silently altering future chunks.
 
+Operators can use the [island and structure searches](server.md#finding-islands-and-structures) to find places to inspect. These have different generation costs and return suggested teleport coordinates.
+
 Lootr provides personal loot in supported containers; it does not add structures.
 Carry On excludes Lootr containers and Aeronautics/Sable objects. Ship storage,
 resource access and survival progression still need gameplay testing.

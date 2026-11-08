@@ -6,8 +6,8 @@ Use the server archive from the same Create: Skyweave release as your clients.
 
 1. Extract `server-references.zip` into its own directory. Install
    [empack 0.8.2-beta](https://github.com/inherent-design/empack/releases/tag/v0.8.2-beta)
-   on `PATH`. On macOS/Linux, also install Python 3 for the temporary terminal
-   workaround. Keep `foreground-runtime.py` beside the launch scripts. The launch scripts prepare the exact pack before starting Java;
+   on `PATH`. On macOS/Linux, also install Python 3 for the pack's terminal
+   wrapper. Keep `foreground-runtime.py` beside the launch scripts. The launch scripts prepare the exact pack before starting Java;
    first preparation needs network access.
 2. Set `JAVA_HOME` to a Java 21 installation, or make Java 21 the `java` on your
    `PATH`. Run `start.sh` on macOS/Linux or `start.bat` on Windows and confirm the
@@ -54,6 +54,34 @@ A large pregen does not override the client's LOD display radius or make transfe
 immediate. Keep download progress optional in the client UI.
 See [missing distant terrain](graphics.md#missing-distant-terrain) for client checks.
 
+## Finding islands and structures
+
+Operators with permission level2 can search without running a broad synchronous
+`/locate`. Island search reads planning metadata without generating chunks;
+structure search verifies native starts and can save early chunk metadata.
+
+```text
+/skyweavecompat islands search 24000
+/skyweavecompat structures search 24000 family=villages
+/skyweavecompat structures search 24000 structure=ctov:medium/village_plains
+/skyweavecompat structures search 24000 structure=#minecraft:village
+/skyweavecompat structures status
+/skyweavecompat structures page 2
+/skyweavecompat structures cancel
+```
+
+Use tab completion for island filters and structure families, IDs or tags. Searches
+continue automatically within their limits. Click result coordinates to prepare a
+teleport; no teleport executes automatically, and the structure's stored altitude
+is not a guarantee of a safe landing. A partial search is inconclusive. Unsupported
+placements and omitted IDs are reported; historical starts without current
+placement grids are outside the structure command's coverage.
+
+Search limits are in `game/config/skyweave/skyweave_compat-search.json`, editable
+through World generation → Sky Archipelago on a client installation. They apply
+after restart without changing terrain identity. Client settings do not administer
+a remote server. See [Compat command details](https://github.com/mannie-exe/skyweave-compat/blob/main/README.md#structure-search).
+
 ## Webmap
 
 Server exports include BlueMap. Clients do not
@@ -97,11 +125,6 @@ or use SQLite's backup API for a consistent snapshot.
 
 The client-only polygon fix and shader presets are excluded from server exports.
 An update to those alone does not require changing the server's mod set.
-
-Version 0.1.12 changes the default for **new** worlds to the expanded island
-preset. Ordinary existing Sky Archipelago worlds retain their old terrain and
-neighbor filtering. Preserve their original generation settings. See the
-[generation guide](../development/worldgen.md) before creating a replacement world.
 
 ## New-world pregeneration
 

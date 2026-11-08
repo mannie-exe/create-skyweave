@@ -6,6 +6,28 @@ Player instructions belong in [graphics](../players/graphics.md) and
 [content list](../MODLIST.md), with authoritative selections in `empack.yml` and
 `empack.lock`.
 
+## Release 0.8.0
+
+The public Compat 0.28.0 artifact matches its tested candidate and both published
+checksum manifests (SHA-256 `abb6e33539513c04e4b5ac0bfeb557a0f6b207fb1968a0442221d5e965ab26f0`).
+Linux, Windows and Intel macOS release checks pass. Its
+[native verification](https://github.com/mannie-exe/skyweave-compat/blob/v0.28.0/docs/development/verification.md)
+owns the river-bed, outlet, freezing, skylight, structure-search, DH and BlueMap
+results and limits. Terrain/drainage identities changed; existing worlds are not
+silently converted.
+
+Pack checks pass 73 Python tests, the 380-file configuration audit and 88 unchanged
+journal outputs. Both resource builders retain identical outputs. The shader lab
+uses the same public runner as the playable pack and rebuilds both chains with
+`--check`; generated shader bytes remain unchanged. All three reference exports
+build and pass CRC/duplicate checks; the server terminal wrapper is applied and
+checked. Installed-instance sync and published-pack verification are separate
+operational gates, not consequences of a local build.
+
+The Atlas captures the current locked JARs in an isolated exporter and passes its
+snapshot, Python and application checks; see [web verification](web/verification.md#pack-080-terrain-repair-refresh).
+No personal-world survey or application layout change is included.
+
 ## Release 0.6.0
 
 Verified with Minecraft 1.21.1, NeoForge 21.1.265 and public Compat 0.26.0

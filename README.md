@@ -4,7 +4,7 @@ A Minecraft modpack about sky islands, airships and engineering, built around
 Create, Create Aeronautics, Sable and Sky Archipelago. By **mannie-exe** and
 **TimdoesLive**. Survival progression and ship interactions are still being tested.
 
-Minecraft **1.21.1** · NeoForge **21.1.264** · Java **21**
+Minecraft **1.21.1** · NeoForge **21.1.265** · Java **21**
 
 ## Installation
 
@@ -16,7 +16,7 @@ Select Java 21 for the instance. The Prism profile allows up to 8 GiB of RAM.
 
 New worlds default to Skyweave Islands. Shaders are optional; Skyweave Glass adapts
 [Complementary](https://www.complementary.dev/) and [Euphoria Patches](https://www.euphoriapatches.com/).
-BSL settings are also included. Distant Horizons rendering
+BSL is assembled with Colorwheel support from pinned inputs. Distant Horizons rendering
 is enabled by default.
 
 ## Player and server guides
@@ -37,5 +37,3 @@ maintainer references and historical test evidence.
 
 Mod and shader authors retain their respective licenses; this repository does
 not relicense their work. User worlds, accounts and server lists are not distributed.
-
-Version 0.2.0 starts the `create_skyweave` pack lineage and requires a fresh instance and world. Existing Create Sky installations remain on their original releases; see the [release notes](docs/RELEASE_NOTES.md).

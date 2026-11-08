@@ -9,5 +9,12 @@
   "hollowRadius": 0.58,
   "hollowHeight": 0.24,
   "openingChance": 0.35,
-  "nativeCarvers": true
+  "nativeCarvers": true,
+  "skylights": {
+    "enabled": true,
+    "noiseInteriors": false,
+    "radius": 6.0,
+    "warp": 0.25,
+    "aspectVariation": 0.25
+  }
 }

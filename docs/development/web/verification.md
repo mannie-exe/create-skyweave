@@ -4,6 +4,26 @@ Checks apply to the recorded source or artifact, not every later checkout. Brows
 checks establish interface behavior; native game checks and survey evidence have
 separate owners and limits. Commands and prerequisites live in [setup](setup.md).
 
+## Pack 0.8.0 terrain repair refresh
+
+`pnpm data:refresh` captures the current lock and the public Compat 0.28.0 JAR
+(SHA-256 `abb6e33539513c04e4b5ac0bfeb557a0f6b207fb1968a0442221d5e965ab26f0`).
+The export records no source changes during capture and its lock digest matches
+the pack. Extraction retains 10,122 items, 34,256 resource paths and 10,056 texture
+previews across 488 JARs; unchanged counts do not imply unchanged generator behavior.
+
+`pnpm data:check`, `pnpm test:python` and `pnpm verify` pass: 37 Python tests with
+one existing skip, 158 application tests, formatting/unused-code checks, Astro
+checks and the 16-page build. Existing generic configuration projections consume
+the authored skylight/search profiles; no new component, style token or page
+layout is needed. Native terrain and renderer behavior remain outside this web
+snapshot's proof.
+
+Historical world, ore and island surveys retain their recorded inputs and dates.
+They are not relabeled as samples of the replacement server world. This refresh
+updates dependency/configuration provenance without reading or regenerating the
+personal world.
+
 ## Pack 0.7.1 terrain and structure refresh
 
 The isolated runtime capture loads the published Compat 0.27.0 JAR with the thirteen

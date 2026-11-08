@@ -47,6 +47,7 @@ then rebuild maintained resources and build all supported exports:
 
 ```sh
 python3 tools/shader-lab/build.py
+python3 -m unittest discover -s tests -v
 python3 scripts/generate-journal.py --check
 python3 scripts/audit-changes.py
 python3 scripts/build-resource-patches.py
