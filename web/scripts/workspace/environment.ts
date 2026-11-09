@@ -114,7 +114,6 @@ export function createEnvironmentResolver(
       profile,
       snapshotBytes,
       complete,
-      nativeLegacy,
       javaSource,
       exporterSource,
     ] = await Promise.all([
@@ -128,18 +127,15 @@ export function createEnvironmentResolver(
       json(path.join(web, 'profiles/minecraft-1.21.1-neoforge.json')),
       bytes(path.join(web, 'data/generated/runtime/snapshot.json'), true),
       json(path.join(web, 'data/generated/runtime/complete.json'), true),
-      json(path.join(web, '.cache/resource-exporter/inputs.json'), true),
       bytes(path.join(web, 'tools/resource-exporter/StaticModels.java'), true),
       bytes(path.join(web, 'scripts/export-models.py'), true),
     ])
-    // Undefined means no active generation. Null means authoritative but unavailable:
-    // never bypass a denied or incomplete current generation through the old cache.
-    const selectedNative =
-      context && options.nativeManifest
-        ? await options.nativeManifest(registration, context)
-        : undefined
+    // Only the authorized active generation owns native metadata. Missing and denied
+    // inputs stay unavailable; stale exporter cache files are never a fallback.
     const native: any =
-      selectedNative === undefined ? nativeLegacy : selectedNative
+      context && options.nativeManifest
+        ? ((await options.nativeManifest(registration, context)) ?? null)
+        : null
     const intent = YAML.parse(intentBytes!.toString('utf8'), {
         maxAliasCount: 20,
       }),

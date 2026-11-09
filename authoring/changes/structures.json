@@ -47,9 +47,9 @@
     },
     {
       "path": "overrides/common/config/skyweave/skyweave_compat-common.toml",
-      "sha256": "c5c37f3d896fe9f6efd613e3f82ded5dc9d46f39c705e6ce66a9ffeba41d1787",
+      "sha256": "0b80c4b366b83ef3974a3698ac22da422426774192b2b267d763bb6fdf1f4181",
       "review": "reviewed",
-      "reason": "Village distance tuning; adaptation activation is owned by the startup feature file.",
+      "reason": "Keep floating villages 64–128 blocks from a substantial same-cluster host; exact full-footprint clearance remains authoritative.",
       "reference": "docs/development/structures.md"
     },
     {
@@ -296,6 +296,13 @@
       "review": "reviewed",
       "reason": "Route native YUNG witch huts and circles through one shared encounter allowance, preserving eligible weighted alternatives.",
       "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "overrides/common/config/skyweave/skyweave_compat-structures.json",
+      "sha256": "0ada41d279f2466e9385551e68004c565f58208a724ed38d057fa05a1d6086c2",
+      "review": "reviewed",
+      "reason": "Increase eligible-area village and mansion encounter targets to 0.889/0.32; preserve family caps, fit safety and other rates.",
+      "reference": "docs/development/structures.md"
     },
     {
       "path": "resource-patches/data/minecraft/worldgen/structure_set/pillager_outposts.json",

@@ -9,22 +9,16 @@ import time
 
 def stage_configuration(installed, authored, destination):
     """Copy read-only inputs into a disposable capture with pack-owned precedence."""
+    retired = sorted(path.name for path in installed.glob('skyweave_compat-*')
+                     if path.is_file() and path.suffix in {'.json', '.toml', '.properties'})
+    if retired or (installed / 'skyweave-shaders/recipes').exists():
+        raise ValueError('Retired Skyweave configuration inputs; use config/skyweave: ' + ', '.join(retired))
     if destination.exists():
         shutil.rmtree(destination)
-    nested_owner = any((layer / 'skyweave').is_dir() for layer in authored)
     authored_journal = any((layer / 'questlog').is_dir() for layer in authored)
 
     def ignored(directory, names):
-        relative = os.path.relpath(directory, installed)
-        if relative == '.':
-            excluded = ['questlog'] if authored_journal else []
-            if nested_owner:
-                excluded.extend(name for name in names if name.startswith('skyweave_compat-')
-                                and name.endswith(('.json', '.toml', '.properties')))
-            return excluded
-        if nested_owner and relative == 'skyweave-shaders':
-            return ['recipes'] if 'recipes' in names else []
-        return []
+        return ['questlog'] if authored_journal and os.path.relpath(directory, installed) == '.' else []
 
     if installed.exists():
         shutil.copytree(installed, destination, ignore=ignored)

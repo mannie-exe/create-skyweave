@@ -9,18 +9,18 @@ Sky Villages uses datapack resources rather than a generated TOML. Maintained
 resources live in `resource-patches/data/skyvillages`; the structures audit register
 owns their hashes and purpose. Build with `python3 scripts/build-resource-patches.py`.
 
-| Control | Current choice |
-| --- | --- |
-| Height | Base start Y 160 to 224; Skyweave: Compatibility Patches shifts it relative to the host island in the expanded preset |
-| Layout | Upstream jigsaw depth 7 and maximum distance 128 blocks |
-| Distribution | Expanded preset: per-anchor allowance 0 to 3, candidate grid 24/12 chunks. Ordinary preset: upstream 70/65 chunks, salt 23734816 |
-| Island proximity | Skyweave: Compatibility Patches: minimum gap 64, maximum host distance 512, minimum host radius 96 |
-| Biomes | Ocean, river, jungle and forest tags, plus dark forest |
-| Pools | Installed templates and explicit empty entries only |
-| Village discovery | Include `skyvillages:skyvillage` in `#minecraft:village` |
-| Jukeboxes | Keep blocks; clear generated record NBT and reset `has_record` |
-| Foundation minerals | One ordered pass: 0.025% diamond ore, 0.15% emerald ore, 20% diorite overall |
-| Crops and chest loot | Upstream defaults |
+| Control              | Current choice                                                                                                                 |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Height               | Base start Y 160 to 224; Skyweave: Compatibility Patches shifts it relative to the host island in the expanded preset          |
+| Layout               | Upstream jigsaw depth 7 and maximum distance 128 blocks                                                                        |
+| Distribution         | Expanded preset: per-anchor allowance 0 to 3, candidate grid 4/2 chunks. Ordinary preset: upstream 70/65 chunks, salt 23734816 |
+| Island proximity     | Skyweave: Compatibility Patches: minimum gap 64, maximum host distance 128, minimum host radius 96                             |
+| Biomes               | Ocean, river, jungle and forest tags, plus dark forest                                                                         |
+| Pools                | Installed templates and explicit empty entries only                                                                            |
+| Village discovery    | Include `skyvillages:skyvillage` in `#minecraft:village`                                                                       |
+| Jukeboxes            | Keep blocks; clear generated record NBT and reset `has_record`                                                                 |
+| Foundation minerals  | One ordered pass: 0.025% diamond ore, 0.15% emerald ore, 20% diorite overall                                                   |
+| Crops and chest loot | Upstream defaults                                                                                                              |
 
 The base height override avoids adding 150 blocks to the upstream surface
 projection; Skyweave: Compatibility Patches applies its host-relative altitude adaptation separately.
@@ -36,6 +36,12 @@ classification. Ocean biomes are eligible; native floating ocean habitats are en
 Skyweave profile. Eligibility alone does not establish that a usable village
 will appear in an ocean void; structure placement rules still apply.
 
+## Settlement encounter policy
+
+Ground villages target 0.889 and mansions 0.32 opportunities per 1024 eligible terrain chunks, capped at 3 and 1 per cluster respectively. Eligible biome area, seeded rounding, layout fitting and other reservations still reduce actual counts; these are not per-island probabilities. Sky Villages retain their separate allowance and require a substantial host body within 64–128 blocks of their final footprint. Detached fringes cannot qualify alone.
+
+Native surveys found losses between allowed opportunities and usable layouts. Rates provide more opportunities without forcing invalid layouts or removing ruins; the existing fit budget and terrain safety checks remain. Intentional ruin variants are not proof of an inhabited settlement. [Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/verification.md#settlement-evidence) owns the exact native counts and limits.
+
 ## Cluster discoveries
 
 Skyweave: Compatibility Patches owns the `terrain.structure_distribution`
@@ -45,8 +51,7 @@ while surrounding void and the number of registered variants do not. Determinist
 fractional counts, finite fitting alternatives and native placement checks produce
 occasional discoveries rather than collecting every nearby source opportunity.
 
-The mod defaults own `skyweave_compat-structures.json`; this pack does not duplicate
-those values in a second profile. Its [configuration reference](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/configuration.md#structure-distribution)
+The authored `config/skyweave/skyweave_compat-structures.json` records the pack encounter policy and matches the supported Compat defaults. Runtime edits use this same file; no second placement authority is introduced. Its [configuration reference](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/configuration.md#structure-distribution)
 lists rates, family caps and tuning units. Rates describe expected allowances,
 not guaranteed realized starts or independent per-island probabilities.
 
@@ -82,12 +87,12 @@ The 2026-10-22 survey placed 24 complete villages across seeds 1, 42, 8675309 an
 processors and overlapping placement remained active. Villages had 30 to 83 pieces
 and bounds within Y 153 to 278.
 
-| Resource per village | Range | Median | Total across 24 |
-| --- | --- | --- | --- |
-| Foundation diamond ore | 0 to 5 | 2 | 51 |
-| Foundation emerald ore | 5 to 33 | 17 | 397 |
-| Chest diamonds | 0 to 3 | 0 | 17 |
-| Chest emeralds | 0 to 7 | 1 | 28 |
+| Resource per village   | Range   | Median | Total across 24 |
+| ---------------------- | ------- | ------ | --------------- |
+| Foundation diamond ore | 0 to 5  | 2      | 51              |
+| Foundation emerald ore | 5 to 33 | 17     | 397             |
+| Chest diamonds         | 0 to 3  | 0      | 17              |
+| Chest emeralds         | 0 to 7  | 1      | 28              |
 
 The 361 chest rolls are one no-player sample, not guaranteed seeded yields or
 multiplayer Lootr entitlements. Ore counts are blocks before Fortune or processing.
@@ -122,64 +127,13 @@ The intended placement is floating **beside** island clusters, with a horizontal
 void gap. Regular villages and ground structures belong on the terrain. Floating
 above an island does not satisfy this placement goal.
 
-Sky Archipelago 1.3.6 deliberately lets SKY structures generate without island
-anchoring. Its [changelog](https://modrinth.com/mod/sky-archipelago/version/1.3.6)
-confirms that behavior. `StructurePlacementPolicy.categoryFor` classifies
-`skyvillages:skyvillage` as SKY through the `sky` token, before its village-name
-rule. `StructureRoutingPolicy.shouldRouteSkyToV2` selects the SKY engine before
-the legacy whitelist branch.
+Sky Archipelago routes `skyvillages:skyvillage` through its SKY placement engine. Native air clearance alone does not establish proximity to an island. The ordinary upstream preset retains the resource pack's 70/65-chunk candidate spacing/separation; those values do not describe the Skyweave preset.
 
-Sky Archipelago 1.3.6 has these controls before Skyweave: Compatibility Patches applies its filter:
+[Skyweave: Compatibility Patches](https://github.com/mannie-exe/skyweave-compat) shifts the village altitude into the host island band and assigns each anchor an independent allowance of zero to three Sky Villages, weighted `96:24:8:3`. Companions share their anchor's allowance. Approximately 73.3% of anchors receive zero before further rejection. This allowance is separate from the ground-village family; the broad `#minecraft:village` discovery tag includes both.
 
-| Control | Effect on Sky Villages |
-| --- | --- |
-| `customStructureRulesEnabled = true` | Enables the custom placement pipeline; disabling it supplies no island-proximity constraint |
-| `skyStructureCategoryTokens` / `skyStructureCategoryOverrides` | Select a placement category; `DEFAULT` still routes to SKY when its ID matches a sky token |
-| `skyStructureWhitelist` | Adding this village skips its SKY air-clearance validation; it does not enable the later legacy nearby-terrain guard |
-| Ground category overrides | Select ground support/anchoring behavior, not floating placement beside terrain |
-| `supportSampleGridSize = 5` | Controls footprint clearance sampling, not minimum or maximum island distance |
-| Datapack height, biome and random-spread settings | Control candidate height, eligibility and frequency, not distance to island edges |
+The marked preset uses four-chunk spacing and two-chunk separation. Candidates receive a coarse shaped-exterior screen, seeded ranking and minimum 384-block center separation. The complete native layout must then retain its assigned cluster, pass biome and air checks, avoid terrain overlap and leave a 64-block horizontal gap from all island terrain. A substantial body in that cluster must lie within 128 blocks of the final footprint, with native host radius at least 96. Detached fringes cannot qualify alone. The 16-block host-search grid can conservatively miss a narrow eligible edge. Rejection can leave an allowance unfilled; an allowance is not a promise of a village.
 
-`StructureSupportValidator.evaluateSkyAirPlacement` rejects sampled terrain
-columns when `structure.minY - column.topY <= 8`. Nine blocks of clearance passes,
-including directly above an island. Its `skyNearbyIslandColumns` field counts
-terrain samples in a center ±96-block square at 16-block intervals, but that count
-is diagnostic: zero nearby terrain does not reject a layout. Neither the eight
-block threshold nor that diagnostic radius is a configuration setting.
-
-A disposable NeoForge probe against the installed 1.3.6 / Sky Villages 1.0.6 JARs
-verified those branches using the native methods and the saved world's decoded
-generator/settings. Clearance 0 and 8 failed; 9 passed; isolated void with zero
-nearby samples passed. A native village layout ran SKY air validation normally
-and bypassed it when explicitly whitelisted. `DEFAULT` with the current tokens
-still selected SKY. The probe read `level.dat` without changing it and generated
-no chunks in the live world. These checks establish upstream behavior without Skyweave: Compatibility Patches' neighbor filter.
-
-Ocean biome eligibility compounds the visual effect: villages can pass their
-biome check where this pack suppresses natural terrain islands. Removing ocean
-eligibility would not establish a distance band or prevent above-island layouts.
-
-The ordinary Sky Archipelago baseline gives one candidate per 1,120 × 1,120-block cell before biome
-and placement rejection. The 65-chunk separation leaves only five possible chunk
-offsets per axis. Counts are independent of player count and cluster occupancy.
-Changing separation alone spreads candidate positions but does not reduce their
-number. The earlier four-seed generation survey measured a 74% valid-start rate;
-that is a sample, not a universal density guarantee.
-
-[Skyweave: Compatibility Patches](https://github.com/mannie-exe/skyweave-compat) replaces
-Sky Village Neighbors. Common placement controls live in
-`skyweave_compat-common.toml`. Its expanded preset shifts the structure altitude
-into the island band and assigns each anchor an allowance of zero to three
-villages, weighted `96:24:8:3`. Biome, layout and terrain rejection can lower the
-count. Companions share their anchor's allowance. The preset uses a separate
-24-chunk candidate grid with 12-chunk separation; the ordinary baseline's
-70/65 spacing no longer describes this preset's frequency.
-
-The neighbor rule retains SKY placement and requires a 64-block horizontal gap
-from the village footprint, a host terrain sample within 512 blocks and a native
-host radius of at least 96. Clearance checks every column in the exclusion band.
-The 16-block host-search grid can conservatively miss a narrow eligible edge.
-Existing villages are not relocated. Loot and foundation tuning remain pack-owned.
+The common proximity controls live in `config/skyweave/skyweave_compat-common.toml`. Existing villages are not relocated. Loot and foundation tuning remain pack-owned. [Compat's placement reference](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/terrain.md#climate-and-villages) owns the detailed implementation and dependency-update contracts.
 
 Village hooks require both Sky Villages and Architectury. ADQ's optional adapter
 retains the native dry-ground check, retries within the village, holds bounded

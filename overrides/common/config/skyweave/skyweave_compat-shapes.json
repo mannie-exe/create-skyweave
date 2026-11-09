@@ -7,7 +7,7 @@
     "warpAmplitude": 26,
     "warpWavelength": 102
   },
-  "edges": {
+  "fringe": {
     "enabled": true,
     "minimumSmoothFraction": 0.3,
     "maximumSmoothFraction": 0.7,

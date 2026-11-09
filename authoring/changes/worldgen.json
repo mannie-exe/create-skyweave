@@ -53,9 +53,9 @@
     },
     {
       "path": "overrides/common/config/skyweave/skyweave_compat-shapes.json",
-      "sha256": "453ff5ca463070419ff4cde81210d2264c9b5b70635342985dfc88ac844793db",
+      "sha256": "f3d762b57f12cd9ef82d7b3967908bb60ac11a082a66c283229470aa16916078",
       "review": "reviewed",
-      "reason": "Retain the current outline and intact body, add mixed/disintegrating granular aprons, and select Deep Dark for 10% of eligible native hosts.",
+      "reason": "Use canonical outline/fringe/fractures groups while retaining accepted geometry and Deep Dark selection.",
       "reference": "docs/development/worldgen.md"
     },
     {

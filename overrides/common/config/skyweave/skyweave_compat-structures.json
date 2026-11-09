@@ -1,0 +1,58 @@
+{
+  "frequencyMultiplier": 1.0,
+  "outpostVillageSeparationChunks": 10,
+  "families": {
+    "ancient_cities": {
+      "targetStartsPer1024Chunks": 0.889,
+      "maximumPerCluster": 1
+    },
+    "desert_temples": {
+      "targetStartsPer1024Chunks": 0.5,
+      "maximumPerCluster": 1
+    },
+    "igloos": {
+      "targetStartsPer1024Chunks": 0.5,
+      "maximumPerCluster": 1
+    },
+    "jungle_temples": {
+      "targetStartsPer1024Chunks": 0.5,
+      "maximumPerCluster": 1
+    },
+    "mansions": {
+      "targetStartsPer1024Chunks": 0.32,
+      "maximumPerCluster": 1
+    },
+    "mineshafts": {
+      "targetStartsPer1024Chunks": 2.048,
+      "maximumPerCluster": 3
+    },
+    "outposts": {
+      "targetStartsPer1024Chunks": 0.1,
+      "maximumPerCluster": 1
+    },
+    "portals": {
+      "targetStartsPer1024Chunks": 0.32,
+      "maximumPerCluster": 1
+    },
+    "shipwrecks": {
+      "targetStartsPer1024Chunks": 0.889,
+      "maximumPerCluster": 1
+    },
+    "swamp_huts": {
+      "targetStartsPer1024Chunks": 0.5,
+      "maximumPerCluster": 1
+    },
+    "trail_ruins": {
+      "targetStartsPer1024Chunks": 0.443,
+      "maximumPerCluster": 1
+    },
+    "trial_chambers": {
+      "targetStartsPer1024Chunks": 0.443,
+      "maximumPerCluster": 1
+    },
+    "villages": {
+      "targetStartsPer1024Chunks": 0.889,
+      "maximumPerCluster": 3
+    }
+  }
+}

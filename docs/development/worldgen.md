@@ -12,18 +12,18 @@ Sky Archipelago's common config and the selected legacy `eee` preset apply to or
 
 The authored profile is `overrides/common/config/skyweave/skyweave_compat-generation.json`.
 
-| Control | Pack setting | Meaning |
-| --- | --- | --- |
-| Build range | Y=-128 through 767 | Includes terrain and building space |
-| Cluster grid | 2400 blocks, jitter 750 | Cell spacing and bounded center displacement |
-| Activation | 0.85 | Candidate activation before biome and clearance rejection |
-| Anchor center | Y=200 to 490 | Intersected with the safe band for the selected body |
-| Anchor height target | 250 to 400 blocks | Realized height varies with relief and erosion |
-| Base anchor radius | 270 to 370 blocks | Before area-preserving elongation; not an exact shoreline |
-| Companion radius/orbit | 40 to 110 / 470 to 680 blocks | Relative to the host anchor |
-| Companion vertical offset | -60 to +50 blocks | Adjusted to fit the dimension |
-| Floor/building clearance | 32 / 200 blocks | Reserved inside the build range |
-| Minimum cluster gap | 350 blocks | Complete terrain-density supports, not structures |
+| Control                   | Pack setting                  | Meaning                                                   |
+| ------------------------- | ----------------------------- | --------------------------------------------------------- |
+| Build range               | Y=-128 through 767            | Includes terrain and building space                       |
+| Cluster grid              | 2400 blocks, jitter 750       | Cell spacing and bounded center displacement              |
+| Activation                | 0.85                          | Candidate activation before biome and clearance rejection |
+| Anchor center             | Y=200 to 490                  | Intersected with the safe band for the selected body      |
+| Anchor height target      | 250 to 400 blocks             | Realized height varies with relief and erosion            |
+| Base anchor radius        | 270 to 370 blocks             | Before area-preserving elongation; not an exact shoreline |
+| Companion radius/orbit    | 40 to 110 / 470 to 680 blocks | Relative to the host anchor                               |
+| Companion vertical offset | -60 to +50 blocks             | Adjusted to fit the dimension                             |
+| Floor/building clearance  | 32 / 200 blocks               | Reserved inside the build range                           |
+| Minimum cluster gap       | 350 blocks                    | Complete terrain-density supports, not structures         |
 
 Deterministic priority rejects candidates whose complete cluster support bounds
 would violate the minimum gap. Wider jitter can therefore remove a candidate;
@@ -72,7 +72,7 @@ Mangrove surfaces receive mud unless an existing upstream material override appl
 
 Ancient Cities use actual interior placement and final biome eligibility. `skyweave_compat-ancient-cities.json` sets minimum sampled exterior-body burial to 0.90 for normal/NOISE hosts, with separate core and floor checks. Bounded peripheral exposure is allowed; HOLLOW hosts instead require an existing cavity with floor/roof support. Piece-aware vanilla-style clearance opens room around accepted layouts while retaining the island shell, native foundations and authored water beds. An unsuitable site is rejected without a surface fallback or giant platform. Layouts, canonical starts and locate remain native.
 
-`skyweave_compat-shapes.json` adds seeded horizontal variation: 65% elongation chance up to 1.96 length-to-width ratio, approximately preserving area, and 26-block base broad warp. Strengths vary by up to ±15% per island. Ordinary Mixed edges retain 30–70% smooth perimeter with an additive granular apron; base falloff distance is 64 blocks. The intact-core Disintegrating profile has 15% selection and 1.6 maximum reach multiplier, with uneven local reach and fragments shrinking/thinning outward. Fractured alternatives retain native Mushroom Fields or Badlands ecology independently of NOISE/HOLLOW interiors, with 35% eligible-biome selection. Deep Dark selection is 10% of eligible native-climate hosts. These are conditional settings, not measured worldwide frequencies. Native vertical shaping and ordinary spacing retain their owners.
+`skyweave_compat-shapes.json` adds seeded horizontal variation: 65% elongation chance up to 1.96 length-to-width ratio, approximately preserving area, and 26-block base broad warp. Strengths vary by up to ±15% per island. Ordinary Mixed fringes retain 30–70% smooth perimeter with an additive fragment fringe; base falloff distance is 64 blocks. The intact-core Disintegrating profile has 15% selection and 1.6 maximum reach multiplier, with uneven local reach and fragments shrinking/thinning outward. Fractured alternatives retain native Mushroom Fields or Badlands ecology independently of NOISE/HOLLOW interiors, with 35% eligible-biome selection. Deep Dark selection is 10% of eligible native-climate hosts. These are conditional settings, not measured worldwide frequencies. Native vertical shaping and ordinary spacing retain their owners.
 
 `skyweave_compat-oceans.json` admits 20% of activated native ocean-biome opportunities; rejected opportunities remain void. The selected defaults equally weight Lagoon and Broken Ocean Reef, disabling Reef Ring and Dead Ocean Shelf. Lagoon-only edge treatments select 25% open-cove horseshoe shore and 75% native rim; falling-perimeter selection is disabled. Ocean anchors use normal radii and seeded aspect, warp and dry outer fragments; the cove mouth stays clear. Separate solid spires may accompany ocean anchors; ordinary land satellites do not. The continuous global ocean layer remains disabled. Settings enter generation identity and require a fresh world; explicit existing opt-outs remain authoritative. Aquatic progression and populations remain unqualified.
 
@@ -164,16 +164,16 @@ can obscure them. Farther clusters are expected to fall outside a finite view.
 
 ### Local rendering limits
 
-| Setting inspected on 2026-10-26 | Value | Effect |
-| --- | --- | --- |
-| Client DH radius | 256 chunks / 4096 blocks | Nominal distant-terrain rendering radius |
-| Client and server vanilla view | 12 chunks / 192 blocks | Nearby full-detail chunks |
-| Client simulation / server simulation | 12 / 10 chunks | Does not extend distant rendering |
-| DH pregen request | 1024 chunks / 16384 blocks around spawn | Prepared data area, not a camera range |
-| Server DH sync/generation request caps | 4096 chunks each | Request permission, not a client render setting |
-| Server DH live-update radius | 256 chunks / 4096 blocks | Changed-chunk notifications |
-| Local client/server per-player DH bandwidth | 2048 KB/s | Tuned transfer cap; cached LOD delivery is still queued |
-| Client DH cave culling | Disabled | Avoids the stock low-altitude cave cutoff |
+| Setting inspected on 2026-10-26             | Value                                   | Effect                                                  |
+| ------------------------------------------- | --------------------------------------- | ------------------------------------------------------- |
+| Client DH radius                            | 256 chunks / 4096 blocks                | Nominal distant-terrain rendering radius                |
+| Client and server vanilla view              | 12 chunks / 192 blocks                  | Nearby full-detail chunks                               |
+| Client simulation / server simulation       | 12 / 10 chunks                          | Does not extend distant rendering                       |
+| DH pregen request                           | 1024 chunks / 16384 blocks around spawn | Prepared data area, not a camera range                  |
+| Server DH sync/generation request caps      | 4096 chunks each                        | Request permission, not a client render setting         |
+| Server DH live-update radius                | 256 chunks / 4096 blocks                | Changed-chunk notifications                             |
+| Local client/server per-player DH bandwidth | 2048 KB/s                               | Tuned transfer cap; cached LOD delivery is still queued |
+| Client DH cave culling                      | Disabled                                | Avoids the stock low-altitude cave cutoff               |
 
 The 4096-chunk request caps are confirmed by DH 3.3.3's
 `AbstractDhServerLevel`: it converts section-to-player block distance to chunks

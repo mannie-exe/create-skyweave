@@ -4,33 +4,15 @@ Checks apply to the recorded source or artifact, not every later checkout. Brows
 checks establish interface behavior; native game checks and survey evidence have
 separate owners and limits. Commands and prerequisites live in [setup](setup.md).
 
-## Pack 0.8.1 configuration refresh
+## Pack 0.9.0 terrain and configuration refresh
 
-The isolated runtime export records the 0.8.1 lock fingerprint, no source changes
-during capture and the same public Compat 0.28.0 artifact as the terrain refresh
-below. `pnpm data:refresh` and `pnpm data:check` pass with unchanged registry and
-resource counts. The refresh includes the enabled DH cache setting; it does not
-survey the replacement personal world or establish DH rendering behavior.
+The isolated `pnpm data:refresh` captures the current lock and the public Compat 0.29.0 JAR (SHA-256 `275510a308c6c221aba5c8f4976dca0e926e4d59e612468810927a8038b6709c`). The export records no source changes during capture and its lock digest matches the pack. Extraction retains 10,122 items, 34,256 resource paths and 10,056 texture previews across 488 JARs. Unchanged counts do not imply unchanged generation.
 
-## Pack 0.8.0 terrain repair refresh
+The authored profiles expose the canonical `fringe` shape group, 128-block Sky Village proximity and revised ground-village/mansion opportunity rates through existing generic configuration projections. No new component, style token or page layout is needed. Targeted tests reject retired generation/configuration inputs and prevent a stale exporter cache from bypassing the current authorized manifest. Native terrain and renderer qualification belong to [Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/verification.md).
 
-`pnpm data:refresh` captures the current lock and the public Compat 0.28.0 JAR
-(SHA-256 `abb6e33539513c04e4b5ac0bfeb557a0f6b207fb1968a0442221d5e965ab26f0`).
-The export records no source changes during capture and its lock digest matches
-the pack. Extraction retains 10,122 items, 34,256 resource paths and 10,056 texture
-previews across 488 JARs; unchanged counts do not imply unchanged generator behavior.
+`pnpm data:check`, `pnpm test:python` and `pnpm verify` pass: 37 Python tests with one existing skip, 158 application tests, formatting/unused-code checks, Astro checks and the 16-page build. The first full run exposed an existing test-fixture race: the cancellation test could read its PID file between creation and writing. It now waits for a positive PID before cancelling; the final suite passes without changing production job behavior.
 
-`pnpm data:check`, `pnpm test:python` and `pnpm verify` pass: 37 Python tests with
-one existing skip, 158 application tests, formatting/unused-code checks, Astro
-checks and the 16-page build. Existing generic configuration projections consume
-the authored skylight/search profiles; no new component, style token or page
-layout is needed. Native terrain and renderer behavior remain outside this web
-snapshot's proof.
-
-Historical world, ore and island surveys retain their recorded inputs and dates.
-They are not relabeled as samples of the replacement server world. This refresh
-updates dependency/configuration provenance without reading or regenerating the
-personal world.
+Historical world, ore and island surveys retain their recorded inputs and dates. They are not relabeled as samples of the replacement server world. This refresh updates dependency/configuration provenance without reading or regenerating the personal world.
 
 ## Pack 0.7.1 terrain and structure refresh
 

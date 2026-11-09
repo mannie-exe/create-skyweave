@@ -6,23 +6,23 @@ This document owns content choices, village composition and qualification limits
 
 Keep a largely vanilla material and gameplay vocabulary while improving exploration, useful settlements and the relationship between geography and travel. Preserve the approved sparse clusters, substantial island bodies, granular edges, climate, geology and ocean/Deep Dark policy. Installing village templates does not implement the separate Skyweave project's NPC economy, live expansion or transport services. Pregeneration must not simulate economic history.
 
-| Content | Decision and purpose |
-| --- | --- |
-| YUNG's Better Desert Temples, Better Jungle Temples | Selected discoveries with native buried rooms, entrances, puzzles and loot. |
-| YUNG's Better Mineshafts | Selected underground variety, with island-relative fitting and bounded supports. |
-| YUNG's Better Ocean Monuments | Selected for suitable habitats and ordinary worlds; do not manufacture an island foundation to force placement. |
-| YUNG's Better Witch Huts | Selected swamp encounters; preserve witch/cat spawn behavior and supported legs. |
-| YUNG's Better Strongholds / Better Nether Fortresses | Rejected: retain the iconic originals preferred by the owner. |
-| Other YUNG's / Refresh Studios content | Deferred; installing the API does not approve additional content. |
-| Lithostitched | Structure assembly and data modifiers, with a qualified optional island bridge. It does not replace the terrain or hydrology authority. |
-| CTOV | Village theme/size organization and native Lithostitched assembly. |
-| Better Villages | Selected replacement templates, roads and buildings; no separate vanilla settlement fallback. |
-| Towns and Towers | Selected donor pieces and coherent regional layouts; ocean ships excluded. |
-| Geophilic | Restrained decoration of existing vanilla biome identities. |
-| Sky Villages | Retained as a distinct floating settlement provider; ordinary and floating settlements may be neighbors. |
-| Terralith | Rejected: outside the desired vanilla scope. |
-| Tectonic | Deferred terrain-provider investigation; not installed. |
-| Natural log/root outlet barriers | Deferred until a separate habitat/detail pass; no dam or beaver simulation. |
+| Content                                              | Decision and purpose                                                                                                                    |
+| ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| YUNG's Better Desert Temples, Better Jungle Temples  | Selected discoveries with native buried rooms, entrances, puzzles and loot.                                                             |
+| YUNG's Better Mineshafts                             | Selected underground variety, with island-relative fitting and bounded supports.                                                        |
+| YUNG's Better Ocean Monuments                        | Selected for suitable habitats and ordinary worlds; do not manufacture an island foundation to force placement.                         |
+| YUNG's Better Witch Huts                             | Selected swamp encounters; preserve witch/cat spawn behavior and supported legs.                                                        |
+| YUNG's Better Strongholds / Better Nether Fortresses | Rejected: retain the iconic originals preferred by the owner.                                                                           |
+| Other YUNG's / Refresh Studios content               | Deferred; installing the API does not approve additional content.                                                                       |
+| Lithostitched                                        | Structure assembly and data modifiers, with a qualified optional island bridge. It does not replace the terrain or hydrology authority. |
+| CTOV                                                 | Village theme/size organization and native Lithostitched assembly.                                                                      |
+| Better Villages                                      | Selected replacement templates, roads and buildings; no separate vanilla settlement fallback.                                           |
+| Towns and Towers                                     | Selected donor pieces and coherent regional layouts; ocean ships excluded.                                                              |
+| Geophilic                                            | Restrained decoration of existing vanilla biome identities.                                                                             |
+| Sky Villages                                         | Retained as a distinct floating settlement provider; ordinary and floating settlements may be neighbors.                                |
+| Terralith                                            | Rejected: outside the desired vanilla scope.                                                                                            |
+| Tectonic                                             | Deferred terrain-provider investigation; not installed.                                                                                 |
+| Natural log/root outlet barriers                     | Deferred until a separate habitat/detail pass; no dam or beaver simulation.                                                             |
 
 YUNG's API, Cristel Lib and Library Ferret are required by the selected content. Lithostitched includes Apollib. Keep libraries separate from content choices and retain exact version/side qualification.
 
@@ -54,14 +54,14 @@ Seven obsolete CTOV/Wares warehouse loot tables use removed `minecraft:set_nbt` 
 
 Compat admits supported foreign IDs through explicit managed-family tags, not substring classification. Lithostitched's alternate jigsaw and YUNG's jigsaw extend `Structure` directly, so vanilla-jigsaw casts are invalid. The optional bridges retain native assembly and adapt only island ownership, fitting, projection and qualified piece metadata. Ordinary pack worlds intentionally share the authored village data; island height/support hooks remain scoped to marked worlds.
 
-| Owner | Maintained behavior |
-| --- | --- |
-| `bettervillage_1.properties` | `boolean.villages.enabled_custom_config=false`; retain template replacements without a competing placement grid. |
-| `ctov-common.toml` | Automatic source schedule injections off; authored data owns weights and opportunities. |
-| `towns_and_towers/structure_enable_or_disable_new.json5` | Keep town/tower toggles inert; exclude source ships through authored sets and disable independent ocean wreckage. |
-| Five `better*-neoforge-1_21.toml` files | Native content settings and vanilla-replacement flags remain authoritative. Compat snapshots those registered flags for island attempts and prospective locate checks. |
-| `lithostitched.json` | Keep native seed-parity/diagnostic defaults; review shared jigsaw and shipwreck behavior when updating. |
-| Geophilic | Versioned datapack resources and Datapack Toolkit controls; no invented NeoForge TOML owner. |
+| Owner                                                    | Maintained behavior                                                                                                                                                    |
+| -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `bettervillage_1.properties`                             | `boolean.villages.enabled_custom_config=false`; retain template replacements without a competing placement grid.                                                       |
+| `ctov-common.toml`                                       | Automatic source schedule injections off; authored data owns weights and opportunities.                                                                                |
+| `towns_and_towers/structure_enable_or_disable_new.json5` | Keep town/tower toggles inert; exclude source ships through authored sets and disable independent ocean wreckage.                                                      |
+| Five `better*-neoforge-1_21.toml` files                  | Native content settings and vanilla-replacement flags remain authoritative. Compat snapshots those registered flags for island attempts and prospective locate checks. |
+| `lithostitched.json`                                     | Keep native seed-parity/diagnostic defaults; review shared jigsaw and shipwreck behavior when updating.                                                                |
+| Geophilic                                                | Versioned datapack resources and Datapack Toolkit controls; no invented NeoForge TOML owner.                                                                           |
 
 Do not ship Cristel Lib's entire automatically generated per-mod configuration tree. Own only deliberate settings and their audit records. Keep Compat-owned files under `config/skyweave/`; foreign files stay with their registered owners.
 
@@ -89,7 +89,7 @@ Compat's `tools/probe.py --ecology --fixed-biome minecraft:forest --seed 2026` e
 
 Lagoon treatments retain normal 270–370 anchor radii, the shared seeded outline and their native floor. COASTAL uses a broad seeded open cove with supported shoulders; PERIMETER permits falling edges. Cached shoreline metadata keeps additive fragments outside native gaps and the cove mouth. Exact controls and defaults live in the owning ocean config, not duplicated here.
 
-Dynamic Waters excludes native wet archetypes and additive aprons from its generated channel ownership. Rejected cuts are inert, inclusive roof thickness is respected, and supported shallow beds retain coherent lakes. Rivers terminate at physical void sinks instead of resuming on detached remnants. Ordinary falling fluid may still touch lower terrain; that is distinct from generating a new channel there. Natural dams remain deferred.
+Dynamic Waters excludes native wet archetypes and fragment fringes from its generated channel ownership. Rejected cuts are inert, inclusive roof thickness is respected, and supported shallow beds retain coherent lakes. Rivers terminate at physical void sinks instead of resuming on detached remnants. Ordinary falling fluid may still touch lower terrain; that is distinct from generating a new channel there. Natural dams remain deferred.
 
 ## Verification and update procedure
 

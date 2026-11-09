@@ -78,12 +78,10 @@ def survey_source(world):
     data = NBT(gzip.decompress(level_bytes)).root()['Data']
     settings = data['WorldGenSettings']
     dimension = settings['dimensions']['minecraft:overworld']
-    # Read-only evidence may come from an unchanged pre-rename personal instance.
-    markers = [world/name for name in ('skyweave-generation.json', 'create-sky-generation.json')
-               if (world/name).exists()]
-    if len(markers) > 1:
-        raise ValueError('Ambiguous generation identity markers')
-    identity_bytes = markers[0].read_bytes() if markers else None
+    marker = world/'skyweave-generation.json'
+    if (world/'create-sky-generation.json').exists():
+        raise ValueError('Retired generation marker; provide the canonical skyweave-generation.json')
+    identity_bytes = marker.read_bytes() if marker.exists() else None
     identity = json.loads(identity_bytes) if identity_bytes else None
     if identity and 'seed' in identity: identity['seed'] = str(identity['seed'])
     return {

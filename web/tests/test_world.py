@@ -37,7 +37,7 @@ class ProvenanceTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporary:
             world=Path(temporary)
             (world/'level.dat').write_bytes(gzip.compress(tag('',data)))
-            (world/'create-sky-generation.json').write_text(json.dumps({'seed':seed,'dimension':{'min_y':-128,'height':896}}))
+            (world/'skyweave-generation.json').write_text(json.dumps({'seed':seed,'dimension':{'min_y':-128,'height':896}}))
             result=survey_source(world)
             self.assertEqual(result['seed'],str(seed))
             self.assertEqual(result['generationIdentity']['seed'],str(seed))
@@ -45,8 +45,6 @@ class ProvenanceTests(unittest.TestCase):
             self.assertEqual(len(result['generationIdentitySha256']),64)
             self.assertNotIn('Player',json.dumps(result))
             self.assertNotIn('private',json.dumps(result))
-            (world/'create-sky-generation.json').rename(world/'skyweave-generation.json')
-            self.assertEqual(survey_source(world), result)
             (world/'create-sky-generation.json').write_text('{}')
             with self.assertRaises(ValueError): survey_source(world)
             (world/'skyweave-generation.json').unlink()

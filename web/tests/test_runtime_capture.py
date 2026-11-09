@@ -11,44 +11,33 @@ from runtime_capture import run_capture, stage_configuration
 
 
 class ConfigurationStagingTests(unittest.TestCase):
-    def test_nested_source_owns_compat_files_without_changing_installation(self):
+    def test_canonical_source_overlays_installation_without_mutation(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            installed, common, server, output = [root / name for name in ['installed', 'common', 'server', 'output']]
-            files = {
-                installed / 'skyweave_compat-features.properties': 'old=false',
-                installed / 'skyweave_compat-structures.json': '{"old":true}',
-                installed / 'skyweave-shaders/recipes/old.json': '{}',
-                installed / 'skyweave-shaders/cache.txt': 'keep',
-                installed / 'dynamicwaters-common.toml': 'enabled=false',
-                installed / 'questlog/retired.json': '{}',
-                common / 'skyweave/skyweave_compat-features.properties': 'current=false',
-                common / 'questlog/current.json': 'common',
-                server / 'questlog/current.json': 'server',
-            }
+            installed, common, output = [root / name for name in ['installed', 'common', 'output']]
+            files = {installed / 'skyweave/skyweave_compat-features.properties': 'old=false',
+                     installed / 'dynamicwaters-common.toml': 'enabled=false',
+                     installed / 'questlog/retired.json': '{}',
+                     common / 'skyweave/skyweave_compat-features.properties': 'current=false',
+                     common / 'questlog/current.json': '{}'}
             for path, text in files.items():
-                path.parent.mkdir(parents=True, exist_ok=True)
-                path.write_text(text)
-            stage_configuration(installed, [common, server], output)
-            self.assertFalse((output / 'skyweave_compat-features.properties').exists())
-            self.assertFalse((output / 'skyweave_compat-structures.json').exists())
-            self.assertFalse((output / 'skyweave-shaders/recipes').exists())
-            self.assertFalse((output / 'questlog/retired.json').exists())
+                path.parent.mkdir(parents=True, exist_ok=True); path.write_text(text)
+            stage_configuration(installed, [common], output)
             self.assertEqual('current=false', (output / 'skyweave/skyweave_compat-features.properties').read_text())
             self.assertEqual('enabled=false', (output / 'dynamicwaters-common.toml').read_text())
-            self.assertEqual('keep', (output / 'skyweave-shaders/cache.txt').read_text())
-            self.assertEqual('server', (output / 'questlog/current.json').read_text())
-            for path, text in files.items():
-                self.assertEqual(text, path.read_text())
+            self.assertFalse((output / 'questlog/retired.json').exists())
+            for path, text in files.items(): self.assertEqual(text, path.read_text())
 
-    def test_without_nested_source_preserves_existing_layout(self):
-        with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            installed, output = root / 'installed', root / 'output'
-            installed.mkdir()
-            (installed / 'skyweave_compat-features.properties').write_text('enabled=false')
-            stage_configuration(installed, [root / 'absent'], output)
-            self.assertEqual('enabled=false', (output / 'skyweave_compat-features.properties').read_text())
+    def test_retired_inputs_are_rejected_before_replacing_output(self):
+        for retired in ['skyweave_compat-features.properties', 'skyweave-shaders/recipes/old.json']:
+            with self.subTest(retired=retired), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory); installed, output = root / 'installed', root / 'output'
+                path = installed / retired; path.parent.mkdir(parents=True); path.write_text('{}')
+                output.mkdir(); (output / 'keep').write_text('untouched')
+                with self.assertRaisesRegex(ValueError, 'Retired Skyweave'):
+                    stage_configuration(installed, [root / 'absent'], output)
+                self.assertEqual('untouched', (output / 'keep').read_text())
+                self.assertEqual('{}', path.read_text())
 
 
 class RuntimeCaptureTests(unittest.TestCase):

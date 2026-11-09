@@ -125,8 +125,13 @@ time.sleep(30)
   let pid
   for (let i = 0; i < 100; i++) {
     try {
-      pid = Number(await fs.readFile(path.join(dir, 'child.pid'), 'utf8'))
-      break
+      const value = Number(
+        await fs.readFile(path.join(dir, 'child.pid'), 'utf8'),
+      )
+      if (Number.isSafeInteger(value) && value > 0) {
+        pid = value
+        break
+      }
     } catch {}
     await new Promise((resolve) => setTimeout(resolve, 10))
   }

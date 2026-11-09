@@ -94,7 +94,7 @@ async function fixture(t) {
     await write('bin/' + name, 'unused')
     await fs.chmod(path.join(root, 'bin', name), 0o755)
   }
-  await write('.cache/resource-exporter/inputs.json', {
+  await write('data/generated/runtime/native-inputs.json', {
     sourceSha256: hash('native factory fixture'),
     exporterSha256: hash('exporter fixture'),
     minecraft: '1.21.1',
@@ -103,7 +103,16 @@ async function fixture(t) {
     cemInputSha256: hash('{}'),
     optionalInputs: { 'create-confectionery': hash('optional') },
   })
-  const resolver = createEnvironmentResolver([registration], { searchPath: '' })
+  const resolver = createEnvironmentResolver([registration], {
+    searchPath: '',
+    nativeManifest: async () =>
+      JSON.parse(
+        await fs.readFile(
+          path.join(root, 'data/generated/runtime/native-inputs.json'),
+          'utf8',
+        ),
+      ),
+  })
   t.after(() => fs.rm(root, { recursive: true, force: true }))
   return {
     root,
@@ -111,7 +120,13 @@ async function fixture(t) {
     resolver,
     write,
     lock,
-    read: async () => (await resolver.resolve(registration)).manifest,
+    read: async () =>
+      (
+        await resolver.resolve(registration, {
+          principal: { kind: 'anonymous', id: 'local-open' },
+          connectionId: randomUUID(),
+        })
+      ).manifest,
   }
 }
 
@@ -176,7 +191,7 @@ test('environment separates portable declared facts, observed capture identity a
   )
 })
 
-test('an unavailable active native projection cannot fall through to legacy metadata', async (t) => {
+test('unavailable current projections never read a stale exporter cache', async (t) => {
   const f = await fixture(t),
     actor = {
       principal: { kind: 'anonymous', id: 'local-open' },
@@ -196,12 +211,27 @@ test('an unavailable active native projection cannot fall through to legacy meta
     (await resolver.resolve(f.registration, actor)).manifest.capabilities.find(
       (cap) => cap.id === 'static-entities',
     )
-  const legacy = await read()
-  assert.equal(legacy.state, 'supported')
+  await f.write(
+    '.cache/resource-exporter/inputs.json',
+    JSON.parse(
+      await fs.readFile(
+        path.join(f.root, 'data/generated/runtime/native-inputs.json'),
+        'utf8',
+      ),
+    ),
+  )
+  assert.equal((await read()).state, 'stale')
+  active = JSON.parse(
+    await fs.readFile(
+      path.join(f.root, 'data/generated/runtime/native-inputs.json'),
+      'utf8',
+    ),
+  )
+  assert.equal((await read()).state, 'supported')
   active = null
   assert.equal((await read()).state, 'stale')
   active = undefined
-  assert.equal((await read()).inputRevision, legacy.inputRevision)
+  assert.equal((await read()).state, 'stale')
 })
 
 test('optional dependency removal preserves vanilla adapter identity; stale and unsupported facts are explicit', async (t) => {

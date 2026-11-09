@@ -1,5 +1,5 @@
 # Keep floating villages beside island terrain. Applies to new starts only.
 # Restart the world/server after changes. The server controls multiplayer generation.
 minimumGap = 64
-maximumGap = 512
+maximumGap = 128
 minimumIslandRadius = 96
