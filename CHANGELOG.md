@@ -2,6 +2,12 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.9.0 · 2026-11-09
+
+### Features
+
+- **terrain:** Update settlements and construct picking ([8f3413f](https://github.com/mannie-exe/create-skyweave/commit/8f3413f8a12c5b43d9283a0346a6ab6d58bce771))
+
 ## v0.8.2 · 2026-11-09
 
 ### Build and verification
