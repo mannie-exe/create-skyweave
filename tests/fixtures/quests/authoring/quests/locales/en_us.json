@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "shared": {},
+  "objects": {
+    "23B017913379E4C4": {
+      "title": "A working workshop",
+      "chapter_subtitle": [
+        "Rotation, materials and useful processes."
+      ]
+    },
+    "455BF53E14EF174E": {
+      "title": "Andesite alloy",
+      "quest_subtitle": "",
+      "quest_desc": [
+        "Have at least 2 Andesite alloy in your inventory at once.",
+        "Andesite Alloy is a construction material for Create's basic mechanical components. Shafts, casings and processing equipment make it a recurring requirement as machinery expands.",
+        "The basic crafting route combines andesite with iron or zinc nuggets. Either metal can support the early mechanical route, depending on the resources you have found."
+      ]
+    },
+    "32054FD43E39C977": {
+      "title": "Andesite alloy"
+    },
+    "76F915EEBD91F30B": {
+      "title": "Andesite for another batch"
+    },
+    "1C17ADD8E0CC7B27": {
+      "title": "Mechanical press",
+      "quest_subtitle": "",
+      "quest_desc": [
+        "Have at least 1 Mechanical press in your inventory at once.",
+        "A Mechanical Press turns suitable ingots into sheets using rotational power. Sheets supply recipes for components such as Electron Tubes and rope equipment.",
+        "A Depot or belt beneath the press supports individual-item processing. A Basin is used for its compacting recipes, so the arrangement depends on the recipe being performed."
+      ]
+    },
+    "6E652FA469F965F2": {
+      "title": "Mechanical press"
+    },
+    "5626C6B76EC3B141": {
+      "title": "Press a sheet",
+      "quest_subtitle": "",
+      "quest_desc": [
+        "Complete Create's sheet-pressing advancement.",
+        "Supply rotation to a Mechanical Press and place a suitable ingot on a Depot or belt beneath it. The processing advancement records a completed pressing operation.",
+        "Sheets support rope equipment, tubes and machine components. Keep the press available for repeat batches rather than dismantling it after the first sheet."
+      ]
+    },
+    "3F39F5AD1112DC27": {
+      "title": "Pressing advancement"
+    }
+  }
+}

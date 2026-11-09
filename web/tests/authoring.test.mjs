@@ -10,31 +10,31 @@ async function fixture(t) {
     await fs.mkdtemp(path.join(os.tmpdir(), 'atlas-authoring-')),
   )
   await fs.cp(
-    path.resolve('../authoring/journal'),
-    path.join(root, 'authoring/journal'),
+    path.resolve('../authoring/quests'),
+    path.join(root, 'authoring/quests'),
     { recursive: true },
   )
   await fs.mkdir(path.join(root, 'authoring/changes'))
   await fs.mkdir(path.join(root, 'scripts'))
-  for (const name of ['generate-journal.py', 'audit-changes.py'])
+  for (const name of ['generate-quests.py', 'quests.py', 'audit-changes.py'])
     await fs.copyFile(
       path.resolve('../scripts', name),
       path.join(root, 'scripts', name),
     )
   return {
     root,
-    editor: domainFixture(t, root, 'journal'),
-    name: 'journal/locales/en_us.json',
+    editor: domainFixture(t, root, 'quests'),
+    name: 'quests/locales/en_us.json',
   }
 }
 
-test('save validates real journal source without generating; generation checks source revision', async (t) => {
+test('save validates real quest source without generating; generation checks source revision', async (t) => {
   const { root, editor, name } = await fixture(t),
     before = await editor.read(),
     text = before.files[name].text + '\n'
   const destination = path.join(
     root,
-    'overrides/common/config/questlog/quests/travel/glider.json',
+    'overrides/common/config/ftbquests/quests/chapters/crossings.snbt',
   )
   await editor.save({ name, revision: before.files[name].revision, text })
   assert.equal(
@@ -47,10 +47,7 @@ test('save validates real journal source without generating; generation checks s
     (error) => error.code === 'REVISION_CONFLICT',
   )
   await editor.generate({ revision: (await editor.read()).revision })
-  assert.equal(
-    JSON.parse(await fs.readFile(destination, 'utf8')).title,
-    'create_skyweave.journal.travel.glider.title',
-  )
+  assert.match(await fs.readFile(destination, 'utf8'), /filename: "crossings"/)
 })
 
 test('stale save, malformed JSON and failed native validation leave disk unchanged', async (t) => {
@@ -86,7 +83,7 @@ test('arbitrary paths and source symlinks are rejected by the shared service', a
   const { root, editor, name } = await fixture(t)
   for (const invalid of [
     '../../secret',
-    'journal/locales/../defaults.json',
+    'quests/locales/../defaults.json',
     '/etc/passwd',
     'changes/new.txt',
   ])

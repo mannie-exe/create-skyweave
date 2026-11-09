@@ -14,8 +14,10 @@ def managed_paths(root):
         paths.update(p.relative_to(root).as_posix() for p in (root / folder).rglob('*') if p.is_file())
     paths.add('overrides/client/options.txt')
     paths.add('templates/server/game/server.properties.template')
-    # Generated journal resources have a semantic check in generate-journal.py.
-    return {p for p in paths if not p.startswith('overrides/common/config/questlog/')}
+    # Quest definitions have their own source/generation check. Legacy Questlog
+    # definitions remain frozen during the runtime coexistence period.
+    return {p for p in paths if not p.startswith(('overrides/common/config/questlog/',
+                                                  'overrides/common/config/ftbquests/quests/'))}
 
 
 def audit(root=ROOT):

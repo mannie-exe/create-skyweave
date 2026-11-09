@@ -33,8 +33,8 @@ Use the existing workspace service, WebSocket client and revision-aware jobs;
 do not introduce parallel polling or another source/publication authority.
 
 Quest mechanics, locale prose and shared explanatory text have separate owners.
-The selected replacement is FTB Quests capability/dependency authoring; the current
-Questlog editor is legacy and must be replaced rather than maintained alongside it.
+FTB Quests capability/dependency authoring owns the editor and generation pipeline.
+Keep frozen Questlog runtime definitions during the trial, without a second editor.
 Preserve readable text, stable IDs, reward scope and real completion evidence.
 Do not treat Questlog's column arrangement as a universal quest schema. Follow
 the pack's quest design and authoring guides for current capability boundaries.

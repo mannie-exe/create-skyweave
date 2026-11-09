@@ -4,7 +4,7 @@ import { randomUUID } from 'node:crypto'
 import { createWorkspaceService } from '../scripts/workspace/service.ts'
 import { createArtifactStore } from '../scripts/workspace/artifacts.ts'
 import { createNativeExecutor } from '../scripts/workspace/native.ts'
-import { journalDefinitions } from '../scripts/workspace/journal.ts'
+import { questDefinitions } from '../scripts/workspace/quests.ts'
 import { modelDefinitions } from '../scripts/workspace/models.ts'
 
 // Test-only conveniences delegate to the shipping service; reads never launch previews.
@@ -30,7 +30,7 @@ export function domainFixture(t, root, kind, runner) {
     })
   service = createWorkspaceService({
     registrations: [registration],
-    definitions: (kind === 'journal' ? journalDefinitions : modelDefinitions)(
+    definitions: (kind === 'quests' ? questDefinitions : modelDefinitions)(
       [registration],
       native,
       artifacts,
@@ -62,16 +62,16 @@ export function domainFixture(t, root, kind, runner) {
   return {
     read: () => service.query(actor, registration.scope, kind + '.read', {}),
     save: (input) =>
-      command(kind === 'journal' ? 'journal.save' : 'models.save', input),
+      command(kind === 'quests' ? 'quests.save' : 'models.save', input),
     generate: (input) =>
       command(
-        kind === 'journal' ? 'journal.generate' : 'resources.generate',
+        kind === 'quests' ? 'quests.generate' : 'resources.generate',
         input,
       ),
     preview: (input) =>
       command(
         kind + '.preview',
-        kind === 'journal' ? { revision: input } : { document: input },
+        kind === 'quests' ? { revision: input } : { document: input },
       ),
     async artifactJSON(reference) {
       const value = await artifacts.resolve(

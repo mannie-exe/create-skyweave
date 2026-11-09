@@ -230,7 +230,7 @@ export function createArtifactStore(options: {
         logical: string,
       ) => unknown
       dependencies?: Artifact[]
-      jsonMaximum?: 16 | 32
+      jsonMaximum?: 16 | 32 | 64
     },
   ): Promise<Generation> {
     registered(context.scope)
@@ -291,7 +291,14 @@ export function createArtifactStore(options: {
             files,
             logical,
           )
-          assertJson(value, maximum)
+          try {
+            assertJson(value, maximum)
+          } catch (error) {
+            throw new WorkspaceError(
+              'GENERATION_FAILED',
+              `Generated JSON is not admissible: ${logical} (${error instanceof Error ? error.message : 'invalid JSON'})`,
+            )
+          }
           rewritten = Buffer.from(JSON.stringify(value))
         }
         const expectedSize = rewritten?.byteLength ?? info.size

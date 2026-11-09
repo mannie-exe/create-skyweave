@@ -204,7 +204,10 @@ export function enrichRoutes(routes, recipes, loot, tags = {}, fluidTags = {}) {
     const family = routeFamily(route)
     const facts = {
       family,
-      opportunistic: family === 'exploration' || route.kind === 'trade',
+      opportunistic:
+        family === 'exploration' ||
+        route.kind === 'trade' ||
+        route.sourceKind === 'structure',
       quantities: [],
       setup: [],
       outcomes: {},
@@ -214,13 +217,15 @@ export function enrichRoutes(routes, recipes, loot, tags = {}, fluidTags = {}) {
     else
       for (const output of route.outputs) {
         const mining = ['gathering', 'block-drop'].includes(route.kind)
-        const rootTable = route.id.startsWith('loot/')
-          ? route.id.slice(5, route.id.lastIndexOf('/'))
-          : route.kind === 'mob-drop'
-            ? route.id
-                .slice(4, route.id.lastIndexOf('/'))
-                .replace(':', ':entities/')
-            : route.source
+        const rootTable =
+          route.lootTable ??
+          (route.id.startsWith('loot/')
+            ? route.id.slice(5, route.id.lastIndexOf('/'))
+            : route.kind === 'mob-drop'
+              ? route.id
+                  .slice(4, route.id.lastIndexOf('/'))
+                  .replace(':', ':entities/')
+              : route.source)
         const tableId =
           typeof rootTable === 'string' && loot[rootTable]
             ? rootTable

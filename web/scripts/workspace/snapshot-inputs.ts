@@ -133,11 +133,17 @@ export function createSnapshotInputs(
       /\.(jar|txt)$/,
     )
     files['server:eula'] = { file: path.join(configured.server, 'eula.txt') }
+    files['pack:server-template'] = {
+      file: path.join(
+        ctx.registration.pack,
+        'templates/server/game/server.properties.template',
+      ),
+    }
     await tree(
       path.join(pack, 'resource-patches'),
       'skyweave-resource-patches:',
     )
-    await tree(path.join(pack, 'authoring/journal'), 'journal:')
+    await tree(path.join(pack, 'authoring/quests'), 'quests:')
     await tree(
       path.join(web, 'tools/exporter'),
       'tool:exporter:',
@@ -158,7 +164,8 @@ export function createSnapshotInputs(
     for (const name of [
       'build-resource-patches.py',
       'archive_output.py',
-      'generate-journal.py',
+      'generate-quests.py',
+      'quests.py',
     ])
       files['tool:pack:' + name] = { file: path.join(pack, 'scripts', name) }
     if (Object.keys(files).length > 10000)

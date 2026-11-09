@@ -1,0 +1,467 @@
+{
+  "schema": 1,
+  "id": "6E65BCA923C86B3B",
+  "order": 4,
+  "native": {
+    "icon": "simulated:steering_wheel"
+  },
+  "quests": [
+    {
+      "id": "3532E5776DF455F3",
+      "key": "steering",
+      "x": 0,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "simulated:steering_wheel"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "simulated:steering_wheel",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "5ABA8C0D30223F18"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "engines/steering"
+      ]
+    },
+    {
+      "id": "3AAC886C5B371710",
+      "key": "wireless",
+      "x": 3,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "create:linked_controller"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "create:linked_controller",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "002E75D9610ACB09"
+        },
+        {
+          "type": "item",
+          "item": {
+            "id": "create:redstone_link",
+            "count": 1
+          },
+          "count": 2,
+          "consume_items": false,
+          "id": "4006C1A55AE434C4"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:redstone",
+            "count": 1
+          },
+          "count": 4,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "7EC7D7ED5D24F3A7"
+        }
+      ],
+      "covers": [
+        "engines/controller"
+      ]
+    },
+    {
+      "id": "2A4865870CD7F97D",
+      "key": "sensors",
+      "x": 6,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "simulated:altitude_sensor"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "match": {
+            "items": [
+              "simulated:altitude_sensor",
+              "simulated:velocity_sensor",
+              "simulated:gimbal_sensor"
+            ]
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "7E218842305FC700"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "engines/sensor"
+      ]
+    },
+    {
+      "id": "5225A96FF871CC4B",
+      "key": "logic",
+      "x": 9,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "create_redstone_additions:conjunctor"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "create_redstone_additions:verdigris",
+            "count": 1
+          },
+          "count": 4,
+          "consume_items": false,
+          "id": "7A0E88E62163801C"
+        },
+        {
+          "type": "item",
+          "match": {
+            "items": [
+              "create_redstone_additions:conjunctor",
+              "create_redstone_additions:disjunctor",
+              "create_redstone_additions:inverter",
+              "create_redstone_additions:crossroad"
+            ]
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "2CE2B1B9759B0F6A"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "engines/verdigris",
+        "engines/signal_gates"
+      ]
+    },
+    {
+      "id": "3656F991B10C7510",
+      "key": "linear",
+      "x": 0,
+      "y": 3,
+      "dependencies": [],
+      "native": {
+        "icon": "linearbearing:linear_bearing"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "linearbearing:linear_bearing",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "3056EBEB54D9AD3F"
+        },
+        {
+          "type": "item",
+          "item": {
+            "id": "linearbearing:linear_casing",
+            "count": 1
+          },
+          "count": 8,
+          "consume_items": false,
+          "id": "71C443F9FABAD6F7"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "linearbearing:linear_casing",
+            "count": 1
+          },
+          "count": 1,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "1041044627D6083E"
+        }
+      ],
+      "covers": [
+        "workshop/linear_guide"
+      ]
+    },
+    {
+      "id": "274004398DC5F150",
+      "key": "articulated",
+      "x": 3,
+      "y": 3,
+      "dependencies": [],
+      "native": {
+        "icon": "absolute_kinematics:hinge"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "absolute_kinematics:hinge",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "253A5990A588FDA1"
+        },
+        {
+          "type": "item",
+          "item": {
+            "id": "absolute_kinematics:ball_joint",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "305FDD3EE40A4B9A"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "create:shaft",
+            "count": 1
+          },
+          "count": 2,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "0F3EC24A65AB21E6"
+        }
+      ],
+      "covers": [
+        "workshop/hinged_motion",
+        "workshop/ball_joint"
+      ]
+    },
+    {
+      "id": "2F59A8E5DD82B47B",
+      "key": "flexible",
+      "x": 6,
+      "y": 3,
+      "dependencies": [],
+      "native": {
+        "icon": "aeronautics_utility_objects:brass_universal_joint"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "aeronautics_utility_objects:brass_universal_joint",
+            "count": 1
+          },
+          "count": 2,
+          "consume_items": false,
+          "id": "6E2C0568583E409B"
+        },
+        {
+          "type": "item",
+          "item": {
+            "id": "aeronautics_utility_objects:universal_joint_rod2",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "06DD78853D24F4D5"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "create:shaft",
+            "count": 1
+          },
+          "count": 1,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "410E4E0848F7A843"
+        }
+      ],
+      "covers": [
+        "workshop/flexible_shafts"
+      ]
+    },
+    {
+      "id": "352DC86C8DF1E6BC",
+      "key": "actuators",
+      "x": 9,
+      "y": 3,
+      "dependencies": [],
+      "native": {
+        "icon": "aeronautics_utility_objects:hydraulic_connection_head"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "aeronautics_utility_objects:hydraulic_connection_head",
+            "count": 1
+          },
+          "count": 2,
+          "consume_items": false,
+          "id": "4F86CF6CC5AE5AA1"
+        },
+        {
+          "type": "item",
+          "item": {
+            "id": "aeronautics_utility_objects:hydraulic_rod",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "450044DA3DCD8D46"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "workshop/pneumatic_motion"
+      ]
+    },
+    {
+      "id": "5E68A9DEC3D74A1E",
+      "key": "rotation_recovery",
+      "x": 0,
+      "y": 6,
+      "dependencies": [],
+      "native": {
+        "icon": "aeronautics_utility_objects:damping_stress_bearing"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "aeronautics_utility_objects:damping_stress_bearing",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "08D3EE64D02C2BEB"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "workshop/rotation_recovery"
+      ]
+    },
+    {
+      "id": "3DBCBED1B7BC3958",
+      "key": "magnetic",
+      "x": 3,
+      "y": 6,
+      "dependencies": [],
+      "native": {
+        "icon": "linearbearing:magnetic_port"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "linearbearing:magnetic_port",
+            "count": 1
+          },
+          "count": 2,
+          "consume_items": false,
+          "id": "12AFC304A6D92433"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "engines/magnetic_link"
+      ]
+    },
+    {
+      "id": "19680B58825BA4C6",
+      "key": "spring",
+      "x": 6,
+      "y": 6,
+      "dependencies": [],
+      "native": {
+        "icon": "linearbearing:torsional_anchor"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "linearbearing:torsional_anchor",
+            "count": 1
+          },
+          "count": 2,
+          "consume_items": false,
+          "id": "422F6F65BA746BBB"
+        },
+        {
+          "type": "item",
+          "item": {
+            "id": "simulated:spring",
+            "count": 1
+          },
+          "count": 2,
+          "consume_items": false,
+          "id": "423FB543C6164E90"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "engines/spring_link"
+      ]
+    },
+    {
+      "id": "24DDC7CFD84BCE29",
+      "key": "angular_rate",
+      "x": 9,
+      "y": 6,
+      "dependencies": [],
+      "native": {
+        "icon": "linearbearing:gyroscopic_gearbox"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "linearbearing:gyroscopic_gearbox",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "5E4F8D6B7F0C721E"
+        },
+        {
+          "type": "item",
+          "item": {
+            "id": "linearbearing:redstone_converter",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "3BCEB7122C950E42"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "engines/gyro_sensor"
+      ]
+    }
+  ]
+}

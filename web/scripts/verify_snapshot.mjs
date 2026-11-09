@@ -2,9 +2,10 @@ import fs from 'node:fs/promises'
 import assert from 'node:assert/strict'
 import { withWorkspace } from './workspace-cli.mjs'
 import path from 'node:path'
+import { verifyQuestSnapshot } from './verify-quests.mjs'
 const projected = await withWorkspace(path.resolve('.'), async (workspace) =>
   Promise.all(
-    ['catalog.json', 'coverage.json'].map(async (name) =>
+    ['catalog.json', 'coverage.json', 'routes.json'].map(async (name) =>
       JSON.parse(
         await fs.readFile(await workspace.projection('map', name), 'utf8'),
       ),
@@ -24,6 +25,76 @@ const [recipes, items, errors, drops, diagnostics, catalog, coverage] =
   ])
 const byRecipe = new Map(recipes.map((r) => [r.id, r])),
   byItem = new Map(items.map((i) => [i.id, i]))
+const environment = await read('data/generated/runtime/environment.json')
+assert.equal(environment.schema, 1)
+assert.equal(
+  environment.features['minecraft.nether_access'],
+  true,
+  'Capture the released Compat access adapter',
+)
+assert.equal(environment.serverDefaults.allowNether, false)
+const template = await fs.readFile(
+  '../templates/server/game/server.properties.template',
+)
+const { createHash } = await import('node:crypto')
+assert.equal(
+  environment.serverDefaults.sha256,
+  createHash('sha256').update(template).digest('hex'),
+  'Refresh changed environment defaults',
+)
+assert.equal(
+  catalog.meta.environment.dimensions['minecraft:the_nether'].state,
+  'blocked',
+)
+const mapRoutes = projected[2],
+  nodes = new Map(catalog.nodes.map((node) => [node.id, node]))
+for (const id of [
+  'minecraft:oak_log',
+  'minecraft:stone',
+  'minecraft:cobblestone',
+  'minecraft:sand',
+  'minecraft:gravel',
+  'minecraft:andesite',
+  'minecraft:iron_ingot',
+  'create:zinc_ingot',
+  'minecraft:quartz',
+])
+  assert.equal(
+    nodes.get(id)?.status,
+    'mapped',
+    id + ' must retain a traced acquisition path',
+  )
+assert(
+  mapRoutes.some(
+    (route) =>
+      route.kind === 'gathering' &&
+      route.outputs.includes('create:raw_zinc') &&
+      route.availability?.state === 'potential',
+  ),
+  'Native Create ore declarations must contribute mining routes',
+)
+assert(
+  mapRoutes.some(
+    (route) =>
+      route.kind === 'gathering' &&
+      route.outputs.includes('minecraft:soul_sand') &&
+      route.inputs.some((group) => group.includes('atlas:overworld')) &&
+      route.availability?.state === 'potential',
+  ),
+  'Keep Overworld soul-sand salvage despite Nether closure',
+)
+const netherOnly = mapRoutes.filter(
+  (route) =>
+    route.outputs.includes('atlas:nether') ||
+    route.inputs.some(
+      (group) => group.length === 1 && group[0] === 'atlas:nether',
+    ),
+)
+assert(netherOnly.length > 0)
+assert(
+  netherOnly.every((route) => route.availability?.state === 'blocked'),
+  'Closed dimension routes must remain browsable but unavailable',
+)
 assert.deepEqual(errors, [], 'Exporter errors')
 assert(
   !diagnostics.some((line) => line.includes('Parsing error loading recipe')),
@@ -149,48 +220,28 @@ assert.equal(
   'blocked',
   'Ecologics-only fluid must not become a free resource',
 )
-const journal = await read('data/generated/runtime/journal.json')
-assert(journal.length > 0, 'Journal definitions missing')
-assert(
-  journal.every((q) => q.negativeAndPositiveHandlers && q.nbtRoundTrip),
-  'Journal handler verification failed',
-)
-assert(
-  new Set(journal.map((q) => q.id)).size === journal.length,
-  'Duplicate journal IDs',
-)
-assert(
-  journal.every(
-    (q) =>
-      q.fixedRewardGrants === q.definition.rewards.length &&
-      q.rewardClaimNbtRoundTrip &&
-      q.repeatClaimRejected,
-  ),
-  'Journal reward grant, persistence or repeat-claim check failed',
-)
-const journalRewards = await read('data/generated/runtime/journal_rewards.json')
-assert(journalRewards.manualClaims && journalRewards.repeatClaimsRejected)
-assert.equal(journalRewards.overflowDropped, true)
+const quests = await read('data/generated/runtime/quests.json')
+assert.equal(quests.schema, 1)
+assert.equal(quests.system, 'ftbquests')
+assert.equal(quests.format, 13, 'Review the pinned native FTB writer format')
+assert.equal(quests.progression, 'flexible')
+const documents = {
+  'quests/book.json': await read('../authoring/quests/book.json'),
+}
+for (const filename of await fs.readdir('../authoring/quests/chapters'))
+  if (filename.endsWith('.json'))
+    documents['quests/chapters/' + filename] = await read(
+      '../authoring/quests/chapters/' + filename,
+    )
+const questEvidence = verifyQuestSnapshot(quests, documents, items)
 console.log(
   'Snapshot checks passed:',
   catalog.meta.counts,
-  'journal:',
-  journal.length,
+  'FTB quests:',
+  questEvidence.quests,
 )
 
 const heat = await read('data/generated/runtime/heat_checks.json')
 assert.equal(heat.solidBurnerCold, 'NONE')
 assert(heat.coalAccepted > 0 && heat.heatedAtTick > 0)
 assert(heat.superheatedAtTick > heat.heatedAtTick)
-for (const quest of journal) {
-  const visit = (objective) => {
-    for (const target of [objective.item, objective.block].filter(Boolean))
-      assert.equal(
-        coverage.find((c) => c.id === target)?.status,
-        'mapped',
-        quest.id + ': ' + target,
-      )
-    for (const child of objective.objectives ?? []) visit(child)
-  }
-  quest.definition.objectives.forEach(visit)
-}

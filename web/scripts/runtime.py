@@ -82,7 +82,7 @@ out = args_cli.output.resolve() if args_cli.output else ROOT / 'data/generated/r
 out.mkdir(parents=True, exist_ok=True)
 print('Starting isolated audit server; live world is never mounted.', flush=True)
 worldgen_args = ['-Datlas.worldgen.level='+str(p['server'] / 'world/level.dat')] if args_cli.worldgen else []
-run_capture([tool('java', p.get('java', Path('.')) / 'java'), '-Xmx4G', *worldgen_args, '-Datlas.export.dir='+str(out), '@'+str(args), 'nogui'],
+run_capture([tool('java', p.get('java', Path('.')) / 'java'), '-Xmx4G', *worldgen_args, '-Datlas.export.dir='+str(out), '-Datlas.environment.properties='+str(p['pack'] / 'templates/server/game/server.properties.template'), '@'+str(args), 'nogui'],
             cwd=audit, log=work / 'runtime.log', complete=out / 'complete.json',
             nested=bool(os.environ.get('ATLAS_WORKSPACE_CONTEXT')))
 inventory = {f.name: hashlib.sha256(f.read_bytes()).hexdigest() for f in mods.glob('*.jar')}

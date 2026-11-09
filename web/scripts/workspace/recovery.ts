@@ -342,7 +342,7 @@ export function recoveryDefinitions(
       })
     }
     const repository = createSourceRepository(ctx.registration, {
-        journalOutputs: true,
+        questOutputs: true,
       }),
       transactions = path.join(scoped, 'transactions')
     for (const name of await names(transactions)) {

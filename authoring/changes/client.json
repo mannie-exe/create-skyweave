@@ -473,9 +473,9 @@
     },
     {
       "path": "overrides/client/config/inventoryprofilesnext/inventoryprofiles.json",
-      "sha256": "3d04f9608aa91e049b2d702cdc5f9df15bc60053137c066d1becd0fde7e34c4b",
+      "sha256": "1f599b313189bc09083130d4b244285a15c12eda8ae27dcdb018a920cf524eae",
       "review": "reviewed",
-      "reason": "Keep manual IPN sorting/transfers and Auto Refill tool replacement; disable IPN scrolling/swipe, equipment profiles, armor refill and hotbar restocking. Middle-click sorting preserves R recipe lookup.",
+      "reason": "Keep manual IPN sorting/transfers, equipment profile support and Auto Refill tool replacement; disable overlapping IPN scrolling/swipe, armor refill and hotbar restocking. Middle-click sorting preserves R recipe lookup. Hide only settings and overlay-editor buttons; retain sort buttons and refill indicators.",
       "reference": "docs/players/getting-started.md#controls"
     }
   ]

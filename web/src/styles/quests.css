@@ -1,0 +1,74 @@
+.quest-editor {
+  container-type: inline-size;
+  min-width: 0;
+}
+.quest-text-preview {
+  align-self: start;
+  min-width: 0;
+}
+.quest-text-preview p {
+  white-space: pre-line;
+}
+.authoring .workbench-fields {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.authoring fieldset.content-stack {
+  padding: var(--space-content);
+}
+.quest-string-table th,
+.quest-string-table td {
+  border-bottom: 1px solid var(--line-subtle);
+}
+.quest-string-table th[scope='row'] {
+  width: 25%;
+  font-weight: var(--type-body-weight);
+  overflow-wrap: anywhere;
+}
+.quest-string-table td {
+  min-width: 17rem;
+}
+.quest-string-table p {
+  white-space: pre-line;
+}
+.quest-string-table details {
+  font-size: var(--type-caption-size);
+}
+.quest-string-table table {
+  font-size: var(--type-body-size);
+}
+
+.quest-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-section);
+  min-width: 0;
+}
+.quest-layout,
+.quest-inspector {
+  min-width: 0;
+}
+.quest-canvas {
+  height: clamp(20rem, 50vh, 36rem);
+  border: 1px solid var(--line-subtle);
+  overflow: hidden;
+}
+.quest-canvas .flow-node {
+  width: 8rem;
+  min-width: 0;
+}
+.quest-canvas .flow-node-title {
+  white-space: normal;
+}
+.quest-row {
+  min-width: 0;
+}
+.quest-browser section {
+  display: contents;
+}
+@container (min-width: 56rem) {
+  .quest-workspace[data-layout='canvas'] {
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.8fr);
+  }
+}

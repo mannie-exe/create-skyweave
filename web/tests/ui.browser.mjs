@@ -9,7 +9,7 @@ test('destructive actions retain their meaning across hover, focus and disabled 
   await expect(
     page.getByRole('status').filter({ hasText: 'Source loaded' }),
   ).toBeVisible()
-  const remove = button(page, 'Delete entry')
+  const remove = button(page, 'Delete quest')
   await expect(remove).toHaveAttribute('data-intent', 'destructive')
   await expect(remove).toHaveAttribute('type', 'button')
   await expect(remove).toHaveCSS('color', danger)
@@ -20,34 +20,38 @@ test('destructive actions retain their meaning across hover, focus and disabled 
   page.once('dialog', (dialog) => dialog.dismiss())
   await remove.click()
   await expect(
-    page.getByRole('heading', { name: 'Glider', level: 2, exact: true }),
+    page.getByRole('heading', {
+      name: 'A material for machinery',
+      level: 2,
+      exact: true,
+    }),
   ).toBeVisible()
   await expect(button(page, 'Reload source')).toHaveAttribute(
     'data-intent',
     'default',
   )
+  await button(page, 'Rewards').click()
   await button(page, 'Add reward').click()
-  await expect(button(page, 'Remove reward 1')).toHaveAttribute(
-    'data-intent',
-    'destructive',
-  )
+  await expect(
+    page.getByRole('button', { name: /^Remove reward / }).last(),
+  ).toHaveAttribute('data-intent', 'destructive')
   await expect(button(page, 'Reload source')).toHaveAttribute(
     'data-intent',
     'destructive',
   )
-  const save = button(page, 'Save journal')
+  const save = button(page, 'Save quests')
   await expect(save).toHaveAttribute('data-intent', 'primary')
   await save.hover()
   await expect(save).toHaveCSS('color', 'rgb(255, 255, 255)')
-  await button(page, 'Disclaimers').click()
-  const used = button(page, 'Delete disclaimer')
+  await button(page, 'Shared text').click()
+  const used = button(page, 'Delete shared text')
   await expect(used).toBeDisabled()
   const before = await used.evaluate((el) => getComputedStyle(el).color)
   await used.hover({ force: true })
   await expect(used).toHaveCSS('color', before)
   expect(before).not.toBe(danger)
-  await button(page, 'New disclaimer').click()
-  await button(page, 'Create disclaimer').click()
+  await button(page, 'New shared text').click()
+  await button(page, 'Create shared text').click()
   await expect(page.getByRole('alert')).toHaveCSS('color', danger)
   await expect(button(page, 'Cancel')).toHaveAttribute('data-intent', 'default')
   await page.setViewportSize({ width: 390, height: 850 })
@@ -73,10 +77,11 @@ test('locale removal and fallback are destructive, navigation is not', async ({
     'data-intent',
     'destructive',
   )
-  await page.getByLabel('Find key or text').fill('entries.travel/glider.title')
-  await page
-    .getByLabel('Translation entries.travel/glider.title', { exact: true })
-    .fill('Gleiter')
+  const source = await (await page.request.get('/__atlas/authoring')).json()
+  const english = JSON.parse(source.files['quests/locales/en_us.json'].text)
+  const key = 'objects.' + Object.keys(english.objects)[0] + '.title'
+  await page.getByLabel('Find key or text').fill(key)
+  await page.getByLabel('Translation ' + key, { exact: true }).fill('Gleiter')
   await expect(button(page, 'Use English')).toHaveAttribute(
     'data-intent',
     'destructive',

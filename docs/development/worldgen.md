@@ -162,40 +162,23 @@ At spawn (-836, 445, 852), other cluster centers are approximately 2144, 2809,
 not visibility from every point: foreground terrain, altitude and camera direction
 can obscure them. Farther clusters are expected to fall outside a finite view.
 
-### Local rendering limits
+### Rendering and transfer limits
 
-| Setting inspected on 2026-10-26             | Value                                   | Effect                                                  |
-| ------------------------------------------- | --------------------------------------- | ------------------------------------------------------- |
-| Client DH radius                            | 256 chunks / 4096 blocks                | Nominal distant-terrain rendering radius                |
-| Client and server vanilla view              | 12 chunks / 192 blocks                  | Nearby full-detail chunks                               |
-| Client simulation / server simulation       | 12 / 10 chunks                          | Does not extend distant rendering                       |
-| DH pregen request                           | 1024 chunks / 16384 blocks around spawn | Prepared data area, not a camera range                  |
-| Server DH sync/generation request caps      | 4096 chunks each                        | Request permission, not a client render setting         |
-| Server DH live-update radius                | 256 chunks / 4096 blocks                | Changed-chunk notifications                             |
-| Local client/server per-player DH bandwidth | 2048 KB/s                               | Tuned transfer cap; cached LOD delivery is still queued |
-| Client DH cave culling                      | Disabled                                | Avoids the stock low-altitude cave cutoff               |
+Current authored client defaults are view 12 and simulation 10; dedicated-server
+defaults are view 16 and simulation 12. Existing seeded settings can differ.
+[Player graphics](../players/graphics.md) owns renderer choices and troubleshooting;
+[server operation](../players/server.md) owns transfer limits and pregeneration.
+Simulation distance does not extend distant rendering, and pregen coverage is not
+a camera range. Keep terrain density, visibility and data readiness distinct.
 
-The 4096-chunk request caps are confirmed by DH 3.3.3's
-`AbstractDhServerLevel`: it converts section-to-player block distance to chunks
-before checking those settings. Client DH renderer mode is DEFAULT, with MEDIUM
-horizontal/vertical quality and BLOCK maximum horizontal resolution. The
-shader-off DH fog begins at 0.4 of render distance (about 1638 blocks) and reaches
-its configured end at 4096, using exponential-squared falloff. These values do not
-establish the active shader's fog behavior.
-
-The selected shader is Complementary Unbound r5.9.3 with Euphoria Patches 1.10.5,
-with `ATM_FOG_DISTANCE=150`. In its DH path, atmospheric fog uses
-`1-exp2(-max(distance-40,0)*(0.4+0.4*rain)/150)`, then applies density, altitude,
-weather and cave/light factors. The value 150 is not a 150-block cutoff. Shader
-fog can substantially reduce distant contrast even when LOD data is available.
-The spacing/fog inspection did not launch a client or change rendering settings.
-Later live transfer tuning is recorded in [DH cache filling](compatibility.md#transfer-tuning).
-The measured spacing does not by itself justify increasing DH's radius; consider
-fog and data-transfer readiness before changing terrain or rendering budgets. The
-subsequent [cache-filling investigation](compatibility.md#dh-multiplayer-cache-filling)
-found available server LODs missing from the client's cache, nearest-first requests
-and logged rate limiting. Visibility after an approach/return is therefore evidence
-of data readiness, not sufficient evidence of a render-distance or fog cutoff.
+The [October 26 rendering analysis](https://github.com/mannie-exe/create-skyweave/blob/v0.10.0/docs/development/worldgen.md#local-rendering-limits)
+records the then-installed settings, fog formula and DH request-cap interpretation.
+Those observations do not establish a later client's settings. Shader fog can
+reduce contrast despite available LOD data; available server data can also be
+missing from a client cache. Visibility after approaching an island and returning
+is therefore insufficient evidence of a fog or render-distance cutoff. The
+[cache-filling investigation](compatibility.md#dh-multiplayer-cache-filling)
+describes the separate request/transfer boundary.
 
 ## Ordinary Sky Archipelago worlds
 

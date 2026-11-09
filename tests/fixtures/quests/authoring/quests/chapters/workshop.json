@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "id": "23B017913379E4C4",
+  "native": {
+    "icon": "create:mechanical_press"
+  },
+  "quests": [
+    {
+      "id": "455BF53E14EF174E",
+      "key": "alloy",
+      "x": 0,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "create:andesite_alloy"
+      },
+      "tasks": [
+        {
+          "id": "32054FD43E39C977",
+          "type": "item",
+          "item": {
+            "id": "create:andesite_alloy",
+            "count": 1
+          },
+          "count": 2,
+          "consume_items": false,
+          "only_from_crafting": false
+        }
+      ],
+      "rewards": [
+        {
+          "id": "76F915EEBD91F30B",
+          "type": "item",
+          "item": {
+            "id": "minecraft:andesite",
+            "count": 1
+          },
+          "count": 2,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          }
+        }
+      ],
+      "covers": [
+        "workshop/alloy"
+      ]
+    },
+    {
+      "id": "1C17ADD8E0CC7B27",
+      "key": "press",
+      "x": 2,
+      "y": 0,
+      "dependencies": [
+        "455BF53E14EF174E"
+      ],
+      "native": {
+        "icon": "create:mechanical_press"
+      },
+      "tasks": [
+        {
+          "id": "6E652FA469F965F2",
+          "type": "item",
+          "item": {
+            "id": "create:mechanical_press",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "only_from_crafting": false
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "workshop/press"
+      ]
+    },
+    {
+      "id": "5626C6B76EC3B141",
+      "key": "press_sheets",
+      "x": 4,
+      "y": 0,
+      "dependencies": [
+        "1C17ADD8E0CC7B27"
+      ],
+      "native": {
+        "icon": "create:iron_sheet"
+      },
+      "tasks": [
+        {
+          "id": "3F39F5AD1112DC27",
+          "type": "advancement",
+          "advancement": "create:mechanical_press"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "workshop/press_sheets"
+      ]
+    }
+  ]
+}

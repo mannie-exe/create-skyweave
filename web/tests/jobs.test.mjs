@@ -11,16 +11,16 @@ async function fixture(t, source, options = {}) {
   )
   t.after(() => fs.rm(dir, { recursive: true, force: true }))
   await fs.mkdir(path.join(dir, 'scripts'))
-  await fs.writeFile(path.join(dir, 'scripts/generate-journal.py'), source)
+  await fs.writeFile(path.join(dir, 'scripts/generate-quests.py'), source)
   const runner = createJobRunner({
-    job: { ...jobRegistry['journal.preview'], timeoutMs: 3000, ...options },
+    job: { ...jobRegistry['quests.preview'], timeoutMs: 3000, ...options },
   })
   return { runner, context: { pack: dir }, dir }
 }
 
 test('named jobs reject arbitrary names and arguments before execution', async (t) => {
   const { runner, context } = await fixture(t, "print('ok')")
-  for (const name of ['__proto__', 'python3', 'journal.preview; rm -rf /'])
+  for (const name of ['__proto__', 'python3', 'quests.preview; rm -rf /'])
     await assert.rejects(runner.run(name, context), /Unknown/)
   for (const input of [{ args: ['--evil'] }, null, [], { program: 'sh' }])
     await assert.rejects(runner.run('job', context, input), /no inputs/)
@@ -92,17 +92,21 @@ test('real journal generation uses the registered command in an isolated source 
     recursive: true,
   })
   await fs.copyFile(
-    path.join(pack, 'scripts/generate-journal.py'),
-    path.join(dir, 'scripts/generate-journal.py'),
+    path.join(pack, 'scripts/generate-quests.py'),
+    path.join(dir, 'scripts/generate-quests.py'),
+  )
+  await fs.copyFile(
+    path.join(pack, 'scripts/quests.py'),
+    path.join(dir, 'scripts/quests.py'),
   )
   const runner = createJobRunner()
   const preview = JSON.parse(
-    (await runner.run('journal.preview', { pack: dir })).stdout,
+    (await runner.run('quests.preview', { pack: dir })).stdout,
   )
-  assert.ok(preview.outputs > 40)
-  await runner.run('journal.generate', { pack: dir })
+  assert.equal(preview.outputs, 14)
+  await runner.run('quests.generate', { pack: dir })
   assert.equal(
-    JSON.parse((await runner.run('journal.preview', { pack: dir })).stdout)
+    JSON.parse((await runner.run('quests.preview', { pack: dir })).stdout)
       .changed.length,
     0,
   )

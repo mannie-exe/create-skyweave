@@ -1,0 +1,186 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "production"
+	group: ""
+	icon: {
+		id: "create:packager"
+	}
+	id: "61583718767F4908"
+	images: [ ]
+	order_index: 5
+	quest_links: [ ]
+	quests: [
+		{
+			dependencies: ["3449703C5C2160AA"]
+			icon: {
+				id: "minecraft:quartz"
+			}
+			id: "428187DE6F11A534"
+			tasks: [{
+				consume_items: false
+				id: "2EED86F05068695D"
+				item: { count: 1, id: "minecraft:quartz" }
+				type: "item"
+			}]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "create:mechanical_crafter"
+			}
+			id: "090C3CBB2554D174"
+			rewards: [{
+				auto: "disabled"
+				count: 3
+				id: "0EDCB399C502F080"
+				item: {
+					count: 1
+					id: "create:mechanical_crafter"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [{
+				consume_items: false
+				count: 21L
+				id: "6359B1F8B3119EC6"
+				item: { count: 1, id: "create:mechanical_crafter" }
+				type: "item"
+			}]
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["090C3CBB2554D174"]
+			icon: {
+				id: "create:crushing_wheel"
+			}
+			id: "17635AA0CB522C99"
+			tasks: [{
+				consume_items: false
+				count: 2L
+				id: "33C1862D8CA20CAA"
+				item: { count: 1, id: "create:crushing_wheel" }
+				type: "item"
+			}]
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "create:deployer"
+			}
+			id: "66743909573F711F"
+			tasks: [
+				{
+					consume_items: false
+					id: "1F5E1DEE36C6B4C7"
+					item: { count: 1, id: "create:deployer" }
+					type: "item"
+				}
+				{
+					consume_items: false
+					id: "0438EDAE8A7888A9"
+					item: { count: 1, id: "create:precision_mechanism" }
+					type: "item"
+				}
+			]
+			x: 9.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "create:andesite_funnel"
+			}
+			id: "42DA03813D3AC42B"
+			tasks: [
+				{
+					consume_items: false
+					count: 2L
+					id: "37555D88434030A0"
+					item: { count: 1, id: "create:andesite_funnel" }
+					type: "item"
+				}
+				{
+					consume_items: false
+					id: "2ADE0E64DB6F4928"
+					item: { count: 1, id: "create:filter" }
+					type: "item"
+				}
+			]
+			x: 0.0d
+			y: 3.0d
+		}
+		{
+			icon: {
+				id: "minecraft:kelp"
+			}
+			id: "683687097685F800"
+			tasks: [{
+				consume_items: false
+				count: 16L
+				id: "2AF2941ED5320E1D"
+				item: { count: 1, id: "minecraft:kelp" }
+				type: "item"
+			}]
+			x: 3.0d
+			y: 3.0d
+		}
+		{
+			icon: {
+				id: "create:packager"
+			}
+			id: "64667859CF409296"
+			rewards: [{
+				auto: "disabled"
+				count: 4
+				id: "2992DF6CF0685F2F"
+				item: {
+					count: 1
+					id: "create:cardboard"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [{
+				advancement: "create:packager"
+				criterion: ""
+				id: "7B5D90FAAA15939E"
+				type: "advancement"
+			}]
+			x: 6.0d
+			y: 3.0d
+		}
+		{
+			icon: {
+				id: "simulated:docking_connector"
+			}
+			id: "606A595082D4B03E"
+			tasks: [{
+				consume_items: false
+				count: 2L
+				id: "17970FD1632259CB"
+				item: { count: 1, id: "simulated:docking_connector" }
+				type: "item"
+			}]
+			x: 9.0d
+			y: 3.0d
+		}
+		{
+			icon: {
+				id: "aeronautics_delivery_quests:delivery_quests_table"
+			}
+			id: "30A7BD00B3812126"
+			tasks: [{
+				id: "1968E86E19702B83"
+				interaction_type: "block"
+				to_interact: "aeronautics_delivery_quests:delivery_quests_table"
+				type: "interaction"
+			}]
+			x: 0.0d
+			y: 6.0d
+		}
+	]
+}

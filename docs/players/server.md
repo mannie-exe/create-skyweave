@@ -2,12 +2,12 @@
 
 Use the server archive from the same Create: Skyweave release as your clients.
 
-New server templates set `allow-nether=false`. This blocks ordinary native Nether
-portal travel but does not remove the dimension, prevent portal ignition or
-configure singleplayer. The complete Compat access policy is planned; existing
-server properties remain installation-local until explicitly changed. Do not
-delete Nether world files to apply this setting. See the
-[dimension policy](../development/team-world-progress.md#dimension-access-policy).
+New server templates set `allow-nether=false`. Compat's optional default-on access
+policy also prevents native portal activation and Nether entry in marked Skyweave
+worlds, including singleplayer. It preserves ordinary fire, inert portal ruins and
+stored dimension/player data. Existing server properties remain installation-local
+until explicitly changed. Do not delete Nether world files to apply the policy.
+See the [dimension policy](../development/team-world-progress.md#dimension-access-policy).
 
 ## First launch
 
@@ -83,6 +83,12 @@ teleport; no teleport executes automatically, and the structure's stored altitud
 is not a guarantee of a safe landing. A partial search is inconclusive. Unsupported
 placements and omitted IDs are reported; historical starts without current
 placement grids are outside the structure command's coverage.
+
+The structure candidate count is placement work, not discovered settlements. The
+default 65,536-candidate cap can be reached at different radii; enlarging the radius
+alone does not increase that cap or guarantee more verified results. Time-limited
+zero-result searches remain inconclusive. Island searches use a separate bounded
+metadata-cell traversal, so their progress counts are not comparable.
 
 Search limits are in `game/config/skyweave/skyweave_compat-search.json`, editable
 through World generation → Sky Archipelago on a client installation. They apply

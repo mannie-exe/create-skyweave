@@ -9,6 +9,7 @@ record what was tested at the time; they do not define current defaults.
 | Guide | Contents |
 | --- | --- |
 | [Getting started](players/getting-started.md) | Installation, world creation and updates |
+| [Inventory controls](players/inventory.md) | Gestures, sorting, refill and known screen issues |
 | [Journal](players/journal.md) | Local quest conditions and controls |
 | [Graphics](players/graphics.md) | DH rendering, shader choices and missing LODs |
 | [Servers](players/server.md) | Hosting, world preservation and DH generation |
@@ -21,13 +22,14 @@ record what was tested at the time; they do not define current defaults.
 | --- | --- |
 | [Build and release](development/build.md) | Source layout, empack commands and CI |
 | [Dependency and patch maintenance](development/patches.md) | Coupled updates, patch ownership, checks and removal criteria |
-| [Compatibility and verification](development/compatibility.md) | Dependency constraints, shader evidence and test scope |
+| [Compatibility constraints](development/compatibility.md) | Dependency interactions and supported boundaries |
+| [Pack verification](development/verification.md) | Artifact checks, evidence ownership and coverage limits |
 | [Journal design and definitions](development/journal.md) | Capabilities, reward budgets, conditions and update checks |
 | [Pack authoring](development/authoring.md) | Journal generation, locale editing and categorized configuration audit |
 | [Debug World](development/debug-world.md) | Generated districts, native placement checks and safe fixture installation |
 | [Web map and authoring](development/web/README.md) | App setup, editor controls, data pipeline and verification |
 | [Journal integrations](development/journal-integrations.md) | EMI/JEI, translation and Ponder findings |
-| [Teams and world progress](development/team-world-progress.md) | Team spawn/respawn, FTB Quests trial, Nether closure and prison proposal |
+| [Teams and world progress](development/team-world-progress.md) | Initial spawn, deferred team/home policy, FTB Quests trial and dimension access |
 | [Prison dimension](development/prison.md) | Planned protected liminal dimension and island-linked travel |
 | [World generation](development/worldgen.md) | Spacing policy and biome compatibility |
 | [Terrain and structure candidates](development/worldgen-candidates.md) | Selected projects, exclusions and integration review |

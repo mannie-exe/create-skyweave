@@ -1,9 +1,8 @@
 # Quest design and definitions
 
 FTB Quests and FTB Teams are selected for a non-linear, team-aware capability
-graph. Both quest mods remain installed for the trial; the current generator and
-Atlas editor still produce Questlog definitions. The replacement authoring system
-must target FTB Quests exclusively, with one mechanics/text owner. See
+graph. Both quest mods remain installed for the trial; the generator and Atlas
+editor target FTB Quests exclusively, with one mechanics/text owner. See
 [team and world progress](team-world-progress.md) for spawn, membership and
 dimension-access boundaries, and [pack authoring](authoring.md) for tool ownership.
 
@@ -23,16 +22,15 @@ all user presentation settings.
 
 ## Ownership
 
-- `authoring/journal/chapters/` owns chapter properties and quest mechanics.
-- `authoring/journal/locales/` owns entry sections, shared disclaimers and short
-  objective labels by locale.
-- `overrides/common/config/questlog/` contains generated native JSON; the generator
-  also owns their exact managed-file policies in `empack.bindings.yml`.
-- `overrides/client/config/questlog-client.json` owns client display defaults.
-- `resource-patches/assets/questlog/` owns journal interface wording; native Questlog
-  artwork supplies the parchment panels and controls;
-  `resource-patches/assets/create_skyweave/lang/` contains generated entry translations.
-- `scripts/build-resource-patches.py` packages language assets with maintained data fixes.
+- `authoring/quests/book.json`, `chapters/` and `locales/` own FTB mechanics,
+  chapter organization and sparse locale/shared text.
+- `scripts/quests.py` and `generate-quests.py` validate source and generate native
+  SNBT in `overrides/common/config/ftbquests/quests/`, including translations,
+  the ownership manifest and exact managed policies in `empack.bindings.yml`.
+- `overrides/common/config/questlog/` and its translations remain frozen legacy
+  runtime content. They are not a second authoring workflow.
+- `overrides/client/config/questlog-client.json` owns legacy display defaults;
+  maintained Questlog interface wording remains in the shared resource JAR.
 
 [Pack authoring](authoring.md) owns editing, localization and generation procedures.
 [Progression](progression.md) owns resource, processing and travel assumptions.
@@ -58,6 +56,14 @@ lock unrelated tasks or recipes. Preserve progress for observable actions that
 happen before a display dependency unlocks where the native task supports it;
 verify that behavior instead of assuming it. Rare-island discovery must use an
 authoritative actual-location check, not a locator result.
+
+Offer an optional client/game-help chapter or reference area for inventory gestures,
+sorting and transfer modes, equipment profiles, locked slots, refill/crafting,
+trade bookmarks, party controls and other useful interface features. Keep this
+separate from capability progression and mandatory gates. Prefer actual active
+key labels where supported, otherwise direct players to Controls/configuration.
+Use informational or native manual acknowledgement tasks rather than claiming
+server verification of client-only gestures. Help content need not award items.
 
 Distinguish three kinds of entry:
 
@@ -87,9 +93,51 @@ For each substantive entry or route, establish:
 
 These are review questions, not a requirement for a new schema or a parallel
 ledger. Put durable explanations in the owning source or document. Use concise,
-neutral working titles; final naming and flavor belong to the owner. Keep full
-requirements in the left-hand description and short labels in the right-hand
-objective rows. Reuse keyed disclaimers without repeating ordinary explanations.
+neutral working titles; final naming and flavor belong to the owner. Native task
+labels show compact requirements; descriptions explain operation and detection
+limits. Reuse shared explanations without repeating ordinary interface text.
+
+### FTB resource contract
+
+FTB Quests 2101.1.38 uses definition format 13. Emit that version explicitly in
+`data.snbt`; a missing version invokes its legacy migrator and can rewrite managed
+files. Object IDs are positive signed longs written as 16 uppercase hexadecimal
+digits. A full unsigned hash is unsafe: values above `7FFFFFFFFFFFFFFF` can be
+replaced by new IDs during loading. IDs 0 and 1 are reserved for the native default
+group and file. Persist IDs independently of titles, layout
+and filenames, and check collisions across chapters, tasks, quests and rewards.
+
+Each chapter must emit its native `filename` alongside its ID. Keep that filename
+consistent with the generated path so native saves do not create a second chapter.
+Icons use single-item compounds; item tasks and rewards use native stack compounds.
+Item-task counts are longs. Translation tables live under `quests/lang/` and use
+`<object type>.<ID>.<translation key>`; descriptions and chapter subtitles are lists,
+not vanilla language-file strings.
+
+The source compiler rejects unsupported fields, conflicting IDs, cycles and native
+type mismatches. Generation must detect edited, deleted or unowned native files
+before writing. Reconcile their changes into authored source or restore the known
+generated version explicitly; do not parse away unknown FTB syntax or silently
+overwrite in-game edits. Recheck native parsing, file stability, translations and
+task/reward behavior together whenever FTB Quests or Library changes.
+
+The emitter also follows the pinned native writer's defaults, omitted values,
+sorted keys and single-line task stacks. Initial loading alone is insufficient:
+verify generated files again after a native save and reopen. Routine native
+normalization must not become a managed-file conflict. Keep the writer contract
+with the compiler; do not add a second general-purpose SNBT importer.
+
+Item tasks accept one concrete stack or an authored item-list/tag selector.
+Skyweave: Compatibility Patches supplies the latter through FTB's common filter
+API. Mixed matching stacks contribute to one count. Descriptions must explain
+that combined quantity, and generated selectors must retain strict component
+matching so ordinary paper cannot satisfy them if the adapter is disabled.
+Counts use native longs while remaining exact in the browser's JSON number range.
+
+Use flexible progression for the book. Native FTB retains early task progress
+while dependencies are unfinished, then marks completion when they are met.
+Progress and completion are distinct observations; verify both, including a
+save/reopen, rather than treating a locked completion icon as lost progress.
 
 ### Coverage
 
@@ -152,22 +200,21 @@ coexistence; that legacy behavior is not the new shared-progress contract.
 
 ## Current definitions
 
-The authored source contains nine chapters and 75 entries: 59 inventory entries,
-fourteen advancement entries and two block interactions. 25 entries offer fixed,
-manually collected rewards. All entries have empty native requirements. Chapters
-and sort order organize browsing without imposing crafting order or losing events
-behind prerequisite gates.
+The FTB source contains 74 quests in nine capability/reference chapters. It covers
+all 77 retained legacy subjects, consolidating or splitting them for actual
+progression rather than duplicating the old chapter layout. Nine optional handbook
+entries explain client/team/inventory controls without pretending to detect gestures.
 
-Field supplies and local travel establish repeatable provisioning and access.
-Workshop and component production separate owning a machine from processing with
-it. Airframes and lift lead into propulsion/control, cargo and electrical systems;
-these are related activities rather than a compulsory ladder. Photography, rail
-and ranged equipment remain optional projects.
+Foothold, workshop, crossings, flight, control, production and electricity form
+intersecting capability routes. Projects and the handbook remain optional reference
+branches. Flexible progression retains early native task progress while prerequisites
+are unfinished. Equipment tasks prove ownership; advancement/interaction tasks prove
+only their actual native trigger. Suggested builds and journeys use explicit manual
+acknowledgement where no verified trigger exists.
 
-Ingredient-only entries for iron, tubes, sheets and platinum were folded into
-capability guidance or operation checks. Possession of a circuit table and delivery
-table was consolidated into their interaction entries. Full requirements and short
-labels remain separate locale fields. No recipes, loot or world generation changed.
+Legacy Questlog remains available with its existing IDs, objective positions and
+claim state. Its frozen mechanics baseline is checked independently of the FTB
+compiler. No new recipes, loot or world generation are implied by quest conversion.
 
 ### Linear machinery
 
@@ -175,8 +222,7 @@ Four equipment entries introduce a guide, paired magnetic ports, paired torsiona
 anchors with separate spring heads, and a gyro/converter sensor. Native inventory
 objectives detect supplies only. Descriptions distinguish passive travel, powered
 braking, external drive capacity and a zero-capacity sensor; none claims successful
-movement or stabilization. There are no prerequisite gates or invented operation
-triggers.
+movement or stabilization. These checks do not invent operation triggers.
 
 The guide reward is two casings toward an example twelve-casing rail setup, about
 17% of its rail cost. It supplies no new bearing or scarce slime. Other machinery
@@ -193,8 +239,7 @@ native Ponder tutorials explain those operations.
 The hinge entry supplies two shafts toward a twelve-shaft drive/control setup,
 about 17% of that batch. It supplies neither a gearbox nor a scarce first joint.
 The ball-joint entry has no material reward: the component is indivisible and
-has no recurring operating consumable that needs a discovery subsidy. Existing
-entry IDs, objective positions, and rewards are unchanged.
+has no recurring operating consumable that needs a discovery subsidy. Keep native IDs stable when adjusting the operating guidance or rewards.
 
 ### Traveler's Backpack
 
@@ -244,49 +289,30 @@ Shared food rewards remain below the food objective even together. Further
 crafting with rewards is expected; rewards never supply a new scarce discovery.
 Entries without rewards still explain equipment, constraints or an optional project.
 
-`item_obtain` samples inventory every ten player ticks and retains the highest
-matching count. It is not cumulative production or item submission. Existing
-items count, progress survives item use, and brief possession between checks can
-be missed. Placed blocks and container contents do not count. Each objective
-retains its own progress; separately completed conditions do not establish a
-complete assembled kit held at one time.
-
-`block_interact` records a right-click on the named block. The delivery-table and
-circuit-design-table entries do not prove delivery completion, GUI success or a
-valid circuit. OR checks accept supported alternatives such as rotation sources, propellers,
-backpacks or colored equipment. Mixed envelope colors do not combine.
-
-Entry text and quantities live in authored source and the Atlas journal editor,
-not a second hand-maintained item index. Descriptions explain function, routes
-and operating constraints. Full requirements, optional flavor, explanations and
-shared disclaimers follow the composition rules in [pack authoring](authoring.md).
+Task quantities, text and rewards live in the authored FTB source. Inventory tasks
+use native FTB semantics; item-list/tag selectors combine matching stacks through
+the optional filter adapter. Advancement tasks do not prove more than their trigger,
+and block interactions do not prove GUI success or a valid circuit. Review both
+native progress and completion rather than relying on description text.
 
 ## Update checks
 
-Pack definitions use empack's `managed` policy so edits and removals reach installed
-instances. Questlog player progress remains separate. Earlier releases seeded these
-files: when upgrading those installations, inspect the previous release manifest,
-remove only unchanged retired pack definitions, and explicitly replace the reviewed
-current definitions to transfer ownership. Preserve custom definitions and player
-saves. Do not delete the whole Questlog directory.
-
-Quest IDs are `questlog:<relative path without .json>`. Questlog fixes the namespace
-to `questlog` and persists objectives and rewards by position. Moving an entry
-between source files can rename its saved identity even if its title is unchanged.
-Preserve identity for unchanged semantics; changed meanings, reordered objectives
-or reward changes require an explicit existing-player policy. Do not silently
-reset progress, reinterpret old completion or award the same reward twice.
+Generated definitions use empack's managed policy. Preserve FTB native IDs across
+moves and title changes, and review dependency/reward changes against existing
+team/player progress. Native completion and claim data remain outside authored
+source. Do not reset it or reuse a deleted ID for different semantics. Keep legacy
+Questlog definitions and progress intact during coexistence.
 
 1. Review exact selected artifacts and the affected recipes, tags, advancements,
    configuration and operating assumptions. Distinguish acquisition from crafting
    and actual use; check alternatives and automation paths.
 2. Recalculate setup and reward budgets when yields, resource access, fuel, mass,
    loot or machine behavior changes. An unchanged item ID is insufficient evidence.
-3. Review chapter placement, stable IDs, objective/reward positions, existing
-   completion, locale references and shared disclaimers together. Reward additions
+3. Review chapter placement, stable IDs, task/reward IDs, existing
+   completion, locale references and shared paragraphs together. Reward additions
    need an explicit decision about previously completed entries.
 4. Edit authored source and regenerate through the existing tools. Build the shared
-   resource JAR when translations or maintained data change. Review removals and
+   resource JAR when its maintained data/assets change; FTB locale SNBT is separate. Review removals and
    update accepted mechanics fixtures only after the semantic change is understood.
 5. Check native decoding, relevant negative and positive cases, progress restoration,
    rewards and repeat claims using isolated fixtures. Check representative client
@@ -298,56 +324,16 @@ reset progress, reinterpret old completion or award the same reward twice.
 [Dependency maintenance](patches.md) owns cross-project update boundaries and
 installation order. Builds do not install files into personal instances.
 
-## Evidence and references
+## Verification boundaries
 
-The 2026-10-31 scoped pack fixture decoded all 66 entries, including the four
-Traveler's Backpack entries. Native checks covered negative/positive objective
-handling, NBT restoration, manual reward collection, duplicate claims and overflow.
-The action advancements were granted to exercise Questlog's handlers; this is
-not an in-game demonstration of the three backpack operations. Their trigger
-call sites were inspected in the selected 10.1.40 JAR, including the sleep-attempt
-and empty-tool-slot limits above. Existing definitions and rewards were unchanged.
+Compiler tests cover stable IDs, native types, supported properties, dependency
+cycles, sparse locale fallback and generated-file conflicts. Native checks must
+also cover decoding, save/reopen byte stability, early progress, actual triggers,
+manual/team claims, repeat rejection and overflow. Source tests and advancement
+grants do not establish a physical machine action or a complete survival route.
 
-The source review inspected Questlog
-[`c77a41e`](https://github.com/infernalstudios/Questlog/tree/c77a41eb54e6fce28981e8d6694862863704268e)
-and checked behavior against the installed 3.5.0 bytecode. The 2026-10-30 isolated
-Atlas export decoded all 64 entries, exercised 118 objective leaves with negative
-and positive handler inputs, granted all 20 fixed reward stacks and restored
-completion/claim flags from NBT. Collection used the native reward packet; repeated
-claims were rejected and a full inventory dropped the expected reward. It uses real
-advancement storage because
-NeoForge's ordinary fake player discards advancement progress. This checks the
-journal's advancement observation, not the underlying gameplay action.
-
-Create 6.0.10 awards pressing after `onItemPressed`, mixing after basin processing,
-and fan processing through `AirCurrent`. Packaging uses `PackagerBlockEntity`.
-Their `AdvancementBehaviour` records the placing player, rather than crediting
-whoever happens to collect output. Power Grid 0.6.2 similarly uses its motor's
-recorded player. Aeronautics 1.3.2 awards hot-air fill above one cubic metre and
-nonzero small-propeller rotation to players inside a ten-block inflated block box.
-Neither Aeronautics condition proves a successful flight. Exposure's frame and
-print advancement criteria name the actual exposure/printing events. Vanilla
-breeding and enchanting criteria supply the corresponding activity checks.
-
-Use runtime snapshot hashes to identify exercised artifacts. Constructor/handler
-checks do not establish physical input, a survival playthrough or client rendering.
-Representative visual and reward-collection checks must accompany release evidence
-in [Atlas verification](web/verification.md).
-
-The following downloaded source snapshots informed the design policy. They are
-examples, not dependencies or copied content, and were not played through in this
-review. Retain the applicable lesson rather than accumulating pack-review reports.
-
-| Source                                                                                                                                           | Useful distinction                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
-| [ATM10 `827e361`](https://github.com/AllTheMods/ATM-10/tree/827e3610c356922e59412834d4b08ca5b16a6ce0/config/ftbquests/quests)                    | Practical cross-mod subjects alongside mod references; discovery rewards can deliberately accelerate expansion. |
-| [Above and Beyond `f551e98`](https://github.com/simibubi/Above-and-Beyond/tree/f551e984ee2a11c20b9aa3d10b670d4589fa34b2/config/ftbquests/quests) | Production routes, optional utility branches and explicit self-reported automation.                             |
-| [Liminal Industries `19929b5`](https://github.com/Appocryptha/Liminal-Industries/tree/19929b596c2251caa57f2ad25a6df60696cf2c25)                  | Environment-specific processing and rewards for another attempt; verify described chances against scripts.      |
-| [StoneBlock 4 1.24.1](https://www.curseforge.com/minecraft/modpacks/ftb-stoneblock-4/files/9282328)                                              | Distinguish ordinary supplies from consequential world actions and gated story progression.                     |
-| [Enigmatica 6 `edf25e0`](https://github.com/EnigmaticaModpacks/Enigmatica6/tree/edf25e0f50ce6b8ff052f7d10ff3c748bb90eafe)                        | Concept-oriented instruction and themed reward families; random distribution is a separate choice.              |
-| [Bliss `1f56661`](https://github.com/VazkiiMods/Bliss/tree/1f56661bbdbc1fd89ecad77703dbbd405ceddbd7/patchouli_books/blissguide)                  | Contextual discoveries tied to existing activities; presentation need not imply a material reward.              |
-
-- [Player access and current behavior](../players/journal.md)
-- [Objective definitions](https://moddedmc.wiki/en/project/questlog/latest/docs/questlog/objective_types)
-- [Integration findings](journal-integrations.md)
-- [Atlas verification](web/verification.md)
+Atlas service/browser tests cover coordinated source writes, chapter/quest moves,
+rollback, external edits, localized/shared text, drafts, layout editing and responsive
+controls. Refresh native runtime exports separately when definitions or dependencies
+change. Keep compact artifact/version receipts in private captures and current
+procedures in the owning development guides.

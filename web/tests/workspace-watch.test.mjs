@@ -56,7 +56,7 @@ async function fixture(t, definitions = []) {
         web = path.join(pack, 'web')
       await fs.mkdir(path.join(web, 'data/authored'), { recursive: true })
       await fs.mkdir(path.join(web, 'scripts'), { recursive: true })
-      await fs.mkdir(path.join(pack, 'authoring/journal/locales'), {
+      await fs.mkdir(path.join(pack, 'authoring/quests/locales'), {
         recursive: true,
       })
       for (const domain of domains)
@@ -435,4 +435,52 @@ test('watch hints stay coalesced while an inventory scan is slow', async (t) => 
   assert.equal(maximum, 1)
   // One follow-up observes the same settled revision; no chain of old hints.
   assert(calls <= 3)
+})
+
+test('native FTB definitions and their exact ownership manifest participate in revisions without admitting other hidden files', async (t) => {
+  const f = await fixture(t),
+    registration = f.registrations[0]
+  const folder = path.join(
+    registration.pack,
+    'overrides/common/config/ftbquests/quests',
+  )
+  await fs.mkdir(path.join(folder, 'chapters'), { recursive: true })
+  await fs.writeFile(
+    path.join(folder, 'chapters/review.snbt'),
+    '{ id: "0000000000000001" }',
+  )
+  await fs.writeFile(
+    path.join(folder, '.skyweave-generated.json'),
+    '{"schema":1}',
+  )
+  await fs.writeFile(path.join(folder, '.private.json'), 'must remain hidden')
+  const first = await f.service.query(
+    actor,
+    registration.scope,
+    'sources.inventory',
+    {},
+  )
+  const source = first.entries.find(
+    (row) => row.id === 'generated:quests:chapters/review.snbt',
+  )
+  const manifest = first.entries.find(
+    (row) => row.id === 'generated:quests:.skyweave-generated.json',
+  )
+  assert.ok(source && !source.writable)
+  assert.ok(manifest && !manifest.writable)
+  assert.ok(!first.entries.some((row) => row.id.includes('.private')))
+  await fs.appendFile(
+    path.join(folder, 'chapters/review.snbt'),
+    '\n// Native edit',
+  )
+  const second = await f.service.query(
+    actor,
+    registration.scope,
+    'sources.inventory',
+    {},
+  )
+  assert.notEqual(
+    second.entries.find((row) => row.id === source.id).revision,
+    source.revision,
+  )
 })

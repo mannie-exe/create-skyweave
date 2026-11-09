@@ -1,0 +1,170 @@
+{
+  "schema": 1,
+  "id": "083C77C34C240428",
+  "order": 7,
+  "native": {
+    "icon": "exposure:camera"
+  },
+  "quests": [
+    {
+      "id": "0E12F01C1715558A",
+      "key": "photography",
+      "x": 0,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "exposure:camera",
+        "optional": true
+      },
+      "tasks": [
+        {
+          "type": "advancement",
+          "advancement": "exposure:adventure/exposure",
+          "id": "45223F8601082B4F"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "projects/photograph"
+      ]
+    },
+    {
+      "id": "5E445132DEC492DB",
+      "key": "print",
+      "x": 3,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "minecraft:paper",
+        "optional": true
+      },
+      "tasks": [
+        {
+          "type": "advancement",
+          "advancement": "exposure:adventure/moment_in_time",
+          "id": "664BF06A801DA49D"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:paper",
+            "count": 1
+          },
+          "count": 4,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "0EDC1A6923ED569E"
+        }
+      ],
+      "covers": [
+        "projects/print"
+      ]
+    },
+    {
+      "id": "42BA2852C3F88D02",
+      "key": "rail",
+      "x": 6,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "create:track_station",
+        "optional": true
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "create:track_station",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "147B19FD1788577F"
+        },
+        {
+          "type": "item",
+          "item": {
+            "id": "create:track",
+            "count": 1
+          },
+          "count": 32,
+          "consume_items": false,
+          "id": "78AD66FE9806B850"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "create:track",
+            "count": 1
+          },
+          "count": 4,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "005A02AC86D0B35F"
+        }
+      ],
+      "covers": [
+        "projects/rail"
+      ]
+    },
+    {
+      "id": "370E22B208CC7910",
+      "key": "crossbow",
+      "x": 9,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "minecraft:crossbow",
+        "optional": true
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:crossbow",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "414A960203B96D8E"
+        },
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:arrow",
+            "count": 1
+          },
+          "count": 32,
+          "consume_items": false,
+          "id": "005B5A0C0DCB6146"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:arrow",
+            "count": 1
+          },
+          "count": 4,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "31EB8242445BEA8A"
+        }
+      ],
+      "covers": [
+        "projects/crossbow"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,406 @@
+{
+  "schema": 1,
+  "id": "392848B59CBD16A7",
+  "order": 3,
+  "native": {
+    "icon": "simulated:physics_assembler"
+  },
+  "quests": [
+    {
+      "id": "13A15A4FB21957DA",
+      "key": "airframe",
+      "x": 0,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "simulated:physics_assembler"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "simulated:physics_assembler",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "4060F335DDF83A32"
+        },
+        {
+          "type": "item",
+          "item": {
+            "id": "simulated:honey_glue",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "23C58F856F237A05"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "flight/assembler",
+        "flight/glue"
+      ]
+    },
+    {
+      "id": "2C73C0D951FAE75F",
+      "key": "enclosed_lift",
+      "x": 3,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "aeronautics:white_envelope"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "match": {
+            "items": [
+              "aeronautics:white_envelope",
+              "aeronautics:orange_envelope",
+              "aeronautics:magenta_envelope",
+              "aeronautics:light_blue_envelope",
+              "aeronautics:yellow_envelope",
+              "aeronautics:lime_envelope",
+              "aeronautics:pink_envelope",
+              "aeronautics:gray_envelope",
+              "aeronautics:light_gray_envelope",
+              "aeronautics:cyan_envelope",
+              "aeronautics:purple_envelope",
+              "aeronautics:blue_envelope",
+              "aeronautics:brown_envelope",
+              "aeronautics:green_envelope",
+              "aeronautics:red_envelope",
+              "aeronautics:black_envelope"
+            ]
+          },
+          "count": 4,
+          "consume_items": false,
+          "id": "2E61B5CF42F08D15"
+        },
+        {
+          "type": "item",
+          "item": {
+            "id": "aeronautics:adjustable_burner",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "7412FA29FD4FA6AD"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "flight/envelopes",
+        "flight/burner"
+      ]
+    },
+    {
+      "id": "6D20D3414070E7CE",
+      "key": "hot_air",
+      "x": 6,
+      "y": 0,
+      "dependencies": [
+        "2C73C0D951FAE75F"
+      ],
+      "native": {
+        "icon": "aeronautics:adjustable_burner"
+      },
+      "tasks": [
+        {
+          "type": "advancement",
+          "advancement": "aeronautics:head_in_the_clouds",
+          "id": "44611D3846EF2849"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:white_wool",
+            "count": 1
+          },
+          "count": 2,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "0EDF42A031333727"
+        }
+      ],
+      "covers": [
+        "flight/hot_air"
+      ]
+    },
+    {
+      "id": "5BD7C37048608CA2",
+      "key": "propeller",
+      "x": 9,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "aeronautics:propeller_bearing"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "aeronautics:propeller_bearing",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "59EA1169B10ED4EA"
+        },
+        {
+          "type": "item",
+          "match": {
+            "items": [
+              "aeronautics:andesite_propeller",
+              "aeronautics:wooden_propeller"
+            ]
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "25691BCD08DC308F"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "flight/propeller",
+        "flight/bearing"
+      ]
+    },
+    {
+      "id": "0A58C07508240112",
+      "key": "propeller_work",
+      "x": 0,
+      "y": 3,
+      "dependencies": [
+        "5BD7C37048608CA2"
+      ],
+      "native": {
+        "icon": "aeronautics:andesite_propeller"
+      },
+      "tasks": [
+        {
+          "type": "advancement",
+          "advancement": "aeronautics:for_every_action",
+          "id": "776EFE1935407258"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:coal",
+            "count": 1
+          },
+          "count": 4,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "6C494DFE0ED9E8E6"
+        }
+      ],
+      "covers": [
+        "flight/spin_propeller"
+      ]
+    },
+    {
+      "id": "69CA6BF1186E8D14",
+      "key": "portable_engine",
+      "x": 3,
+      "y": 3,
+      "dependencies": [],
+      "native": {
+        "icon": "simulated:white_portable_engine"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "match": {
+            "items": [
+              "simulated:white_portable_engine",
+              "simulated:orange_portable_engine",
+              "simulated:magenta_portable_engine",
+              "simulated:light_blue_portable_engine",
+              "simulated:yellow_portable_engine",
+              "simulated:lime_portable_engine",
+              "simulated:pink_portable_engine",
+              "simulated:gray_portable_engine",
+              "simulated:light_gray_portable_engine",
+              "simulated:cyan_portable_engine",
+              "simulated:purple_portable_engine",
+              "simulated:blue_portable_engine",
+              "simulated:brown_portable_engine",
+              "simulated:green_portable_engine",
+              "simulated:red_portable_engine",
+              "simulated:black_portable_engine"
+            ]
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "4CDBF4EEDCC991D9"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "engines/portable"
+      ]
+    },
+    {
+      "id": "51F2CE43BA129BC6",
+      "key": "solid_thrust",
+      "x": 6,
+      "y": 3,
+      "dependencies": [],
+      "native": {
+        "icon": "createpropulsion:solid_fuel_thruster"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "createpropulsion:solid_fuel_thruster",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "48547E7A53D027AA"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "engines/solid"
+      ]
+    },
+    {
+      "id": "4411720968A34082",
+      "key": "liquid_range",
+      "x": 9,
+      "y": 3,
+      "dependencies": [],
+      "native": {
+        "icon": "createpropulsion:thruster"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "createpropulsion:pine_resin",
+            "count": 1
+          },
+          "count": 4,
+          "consume_items": false,
+          "id": "772AC5CECB827226"
+        },
+        {
+          "type": "item",
+          "item": {
+            "id": "createpropulsion:turpentine_bucket",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "672825A37FB7CE1C"
+        },
+        {
+          "type": "item",
+          "item": {
+            "id": "create:fluid_tank",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "5A8EDA86B55A4D87"
+        },
+        {
+          "type": "item",
+          "item": {
+            "id": "createpropulsion:thruster",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "020B0203AEAB4ED4"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:spruce_log",
+            "count": 1
+          },
+          "count": 4,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "033C890DBEFB25DC"
+        }
+      ],
+      "covers": [
+        "engines/resin",
+        "engines/turpentine",
+        "engines/tank",
+        "engines/liquid"
+      ]
+    },
+    {
+      "id": "33DD6102DD3C6E2D",
+      "key": "stirling",
+      "x": 0,
+      "y": 6,
+      "dependencies": [],
+      "native": {
+        "icon": "createpropulsion:stirling_engine"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "createpropulsion:stirling_engine",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "38BB1BB4A26E1F77"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "engines/stirling"
+      ]
+    },
+    {
+      "id": "184EB1A485E26A61",
+      "key": "diagram",
+      "x": 3,
+      "y": 6,
+      "dependencies": [],
+      "native": {
+        "icon": "simulated:contraption_diagram"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "simulated:contraption_diagram",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "6785B5D3D30F089E"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "flight/diagram"
+      ]
+    }
+  ]
+}

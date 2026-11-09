@@ -55,7 +55,7 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Library Ferret | 4.0.0 | [Exact version](https://modrinth.com/mod/library-ferret/version/AKcIMUil) |
 | Lithostitched | 1.8.1-neoforge-21.1 | [Exact version](https://modrinth.com/mod/lithostitched/version/cZu4cHY3) |
 | Mouse Tweaks | 2.26.1 | [Exact version](https://modrinth.com/mod/mouse-tweaks/version/9I21YYxf) |
-| Skyweave: Compatibility Patches | 0.29.1 | [GitHub release](https://github.com/mannie-exe/skyweave-compat/releases/tag/v0.29.1) |
+| Skyweave: Compatibility Patches | 0.30.0 | [GitHub release](https://github.com/mannie-exe/skyweave-compat/releases/tag/v0.30.0) |
 | Create Accessories Compat | 1.0 | [Exact version](https://modrinth.com/mod/create-accessories-compat/version/2r7hvkCQ) |
 | Create Aeronautics | 1.3.2+mc1.21.1 | [Exact version](https://modrinth.com/mod/create-aeronautics/version/44pLdPGg) |
 | Create Aeronautics: Transmission & Linkage | 0.2.9 | [Exact version](https://modrinth.com/mod/create-aeronautics-transmission-linkage/version/WoUjC6d4) |

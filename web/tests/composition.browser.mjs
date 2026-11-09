@@ -4,58 +4,35 @@ const center = (locator) =>
     const r = el.getBoundingClientRect()
     return r.y + r.height / 2
   })
-test('journal field rows align controls and disclosures separate inline metadata', async ({
+test('quest navigation aligns controls and disclosures separate inline metadata', async ({
   page,
 }) => {
   await page.goto('/authoring')
   await expect(
     page.getByRole('status').filter({ hasText: 'Source loaded' }),
   ).toBeVisible()
-  expect(
-    Math.abs(
-      (await center(page.getByRole('combobox', { name: 'Reward type' }))) -
-        (await center(
-          page.getByRole('button', { name: 'Add reward', exact: true }),
-        )),
-    ),
-  ).toBeLessThan(1)
-  expect(
-    Math.abs(
-      (await center(
-        page.getByRole('heading', { name: 'Objectives', exact: true }),
-      )) -
-        (await center(
-          page.getByRole('heading', {
-            name: 'Text preview · en_us',
-            exact: true,
-          }),
-        )),
-    ),
-  ).toBeLessThan(1)
   const nav = page.getByRole('navigation', {
     name: 'Authoring views',
     exact: true,
   })
   expect(
     Math.abs(
-      (await center(
-        nav.getByRole('button', { name: 'Journal', exact: true }),
-      )) -
+      (await center(nav.getByRole('button', { name: 'Quests', exact: true }))) -
         (await center(
           nav.getByRole('link', { name: 'Resources', exact: true }),
         )),
     ),
   ).toBeLessThan(1)
   await page.getByRole('button', { name: 'Localization', exact: true }).click()
-  await page.getByLabel('Find key or text').fill('shared.inventory')
-  const keys = page.locator('.journal-string-table .disclosure')
+  await page.getByLabel('Find key or text').fill('shared.suggested_project')
+  const keys = page.locator('.quest-string-table .disclosure')
   const body = keys.locator(':scope > .content-stack')
   await expect(body).toBeHidden()
   await keys.locator('summary').focus()
   await page.keyboard.press('Enter')
   await expect(body).toBeVisible()
   expect(await body.innerText()).toBe(
-    'shared.inventory\nComposed into entry descriptions',
+    'shared.suggested_project\nComposed into descriptions',
   )
   const gap = await body.evaluate(
     (el) =>
@@ -77,7 +54,7 @@ test('journal field rows align controls and disclosures separate inline metadata
         () => document.documentElement.scrollWidth <= innerWidth,
       ),
     ).toBe(true)
-    expect(await body.innerText()).toContain('shared.inventory\n')
+    expect(await body.innerText()).toContain('shared.suggested_project\n')
   }
   await keys.locator('summary').focus()
   await page.keyboard.press('Space')

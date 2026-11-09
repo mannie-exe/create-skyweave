@@ -13,8 +13,10 @@ def fingerprint(mod_source=None):
     for base in [*sources,p['server']/'config',p['server']/'defaultconfigs',p['server']/'world/serverconfig',*authored,p['pack']/'overrides/common/mods']:
         if base.exists():
             for file in sorted(base.rglob('*')):
-                if file.is_file() and file.suffix in ('.jar','.json','.toml','.properties'):
+                if file.is_file() and file.suffix in ('.jar','.json','.toml','.properties','.snbt'):
                     stat=file.stat();files[str(file)]={'size':stat.st_size,'mtimeNs':stat.st_mtime_ns}
+    template=p['pack']/'templates/server/game/server.properties.template'
+    files['serverTemplateSha256']=hashlib.sha256(template.read_bytes()).hexdigest() if template.is_file() else None
     files['lockSha256']=hashlib.sha256((p['pack']/'empack.lock').read_bytes()).hexdigest()
     return hashlib.sha256(json.dumps(files,sort_keys=True).encode()).hexdigest()
 

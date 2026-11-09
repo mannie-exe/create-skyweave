@@ -75,7 +75,7 @@ export function workspace(options = {}) {
             '/__atlas/workspace': 'map.sources.read',
             '/__atlas/resource-reviews': 'reviews.read',
             '/__atlas/models': 'models.read',
-            '/__atlas/authoring': 'journal.read',
+            '/__atlas/authoring': 'quests.read',
           }
           if (!['GET', 'HEAD'].includes(req.method))
             return send(405, { error: 'Use workspace commands for changes' })

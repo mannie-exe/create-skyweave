@@ -19,7 +19,7 @@ test('native cancellation retains committed source; shutdown stops owned noncanc
   )
   await fs.mkdir(path.join(root, 'scripts'))
   await fs.writeFile(
-    path.join(root, 'scripts/generate-journal.py'),
+    path.join(root, 'scripts/generate-quests.py'),
     "import sys,time\nfrom pathlib import Path\nprint(str(Path.cwd())+'/private-marker',file=sys.stderr,flush=True)\ntime.sleep(30)\n",
   )
   const registration = {
@@ -33,12 +33,12 @@ test('native cancellation retains committed source; shutdown stops owned noncanc
   }
   const runner = createJobRunner({
     'fixture.wait': {
-      ...jobRegistry['journal.preview'],
+      ...jobRegistry['quests.preview'],
       args: [],
       cancellable: true,
     },
     'fixture.publish': {
-      ...jobRegistry['journal.preview'],
+      ...jobRegistry['quests.preview'],
       args: [],
       cancellable: false,
     },

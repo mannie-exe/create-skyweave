@@ -2,6 +2,7 @@
 export const coverageStates = {
   mapped: { label: 'Mapped route', token: '--coverage-mapped' },
   blocked: { label: 'Blocked prerequisites', token: '--coverage-blocked' },
+  unknown: { label: 'Source not classified', token: '--coverage-unmapped' },
   unmapped: { label: 'No acquisition adapter', token: '--coverage-unmapped' },
   excluded: { label: 'Internal / creative', token: '--coverage-neutral' },
   unified: { label: 'Unified variant', token: '--coverage-neutral' },

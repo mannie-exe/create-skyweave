@@ -1,0 +1,126 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "projects"
+	group: ""
+	icon: {
+		id: "exposure:camera"
+	}
+	id: "083C77C34C240428"
+	images: [ ]
+	order_index: 7
+	quest_links: [ ]
+	quests: [
+		{
+			icon: {
+				id: "exposure:camera"
+			}
+			id: "0E12F01C1715558A"
+			optional: true
+			tasks: [{
+				advancement: "exposure:adventure/exposure"
+				criterion: ""
+				id: "45223F8601082B4F"
+				type: "advancement"
+			}]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "minecraft:paper"
+			}
+			id: "5E445132DEC492DB"
+			optional: true
+			rewards: [{
+				auto: "disabled"
+				count: 4
+				id: "0EDC1A6923ED569E"
+				item: {
+					count: 1
+					id: "minecraft:paper"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [{
+				advancement: "exposure:adventure/moment_in_time"
+				criterion: ""
+				id: "664BF06A801DA49D"
+				type: "advancement"
+			}]
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "create:track_station"
+			}
+			id: "42BA2852C3F88D02"
+			optional: true
+			rewards: [{
+				auto: "disabled"
+				count: 4
+				id: "005A02AC86D0B35F"
+				item: {
+					count: 1
+					id: "create:track"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [
+				{
+					consume_items: false
+					id: "147B19FD1788577F"
+					item: { count: 1, id: "create:track_station" }
+					type: "item"
+				}
+				{
+					consume_items: false
+					count: 32L
+					id: "78AD66FE9806B850"
+					item: { count: 1, id: "create:track" }
+					type: "item"
+				}
+			]
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "minecraft:crossbow"
+			}
+			id: "370E22B208CC7910"
+			optional: true
+			rewards: [{
+				auto: "disabled"
+				count: 4
+				id: "31EB8242445BEA8A"
+				item: {
+					count: 1
+					id: "minecraft:arrow"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [
+				{
+					consume_items: false
+					id: "414A960203B96D8E"
+					item: { count: 1, id: "minecraft:crossbow" }
+					type: "item"
+				}
+				{
+					consume_items: false
+					count: 32L
+					id: "005B5A0C0DCB6146"
+					item: { count: 1, id: "minecraft:arrow" }
+					type: "item"
+				}
+			]
+			x: 9.0d
+			y: 0.0d
+		}
+	]
+}

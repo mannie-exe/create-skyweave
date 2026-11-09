@@ -1,90 +1,56 @@
 # Teams, dimension access and progression
 
-This guide owns team spawn/respawn and dimension-access policy, its current implementation boundaries, and the related mapper requirements. The [quest guide](journal.md) owns writing, dependency and reward direction; the [prison design](prison.md) owns planned dimension content.
+This guide owns initial spawn recovery, deferred team/home policy, dimension-access boundaries and the related mapper requirements. The [quest guide](journal.md) owns writing, dependency and reward direction; the [prison design](prison.md) owns planned dimension content.
 
-## Agreed direction and current behavior
+## Current scope and behavior
 
-- Different teams should start in separate island clusters. Members of a team
-  share a starting secondary island within their assigned cluster.
-- A valid personal bed takes priority on ordinary death; the team island is the
-  fallback. Team changes should not silently erase personal bed positions.
-- Death in the future prison also returns home through normal bed/team fallback.
-  This is an intentional escape route, not a defect to prevent.
-- Trial FTB Quests for a non-linear capability/progression map, with chapters
-  spanning mods rather than following mod boundaries. Both quest mods are installed; quest conversion and replacement authoring remain to implement.
-- Close Nether access with Compat policy and dedicated-server defaults. Keep the registered level. The prison is accepted planned content, not an installed external horror mod.
+Initial spawn recovery selects a suitable accepted secondary/companion island
+instead of the main anchor. This is the shared world spawn, independent of party
+membership. Custom team starts, onboarding, home selection and fresh-start
+policies remain deferred. FTB Teams provides native party/progress identity for
+FTB Quests; it does not assign starting clusters.
 
-Current `SpawnFallbackMixin` redirects Sky Archipelago's fresh-world default
-spawn through `SpawnLanding`. That helper checks actual generated ground,
-headroom, fluids and world bounds, with bounded candidate/chunk counts. It does
-not assign teams, choose persistent companion islands, or implement respawn.
-The server template sets `allow-nether=false`. FTB Quests 2101.1.38, FTB Teams 2101.1.12 and FTB Library 2101.1.39 are materialized alongside Questlog. Grave accent is assigned to FTB Quests and Questlog is explicitly unbound in seeded client options.
+`SpawnFallbackMixin` retains upstream's initial-world guard, then delegates to
+`SpawnLanding` for bounded companion selection and native terrain validation.
+It checks support, headroom, fluids and world bounds after generation. A saved
+selection prevents a restart from resetting the companion to the main island.
+Existing mature worlds, saved player positions and personal beds keep their
+native behavior. This is not a per-login allocator or a custom respawn system.
 
-## Team identity and spawn ownership
+The dedicated template sets `allow-nether=false`. Compat's default-on, optional
+access policy also covers marked integrated worlds and the native entry paths
+below. FTB Quests 2101.1.38, Teams 2101.1.12 and Library 2101.1.39 coexist with
+Questlog. Seeded options bind grave accent to FTB Quests and leave Questlog
+unbound; existing settings require a targeted installation update.
 
-FTB Teams is the selected team provider; FTB Quests already requires it.
-The inspected 1.21.1 source provides personal teams, party teams, effective IDs,
-creation/membership/deletion events and stable team UUIDs. FTB Chunks is not
-required for this use. Vanilla scoreboard teams would need a second bridge to
-the quest owner; introducing another party provider has no demonstrated benefit.
+## Deferred team starts and home policy
 
-Use an optional Compat adapter for the existing island generator plus FTB Teams.
-FTB Teams owns membership; world saved data owns the assignment from team UUID
-to cluster identity, companion identity, safe landing and generation/profile
-provenance. A rename or leader change must not move a team's home.
+Retain the direction of separate party clusters with arrival on secondary islands,
+but do not implement a partial allocator or chooser. The discussed distribution
+uses configurable 4×4 regions of potential placement cells, a two-thirds cap based
+on suitable clusters, outward ring/tiling-spiral progression and permanent gaps
+once regions close. These are deferred design constraints, not current behavior.
 
-A practical lifecycle is:
+Solo/private/shared starts, shared-cluster capacity, initial-home persistence,
+home changes on joining/leaving, explicit relocation and player-progress/fresh-start
+rules still need discussion. Keep membership, quest progress, initial arrival,
+world spawn, personal bed and home assignment distinct. No custom reset or data
+purge is required or implemented for native party membership. Keep normal beds
+and current respawn behavior while the integration is deferred.
 
-1. Allocate a solo player's personal team a suitable unreserved land cluster.
-   Filter accepted companion metadata before requesting terrain. Reject unsafe,
-   flooded or unsuitable tiny remnants; verify the actual generated landing.
-2. Promote the founder's assignment when creating a party rather than granting
-   another fresh island. Existing parties retain their assignment when joined.
-3. Joining changes the fallback home. It need not teleport established players
-   or overwrite beds; an explicit arrival/return action can be designed separately.
-4. Leaving, disbanding and rejoining must preserve ownership history. Do not
-   regenerate terrain, reset claims or hand out new resources automatically.
+FTB Teams' stable personal/party IDs and native events are potential future
+integration boundaries; FTB Chunks is not required. The inspected FTB Team Islands
+source targets Minecraft 1.18.1 and template placement, rather than the current
+procedural cluster field. A future team allocator still needs bounded planning,
+actual landing validation, persistent ownership and concurrent-arrival handling;
+the startup recovery loop is not that system.
 
-These lifecycle details are recommendations, not settled gameplay policy.
-Persisting cluster reservations and defining orphaned assignments remain part of
-the implementation design. Existing players require an explicit opt-in/reset or
-assignment procedure; new spawn policy is not permission to relocate everyone.
-
-Reuse metadata search and generated-landing checks, but not their current
-synchronous startup loop for arbitrary concurrent player arrivals. Allocation
-needs a bounded queue, finite search, safe failure and controlled chunk requests.
-Do not fall back to an arbitrary fragment or fabricate a platform silently.
-Terrain safety is separate from proving a viable survival start with food,
-wood, water and a route off the island.
-
-NeoForge's logical-server `PlayerRespawnPositionEvent` exposes both native and
-replacement transitions after native respawn-block resolution. Preserve a valid
-bed/modded respawn result, handle no-bed and invalid-bed fallback, retain the
-future bed setting, and distinguish death from the End's return transition.
-Initial arrival and login recovery need their own hooks. Verify event timing
-against the first client position/chunk synchronization rather than relying on
-repeated post-login teleports.
-
-FTB Team Islands is not the proposed terrain owner. Its inspected public `main`
-targets Minecraft 1.18.1 and places template islands/lobbies. That implementation
-does not bind existing procedurally generated Skyweave companion islands. A new
-supported release would still need an ownership/placement review before use.
-
-## First-entry choice
-
-A proposed first-entry flow offers Join a team, Create a team and Play solo before committing a new spawn assignment. FTB already creates personal teams, so solo does not need a parallel team-less identity. Existing party members should resume normally instead of seeing onboarding on every login.
-
-The inspected Teams 2101.1.12 implementation has `free_to_join`, default false. Public parties can allow immediate joining; private parties require an invitation. Password-protected entry and a hidden/private directory are not established native features. A custom chooser should list public teams and the player's invitations, derive eligibility on the server, enforce native membership/capacity permissions and avoid treating an internal `join` call as authorization. Invite-only membership is not block protection.
-
-Solo placement is unresolved. Two useful choices are a reserved personal cluster ("My own start") and a secondary island in a cluster explicitly open to other independent arrivals ("Shared start"). A shared start need not share quest progress or make neighbors party members. Do not assign random solo arrivals to a party's reserved cluster without its consent. One shared starting cluster is a simpler first design than multiple random shared clusters, but neither scope is approved yet.
-
-Either choice should persist across reconnects and deaths rather than rerolling. Reservations and shared landing slots need one allocator so simultaneous arrivals cannot collide. First login needs a protected pending-arrival state while selection and generated landing validation finish; closing the screen or disconnecting must not expose an unsafe player or create repeated reservations.
-
-Starting-cluster distribution is a separate open policy from membership. One fixed starting region is insufficient for hundreds of players. A proposed scalable allocator would open additional starting regions as suitable local capacity runs low. Each region could contain reserved team/personal clusters and capacity-limited shared clusters. "Near others" would choose a region with available neighboring starts; "Remote" would require more separation. Joining an existing team retains its established home.
-
-Use persistent cluster reservations and shared landing-slot ownership, with deterministic candidate search and clearance measured from actual cluster bounds. A spiral can enumerate candidates without becoming the allocation order. Open another region rather than reducing separation when one fills. Review early-game travel distances, region capacity, empty-region reuse and allocation fairness before choosing numeric defaults. Shared and reserved starts must obey the same suitability checks.
-
-This is a UX proposal, not a feature of the current release. Directory visibility, arrival presentation, solo choices and shared-start capacity need review before implementation.
+The inspected Teams 2101.1.12 implementation has `free_to_join`, default false:
+public parties can permit direct joining; private parties use invitations.
+Password protection and a hidden directory are not established native features.
+Any future custom chooser must authorize membership on the server: an internal
+`PartyTeam.join` call is not itself an invitation check. Current native team
+controls remain available without introducing custom onboarding now.
 
 ## Quest and world progression
 
@@ -99,8 +65,11 @@ custom tasks, native translations, and independent per-team/per-player rewards.
 Native join behavior merges personal progress into an existing party using the
 maximum task value, not a sum. Leaving restores personal progress while retaining
 applicable claimed-reward records. Creating a party copies its founder's data.
-These semantics need native verification on the selected release, including
-offline members and manual/automatic reward claims; they are not our own migration.
+The native server fixture verifies incoming personal progress/claims, offline
+party members, team and personal manual claims, duplicate claims, overflow and
+save/reopen. It uses embedded GameTest-style connections, not two remote clients.
+Automatic collection is not the authored default. These remain native FTB
+semantics; Compat adds no membership/progress migration policy.
 
 Prefer once-per-team infrastructure supplies and per-player personal equipment
 where appropriate. Rebudget using the existing journal's modest setup/operating
@@ -121,12 +90,12 @@ Candidate capability chapters, with final names/content left open:
 
 Use actual capability dependencies and alternatives. A chapter boundary is not
 a compulsory recipe lock, and possession of flight hardware is not proof of
-successful flight. Start the trial with a small playable slice before converting
-the current 75 entries or investing in another custom journal UI.
+successful flight. Native action evidence and survival testing remain separate
+from a completed content conversion.
 
-Keep one authored content owner. Extend the existing generation/localization
-pipeline for FTB's SNBT, stable IDs and native locale files; update Atlas authoring
-and validation together. Do not independently maintain GUI-edited output and
+Keep one authored content owner in `authoring/quests/`. The existing generation/
+localization pipeline targets FTB SNBT, stable IDs and native locale files; maintain
+Atlas authoring and validation with that contract. Do not independently maintain GUI-edited output and
 generated definitions. Retain useful existing advancement triggers. Questlog UI
 adapters can remain optional/absent-target-safe until the trial is accepted.
 
@@ -137,59 +106,55 @@ center is not a discovery. Avoid cold hydrology work on every player tick.
 
 ## Dimension access policy
 
-Use a Compat access policy plus `allow-nether=false` in dedicated-server defaults. Keep the registered Nether dimension for compatibility; literal removal is not selected. The template is updated, but portal creation, existing portals, integrated servers and non-portal travel still require the new adaptation. No live server setting was changed.
+The optional `minecraft.nether_access` policy applies when the Overworld uses the
+marked Skyweave generator. Dedicated defaults also set `allow-nether=false`.
+The registered Nether level and existing DIM-1 data remain intact.
 
-The policy must prevent portal ignition without disabling ordinary fire, flint-and-steel or fire charges. Review ruined-portal templates and placement processors for active portal states or automatic activation; keep recognizable ruins, salvage and useful general-purpose loot unless a specific reviewed change is needed. Preserve a narrow optional future response to a denied ignition attempt without implementing prison entry, graphics or sound now.
+Native frame ignition is denied without consuming a charge or damaging a tool;
+ordinary fire, candles and campfires remain usable. Creation and portal-destination
+hooks cover environmental ignition and old portals before exit search. Entity
+travel and direct native teleport boundaries reject Nether entry. Saved Nether
+logins recover through an allowed respawn location with inventory/progress intact;
+closed-dimension respawn anchors fall back to the Overworld. Other dimensions and
+unmarked worlds retain native behavior. Foreign teleport implementations that
+bypass these boundaries require their own verified integration.
 
-Source inspection confirms `PortalSpawnEvent` covers ordinary fire-triggered creation and `EntityTravelToDimensionEvent` covers native `changeDimension`. Direct `teleportTo` paths bypass the latter; an event-only guard is not complete access closure. Reject old-portal destination work before it creates an exit, and handle saved login/respawn destinations deliberately. Retain operator recovery and foreign-dimension behavior as explicit policy, not accidental bypasses.
+Ruined-portal templates inspected by the native fixture are inert, so no art or
+loot removal is needed. Their salvage remains an Overworld acquisition source.
+The denied-activation extension point currently does nothing; it adds no prison,
+effects or alternate travel. Operators can deliberately disable the policy and
+restart when access is needed. Follow Compat's configuration and adapter guides
+when changing hooks or application timing.
 
-The [prison content design](prison.md) owns the separate dimension, travel/exit model and presentation. Essential resource routes must be reviewed before claiming the no-Nether pack is survival-complete.
+The [prison design](prison.md) remains separate planned content. Access closure
+and acquisition evidence do not establish a survival-complete resource economy.
 
 ## Mapper findings and progression consequences
 
-The mapper already combines recipes, terrain gathering, mob drops, chest loot,
-trades and interactions. Current acquisition is not yet an authoritative model
-of enabled dimensions, generator placement and travel.
+The mapper combines recipes, terrain gathering, mob drops, chest loot, trades
+and interactions. Its explicit environment contract joins native preset biome
+membership, features, structures, pools, templates and effective access policy
+with authored procedural source bindings. Registration alone does not prove
+world generation, and surveyed blocks alone are not free natural resources.
+See the [data pipeline](web/data.md) for the capture and availability owners.
 
-Observed implementation gaps:
+Available/potential, blocked and unclassified sources remain distinct. Closed
+Nether routes cannot seed the solver; downstream recipes retain missing-access
+status. Real Overworld exceptions remain eligible. Unknown custom generation
+stays unclassified rather than being guessed from resource names. Both graph
+and item views use the same root/method policy and preserve manual selections.
 
-- `web/src/lib/acquisition.mjs` infers some dimension gates from resource names.
-  Registered biomes or loot tables do not establish that they generate in an
-  enabled dimension. A sampled world block may also be a structure/player block.
-- `web/data/authored/acquisition.yml` currently grants `atlas:nether` from
-  obsidian and flint-and-steel without consulting an access policy.
-- `web/src/lib/progression.mjs` ranks planned routes lexicographically by
-  opportunity count, unknown outcomes, random outcomes, then depth. Earliest mode
-  ranks depth. Neither measures biome travel, mining effort, density or quantity.
-- The inspected item UI selects the solved witness when available, with a first
-  method fallback. A future default-policy change must reach both item methods
-  and the overall progression graph, not just list sorting.
+Common-material checks cover logs, stone/cobble, sand/gravel, andesite, iron,
+zinc and quartz. Quartz can use Create washing after documented Overworld
+soul-sand salvage; this is potential acquisition, not a measured travel or
+resource budget. Blaze/netherite branches can remain blocked. No replacement
+recipes or economy changes are implied by the environment model.
 
-The inspected compiled snapshot does select gathering for oak logs, sand,
-andesite, gravel and raw iron. Stone selects smelting, correctly avoiding a
-Silk Touch requirement for collecting stone itself. This does not dismiss earlier
-missed routes; common-material regression examples and source/ranking/UI checks
-are needed before changing defaults globally.
-
-A read-only no-Nether counterfactual removes routes producing `atlas:nether`
-and reruns the existing planned solver. It loses traced access for 1,607 of
-10,116 catalog nodes. Quartz, electron tubes, mechanical crafters and crushing
-wheels become circular/unresolved; blaze materials, Eyes of Ender, wart and
-netherite also lose their current traced routes. This is a diagnostic, not a
-complete gameplay classification. Ruined-portal netherrack is an example of an
-Overworld source the simplified counterfactual can miss.
-
-The migration needs explicit dimension availability, source provenance and
-alternative acquisition paths, with available/blocked/unknown distinctions and
-transitive downstream effects. Retain blocked recipes for inspection; show the
-reason and viable alternatives. Do not hide every Nether-themed item or treat
-an unknown route as impossible. Native declarations, authored knowledge and
-saved-world observations need separate evidence labels.
-
-Before closing access in a playable pack, review a low-tier quartz bootstrap,
-Blaze Burner/Propulsion heat alternatives, brewing, End access, netherite and
-Nether decorations. Decide which branches receive Overworld alternatives and
-which are deliberately unavailable. No replacement recipes were approved here.
+Planned scoring still orders opportunities, unknown outcomes, randomness and
+depth; earliest scoring orders depth. Neither measures mining effort, biome
+travel, density or quantities. Definition checks and default-route witnesses do
+not replace survival testing. Revisit heat, brewing, End access and intentionally
+unavailable content before claiming the whole progression is playable.
 
 ## Source and verification boundaries
 
@@ -210,4 +175,4 @@ Source review, not runtime qualification:
 
 The selected NeoForge JAR metadata confirms Minecraft 1.21.1, the existing Architectury 13.0.11, FTB Library >=2101.1.39 for Quests and >=2101.1.37 for Teams. FTB XMod Compat is optional and is not installed. Exact official CDN URLs and digests are recorded in empack because 0.8.2-beta's cross-provider required-dependency addition duplicates the existing Modrinth Architectury. Do not change or duplicate that shared JAR merely to normalize provider labels. Revisit provider pins when the resolver can retain one cross-provider identity safely.
 
-Local source/artifact metadata and the explicitly limited no-Nether counterfactual are retained under `.git/captures/team-world-progress/`. They are not native UI, team lifecycle or survival verification. Personal instances and worlds remain outside these preparation changes.
+Earlier source metadata is retained under `.git/captures/team-world-progress/`. Current native and browser qualification is recorded in Compat’s `.git/captures/misc-changes/` and the [Atlas verification guide](web/verification.md). Source, runtime definitions, native server behavior, client UI and survival evidence are separate; none substitutes for the others.

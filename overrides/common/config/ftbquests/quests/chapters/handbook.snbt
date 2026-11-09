@@ -1,0 +1,132 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "handbook"
+	group: ""
+	icon: {
+		id: "minecraft:book"
+	}
+	id: "619C3E701FD4AB35"
+	images: [ ]
+	order_index: 8
+	quest_links: [ ]
+	quests: [
+		{
+			icon: {
+				id: "minecraft:chest"
+			}
+			id: "029F56023A24583A"
+			optional: true
+			tasks: [{
+				id: "6951C9DB8366435F"
+				type: "checkmark"
+			}]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "minecraft:hopper"
+			}
+			id: "68F17DAC1F89E179"
+			optional: true
+			tasks: [{
+				id: "3B71F5950567F5A7"
+				type: "checkmark"
+			}]
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "minecraft:iron_chestplate"
+			}
+			id: "208E21E4A34B7AE3"
+			optional: true
+			tasks: [{
+				id: "4DB602C4470BF8B1"
+				type: "checkmark"
+			}]
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "minecraft:iron_pickaxe"
+			}
+			id: "2284D017B46878BF"
+			optional: true
+			tasks: [{
+				id: "74290B0E5E97396D"
+				type: "checkmark"
+			}]
+			x: 9.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "minecraft:crafting_table"
+			}
+			id: "1596A6987739249F"
+			optional: true
+			tasks: [{
+				id: "434A1A4019B32DFA"
+				type: "checkmark"
+			}]
+			x: 0.0d
+			y: 3.0d
+		}
+		{
+			icon: {
+				id: "minecraft:emerald"
+			}
+			id: "417597B78306F19D"
+			optional: true
+			tasks: [{
+				id: "397DB5A3CD1F9788"
+				type: "checkmark"
+			}]
+			x: 3.0d
+			y: 3.0d
+		}
+		{
+			icon: {
+				id: "ftbquests:book"
+			}
+			id: "18A8B0883A174DEA"
+			optional: true
+			tasks: [{
+				id: "1C9E4C1EEF27AE7A"
+				type: "checkmark"
+			}]
+			x: 6.0d
+			y: 3.0d
+		}
+		{
+			icon: {
+				id: "minecraft:map"
+			}
+			id: "3D7EFBA11F75EBC5"
+			optional: true
+			tasks: [{
+				id: "7FC9B3EA87040C48"
+				type: "checkmark"
+			}]
+			x: 9.0d
+			y: 3.0d
+		}
+		{
+			icon: {
+				id: "minecraft:compass"
+			}
+			id: "267158BB325B90DA"
+			optional: true
+			tasks: [{
+				id: "762CD38CAC4A9595"
+				type: "checkmark"
+			}]
+			x: 0.0d
+			y: 6.0d
+		}
+	]
+}

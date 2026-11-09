@@ -15,7 +15,7 @@ import { artifactSchema } from '../../src/lib/workspace/contracts.ts'
 import { attachWorkspaceTransport, localRequest } from './transport.ts'
 import { WorkspaceError } from './errors.ts'
 import { createNativeExecutor } from './native.ts'
-import { journalDefinitions } from './journal.ts'
+import { questDefinitions } from './quests.ts'
 import { auditDefinitions } from './audit.ts'
 import { modelDefinitions } from './models.ts'
 import { objectDefinitions } from './objects.ts'
@@ -107,7 +107,7 @@ export function createWorkspaceRuntime(options: {
       ),
       ...mapDefinitions([registration]),
       ...mapProjectionDefinitions(artifacts, native),
-      ...journalDefinitions([registration], native, artifacts),
+      ...questDefinitions([registration], native, artifacts),
       ...auditDefinitions(native, artifacts),
       ...modelDefinitions([registration], native, artifacts),
       ...reviewDefinitions([registration]),

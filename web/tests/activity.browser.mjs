@@ -110,8 +110,8 @@ test('adopted authoring panel shows live actions and cancellation without a seco
   const fixture = await mockWorkspace(
     page,
     async (frame, { session, artifact }) => {
-      if (frame.operation === 'journal.read') return source
-      if (frame.operation === 'journal.preview')
+      if (frame.operation === 'quests.read') return source
+      if (frame.operation === 'quests.preview')
         return artifact({ changed: [], removed: [], outputs: 0 })
       if (frame.operation === 'operation.cancel') {
         expect(frame.payload).toEqual({ id: operation.id })

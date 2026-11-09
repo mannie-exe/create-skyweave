@@ -85,32 +85,22 @@ export const jobRegistry = Object.freeze({
     maxBytes: 2 * 1024 * 1024,
     cancellable: true,
   },
-  'journal.preview': python(
-    'generate-journal.py',
+  'quests.preview': python('generate-quests.py', 'pack', ['JSON quest diff'], {
+    args: (context) => [
+      '--preview',
+      '--root',
+      context.validation ?? context.pack,
+    ],
+    cancellable: true,
+  }),
+  'quests.validate': python('generate-quests.py', 'pack', ['JSON quest diff'], {
+    args: (context) => ['--preview', '--root', context.validation],
+    cancellable: true,
+  }),
+  'quests.generate': python(
+    'generate-quests.py',
     'pack',
-    ['JSON journal diff'],
-    {
-      args: (context) => [
-        '--preview',
-        '--root',
-        context.validation ?? context.pack,
-      ],
-      cancellable: true,
-    },
-  ),
-  'journal.validate': python(
-    'generate-journal.py',
-    'pack',
-    ['JSON journal diff'],
-    {
-      args: (context) => ['--preview', '--root', context.validation],
-      cancellable: true,
-    },
-  ),
-  'journal.generate': python(
-    'generate-journal.py',
-    'pack',
-    ['config/questlog', 'resource-patches/assets/create_skyweave/lang'],
+    ['config/ftbquests/quests', 'empack.bindings.yml'],
     { args: (context) => ['--root', context.validation ?? context.pack] },
   ),
   'config.audit': python(

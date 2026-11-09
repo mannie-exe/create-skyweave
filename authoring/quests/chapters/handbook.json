@@ -1,0 +1,181 @@
+{
+  "schema": 1,
+  "id": "619C3E701FD4AB35",
+  "order": 8,
+  "native": {
+    "icon": "minecraft:book"
+  },
+  "quests": [
+    {
+      "id": "029F56023A24583A",
+      "key": "help_mouse_tweaks",
+      "x": 0,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "minecraft:chest",
+        "optional": true
+      },
+      "tasks": [
+        {
+          "type": "checkmark",
+          "id": "6951C9DB8366435F"
+        }
+      ],
+      "rewards": [],
+      "covers": []
+    },
+    {
+      "id": "68F17DAC1F89E179",
+      "key": "help_manual_sort",
+      "x": 3,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "minecraft:hopper",
+        "optional": true
+      },
+      "tasks": [
+        {
+          "type": "checkmark",
+          "id": "3B71F5950567F5A7"
+        }
+      ],
+      "rewards": [],
+      "covers": []
+    },
+    {
+      "id": "208E21E4A34B7AE3",
+      "key": "help_bulk_transfers",
+      "x": 6,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "minecraft:iron_chestplate",
+        "optional": true
+      },
+      "tasks": [
+        {
+          "type": "checkmark",
+          "id": "4DB602C4470BF8B1"
+        }
+      ],
+      "rewards": [],
+      "covers": []
+    },
+    {
+      "id": "2284D017B46878BF",
+      "key": "help_slot_locks",
+      "x": 9,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "minecraft:iron_pickaxe",
+        "optional": true
+      },
+      "tasks": [
+        {
+          "type": "checkmark",
+          "id": "74290B0E5E97396D"
+        }
+      ],
+      "rewards": [],
+      "covers": []
+    },
+    {
+      "id": "1596A6987739249F",
+      "key": "help_continuous_crafting",
+      "x": 0,
+      "y": 3,
+      "dependencies": [],
+      "native": {
+        "icon": "minecraft:crafting_table",
+        "optional": true
+      },
+      "tasks": [
+        {
+          "type": "checkmark",
+          "id": "434A1A4019B32DFA"
+        }
+      ],
+      "rewards": [],
+      "covers": []
+    },
+    {
+      "id": "417597B78306F19D",
+      "key": "help_trading",
+      "x": 3,
+      "y": 3,
+      "dependencies": [],
+      "native": {
+        "icon": "minecraft:emerald",
+        "optional": true
+      },
+      "tasks": [
+        {
+          "type": "checkmark",
+          "id": "397DB5A3CD1F9788"
+        }
+      ],
+      "rewards": [],
+      "covers": []
+    },
+    {
+      "id": "18A8B0883A174DEA",
+      "key": "help_parties",
+      "x": 6,
+      "y": 3,
+      "dependencies": [],
+      "native": {
+        "icon": "ftbquests:book",
+        "optional": true
+      },
+      "tasks": [
+        {
+          "type": "checkmark",
+          "id": "1C9E4C1EEF27AE7A"
+        }
+      ],
+      "rewards": [],
+      "covers": []
+    },
+    {
+      "id": "3D7EFBA11F75EBC5",
+      "key": "help_maps",
+      "x": 9,
+      "y": 3,
+      "dependencies": [],
+      "native": {
+        "icon": "minecraft:map",
+        "optional": true
+      },
+      "tasks": [
+        {
+          "type": "checkmark",
+          "id": "7FC9B3EA87040C48"
+        }
+      ],
+      "rewards": [],
+      "covers": []
+    },
+    {
+      "id": "267158BB325B90DA",
+      "key": "help_recovery",
+      "x": 0,
+      "y": 6,
+      "dependencies": [],
+      "native": {
+        "icon": "minecraft:compass",
+        "optional": true
+      },
+      "tasks": [
+        {
+          "type": "checkmark",
+          "id": "762CD38CAC4A9595"
+        }
+      ],
+      "rewards": [],
+      "covers": []
+    }
+  ]
+}

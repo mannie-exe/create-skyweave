@@ -264,6 +264,65 @@ test('block self-drops never create survival roots and mining requires a correct
     false,
   )
 })
+test('environmental contexts preserve Overworld salvage alongside Nether terrain and survey observations', () => {
+  const id = 'minecraft:soul_sand'
+  const args = {
+    items: [{ id }],
+    blocks: [{ id, item: id, destroyTime: 0.5, requiresCorrectTool: false }],
+    loot: {
+      'minecraft:blocks/soul_sand': {
+        pools: [{ entries: [{ type: 'minecraft:item', name: id }] }],
+      },
+    },
+    world: { blocks: {} },
+    resources: {},
+    chiseling: [],
+    brewing: [],
+    trades: [],
+    fluids: [],
+    authored: {
+      records: [
+        {
+          id: 'environment/nether',
+          gate: 'atlas:nether',
+          blocks: [id],
+          detail: 'Nether terrain',
+          sources: ['native features'],
+        },
+        {
+          id: 'environment/city',
+          gate: 'atlas:exploration',
+          blocks: [id],
+          detail: 'Declared city salvage',
+          sources: ['native templates'],
+        },
+      ],
+    },
+  }
+  const routes = acquisitionRoutes(args).routes
+  assert.equal(routes.length, 2)
+  assert.equal(new Set(routes.map((r) => r.id)).size, 2)
+  assert.deepEqual(
+    routes.map((r) => r.inputs),
+    [[['atlas:nether']], [['atlas:exploration']]],
+  )
+  const result = analyzeRoutes(
+    [id, 'atlas:nether', 'atlas:exploration'],
+    ['atlas:exploration'],
+    routes,
+  )
+  assert.equal(result.depth.get(id), 1)
+  args.authored.records.reverse()
+  assert.deepEqual(
+    new Set(acquisitionRoutes(args).routes.map((r) => r.id)),
+    new Set(routes.map((r) => r.id)),
+  )
+  args.world.blocks[id] = 57
+  const observed = acquisitionRoutes(args).routes
+  assert.equal(observed.length, 2)
+  assert.equal(new Set(observed.map((r) => r.id)).size, 2)
+  assert(!observed.some((r) => r.context === 'world survey'))
+})
 test('reachable paths retain AND witnesses; unresolved cycles and missing sources remain distinct', () => {
   const a = analyzeRoutes(
     ['root', 'a', 'b', 'c', 'unknown'],

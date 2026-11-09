@@ -19,7 +19,7 @@ acquisition bands and their selector navigate vertically. Counts follow filters.
 Each depth has six columns; families describe the chosen method, not every way
 of obtaining an item. Open the item to compare its alternatives.
 
-Coverage distinguishes mapped routes, blocked prerequisites, missing adapters,
+Coverage distinguishes mapped routes, blocked prerequisites, unclassified sources, missing adapters,
 internal/creative exclusions and unified variants. Coverage buttons mark mapped
 routes in blue, blocked routes in amber and missing adapters with a dashed gray
 line. Grid markers, the legend and minimap use those same colors; the minimap's
@@ -47,6 +47,11 @@ branch, not total operations or gameplay difficulty. Input counts include machin
 and environmental gates; they are not material quantities. Recipes retain their
 quantities, alternatives and operating requirements. Filtering does not change the
 selected method; a message identifies selections outside the current filters.
+
+The map states its environment defaults. Closed sources remain inspectable with
+their reason; unclassified sources do not count as available supplies. Changing
+the map's access policy updates the default method in an open item. An explicitly
+selected method stays selected, including one inspected to understand a restriction.
 
 Expand **yield and requirements** for conditional odds, expected output, materials
 and setup. Unsupported odds say “Chance not calculated.” Attempts are grouped by

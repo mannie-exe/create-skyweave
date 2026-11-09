@@ -79,9 +79,9 @@ the isolated updated client. No empack or provider issue was submitted.
   https://github.com/DrMango14/Create-Design-n-Decor/issues/139
   https://github.com/DrMango14/Create-Design-n-Decor/pull/140
 - Analog Audio 0.1.5-hotfix.1 requests a typed reflective registry method that
-  Create 6.0.10 exposes with erased parameters. Create Sky Compat 0.5.2 repairs
+  Create 6.0.10 exposes with erased parameters. Skyweave: Compatibility Patches 0.5.2 repairs
   this lookup and restores the upstream radio movement handler. Recheck the
-  [adapter procedure](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/README.md#analog-audio)
+  [adapter procedure](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/audio.md#create-registration)
   when updating either dependency; remove the hook when upstream fixes the lookup.
   Ordinary contraption GUI support and audible moving playback remain separate
   checks. Upstream issue #114 is closed, but the selected Analog Audio binary

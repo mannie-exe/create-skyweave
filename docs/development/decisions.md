@@ -18,7 +18,9 @@ Chapters cross mod boundaries, completion claims require observable evidence,
 and reward scope is independent of shared progress. The [quest guide](journal.md)
 owns writing/budgets; [authoring](authoring.md) owns source and generation.
 [Team/world progress](team-world-progress.md) owns secondary-island starts and
-Nether access closure; the [prison](prison.md) is planned content, not an installed
+Nether access closure. Team-specific spawning, onboarding and home/progress-reset
+policy are deferred; initial world-spawn recovery onto a secondary island remains
+in scope. The [prison](prison.md) is planned content, not an installed
 dimension. No quest rewards impose an arbitrary progression gate.
 
 Elytra retain vanilla flight. Do a Barrel Roll was removed after reported movement

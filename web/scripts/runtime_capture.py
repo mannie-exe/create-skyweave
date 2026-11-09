@@ -1,5 +1,6 @@
 """Accept an export only after its isolated server exits cleanly."""
 import os
+from pathlib import Path
 import shutil
 import signal
 import subprocess
@@ -15,10 +16,12 @@ def stage_configuration(installed, authored, destination):
         raise ValueError('Retired Skyweave configuration inputs; use config/skyweave: ' + ', '.join(retired))
     if destination.exists():
         shutil.rmtree(destination)
-    authored_journal = any((layer / 'questlog').is_dir() for layer in authored)
+    owned = [relative for relative in ['questlog', 'ftbquests/quests']
+             if any((layer / relative).is_dir() for layer in authored)]
 
     def ignored(directory, names):
-        return ['questlog'] if authored_journal and os.path.relpath(directory, installed) == '.' else []
+        relative = Path(directory).relative_to(installed)
+        return [Path(name).name for name in owned if Path(name).parent == relative]
 
     if installed.exists():
         shutil.copytree(installed, destination, ignore=ignored)

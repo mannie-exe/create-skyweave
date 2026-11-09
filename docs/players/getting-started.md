@@ -13,6 +13,14 @@ Create: Skyweave runs on Minecraft 1.21.1, the manifest-pinned NeoForge and Java
 3. Select Java 21 in the instance settings and launch the game. The Prism profile
    sets a maximum heap of 8 GiB; adjust this to fit your machine.
 
+If Prism reports `execve: No such file or directory` before Java starts, check
+that its process can find empack. A GUI-launched Prism can have a different `PATH`
+from your terminal. Install empack on that path or use its verified absolute path
+in this local instance's existing pre-launch and wrapper commands. Preserve the
+release path, hash and other generated arguments. Do not put a machine-specific
+path into shared templates. A `ModifiedManagedFile` conflict is a different issue:
+review the local file before accepting a replacement; do not bypass verification.
+
 Use [graphics settings](graphics.md) to enable shaders or configure distant terrain.
 The server archive is for [hosting](server.md), not client installation.
 
@@ -32,7 +40,9 @@ Grave accent (`) opens FTB Quests in new pack defaults. Questlog remains availab
 through its inventory button with its opening key unbound; see [quests](journal.md)
 for the current content and authoring boundaries.
 
-Mouse Tweaks supplies left/right dragging and wheel transfers. Inventory Profiles Next adds manual sorting with **middle-click** over an inventory, transfer buttons and slot locking. Its scrolling and swipe movement are disabled so Mouse Tweaks owns those gestures; **R** remains available for recipe lookup. Equipment profiles and hotbar restocking are off. Auto Refill replaces worn tools before they break and also replenishes consumed stacks; automatic armor replacement is off. Configure these features through **Mods → Inventory Profiles Next → Config**.
+Mouse Tweaks supplies drag and wheel gestures; Inventory Profiles Next adds
+manual sorting, transfers and refill. See [inventory controls](inventory.md) for
+ownership, defaults and the current creative-screen workaround.
 
 Ping Wheel uses its **Ping Location** binding, initially Mouse 5; remap it here
 if your mouse has no side buttons. Pings last ten seconds with reduced volume.

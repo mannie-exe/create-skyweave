@@ -1,0 +1,239 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "flight"
+	group: ""
+	icon: {
+		id: "simulated:physics_assembler"
+	}
+	id: "392848B59CBD16A7"
+	images: [ ]
+	order_index: 3
+	quest_links: [ ]
+	quests: [
+		{
+			icon: {
+				id: "simulated:physics_assembler"
+			}
+			id: "13A15A4FB21957DA"
+			tasks: [
+				{
+					consume_items: false
+					id: "4060F335DDF83A32"
+					item: { count: 1, id: "simulated:physics_assembler" }
+					type: "item"
+				}
+				{
+					consume_items: false
+					id: "23C58F856F237A05"
+					item: { count: 1, id: "simulated:honey_glue" }
+					type: "item"
+				}
+			]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "aeronautics:white_envelope"
+			}
+			id: "2C73C0D951FAE75F"
+			tasks: [
+				{
+					consume_items: false
+					count: 4L
+					id: "2E61B5CF42F08D15"
+					item: { components: { "minecraft:custom_data": { "skyweave_compat:quest_items": { items: [ "aeronautics:white_envelope", "aeronautics:orange_envelope", "aeronautics:magenta_envelope", "aeronautics:light_blue_envelope", "aeronautics:yellow_envelope", "aeronautics:lime_envelope", "aeronautics:pink_envelope", "aeronautics:gray_envelope", "aeronautics:light_gray_envelope", "aeronautics:cyan_envelope", "aeronautics:purple_envelope", "aeronautics:blue_envelope", "aeronautics:brown_envelope", "aeronautics:green_envelope", "aeronautics:red_envelope", "aeronautics:black_envelope" ], schema: 1 } } }, count: 1, id: "minecraft:paper" }
+					match_components: "strict"
+					type: "item"
+				}
+				{
+					consume_items: false
+					id: "7412FA29FD4FA6AD"
+					item: { count: 1, id: "aeronautics:adjustable_burner" }
+					type: "item"
+				}
+			]
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["2C73C0D951FAE75F"]
+			icon: {
+				id: "aeronautics:adjustable_burner"
+			}
+			id: "6D20D3414070E7CE"
+			rewards: [{
+				auto: "disabled"
+				count: 2
+				id: "0EDF42A031333727"
+				item: {
+					count: 1
+					id: "minecraft:white_wool"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [{
+				advancement: "aeronautics:head_in_the_clouds"
+				criterion: ""
+				id: "44611D3846EF2849"
+				type: "advancement"
+			}]
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "aeronautics:propeller_bearing"
+			}
+			id: "5BD7C37048608CA2"
+			tasks: [
+				{
+					consume_items: false
+					id: "59EA1169B10ED4EA"
+					item: { count: 1, id: "aeronautics:propeller_bearing" }
+					type: "item"
+				}
+				{
+					consume_items: false
+					id: "25691BCD08DC308F"
+					item: { components: { "minecraft:custom_data": { "skyweave_compat:quest_items": { items: [ "aeronautics:andesite_propeller", "aeronautics:wooden_propeller" ], schema: 1 } } }, count: 1, id: "minecraft:paper" }
+					match_components: "strict"
+					type: "item"
+				}
+			]
+			x: 9.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["5BD7C37048608CA2"]
+			icon: {
+				id: "aeronautics:andesite_propeller"
+			}
+			id: "0A58C07508240112"
+			rewards: [{
+				auto: "disabled"
+				count: 4
+				id: "6C494DFE0ED9E8E6"
+				item: {
+					count: 1
+					id: "minecraft:coal"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [{
+				advancement: "aeronautics:for_every_action"
+				criterion: ""
+				id: "776EFE1935407258"
+				type: "advancement"
+			}]
+			x: 0.0d
+			y: 3.0d
+		}
+		{
+			icon: {
+				id: "simulated:white_portable_engine"
+			}
+			id: "69CA6BF1186E8D14"
+			tasks: [{
+				consume_items: false
+				id: "4CDBF4EEDCC991D9"
+				item: { components: { "minecraft:custom_data": { "skyweave_compat:quest_items": { items: [ "simulated:white_portable_engine", "simulated:orange_portable_engine", "simulated:magenta_portable_engine", "simulated:light_blue_portable_engine", "simulated:yellow_portable_engine", "simulated:lime_portable_engine", "simulated:pink_portable_engine", "simulated:gray_portable_engine", "simulated:light_gray_portable_engine", "simulated:cyan_portable_engine", "simulated:purple_portable_engine", "simulated:blue_portable_engine", "simulated:brown_portable_engine", "simulated:green_portable_engine", "simulated:red_portable_engine", "simulated:black_portable_engine" ], schema: 1 } } }, count: 1, id: "minecraft:paper" }
+				match_components: "strict"
+				type: "item"
+			}]
+			x: 3.0d
+			y: 3.0d
+		}
+		{
+			icon: {
+				id: "createpropulsion:solid_fuel_thruster"
+			}
+			id: "51F2CE43BA129BC6"
+			tasks: [{
+				consume_items: false
+				id: "48547E7A53D027AA"
+				item: { count: 1, id: "createpropulsion:solid_fuel_thruster" }
+				type: "item"
+			}]
+			x: 6.0d
+			y: 3.0d
+		}
+		{
+			icon: {
+				id: "createpropulsion:thruster"
+			}
+			id: "4411720968A34082"
+			rewards: [{
+				auto: "disabled"
+				count: 4
+				id: "033C890DBEFB25DC"
+				item: {
+					count: 1
+					id: "minecraft:spruce_log"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [
+				{
+					consume_items: false
+					count: 4L
+					id: "772AC5CECB827226"
+					item: { count: 1, id: "createpropulsion:pine_resin" }
+					type: "item"
+				}
+				{
+					consume_items: false
+					id: "672825A37FB7CE1C"
+					item: { count: 1, id: "createpropulsion:turpentine_bucket" }
+					type: "item"
+				}
+				{
+					consume_items: false
+					id: "5A8EDA86B55A4D87"
+					item: { count: 1, id: "create:fluid_tank" }
+					type: "item"
+				}
+				{
+					consume_items: false
+					id: "020B0203AEAB4ED4"
+					item: { count: 1, id: "createpropulsion:thruster" }
+					type: "item"
+				}
+			]
+			x: 9.0d
+			y: 3.0d
+		}
+		{
+			icon: {
+				id: "createpropulsion:stirling_engine"
+			}
+			id: "33DD6102DD3C6E2D"
+			tasks: [{
+				consume_items: false
+				id: "38BB1BB4A26E1F77"
+				item: { count: 1, id: "createpropulsion:stirling_engine" }
+				type: "item"
+			}]
+			x: 0.0d
+			y: 6.0d
+		}
+		{
+			icon: {
+				id: "simulated:contraption_diagram"
+			}
+			id: "184EB1A485E26A61"
+			tasks: [{
+				consume_items: false
+				id: "6785B5D3D30F089E"
+				item: { count: 1, id: "simulated:contraption_diagram" }
+				type: "item"
+			}]
+			x: 3.0d
+			y: 6.0d
+		}
+	]
+}

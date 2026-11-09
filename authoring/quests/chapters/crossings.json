@@ -1,0 +1,143 @@
+{
+  "schema": 1,
+  "id": "24AA4E54704DA807",
+  "order": 2,
+  "native": {
+    "icon": "reliable_gliders:glider"
+  },
+  "quests": [
+    {
+      "id": "0C26AEA192EB821C",
+      "key": "membranes",
+      "x": 0,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "minecraft:phantom_membrane"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:phantom_membrane",
+            "count": 1
+          },
+          "count": 2,
+          "consume_items": false,
+          "id": "06BB75487374ECE6"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "travel/membranes"
+      ]
+    },
+    {
+      "id": "1FC99B6CCF4C5F0A",
+      "key": "glider",
+      "x": 3,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "reliable_gliders:glider"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "reliable_gliders:glider",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "38ED03F29127A33F"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:bread",
+            "count": 1
+          },
+          "count": 2,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "0BEEC050F3AC9AC9"
+        }
+      ],
+      "covers": [
+        "travel/glider"
+      ]
+    },
+    {
+      "id": "590D53493CCCDEDA",
+      "key": "rope_route",
+      "x": 6,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "simulated:rope_winch"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "simulated:rope_coupling",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "65D5AB29A82C4735"
+        },
+        {
+          "type": "item",
+          "item": {
+            "id": "create_aeronautics_throwable_rope_connector:throwable_rope_connector",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "05F71B6461C06E0F"
+        },
+        {
+          "type": "item",
+          "item": {
+            "id": "simulated:rope_winch",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "3442E28BD74961A4"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "travel/coupling",
+        "travel/connector",
+        "travel/winch"
+      ]
+    },
+    {
+      "id": "14137D665919897D",
+      "key": "habitats",
+      "x": 9,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "minecraft:compass",
+        "optional": true
+      },
+      "tasks": [
+        {
+          "type": "checkmark",
+          "id": "472388907CFA6EBB"
+        }
+      ],
+      "rewards": [],
+      "covers": []
+    }
+  ]
+}

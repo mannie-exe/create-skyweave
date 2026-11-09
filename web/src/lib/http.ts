@@ -46,12 +46,12 @@ export async function requestJSON(url: string, body?: unknown) {
   if (url === '/__atlas/models/generate' && body !== undefined)
     return workspaceClient.command('resources.generate', body)
   if (url === '/__atlas/authoring' && body === undefined) {
-    const saved = await workspaceClient.query('journal.read', {})
+    const saved = await workspaceClient.query('quests.read', {})
     try {
       const artifact =
         saved.preview.state === 'current'
           ? saved.preview.artifact
-          : await workspaceClient.command('journal.preview', {
+          : await workspaceClient.command('quests.preview', {
               revision: saved.revision,
             })
       return { ...saved, generation: await readJSONArtifact(artifact) }
@@ -61,22 +61,22 @@ export async function requestJSON(url: string, body?: unknown) {
         generationError:
           error instanceof Error
             ? error.message
-            : 'Journal review is unavailable',
+            : 'Quest review is unavailable',
       }
     }
   }
   if (url === '/__atlas/authoring/audit' && body === undefined)
     return readJSONArtifact(await workspaceClient.command('config.audit', {}))
   if (url === '/__atlas/authoring/generate' && body !== undefined)
-    return workspaceClient.command('journal.generate', body)
+    return workspaceClient.command('quests.generate', body)
   if (url === '/__atlas/authoring/save' && body !== undefined) {
     const input = body as { changes?: Record<string, unknown>; name?: string }
     const names = input.changes
       ? Object.keys(input.changes)
       : [input.name ?? '']
     return workspaceClient.command(
-      names.length && names.every((name) => name.startsWith('journal/'))
-        ? 'journal.save'
+      names.length && names.every((name) => name.startsWith('quests/'))
+        ? 'quests.save'
         : 'config.source.save',
       body,
     )

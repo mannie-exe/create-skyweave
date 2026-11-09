@@ -22,7 +22,8 @@
 [data-coverage='blocked'] {
   --coverage-mark: var(--coverage-blocked);
 }
-[data-coverage='unmapped'] {
+[data-coverage='unmapped'],
+[data-coverage='unknown'] {
   --coverage-mark: var(--coverage-unmapped);
   --coverage-line-style: dashed;
 }

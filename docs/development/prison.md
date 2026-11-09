@@ -6,7 +6,7 @@ The prison is accepted planned Create: Skyweave content. Its generator, entry/ex
 
 Build a largely unmodifiable, apparently endless prison of corridors and liminal rooms. Use doctor4t's environmental work, Backrooms offices/pools and Dimensional Doors' older Limbo sky/effects as references, not a requirement to install or copy those mods. Begin with atmosphere, generation, lighting and restrained camera/shader effects. No new mobs or combat encounters are requested.
 
-Exploration provides compressed travel between Overworld island clusters. There is no arbitrary exit or player-built portal: generated return structures provide the normal way out. Death deliberately returns the player to a valid personal bed or team-island fallback. Preserve existing YiGD inventory/grave behavior and permit its intended recovery interactions; do not invent a new death penalty or keep-inventory policy.
+Exploration provides compressed travel between Overworld island clusters. There is no arbitrary exit or player-built portal: generated return structures provide the normal way out. Death deliberately returns the player through normal respawn, preserving valid personal beds. Team/home fallback policy and its integration are deferred. Preserve existing YiGD inventory/grave behavior and permit its intended recovery interactions; do not invent a new death penalty or keep-inventory policy.
 
 ## Geography and exits
 

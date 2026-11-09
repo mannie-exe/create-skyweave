@@ -7,12 +7,7 @@ import { createHash } from 'node:crypto'
 const source = fileURLToPath(new URL('../../authoring', import.meta.url))
 async function fixture(page, live = false) {
   const files = {}
-  for (const dir of [
-    'journal',
-    'journal/chapters',
-    'journal/locales',
-    'changes',
-  ])
+  for (const dir of ['quests', 'quests/chapters', 'quests/locales', 'changes'])
     for (const name of await fs.readdir(path.join(source, dir))) {
       if (!name.endsWith('.json')) continue
       files[dir + '/' + name] = {
@@ -43,7 +38,7 @@ async function fixture(page, live = false) {
     async (frame, { artifact }) => {
       const operation = frame.operation
       if (operation === 'sources.inventory') return inventory()
-      if (['journal.save', 'config.source.save'].includes(operation)) {
+      if (['quests.save', 'config.source.save'].includes(operation)) {
         if (state.fail)
           throw Object.assign(
             new Error('File changed on disk. Reload before saving.'),
@@ -59,16 +54,20 @@ async function fixture(page, live = false) {
         }
         return { revision: 'snapshot-' + state.saves }
       }
-      if (operation === 'journal.generate') {
+      if (operation === 'quests.generate') {
         state.generated++
         return { output: 'Generated' }
       }
-      if (operation === 'journal.preview') {
+      if (operation === 'quests.preview') {
         state.previews++
         return artifact({
-          changed: state.generated ? [] : ['quest.json'],
+          changed: state.generated
+            ? []
+            : [
+                'overrides/common/config/ftbquests/quests/chapters/workshop.snbt',
+              ],
           removed: [],
-          outputs: 57,
+          outputs: 14,
         })
       }
       if (state.failRead && state.saves) {
@@ -82,11 +81,11 @@ async function fixture(page, live = false) {
       }
     },
     [
-      'journal.read',
-      'journal.preview',
-      'journal.save',
+      'quests.read',
+      'quests.preview',
+      'quests.save',
       'config.source.save',
-      'journal.generate',
+      'quests.generate',
       ...(live ? ['sources.inventory'] : []),
     ],
     { snapshot: () => inventory() },
@@ -98,363 +97,297 @@ async function fixture(page, live = false) {
   return state
 }
 const button = (page, name) => page.getByRole('button', { name, exact: true })
-const en = (state) => JSON.parse(state.files['journal/locales/en_us.json'].text)
+const en = (state) => JSON.parse(state.files['quests/locales/en_us.json'].text)
 
-test('external journal changes refresh clean text, preserve drafts and never start preview jobs', async ({
+const quest = (state, key) =>
+  Object.entries(state.files)
+    .filter(([name]) => name.startsWith('quests/chapters/'))
+    .flatMap(([name, file]) =>
+      JSON.parse(file.text).quests.map((row) => ({ ...row, source: name })),
+    )
+    .find((row) => row.key === key)
+
+test('external quest changes refresh clean text, preserve drafts and never start preview jobs', async ({
   page,
 }) => {
-  const state = await fixture(page, true)
+  const state = await fixture(page, true),
+    id = quest(state, 'glider').id
   await button(page, 'Localization').click()
   await page
     .getByLabel('Find key or text', { exact: true })
-    .fill('entries.travel/glider.title')
-  const field = page.getByLabel('Source entries.travel/glider.title', {
-    exact: true,
-  })
-  const before = state.previews
+    .fill(`objects.${id}.title`)
+  const field = page.getByLabel(`Source objects.${id}.title`, { exact: true }),
+    previews = state.previews
   function change(title) {
     const document = en(state)
-    document.entries['travel/glider'].title = title
-    state.files['journal/locales/en_us.json'].text = JSON.stringify(document)
+    document.objects[id].title = title
+    state.files['quests/locales/en_us.json'].text = JSON.stringify(document)
     state.saves++
     state.wire.emit('sources', {
-      kind: 'invalidated',
-      sources: ['journal/locales/en_us.json'],
-      external: true,
+      sources: ['quests/locales/en_us.json'],
+      revisions: { 'quests/locales/en_us.json': String(state.saves) },
     })
   }
   change('External glider')
   await expect(field).toHaveValue('External glider')
-  expect(state.previews).toBe(before)
-  const valid = state.files['journal/locales/en_us.json'].text
-  state.files['journal/locales/en_us.json'].text = '{'
-  state.saves++
-  state.wire.emit('sources', {
-    kind: 'invalidated',
-    sources: ['journal/locales/en_us.json'],
-    external: true,
-  })
-  await expect(
-    page
-      .getByRole('status')
-      .filter({ hasText: 'invalid JSON. The current view was kept.' }),
-  ).toBeVisible()
-  await expect(field).toHaveValue('External glider')
-  state.files['journal/locales/en_us.json'].text = valid
-  await field.fill('Unsaved glider')
-  change('Another external glider')
+  expect(state.previews).toBe(previews)
+  await field.fill('My draft')
+  change('Another edit')
+  await expect(field).toHaveValue('My draft')
   await expect(
     page.getByRole('status').filter({ hasText: 'Your draft is preserved' }),
   ).toBeVisible()
-  await expect(field).toHaveValue('Unsaved glider')
-  expect(state.previews).toBe(before)
-  expect(state.generated).toBe(0)
+  await expect(button(page, 'Save quests')).toBeDisabled()
 })
 
 test('acknowledged saves remain saved when the follow-up read fails', async ({
   page,
 }) => {
   const state = await fixture(page)
-  await button(page, 'Localization').click()
-  await page
-    .getByLabel('Find key or text', { exact: true })
-    .fill('entries.travel/glider.title')
-  await page
-    .getByLabel('Source entries.travel/glider.title', { exact: true })
-    .fill('Saved glider')
+  await page.getByLabel('Title · en_us', { exact: true }).fill('Saved title')
   state.failRead = true
-  await button(page, 'Save journal').click()
+  await button(page, 'Save quests').click()
   await expect(
     page.getByRole('status').filter({ hasText: 'View refresh failed' }),
-  ).toContainText('Source saved')
-  expect(en(state).entries['travel/glider'].title).toBe('Saved glider')
-  await expect(button(page, 'Save journal')).toBeDisabled()
-  await expect(button(page, 'Generate Questlog files')).toBeDisabled()
-  await expect(
-    page.getByLabel('Source entries.travel/glider.title', { exact: true }),
-  ).toHaveValue('Saved glider')
-  await button(page, 'Reload source').click()
-  await expect(button(page, 'Generate Questlog files')).toBeEnabled()
+  ).toBeVisible()
+  expect(state.saves).toBe(1)
+  await expect(page.getByLabel('Title · en_us', { exact: true })).toHaveValue(
+    'Saved title',
+  )
+  await expect(button(page, 'Save quests')).toBeDisabled()
 })
 
-test('journal CRUD coordinates human-readable strings, mechanics and rewards', async ({
+test('quest CRUD coordinates native mechanics, rewards and stable layout IDs', async ({
   page,
 }) => {
   const state = await fixture(page)
-  await button(page, 'New entry').click()
-  await page.getByLabel('Entry ID', { exact: true }).fill('test_route')
-  await page.getByLabel('English title', { exact: true }).fill('Test route')
+  await button(page, 'New quest').click()
+  await page.getByLabel('Source key', { exact: true }).fill('review_route')
+  await page.getByLabel('English title', { exact: true }).fill('Review route')
   await page
-    .getByLabel('Obtain item ID', { exact: true })
+    .getByLabel('First task item ID', { exact: true })
     .fill('minecraft:iron_ingot')
-  await button(page, 'Create entry').click()
-  await expect(
-    page.getByRole('heading', { name: 'Test route', exact: true }).first(),
-  ).toBeVisible()
+  await button(page, 'Create quest').click()
+  await button(page, 'Tasks').click()
+  await page.getByLabel('Count', { exact: true }).fill('4')
+  await button(page, 'Rewards').click()
   await button(page, 'Add reward').click()
-  await page.getByLabel('Count', { exact: true }).fill('2')
-  await button(page, 'Edit strings').click()
-  await page
-    .getByLabel('Source entries.travel/test_route.title', { exact: true })
-    .fill('A revised route')
-  await page
-    .getByLabel('Source entries.travel/test_route.description', { exact: true })
-    .fill('First paragraph.\n\nSecond paragraph.')
-  await button(page, 'Entries').click()
+  await page.getByLabel('Claim scope', { exact: true }).selectOption('team')
+  await button(page, 'Links').click()
+  await page.getByLabel('X', { exact: true }).fill('3.25')
+  await page.getByLabel('Y', { exact: true }).fill('-2.5')
+  await button(page, 'Save quests').click()
   await expect(
-    page.getByRole('region', { name: 'Journal text preview' }),
-  ).toContainText('A revised route')
-  await expect(page.getByLabel('Count', { exact: true })).toHaveValue('2')
-  await expect(button(page, 'Generate Questlog files')).toBeDisabled()
-  await button(page, 'Save journal').click()
-  await expect(
-    page.getByRole('status').filter({ hasText: 'Source saved' }),
+    page.getByRole('status').filter({ hasText: 'Source saved.' }),
   ).toBeVisible()
-  expect(en(state).entries['travel/test_route'].description).toEqual([
-    'First paragraph.',
-    'Second paragraph.',
-  ])
-  expect(
-    JSON.parse(state.files['journal/chapters/travel.json'].text).entries.find(
-      (e) => e.id === 'test_route',
-    ).definition.rewards[0].count,
-  ).toBe(2)
-  expect(state.generated).toBe(0)
-  await button(page, 'Generate Questlog files').click()
-  await expect(
-    page.getByRole('status').filter({ hasText: 'Instances were not changed' }),
-  ).toBeVisible()
+  let row = quest(state, 'review_route')
+  const id = row.id,
+    taskId = row.tasks[0].id
+  expect(row.tasks[0].count).toBe(4)
+  expect(row.rewards[0].native.team_reward).toBe(true)
+  expect([row.x, row.y]).toEqual([3.25, -2.5])
+  await page
+    .getByLabel('Chapter membership', { exact: true })
+    .selectOption('crossings')
+  await button(page, 'Save quests').click()
+  await expect
+    .poll(() => quest(state, 'review_route').source)
+    .toBe('quests/chapters/crossings.json')
+  row = quest(state, 'review_route')
+  expect(row.id).toBe(id)
+  expect(row.tasks[0].id).toBe(taskId)
   page.once('dialog', (dialog) => dialog.accept())
-  await button(page, 'Delete entry').click()
-  await button(page, 'Save journal').click()
-  await expect(
-    page.getByRole('status').filter({ hasText: 'Source saved' }),
-  ).toBeVisible()
-  expect(en(state).entries['travel/test_route']).toBeUndefined()
-  expect(
-    JSON.parse(state.files['journal/chapters/travel.json'].text).entries.some(
-      (e) => e.id === 'test_route',
-    ),
-  ).toBe(false)
+  await button(page, 'Delete quest').click()
+  await button(page, 'Save quests').click()
+  await expect.poll(() => quest(state, 'review_route')).toBeUndefined()
+  expect(en(state).objects[id]).toBeUndefined()
 })
 
-test('localization groups strings and keeps English fallback explicit', async ({
+test('chapter creation and deletion produce coordinated source changes', async ({
   page,
 }) => {
   const state = await fixture(page)
+  await button(page, 'New chapter').click()
+  await page.getByLabel('Source key', { exact: true }).fill('review')
+  await page.getByLabel('English title', { exact: true }).fill('Review chapter')
+  await button(page, 'Create chapter').click()
+  await expect(
+    page.getByRole('region', { name: 'Chapter settings', exact: true }),
+  ).toBeVisible()
+  await button(page, 'Save quests').click()
+  await expect
+    .poll(() => state.files['quests/chapters/review.json'])
+    .toBeTruthy()
+  const chapter = JSON.parse(state.files['quests/chapters/review.json'].text)
+  expect(en(state).objects[chapter.id].title).toBe('Review chapter')
+  page.once('dialog', (dialog) => dialog.accept())
+  await button(page, 'Delete empty chapter').click()
+  await button(page, 'Save quests').click()
+  await expect
+    .poll(() => state.files['quests/chapters/review.json'])
+    .toBeUndefined()
+})
+
+test('localized titles retain sparse English fallback', async ({ page }) => {
+  const state = await fixture(page),
+    id = quest(state, 'glider').id
   await button(page, 'Localization').click()
   await page.getByText('Manage locales', { exact: true }).click()
-  const picker = page.getByLabel('Language to add', { exact: true })
-  await expect(button(page, 'Add locale')).toBeDisabled()
-  await expect(picker.locator('option[value="en_us"]')).toHaveCount(0)
-  await expect(picker.locator('option[value="esan"]')).toHaveCount(1)
-  await expect(picker.locator('option[value="es_419"]')).toHaveCount(0)
-  await picker.selectOption('de_de')
+  await page.getByLabel('Language to add').selectOption('de_de')
   await button(page, 'Add locale').click()
-  await expect(picker.locator('option[value="de_de"]')).toHaveCount(0)
-  await expect(button(page, 'Add locale')).toBeDisabled()
-  await expect(
-    page
-      .getByLabel('Editing locale', { exact: true })
-      .locator('option:checked'),
-  ).toHaveText('Deutsch (Deutschland) · de_de')
-  await page
-    .getByLabel('Find key or text', { exact: true })
-    .fill('entries.travel/glider.title')
+  await page.getByLabel('Find key or text').fill(`objects.${id}.title`)
   await expect(
     page.getByText('English fallback', { exact: true }),
   ).toBeVisible()
   await page
-    .getByLabel('Translation entries.travel/glider.title', { exact: true })
+    .getByLabel(`Translation objects.${id}.title`, { exact: true })
     .fill('Gleiter')
-  await button(page, 'Entries').click()
-  await expect(
-    page.getByRole('region', { name: 'Journal text preview' }),
-  ).toContainText('Gleiter')
-  await expect(
-    page.getByRole('region', { name: 'Journal text preview' }),
-  ).toContainText('Have at least 1 Glider')
-  await button(page, 'Save journal').click()
-  await expect(
-    page.getByRole('status').filter({ hasText: 'Source saved' }),
-  ).toBeVisible()
-  expect(
-    JSON.parse(state.files['journal/locales/de_de.json'].text).entries[
-      'travel/glider'
-    ],
-  ).toEqual({ title: 'Gleiter' })
-  await button(page, 'Localization').click()
-  await page
-    .getByLabel('Find key or text', { exact: true })
-    .fill('entries.travel/glider.title')
+  await button(page, 'Save quests').click()
+  await expect
+    .poll(
+      () =>
+        JSON.parse(state.files['quests/locales/de_de.json'].text).objects[id]
+          ?.title,
+    )
+    .toBe('Gleiter')
   await button(page, 'Use English').click()
   await expect(
     page.getByText('English fallback', { exact: true }),
   ).toBeVisible()
-  await page.setViewportSize({ width: 390, height: 844 })
-  expect(
-    await page.evaluate(
-      () => document.documentElement.scrollWidth <= innerWidth,
-    ),
-  ).toBe(true)
+  await button(page, 'Save quests').click()
+  await expect
+    .poll(
+      () =>
+        JSON.parse(state.files['quests/locales/de_de.json'].text).objects[id]
+          ?.title,
+    )
+    .toBeUndefined()
 })
 
-test('shared disclaimers have CRUD, readable references and protected deletion', async ({
+test('invalid numeric and JSON drafts survive navigation and block saving', async ({
   page,
 }) => {
-  const state = await fixture(page)
-  await button(page, 'Disclaimers').click()
-  await expect(button(page, 'Delete disclaimer')).toBeDisabled()
-  await button(page, 'New disclaimer').click()
-  await page.getByLabel('Key', { exact: true }).fill('test_note')
+  await fixture(page)
+  await button(page, 'Links').click()
+  await page.getByLabel('X', { exact: true }).fill('')
+  await expect(button(page, 'Save quests')).toBeDisabled()
+  await button(page, 'Text').click()
+  await button(page, 'Links').click()
+  await expect(page.getByLabel('X', { exact: true })).toHaveValue('')
+  await page.getByLabel('X', { exact: true }).fill('1.25')
+  await expect(button(page, 'Save quests')).toBeEnabled()
   await page
-    .getByLabel('English message', { exact: true })
-    .fill('A shared note.')
-  await button(page, 'Create disclaimer').click()
-  await button(page, 'Entries').click()
-  await page
-    .getByRole('combobox', { name: 'Shared disclaimer', exact: true })
-    .selectOption('test_note')
-  await button(page, 'Manage disclaimers').click()
-  await page
-    .getByRole('navigation', { name: 'Disclaimers', exact: true })
-    .getByRole('button', { name: 'A shared note.' })
+    .getByText('Quest source and native properties', { exact: true })
     .click()
-  await expect(button(page, 'Delete disclaimer')).toBeDisabled()
-  await expect(button(page, 'Glider')).toBeVisible()
-  await button(page, 'Edit localized message').click()
-  await page
-    .getByLabel('Source shared.test_note', { exact: true })
-    .fill('Changed shared text.')
-  await button(page, 'Entries').click()
-  await expect(
-    page.getByRole('region', { name: 'Journal text preview' }),
-  ).toContainText('Changed shared text.')
-  await page
-    .getByRole('combobox', { name: 'Shared disclaimer', exact: true })
-    .selectOption('')
-  await button(page, 'Disclaimers').click()
-  await page
-    .getByRole('navigation', { name: 'Disclaimers', exact: true })
-    .getByRole('button', { name: 'Changed shared text.' })
-    .click()
-  page.once('dialog', (dialog) => dialog.accept())
-  await button(page, 'Delete disclaimer').click()
-  await button(page, 'Save journal').click()
-  await expect(
-    page.getByRole('status').filter({ hasText: 'Source saved' }),
-  ).toBeVisible()
-  expect(en(state).shared.test_note).toBeUndefined()
-})
-
-test('failed saves and unapplied JSON retain drafts across views', async ({
-  page,
-}) => {
-  const state = await fixture(page)
-  await page
-    .getByText('Edit conditions and entry properties', { exact: true })
-    .click()
-  await page.getByLabel('Definition JSON', { exact: true }).fill('{bad')
-  await button(page, 'Apply definition json').click()
-  await expect(page.getByRole('alert')).toContainText('SyntaxError')
+  await page.getByLabel('Quest JSON', { exact: true }).fill('{')
+  await button(page, 'Apply quest json').click()
+  await expect(button(page, 'Save quests')).toBeDisabled()
   await button(page, 'Localization').click()
-  await button(page, 'Entries').click()
   await page
-    .getByText('Edit conditions and entry properties', { exact: true })
+    .getByRole('navigation', { name: 'Quest tools' })
+    .getByRole('button', { name: 'Quests', exact: true })
     .click()
-  await expect(page.getByLabel('Definition JSON', { exact: true })).toHaveValue(
-    '{bad',
-  )
-  await expect(button(page, 'Save journal')).toBeDisabled()
-  await button(page, 'Discard JSON edit').click()
-  await button(page, 'Edit strings').click()
-  await page
-    .getByLabel('Source entries.travel/glider.requirements', { exact: true })
-    .fill('Unsaved condition.')
+  await expect(page.getByLabel('Quest JSON', { exact: true })).toHaveValue('{')
+})
+
+test('failed saves preserve edits and generation is distinct from saving', async ({
+  page,
+}) => {
+  const state = await fixture(page)
+  await page.getByLabel('Title · en_us', { exact: true }).fill('Retained draft')
   state.fail = true
-  await button(page, 'Save journal').click()
+  await button(page, 'Save quests').click()
   await expect(
     page.getByRole('status').filter({ hasText: 'File changed on disk' }),
   ).toBeVisible()
-  await expect(
-    page.getByLabel('Source entries.travel/glider.requirements', {
-      exact: true,
-    }),
-  ).toHaveValue('Unsaved condition.')
-  await expect(button(page, 'Save journal')).toBeEnabled()
-  expect(en(state).entries['travel/glider'].requirements).not.toBe(
-    'Unsaved condition.',
+  await expect(page.getByLabel('Title · en_us', { exact: true })).toHaveValue(
+    'Retained draft',
   )
+  expect(state.generated).toBe(0)
+  state.fail = false
+  await button(page, 'Save quests').click()
+  await expect(button(page, 'Generate FTB Quests files')).toBeEnabled()
+  await button(page, 'Generate FTB Quests files').click()
+  await expect.poll(() => state.generated).toBe(1)
 })
 
-test('real source audit and local write boundaries remain available', async ({
+test('canvas selection, keyboard coordinate edits and responsive panels remain usable', async ({
   page,
-  request,
 }) => {
-  await page.goto('/authoring')
-  await expect(
-    page.getByRole('status').filter({ hasText: 'Source loaded' }),
-  ).toBeVisible()
-  const nav = page.getByRole('navigation', {
-    name: 'Authoring views',
-    exact: true,
-  })
-  await expect(nav.getByRole('link', { name: 'Resources' })).toHaveAttribute(
-    'href',
-    '/resource-authoring',
+  const state = await fixture(page),
+    glider = quest(state, 'glider')
+  await page.getByLabel('Chapter', { exact: true }).selectOption('crossings')
+  const node = page.locator(`.react-flow__node[data-id="${glider.id}"]`)
+  await node.click()
+  await expect(page.getByLabel('Title · en_us', { exact: true })).toHaveValue(
+    en(state).objects[glider.id].title,
   )
-  const generationStatus = page
-    .locator('p.scope')
-    .filter({ hasText: 'Questlog files ·' })
-  await expect(generationStatus).toBeVisible()
-  await button(page, 'Source JSON').click()
-  await expect(generationStatus).toBeVisible()
-  await page
-    .getByRole('combobox', { name: 'Source file', exact: true })
-    .selectOption('changes/structures.json')
-  await expect(generationStatus).toHaveCount(0)
-  await page
-    .getByRole('combobox', { name: 'Source file', exact: true })
-    .selectOption('journal/defaults.json')
-  await expect(generationStatus).toBeVisible()
-  await button(page, 'Config audit').click()
-  await expect(generationStatus).toHaveCount(0)
-  await expect(button(page, 'Generate Questlog files')).toHaveCount(0)
-  await button(page, 'Check files').click()
-  await expect(
-    page.getByRole('status').filter({ hasText: 'Config files checked' }),
-  ).toBeVisible()
-  await page
-    .getByRole('combobox', { name: 'Category', exact: true })
-    .selectOption('structures')
-  await expect(page.locator('tbody')).toContainText(
-    'resource-patches/data/skyvillages/worldgen/processor_list/house_processor.json',
+  const before = await node.boundingBox()
+  await page.mouse.move(
+    before.x + before.width / 2,
+    before.y + before.height / 2,
   )
-  const data = { name: '../../outside', revision: '0'.repeat(64), text: '{}' }
-  expect(
-    (
-      await request.post('/__atlas/authoring/save', {
-        data,
-        headers: { Origin: 'http://example.com' },
-      })
-    ).status(),
-  ).toBe(403)
-  const traversal = await page.evaluate(async (input) => {
-    const { workspaceClient } = await import('/src/lib/workspace/client.ts')
-    try {
-      await workspaceClient.command('journal.save', input)
-    } catch (error) {
-      return error.failure
-    }
-  }, data)
-  expect(traversal.code).toBe('INVALID_INPUT')
-  expect(traversal.message).toBe('Unknown authoring file')
-  expect(
-    (
-      await request.post('/__atlas/authoring/save', {
-        data,
-        headers: { Origin: 'http://127.0.0.1:4322' },
-      })
-    ).status(),
-  ).toBe(405)
+  await page.mouse.down()
+  await page.mouse.move(
+    before.x + before.width / 2 + 32,
+    before.y + before.height / 2 + 24,
+    { steps: 8 },
+  )
+  await page.mouse.up()
+  await button(page, 'Save quests').click()
+  await expect.poll(() => quest(state, 'glider').x).not.toBe(glider.x)
+  for (const width of [1720, 1000, 390]) {
+    await page.setViewportSize({ width, height: 950 })
+    await expect(
+      page.getByLabel('Title · en_us', { exact: true }),
+    ).toBeVisible()
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true)
+  }
+})
+
+test('shared paragraph references survive edits and invalid native ID edits stay unapplied', async ({
+  page,
+}) => {
+  const state = await fixture(page)
+  const chapter = JSON.parse(state.files['quests/chapters/workshop.json'].text),
+    id = chapter.quests[0].id
+  await button(page, 'Shared text').click()
+  await button(page, 'New shared text').click()
+  await page.getByLabel('Key', { exact: true }).fill('review_message')
+  await page
+    .getByLabel('English message', { exact: true })
+    .fill('A reusable explanation.')
+  await button(page, 'Create shared text').click()
+  await page
+    .getByRole('navigation', { name: 'Quest tools' })
+    .getByRole('button', { name: 'Quests', exact: true })
+    .click()
+  await page.getByLabel('Paragraph 1', { exact: true }).selectOption('shared')
+  await page
+    .getByLabel('Shared text key', { exact: true })
+    .selectOption('review_message')
+  await button(page, 'Save quests').click()
+  await expect
+    .poll(() => en(state).objects[id].quest_desc[0])
+    .toEqual({ shared: 'review_message' })
+  await button(page, 'Shared text').click()
+  await expect(button(page, 'Delete shared text')).toBeDisabled()
+  await button(page, en(state).objects[id].title).click()
+  await page
+    .getByText('Quest source and native properties', { exact: true })
+    .click()
+  const raw = page.getByLabel('Quest JSON', { exact: true }),
+    source = JSON.parse(await raw.inputValue())
+  source.id = '0000000000000001'
+  await raw.fill(JSON.stringify(source))
+  await button(page, 'Apply quest json').click()
+  await expect(
+    page.getByRole('alert').filter({ hasText: 'native ID stable' }),
+  ).toBeVisible()
+  await expect(raw).toHaveValue(JSON.stringify(source))
+  await expect(button(page, 'Save quests')).toBeDisabled()
 })

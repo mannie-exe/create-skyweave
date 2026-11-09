@@ -11,6 +11,7 @@ import '../../styles/acquisition-methods.css'
 import { MethodChooser } from './MethodChooser'
 import {
   methodMetrics,
+  defaultMethod,
   methodTraceLabels,
 } from '../../lib/method-comparison.mjs'
 
@@ -18,6 +19,8 @@ export type Method = {
   type: string
   metrics?: {
     planned?: any
+    earliest?: any
+    availability?: any
     outcome?: any
     earliestDepth?: number | null
     depth: number | null
@@ -73,17 +76,15 @@ export default function AcquisitionMethods({
       metrics: metrics.get(method.id),
     }))
   }, [baseMethods, itemId, index, roots])
-  const initial =
-    sessions.get(detail)?.selected ??
-    (policy === 'earliest' ? detail.earliestPath : detail.path)?.find(
-      (step: any) => step.id === itemId,
-    )?.route
-  const [selected, setSelected] = useState(
-    methods.some((m) => m.id === initial) ? initial : (methods[0]?.id ?? ''),
-  )
-  const method = methods.find((m) => m.id === selected)
+  const [manual, setManual] = useState<{ detail: object; id: string }>()
+  const preferred =
+    manual && manual.detail === detail
+      ? manual.id
+      : sessions.get(detail)?.selected
+  const selected = defaultMethod(methods, detail, itemId, policy, preferred)
+  const method = methods.find((method) => method.id === selected)
   function choose(id: string) {
-    setSelected(id)
+    setManual({ detail, id })
     sessions.set(detail, { selected: id })
   }
   if (!method)
@@ -125,6 +126,18 @@ export default function AcquisitionMethods({
         <p className="muted">
           {method.group} · {index.byId.get(itemId)?.name ?? itemId}
         </p>
+        {method.metrics?.availability &&
+          ['blocked', 'unknown'].includes(
+            method.metrics.availability.state,
+          ) && (
+            <p
+              className="method-caution"
+              data-method-availability={method.metrics.availability.state}
+            >
+              {methodTraceLabels[method.metrics.status]}:{' '}
+              {method.metrics.availability.reason}
+            </p>
+          )}
         {method.conversion && (
           <p className="method-caution">
             Converts an existing material. A reverse crafting recipe is also

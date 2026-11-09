@@ -93,6 +93,13 @@ uses up to a 4 GiB Java heap, and allows ten minutes for the isolated server.
 `data:check` exercises the current pack's recipe, loot, coverage and journal
 assertions; it is intentionally specific to this pack.
 
+For a manually separated capture, pass the same `--work` directory to both
+`scripts/runtime.py` and `scripts/extract.py`. The extraction inputs include that
+capture's audit configuration and log, not just its exported JSON. A custom runtime
+capture followed by default-path extraction can mix two different environments.
+Keep the capture until extraction and diagnosis finish, then compile and publish
+through the workspace owner. Prefer `pnpm data:refresh` for the standard workflow.
+
 The same refresh is available in Edit data. The workspace admits one mutation per
 pack and one native worker; pure source queries remain available while work runs. Run one authoring
 server per pack; it does not lock separate shell processes or other dev servers.
@@ -183,6 +190,10 @@ The [pack authoring editor](authoring.md) uses the configured pack's generator
 and audit scripts. It requires no runtime export to edit journal source. After
 changing `data/local.json`, reload source in the editor.
 
+For browser checks, `ATLAS_TEST_PORT=4359 pnpm exec playwright test` selects a
+separate loopback port when the usual test port is occupied. The harness refuses
+to reuse an existing server; do not stop unrelated previews to obtain a port.
+
 ## Named authoring jobs
 
 `scripts/jobs.mjs` owns the registry and runner for named Python and Node workers.
@@ -191,14 +202,14 @@ requests cannot choose a program, shell command, script path or argument vector.
 The registry records input validation, fixed arguments, working-directory role,
 expected outputs, timeout, output cap and cancellation policy.
 
-| Jobs                                                           | Inputs and output                                                                                                                 | Limits                                                    |
-| -------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| `journal.preview`, `journal.validate`, `journal.generate`      | No process inputs; read configured or temporary journal source; generate native quests and language resources only when requested | 30 s, 2 MiB                                               |
-| `config.audit`, `config.validate`                              | No inputs; inspect the register or validate its temporary source copy                                                             | 30 s, 2 MiB                                               |
-| `models.preview`, `models.validate`                            | Model document on stdin, at most 1 MB; return preview JSON or validation                                                          | 30 s; 8 MiB for preview, 2 MiB for validation             |
-| `resources.generate`                                           | No inputs; generate the selected client resource ZIP                                                                              | 180 s, 2 MiB                                              |
-| `snapshot.fingerprint`, `snapshot.capture`, `snapshot.extract` | No inputs; fingerprint or explicitly regenerate implementation evidence                                                           | 30 s for fingerprint, 660 s for capture/extraction; 2 MiB |
-| `scenario.export`                                              | Validated saved recipe changes on stdin; staged ZIP                                                                               | 30 s, 2 MiB                                               |
+| Jobs                                                           | Inputs and output                                                                                                           | Limits                                                    |
+| -------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| `quests.preview`, `quests.validate`, `quests.generate`         | No process inputs; read configured or temporary quest source; generate native FTB SNBT and locale files only when requested | 30 s, 2 MiB                                               |
+| `config.audit`, `config.validate`                              | No inputs; inspect the register or validate its temporary source copy                                                       | 30 s, 2 MiB                                               |
+| `models.preview`, `models.validate`                            | Model document on stdin, at most 1 MB; return preview JSON or validation                                                    | 30 s; 8 MiB for preview, 2 MiB for validation             |
+| `resources.generate`                                           | No inputs; generate the selected client resource ZIP                                                                        | 180 s, 2 MiB                                              |
+| `snapshot.fingerprint`, `snapshot.capture`, `snapshot.extract` | No inputs; fingerprint or explicitly regenerate implementation evidence                                                     | 30 s for fingerprint, 660 s for capture/extraction; 2 MiB |
+| `scenario.export`                                              | Validated saved recipe changes on stdin; staged ZIP                                                                         | 30 s, 2 MiB                                               |
 
 Activity shows service operations and up to 20 terminal outcomes for the current
 host session. Pure reads add no outcomes; explicit previews are named operations.

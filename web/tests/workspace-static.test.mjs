@@ -109,6 +109,24 @@ async function fixture(t) {
   }
 }
 
+test('static map delivery shares the native-data budget without raising other public limits', async (t) => {
+  const f = await fixture(t)
+  const content = JSON.stringify({ padding: 'x'.repeat(33 * 1024 * 1024) })
+  await f.publish('map', { 'catalog.json': content })
+  const published = await f.build()
+  assert.equal(
+    published.projections.map.files['catalog.json'].byteLength,
+    Buffer.byteLength(content),
+  )
+  await f.publish('objects', { 'index.json': content })
+  await assert.rejects(f.build(), /Public artifact exceeds/)
+  await f.publish('objects', { 'index.json': '{}' })
+  await f.publish('map', {
+    'catalog.json': Buffer.alloc(64 * 1024 * 1024 + 1, 32),
+  })
+  await assert.rejects(f.build(), /Public artifact exceeds/)
+})
+
 test('static materialization uses active scoped bytes, rewrites links and descriptors, and excludes private projections', async (t) => {
   const f = await fixture(t)
   const generation = await f.publish(

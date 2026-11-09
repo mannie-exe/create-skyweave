@@ -109,7 +109,7 @@ export function assertJson(
       ancestors.delete(item as object)
       continue
     }
-    if (++nodes > limits.document) throw new Error('JSON is too complex')
+    if (++nodes > maximum) throw new Error('JSON is too complex')
     if (depth > limits.depth) throw new Error('JSON nesting exceeds 64 levels')
     if (item === null || typeof item === 'string' || typeof item === 'boolean')
       continue

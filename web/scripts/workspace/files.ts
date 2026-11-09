@@ -11,32 +11,26 @@ import { operationOwner } from './ownership.ts'
 
 export type Source = { text: string; revision: string }
 export type Sources = { files: Record<string, Source>; revision: string }
-const journal =
-  /^journal\/(defaults\.json|(?:chapters|locales)\/[a-z0-9_]+\.json)$/
+const quests = /^quests\/(book\.json|(?:chapters|locales)\/[a-z0-9_]+\.json)$/
 const config = /^changes\/[a-z0-9_]+\.json$/
-const additionalLocale = /^journal\/locales\/(?!en_us\.json$)[a-z0-9_]+\.json$/
-const outputFolders = {
-  chapter: 'overrides/common/config/questlog/chapters',
-  quest: 'overrides/common/config/questlog/quests',
-  locale: 'resource-patches/assets/create_skyweave/lang',
-} as const
+const mutableQuestSource =
+  /^quests\/(?:chapters\/[a-z0-9_]+|locales\/(?!en_us\.json$)[a-z0-9_]+)\.json$/
+const outputRoot = 'overrides/common/config/ftbquests/quests/'
 function generated(id: string) {
-  const match = /^generated:journal:(chapter|quest|locale):([a-z0-9_/]+)$/.exec(
-    id,
-  )
-  if (!match || match[2].split('/').some((part) => !part) || id.length > 240)
-    return null
-  return `${outputFolders[match[1] as keyof typeof outputFolders]}/${match[2]}.json`
+  const match =
+    /^generated:quests:((?:(?:chapters|lang)\/)?[a-z0-9_]+\.snbt|\.skyweave-generated\.json)$/.exec(
+      id,
+    )
+  return match && id.length <= 240 ? outputRoot + match[1] : null
 }
-export function journalOutputId(relative: string) {
+export function questOutputId(relative: string) {
   if (relative === 'empack.bindings.yml') return 'pack:bindings'
-  for (const [kind, folder] of Object.entries(outputFolders)) {
-    if (!relative.startsWith(folder + '/') || !relative.endsWith('.json'))
-      continue
-    const id = `generated:journal:${kind}:${relative.slice(folder.length + 1, -5)}`
-    if (generated(id)) return id
-  }
-  throw new WorkspaceError('INVALID_INPUT', 'Unexpected journal output')
+  const id = 'generated:quests:' + relative.slice(outputRoot.length)
+  if (relative.startsWith(outputRoot) && generated(id)) return id
+  throw new WorkspaceError(
+    'INVALID_INPUT',
+    'Unsupported native quest output: ' + relative,
+  )
 }
 const fixed = {
   models: ['pack', 'authoring/model-recipes.json', true],
@@ -60,16 +54,13 @@ const fixed = {
 export function sourceIdentity(root: 'pack' | 'web', relative: string) {
   for (const [id, [owner, file, writable]] of Object.entries(fixed))
     if (owner === root && file === relative) return { id, writable }
-  if (root === 'pack')
-    for (const [kind, folder] of Object.entries(outputFolders))
-      if (relative.startsWith(folder + '/') && relative.endsWith('.json'))
-        return {
-          id: `generated:journal:${kind}:${relative.slice(folder.length + 1, -5)}`,
-          writable: false,
-        }
+  if (root === 'pack' && relative.startsWith(outputRoot)) {
+    const id = 'generated:quests:' + relative.slice(outputRoot.length)
+    if (generated(id)) return { id, writable: false }
+  }
   if (root === 'pack' && relative.startsWith('authoring/')) {
     const id = relative.slice(10)
-    if (journal.test(id) || config.test(id)) return { id, writable: true }
+    if (quests.test(id) || config.test(id)) return { id, writable: true }
   }
   if (root === 'web')
     for (const name of domains)
@@ -81,7 +72,7 @@ export function sourceIdentity(root: 'pack' | 'web', relative: string) {
 /** Allowlisted logical sources; callers never select a physical root or filename. */
 export function createSourceRepository(
   registration: Registration,
-  options: { journalOutputs?: boolean } = {},
+  options: { questOutputs?: boolean } = {},
 ) {
   const roots = Promise.all([
     fs.realpath(registration.web),
@@ -90,7 +81,7 @@ export function createSourceRepository(
   let committing = false,
     serial = 0
   function admitted(id: string) {
-    const output = options.journalOutputs && generated(id)
+    const output = options.questOutputs && generated(id)
     if (output)
       return { root: 'pack' as const, relative: output, writable: true }
     if (id.startsWith('map:') && domains.includes(id.slice(4)))
@@ -99,7 +90,7 @@ export function createSourceRepository(
         relative: `data/authored/${id.slice(4)}.yml`,
         writable: true,
       }
-    if (journal.test(id) || config.test(id))
+    if (quests.test(id) || config.test(id))
       return {
         root: 'pack' as const,
         relative: 'authoring/' + id,
@@ -111,7 +102,7 @@ export function createSourceRepository(
         root,
         relative,
         writable:
-          writable || (!!options.journalOutputs && id === 'pack:bindings'),
+          writable || (!!options.questOutputs && id === 'pack:bindings'),
       }
     }
     throw new WorkspaceError('NOT_FOUND', 'Unknown source')
@@ -155,12 +146,12 @@ export function createSourceRepository(
     }
   }
   async function list(
-    family: 'map' | 'authoring' | 'models' | 'reviews' | 'journal-outputs',
+    family: 'map' | 'authoring' | 'models' | 'reviews' | 'quest-outputs',
   ) {
     if (family === 'map') return domains.map((name) => 'map:' + name)
     if (family === 'reviews') return ['reviews']
-    if (family === 'journal-outputs') {
-      if (!options.journalOutputs)
+    if (family === 'quest-outputs') {
+      if (!options.questOutputs)
         throw new WorkspaceError('NOT_FOUND', 'Unknown source family')
       const pack = (await roots).pack,
         result: string[] = []
@@ -177,14 +168,17 @@ export function createSourceRepository(
           })) {
             const child = relative + '/' + entry.name
             if (entry.isDirectory()) await visit(child)
-            else if (entry.name.endsWith('.json'))
-              result.push(journalOutputId(child))
+            else if (
+              entry.name.endsWith('.snbt') ||
+              entry.name === '.skyweave-generated.json'
+            )
+              result.push(questOutputId(child))
           }
         } catch (error) {
           if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error
         }
       }
-      for (const folder of Object.values(outputFolders)) await visit(folder)
+      await visit(outputRoot.slice(0, -1))
       if (await readOrMissing('pack:bindings')) result.push('pack:bindings')
       return result.sort()
     }
@@ -198,9 +192,9 @@ export function createSourceRepository(
     const base = path.join((await roots).pack, 'authoring')
     const result: string[] = []
     for (const directory of [
-      'journal',
-      'journal/chapters',
-      'journal/locales',
+      'quests',
+      'quests/chapters',
+      'quests/locales',
       'changes',
     ]) {
       const folder = path.join(base, directory)
@@ -211,7 +205,7 @@ export function createSourceRepository(
         )
       for (const entry of (await fs.readdir(folder)).sort()) {
         const id = directory + '/' + entry
-        if (journal.test(id) || config.test(id)) result.push(id)
+        if (quests.test(id) || config.test(id)) result.push(id)
       }
     }
     return result
@@ -275,17 +269,18 @@ export function createSourceRepository(
       if (!admitted(id).writable)
         throw new WorkspaceError('INVALID_INPUT', 'This source is read-only')
       const output =
-        !!options.journalOutputs && (!!generated(id) || id === 'pack:bindings')
+        !!options.questOutputs && (!!generated(id) || id === 'pack:bindings')
       if (
         text === null &&
-        ((!additionalLocale.test(id) && !(output && id !== 'pack:bindings')) ||
+        ((!mutableQuestSource.test(id) &&
+          !(output && id !== 'pack:bindings')) ||
           !before.files[id])
       )
         throw new WorkspaceError(
           'INVALID_INPUT',
-          'Only additional locales can be deleted',
+          'Only quest chapters, additional locales and owned outputs can be deleted',
         )
-      if (!before.files[id] && !additionalLocale.test(id) && !output)
+      if (!before.files[id] && !mutableQuestSource.test(id) && !output)
         throw new WorkspaceError(
           'INVALID_INPUT',
           'This source cannot be created',
@@ -295,7 +290,7 @@ export function createSourceRepository(
         (typeof text !== 'string' || Buffer.byteLength(text) > 1_000_000)
       )
         throw new WorkspaceError('INVALID_INPUT', 'Invalid source text')
-      if (output && text !== null) {
+      if ((output || mutableQuestSource.test(id)) && text !== null) {
         await context.authorize()
         const entry = admitted(id)
         const parent = path.dirname(entry.relative)

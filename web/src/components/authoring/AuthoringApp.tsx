@@ -7,12 +7,12 @@ import { useEffect, useRef, useState } from 'react'
 import { requestJSON } from '../../lib/http'
 import { notify } from '../../lib/activity'
 import { authoringViews } from '../../lib/authoring-navigation'
-import { encode, assertJournalShape } from '../../lib/journal.mjs'
-import Entries from './journal/Entries'
-import Disclaimers from './journal/Disclaimers'
-import Localization, { type Documents } from './journal/Localization'
-import JsonEditor from './journal/JsonEditor'
-import { DraftContext } from './journal/Drafts'
+import { encode, assertQuestShape } from '../../lib/quests.mjs'
+import Entries from './quests/Entries'
+import SharedText from './quests/SharedText'
+import Localization, { type Documents } from './quests/Localization'
+import JsonEditor from './quests/JsonEditor'
+import { DraftContext } from './quests/Drafts'
 import { workspaceClient } from '../../lib/workspace/client'
 import { observeWorkspaceChanges } from '../../lib/workspace/changes'
 import { readJSONArtifact } from '../../lib/workspace/artifacts'
@@ -29,15 +29,15 @@ export default function AuthoringApp() {
     [documents, setDocuments] = useState<Documents>({}),
     [view, setView] = useState('entries'),
     [locale, setLocale] = useState('en_us'),
-    [entryId, setEntryId] = useState('travel/glider'),
-    [sharedId, setSharedId] = useState('inventory'),
+    [entryId, setEntryId] = useState(''),
+    [sharedId, setSharedId] = useState('suggested_project'),
     [search, setSearch] = useState(''),
     [stringsKey, setStringsKey] = useState(0)
   const [busy, setBusy] = useState(false),
     [status, setStatus] = useState('Loading source…'),
     [statusError, setStatusError] = useState(false),
     [raw, setRaw] = useState<Record<string, string>>({}),
-    [source, setSource] = useState('journal/defaults.json'),
+    [source, setSource] = useState('quests/book.json'),
     [audit, setAudit] = useState<any>(),
     [category, setCategory] = useState(''),
     [refreshRequired, setRefreshRequired] = useState(false)
@@ -56,11 +56,11 @@ export default function AuthoringApp() {
   }
   const dirty = Object.keys(changes).length > 0,
     unapplied = Object.keys(raw).length > 0,
-    inJournal = ['entries', 'disclaimers', 'strings'].includes(view)
-  const journalScope =
-    inJournal || (view === 'source' && source.startsWith('journal/'))
+    inQuests = ['entries', 'shared', 'strings'].includes(view)
+  const questScope =
+    inQuests || (view === 'source' && source.startsWith('quests/'))
   const saveNames = Object.keys(changes).filter((name) =>
-    journalScope ? name.startsWith('journal/') : name === source,
+    questScope ? name.startsWith('quests/') : name === source,
   )
   const generatedCount =
     (snapshot?.generation?.changed.length || 0) +
@@ -77,7 +77,7 @@ export default function AuthoringApp() {
         }
       }),
     )
-    assertJournalShape(documents)
+    assertQuestShape(documents)
     setSnapshot(value)
     setDocuments(documents)
     setRaw({})
@@ -114,10 +114,10 @@ export default function AuthoringApp() {
     () =>
       observeWorkspaceChanges({
         sources: (id) =>
-          id.startsWith('journal/') ||
+          id.startsWith('quests/') ||
           id.startsWith('changes/') ||
           id.startsWith('input:pack/overrides/'),
-        projections: ['journal-preview'],
+        projections: ['quests-preview'],
         changed(change) {
           if (!current.current.snapshot) return
           if (
@@ -147,7 +147,7 @@ export default function AuthoringApp() {
           }
           const before = current.current.snapshot
           void action(async () => {
-            const next = await workspaceClient.query('journal.read', {})
+            const next = await workspaceClient.query('quests.read', {})
             const generation =
               next.preview.state === 'current'
                 ? await readJSONArtifact(next.preview.artifact)
@@ -227,8 +227,8 @@ export default function AuthoringApp() {
     }
     setSnapshot({ ...snapshot!, files: committed, revision: saved.revision })
     await refreshAfterWrite(
-      journalScope
-        ? 'Source saved. Generate to update Questlog files.'
+      questScope
+        ? 'Source saved. Generate to update FTB Quests files.'
         : 'Source saved.',
       async () => {
         // Retain drafts outside this view when refreshing saved revisions.
@@ -271,9 +271,9 @@ export default function AuthoringApp() {
   }
   const heading =
     view === 'entries'
-      ? 'Journal entries'
-      : view === 'disclaimers'
-        ? 'Journal disclaimers'
+      ? 'Quests'
+      : view === 'shared'
+        ? 'Shared text'
         : view === 'strings'
           ? 'Localization'
           : view === 'audit'
@@ -302,7 +302,7 @@ export default function AuthoringApp() {
             tab(
               item.id,
               item.label,
-              item.id === 'entries' ? inJournal : view === item.id,
+              item.id === 'entries' ? inQuests : view === item.id,
             )
           ),
         )}
@@ -313,10 +313,10 @@ export default function AuthoringApp() {
         className="authoring content-stack"
         data-space="section"
       >
-        {inJournal && (
-          <nav className="action-row journal-tabs" aria-label="Journal tools">
-            {tab('entries', 'Entries')}
-            {tab('disclaimers', 'Disclaimers')}
+        {inQuests && (
+          <nav className="action-row quest-tabs" aria-label="Quest tools">
+            {tab('entries', 'Quests')}
+            {tab('shared', 'Shared text')}
             {tab('strings', 'Localization')}
           </nav>
         )}
@@ -335,14 +335,14 @@ export default function AuthoringApp() {
                       {dirty || unapplied
                         ? 'Draft · unsaved changes'
                         : 'Source · saved'}
-                      {journalScope && (
+                      {questScope && (
                         <>
                           {' · '}
                           {refreshRequired
-                            ? 'Questlog files · status unavailable'
+                            ? 'FTB Quests files · status unavailable'
                             : generatedCount
-                              ? 'Questlog files · update needed'
-                              : 'Questlog files · match saved source'}
+                              ? 'FTB Quests files · update needed'
+                              : 'FTB Quests files · match saved source'}
                         </>
                       )}
                     </p>
@@ -362,7 +362,7 @@ export default function AuthoringApp() {
                 onClick={() => {
                   if (
                     (dirty || unapplied) &&
-                    !confirm('Discard all unsaved source and JSON changes?')
+                    !confirm('Discard all unsaved source and field edits?')
                   )
                     return
                   void action(load)
@@ -390,10 +390,10 @@ export default function AuthoringApp() {
                   }
                   onClick={() => void action(save, 'Saving source…')}
                 >
-                  {journalScope ? 'Save journal' : 'Save source'}
+                  {questScope ? 'Save quests' : 'Save source'}
                 </Button>
               )}
-              {inJournal && (
+              {inQuests && (
                 <Button
                   disabled={
                     busy ||
@@ -412,10 +412,10 @@ export default function AuthoringApp() {
                         result.output + '. Instances were not changed.',
                         load,
                       )
-                    }, 'Generating Questlog files…')
+                    }, 'Generating FTB Quests files…')
                   }
                 >
-                  Generate Questlog files
+                  Generate FTB Quests files
                 </Button>
               )}
             </EditorActions>
@@ -425,15 +425,15 @@ export default function AuthoringApp() {
               <p className="scope">
                 {Object.keys(changes).length} changed source files
                 {unapplied
-                  ? `; ${Object.keys(raw).length} JSON edits to apply or discard before saving`
+                  ? `; ${Object.keys(raw).length} field edits to apply or discard before saving`
                   : ''}
-                . Drafts stay with you between views. Save journal includes all
-                journal drafts.
+                . Drafts stay with you between views. Save quests includes all
+                quest drafts.
               </p>
             )}
           </div>
           {unapplied && (
-            <Disclosure summary={<>Unapplied JSON edits</>}>
+            <Disclosure summary={<>Unapplied field edits</>}>
               <ul>
                 {Object.keys(raw).map((id) => (
                   <li key={id}>
@@ -442,7 +442,7 @@ export default function AuthoringApp() {
                       <Button
                         intent="destructive"
                         onClick={() => {
-                          if (!confirm(`Discard unapplied JSON for ${id}?`))
+                          if (!confirm(`Discard unapplied edit for ${id}?`))
                             return
                           setRaw((previous) => {
                             const next = { ...previous }
@@ -459,12 +459,12 @@ export default function AuthoringApp() {
               </ul>
             </Disclosure>
           )}
-          {snapshot?.generationError && inJournal && (
+          {snapshot?.generationError && inQuests && (
             <Feedback tone="error">
               Generation review unavailable. {snapshot.generationError}
             </Feedback>
           )}
-          {snapshot?.generation && inJournal && !refreshRequired && (
+          {snapshot?.generation && inQuests && !refreshRequired && (
             <Disclosure
               className="generation-review"
               summary={
@@ -503,14 +503,10 @@ export default function AuthoringApp() {
                   id={entryId}
                   setId={setEntryId}
                   openStrings={openStrings}
-                  openDisclaimers={(id) => {
-                    setSharedId(id || 'inventory')
-                    setView('disclaimers')
-                  }}
                 />
               )}
-              {view === 'disclaimers' && (
-                <Disclaimers
+              {view === 'shared' && (
+                <SharedText
                   id={sharedId}
                   setId={setSharedId}
                   documents={documents}
@@ -547,7 +543,7 @@ export default function AuthoringApp() {
                     </select>
                   </label>
                   <p className="scope">
-                    Advanced source editing. Journal structure and locale
+                    Advanced source editing. Quest structure and locale
                     references are validated together on save.
                   </p>
                   <JsonEditor
@@ -562,8 +558,7 @@ export default function AuthoringApp() {
                       )
                         throw new Error('Source must be a JSON object.')
                       const next = { ...documents, [source]: value }
-                      if (source.startsWith('journal/'))
-                        assertJournalShape(next)
+                      if (source.startsWith('quests/')) assertQuestShape(next)
                       setDocuments(next)
                     }}
                   />

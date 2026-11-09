@@ -4,6 +4,9 @@ import type { Artifact } from '../../src/lib/workspace/contracts.ts'
 import { WorkspaceError } from './errors.ts'
 import { loadedTool } from './loaded-tool.ts'
 export const assetProjectionRevision = loadedTool(import.meta.url)
+// Native source provenance makes the current combined map domain about 56 MiB.
+// Resource previews retain their separate, smaller per-file budget.
+export const MAP_JSON_LIMIT_MIB = 64
 
 /** Only passive images emitted by our icon compositor are admitted as SVG. */
 export async function validateVisualAsset(file: string) {
@@ -89,10 +92,13 @@ export async function assetProjectionFiles(
             'Resource projection exceeds its limit',
           )
         if (entry.name.endsWith('.json')) {
-          if (stat.size > (profile === 'map' ? 32 : 16) * 1024 * 1024)
+          if (
+            stat.size >
+            (profile === 'map' ? MAP_JSON_LIMIT_MIB : 16) * 1024 * 1024
+          )
             throw new WorkspaceError(
               'GENERATION_FAILED',
-              'Generated JSON exceeds its limit',
+              `Generated JSON exceeds its limit: ${path.relative(staging, file)} (${stat.size} bytes)`,
             )
           JSON.parse(await fs.readFile(file, 'utf8'))
         } else await validateVisualAsset(file)

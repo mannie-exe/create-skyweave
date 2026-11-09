@@ -36,9 +36,10 @@ files remain trackable; generated assets and local credentials stay ignored.
 `empack.bindings.yml` marks `icon.png`, `options.txt` and the authored shader preset
 TXT files as `seed`: initial installation writes the default, while later preparation
 preserves edits. Prism rewrites `icon.png` before its pre-launch hook. Server properties
-come from the server template and remain installation-local. When a visual pack filename changes, update only its matching saved resource-pack ID during an authorized stopped-client sync; seeded `options.txt` will not replace an existing player's selection. Preserve the rest of the list, its order, and other player settings. Generated Questlog
-definitions have exact `managed` policies so journal edits and removals apply on
-updates. See [journal updates](journal.md#update-checks) for older seeded definitions.
+come from the server template and remain installation-local. When a visual pack filename changes, update only its matching saved resource-pack ID during an authorized stopped-client sync; seeded `options.txt` will not replace an existing player's selection. Preserve the rest of the list, its order, and other player settings. Generated FTB definitions and frozen Questlog resources have exact `managed`
+policies. FTB source generation rejects external definition edits before replacing
+outputs; native world/team progress is separate. See [quest maintenance](journal.md)
+for source ownership and update checks.
 
 ## Local builds
 
@@ -48,7 +49,7 @@ then rebuild maintained resources and build all supported exports:
 ```sh
 python3 tools/shader-lab/build.py
 python3 -m unittest discover -s tests -v
-python3 scripts/generate-journal.py --check
+python3 scripts/generate-quests.py --check
 python3 scripts/audit-changes.py
 python3 scripts/build-resource-patches.py
 empack status
@@ -71,6 +72,11 @@ Prism and server recipients need empack 0.8.2-beta on `PATH`; the generated hook
 prepare and verify exact files before launch. Modrinth-compatible launchers handle
 the `.mrpack` downloads. Authored files remain included, and empack includes prepared
 server-runtime assets. Check content sources and installation as well as archive integrity.
+
+The shared resource builder excludes Finder/AppleDouble and Windows desktop
+metadata while retaining authored assets. Archives use stable ordering and
+publication avoids rewriting unchanged output. Verify generated archives before
+release; source-directory cleanliness alone does not prove archive cleanliness.
 
 Local edits can change an export without changing its filename. Use the published
 release's checksums to identify released bytes; a local rebuild is not a substitute

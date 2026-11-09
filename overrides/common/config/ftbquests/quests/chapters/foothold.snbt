@@ -1,0 +1,212 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "foothold"
+	group: ""
+	icon: {
+		id: "minecraft:water_bucket"
+	}
+	id: "14F11A63CBA900C3"
+	images: [ ]
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			icon: {
+				id: "minecraft:bread"
+			}
+			id: "569DA99C5DF8EDF1"
+			rewards: [{
+				auto: "disabled"
+				count: 2
+				id: "459CF8F6A7B6BD5F"
+				item: {
+					count: 1
+					id: "minecraft:bread"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [{
+				consume_items: false
+				count: 16L
+				id: "7A54B1CDD63D195B"
+				item: { components: { "minecraft:custom_data": { "skyweave_compat:quest_items": { items: [ "minecraft:bread", "minecraft:baked_potato" ], schema: 1 } } }, count: 1, id: "minecraft:paper" }
+				match_components: "strict"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "minecraft:wheat"
+			}
+			id: "59F5B094F4342246"
+			rewards: [{
+				auto: "disabled"
+				count: 2
+				id: "236B802A881EF5C1"
+				item: {
+					count: 1
+					id: "minecraft:wheat"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [{
+				advancement: "minecraft:husbandry/breed_an_animal"
+				criterion: ""
+				id: "48B720A38ACFCE45"
+				type: "advancement"
+			}]
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "minecraft:water_bucket"
+			}
+			id: "692B8E7D2B4DBC77"
+			tasks: [{
+				consume_items: false
+				id: "605E219DB056AD9C"
+				item: { count: 1, id: "minecraft:water_bucket" }
+				type: "item"
+			}]
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "travelersbackpack:standard"
+			}
+			id: "14CF2731483376DB"
+			tasks: [{
+				consume_items: false
+				id: "6136E8B46009B6F1"
+				item: { components: { "minecraft:custom_data": { "skyweave_compat:quest_items": { schema: 1, tag: "travelersbackpack:custom_travelers_backpack" } } }, count: 1, id: "minecraft:paper" }
+				match_components: "strict"
+				type: "item"
+			}]
+			x: 9.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["14CF2731483376DB"]
+			icon: {
+				id: "travelersbackpack:white_sleeping_bag"
+			}
+			id: "0878FDE4B22E9B49"
+			rewards: [{
+				auto: "disabled"
+				id: "4E597FA34FA29327"
+				item: {
+					count: 1
+					id: "minecraft:bread"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [{
+				advancement: "travelersbackpack:use_sleeping_bag"
+				criterion: ""
+				id: "619EB48D0B880F41"
+				type: "advancement"
+			}]
+			x: 0.0d
+			y: 3.0d
+		}
+		{
+			dependencies: ["14CF2731483376DB"]
+			icon: {
+				id: "minecraft:iron_pickaxe"
+			}
+			id: "7E967B37502DB0E4"
+			rewards: [{
+				auto: "disabled"
+				count: 4
+				id: "7E3D01461E345E14"
+				item: {
+					count: 1
+					id: "minecraft:torch"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [{
+				advancement: "travelersbackpack:tool_slots"
+				criterion: ""
+				id: "5314EF3CB87BBF40"
+				type: "advancement"
+			}]
+			x: 3.0d
+			y: 3.0d
+		}
+		{
+			dependencies: ["14CF2731483376DB"]
+			icon: {
+				id: "minecraft:glass_bottle"
+			}
+			id: "04B76914A9753A5F"
+			rewards: [{
+				auto: "disabled"
+				count: 2
+				id: "5AB62022C4F4B54A"
+				item: {
+					count: 1
+					id: "minecraft:glass"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [{
+				advancement: "travelersbackpack:hose_suck"
+				criterion: ""
+				id: "7CA4331444E059BB"
+				type: "advancement"
+			}]
+			x: 6.0d
+			y: 3.0d
+		}
+		{
+			icon: {
+				id: "minecraft:anvil"
+			}
+			id: "1885DC93776CDB69"
+			tasks: [{
+				consume_items: false
+				id: "51BA01EDBBD88779"
+				item: { count: 1, id: "minecraft:anvil" }
+				type: "item"
+			}]
+			x: 9.0d
+			y: 3.0d
+		}
+		{
+			icon: {
+				id: "minecraft:enchanting_table"
+			}
+			id: "5434887C8E6DA306"
+			rewards: [{
+				auto: "disabled"
+				count: 3
+				id: "79D5B14785364799"
+				item: {
+					count: 1
+					id: "minecraft:lapis_lazuli"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [{
+				advancement: "minecraft:story/enchant_item"
+				criterion: ""
+				id: "1AA6F3E09AA7CF84"
+				type: "advancement"
+			}]
+			x: 0.0d
+			y: 6.0d
+		}
+	]
+}

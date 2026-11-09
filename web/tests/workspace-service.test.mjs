@@ -217,7 +217,7 @@ test('concurrent duplicate commands execute once; reads stay available and other
     pending = gate()
   let calls = 0
   const preview = defineOperation({
-    name: 'journal.preview',
+    name: 'quests.preview',
     effect: 'preview',
     input: z.strictObject({ value: z.number() }),
     output: z.strictObject({ value: z.number() }),
@@ -241,7 +241,7 @@ test('concurrent duplicate commands execute once; reads stay available and other
     definitions: [...mapDefinitions([registration]), preview],
   })
   t.after(() => service.dispose())
-  const frame = command(service, registration.scope, 'journal.preview', {
+  const frame = command(service, registration.scope, 'quests.preview', {
     value: 1,
   })
   const [first, second] = await Promise.all([
@@ -260,7 +260,7 @@ test('concurrent duplicate commands execute once; reads stay available and other
   await assert.rejects(
     service.submit(
       actor,
-      command(service, registration.scope, 'journal.preview', { value: 2 }),
+      command(service, registration.scope, 'quests.preview', { value: 2 }),
     ),
     code('BUSY'),
   )
@@ -290,7 +290,7 @@ test('authority revoked during validation prevents commit; stale sessions and ex
     writes = 0,
     time = Date.now()
   const preview = defineOperation({
-    name: 'journal.preview',
+    name: 'quests.preview',
     effect: 'preview',
     input: z.strictObject({}),
     output: z.strictObject({}),
@@ -317,7 +317,7 @@ test('authority revoked during validation prevents commit; stale sessions and ex
     policy: { mode: 'restricted', decide: () => ({ allowed }) },
   })
   t.after(() => service.dispose())
-  const frame = command(service, registration.scope, 'journal.preview', {})
+  const frame = command(service, registration.scope, 'quests.preview', {})
   const admitted = await service.submit(actor, frame)
   const outcome = admitted.outcome.catch((error) => error)
   allowed = false

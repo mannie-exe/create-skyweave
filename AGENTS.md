@@ -55,6 +55,8 @@ For an authorized rename:
   leave final naming and flavor to the owner. Follow the accepted spawn, dimension
   access and prison-content direction in `docs/development/team-world-progress.md`
   and `docs/development/prison.md`; planned behavior is not an implemented claim.
+  Custom team spawning/onboarding and home/progress-reset policies are deferred;
+  team-independent initial spawn recovery onto a nearby secondary island remains in scope.
 
 ## Work and evidence
 
@@ -62,7 +64,7 @@ For an authorized rename:
   smallest complete change. Ask only consequential questions evidence cannot settle.
 - Use empack and the recorded lock; reference builds are the default. Preserve
   Minecraft pins. Verify provider metadata against exact artifacts when it conflicts.
-- Keep journal sources in `authoring/journal`, configuration rationale/digests in
+- Keep quest sources in `authoring/quests`, configuration rationale/digests in
   `authoring/changes`, maintained resources in `resource-patches`, and the Atlas in `web`.
   Regenerate derived content through its owning scripts rather than editing copies.
 - Keep static resource/data changes in pack-owned sources and generators;

@@ -12,6 +12,7 @@ import { canonical, hash } from './identity.ts'
 import { ownedDirectory } from './paths.ts'
 import type { Registration } from './service.ts'
 import { WorkspaceError } from './errors.ts'
+import { MAP_JSON_LIMIT_MIB } from './asset-projection.ts'
 
 const publicNames = {
   map: /^(?:(?:catalog|domains|routes|coverage|recipes|loot|world|structures|islands|authored)\.json|details\/[a-z0-9_/-]+\.json|icons\/[a-f0-9]+\.(?:png|svg))$/,
@@ -130,7 +131,8 @@ export async function materializeStatic(options: {
     }
     async function write() {
       const references = new Map<string, Artifact>(),
-        aliases = new Map<string, Artifact>()
+        aliases = new Map<string, Artifact>(),
+        mapReferences = new Set<string>()
       for (const generation of admitted)
         for (const [logical, reference] of Object.entries(generation.files)) {
           const namespace = generation.namespace as PublicNamespace
@@ -142,6 +144,7 @@ export async function materializeStatic(options: {
           if (scopeKey(reference.scope) !== scopeKey(scope))
             throw new Error('Invalid public artifact scope')
           references.set(reference.url, reference)
+          if (namespace === 'map') mapReferences.add(reference.url)
           if (selected.some((value) => value.id === generation.id))
             aliases.set(
               '/generated/' +
@@ -166,7 +169,13 @@ export async function materializeStatic(options: {
           throw new Error('Public reference changed')
         if (
           reference.byteLength >
-          (reference.mediaType === 'application/json' ? 32 : 16) * 1024 * 1024
+          (reference.mediaType === 'application/json'
+            ? mapReferences.has(reference.url)
+              ? MAP_JSON_LIMIT_MIB
+              : 32
+            : 16) *
+            1024 *
+            1024
         )
           throw new Error('Public artifact exceeds its limit')
         let data = await fs.readFile(resolved.file)

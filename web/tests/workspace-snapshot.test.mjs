@@ -43,6 +43,7 @@ test(
       'tools/exporter',
       'installation/libraries',
       'overrides/common/config',
+      'templates/server/game',
     ])
       await fs.mkdir(path.join(root, folder), { recursive: true })
     await fs.cp(path.resolve('../scripts'), path.join(root, 'scripts'), {
@@ -83,6 +84,10 @@ test(
       vanilla: 'vanilla.jar',
     })
     await write('vanilla.jar', 'fixture vanilla bytes')
+    await write(
+      'templates/server/game/server.properties.template',
+      'allow-nether=false\nlevel-type=fixture:world\n',
+    )
     await write('authoring/visual-patches.json', {
       schema: 1,
       sources: {
@@ -300,6 +305,21 @@ test(
       'REVISION_CONFLICT',
     )
     changing()
+    let templateChanged = false
+    const changingTemplate = runner.subscribe((snapshot) => {
+      if (!templateChanged && snapshot.current?.name === 'snapshot.extract') {
+        templateChanged = true
+        appendFileSync(
+          path.join(root, 'templates/server/game/server.properties.template'),
+          '# changed during capture\n',
+        )
+      }
+    })
+    assert.equal(
+      (await command('snapshot.refresh')).error.code,
+      'REVISION_CONFLICT',
+    )
+    changingTemplate()
     assert.equal(
       (await artifacts.active(actor, registration.scope, 'map')).id,
       current.id,

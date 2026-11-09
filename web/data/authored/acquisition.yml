@@ -170,6 +170,40 @@ records:
     outputs: [hostile_skies:peace_treaty]
     detail: Novice librarian offer costs 32 emeralds and 3 diamonds. Resets captain kill progression, not village safety or raid immunity. Requires the offer to be selected.
     sources: ['Hostile Skies 0.2.6 villager trade event']
+  - id: environment/ancient-city-salvage
+    title: Ancient City salvage
+    gate: atlas:exploration
+    blocks: [minecraft:soul_sand]
+    detail: Each of the three vanilla city-center templates contains 57 soul-sand blocks, retained by the start-degradation processor. This is a declared Overworld structure source, not a nearby-city or harvest guarantee. Soul sand drops itself without a tool requirement; powered fan washing provides a quartz route without the Nether.
+    sources:
+      - 'Minecraft 1.21.1 ancient_city/city_center/city_center_1..3 block palettes and placements'
+      - 'Minecraft 1.21.1 ancient_city_start_degradation processor and soul_sand block loot'
+      - 'Create 6.0.10 splashing/soul_sand recipe'
+    environment:
+      structures:
+        - minecraft:ancient_city
+  - id: environment/ruined-portal-salvage
+    title: Ruined portal salvage
+    gate: atlas:exploration
+    blocks:
+      [
+        minecraft:netherrack,
+        minecraft:obsidian,
+        minecraft:crying_obsidian,
+        minecraft:gold_block,
+      ]
+    detail: Overworld ruined-portal templates can supply these blocks even when Nether travel is closed. Template choice, damage, finding a ruin and mining-tool requirements still apply. A registered template does not guarantee a particular island or quantity.
+    sources:
+      ['Minecraft 1.21.1 ruined_portal templates and structure placement']
+    environment:
+      structures:
+        - minecraft:ruined_portal
+        - minecraft:ruined_portal_desert
+        - minecraft:ruined_portal_jungle
+        - minecraft:ruined_portal_mountain
+        - minecraft:ruined_portal_nether
+        - minecraft:ruined_portal_ocean
+        - minecraft:ruined_portal_swamp
   - id: environment/nether
     title: Nether terrain
     gate: atlas:nether
@@ -226,6 +260,9 @@ records:
     gate: atlas:nether
     entities: [minecraft:blaze, minecraft:wither_skeleton]
     detail: Fortress spawns and blaze spawners; requires locating a fortress and fighting its mobs. Not a general Nether biome spawn.
+    environment:
+      structures:
+        - minecraft:fortress
   - id: interaction/turtle-growth
     title: Turtle scutes
     inputs: [[atlas:overworld], [minecraft:seagrass]]
@@ -309,6 +346,10 @@ records:
     entities: [minecraft:elder_guardian]
     blocks: [minecraft:wet_sponge]
     detail: Requires a generated ocean monument. Ocean-island suppression makes availability uncertain; this source has not been surveyed in the Nether or End and is not guaranteed in the Overworld sample.
+    environment:
+      structures:
+        - minecraft:monument
+        - betteroceanmonuments:ocean_monument
   - id: interaction/dragon-breath
     title: Bottle dragon breath
     inputs: [[atlas:end], [minecraft:glass_bottle], [atlas:combat]]
@@ -664,3 +705,139 @@ records:
         'Redstone Additions 1.0.5 with Compat 0.14.0',
         'docs/development/compatibility.md#redstone-control',
       ]
+environment:
+  context: dedicated
+  dimensions:
+    - id: minecraft:overworld
+      gate: atlas:overworld
+      access: initial
+    - id: minecraft:the_nether
+      gate: atlas:nether
+      access: conditional
+      denyFeature: minecraft.nether_access
+      markedSetting: skyweave_compat:islands_v1
+    - id: minecraft:the_end
+      gate: atlas:end
+      access: conditional
+  lootBindings:
+    - tables:
+        - minecraft:chests/abandoned_mineshaft
+      structures:
+        - minecraft:mineshaft
+        - minecraft:mineshaft_mesa
+        - bettermineshafts:mineshaft_acacia
+        - bettermineshafts:mineshaft_desert
+        - bettermineshafts:mineshaft_dripstone
+        - bettermineshafts:mineshaft_ice
+        - bettermineshafts:mineshaft_jungle
+        - bettermineshafts:mineshaft_lush
+        - bettermineshafts:mineshaft_mesa
+        - bettermineshafts:mineshaft_mushroom
+        - bettermineshafts:mineshaft_oak
+        - bettermineshafts:mineshaft_overgrown
+        - bettermineshafts:mineshaft_red_desert
+        - bettermineshafts:mineshaft_spruce
+        - bettermineshafts:mineshaft_spruce_snowy
+      evidence: Minecraft MineshaftPieces and YUNG BetterMineshaftStructure use abandoned_mineshaft loot; native declarations determine biome/set eligibility
+    - tables:
+        - minecraft:chests/ancient_city
+        - minecraft:chests/ancient_city_ice_box
+      structures:
+        - minecraft:ancient_city
+      evidence: Vanilla Ancient City template/container bindings
+    - tables:
+        - minecraft:chests/bastion_bridge
+        - minecraft:chests/bastion_hoglin_stable
+        - minecraft:chests/bastion_other
+        - minecraft:chests/bastion_treasure
+      structures:
+        - minecraft:bastion_remnant
+      evidence: Vanilla BastionRemnant structure pools and container tables
+    - tables:
+        - minecraft:chests/buried_treasure
+      structures:
+        - minecraft:buried_treasure
+      evidence: Vanilla BuriedTreasurePieces container loot binding
+    - tables:
+        - minecraft:chests/desert_pyramid
+        - minecraft:archaeology/desert_pyramid
+      structures:
+        - minecraft:desert_pyramid
+      evidence: Vanilla DesertPyramidPiece chest and archaeology placement; YUNG template branches supply their own native bindings
+    - tables:
+        - minecraft:chests/end_city_treasure
+      structures:
+        - minecraft:end_city
+      evidence: Vanilla EndCityPieces container binding
+    - tables:
+        - minecraft:chests/igloo_chest
+      structures:
+        - minecraft:igloo
+      evidence: Vanilla IglooPieces basement chest binding
+    - tables:
+        - minecraft:chests/jungle_temple
+        - minecraft:chests/jungle_temple_dispenser
+      structures:
+        - minecraft:jungle_pyramid
+      evidence: Vanilla JungleTemplePiece chest and dispenser placement; YUNG template branches supply their own native bindings
+    - tables:
+        - minecraft:chests/nether_bridge
+      structures:
+        - minecraft:fortress
+      evidence: Vanilla NetherFortressPieces chest binding
+    - tables:
+        - minecraft:chests/pillager_outpost
+      structures:
+        - minecraft:pillager_outpost
+      evidence: Vanilla pillager-outpost templates; modded pool references are extracted separately
+    - tables:
+        - minecraft:chests/ruined_portal
+      structures:
+        - minecraft:ruined_portal
+        - minecraft:ruined_portal_desert
+        - minecraft:ruined_portal_jungle
+        - minecraft:ruined_portal_mountain
+        - minecraft:ruined_portal_nether
+        - minecraft:ruined_portal_ocean
+        - minecraft:ruined_portal_swamp
+      evidence: Vanilla ruined-portal templates share the table across Overworld and Nether variants
+    - tables:
+        - minecraft:chests/shipwreck_map
+        - minecraft:chests/shipwreck_supply
+        - minecraft:chests/shipwreck_treasure
+      structures:
+        - minecraft:shipwreck
+        - minecraft:shipwreck_beached
+      evidence: Vanilla ShipwreckPieces container markers
+    - tables:
+        - minecraft:chests/simple_dungeon
+      evidence: Vanilla MonsterRoomFeature; eligible cave geometry and generation remain conditional
+      features:
+        - minecraft:monster_room
+        - minecraft:monster_room_deep
+    - tables:
+        - minecraft:chests/stronghold_corridor
+        - minecraft:chests/stronghold_crossing
+        - minecraft:chests/stronghold_library
+      structures:
+        - minecraft:stronghold
+      evidence: Vanilla StrongholdPieces chest markers
+    - tables:
+        - minecraft:chests/underwater_ruin_big
+        - minecraft:chests/underwater_ruin_small
+        - minecraft:archaeology/ocean_ruin_warm
+        - minecraft:archaeology/ocean_ruin_cold
+      structures:
+        - minecraft:ocean_ruin_cold
+        - minecraft:ocean_ruin_warm
+      evidence: Vanilla OceanRuinPieces container and archaeology placement
+    - tables:
+        - minecraft:chests/woodland_mansion
+      structures:
+        - minecraft:mansion
+      evidence: Vanilla WoodlandMansionPieces chest markers
+    - tables:
+        - minecraft:archaeology/desert_well
+      evidence: Vanilla DesertWellFeature suspicious-sand table; eligible desert biome and feature placement are required
+      features:
+        - minecraft:desert_well

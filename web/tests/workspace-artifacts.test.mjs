@@ -13,6 +13,7 @@ import {
 import { createArtifactStore } from '../scripts/workspace/artifacts.ts'
 import { target, scopeKey } from '../scripts/workspace/policy.ts'
 import { hash } from '../scripts/workspace/identity.ts'
+import { assertJson } from '../src/lib/workspace/contracts.ts'
 import {
   scopedResourceLinks,
   assetProjectionFiles,
@@ -295,6 +296,19 @@ test('resource output collection rejects invalid images and unexpected files', a
   await assert.rejects(assetProjectionFiles(candidate), /Unexpected/)
 })
 
+test('explicit generated JSON budgets admit wide native data without increasing transport defaults', () => {
+  const value = Array(1_000_001).fill(0)
+  assert.throws(() => assertJson(value), /too complex/)
+  assert.doesNotThrow(() => assertJson(value, 4 * 1024 * 1024))
+  assert.throws(
+    () => assertJson({ bad: Infinity }, 4 * 1024 * 1024),
+    /JSON values/,
+  )
+  const cyclic = {}
+  cyclic.self = cyclic
+  assert.throws(() => assertJson(cyclic, 4 * 1024 * 1024), /Cyclic/)
+})
+
 test('map output has a measured JSON budget; resource previews retain their smaller cap and SVG stays passive', async (t) => {
   const f = await fixture(t),
     candidate = path.join(f.directory, 'map')
@@ -311,6 +325,26 @@ test('map output has a measured JSON budget; resource previews retain their smal
       'catalog.json'
     ],
   )
+  // The native provenance domain is about 56 MiB; keep the map-only 64 MiB
+  // admission boundary explicit rather than lifting every resource-file limit.
+  await fs.writeFile(
+    path.join(candidate, 'catalog.json'),
+    Buffer.from('"' + 'x'.repeat(56 * 1024 * 1024) + '"'),
+  )
+  assert.ok(
+    (await assetProjectionFiles(candidate, 'catalog.json', 'map'))[
+      'catalog.json'
+    ],
+  )
+  await fs.writeFile(
+    path.join(candidate, 'catalog.json'),
+    Buffer.alloc(64 * 1024 * 1024 + 1, 32),
+  )
+  await assert.rejects(
+    assetProjectionFiles(candidate, 'catalog.json', 'map'),
+    /JSON exceeds/,
+  )
+  await fs.writeFile(path.join(candidate, 'catalog.json'), bytes)
   const png =
     'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1kAAAAASUVORK5CYII='
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1" image-rendering="pixelated"><image width="1" height="1" href="data:image/png;base64,${png}"/></svg>`

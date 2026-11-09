@@ -21,6 +21,7 @@ import { stageMapIcons, mapIconFiles } from './map-assets.ts'
 import {
   assetProjectionFiles,
   scopedResourceLinks,
+  MAP_JSON_LIMIT_MIB,
 } from './asset-projection.ts'
 import { createInputDigests } from './digests.ts'
 
@@ -266,7 +267,7 @@ export function snapshotDefinitions(
             .replace(ctx, generated, before, () =>
               artifacts.publish(ctx, {
                 namespace: 'map',
-                jsonMaximum: 32,
+                jsonMaximum: MAP_JSON_LIMIT_MIB,
                 staging: map,
                 files,
                 inputs: { ...ctx.inputRevisions },

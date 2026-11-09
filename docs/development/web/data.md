@@ -48,6 +48,14 @@ timed-out runs remove the marker. `snapshot.json` records loaded JAR hashes, the
 pack-lock hash, mod source (`pack` or `installed`) and input fingerprint after that check. Investigate a failed capture
 before compiling its output.
 
+Map publication admits JSON files up to 64 MiB within the existing 512 MiB
+projection budget; the combined native-source domain currently measures about
+56 MiB. Resource previews retain their 16 MiB per-file limit. Generated JSON
+validation uses the explicitly selected byte/node budget; ordinary control-frame
+and authored-document limits remain unchanged. A failed admission retains the
+previous snapshot and reports the relative output and failed constraint. Keep
+per-output provenance independent when merging shared template branches.
+
 The adapter is specific to this pack and Minecraft 1.21.1 / NeoForge. Adding a mod
 can require new Java or graph adapters. User-world datapacks and gamerules are not
 imported. The CLI audit world can persist between captures. Workspace captures start in a
@@ -187,7 +195,7 @@ Adapters cover runtime recipes, Rechiseled groups, Create sequenced assembly,
 NeoForge compound/difference/intersection/block-tag ingredients, fluids, distinct
 potion states, brewing, sampled villager and wandering-trader offers, Big Cannons
 casting/boring/heating, copper transformations, composting and global loot modifiers.
-Gathering uses actual block loot and mining tags over observed world blocks.
+Gathering uses actual block loot and mining tags over declared natural sources.
 Chest, fishing, mob, barter, archaeology and selected event sources retain their
 conditions and functions. `acquisition.yml` holds explicit environmental and
 interaction assumptions; those are editable, not discoveries made by the solver.
@@ -198,9 +206,40 @@ are separate evidence, not a whole-chain production simulation.
 Trade offers are seeded samples, not every possible enchantment or NBT variant.
 Most item components are evidence rather than independent nodes; potion contents
 are specifically modeled. Arbitrary Java mechanics still need source adapters.
-Coverage separates mapped items, blocked prerequisites, missing adapters,
+Coverage separates mapped items, blocked prerequisites, unclassified sources, missing adapters,
 explicit internal/creative exclusions and unified material variants. Exact-input
 crafting collisions are review candidates, not automatic deletion instructions.
+
+### Source availability
+
+`EnvironmentExport.java` captures effective biome features and spawns, placed and
+configured features, structure-set membership, pools and template block/loot
+references. It decodes preset biome sources without constructing terrain or
+searching for islands. `environment.json` also records effective Compat switches
+and the selected server template's access defaults and digest. The capture does
+not open playing-world chunks or reproduce jigsaw assembly.
+
+`acquisition.yml` binds the intended preset/dimensions and procedural loot sources.
+`availability.mjs` combines those bindings with native declarations. Registered
+content alone does not establish a usable source. Closed dimensions constrain
+routes and initial roots in both the compiler and item view; real Overworld
+salvage remains independent. Unsupported or unbound sources remain unclassified,
+and surveyed blocks cannot prove natural origin or bootstrap acquisition.
+
+Supported feature adapters read output states, not replacement predicates. Placed
+and configured features have distinct registry identities even when their IDs
+match. Template branches retain their source references and structure access;
+fit, processors, unopened loot, ownership and harvest conditions remain unresolved.
+Unknown providers, custom generation and bounded template-decode failures do not
+silently become free supplies. Review those limits before declaring an item
+unobtainable or changing its recipe.
+
+The source and generation revision inventories include the server template.
+Changing it during capture rejects publication; changing it afterward requires a
+fresh environment capture before compilation. Dependency updates must recheck
+feature/provider codecs, native biome modifications, pool elements, structure
+replacement policy and procedural loot bindings. Keep bindings tied to native
+implementations rather than guessing a dimension from an identifier.
 
 ## World evidence
 
@@ -245,8 +284,9 @@ adapters; [`src/lib/graph.mjs`](../../../web/src/lib/graph.mjs) owns coverage an
 `catalog.json` holds the grid and summary counts. Item details are split by mod
 namespace into 16 hash buckets and fetched on demand. `domains.json`, `recipes.json`,
 `routes.json`, `coverage.json`, `loot.json` and `world.json` support evidence views.
-Without a survey, `world.json` is `null` and no survey-derived gathering edges are
-added. A malformed survey still fails compilation instead of being treated as absent.
+Without a survey, `world.json` is `null`; native declarations can still supply
+potential gathering routes. Survey-only observations stay unclassified. A malformed
+survey still fails compilation instead of being treated as absent.
 
 [`src/lib/atlas.ts`](../../../web/src/lib/atlas.ts) renders only cells near the viewport,
 loads details as needed and handles search, filters, hover details and canvas world
@@ -389,7 +429,7 @@ The editor has no database or hosted backend.
 - `src/styles/base.css` loads tokens, typography, composition and UI styles, and
   owns document defaults, native control states, navigation and tables. Feature
   styles retain their geometry and domain visuals. The
-  [design-token guide](design-tokens.md#shared-ui-components) owns component
+  [design-token guide](design-tokens.md#shared-components) owns component
   contracts and explains the retained exceptions.
 
 Keep page markup and rendering components separate from filesystem operations in
@@ -558,29 +598,20 @@ compilation. World sampling is a separate operation.
 Static builds retain browsing but have no filesystem editing endpoints. Exported
 recipe scenarios never install themselves into a Minecraft instance.
 
-## Journal and pack ownership
+## Quest and pack ownership
 
-The exporter writes native quest definitions and handler checks to
-`data/generated/runtime/journal.json`. This is retained verification evidence;
-the UI currently indexes authored journal notes rather than a dedicated quest graph.
-The pack's `authoring/journal/` owns mechanics and locale text; native Questlog JSON
-is generated. The separate [pack authoring editor](authoring.md) edits that source
-and inspects categorized configuration drift. Player quest progress is not read
-or edited by the app.
+The pack's `authoring/quests/` owns FTB mechanics and localized/shared text. The
+[authoring editor](authoring.md) uses the shared workspace service, stable native
+IDs, revision-aware generation and native SNBT output. Player/team save data is
+not editable authoring source. Frozen Questlog runtime definitions remain during
+the trial without a second editor or generator.
 
-FTB Quests is the selected authoring replacement. Its native SNBT, translations,
-stable IDs, dependency graph and reward scope must enter the existing workspace
-service and revision-aware generation path together. The current editor/exporter
-is still Questlog-specific. Do not add an independent quest store, parallel
-Questlog/FTB editor modes or use player save data as authored content. The
-[quest design](../journal.md) and [team/access policy](../team-world-progress.md)
-own the accepted content and dimension-availability direction.
-
-[Journal definitions](../journal.md) owns quest conditions and authoring;
-[Compatibility](../compatibility.md) owns installed fixes;
-[upstream findings](../upstream.md) owns issue research. Keep gameplay fixes there and map
-implementation details here. See [setup](setup.md) for capture commands and
-[verification](verification.md) for dated results and remaining coverage gaps.
+Runtime exports provide observed implementation evidence separately from authored
+intent. Refresh them when registered content or handler contracts change; a source
+save does not recapture native behavior. [Quest design](../journal.md),
+[compatibility](../compatibility.md) and [team/access policy](../team-world-progress.md)
+own their gameplay contracts. See [setup](setup.md) for capture commands and
+[verification](verification.md) for evidence limits.
 
 ## Heat and generation evidence
 
@@ -829,20 +860,18 @@ an interaction, its conditions, consumption or repeatability. Add source-backed
 routes and facts incrementally rather than assigning difficulty from entity or item
 type. Missing evidence must remain visible until the relevant behavior is captured.
 
-### Journal authoring boundary
+### Quest authoring boundary
 
-Journal editing uses the pack-owned chapter and locale documents, not the mapper's
-compiled item records. `src/lib/journal.mjs` provides draft operations and resolved
-text; `scripts/generate-journal.py` validates source and emits native Questlog JSON
-and language resources. Cross-language tests exercise both against a temporary
-pack, including entry deletion and sparse translation fallback. See the
-[authoring guide](authoring.md) for save, generation and locale behavior.
+`src/lib/quests.mjs` owns draft operations and resolved text; `scripts/quests.py`
+and `generate-quests.py` validate source and emit version-pinned FTB SNBT. Cross-language
+service tests exercise generation, coordinated CRUD, chapter moves and sparse locales
+against temporary packs. The compiler's manifest protects native edits and owns
+retired outputs; no general SNBT importer is implied.
 
-World, structure and island views continue to render their owning survey exports;
-shared content-stack markup also applies to HTML created by their renderers.
-Neither layout nor journal changes update a survey's capture date or generator
-identity. Mapper edits still rebuild through the existing domain-save/compile
-path; runtime capture and world imports remain separate explicit operations.
+World, structure and island views retain their own survey exports. Text/layout
+changes do not change capture dates or generator identities. Mapper domains still
+use the existing save/compile path; runtime capture and world imports remain
+separate explicit operations.
 
 ### Resource objects
 

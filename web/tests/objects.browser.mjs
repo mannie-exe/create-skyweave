@@ -151,7 +151,7 @@ test('registered custom stack previews reject arbitrary paths and do not save so
       const frame = JSON.parse(String(payload))
       if (
         frame.type === 'command' &&
-        /(?:\.save$|^(?:journal|resources)\.generate$)/.test(frame.operation)
+        /(?:\.save$|^(?:quests|resources)\.generate$)/.test(frame.operation)
       )
         writes.push(frame.operation)
     })

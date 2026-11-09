@@ -341,14 +341,15 @@ export function createEnvironmentResolver(
       'Declared frames and timing; model animations and audio are not evaluated.',
     )
     capability(
-      'journal',
-      'questlog-journal',
+      'quests',
+      'ftb-quests',
       ['python'],
-      'Validates authored journal sources; generation remains explicit.',
+      'Validates authored FTB quest sources; generation remains explicit.',
       'supported',
       'inspected',
       {
-        questlog: dependencies.find((entry) => entry.id === 'questlog') ?? null,
+        ftbquests:
+          dependencies.find((entry) => entry.id === 'ftb-quests') ?? null,
       },
     )
     capability(

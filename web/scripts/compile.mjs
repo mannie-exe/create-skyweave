@@ -1,5 +1,6 @@
 import { enrichRoutes } from '../src/lib/acquisition-facts.mjs'
 import { routeFamily } from '../src/lib/progression.mjs'
+import { buildEnvironment } from '../src/lib/availability.mjs'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import crypto from 'node:crypto'
@@ -41,6 +42,7 @@ export const compileInputs = [
   'runtime/fluids',
   'world',
   'runtime/resources',
+  'runtime/environment',
   'runtime/chiseling',
   'runtime/brewing',
   'runtime/trades',
@@ -197,6 +199,32 @@ async function compile(context) {
     if (record.inputs?.length && record.outputs?.length)
       routes.push({ kind: 'interaction', ...record })
   routes.push(...interactions.map((r) => ({ kind: 'interaction', ...r })))
+  const environmentCapture = authored.acquisition.environment
+    ? await read('runtime/environment')
+    : undefined
+  if (environmentCapture) {
+    const template = path.join(
+      pack,
+      'templates/server/game/server.properties.template',
+    )
+    if ((await fs.realpath(template)) !== template)
+      throw new Error('Server template symlinks are not supported')
+    const current = crypto
+      .createHash('sha256')
+      .update(await fs.readFile(template))
+      .digest('hex')
+    if (environmentCapture.serverDefaults?.sha256 !== current)
+      throw new Error(
+        'Server environment defaults changed; refresh the runtime snapshot before compiling',
+      )
+  }
+  const environment = authored.acquisition.environment
+    ? buildEnvironment({
+        capture: environmentCapture,
+        policy: authored.acquisition.environment,
+        resources,
+      })
+    : undefined
   const acquisition = acquisitionRoutes({
     items,
     blocks,
@@ -212,12 +240,15 @@ async function compile(context) {
     blockRecipes,
     lootModifiers,
     fluidTags,
+    environment,
   })
+  if (environment) for (const route of routes) environment.constrain(route)
   routes.push(...acquisition.routes)
-  const roots = [
+  const declaredRoots = [
     ...authored.progression.roots,
     ...authored.acquisition.records.flatMap((r) => r.roots ?? []),
   ]
+  const roots = environment ? environment.roots(declaredRoots) : declaredRoots
   const ids = [
     ...new Set([
       ...items.map((i) => i.id),
@@ -345,6 +376,7 @@ async function compile(context) {
         unresolved: nodes.filter((n) => n.depth === null).length,
         mapped: nodes.filter((n) => n.status === 'mapped').length,
         blocked: nodes.filter((n) => n.status === 'blocked').length,
+        unknown: nodes.filter((n) => n.status === 'unknown').length,
         unmapped: nodes.filter((n) => n.status === 'unmapped').length,
         excluded: nodes.filter((n) => n.status === 'excluded').length,
         unified: nodes.filter((n) => n.status === 'unified').length,
@@ -355,6 +387,7 @@ async function compile(context) {
         trades: trades.length,
       },
       limitations: authored.progression.limitations,
+      environment: environment?.summary,
     },
   })
   await write('domains', {
@@ -363,6 +396,7 @@ async function compile(context) {
       .filter((r) => itemMap.has(r.id) && r.status !== 'mapped')
       .sort((a, b) => b.downstream - a.downstream),
     acquisition: acquisition.routes,
+    environment: environment?.summary,
     brewing,
     trades,
     blockRecipes,

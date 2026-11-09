@@ -1,0 +1,121 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "electricity"
+	group: ""
+	icon: {
+		id: "powergrid:wire_connector"
+	}
+	id: "35295A9F1A54A00C"
+	images: [ ]
+	order_index: 6
+	quest_links: [ ]
+	quests: [
+		{
+			icon: {
+				id: "powergrid:generator_induction_rotor"
+			}
+			id: "1D50319BD90477AA"
+			tasks: [{
+				consume_items: false
+				id: "1ACF1318C733DFDC"
+				item: { count: 1, id: "powergrid:generator_induction_rotor" }
+				type: "item"
+			}]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "powergrid:wire_connector"
+			}
+			id: "4AE3A7692C5E1DED"
+			tasks: [
+				{
+					consume_items: false
+					count: 2L
+					id: "1D34757CF44A5627"
+					item: { count: 1, id: "powergrid:wire_connector" }
+					type: "item"
+				}
+				{
+					id: "192B80C06302D376"
+					interaction_type: "block"
+					to_interact: "powergrid:circuit_design_table"
+					type: "interaction"
+				}
+			]
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "powergrid:electric_motor"
+			}
+			id: "3161C744E2E16003"
+			tasks: [{
+				consume_items: false
+				id: "24D263C015A40560"
+				item: { count: 1, id: "powergrid:electric_motor" }
+				type: "item"
+			}]
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["3161C744E2E16003"]
+			icon: {
+				id: "powergrid:electric_motor"
+			}
+			id: "75D11191405A162F"
+			rewards: [{
+				auto: "disabled"
+				count: 2
+				id: "48644998D68068B1"
+				item: {
+					count: 1
+					id: "minecraft:copper_ingot"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [{
+				advancement: "powergrid:electric_motor"
+				criterion: ""
+				id: "136E2E89E06FBC62"
+				type: "advancement"
+			}]
+			x: 9.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "powergrid:battery"
+			}
+			id: "21CD6335654F2F1A"
+			tasks: [{
+				consume_items: false
+				id: "6C4AA12AC11E8FAA"
+				item: { count: 1, id: "powergrid:battery" }
+				type: "item"
+			}]
+			x: 0.0d
+			y: 3.0d
+		}
+		{
+			dependencies: ["1D50319BD90477AA"]
+			icon: {
+				id: "createpropulsion:ion_thruster"
+			}
+			id: "26B495EE685E1F80"
+			tasks: [{
+				consume_items: false
+				id: "741C73EFB4DD58EB"
+				item: { count: 1, id: "createpropulsion:ion_thruster" }
+				type: "item"
+			}]
+			x: 3.0d
+			y: 3.0d
+		}
+	]
+}

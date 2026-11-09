@@ -1,3 +1,4 @@
+import { sourceUsable } from './availability.mjs'
 // One label per item and policy. This is an access model, not an inventory or
 // throughput optimizer. All costs are nonnegative; depth strictly increases.
 export const families = {
@@ -91,7 +92,7 @@ function prerequisites(prepared, labels, policy) {
   }
 }
 function outcomeCandidate(route, output, base) {
-  if (!base) return null
+  if (!base || !sourceUsable(route.availability)) return null
   const outcome = route.facts?.outcomes?.[output]
   if (outcome?.probability === 0) return null
   return {

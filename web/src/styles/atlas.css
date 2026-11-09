@@ -330,7 +330,8 @@
   :is(
     [data-coverage='mapped'],
     [data-coverage='blocked'],
-    [data-coverage='unmapped']
+    [data-coverage='unmapped'],
+    [data-coverage='unknown']
   )::after {
   content: '';
   position: absolute;

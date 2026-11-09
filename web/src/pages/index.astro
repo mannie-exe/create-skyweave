@@ -55,7 +55,8 @@ import ProgressionGraph from '../components/map/ProgressionGraph.astro'
         <select id="route-filter" aria-label="Filter by route">
           <option value="">All routes</option>
           <option value="known">Mapped route</option>
-          <option value="unknown">Unresolved route</option>
+          <option value="unresolved">Unresolved route</option>
+          <option value="unknown">Source not classified</option>
           <option value="blocked">Blocked dependencies</option>
           <option value="unmapped">No acquisition adapter</option>
           <option value="excluded">Internal / creative</option>
@@ -84,6 +85,7 @@ import ProgressionGraph from '../components/map/ProgressionGraph.astro'
         </Button>
       </div>
       <div id="coverage-summary" class="summary-strip"></div>
+      <p id="environment-summary" class="scope" hidden></p>
       <div class="map-meta">
         <span id="counts">Loading item registry…</span>
         <span class="coverage-legend" aria-label="Coverage legend">

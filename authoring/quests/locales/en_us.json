@@ -1,0 +1,1014 @@
+{
+  "schema": 1,
+  "shared": {
+    "suggested_project": "This is a suggested project. Mark it complete yourself after trying it; the quest does not inspect the build.",
+    "client_reference": "This is optional client help. Check Controls and the mod settings for your current bindings; the server cannot verify these gestures."
+  },
+  "objects": {
+    "14F11A63CBA900C3": {
+      "title": "A foothold",
+      "chapter_subtitle": [
+        "Supplies for working locally and returning safely. These routes can be pursued independently."
+      ]
+    },
+    "7A54B1CDD63D195B": {
+      "title": "Bread or baked potatoes"
+    },
+    "459CF8F6A7B6BD5F": {
+      "title": "Bread"
+    },
+    "569DA99C5DF8EDF1": {
+      "title": "A travelling meal",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Carry a small reserve before leaving familiar ground. Bread and baked potatoes count together; the task detects 16 meals in your inventory without consuming them.",
+        "Set aside a renewable crop patch rather than relying on the reward for your next trip."
+      ]
+    },
+    "48B720A38ACFCE45": {
+      "title": "Breed an animal"
+    },
+    "236B802A881EF5C1": {
+      "title": "Wheat"
+    },
+    "59F5B094F4342246": {
+      "title": "Renewable supplies",
+      "quest_subtitle": "Action",
+      "quest_desc": [
+        "Bring a pair of animals to a safe enclosure and use their breeding food. The vanilla breeding advancement confirms the action.",
+        "Keep wool, leather, food and transport needs in mind when choosing which animals to bring home."
+      ]
+    },
+    "605E219DB056AD9C": {
+      "title": "Water bucket"
+    },
+    "692B8E7D2B4DBC77": {
+      "title": "Carry water",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "A bucket supports crops, safe descents and early machines. The task checks the filled bucket, not a completed water supply.",
+        "For water wheels and washing, arrange a reusable local source before moving machinery away from home."
+      ]
+    },
+    "6136E8B46009B6F1": {
+      "title": "Any supported backpack"
+    },
+    "14CF2731483376DB": {
+      "title": "A portable kit",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Obtain a supported Traveler’s Backpack. Open its own interface to inspect the tool slots, tanks and sleeping bag.",
+        "Backpack death handling is disabled in this pack; the grave system owns recovery. Carrying a pack does not make a fall into the void safe."
+      ]
+    },
+    "619EB48D0B880F41": {
+      "title": "Use a backpack sleeping bag"
+    },
+    "4E597FA34FA29327": {
+      "title": "Bread"
+    },
+    "0878FDE4B22E9B49": {
+      "title": "Rest away from home",
+      "quest_subtitle": "Action",
+      "quest_desc": [
+        "Use the backpack’s sleeping bag and earn its native advancement. Check the mod’s sleeping rules before treating portable sleep as a permanent respawn point."
+      ]
+    },
+    "5314EF3CB87BBF40": {
+      "title": "Use backpack tool slots"
+    },
+    "7E3D01461E345E14": {
+      "title": "Torch"
+    },
+    "7E967B37502DB0E4": {
+      "title": "Tools without unpacking",
+      "quest_subtitle": "Action",
+      "quest_desc": [
+        "Try the backpack’s tool slots and earn its native advancement. Review its current keybindings rather than assuming a fixed modifier or mouse gesture."
+      ]
+    },
+    "7CA4331444E059BB": {
+      "title": "Use the backpack hose"
+    },
+    "5AB62022C4F4B54A": {
+      "title": "Glass"
+    },
+    "04B76914A9753A5F": {
+      "title": "A travelling fluid supply",
+      "quest_subtitle": "Action",
+      "quest_desc": [
+        "Use the hose to draw fluid into the backpack and earn its native advancement. Keep drinking, tank transfer and ordinary bucket use distinct."
+      ]
+    },
+    "51BA01EDBBD88779": {
+      "title": "Anvil"
+    },
+    "1885DC93776CDB69": {
+      "title": "Repair and enchant",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "An anvil keeps useful tools in service and combines compatible enchantments. This task checks the equipment; it does not require repairing a particular item."
+      ]
+    },
+    "1AA6F3E09AA7CF84": {
+      "title": "Enchant an item"
+    },
+    "79D5B14785364799": {
+      "title": "Lapis lazuli"
+    },
+    "5434887C8E6DA306": {
+      "title": "Improve a tool",
+      "quest_subtitle": "Action",
+      "quest_desc": [
+        "Enchant an item to earn the vanilla advancement. Bookshelves, lapis and experience remain part of the setup; no quest unlock is needed to use them."
+      ]
+    },
+    "32054FD43E39C977": {
+      "title": "Andesite alloy"
+    },
+    "76F915EEBD91F30B": {
+      "title": "Andesite"
+    },
+    "455BF53E14EF174E": {
+      "title": "A material for machinery",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Obtain two andesite alloy. Keep a supply of andesite and iron or zinc nuggets for the first machines.",
+        "This is an equipment milestone, not proof of an operating factory."
+      ]
+    },
+    "687AB5431B647C3C": {
+      "title": "Water wheel or windmill bearing"
+    },
+    "167F2CAFD03E495B": {
+      "title": "Shaft"
+    },
+    "6D83C35B7EED3D20": {
+      "title": "A source of rotation",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Choose a water wheel or windmill bearing. A windmill also needs a suitable sail assembly; a wheel needs correctly directed flowing water.",
+        "Use shafts, cogs and gearboxes to reach the first machine. Watch speed and stress rather than assuming any rotating source can drive every load."
+      ]
+    },
+    "6E652FA469F965F2": {
+      "title": "Mechanical press"
+    },
+    "1C17ADD8E0CC7B27": {
+      "title": "Set up a press",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Obtain a mechanical press and arrange rotation over a depot or another supported work surface. Feed the recipe’s inputs beneath it.",
+        "This task checks the press itself. The next milestone uses Create’s advancement for operating it."
+      ]
+    },
+    "3F39F5AD1112DC27": {
+      "title": "Earn the press advancement"
+    },
+    "20C65FC52C76106C": {
+      "title": "Iron ingot"
+    },
+    "5626C6B76EC3B141": {
+      "title": "Put the press to work",
+      "quest_subtitle": "Action",
+      "quest_desc": [
+        "Operate the press to earn Create’s mechanical press advancement. The advancement is the completion evidence; holding a sheet alone is not enough.",
+        "Keep pressing available for sheets and later packaging or assembly work."
+      ]
+    },
+    "384A73F3A96E2111": {
+      "title": "Millstone"
+    },
+    "42A2559609A59C98": {
+      "title": "Early grinding",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "A millstone opens small processing batches without a crushing-wheel assembly. Check EMI for the exact recipe and outputs before committing scarce materials.",
+        "It remains useful for compact or dedicated jobs after larger machines become available."
+      ]
+    },
+    "7FA19C9FEF9EA4BF": {
+      "title": "Encased fan"
+    },
+    "3449703C5C2160AA": {
+      "title": "An air-processing station",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Obtain an encased fan and provide rotation. Water, heat or other processing media in its airflow determine the operation.",
+        "Washing soul sand can produce quartz without entering the Nether. Ancient City centers are one declared Overworld source of soul sand; finding and safely salvaging them is still part of the journey."
+      ]
+    },
+    "02E041494755AE9C": {
+      "title": "Earn the fan-processing advancement"
+    },
+    "400143DB70A100DB": {
+      "title": "Gravel"
+    },
+    "167629D82AAE71E6": {
+      "title": "Process with airflow",
+      "quest_subtitle": "Action",
+      "quest_desc": [
+        "Earn Create’s fan-processing advancement through an actual operation. Use EMI to distinguish washing, smoking, blasting and haunting recipes."
+      ]
+    },
+    "3824B39EF5E7295A": {
+      "title": "Mechanical mixer"
+    },
+    "13AB39CE6DB73970": {
+      "title": "Mix in a basin",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "A mixer needs a basin, suitable rotation and the recipe’s inputs. Heated recipes also need a supported heat source below the basin.",
+        "Obtaining the mixer does not verify speed, stress or heat."
+      ]
+    },
+    "652823430E1C3866": {
+      "title": "Earn the mixing advancement"
+    },
+    "2A9241FDC999A469": {
+      "title": "Andesite"
+    },
+    "54A4B34485363149": {
+      "title": "Put the mixer to work",
+      "quest_subtitle": "Action",
+      "quest_desc": [
+        "Complete a mixing operation to earn Create’s mechanical mixer advancement. Keep simpler unheated recipes available alongside alloy production."
+      ]
+    },
+    "7821D0637E8F0154": {
+      "title": "Solid burner"
+    },
+    "341E5E42DC9BA764": {
+      "title": "Coal"
+    },
+    "060605249CC199CE": {
+      "title": "Heat without the Nether",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "The solid burner is the pack’s Overworld route to basin heat. Supply its supported fuel and check the required heat level in EMI.",
+        "A heat source, a mixer and their fuel are separate parts of the setup; this task only detects the burner."
+      ]
+    },
+    "235A9F92FA0DC371": {
+      "title": "Brass ingot"
+    },
+    "69BDFD16D87E1401": {
+      "title": "Make brass available",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Obtain brass for more precise machines, routing and controls. Follow the actual alloy recipe and heat requirement in EMI.",
+        "Brass is a capability milestone, not a recipe unlock. You may obtain it before the workshop milestones above."
+      ]
+    },
+    "24AA4E54704DA807": {
+      "title": "Crossing the gaps",
+      "chapter_subtitle": [
+        "Prepare an outward route, a controlled descent and a return. Flight is one option, not the only one."
+      ]
+    },
+    "06BB75487374ECE6": {
+      "title": "Phantom membrane"
+    },
+    "0C26AEA192EB821C": {
+      "title": "Materials for a glider",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Obtain phantom membranes through an available route. Compare mob drops, loot and processing in EMI or the Atlas rather than assuming Nether access.",
+        "Keep enough material for repair or replacement before making a long crossing."
+      ]
+    },
+    "38ED03F29127A33F": {
+      "title": "Glider"
+    },
+    "0BEEC050F3AC9AC9": {
+      "title": "Bread"
+    },
+    "1FC99B6CCF4C5F0A": {
+      "title": "A controlled descent",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Obtain a glider and test it above safe ground. Losing height is not a return route: plan your landing and a way back up.",
+        "This task checks the glider; it does not detect a successful crossing."
+      ]
+    },
+    "65D5AB29A82C4735": {
+      "title": "Rope coupling"
+    },
+    "05F71B6461C06E0F": {
+      "title": "Throwable rope connector"
+    },
+    "3442E28BD74961A4": {
+      "title": "Rope winch"
+    },
+    "590D53493CCCDEDA": {
+      "title": "A recoverable rope route",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Combine a rope coupling, throwable connector and winch to prepare an anchored route. Check attachment points and available rope before relying on it above the void.",
+        "The task detects the three pieces of equipment. Test pulling, release and recovery on a small gap before extending the route."
+      ]
+    },
+    "472388907CFA6EBB": {
+      "title": "Mark after trying it"
+    },
+    "14137D665919897D": {
+      "title": "A reason to leave home",
+      "quest_subtitle": "Suggested project",
+      "quest_desc": [
+        "Visit a different island habitat and return with something useful: a crop, an animal, a material or a photograph.",
+        "Island-search results describe planned terrain; they do not prove that you visited it.",
+        {
+          "shared": "suggested_project"
+        }
+      ]
+    },
+    "392848B59CBD16A7": {
+      "title": "Lift and range",
+      "chapter_subtitle": [
+        "Assemble an airframe, choose lift and propulsion, then budget for repeat journeys."
+      ]
+    },
+    "4060F335DDF83A32": {
+      "title": "Physics assembler"
+    },
+    "23C58F856F237A05": {
+      "title": "Honey glue"
+    },
+    "13A15A4FB21957DA": {
+      "title": "An assembled airframe",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Prepare a physics assembler and honey glue. Use their actual assembly and attachment rules; ordinary static construction is not automatically one moving body.",
+        "This task checks the tools. Assemble a small safe test platform before adding passengers, machinery or cargo."
+      ]
+    },
+    "2E61B5CF42F08D15": {
+      "title": "Envelopes, any colour"
+    },
+    "7412FA29FD4FA6AD": {
+      "title": "Adjustable burner"
+    },
+    "2C73C0D951FAE75F": {
+      "title": "Prepare heated lift",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Envelope blocks and an adjustable burner are only the start. Build the required enclosure, provide fuel and account for the full airframe’s mass.",
+        "Different envelope colours count together. The task detects equipment, not an airtight or buoyant craft."
+      ]
+    },
+    "44611D3846EF2849": {
+      "title": "Earn Head in the Clouds"
+    },
+    "0EDF42A031333727": {
+      "title": "White wool"
+    },
+    "6D20D3414070E7CE": {
+      "title": "Earn your lift",
+      "quest_subtitle": "Action",
+      "quest_desc": [
+        "Earn Aeronautics’ Head in the Clouds advancement through its native lift behavior. Keep clearance beneath the airframe and test stability before loading it."
+      ]
+    },
+    "59EA1169B10ED4EA": {
+      "title": "Propeller bearing"
+    },
+    "25691BCD08DC308F": {
+      "title": "Wooden or andesite propeller"
+    },
+    "5BD7C37048608CA2": {
+      "title": "A propeller drive",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Prepare a propeller and its bearing. Align thrust with the intended motion and supply rotation; consider steering and reverse thrust before a long trip.",
+        "This milestone checks the equipment. It does not verify thrust, available stress or safe control."
+      ]
+    },
+    "776EFE1935407258": {
+      "title": "Earn For Every Action"
+    },
+    "6C494DFE0ED9E8E6": {
+      "title": "Coal"
+    },
+    "0A58C07508240112": {
+      "title": "Put thrust to work",
+      "quest_subtitle": "Action",
+      "quest_desc": [
+        "Earn Aeronautics’ For Every Action advancement. Test the actual drive under the airframe’s load before planning range from an unloaded demonstration."
+      ]
+    },
+    "4CDBF4EEDCC991D9": {
+      "title": "Portable engine, any colour"
+    },
+    "69CA6BF1186E8D14": {
+      "title": "Portable rotation",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "A portable engine offers another source of rotation for a moving build. Inspect its supported fuel and load behavior rather than treating it as free power.",
+        "Any listed colour is accepted. Keep earlier stationary sources for workshop loads."
+      ]
+    },
+    "48547E7A53D027AA": {
+      "title": "Solid fuel thruster"
+    },
+    "51F2CE43BA129BC6": {
+      "title": "A solid-fuel drive",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "A solid-fuel thruster is an alternative to a rotating propeller drive. Arrange fuel access and controls, then compare its operating cost for your route."
+      ]
+    },
+    "772AC5CECB827226": {
+      "title": "Pine resin"
+    },
+    "672825A37FB7CE1C": {
+      "title": "Turpentine bucket"
+    },
+    "5A8EDA86B55A4D87": {
+      "title": "Fluid tank"
+    },
+    "020B0203AEAB4ED4": {
+      "title": "Thruster"
+    },
+    "033C890DBEFB25DC": {
+      "title": "Spruce log"
+    },
+    "4411720968A34082": {
+      "title": "A liquid-fuel route",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Build a repeatable fuel route from resin to turpentine, storage and the liquid thruster. Follow the current recipes and fluid handling rules in EMI.",
+        "This milestone detects the collected equipment and fuel. It does not verify a connected supply line or a particular travel distance."
+      ]
+    },
+    "38BB1BB4A26E1F77": {
+      "title": "Stirling engine"
+    },
+    "33DD6102DD3C6E2D": {
+      "title": "Another engine role",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Compare the Stirling engine’s actual heat and power requirements with the portable engine and other drives. Choose the arrangement that suits your stationary or moving load."
+      ]
+    },
+    "6785B5D3D30F089E": {
+      "title": "Contraption diagram"
+    },
+    "184EB1A485E26A61": {
+      "title": "Keep a design",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "A contraption diagram helps retain or work with a design under its native rules. Check what it records and what materials or assembly steps are still required.",
+        "Owning a diagram is not proof that the represented craft has been built."
+      ]
+    },
+    "6E65BCA923C86B3B": {
+      "title": "Motion and control",
+      "chapter_subtitle": [
+        "Guide moving bodies and transmit power through mechanisms with different constraints."
+      ]
+    },
+    "5ABA8C0D30223F18": {
+      "title": "Steering wheel"
+    },
+    "3532E5776DF455F3": {
+      "title": "Steer deliberately",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Prepare a steering wheel and test its native connections and response on a small craft. A control input cannot compensate for missing lift or an unbalanced drive."
+      ]
+    },
+    "002E75D9610ACB09": {
+      "title": "Linked controller"
+    },
+    "4006C1A55AE434C4": {
+      "title": "Redstone link"
+    },
+    "7EC7D7ED5D24F3A7": {
+      "title": "Redstone"
+    },
+    "3AAC886C5B371710": {
+      "title": "A remote control link",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Prepare a linked controller and two redstone links. Match frequencies and transmission roles, then test from the position where you will actually operate the craft.",
+        "This milestone detects the equipment; it does not verify that the frequencies match."
+      ]
+    },
+    "7E218842305FC700": {
+      "title": "Altitude, velocity or gimbal sensor"
+    },
+    "2A4865870CD7F97D": {
+      "title": "Measure motion",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Choose a measurement useful to your build. Altitude, velocity and orientation are different signals; check the sensor’s range and frame of reference before using it for control."
+      ]
+    },
+    "7A0E88E62163801C": {
+      "title": "Verdigris"
+    },
+    "2CE2B1B9759B0F6A": {
+      "title": "One supported logic component"
+    },
+    "5225A96FF871CC4B": {
+      "title": "Shape a control signal",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Prepare verdigris and a logic component. Build a small circuit with known inputs before connecting it to a moving machine.",
+        "Treat signal strength and timing as part of the design; obtaining a gate does not verify the circuit."
+      ]
+    },
+    "3056EBEB54D9AD3F": {
+      "title": "Linear bearing"
+    },
+    "71C443F9FABAD6F7": {
+      "title": "Linear casing"
+    },
+    "1041044627D6083E": {
+      "title": "Linear casing"
+    },
+    "3656F991B10C7510": {
+      "title": "A guided sliding body",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Prepare a linear bearing and a short casing run. The slider is passive; redstone operates its brake rather than supplying motion.",
+        "Test travel and braking before placing a load over a drop. The task checks equipment, not a completed or powered slide."
+      ]
+    },
+    "253A5990A588FDA1": {
+      "title": "Hinge"
+    },
+    "305FDD3EE40A4B9A": {
+      "title": "Ball joint"
+    },
+    "0F3EC24A65AB21E6": {
+      "title": "Shaft"
+    },
+    "274004398DC5F150": {
+      "title": "Articulated assemblies",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Hinges and ball joints allow different relative motion between bodies. Use a small test assembly to understand the permitted axes and attachment rules.",
+        "This task detects both joint types. Neither item alone proves a stable mechanism."
+      ]
+    },
+    "6E2C0568583E409B": {
+      "title": "Brass universal joint"
+    },
+    "06DD78853D24F4D5": {
+      "title": "Universal joint rod2"
+    },
+    "410E4E0848F7A843": {
+      "title": "Shaft"
+    },
+    "2F59A8E5DD82B47B": {
+      "title": "Transmit around a joint",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Prepare two universal joints and their connecting rod. Test the allowed alignment and motion before using the arrangement as a drive across an articulation."
+      ]
+    },
+    "4F86CF6CC5AE5AA1": {
+      "title": "Hydraulic connection head"
+    },
+    "450044DA3DCD8D46": {
+      "title": "Hydraulic rod"
+    },
+    "352DC86C8DF1E6BC": {
+      "title": "An adjustable actuator",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Prepare the connection heads and rod, then inspect their native settings. These actuators use their configured motion behavior; their appearance is not evidence of a separate fluid or Create-power requirement.",
+        "Test stroke and attachment clearance before moving machinery or passengers."
+      ]
+    },
+    "08D3EE64D02C2BEB": {
+      "title": "Damping stress bearing"
+    },
+    "5E68A9DEC3D74A1E": {
+      "title": "Motion into rotation",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Inspect the converter’s native settings and the motion supplied to it. Test direction, load and response on a safe assembly before integrating it into production."
+      ]
+    },
+    "12AFC304A6D92433": {
+      "title": "Magnetic port"
+    },
+    "3DBCBED1B7BC3958": {
+      "title": "A magnetic transmission",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Prepare two magnetic ports. Their repaired transmission uses native Create network connections; verify alignment and the actual rotation path under load.",
+        "This is transmission equipment, not a promise of free stress capacity."
+      ]
+    },
+    "422F6F65BA746BBB": {
+      "title": "Torsional anchor"
+    },
+    "423FB543C6164E90": {
+      "title": "Spring"
+    },
+    "19680B58825BA4C6": {
+      "title": "A spring transmission",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Prepare two torsional anchors and their springs. Check both attachment and power-network behavior on a small assembly before relying on the connection."
+      ]
+    },
+    "5E4F8D6B7F0C721E": {
+      "title": "Gyroscopic gearbox"
+    },
+    "3BCEB7122C950E42": {
+      "title": "Redstone converter"
+    },
+    "24DDC7CFD84BCE29": {
+      "title": "Read angular motion",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "The repaired gyro is a zero-SU angular-rate sensor. Use the converter to inspect its output; it is not a rotational power source.",
+        "The task detects the sensor pair, not a particular measured rate or control loop."
+      ]
+    },
+    "61583718767F4908": {
+      "title": "Production and freight",
+      "chapter_subtitle": [
+        "Turn discoveries into repeatable supplies, then move them where they are useful."
+      ]
+    },
+    "2EED86F05068695D": {
+      "title": "Quartz"
+    },
+    "428187DE6F11A534": {
+      "title": "An Overworld quartz route",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Obtain quartz without assuming Nether access. A declared route is to salvage soul sand from an Ancient City and wash it with a powered fan and water.",
+        "Create’s soul-sand washing recipe has a 12.5% chance to return four quartz per operation. This is a potential source, not a guarantee of a nearby city or a successful first batch."
+      ]
+    },
+    "6359B1F8B3119EC6": {
+      "title": "Mechanical crafter"
+    },
+    "0EDCB399C502F080": {
+      "title": "Mechanical crafter"
+    },
+    "090C3CBB2554D174": {
+      "title": "A larger crafting grid",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Prepare 21 mechanical crafters for the crushing-wheel recipe’s arrangement. Check orientation, connections, rotation and the current EMI pattern.",
+        "The task checks the crafter supply. It does not detect a correctly routed grid. The extra three crafters supplement a follow-up setup."
+      ]
+    },
+    "33C1862D8CA20CAA": {
+      "title": "Crushing wheel"
+    },
+    "17635AA0CB522C99": {
+      "title": "Sustained crushing",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Prepare a pair of crushing wheels and arrange the opposing rotation required by their operation. Provide collection for secondary outputs.",
+        "Keep the millstone available for compact jobs; larger machinery does not replace every early processing route."
+      ]
+    },
+    "1F5E1DEE36C6B4C7": {
+      "title": "Deployer"
+    },
+    "0438EDAE8A7888A9": {
+      "title": "Precision mechanism"
+    },
+    "66743909573F711F": {
+      "title": "Repeatable assembly",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Prepare a deployer and obtain a precision mechanism. Follow the actual sequenced-assembly steps, intermediate item and repetition count in EMI.",
+        "This task detects equipment and a result. It does not inspect a complete automated assembly line."
+      ]
+    },
+    "37555D88434030A0": {
+      "title": "Andesite funnel"
+    },
+    "2ADE0E64DB6F4928": {
+      "title": "Filter"
+    },
+    "42DA03813D3AC42B": {
+      "title": "Sort an operating line",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Prepare funnels and a filter for a repeatable input or output route. Check which transport components accept filters and how they treat unwanted items.",
+        "Test with a small mixed batch before connecting shared storage."
+      ]
+    },
+    "2AF2941ED5320E1D": {
+      "title": "Kelp"
+    },
+    "683687097685F800": {
+      "title": "Renewable packaging material",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Keep a renewable kelp supply for its useful processing and packaging routes. Check the current recipes before drying or committing the whole harvest."
+      ]
+    },
+    "7B5D90FAAA15939E": {
+      "title": "Earn the packaging advancement"
+    },
+    "2992DF6CF0685F2F": {
+      "title": "Cardboard"
+    },
+    "64667859CF409296": {
+      "title": "Make a package",
+      "quest_subtitle": "Action",
+      "quest_desc": [
+        "Earn Create’s packager advancement. Keep package addresses, inventories and transport separate from the act of making the first package."
+      ]
+    },
+    "17970FD1632259CB": {
+      "title": "Docking connector"
+    },
+    "606A595082D4B03E": {
+      "title": "A docking connection",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Prepare two docking connectors. Test approach, alignment and release with a small unloaded craft before relying on the connection for cargo.",
+        "Owning the pair does not verify a working dock or transfer system."
+      ]
+    },
+    "1968E86E19702B83": {
+      "title": "Interact with a delivery table"
+    },
+    "30A7BD00B3812126": {
+      "title": "Read a delivery contract",
+      "quest_subtitle": "Action",
+      "quest_desc": [
+        "Interact with a delivery quest table to inspect the native contracts. Read its destination, cargo and completion terms before committing to a journey.",
+        "This task records interaction with the table, not successful delivery, settlement demand or a new pack economy."
+      ]
+    },
+    "35295A9F1A54A00C": {
+      "title": "Distribute power",
+      "chapter_subtitle": [
+        "Generation, circuits, storage and motors extend machinery without replacing every mechanical drive."
+      ]
+    },
+    "1ACF1318C733DFDC": {
+      "title": "Generator induction rotor"
+    },
+    "1D50319BD90477AA": {
+      "title": "Electrical generation equipment",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Prepare an induction rotor and inspect the rest of its generator setup. This task detects the rotor; it does not verify a complete generator or usable output."
+      ]
+    },
+    "1D34757CF44A5627": {
+      "title": "Wire connector"
+    },
+    "192B80C06302D376": {
+      "title": "Interact with a circuit design table"
+    },
+    "4AE3A7692C5E1DED": {
+      "title": "A connected circuit",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Prepare connectors and interact with the circuit design table. Check circuit design, connections and operating limits in the native interface.",
+        "The task checks the connectors and table interaction, not electrical continuity or a particular circuit design."
+      ]
+    },
+    "24D263C015A40560": {
+      "title": "Electric motor"
+    },
+    "3161C744E2E16003": {
+      "title": "Return to rotation",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "An electric motor supplies rotation from an operating electrical circuit. Account for both its electrical supply and the mechanical load."
+      ]
+    },
+    "136E2E89E06FBC62": {
+      "title": "Earn the electric-motor advancement"
+    },
+    "48644998D68068B1": {
+      "title": "Copper ingot"
+    },
+    "75D11191405A162F": {
+      "title": "Run an electric motor",
+      "quest_subtitle": "Action",
+      "quest_desc": [
+        "Earn Power Grid’s electric motor advancement through its native operation. Keep the supply, circuit and machine load within their actual limits."
+      ]
+    },
+    "6C4AA12AC11E8FAA": {
+      "title": "Battery"
+    },
+    "21CD6335654F2F1A": {
+      "title": "Store power",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Prepare a battery for an operating circuit. Storage buffers generation; it does not provide an unlimited supply. Check the native charge and connection behavior."
+      ]
+    },
+    "741C73EFB4DD58EB": {
+      "title": "Ion thruster"
+    },
+    "26B495EE685E1F80": {
+      "title": "An electrical flight drive",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "An ion thruster extends the electrical route into propulsion. Inspect its actual supply and operating requirements, then test on a small airframe.",
+        "This task checks the thruster. It does not prove sustained powered flight."
+      ]
+    },
+    "083C77C34C240428": {
+      "title": "Projects and records",
+      "chapter_subtitle": [
+        "Optional ways to use the workshop and journeys you have already made."
+      ]
+    },
+    "45223F8601082B4F": {
+      "title": "Earn the photography advancement"
+    },
+    "0E12F01C1715558A": {
+      "title": "Record a journey",
+      "quest_subtitle": "Action",
+      "quest_desc": [
+        "Use Exposure’s camera and earn its native photography advancement. Carry the required film and record a place, machine or encounter worth revisiting."
+      ]
+    },
+    "664BF06A801DA49D": {
+      "title": "Earn Moment in Time"
+    },
+    "0EDC1A6923ED569E": {
+      "title": "Paper"
+    },
+    "5E445132DEC492DB": {
+      "title": "Make a print",
+      "quest_subtitle": "Action",
+      "quest_desc": [
+        "Earn Exposure’s Moment in Time advancement through its native printing workflow. A paper supply supports more records rather than replacing the photographic process."
+      ]
+    },
+    "147B19FD1788577F": {
+      "title": "Track station"
+    },
+    "78AD66FE9806B850": {
+      "title": "Track"
+    },
+    "005A02AC86D0B35F": {
+      "title": "Track"
+    },
+    "42BA2852C3F88D02": {
+      "title": "A local rail route",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Prepare a station and a small rail supply. Plan clearance, junctions, assembly and an eventual return route before building across a gap.",
+        "This task checks materials, not a functioning train or route."
+      ]
+    },
+    "414A960203B96D8E": {
+      "title": "Crossbow"
+    },
+    "005B5A0C0DCB6146": {
+      "title": "Arrow"
+    },
+    "31EB8242445BEA8A": {
+      "title": "Arrow"
+    },
+    "370E22B208CC7910": {
+      "title": "A ranged tool",
+      "quest_subtitle": "Equipment",
+      "quest_desc": [
+        "Prepare a crossbow and an operating supply of arrows. Test range and recovery on safe terrain; this milestone does not require attacking a particular creature."
+      ]
+    },
+    "619C3E701FD4AB35": {
+      "title": "Client handbook",
+      "chapter_subtitle": [
+        "Optional references for controls, inventory tools, parties and recovery. No progression or reward gates."
+      ]
+    },
+    "6951C9DB8366435F": {
+      "title": "Read and try the feature"
+    },
+    "029F56023A24583A": {
+      "title": "Dragging and wheel transfers",
+      "quest_subtitle": "Reference",
+      "quest_desc": [
+        "Mouse Tweaks owns the pack’s drag and wheel-transfer gestures. Try distributing and collecting stacks in a safe inventory; check its settings for the enabled mouse-button modes. Ordinary Shift-click crafting still belongs to the game.",
+        {
+          "shared": "client_reference"
+        }
+      ]
+    },
+    "3B71F5950567F5A7": {
+      "title": "Read and try the feature"
+    },
+    "68F17DAC1F89E179": {
+      "title": "Three manual sort modes",
+      "quest_subtitle": "Reference",
+      "quest_desc": [
+        "Inventory Profiles Next keeps its three manual sorting buttons. Compare their layouts on a spare inventory, and use tooltips or Controls to find the current bindings. Automatic inventory rearrangement is disabled by default.",
+        {
+          "shared": "client_reference"
+        }
+      ]
+    },
+    "4DB602C4470BF8B1": {
+      "title": "Read and try the feature"
+    },
+    "208E21E4A34B7AE3": {
+      "title": "Bulk transfers and profiles",
+      "quest_subtitle": "Reference",
+      "quest_desc": [
+        "IPN can transfer groups of items and apply equipment profiles. Inspect the current modifiers and profile controls before moving valuable gear; a profile is a deliberate loadout choice, not a quest reward.",
+        {
+          "shared": "client_reference"
+        }
+      ]
+    },
+    "74290B0E5E97396D": {
+      "title": "Read and try the feature"
+    },
+    "2284D017B46878BF": {
+      "title": "Locked slots and refill",
+      "quest_subtitle": "Reference",
+      "quest_desc": [
+        "Use IPN slot locking to reserve positions and per-slot refill to replenish chosen stacks. Automatic tool replacement is enabled. Test the distinction between locking, refill and replacement with spare supplies.",
+        {
+          "shared": "client_reference"
+        }
+      ]
+    },
+    "434A1A4019B32DFA": {
+      "title": "Read and try the feature"
+    },
+    "1596A6987739249F": {
+      "title": "Continuous crafting",
+      "quest_subtitle": "Reference",
+      "quest_desc": [
+        "IPN can refill a crafting grid and repeatedly take its result when deliberately activated. These are separate from vanilla Shift-click, which crafts as much as the current grid permits. Check both switches and their active modifiers before leaving resources in a grid.",
+        {
+          "shared": "client_reference"
+        }
+      ]
+    },
+    "397DB5A3CD1F9788": {
+      "title": "Read and try the feature"
+    },
+    "417597B78306F19D": {
+      "title": "Trade bookmarks",
+      "quest_subtitle": "Reference",
+      "quest_desc": [
+        "IPN trading assistance can retain selected trades and speed repeated interactions. Read the merchant’s stock and price before bulk actions; assistance does not make a trade free or permanently available.",
+        {
+          "shared": "client_reference"
+        }
+      ]
+    },
+    "1C9E4C1EEF27AE7A": {
+      "title": "Read and try the feature"
+    },
+    "18A8B0883A174DEA": {
+      "title": "Parties and quest progress",
+      "quest_subtitle": "Reference",
+      "quest_desc": [
+        "Use FTB Teams to create or join a party. Native team quest completion and personal versus team reward claims are separate rules. This pack does not assign a new island, reset progress or relocate a home when party membership changes.",
+        {
+          "shared": "client_reference"
+        }
+      ]
+    },
+    "7FC9B3EA87040C48": {
+      "title": "Read and try the feature"
+    },
+    "3D7EFBA11F75EBC5": {
+      "title": "Maps and navigation",
+      "quest_subtitle": "Reference",
+      "quest_desc": [
+        "Hoofprint maps areas your client has surveyed. Its optional Skyweave zoom adaptation extends the range; it does not turn server DH pregen into explored map data. Check map controls for decorations, dimensions, caves and waypoints.",
+        {
+          "shared": "client_reference"
+        }
+      ]
+    },
+    "762CD38CAC4A9595": {
+      "title": "Read and try the feature"
+    },
+    "267158BB325B90DA": {
+      "title": "Graves and the void",
+      "quest_subtitle": "Reference",
+      "quest_desc": [
+        "YiGD owns death recovery, including the pack’s Sable construct support and fallback rules. Keep the grave location and a safe return route in mind. Backpack death handling is disabled; a backpack is not a second independent recovery system.",
+        {
+          "shared": "client_reference"
+        }
+      ]
+    },
+    "23B017913379E4C4": {
+      "title": "A working workshop",
+      "chapter_subtitle": [
+        "Build useful processing routes. Rotation, washing and heat have different inputs and lasting roles."
+      ]
+    }
+  }
+}

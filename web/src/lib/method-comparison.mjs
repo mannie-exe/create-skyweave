@@ -44,12 +44,19 @@ export function methodMetrics(itemId, routes, roots) {
             earliestDepth: possible?.depth ?? null,
             mappedDepth: full?.depth ?? null,
             planned,
+            earliest: possible,
             outcome: route.facts?.outcomes?.[itemId] ?? null,
-            status: planned
-              ? 'ranked'
-              : full
-                ? 'target-dependent'
-                : 'unresolved',
+            availability: route.availability,
+            status:
+              route.availability?.state === 'blocked'
+                ? 'blocked'
+                : route.availability?.state === 'unknown'
+                  ? 'unknown'
+                  : planned
+                    ? 'ranked'
+                    : full
+                      ? 'target-dependent'
+                      : 'unresolved',
             inputCount: route.inputs.length,
             prerequisites: route.inputs.map((group, i) => ({
               id: planned?.inputs[i] ?? null,
@@ -89,7 +96,13 @@ export function compareMethods(
       )
     // Compare first-supply and existing-supply routes separately. Unknown depth
     // is not infinity and must never masquerade as the hardest method.
-    const order = { ranked: 0, 'target-dependent': 1, unresolved: 2 }
+    const order = {
+      ranked: 0,
+      'target-dependent': 1,
+      unresolved: 2,
+      unknown: 3,
+      blocked: 4,
+    }
     const status = order[a.metrics.status] - order[b.metrics.status]
     if (status) return status
     if (sort === 'planned') {
@@ -125,4 +138,35 @@ export const methodTraceLabels = {
   ranked: 'Traced without this item',
   'target-dependent': 'Depends on existing supply',
   unresolved: 'Unresolved prerequisites',
+  unknown: 'Source not classified',
+  blocked: 'Unavailable in this environment',
+}
+
+/** A manual choice wins; otherwise follow the same solved witness as the graph. */
+export function defaultMethod(
+  methods,
+  detail,
+  itemId,
+  policy = 'planned',
+  preferred,
+) {
+  if (preferred && methods.some((method) => method.id === preferred))
+    return preferred
+  const witness = (
+    policy === 'earliest' ? detail.earliestPath : detail.path
+  )?.find((step) => step.id === itemId)?.route
+  if (methods.some((method) => method.id === witness)) return witness
+  const ranked = [...methods]
+    .filter((method) => method.metrics?.status === 'ranked')
+    .sort(
+      (a, b) =>
+        compareLabels(
+          policy === 'earliest' ? a.metrics.earliest : a.metrics.planned,
+          policy === 'earliest' ? b.metrics.earliest : b.metrics.planned,
+          policy,
+        ) || a.id.localeCompare(b.id),
+    )
+  return (
+    ranked[0]?.id ?? compareMethods(methods, { sort: 'planned' })[0]?.id ?? ''
+  )
 }

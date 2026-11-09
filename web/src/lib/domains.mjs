@@ -1,3 +1,4 @@
+import { validateEnvironmentPolicy } from './availability.mjs'
 import { parse } from 'yaml'
 
 export const domains = [
@@ -62,6 +63,8 @@ export function validateDomain(name, text) {
     )
       throw new Error('machines must map recipe types to item ids')
   } else {
+    if (name === 'acquisition' && data.environment !== undefined)
+      validateEnvironmentPolicy(data.environment)
     if (!Array.isArray(data.records))
       throw new Error('records must be an array')
     const seen = new Set()
@@ -89,6 +92,30 @@ export function validateDomain(name, text) {
       )
         throw new Error('outputs must contain item ids')
       if (name === 'acquisition') {
+        if (record.environment !== undefined) {
+          if (
+            !record.environment ||
+            typeof record.environment !== 'object' ||
+            Array.isArray(record.environment) ||
+            Object.keys(record.environment).some(
+              (key) => !['dimensions', 'structures', 'features'].includes(key),
+            )
+          )
+            throw new Error('Invalid source environment binding')
+          if (Object.keys(record.environment).length !== 1)
+            throw new Error(
+              'Each source environment binding needs exactly one source kind',
+            )
+          for (const values of Object.values(record.environment))
+            if (
+              !Array.isArray(values) ||
+              !values.length ||
+              values.some((id) => !identifier.test(id))
+            )
+              throw new Error(
+                'Source bindings must contain dimension/structure identifiers',
+              )
+        }
         for (const key of ['roots', 'blocks', 'entities', 'excluded'])
           if (
             record[key] &&

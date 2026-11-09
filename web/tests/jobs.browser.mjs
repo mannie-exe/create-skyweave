@@ -14,7 +14,7 @@ test('real named audit keeps source queries pure and records its authoritative o
     const reference = await workspaceClient.command('config.audit', {})
     const audit = await readJSONArtifact(reference)
     const activity = await workspaceClient.query('activity.read', {})
-    await workspaceClient.query('journal.read', {})
+    await workspaceClient.query('quests.read', {})
     const after = await workspaceClient.query('activity.read', {})
     let invalid
     try {

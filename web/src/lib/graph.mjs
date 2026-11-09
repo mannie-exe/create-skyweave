@@ -99,15 +99,18 @@ export function analyzeRoutes(
       const missing = producers.map((r) => ({
         route: r.id,
         emptyInput: r.inputs.some((g) => !g.length),
+        availability: r.availability,
         missing: r.inputs.filter((g) => !g.some((v) => depth.has(v))),
       }))
       const status = excludedSet.has(id)
         ? 'excluded'
         : depth.has(id)
           ? 'mapped'
-          : producers.some((r) => r.inputs.length)
-            ? 'blocked'
-            : 'unmapped'
+          : producers.some((r) => r.availability?.state === 'unknown')
+            ? 'unknown'
+            : producers.some((r) => r.inputs.length)
+              ? 'blocked'
+              : 'unmapped'
       return [
         id,
         {

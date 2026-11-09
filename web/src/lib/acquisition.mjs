@@ -266,53 +266,100 @@ export function acquisitionRoutes({
   blockRecipes = [],
   fluidTags = {},
   lootModifiers = [],
+  environment,
 }) {
   const known = new Set(items.map((i) => i.id)),
     routes = [],
     virtual = new Map()
   const add = (r) => {
+    if (environment) environment.constrain(r)
     routes.push(r)
     for (const id of [...r.inputs.flat(), ...r.outputs])
       if (!known.has(id)) virtual.set(id, { id })
   }
+  const lootContexts = (id) =>
+    environment?.loot.get(id) ?? [
+      {
+        id: 'unclassified',
+        state: 'unknown',
+        reason:
+          'No admitted structure/event binding for this registered loot table',
+      },
+    ]
   for (const record of authored.records)
     if (record.inputs?.length && record.outputs?.length)
-      add({ kind: 'authored', ...record })
-  const dimension = (id) =>
-    /(?:nether|bastion|crimson|warped|soul_sand_valley|basalt_deltas)/.test(id)
-      ? 'atlas:nether'
-      : /(?:end_city|end_highlands|end_midlands|small_end_islands|end_barrens|the_end)/.test(
-            id,
-          )
-        ? 'atlas:end'
-        : 'atlas:overworld'
-  // Observed terrain includes natural terrain AND existing structures/builds.
-  // Do not infer ore generation rates from this availability edge.
+      add({
+        kind: 'authored',
+        ...record,
+        ...(environment ? { availability: environment.explicit(record) } : {}),
+      })
   const natural = new Map(
-    Object.keys(world.blocks ?? {}).map((id) => [
+    [...(environment?.blocks ?? [])].map(([id, contexts]) => [
       id,
-      {
-        gate: 'atlas:overworld',
-        source: 'world survey',
-        detail: `Observed in sampled saved chunks${world.completedAt ? ` captured ${world.completedAt}` : ''}. ${world.provenance ? 'Source identity is recorded in World & ores.' : 'Legacy survey; world identity is not recorded.'} Location, travel and ownership are not established.`,
-      },
+      contexts.map((context) => ({
+        id: context.id,
+        gate: context.gate,
+        source:
+          context.features ??
+          context.templates ??
+          context.structures ??
+          context.dimensions,
+        availability: context,
+        sourceKind: context.kind,
+        detail: context.reason,
+      })),
     ]),
   )
+  // A block observation can be player-built. Keep it browsable, but it cannot
+  // establish global natural generation or bootstrap first access.
+  for (const id of Object.keys(world.blocks ?? {}))
+    if (!natural.has(id))
+      natural.set(id, [
+        {
+          id: 'world-survey',
+          gate: 'atlas:overworld',
+          source: 'world survey',
+          availability: {
+            state: 'unknown',
+            reason:
+              'Observed block; natural origin, ownership and availability are unclassified',
+            evidence: 'saved-world observation',
+          },
+          detail: `Observed in sampled chunks${world.completedAt ? ` captured ${world.completedAt}` : ''}. ${world.provenance ? 'World identity is recorded in World & ores.' : 'Legacy survey; world identity is absent.'} This does not establish natural generation or initial supplies.`,
+        },
+      ])
   for (const record of authored.records)
     for (const id of record.blocks ?? [])
-      natural.set(id, {
-        gate: record.gate,
-        source: record.sources,
-        detail: record.detail,
-      })
+      natural.set(id, [
+        // A survey can include placed blocks. Keep it in World evidence, but
+        // don't let that observation bypass the declared source restrictions.
+        ...(natural.get(id) ?? []).filter(
+          (context) => context.id !== 'world-survey',
+        ),
+        {
+          id: record.id,
+          gate: record.gate,
+          source: record.sources,
+          detail: record.detail,
+          availability: environment?.explicit(record),
+          sourceKind: record.environment?.structures?.length
+            ? 'structure'
+            : 'authored',
+        },
+      ])
   for (const block of blocks) {
     const table = block.lootTable ?? block.id.replace(':', ':blocks/')
     if (!loot[table] || block.destroyTime < 0) continue
     const locations = []
-    if (natural.has(block.id)) {
-      const n = natural.get(block.id)
+    for (const n of natural.get(block.id) ?? []) {
       locations.push({
-        inputs: [[n.gate]],
+        id: n.id,
+        inputs: [
+          [n.gate],
+          ...(n.sourceKind === 'structure' ? [['atlas:exploration']] : []),
+        ],
+        availability: n.availability,
+        sourceKind: n.sourceKind,
         source: n.source,
         detail: n.detail,
         kind: 'gathering',
@@ -320,6 +367,7 @@ export function acquisitionRoutes({
     }
     if (block.item !== 'minecraft:air' && known.has(block.item))
       locations.push({
+        id: 'placed-block',
         inputs: [[block.item]],
         source: block.id,
         detail:
@@ -332,7 +380,7 @@ export function acquisitionRoutes({
         if (location.kind === 'block-drop' && entry.item === block.item)
           continue
         add({
-          id: `${location.kind}/${block.id}/${index}`,
+          id: `${location.kind}/${block.id}/${location.id}/${index}`,
           kind: location.kind,
           inputs: [
             ...location.inputs,
@@ -343,52 +391,83 @@ export function acquisitionRoutes({
           conditions: entry.conditions,
           functions: entry.functions,
           source: table,
+          lootTable: table,
+          availability: location.availability,
+          sourceKind: location.sourceKind,
           context: location.source,
           detail: location.detail,
         })
       }
     }
   }
-  // Actual biome spawn declarations, not every registered entity type.
-  const mobGates = new Map(),
-    mobNotes = new Map()
+  // Native biome-source membership supplies dimensions; names do not.
+  const mobSources = new Map(
+    [...(environment?.mobs ?? [])].map(([mob, contexts]) => [
+      mob,
+      [...contexts],
+    ]),
+  )
   for (const [id, resource] of Object.entries(resources))
-    if (id.includes(':worldgen/biome/')) {
+    if (id.includes(':worldgen/biome/'))
       for (const list of Object.values(resource.json.spawners ?? {}))
-        for (const spawn of list) {
-          const gates = mobGates.get(spawn.type) ?? new Set()
-          gates.add(dimension(id))
-          mobGates.set(spawn.type, gates)
-        }
-    }
+        for (const spawn of list)
+          if (!mobSources.has(spawn.type))
+            mobSources.set(spawn.type, [
+              {
+                id: 'unclassified-biome',
+                state: 'unknown',
+                reason:
+                  'Registered biome spawns have no admitted dimension/generator binding',
+              },
+            ])
   for (const record of authored.records)
     for (const mob of record.entities ?? []) {
-      const gates = mobGates.get(mob) ?? new Set()
-      gates.add(record.gate)
-      mobGates.set(mob, gates)
-      mobNotes.set(mob, record.detail)
+      const contexts = mobSources.get(mob) ?? []
+      contexts.push({
+        ...(environment?.explicit(record) ?? {
+          state: 'potential',
+          reason: record.detail,
+        }),
+        id: record.id,
+        gate: record.gate,
+        kind: record.environment?.structures?.length ? 'structure' : 'authored',
+        detail: record.detail,
+      })
+      mobSources.set(mob, contexts)
     }
-  for (const [mob, gates] of mobGates)
+  for (const [mob, contexts] of mobSources)
     for (const [index, entry] of lootEntries(
       mob.replace(':', ':entities/'),
       loot,
     ).entries())
       if (known.has(entry.item))
-        add({
-          id: `mob/${mob}/${index}`,
-          kind: 'mob-drop',
-          inputs: [[...gates], ['atlas:combat']],
-          outputs: [entry.item],
-          conditions: entry.conditions,
-          functions: entry.functions,
-          source: entry.table,
-          detail: `Potential ${mob} loot. ${mobNotes.get(mob) ?? 'Biome spawning, combat and conditional drops are required.'} Equipment drops are separate.`,
-        })
+        for (const context of contexts)
+          add({
+            id: `mob/${mob}/${index}/${context.id}`,
+            kind: 'mob-drop',
+            inputs: [
+              ...(context.gate ? [[context.gate]] : []),
+              ['atlas:combat'],
+              ...(context.kind === 'structure' ? [['atlas:exploration']] : []),
+            ],
+            outputs: [entry.item],
+            conditions: entry.conditions,
+            functions: entry.functions,
+            source: entry.table,
+            lootTable: mob.replace(':', ':entities/'),
+            availability: context,
+            sourceKind: context.kind,
+            detail: `Potential ${mob} loot. ${context.detail ?? context.reason} Combat, access and conditional drops are required; equipment drops are separate.`,
+          })
   for (const id of Object.keys(loot)) {
-    let inputs, kind
-    if (id.startsWith('minecraft:chests/')) {
-      inputs = [[dimension(id)], ['atlas:exploration']]
+    let inputs,
+      kind,
+      contextual = false
+    const path = id.split(':')[1]
+    if (path?.startsWith('chests/') || environment?.loot.has(id)) {
+      inputs = [['atlas:exploration']]
       kind = 'chest-loot'
+      contextual = true
       if (id.includes('trial_chambers/reward'))
         inputs.push([
           id.includes('ominous')
@@ -396,13 +475,15 @@ export function acquisitionRoutes({
             : 'minecraft:trial_key',
         ])
     }
-    if (id.startsWith('minecraft:archaeology/')) {
+    if (path?.startsWith('archaeology/')) {
       inputs = [['atlas:exploration'], ['minecraft:brush']]
       kind = 'archaeology'
+      contextual = true
     }
-    if (id.startsWith('minecraft:spawners/')) {
+    if (path?.startsWith('spawners/')) {
       inputs = [['atlas:exploration'], ['atlas:combat']]
       kind = 'trial-reward'
+      contextual = true
       if (id.includes('ominous')) inputs.push(['minecraft:ominous_bottle'])
     }
     if (id === 'minecraft:gameplay/sniffer_digging') {
@@ -422,19 +503,22 @@ export function acquisitionRoutes({
       kind = 'bartering'
     }
     if (!inputs) continue
+    const contexts = contextual ? lootContexts(id) : [null]
     for (const [index, entry] of lootEntries(id, loot).entries())
       if (known.has(entry.item))
-        add({
-          id: `loot/${id}/${index}`,
-          kind,
-          inputs,
-          outputs: [entry.item],
-          conditions: entry.conditions,
-          functions: entry.functions,
-          source: entry.table,
-          detail:
-            'Potential loot. Structure/event access, weights, conditions and item components remain constraints; no guaranteed yield.',
-        })
+        for (const context of contexts)
+          add({
+            id: `loot/${id}/${index}${context ? '/' + context.id : ''}`,
+            kind,
+            inputs: [...inputs, ...(context?.gate ? [[context.gate]] : [])],
+            outputs: [entry.item],
+            conditions: entry.conditions,
+            functions: entry.functions,
+            source: entry.table,
+            lootTable: id,
+            availability: context ?? undefined,
+            detail: `Potential loot. ${context?.reason ?? 'Event prerequisites apply.'} Weights, conditions, placement and unopened containers remain constraints; no guaranteed yield.`,
+          })
   }
   for (const [index, modifier] of lootModifiers.entries()) {
     if (
@@ -446,16 +530,21 @@ export function acquisitionRoutes({
       (c) => c.condition === 'neoforge:loot_table_id',
     )?.loot_table_id
     if (!table?.startsWith('minecraft:chests/')) continue
-    add({
-      id: `loot-modifier/${index}`,
-      kind: 'loot-modifier',
-      inputs: [[dimension(table)], ['atlas:exploration']],
-      outputs: [modifier.item],
-      conditions: modifier.conditions,
-      source: modifier,
-      detail:
-        'Runtime global loot modifier adds a chance-based item to this chest table. It runs after the base loot table; structure access, configuration and selection probability apply.',
-    })
+    for (const context of lootContexts(table))
+      add({
+        id: `loot-modifier/${index}/${context.id}`,
+        kind: 'loot-modifier',
+        inputs: [
+          ...(context.gate ? [[context.gate]] : []),
+          ['atlas:exploration'],
+        ],
+        outputs: [modifier.item],
+        conditions: modifier.conditions,
+        source: modifier,
+        availability: context,
+        detail:
+          'Runtime global loot modifier adds a chance-based item to this chest table. It runs after the base loot table; structure access, configuration and selection probability apply.',
+      })
   }
   for (const [index, recipe] of blockRecipes.entries()) {
     const inputs = [],

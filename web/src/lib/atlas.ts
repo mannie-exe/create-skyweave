@@ -63,7 +63,8 @@ const editorDrafts = new Map<string, { text: string; revision: string }>()
 let itemCatalog = new Map<string, Node>()
 let orientation: ReturnType<typeof mapOrientation> | undefined
 let orientationSource: Node[] | undefined
-let acquisitionView: { destroy(): void } | undefined
+let acquisitionView:
+  { destroy(): void; setPolicy(policy: string): void } | undefined
 const inspectorHistory: string[] = []
 const detailCache = new Map<string, RecordData>()
 const viewport = el('viewport'),
@@ -93,16 +94,34 @@ async function loadCatalog() {
       .map((mod) => `<option>${escape(mod)}</option>`)
       .join('')
   select.value = previous
+  const environment = meta.environment
+  const summary = el('environment-summary')
+  summary.hidden = !environment
+  if (environment) {
+    const names: Record<string, string> = {
+      'minecraft:overworld': 'Overworld',
+      'minecraft:the_nether': 'Nether',
+      'minecraft:the_end': 'The End',
+    }
+    const restrictions = Object.values(environment.dimensions ?? {})
+      .filter((dimension: any) => dimension.state !== 'potential')
+      .map(
+        (dimension: any) =>
+          `${names[dimension.id] ?? dimension.id} ${dimension.state === 'blocked' ? 'closed' : 'unclassified'}`,
+      )
+    summary.textContent = `${environment.context} pack defaults${restrictions.length ? ' · ' + restrictions.join(' · ') : ''}. Sources are conditional declarations, not guaranteed supplies.`
+  }
   el('coverage-summary').innerHTML = [
     'mapped',
     'blocked',
     'unmapped',
+    'unknown',
     'excluded',
     'unified',
   ]
     .map(
       (key) =>
-        `<button class="ui-button subtle" data-coverage="${key}">${nf.format(meta.counts[key] ?? 0)} ${key === 'unmapped' ? 'no adapter' : key === 'excluded' ? 'internal / creative' : key}</button>`,
+        `<button class="ui-button subtle" data-coverage="${key}">${nf.format(meta.counts[key] ?? 0)} ${key === 'unmapped' ? 'no adapter' : key === 'excluded' ? 'internal / creative' : key === 'unknown' ? 'unclassified' : key}</button>`,
     )
     .join('')
   el('coverage-summary')
@@ -133,6 +152,7 @@ el('progression-policy').addEventListener('change', () => {
   applyPolicy()
   viewport.scrollTo(0, 0)
   filter()
+  acquisitionView?.setPolicy(el<HTMLSelectElement>('progression-policy').value)
 })
 function filter(preserveViewport = false) {
   const query = el<HTMLInputElement>('search').value.toLowerCase(),
@@ -144,7 +164,8 @@ function filter(preserveViewport = false) {
       (!mod || n.mod === mod) &&
       (!route ||
         (route === 'known' && n.status === 'mapped') ||
-        (route === 'unknown' && ['blocked', 'unmapped'].includes(n.status)) ||
+        (route === 'unresolved' &&
+          ['blocked', 'unmapped', 'unknown'].includes(n.status)) ||
         (route === 'notes' && n.hasNote) ||
         route === n.status),
   )
@@ -425,6 +446,7 @@ async function inspect(id: string, back = false) {
           el<HTMLSelectElement>('progression-policy').value,
         )
       },
+      meta.environment?.dimensions,
     )
     if (selected !== id || !host.isConnected) {
       mounted.destroy()

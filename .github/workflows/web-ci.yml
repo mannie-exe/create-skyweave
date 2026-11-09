@@ -5,7 +5,8 @@ on:
     paths:
       - "web/**"
       - "authoring/**"
-      - "scripts/generate-journal.py"
+      - "scripts/generate-quests.py"
+      - "scripts/quests.py"
       - "scripts/audit-changes.py"
       - "empack.yml"
       - "empack.lock"
@@ -18,7 +19,8 @@ on:
     paths:
       - "web/**"
       - "authoring/**"
-      - "scripts/generate-journal.py"
+      - "scripts/generate-quests.py"
+      - "scripts/quests.py"
       - "scripts/audit-changes.py"
       - "empack.yml"
       - "empack.lock"

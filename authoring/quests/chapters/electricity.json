@@ -1,0 +1,186 @@
+{
+  "schema": 1,
+  "id": "35295A9F1A54A00C",
+  "order": 6,
+  "native": {
+    "icon": "powergrid:wire_connector"
+  },
+  "quests": [
+    {
+      "id": "1D50319BD90477AA",
+      "key": "generator",
+      "x": 0,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "powergrid:generator_induction_rotor"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "powergrid:generator_induction_rotor",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "1ACF1318C733DFDC"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "electricity/rotor"
+      ]
+    },
+    {
+      "id": "4AE3A7692C5E1DED",
+      "key": "wiring",
+      "x": 3,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "powergrid:wire_connector"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "powergrid:wire_connector",
+            "count": 1
+          },
+          "count": 2,
+          "consume_items": false,
+          "id": "1D34757CF44A5627"
+        },
+        {
+          "type": "interaction",
+          "interaction_type": "block",
+          "to_interact": "powergrid:circuit_design_table",
+          "id": "192B80C06302D376"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "electricity/wire",
+        "electricity/use_design"
+      ]
+    },
+    {
+      "id": "3161C744E2E16003",
+      "key": "motor",
+      "x": 6,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "powergrid:electric_motor"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "powergrid:electric_motor",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "24D263C015A40560"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "electricity/motor"
+      ]
+    },
+    {
+      "id": "75D11191405A162F",
+      "key": "motor_work",
+      "x": 9,
+      "y": 0,
+      "dependencies": [
+        "3161C744E2E16003"
+      ],
+      "native": {
+        "icon": "powergrid:electric_motor"
+      },
+      "tasks": [
+        {
+          "type": "advancement",
+          "advancement": "powergrid:electric_motor",
+          "id": "136E2E89E06FBC62"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:copper_ingot",
+            "count": 1
+          },
+          "count": 2,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "48644998D68068B1"
+        }
+      ],
+      "covers": [
+        "electricity/run_motor"
+      ]
+    },
+    {
+      "id": "21CD6335654F2F1A",
+      "key": "storage",
+      "x": 0,
+      "y": 3,
+      "dependencies": [],
+      "native": {
+        "icon": "powergrid:battery"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "powergrid:battery",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "6C4AA12AC11E8FAA"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "electricity/battery"
+      ]
+    },
+    {
+      "id": "26B495EE685E1F80",
+      "key": "ion",
+      "x": 3,
+      "y": 3,
+      "dependencies": [
+        "1D50319BD90477AA"
+      ],
+      "native": {
+        "icon": "createpropulsion:ion_thruster"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "createpropulsion:ion_thruster",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "741C73EFB4DD58EB"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "electricity/ion"
+      ]
+    }
+  ]
+}

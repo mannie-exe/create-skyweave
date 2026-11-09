@@ -18,6 +18,9 @@ class ConfigurationStagingTests(unittest.TestCase):
             files = {installed / 'skyweave/skyweave_compat-features.properties': 'old=false',
                      installed / 'dynamicwaters-common.toml': 'enabled=false',
                      installed / 'questlog/retired.json': '{}',
+                     installed / 'ftbquests/quests/chapters/retired.snbt': '{}',
+                     installed / 'ftbquests/custom-client.snbt': 'keep',
+                     common / 'ftbquests/quests/chapters/current.snbt': '{}',
                      common / 'skyweave/skyweave_compat-features.properties': 'current=false',
                      common / 'questlog/current.json': '{}'}
             for path, text in files.items():
@@ -26,6 +29,9 @@ class ConfigurationStagingTests(unittest.TestCase):
             self.assertEqual('current=false', (output / 'skyweave/skyweave_compat-features.properties').read_text())
             self.assertEqual('enabled=false', (output / 'dynamicwaters-common.toml').read_text())
             self.assertFalse((output / 'questlog/retired.json').exists())
+            self.assertFalse((output / 'ftbquests/quests/chapters/retired.snbt').exists())
+            self.assertEqual('{}', (output / 'ftbquests/quests/chapters/current.snbt').read_text())
+            self.assertEqual('keep', (output / 'ftbquests/custom-client.snbt').read_text())
             for path, text in files.items(): self.assertEqual(text, path.read_text())
 
     def test_retired_inputs_are_rejected_before_replacing_output(self):

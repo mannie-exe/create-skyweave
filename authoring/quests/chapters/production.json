@@ -1,0 +1,289 @@
+{
+  "schema": 1,
+  "id": "61583718767F4908",
+  "order": 5,
+  "native": {
+    "icon": "create:packager"
+  },
+  "quests": [
+    {
+      "id": "428187DE6F11A534",
+      "key": "quartz",
+      "x": 0,
+      "y": 0,
+      "dependencies": [
+        "3449703C5C2160AA"
+      ],
+      "native": {
+        "icon": "minecraft:quartz"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:quartz",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "2EED86F05068695D"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "manufacturing/quartz"
+      ]
+    },
+    {
+      "id": "090C3CBB2554D174",
+      "key": "crafters",
+      "x": 3,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "create:mechanical_crafter"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "create:mechanical_crafter",
+            "count": 1
+          },
+          "count": 21,
+          "consume_items": false,
+          "id": "6359B1F8B3119EC6"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "create:mechanical_crafter",
+            "count": 1
+          },
+          "count": 3,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "0EDCB399C502F080"
+        }
+      ],
+      "covers": [
+        "manufacturing/crafters"
+      ]
+    },
+    {
+      "id": "17635AA0CB522C99",
+      "key": "crushing",
+      "x": 6,
+      "y": 0,
+      "dependencies": [
+        "090C3CBB2554D174"
+      ],
+      "native": {
+        "icon": "create:crushing_wheel"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "create:crushing_wheel",
+            "count": 1
+          },
+          "count": 2,
+          "consume_items": false,
+          "id": "33C1862D8CA20CAA"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "manufacturing/wheels"
+      ]
+    },
+    {
+      "id": "66743909573F711F",
+      "key": "assembly",
+      "x": 9,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "create:deployer"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "create:deployer",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "1F5E1DEE36C6B4C7"
+        },
+        {
+          "type": "item",
+          "item": {
+            "id": "create:precision_mechanism",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "0438EDAE8A7888A9"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "manufacturing/deployer",
+        "manufacturing/precision"
+      ]
+    },
+    {
+      "id": "42DA03813D3AC42B",
+      "key": "routing",
+      "x": 0,
+      "y": 3,
+      "dependencies": [],
+      "native": {
+        "icon": "create:andesite_funnel"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "create:andesite_funnel",
+            "count": 1
+          },
+          "count": 2,
+          "consume_items": false,
+          "id": "37555D88434030A0"
+        },
+        {
+          "type": "item",
+          "item": {
+            "id": "create:filter",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "2ADE0E64DB6F4928"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "cargo/funnel",
+        "cargo/filter"
+      ]
+    },
+    {
+      "id": "683687097685F800",
+      "key": "kelp",
+      "x": 3,
+      "y": 3,
+      "dependencies": [],
+      "native": {
+        "icon": "minecraft:kelp"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:kelp",
+            "count": 1
+          },
+          "count": 16,
+          "consume_items": false,
+          "id": "2AF2941ED5320E1D"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "cargo/kelp"
+      ]
+    },
+    {
+      "id": "64667859CF409296",
+      "key": "packages",
+      "x": 6,
+      "y": 3,
+      "dependencies": [],
+      "native": {
+        "icon": "create:packager"
+      },
+      "tasks": [
+        {
+          "type": "advancement",
+          "advancement": "create:packager",
+          "id": "7B5D90FAAA15939E"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "create:cardboard",
+            "count": 1
+          },
+          "count": 4,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "2992DF6CF0685F2F"
+        }
+      ],
+      "covers": [
+        "cargo/package"
+      ]
+    },
+    {
+      "id": "606A595082D4B03E",
+      "key": "dock",
+      "x": 9,
+      "y": 3,
+      "dependencies": [],
+      "native": {
+        "icon": "simulated:docking_connector"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "simulated:docking_connector",
+            "count": 1
+          },
+          "count": 2,
+          "consume_items": false,
+          "id": "17970FD1632259CB"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "cargo/dock"
+      ]
+    },
+    {
+      "id": "30A7BD00B3812126",
+      "key": "deliveries",
+      "x": 0,
+      "y": 6,
+      "dependencies": [],
+      "native": {
+        "icon": "aeronautics_delivery_quests:delivery_quests_table"
+      },
+      "tasks": [
+        {
+          "type": "interaction",
+          "interaction_type": "block",
+          "to_interact": "aeronautics_delivery_quests:delivery_quests_table",
+          "id": "1968E86E19702B83"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "cargo/deliveries"
+      ]
+    }
+  ]
+}

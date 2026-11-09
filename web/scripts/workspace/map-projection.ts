@@ -25,6 +25,7 @@ import {
   assetProjectionFiles,
   scopedResourceLinks,
   assetProjectionRevision,
+  MAP_JSON_LIMIT_MIB,
 } from './asset-projection.ts'
 import { loadedTool } from './loaded-tool.ts'
 const ownRevision = loadedTool(import.meta.url)
@@ -57,6 +58,13 @@ export async function mapInputVector(
       ),
     ],
     ['tool:dependencies', path.join(registration.web, 'pnpm-lock.yaml')],
+    [
+      'pack:server-template',
+      path.join(
+        registration.pack,
+        'templates/server/game/server.properties.template',
+      ),
+    ],
   ]
   // Local compiler modules are inputs too; the lock identifies package imports.
   const modules = [
@@ -115,6 +123,10 @@ export function mapProjectionDefinitions(
     {
       action: 'source.read' as const,
       target: target(ctx.scope, 'source', 'pack:structure-processor'),
+    },
+    {
+      action: 'source.read' as const,
+      target: target(ctx.scope, 'source', 'pack:server-template'),
     },
     ...domains.map((name) => ({
       action: 'source.read' as const,
@@ -176,7 +188,7 @@ export function mapProjectionDefinitions(
         )
     return artifacts.publish(ctx, {
       namespace: 'map',
-      jsonMaximum: 32,
+      jsonMaximum: MAP_JSON_LIMIT_MIB,
       staging,
       files,
       inputs: { ...ctx.inputRevisions },

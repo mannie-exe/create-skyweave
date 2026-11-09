@@ -1,0 +1,299 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "control"
+	group: ""
+	icon: {
+		id: "simulated:steering_wheel"
+	}
+	id: "6E65BCA923C86B3B"
+	images: [ ]
+	order_index: 4
+	quest_links: [ ]
+	quests: [
+		{
+			icon: {
+				id: "simulated:steering_wheel"
+			}
+			id: "3532E5776DF455F3"
+			tasks: [{
+				consume_items: false
+				id: "5ABA8C0D30223F18"
+				item: { count: 1, id: "simulated:steering_wheel" }
+				type: "item"
+			}]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "create:linked_controller"
+			}
+			id: "3AAC886C5B371710"
+			rewards: [{
+				auto: "disabled"
+				count: 4
+				id: "7EC7D7ED5D24F3A7"
+				item: {
+					count: 1
+					id: "minecraft:redstone"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [
+				{
+					consume_items: false
+					id: "002E75D9610ACB09"
+					item: { count: 1, id: "create:linked_controller" }
+					type: "item"
+				}
+				{
+					consume_items: false
+					count: 2L
+					id: "4006C1A55AE434C4"
+					item: { count: 1, id: "create:redstone_link" }
+					type: "item"
+				}
+			]
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "simulated:altitude_sensor"
+			}
+			id: "2A4865870CD7F97D"
+			tasks: [{
+				consume_items: false
+				id: "7E218842305FC700"
+				item: { components: { "minecraft:custom_data": { "skyweave_compat:quest_items": { items: [ "simulated:altitude_sensor", "simulated:velocity_sensor", "simulated:gimbal_sensor" ], schema: 1 } } }, count: 1, id: "minecraft:paper" }
+				match_components: "strict"
+				type: "item"
+			}]
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "create_redstone_additions:conjunctor"
+			}
+			id: "5225A96FF871CC4B"
+			tasks: [
+				{
+					consume_items: false
+					count: 4L
+					id: "7A0E88E62163801C"
+					item: { count: 1, id: "create_redstone_additions:verdigris" }
+					type: "item"
+				}
+				{
+					consume_items: false
+					id: "2CE2B1B9759B0F6A"
+					item: { components: { "minecraft:custom_data": { "skyweave_compat:quest_items": { items: [ "create_redstone_additions:conjunctor", "create_redstone_additions:disjunctor", "create_redstone_additions:inverter", "create_redstone_additions:crossroad" ], schema: 1 } } }, count: 1, id: "minecraft:paper" }
+					match_components: "strict"
+					type: "item"
+				}
+			]
+			x: 9.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "linearbearing:linear_bearing"
+			}
+			id: "3656F991B10C7510"
+			rewards: [{
+				auto: "disabled"
+				id: "1041044627D6083E"
+				item: {
+					count: 1
+					id: "linearbearing:linear_casing"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [
+				{
+					consume_items: false
+					id: "3056EBEB54D9AD3F"
+					item: { count: 1, id: "linearbearing:linear_bearing" }
+					type: "item"
+				}
+				{
+					consume_items: false
+					count: 8L
+					id: "71C443F9FABAD6F7"
+					item: { count: 1, id: "linearbearing:linear_casing" }
+					type: "item"
+				}
+			]
+			x: 0.0d
+			y: 3.0d
+		}
+		{
+			icon: {
+				id: "absolute_kinematics:hinge"
+			}
+			id: "274004398DC5F150"
+			rewards: [{
+				auto: "disabled"
+				count: 2
+				id: "0F3EC24A65AB21E6"
+				item: {
+					count: 1
+					id: "create:shaft"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [
+				{
+					consume_items: false
+					id: "253A5990A588FDA1"
+					item: { count: 1, id: "absolute_kinematics:hinge" }
+					type: "item"
+				}
+				{
+					consume_items: false
+					id: "305FDD3EE40A4B9A"
+					item: { count: 1, id: "absolute_kinematics:ball_joint" }
+					type: "item"
+				}
+			]
+			x: 3.0d
+			y: 3.0d
+		}
+		{
+			icon: {
+				id: "aeronautics_utility_objects:brass_universal_joint"
+			}
+			id: "2F59A8E5DD82B47B"
+			rewards: [{
+				auto: "disabled"
+				id: "410E4E0848F7A843"
+				item: {
+					count: 1
+					id: "create:shaft"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [
+				{
+					consume_items: false
+					count: 2L
+					id: "6E2C0568583E409B"
+					item: { count: 1, id: "aeronautics_utility_objects:brass_universal_joint" }
+					type: "item"
+				}
+				{
+					consume_items: false
+					id: "06DD78853D24F4D5"
+					item: { count: 1, id: "aeronautics_utility_objects:universal_joint_rod2" }
+					type: "item"
+				}
+			]
+			x: 6.0d
+			y: 3.0d
+		}
+		{
+			icon: {
+				id: "aeronautics_utility_objects:hydraulic_connection_head"
+			}
+			id: "352DC86C8DF1E6BC"
+			tasks: [
+				{
+					consume_items: false
+					count: 2L
+					id: "4F86CF6CC5AE5AA1"
+					item: { count: 1, id: "aeronautics_utility_objects:hydraulic_connection_head" }
+					type: "item"
+				}
+				{
+					consume_items: false
+					id: "450044DA3DCD8D46"
+					item: { count: 1, id: "aeronautics_utility_objects:hydraulic_rod" }
+					type: "item"
+				}
+			]
+			x: 9.0d
+			y: 3.0d
+		}
+		{
+			icon: {
+				id: "aeronautics_utility_objects:damping_stress_bearing"
+			}
+			id: "5E68A9DEC3D74A1E"
+			tasks: [{
+				consume_items: false
+				id: "08D3EE64D02C2BEB"
+				item: { count: 1, id: "aeronautics_utility_objects:damping_stress_bearing" }
+				type: "item"
+			}]
+			x: 0.0d
+			y: 6.0d
+		}
+		{
+			icon: {
+				id: "linearbearing:magnetic_port"
+			}
+			id: "3DBCBED1B7BC3958"
+			tasks: [{
+				consume_items: false
+				count: 2L
+				id: "12AFC304A6D92433"
+				item: { count: 1, id: "linearbearing:magnetic_port" }
+				type: "item"
+			}]
+			x: 3.0d
+			y: 6.0d
+		}
+		{
+			icon: {
+				id: "linearbearing:torsional_anchor"
+			}
+			id: "19680B58825BA4C6"
+			tasks: [
+				{
+					consume_items: false
+					count: 2L
+					id: "422F6F65BA746BBB"
+					item: { count: 1, id: "linearbearing:torsional_anchor" }
+					type: "item"
+				}
+				{
+					consume_items: false
+					count: 2L
+					id: "423FB543C6164E90"
+					item: { count: 1, id: "simulated:spring" }
+					type: "item"
+				}
+			]
+			x: 6.0d
+			y: 6.0d
+		}
+		{
+			icon: {
+				id: "linearbearing:gyroscopic_gearbox"
+			}
+			id: "24DDC7CFD84BCE29"
+			tasks: [
+				{
+					consume_items: false
+					id: "5E4F8D6B7F0C721E"
+					item: { count: 1, id: "linearbearing:gyroscopic_gearbox" }
+					type: "item"
+				}
+				{
+					consume_items: false
+					id: "3BCEB7122C950E42"
+					item: { count: 1, id: "linearbearing:redstone_converter" }
+					type: "item"
+				}
+			]
+			x: 9.0d
+			y: 6.0d
+		}
+	]
+}

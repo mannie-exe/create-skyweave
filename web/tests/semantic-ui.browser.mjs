@@ -68,8 +68,8 @@ test('shared typography, form insets and disclosure spacing respond on real page
     page.getByRole('status').filter({ hasText: 'Source loaded' }),
   ).toBeVisible()
   await page.getByRole('button', { name: 'Localization', exact: true }).click()
-  await page.getByLabel('Find key or text').fill('shared.inventory')
-  const keys = page.locator('.journal-string-table .disclosure')
+  await page.getByLabel('Find key or text').fill('shared.suggested_project')
+  const keys = page.locator('.quest-string-table .disclosure')
   await keys.locator('summary').click()
   const body = keys.locator(':scope > .content-stack')
   const gap = await body.evaluate(

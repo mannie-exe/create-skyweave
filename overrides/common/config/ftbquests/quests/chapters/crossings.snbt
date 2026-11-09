@@ -1,0 +1,96 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "crossings"
+	group: ""
+	icon: {
+		id: "reliable_gliders:glider"
+	}
+	id: "24AA4E54704DA807"
+	images: [ ]
+	order_index: 2
+	quest_links: [ ]
+	quests: [
+		{
+			icon: {
+				id: "minecraft:phantom_membrane"
+			}
+			id: "0C26AEA192EB821C"
+			tasks: [{
+				consume_items: false
+				count: 2L
+				id: "06BB75487374ECE6"
+				item: { count: 1, id: "minecraft:phantom_membrane" }
+				type: "item"
+			}]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "reliable_gliders:glider"
+			}
+			id: "1FC99B6CCF4C5F0A"
+			rewards: [{
+				auto: "disabled"
+				count: 2
+				id: "0BEEC050F3AC9AC9"
+				item: {
+					count: 1
+					id: "minecraft:bread"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [{
+				consume_items: false
+				id: "38ED03F29127A33F"
+				item: { count: 1, id: "reliable_gliders:glider" }
+				type: "item"
+			}]
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "simulated:rope_winch"
+			}
+			id: "590D53493CCCDEDA"
+			tasks: [
+				{
+					consume_items: false
+					id: "65D5AB29A82C4735"
+					item: { count: 1, id: "simulated:rope_coupling" }
+					type: "item"
+				}
+				{
+					consume_items: false
+					id: "05F71B6461C06E0F"
+					item: { count: 1, id: "create_aeronautics_throwable_rope_connector:throwable_rope_connector" }
+					type: "item"
+				}
+				{
+					consume_items: false
+					id: "3442E28BD74961A4"
+					item: { count: 1, id: "simulated:rope_winch" }
+					type: "item"
+				}
+			]
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "minecraft:compass"
+			}
+			id: "14137D665919897D"
+			optional: true
+			tasks: [{
+				id: "472388907CFA6EBB"
+				type: "checkmark"
+			}]
+			x: 9.0d
+			y: 0.0d
+		}
+	]
+}

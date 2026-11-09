@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "native": {
+    "default_reward_team": false,
+    "default_consume_items": false,
+    "default_autoclaim_rewards": "disabled"
+  },
+  "groups": []
+}

@@ -19,7 +19,7 @@ export const projectionNamespaces = [
   'map',
   'scenario',
   'config-audit',
-  'journal-preview',
+  'quests-preview',
   'models-preview',
   'resource-build',
   'texture-resources',
@@ -48,6 +48,10 @@ const roots: Root[] = [
   { owner: 'pack', relative: 'overrides/client/options.txt' },
   { owner: 'pack', relative: 'overrides/server/config', tree: true },
   { owner: 'pack', relative: 'overrides/server/defaultconfigs', tree: true },
+  {
+    owner: 'pack',
+    relative: 'templates/server/game/server.properties.template',
+  },
   { owner: 'pack', relative: 'scripts', tree: true },
   { owner: 'pack', relative: 'resource-patches', tree: true },
   { owner: 'web', relative: 'data/authored', tree: true },
@@ -78,7 +82,7 @@ const roots: Root[] = [
   ),
 ]
 const extensions =
-  /\.(?:json|json5|yml|yaml|toml|properties|cfg|conf|txt|py|mjs|ts|java|png|mcmeta)$/
+  /\.(?:json|json5|snbt|yml|yaml|toml|properties|cfg|conf|txt|py|mjs|ts|java|png|mcmeta)$/
 const ignoredSegment = /^(?:\..*|node_modules|__pycache__|build|dist|target)$/
 export function inventoryRoots(registration: Registration) {
   return roots.map((root) => ({
@@ -94,6 +98,15 @@ export function inventoryAccepts(
   return inventoryRoots(registration).some((root) => {
     if (file === root.file) return true
     if (!root.tree || !file.startsWith(root.file + path.sep)) return false
+    if (
+      root.owner === 'pack' &&
+      file ===
+        path.join(
+          registration.pack,
+          'overrides/common/config/ftbquests/quests/.skyweave-generated.json',
+        )
+    )
+      return true
     const parts = path.relative(root.file, file).split(path.sep)
     if (parts.some((part) => ignoredSegment.test(part) || part.endsWith('~')))
       return false

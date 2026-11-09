@@ -1,4 +1,4 @@
-# Compatibility and verification
+# Compatibility constraints
 
 This reference describes constraints behind the current pack configuration.
 Player instructions belong in [graphics](../players/graphics.md) and
@@ -6,82 +6,14 @@ Player instructions belong in [graphics](../players/graphics.md) and
 [content list](../MODLIST.md), with authoritative selections in `empack.yml` and
 `empack.lock`.
 
-## Release 0.10.0
-
-Published Compat 0.29.1 matches its SHA-256/SHA-512 manifests and passes the
-Linux, Windows and Intel macOS release matrix. Its only runtime-artifact change
-from 0.29.0 is native logo metadata/artwork; no terrain code changes. The shader
-lab uses the same verified runner as the playable pack and retains both generated
-shader outputs. Managed terrain profiles and generation identity are unchanged.
-
-All 73 pack Python tests, the 383-file configuration audit and 88 unchanged
-journal outputs pass. The Prism, server and Modrinth reference exports build and
-pass CRC checks; both applicable sides contain the three FTB dependencies and
-the server excludes the client inventory additions. The Unix server wrapper is
-applied and checked. FTB Quests ships without authored chapters. Registry export
-and Atlas checks are recorded in [web verification](web/verification.md#pack-0100-questteam-trial-refresh).
-
-## Release 0.8.2
-
-The pack enables Compat's existing per-world DH cache identity and corrects the
-seed policies for the current generated shader-option filenames. Local client
-and server installation and preparation pass on the 0.8.1 snapshot without
-replacing modified managed files. Both reference recipes mark shader presets as
-`seed`; all three exports pass CRC, duplicate-entry and version checks. The
-380-file configuration audit, 88 journal outputs and 73 Python tests pass.
-The web Python suite passes 37 tests with one existing skip; explicit-false
-parser coverage uses a fixture independent of the enabled pack default. Compat
-remains the public 0.28.0 artifact verified below.
-
-## Release 0.8.0
-
-The public Compat 0.28.0 artifact matches its tested candidate and both published
-checksum manifests (SHA-256 `abb6e33539513c04e4b5ac0bfeb557a0f6b207fb1968a0442221d5e965ab26f0`).
-Linux, Windows and Intel macOS release checks pass. Its
-[native verification](https://github.com/mannie-exe/skyweave-compat/blob/v0.28.0/docs/development/verification.md)
-owns the river-bed, outlet, freezing, skylight, structure-search, DH and BlueMap
-results and limits. Terrain/drainage identities changed; existing worlds are not
-silently converted.
-
-Pack checks pass 73 Python tests, the 380-file configuration audit and 88 unchanged
-journal outputs. Both resource builders retain identical outputs. The shader lab
-uses the same public runner as the playable pack and rebuilds both chains with
-`--check`; generated shader bytes remain unchanged. All three reference exports
-build and pass CRC/duplicate checks; the server terminal wrapper is applied and
-checked. Installed-instance sync and published-pack verification are separate
-operational gates, not consequences of a local build.
-
-The Atlas captures the current locked JARs in an isolated exporter and passes its
-snapshot, Python and application checks; see [web verification](web/verification.md#pack-080-terrain-repair-refresh).
-No personal-world survey or application layout change is included.
-
-## Release 0.6.0
-
-Verified with Minecraft 1.21.1, NeoForge 21.1.265 and public Compat 0.26.0
-(SHA-256 `7c4ef971b83fc4efe61ca81c711066f496652691e30bc29d56789463505e2b60`).
-The downloaded JAR matches the tested native build and published checksum manifests;
-its Linux, Windows and macOS release checks pass. Pack checks pass all 67 Python
-tests, the 260-file configuration audit and 88 unchanged journal outputs. Both
-resource builders and shader-lab generation with the published runner pass.
-
-All three local distributions build with the new Compat and Dynamic Waters pins.
-Archive CRC, duplicate-entry, side placement and shader-input separation checks
-pass; the server terminal wrapper is applied. These are local export checks,
-separate from verification of the eventual published pack assets.
-
-The Atlas uses a fresh isolated export of the locked dependencies. Data checks,
-formatting, unused-code checks, tests and the 16-page build pass. Historical
-world/ore surveys retain their recorded inputs; this refresh does not rescan the
-personal server world or alter application layouts.
-
 ## Island water and environment
 
 Skyweave's marked island preset disables Sky Archipelago's native rivers and
 lakes. Dynamic Waters 13.1.0 supplies terrain-following mountain watersheds and
 basin lakes through Compat's supported-column bridge. Its lowland mode remains
 `VANILLA`; `NONE` also rewrites density inputs. Mountain tunnels are disabled.
-Native Lagoon/Broken Reef habitats and their coastal/falling-edge treatments
-remain independent. Generation settings belong to the saved world identity;
+Native Lagoon/Broken Reef habitats remain independent. Coastal Lagoon treatment
+is enabled; the perimeter variant is disabled in current defaults. Generation settings belong to the saved world identity;
 these changes require a fresh world rather than modifying old chunks in place.
 
 Temperature-sensitive island consumers use reference Y64 while block positions,
@@ -97,79 +29,6 @@ reopening, source/height-query agreement, and bounded Sable current submission.
 A real DH job persists terrain and water palettes. These checks do not certify
 all boats, Create machines, distant fluid colors, aquatic progression or scarcity.
 
-## Release 0.4.0
-
-Verified on 2026-11-07 with Minecraft 1.21.1, NeoForge 21.1.265 and the public
-Compat 0.24.0 JAR (`6903219861c1479a29224b1dbed7c21847c1647d50db0d995bed67a4a4ce2ff4`).
-Its published bytes match the locally tested build and the Linux/Windows/macOS
-release matrix. All 67 pack Python tests, 88 journal outputs and the 258-file
-configuration audit pass. Shader-lab and both resource builders retain their
-existing outputs. All three distributions build and their archives contain the
-new Compat pin and enabled ocean profile; the server terminal wrapper is applied.
-
-Compat's [native verification](https://github.com/mannie-exe/skyweave-compat/blob/v0.24.0/docs/development/verification.md#cluster-structure-distribution)
-owns structure-policy fixtures, specialized materialization/loot, configuration,
-parallel/order/cache/lifecycle checks and limitations. This pack changes generation
-identity and requires a fresh world. It does not qualify every structure layout,
-ocean progression or survival scarcity. Existing resource and shader choices are
-unchanged; their earlier visual evidence retains its scope.
-
-The Atlas runtime was captured from the complete locked mod set in a disposable
-server, then extracted and compiled. Snapshot checks pass. Historical world and
-village surveys remain observations of their recorded inputs, not a scan of the
-new server world. No Debug World regeneration is required by this update.
-
-## Release 0.2.3
-
-Verified on 2026-11-06 with Minecraft 1.21.1, NeoForge 21.1.265 and public Compat
-0.22.1 (`da95628b57af390f5736a6b7838a73299a33847689c359f84a5c1d758f67384f`).
-All 64 pack Python tests, 88 journal outputs, the 257-file configuration audit,
-shader-lab generation and both resource builders pass. Generated visual patch
-SHA-256 remains `c53e933e702961bfb238b953e98afe52f296506daea8250ca721b6c1f895c191`.
-
-All three reference profiles build. Archive inspection checks CRCs, unique
-entries and destinations, every embedded asset hash, runtime and Compat pins,
-client/server renderer exclusions and the server terminal wrapper. Shader inputs
-and recipes are client-only; complete generated BSL/Complementary ZIPs are not
-included as managed payloads. The `.mrpack` retains valid external downloads
-that Modrinth hosting does not admit, including Ponder's Maven URL and Absolute
-Kinematics' CurseForge CDN. GitHub remains the distribution target.
-
-The current native UI and rendering evidence belongs to Compat's
-[verification guide](https://github.com/mannie-exe/skyweave-compat/blob/v0.22.1/docs/development/verification.md).
-The pack update changes no terrain formulas, saved world identity, seed or ore
-distribution. That release precedes the Sky Archipelago 1.4 port.
-Atlas checks and Debug World evidence are in [web verification](web/verification.md).
-
-## Shader assembly, 0.2.2
-
-Skyweave: Compatibility Patches 0.21.0 supplies the physical-client runner. Both
-qualified chains use the same Java engine for lab and recipient builds. Canonical
-recipe and input hashes qualify ordered overlays, Euphoria's binary delta and
-Skyweave Glass 0.1.0. The prior shader file payloads are unchanged; controlled ZIP
-metadata makes generated archives reproducible across the two build paths.
-
-Native Apple Silicon checks with Java 21.0.13, NeoForge 21.1.264 and Iris
-1.8.14-beta.1+mc1.21.1 cover missing-output startup, BSL without Euphoria, the full
-Euphoria stack, cached loads, forced rebuilds, shader switching, resource reload,
-failed preconditions and same-reload output-name migration. The glass and
-static/assembled material fixtures rendered with both shaders. The minimal client
-loads without Iris/Euphoria; disposable standalone/full dedicated checks pass.
-Native Windows GPU rendering and Photon on Apple hardware were not tested.
-
-A disposable reference export installs managed inputs and recipes without a
-finished shader ZIP. After client generation, empack prepare reports zero exact
-changes and no file conflicts. Unrelated shaders, option seeds, personal worlds
-and LODs are outside runner ownership. The shader lab's exact-byte check, pack
-unit tests, journal generator and categorized configuration audit pass. Export
-checks enforce client-only inputs/recipes, absent merged-shader assets and a
-payload-only Colorwheel Patcher outside `mods/`.
-
-The [shader lab](../../tools/shader-lab/README.md) owns recipes and upgrade checks;
-Compat's [rendering guide](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/rendering.md#shader-assembly)
-owns runtime hooks and cache/settings behavior. Existing limits for moving
-shadows, resource-pack texture assumptions and other GPU paths remain below.
-
 ## Redstone control
 
 Redstone Link GUI keeps Create's ghost frequencies and personal presets. Open it
@@ -184,7 +43,7 @@ Create controls. Compat repairs placement/input side effects, feedback, support
 loss, wrench behavior, successful-only copper scraping and inverter transparency.
 Crossroad strong output through solid blocks loses one signal level; wire behavior
 retains its native contract. Treat it as an analog detail when designing circuits.
-The resource-only fixes JAR restores nine block drops using the 1.21 loot directory
+The Skyweave: Resource Patches JAR restores nine block drops using the 1.21 loot directory
 and supplies the missing Ponder category translations. Carry On's existing Create
 exclusion already covers these components; no additional pickup rule is required.
 
@@ -236,7 +95,7 @@ callbacks. Coordinate-bearing links and native sneak interactions therefore need
 separate review from ordinary inventories.
 
 The common blacklist references `#create_skyweave:carry_on_restricted`, owned by the
-resource-only fixes JAR. Carry On supports [tag-based exclusions](https://github.com/Tschipp/CarryOn/wiki/Black---and-Whitelist-Config). Its optional block IDs cover these reviewed families:
+Skyweave: Resource Patches JAR. Carry On supports [tag-based exclusions](https://github.com/Tschipp/CarryOn/wiki/Black---and-Whitelist-Config). Its optional block IDs cover these reviewed families:
 
 | Content                | Restricted parts                                                                                                      |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------- |
@@ -334,7 +193,7 @@ both stone payloads. Both joints retain their native mass of 1.0. No recipe or
 weight adjustment was justified. Large articulated craft remain a play check.
 
 Compat's `linear_bearing.ponder` and `linear_bearing.jade` switches add machinery
-tutorials and server-backed inspection. The shared fixes resource supplies English
+tutorials and server-backed inspection. The shared Resource Patches assets supply English
 names for internal carriage blocks and corrects the gyro acquisition advancement's
 old stabilization claim. Guidance does not add another drive or progression gate.
 The mod's [machinery reference](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/linear-bearing.md#ponder-and-jade)
@@ -342,22 +201,21 @@ owns registration, optional loading and update procedures.
 
 ## Dependency update constraints
 
-Minecraft remains 1.21.1. Sky Archipelago 1.4 changes core generation and explicitly
-warns that 1.3.6 worlds may be incompatible; retain 1.3.6 and Compat's matching
-terrain hooks for existing saves. This is a separate migration review.
+Minecraft remains 1.21.1. The current preset targets Sky Archipelago 1.4 and its
+saved generation identity. Keep old saves with their matching generator/config;
+a provider update is not a terrain migration. [World generation](worldgen.md)
+owns the preset boundary and [patch maintenance](patches.md) owns coupled updates.
 
-Questlog 3.5.3 uses Compat 0.10.2's reviewed journal gate. Radars 5.0.3 replaces
-six old jammer thresholds/scales with full-power RPM and directional/severe onset
-fractions; native config correction retained every other pack value. JEI and
-Reliable EMI update together with existing MezzConfig, EMI and YACL versions.
-The two AK recipes and journal requirements/rewards remain unchanged.
+Questlog retains its exact supported-version gate while the empty FTB Quests book
+is trialed. Updating the FTB trio requires reviewing Library/Teams/Quests together,
+Architectury resolution and the current authoring boundary. Do not describe the
+planned authoring replacement or spawn policy as implemented behavior.
 
-Empack's provider graph declares an exact older JEI through Aeronautics Covers,
-although Covers' native JAR declares JEI optional with an unrestricted version.
-Updating both logical keys selected the old catalog reference. Explicitly adding
-the checksummed new JEI JAR with provider identification and Covers in one forced
-batch retained Covers and selected the intended JEI. Restore exact author pins
-and materialize before building; review joint selections for unintended downgrades.
+JEI, Reliable EMI, MezzConfig and Aeronautics Covers need joint provider/runtime
+review: Covers' provider metadata can force an older JEI although its native
+requirement is optional. Use the exact file-source exceptions and procedure in
+[patch maintenance](patches.md#file-source-exceptions), then inspect the resolved
+lock for unintended downgrades before materializing.
 
 ## Rain audio
 
@@ -397,59 +255,36 @@ No measured performance gain or general shadow repair is claimed. Keep patch
 retirement tied to the actual released Colorwheel/Sable implementations.
 
 Colorwheel 1.3.2 requires the updated version guards introduced in Compat 0.21.1.
-The playable pack and shader-lab runner have independent exact pins. The lab
-runner owns offline shader generation; update it when shared-engine behavior or
-recipe schemas change, and qualify outputs against the playable runtime. Compat
-0.23.0 changes generation without changing that engine, so the lab retains its
-0.22.1 runner. The buffer and DSA repairs do not replace the sampler/material adapters: the inspected
-`ClrwlProgram` and `GlCompat` classes are unchanged from 1.3.0. The 2026-11-05
-candidate check on NeoForge 21.1.265 covered shader-off instancing, generated
-BSL and Complementary/Euphoria shaders, static and assembled material samples,
-and native emission-buffer writes. It does not repeat the earlier moving-ship,
-Ponder or minimum-client checks.
+The playable pack and shader-lab runner use the same verified engine. Keep their
+exact pins aligned when its shared implementation or recipe schema changes;
+qualify generated outputs against the playable runtime. Colorwheel's sampler,
+material and buffer adapters remain separate from the offline shader engine.
+[Patch maintenance](patches.md) owns their individual update/removal checks.
 
 ### Shader patching
 
-The Skyweave Glass patch produces the merged Complementary Unbound 5.9.3 /
-Euphoria 1.10.5 / Skyweave shader. Euphoria's broad Create translucent-layer override and generic glass
-materials caused opaque window frames to receive glass shading. The builder uses
-texture alpha to select 32 cutout and six translucent Create blocks, preserving
-partial-alpha glazing and glints. Opaque frame texels no longer receive built-in
-glass reflections; authored custom PBR is unchanged. Create retains CT ownership.
-This material correction does not fix coincident backfaces or pane intersections.
-The [lab guide](../../tools/shader-lab/README.md) owns inputs, update checks, and
-the unresolved modified-shader distribution requirement.
+The [shader lab](../../tools/shader-lab/README.md) owns exact inputs, recipe and
+payload versions, update checks and distribution requirements. It invokes
+Compat's file-only Java engine for deterministic author builds. Recipients use
+that same engine before Iris opens the selected shader. empack manages original
+inputs under `shader-inputs/` and the recipes; finished cached ZIPs are generated
+locally. Neither plain BSL nor an intermediate Complementary/Euphoria result
+belongs in the selectable list alongside its final Skyweave result.
 
-On 2026-11-04, the isolated Java 21/macOS ARM64 client loaded the generated shader
-with Minecraft 1.21.1, NeoForge 21.1.264, Create 6.0.10, Sodium 0.8.13, and the
-selected Iris/Colorwheel stack. Eighteen matched captures cover oak, birch,
-framed glass, weathered iron, ornate iron, and an oak pane with upstream shaders,
-the adaptation, and shaders off. Frame reflections are reduced while glazing and
-pane details remain visible. The water, cutout, and shadow programs compile;
-inherited derivative-extension warnings remain. Custom PBR, moving constructs,
-DH material fidelity, and touching-surface ordering were not verified by this test.
-Evidence and the executed protocol remain in the resource harness under
-`images/2026-11-04-shader-glass`.
+The BSL chain combines BSL 10.1.8, Colorwheel Patcher 1.0.5 and Skyweave environment
+edits. Colorwheel's runtime remains installed; the patcher archive is build input.
+Complementary Unbound r5.9.3 plus Euphoria 1.10.5 adds independently versioned
+Skyweave Glass material corrections and Skyweave environment edits. The glass
+policy uses texture alpha to distinguish cutout frames from partial-alpha glazing,
+preserving custom PBR and Create's connected-texture ownership. It does not fix
+coincident backfaces or pane intersections; those belong to Compat's renderer.
 
-The tested shader SHA-256 is
-`4980eb3f34d0100e6c00ab5ca2bc61ec4147d9e862370f9fb7a31325f7d99de3`.
-`python3 tools/shader-lab/build.py --check`, 64 pack tests, the 255-file config
-audit, and the isolated bundled Prism build pass. Default release profiles remain
-references. No personal installation or server was changed.
-
-The [shader lab](../../tools/shader-lab/README.md) pins BSL 10.1.8 and
-Colorwheel Patcher 1.0.5 as original inputs. Compat's shared recipient engine
-applies the embedded Colorwheel overlay and scoped Skyweave environment edits,
-producing `BSL_v10.1.8 + Clrwl_1.0.5 + Skyweave_0.2.0.zip` locally. Neither plain
-BSL nor a managed premerged shader is placed in Iris's list. The patcher archive
-is input data rather than a runtime mod; Colorwheel's runtime remains installed.
-
-Complementary/Euphoria uses the same engine and adds Skyweave 0.2.0 environment
-corrections while retaining the separately versioned Skyweave Glass 0.1.0 material
-policy. Native candidate checks compile/reload both corrected chains, distinguish
-low open sky from an enclosed room, and preserve the existing material corrections.
-Unknown shaderpacks and Photon on Apple hardware remain outside that evidence.
-The lab guide owns canonical recipes, payload qualification and distribution.
+Both supported recipes consume scoped world/void/open-sky signals. Foreign
+worlds, real enclosed rooms, underwater rendering and status effects retain their
+own paths. Unknown shaderpacks and Photon on unsupported Apple GPUs remain
+outside native qualification. Review exact historical captures through
+[verification](verification.md); shader compilation alone does not prove visible
+materials, occlusion, weather behavior or cross-platform performance.
 
 Compat groups configuration by gameplay system and mod page, with setting
 anchors and localized search. Rendering → Iris exposes independent
@@ -506,81 +341,6 @@ dimension travel and client/server light separation. It does not prove complete
 wall occlusion or fix the unreproduced upstream hang. Keep new pack verification
 separate from those earlier renderer observations.
 
-## Pack verification, 0.1.24
-
-The 30 pack Python tests, journal generation, 242-file configuration audit and
-maintained resource checks pass. The accepted journal baseline adds four equipment
-entries; all 75 previous native chapter/quest definitions have identical mechanics.
-All three reference profiles build. Archive checks confirm 70 managed entries,
-Linear/Fix on both sides, client-only SDL/Lamb and renderer/audio mods, server-only
-BlueMap, embedded asset hashes, unique entries and valid CRCs. Unix launcher patch
-verification passes. Only Compat changed among existing dependency records; four
-new dependencies were added.
-
-The Atlas recaptured the complete materialized server selection and decoded all
-70 entries. Its [verification](web/verification.md#materialized-pack-inputs-2026-10-31)
-owns snapshot counts and app checks. This does not establish every quest operation
-or a survival playthrough. The mod's native fixtures provide the separate carriage,
-transmission and gyro evidence linked above. Local client/server installation
-used downloaded, checksum-verified release archives. Both subsequent preparation
-checks reported zero changes. Stopped-world/client-save/LOD metadata and protected
-settings matched before restart; the existing server then reached its normal ready
-state with the three machinery adapters active. BlueMap returned HTTP 200.
-
-## Pack verification, 0.1.23
-
-The selected pack without Linear Bearing or its companion passed all 30 pack
-Python tests, the 242-file configuration audit, journal/resource generation checks
-and all three reference builds. Archive checks verified dependency removal,
-client/server placement, asset hashes, managed journal definitions and preserved
-seed-file policies. The isolated dedicated fixture decoded 66 entries and checked
-the four new backpack entries' condition handlers, persistence and manual rewards.
-It shut down normally. Action advancements were granted for handler checks;
-actual backpack use and rain-audio quality still need gameplay review.
-
-## Journal adaptation, 2026-10-31
-
-Create Sky 0.1.22 selects Compat 0.7.0 with independent Questlog interface,
-notifications and reward-validation switches. Native Questlog artwork and ink
-colors replace the old partial resource reskin. Grouped bookmark preferences are
-client-local; authoritative claim validation runs on the server. Quest content,
-terrain and LOD settings are unchanged.
-
-Compat passed 73 unit cases, package/pin checks, five dedicated loading/shutdown
-selections and isolated minimal/full-pack client checks. Actual reward collection
-also works with an unadapted Questlog server. Spoken narration and arbitrary
-third-party reward implementations remain unverified. The
-[mod verification](https://github.com/mannie-exe/skyweave-compat/blob/v0.7.0/docs/development/verification.md#release-070)
-owns artifact identifiers and detailed limits.
-
-## Rendering baseline, 2026-10-29
-
-Create Sky 0.1.20 selects Compat 0.6.1 and removes standalone Veil Iris Fix.
-`skyweave_compat-features.properties` explicitly selects pack behavior; the cache
-identity option remains off. Compat's own minimum installation needs NeoForge
-alone. Disabled adapters select no target mixins, callbacks, or integration data,
-and do not reject target versions. Terrain identity remains protected.
-
-Compat 0.6.1 passed 64 JUnit cases, five release-tool checks, exact artifact/package
-checks, and standalone/full dedicated-server startup and shutdown. The 0.6.0
-boundary matrix passed seven selections, and native minimal island generation /
-reopen retained ore counts. No generation algorithms changed in 0.6.1.
-See [the exact artifacts and limits](https://github.com/mannie-exe/skyweave-compat/blob/v0.6.1/docs/development/verification.md#release-061).
-
-Full-stack Prism checks on macOS arm64 used Complementary Unbound r5.9.3 and
-Euphoria Patches 1.10.5. Ponder, shader toggling/reload, heated balloon fixtures,
-static/assembled material controls, and a minimum Compat-only client were reviewed.
-Single-block glass and glass Copycats disappeared with shaders when their pass
-adaptation was disabled; enabling it restored them. Balloon telemetry confirmed
-valid envelopes and filled volume, but the old misplaced overlay was not reproduced
-in the disabled control. That guard has source and controlled execution evidence.
-
-Flickering/gapped airship shadows were not reproduced and remain unresolved. These
-checks do not establish every shader, driver or special block model. Existing
-nonfatal upstream diagnostics remain. No machine weights, recipes or core physics
-changed. Offline quickplay/LAN shutdown needed the disposable probe's explicit
-server stop; no production shutdown workaround was added from that observation.
-
 ## Distant Sable rendering
 
 Compat 0.22.1 supplies two independent default-on client adaptations. The distance
@@ -636,7 +396,7 @@ and LOD identity when troubleshooting; renderer visibility and network transfer
 are separate problems. See [graphics](../players/graphics.md) for diagnosis.
 
 The renderer uses a 256-chunk radius with cave culling disabled so island
-undersides remain visible. Cache identities remain installation-specific.
+undersides remain visible. Compat supplies per-world cache identities; retain the saved world identity when diagnosing LODs.
 
 ## DH luminous columns
 
@@ -674,8 +434,7 @@ incorrect mule chest visibility with Fresh Animations 1.11.1. The generated
 resource patch binds reviewed models to current rigs; [patch maintenance](patches.md#fresh-details-animation-rigs)
 owns the source contracts and update procedure.
 
-- Complementary r5.9.3 is paired with Euphoria Patcher 1.10.5. Euphoria generates
-  its patched shader at launch; its generated folder name determines the preset filename.
+- Complementary r5.9.3 is paired with Euphoria Patcher 1.10.5. Shader assembly publishes the complete generated result; see [shader patching](#shader-patching) for startup/cache ownership.
 - JEI remains alongside EMI for recipe integrations.
 - Connector and Forgified Fabric API support the Hoofprint/Surveyor/McQoy stack.
 - URL pins handle provider metadata conflicts involving old exact versions,
@@ -683,7 +442,7 @@ owns the source contracts and update procedure.
   metadata before replacing them with provider roots or downgrading dependencies.
 - Published URL pins select DH Polygon Fix, Copycat Bar Extrusion, Skyweave: Compatibility Patches
   with content digests. The compatibility mod itself requires no content mods; this pack
-  enables its Sky Archipelago 1.3.6 preset and Sky Villages/Architectury adapters.
+  enables its Sky Archipelago 1.4 preset and Sky Villages/Architectury adapters.
   Compat also owns the optional client framebuffer, balloon, and construct-model
   corrections. Do not install the former standalone Veil Iris Fix alongside it.
   Review coupled versions together; see [patch maintenance](patches.md).
@@ -807,134 +566,6 @@ lower Complementary/Euphoria light-shaft sampling. Reduced shadow coverage and
 sampling suggest less work; no fixed-scene FPS improvement was measured. Lower
 light-shaft sampling may show more noise in motion.
 
-## Weight classification verification
-
-[Building weights](weights.md#verification-2026-10-29) records the exact resource
-artifact, all-state comparison, representative assemblies and limits. The
-resource-only change needs no Skyweave: Compatibility Patches update.
-
-## Analog Audio release verification, 0.1.19
-
-[Create Sky 0.1.19](https://github.com/mannie-exe/create-skyweave/releases/tag/v0.1.19)
-was published from `59ed4fecdb1cdbad2e64475adf03dd829da81ce5` by
-[release run 40845603600](https://github.com/mannie-exe/create-skyweave/actions/runs/40845603600).
-Validation and release CI passed. Downloaded Prism, Modrinth and server archives
-match `SHA256SUMS`; archive integrity, Compat path/hash, shared resources,
-client visual patches and app-source exclusion checks passed on those downloads.
-
-Create Sky 0.1.19 selects Compat 0.5.2, SHA-256
-`0228b2cd34f402114ba6bf57a02e29b6d03c2b294dd8f970b37bd523a828320e`.
-The downloaded GitHub artifact matches the locally tested binary, and its binary
-and source JARs matched across Linux, Windows and macOS CI. The adapter's exact
-pair is Analog Audio 0.1.5-hotfix.1 and Create 6.0.10.
-
-The old Compat release reproduced the missing-handler failure. Five isolated
-server selections passed with the new artifact: minimum install, Create alone,
-Analog Audio alone, the pair and the full 0.1.18 dependency set. The pair and full
-pack registered the original radio handler, retained Create's drill handler, and
-completed radio server callbacks without client class loading. The full startup
-no longer reported the reflection error. No other dependency selection changed.
-[Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/v0.5.2/docs/development/verification.md#release-052)
-owns the commands and runtime scope.
-
-The isolated staged source passed 28 Python tests, the 242-file configuration
-audit and both resource builders. Both generated resource artifacts match the
-working-tree outputs. Prism, Modrinth and server reference exports passed CRC,
-Compat path/hash and app-source exclusion checks; server launch patch/check passed.
-Only explicitly selected modpack paths enter the release commit.
-
-Atlas source/data review
-found no recipe or physics projection requiring a change for this hook; app
-verification remains in its [own guide](web/verification.md). App changes are
-excluded from this release. Existing block weights and resource patches remain
-byte-identical. Audible client playback, moving sound positions and ordinary
-Create contraption GUIs are not certified by the server tests.
-
-Both local instances were installed from the verified 0.1.19 release. The client
-release descriptor is `0f0a32d61c3be5ed907416f3f31e4d91d3457d321ee9cec7ddc2b974016926bd`;
-the server descriptor is `dc249be3609dbf86d8b547b2eb5eeeefdc647d420eea103744b996b2ac237472`.
-Both retained exactly one Compat JAR matching the published binary. Consumer
-assets and launcher hashes were updated together while preserving other launcher
-settings; subsequent prepare dry runs reported zero changes.
-
-The server stopped gracefully before installation and remained off afterward,
-as requested. Preservation comparisons passed for 36,144 client and 24,038 server
-paths covering worlds, DH data, configuration and settings. Checks compared size
-and modification time, plus SHA-256 for files up to 1 MiB and all selected config
-files. Large world/database files were not reread in full; BlueMap's generated
-tile tree was not enumerated or targeted. No world reset, cache clearing or
-pregeneration occurred. The server process exited and port 25565 had no listener.
-
-## Release verification, 2026-10-29
-
-[Create Sky 0.1.18](https://github.com/mannie-exe/create-skyweave/releases/tag/v0.1.18)
-was published from `045784a79d5d7ed75fb6ac4eb5d8c3371733599b` by
-[release run 40834796342](https://github.com/mannie-exe/create-skyweave/actions/runs/40834796342).
-The isolated pack checkout passed 28 Python tests, the 242-file audit, both
-resource builders, all three reference builds and the server archive patch/check.
-No Atlas or unrelated journal-authoring edits entered the commit or builds.
-Skyweave Compat remained at 0.5.1 because its distributable behavior did not change.
-
-Downloaded assets matched `SHA256SUMS`. Archive CRCs, embedded asset hashes,
-runtime pins, dependency sidedness and the native-tested fixes JAR passed inspection.
-Only that JAR changed in the client/server managed payloads from 0.1.17.
-
-| Published archive | SHA-256                                                            |
-| ----------------- | ------------------------------------------------------------------ |
-| Prism references  | `d93b48d4beb1ddc7bd14ca7b3302964a9db76e56d0fab8ef77f32c31ccdf6b2d` |
-| Modrinth          | `8bb0f953010482a97eacaf3fc1fa5ddc8c1066d8c1f4d9d1b5a5327cd2e08e83` |
-| Server references | `66266c36ed32a39580a1d8d8bce9bae22cb7bb5806ce93afaeb751a999c2d53a` |
-
-The stopped local Prism client and server were installed from the verified release.
-Their exact release descriptors are respectively
-`47392a1ad8085b06fc0adb91c999f9b5033b8743c2712d36dd8d68c199c12cba` and
-`382ebf1d3ee1243fccc9aeb42ace3d00fe87145f9a914586c9a8f9d23659be8c`.
-Consumer assets and launch hashes were updated together, preserving other Prism
-settings. Both subsequent `instance prepare --dry-run` checks reported zero changes.
-
-Before restarting, preservation comparisons passed for 35,734 client and 24,067
-server paths: size/mtime fingerprints for all sampled paths, plus SHA-256 for
-files up to 1 MiB and all configuration files. These include worlds, LOD data,
-settings and access lists. Large world/database files were not reread in full.
-BlueMap's generated tile tree was not enumerated or targeted by installation.
-No world reset, migration, cache clearing or pregeneration was performed.
-
-The server stopped gracefully, restarted through its existing blocking console
-and empack wrapper, reached `Done`, and listened on Minecraft port 25565. BlueMap
-returned HTTP 200 on port 8100. After stripping timestamps, thread prefixes and
-ANSI formatting, all 279 startup error signatures already occurred in the previous
-log. Existing optional loot resources and Sable's missing Copycat catwalk warnings
-remain; this is not an error-free startup claim. The client was updated without
-launching a graphical session. Native weight checks are documented in
-[building weights](weights.md); app checks remain local in the web verification guide.
-
-## Compatibility fixture
-
-The 2026-10-28 isolated client used the selected 0.1.17 dependencies and generated
-patch `21cd22ce029c6a8190c2cc236de9b0b8f787bca5556b77cefc5005063197e5bb`.
-Sleeping villagers, standing traders, elder guardians and mule equipment were
-viewed. Cow and villager carry recordings were stable; pickup/placement and
-return to ordinary AI were checked. Seven actual Sable assemblies matched their
-expected mass, including unchanged wood/iron controls. The tag delta affected
-308 default states only in the intended building-mod families.
-
-Ponder 1.0.87's published source contains the concurrent sprite registry missing
-from bundled 1.0.82. The candidate started normally and rendered the Aeronautics
-propeller scene with shaders off/on, plus a Create press control. EMI opened
-recipes with JEI 19.70.0.464. Radar's new Sable silhouette/sound defaults were
-accepted; existing radar settings and C2ME's configuration were retained.
-
-This ModDev client excludes Connector, Surveyor and Hoofprint because of the
-harness's clean-Minecraft lookup limitation. It does not establish a complete
-launcher installation or every animation state. Dedicated-server fixtures use
-the full server mod set; release archives are verified separately.
-
-Copycats 3.0.9 still logs a physics selector for the absent `copycat_catwalk` block;
-Sable skips only that definition. DnD loot resources also reference absent color
-variants, and Let's Do EMI Compat contains serializers for uninstalled content.
-These inherited, skipped records did not block the fixtures. No dummy blocks,
-blanket log suppression or speculative recipes were added to hide them.
-
 ## Verification scope
 
 Choose checks that exercise the change:
@@ -979,243 +610,34 @@ and [journal integrations](journal-integrations.md).
 
 ## Resource interactions
 
-The 2026-10-23 shader-off client fixture used Minecraft 1.21.1, NeoForge 21.1.264,
-EMF 3.3.12, ETF 7.2.6 and Fusion 1.3.16. It used a disposable superflat world,
-fixed noon/clear weather and fixed camera positions. This tests stationary
-appearance, not moving ships, multiplayer state isolation or performance.
-
-- **Crops and pots:** the tagged 3D Crops download declares format 55. Minecraft
-  removes it at startup unless `incompatibleResourcePacks` explicitly accepts it.
-  Its inspected assets use ordinary blockstates/models, and it loaded with that
-  acceptance in the lab. Fresh Flower Pots above it then applies crossed planes
-  to the replaced mushroom textures, producing visibly distorted plants. The
-  fallback order gives 3D Crops ownership of the four shared potted plants;
-  Dedicated Sugar Cane stays above Crops. Other pots retain Fresh Flower Pots.
-- **Pot composition:** a lab-only prototype removed the Fresh pot parent's
-  `#plant` planes, retained its pot/soil elements and texture bindings, and added
-  Crops elements whose faces use `#mushroom`/`#mushroom_top`. The existing stem base
-  at y=4 fits inside the soil. Brown/red mushrooms and crimson/warped fungi all
-  rendered with their 3D plant and the Fresh pot. The generated client patch
-  includes this composition above both upstream packs.
-- **Chests:** Objects overrides Redstone Tweaks' three trapped-chest textures.
-  Normal and trapped fronts are less distinct. Lootr still showed gold unopened
-  and muted opened chests and successfully opened generated loot. That baseline did not
-  establish animation support; the later [Lootr adapter](patches.md#lootr-and-fresh-objects)
-  does. Preserve
-  Lootr's state textures; do not enable `vanilla_textures` just to match artwork.
-- **Glass:** vanilla, Create framed and Create tiled glass connected in the
-  fixture while retaining their different borders. Midnighttigger does not
-  automatically cover arbitrary mod blocks. Target missing families individually;
-  Copycat materials and moving geometry remain untested.
-- **Better Lanterns:** replacing the vanilla chain parent made Macaw's copper and
-  golden chains look like iron. The replacement uses texture variable `1`, while
-  Macaw's children bind `all`. Two child overrides adding `1` with the
-  existing `all` value restored the correct colors on standing and hanging chains.
-  Better Lanterns and these overrides are selected.
-  The sampled lanterns rendered, but this is not coverage of all Macaw styles.
-- **Interface:** Icons was removed after user playtesting found excessive visual
-  clutter. Its temporary disc-label merger was removed too; Clean Tooltips and
-  Redstone Tweaks retain their own presentation.
-
-Local comparison captures are generated evidence, excluded from version control:
-[pots before](../../web/public/generated/resource-review/pots-selected.png),
-[composite prototype](../../web/public/generated/resource-review/pots-composite.png),
-[selected pot fallback](../../web/public/generated/resource-review/pots-crops-priority.png),
-[lanterns before](../../web/public/generated/resource-review/lanterns-better-unpatched.png),
-[chain correction](../../web/public/generated/resource-review/lanterns-better-patched.png),
-[Lootr states](../../web/public/generated/resource-review/chests-opened.png),
-[glass families](../../web/public/generated/resource-review/glass-selected.png).
+Skyweave: Visual Patches composes selected models, textures and animation resources
+above the retained source packs. Skyweave: Resource Patches owns shared data and
+supporting translations. Runtime renderer and collision fixes belong to Compat.
+[Patch maintenance](patches.md) owns exact inputs, generators and coupled update
+checks; [resource authoring](web/models.md) owns browser editing and preview limits.
+A resource reload or correct browser model alone does not verify in-game collision,
+block-entity animation, connected textures or shader behavior.
 
 ### Category review world
 
-**Resource Review** in the local client is organized by Plants, Pots, Ladders,
-Bars, Lighting, Storage, Glass, Rails and signals, Machinery, Animals, Equipment,
-Surfaces, Lamp variants, Connections, Barrel details, Workstations, Garden details,
-Shelves and hives, Small props, Doors and surfaces, Selected workstations and
-Selected garden. `/function resource_lab:hub`
-returns to its controls. These are
-comparison categories, not a division by mod or resource-pack coverage. The
-fixture source, manifest and stopped-world checker live in
-`~/Minecraft/modpack-testing/projects/create-sky-resources/`.
-
-The installed registry has no non-vanilla `minecraft:crops` members or additional
-crop block implementations in the inspected plant classes. The plant displays
-therefore compare vanilla growth stages, stems, cane, fungi and aquatic plants.
-All eight ladder families are present: vanilla; Create andesite/brass/copper;
-Create Deco iron/industrial iron/zinc; and Copycat. Apply a material to the
-Copycat sample yourself. Gingerbread men sit beside the stationary animal specimens.
-The equipment chest and enclosed pen support motion checks. A powered adjustable
-burner and propeller/press Ponder buttons support shader comparisons. Other
-machinery and track samples do not establish working contraptions. The expanded
-fixture has bounded rebuilds, ground support, occupied shelf inventories, pond
-banks and native navigation. Its writer refuses an open world. The retained local
-debug datapack updates its layout on the next load; it selects no resources.
-
-| Family                           | Installed behavior and remaining work                                                                                                                                                                                                                                                                                                                                                                                              |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Macaw lanterns                   | Bell, covered, cross and festive standing/hanging variants use fitted artwork. Flat bridges retain the detailed standing lantern; stair bridges use a short-chain hanging model and matching optional Compat selection. The bridge must be directly below the lantern; its state selects the elevation. Native shader-off/on views cover representative variants. Wall variants retain their brackets with fitted lantern bodies.  |
-| Create and Deco bars             | Texture-mask extrusion covers all three Create families and Deco's andesite, brass, copper, industrial iron, iron and zinc model families, including overlays. Native posts, ends, corners, crossings and three-block stacks were reviewed. Deco overlays are connected bars with additional panels, not wall decals. Connection blockstates remain upstream-owned.                                                                |
-| Cage lamps and frontlights       | Deco's cage surfaces have depth while its base, light and material/color bindings remain intact. Eight DnD hood templates retain their bodies, texture bindings, rotation, lit and no-base variants. Representative straight/rotated and powered/unpowered views passed with shaders on and off.                                                                                                                                   |
-| Mooshrooms                       | Details 2.4 uses the current shared cow rig; no pack rig replacement remains. The isolated updated client rendered adult/baby mooshrooms and a sleeping villager with visible feet. Stationary fixture specimens still need `OnGround:1b`. Rare random variants, every animation state and all equipped models remain untested.                                                                                                    |
-| Aquatic plants and pitcher plant | Lily pads now use 3D Default, and pitcher plants/crops use Toasty V3 with the maintained angle adaptation. Kelp and seagrass retain the existing stack by review decision; their flat geometry is not a load-order fault.                                                                                                                                                                                                          |
-| Barrels                          | Fresh Objects 2.1.2 supplies no barrel CEM model. A barrel changes its block-state model/texture when opened; it has no chest-style lid renderer. An open-state model can change the silhouette, but smooth lid motion would require a renderer and transition state.                                                                                                                                                              |
-| Lootr chests                     | The [adapter](patches.md#lootr-and-fresh-objects) supplies the exact `lootr_lootr_chest` and `lootr_lootr_trapped_chest` model names requested by EMF, with literal body/latch bindings and an isolated animation resource. Native opening/closing, body motion, generated loot, state textures and neighboring-chest independence passed locally. Lootr continues to select its own materials; `vanilla_textures` stays disabled. |
-| Other models                     | Connected glass families, decorative machinery and moving objects need family-specific checks. Sharing a texture or parent is not proof of matching UVs, connection rules or renderer behavior. New creature animations need a rig/part mapping; extrusion cannot infer joints or behavior from a sprite.                                                                                                                          |
-
-The Bars section uses real Copycat panels with both `Material` and `Item` NBT;
-missing item data causes Create to reset the material. The directly placed internal
-`create:copycat_bars` helper is removed. Double chests form a shared 54-slot inventory.
-Vault and shipping-container automation was previously verified, but those exhibits
-are removed from the visual review: neither has a dedicated manual GUI or opening
-animation. Connections now compares native window/pane behavior, mixed boundaries,
-Rechiseled variants and six Copycat panel facings.
-
-The 2026-10-24 visual pass is retained under
-`~/Minecraft/modpack-testing/projects/create-sky-resources/images/2026-10-24-visual-pass/`.
-Filenames distinguish shader-on/off views. These checks do not establish moving
-contraption rendering, other shader compatibility or performance. No web gallery
-was added for this pass.
-
-Current unselected experiments are described in [selective model comparisons](#selective-model-comparisons).
-The maintained patch uses the model recipes and renderer adapter described above;
-review ZIPs do not change its output.
-
-Shader-off comparisons use fixed noon/clear weather and matching camera poses:
-[covered before](../../web/public/generated/resource-review/covered-template-before.png),
-[original template](../../web/public/generated/resource-review/covered-template-isolated.png),
-[bell before](../../web/public/generated/resource-review/bell-template-before.png),
-[original template](../../web/public/generated/resource-review/bell-template-isolated.png),
-[industrial bars](../../web/public/generated/resource-review/deco-bars-current.png).
-The six-second clips preserve the actual chest interaction:
-[Lootr baseline](../../web/public/generated/resource-review/lootr-close-baseline.mp4),
-[Lootr alias](../../web/public/generated/resource-review/lootr-close-prototype.mp4),
-[trapped alias](../../web/public/generated/resource-review/lootr-trapped-close-prototype.mp4),
-[normal chest control](../../web/public/generated/resource-review/vanilla-close-control.mp4).
-Those earlier clips document the namespace-only experiment. Current patch checks
-and retained comparisons are in [model verification](web/verification.md#native-model-checks-2026-10-24).
-Neither set is a frame-time, audio or multiplayer test.
+Use the generated [Debug World](debug-world.md) for native comparisons. It replaces
+the old hand-reviewed Resource Review fixture. The generator, placement manifest
+and native probes own coverage; labels and screenshots do not prove every expected
+state was placed. Keep personal worlds separate from disposable comparisons.
 
 ### Selective model comparisons
 
-The review captures use Create Sky 0.1.30 (`86752bd`), Compat 0.14.0,
-Minecraft 1.21.1 and NeoForge 21.1.264. They remain dated comparisons against the
-pre-selection stack. The production selection is owned by
-`authoring/resource-selections.json`; the full donor packs are not enabled.
-
-| Feature                                         | Approved treatment                         | Scope                                                                                                                                                               |
-| ----------------------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Crafting table, stonecutter                     | Classic 3D Alpha 9                         | Other workstations are selected individually below.                                                                                                                 |
-| Lily pads, cactus                               | 3D Default 1.16.0                          | Existing flowers, mushrooms, fungi, pots, sugar cane and seagrass remain unchanged.                                                                                 |
-| Doors and trapdoors                             | 3D Default 1.16.0                          | All supplied vanilla wood, iron and copper families; masonry and other surfaces remain unchanged.                                                                   |
-| Lodestone, copper bulbs, hay bales              | 3D Default 1.16.0                          | Bulb oxidation/power variants are included; waxed states use the same native roots.                                                                                 |
-| Campfires                                       | 3D Default 1.16.0                          | The shared template is isolated under the lit campfire roots. Earlier selective screenshots did not activate this template; a fresh visual check remains necessary. |
-| Redstone torches                                | Nautilus 3D V2.2                           | Floor/wall and on/off models with their required textures.                                                                                                          |
-| Single ordinary/trapped and Lootr chests        | C: 3D Default geometry + Fresh Objects rig | All four JEMs match the reviewed prototype. Large and ender chests retain their existing rigs and were controls in C.                                               |
-| Smoker, furnace, fletching table                | UltiCraft 3D Models                        | Selected roots and their private model/texture dependencies.                                                                                                        |
-| Smithing table, brewing stand                   | Jacob’s 3D Workspace+                      | Other Jacob models remain unselected.                                                                                                                               |
-| Cartography table, blast furnace, crafter, loom | 3D Vanilla                                 | Upright crafter cases are explicit in the Atlas.                                                                                                                    |
-| Azalea, flowering azalea                        | Vervada’s enhanced plants                  | Dead bush and seagrass retain the existing stack.                                                                                                                   |
-| Pitcher plant and crop                          | Toasty’s Perfect Pitchers V3               | Original angles retained through NeoForge composite root transforms.                                                                                                |
-| Kelp                                            | Current stack                              | Bushier Kelp deferred after visual review.                                                                                                                          |
-| Bookshelves, hives/nests                        | Current stack                              | Connected bookshelf framing is retained.                                                                                                                            |
-| Vanilla barrels                                 | Current stack                              | No new vanilla barrel override is selected.                                                                                                                         |
-| Lootr barrels                                   | Native cube + approved trim artwork        | Directional artwork and approved corner-clasp extrusion preserve Lootr material/state selection.                                                                    |
-
-The [visual comparison page](http://127.0.0.1:4321/resourcepacks/reviews) displays
-this matrix beside the archived evidence. The source gallery also retains those
-images and recordings. The captured ZIPs, camera/state metadata and eight native
-closing clips remain in the Resource Review harness. They establish the shown
-variants, not a new in-game verification of the assembled production ZIP.
-
-Native checks covered six barrel orientations, up-facing vanilla/Lootr opening,
-ordinary/trapped double-chest formation, and single ordinary, trapped, ender and
-Lootr containers. Closing clips demonstrate the tested single-chest compositions.
-Shader-off checks cover the captured families; a subset also uses Complementary
-Unbound 5.9.3 with Euphoria 1.10.5. Fixture revision 9 passed 7,119 placements,
-31 inventory slots, 27 stationary specimens and save/reopen checks. Multiplayer
-loot independence, legacy Lootr styles, every held-item representation and moving
-constructs were not verified in that review.
-
-The production builder selects explicit model/blockstate roots and relocates
-required donor helpers and textures into per-source namespaces. Copied textures
-stay inside the block-atlas discovery directory and retain animation metadata.
-Global templates, interfaces, shaders, PBR maps and unselected model families are
-excluded. Campfires use vanilla leaves with a private donor template, avoiding a
-global template replacement. The expanded door-family coverage and campfire
-composition need a new native review before claiming complete visual coverage.
-
-Static checks verified dependency closure, deterministic generation, unchanged
-excluded roots and existing repairs. The only changed pre-existing asset bytes
-are the two intended Lootr chest JEMs; new ordinary/trapped C JEMs are added above
-Fresh Objects. Existing model and animation controls remain available.
-
-#### Lootr storage artwork
-
-All four gold/gray barrel and chest variants are approved and included through
-`authoring/texture-resources.json`. Their generator preserves each native palette,
-wood and alpha while relighting recognized trim. The brightest color marks short
-speculars, with broad connected highlights and softer bounce on shadow sides.
-Barrel knobs and chest latch accents follow the selected front-right direction.
-
-The barrel keeps its cube and uses separate side textures; no vanilla hoops,
-extra staves or smooth lid animation are introduced. Modern open-cap variants
-preserve their interior pixels, and legacy branches remain native. Chest exterior
-UV fitting applies only to the Lootr CEMs, retaining Fresh Objects' animation rig
-and the composed single-chest geometry. These latest PNG/UV bindings have generated
-resource and web-render checks; they do not extend the older native animation
-verification to every newly composed state.
-
-### Patch generation boundary
-
-The [client patch builder](build.md#local-builds) pins exact source archives,
-checks selected empack versions for installed inputs and SHA-512 for every input,
-and validates the pot elements and chain
-texture variables before emitting deterministic output. The pot and chain overrides
-use the inspected base paths; no active overlay changes those inputs for 1.21.1.
-The separate model recipes add explicit extrusion and UV fitting; they do not
-infer arbitrary model compatibility.
-New inputs require fresh overlay/structure inspection and visual checks.
-
-Additive/composite overrides can live in one top-priority pack. Vanilla resource
-filters cannot remove a path from just one named lower pack: they filter matching
-resources below them. Source-specific subtraction therefore needs filtered input
-copies or a client resource-loader adapter. Filtered copies must preserve upstream
-archives, record exact excluded paths and be rebuilt after updates. Reference
-releases also need a distribution strategy for derived third-party resources;
-do not silently replace referenced inputs with bundled modified archives.
-
-Vanilla Experience+, Fresh Moves and Dramatic Skys remain separate deferred
-comparisons. Fresh Moves needs motion/equipment checks; sky rendering needs
-day/night and shader-on/off checks, not only a still image.
+Accepted selections and pending resource comparisons live in Atlas authoring and
+its source manifests. Preserve the chosen per-object resources and explicit review
+decisions when upgrading a broad source pack. Do not enable an entire candidate
+pack merely because selected objects passed review.
 
 ### Visual compatibility pass
 
-The 2026-10-24 compatibility client used Minecraft 1.21.1, NeoForge 21.1.264,
-Create 6.0.10, Copycats+ 3.0.9 and Create Deco 2.1.3. Resource patch SHA-256:
-`edce4c4265ea017caf638821d8a4b857060ca261b2c870c9c5059b282ba0691e`.
-Copycat Bar Extrusion 0.1.0 JAR SHA-256:
-`ba32ee265b9bcf838c9cc177398081759e870aadffdadee8bf41fd207bfb99eb`.
-
-Native checks covered lantern standing/hanging/wall samples, the shorter straight
-and rotated frontlight hoods, cage bends, window corners/pane intersections and
-Copycat bar depth. The renderer generated all six facings for vanilla iron,
-Create andesite/brass/copper and Deco industrial iron/zinc, with 10 to 40 quads per
-panel. Adjacent brass panels joined visually; stone and unfilled panels retained
-native rendering. Resource reload through the pack-selection screen rebuilt the
-meshes successfully. Shader-off and Complementary Unbound 5.9.3/Euphoria 1.10.5
-views showed the revised silhouettes without missing textures in these samples.
-
-Create framed glass removes internal frame edges; wood and iron windows retain
-intentional mullions. Rechiseled's plain and connecting variants remain separate
-choices. No competing Fusion override was added to these native connections.
-This pass does not establish moving-contraption behavior, every Copycats+ shape,
-other shader packs or performance. The patch may keep redundant faces where panels
-touch; its cache and mesh limits bound memory/geometry, not measured frame time.
-
-Selected comparison captures remain in the testing harness under
-`projects/create-sky-resources/images/2026-10-24-compat-pass/`. The fixture's native
-parser exposed an invalid Rechiseled sample ID; it now uses registered oak window
-bars, and both fill and individual placement validate registry IDs before generation.
+Review resource inheritance, UVs, render type, animation ownership and resource
+priority together. Inspect both unchanged controls and touched objects in game.
+The [historical visual evidence](https://github.com/mannie-exe/create-skyweave/blob/v0.10.0/docs/development/compatibility.md#visual-compatibility-pass)
+retains the tested objects and exact earlier artifacts.
 
 ## BlueMap model parsing
 
@@ -1237,121 +659,26 @@ not repair upstream model JSON. No broad resource overrides were added for this.
 
 ## DH multiplayer cache filling
 
-On 2026-10-26, islands became visible from spawn after the player approached them
-and returned. The client log at 21:32 confirmed the DH handshake and the current
-`create-skyweave-20261026-a0fb6687aa24` level key. Both sides used CHUNKS_ONLY,
-INTERNAL_SERVER, enabled synchronization and generation, and 4096-chunk request
-caps. No exploration prerequisite was found in the inspected request paths.
-DH's [multiplayer FAQ](https://modrinth.com/mod/distanthorizons) distinguishes
-client-only exploration from server-provided LODs.
-
-Read-only database inspection found server LODs around the western anchor
-(-3516, 1692) dating to about 17:07, while its client's detailed section was first
-stored around 21:40. The northwestern anchor (-1892, -1014) likewise had server
-data before login and acquired client data during that session. Sampled server
-column-generation arrays were complete LIGHT (4096 of 4096 columns); several
-client parent sections still contained EMPTY columns. This establishes incomplete
-client coverage despite available server data. It does not reconstruct the exact
-contents of the rendered frame before the player's flight.
-
-Inspection of the installed DH 3.3.3 implementation found two nearest-first stages:
-`LodQuadTree.startQueuedRetrievalTasks` orders missing sections by Manhattan distance,
-and `AbstractFullDataNetworkRequestQueue.sendNextRequest` prioritizes by distance
-to the player. `RemoteWorldRetrievalQueue` uses the generation-request limit even
-when downloading already-generated LODs. The server fulfills complete stored
-sections without requiring a player visit. `RemoteFullDataSourceProvider` has a
-20-minute `visitedPositions` cache, but it deduplicates section sync requests;
-it is not a world-exploration permission system.
-
-Before tuning, both local endpoints limited fresh requests to 20, sync requests to
-50, and per-player bandwidth to 500 KB/s. Client logs recorded sync-rate rejection
-and requeueing at 21:32 and 21:39. Four DH worker threads also bound the retrieval queue to 80 tasks.
-The negotiated limits use the lower client/server value; raising only the server
-value may have no effect. The disabled generation-progress display also hid the
-multiplayer download-progress indication.
-
-The evidence supports delayed cache filling, with movement changing request
-priority and nearby vanilla chunks also contributing LODs. It does not isolate
-bandwidth, request concurrency and disk/CPU scheduling as independent bottlenecks.
-Do not switch to surface approximation, clear caches or regenerate terrain to
-address this symptom.
+Server LOD availability, client cache coverage and renderer visibility are separate
+states. DH can retrieve generated server sections without a prior player visit;
+movement changes nearest-first request priority and native chunks also contribute
+LODs. Incomplete client coverage is not evidence of a missing server world.
+Check the handshake, dimension/cache identity, negotiated limits and errors before
+clearing caches or regenerating terrain. [Player graphics](../players/graphics.md)
+owns the troubleshooting sequence.
 
 ### Transfer tuning
 
-The connected client and running server were tuned through DH's own UI and console
-on 2026-10-26. The same transfer limits are now authored pack defaults. The progress overlay
-remains a local preference; new installations keep it hidden.
+Authored endpoints use 2048 KB/s per-player bandwidth, 64 generation/download
+requests and 100 sync-on-load requests. DH uses the lower negotiated client/server
+limits. Four workers, a 256-chunk render radius and CHUNKS_ONLY / INTERNAL_SERVER
+remain pack choices, not universally optimal performance settings. The progress
+overlay is a local preference. A world reset or shader change does not justify
+silently deleting caches. [Server operation](../players/server.md) owns pregen.
 
-| Setting                                           | Previous | Tuned value |
-| ------------------------------------------------- | -------- | ----------- |
-| Per-player bandwidth, both endpoints              | 500 KB/s | 2048 KB/s   |
-| Generation/download request limit, both endpoints | 20       | 64          |
-| Sync-on-load request limit, both endpoints        | 50       | 100         |
-| Client generation/download progress               | DISABLED | OVERLAY     |
-
-Server commands were `dh config common.playerBandwidthLimit 2048`,
-`dh config generation.requestRateLimit 64`, and `dh config syncOnLoad.rateLimit 100`.
-The client exposes the same limits under DH → Advanced options → Server, despite
-that category name. Saved TOML readback confirmed all three values on both sides.
-Pack cave culling is also disabled to match the client's existing island-friendly
-setting; the old Y=60 cutoff is unsuitable for exposed undersides.
-Render radius remains 256 chunks, worker count remains four, and generation stays
-CHUNKS_ONLY / INTERNAL_SERVER. No restart, movement, cache clearing or pregen
-rescheduling was needed.
-
-A read-only client SQLite comparison from 21:59:42 to 22:00:12 PDT found 1454
-additional detail-zero sections. The detail-four section containing the eastern
-anchor (2930, 1362) improved from 3216 to 4048 LIGHT columns out of 4096. The western,
-northwestern and southern sampled sections were complete at both observations.
-The visible download overlay and increasing stored coverage confirm stationary
-cache filling. This is not a controlled throughput comparison or proof that every
-island is rendered: the cache was already warming and no before/after flight or
-fresh-client test was performed.
-
-### Optional island-aware request ordering
-
-An adaptation could prioritize coarse coverage of likely land-bearing sections,
-then refine nearby terrain, before spending most of its initial budget on empty
-space. The inspected client has two scheduling stages, so changing only server
-response ordering cannot prioritize sections the client has not requested yet.
-A candidate would gate client hooks to the supported DH version and use bounded,
-cached island descriptors from the server to rank requests. Existing stored LOD
-occupancy could refine predictions without generating chunks to classify them.
-
-Treat these hints as priority, never permission or proof that a section is empty.
-Keep age-based fairness and a share of the request budget for all sections: bridges,
-structures and player builds can occupy nominal void. Preserve normal DH behavior
-without the optional adapter or hints. Descriptor lookup, network payloads and
-scheduling hooks still need implementation and runtime verification; no DH adapter
-is installed by this tuning pass.
-
-### Release installation
-
-Create Sky 0.1.16's published Prism, server and Modrinth archives passed SHA-256
-verification and payload/sidedness checks. Both local instances installed the
-release through empack. The client prepare hook then reported zero changes; the
-server reopened the existing prototype-10 world and served BlueMap's adapter.
-The same pregen request was accepted once and left running. No new Minecraft
-client visual pass was performed for this metadata/configuration release.
-
-[Compat's DH integration](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/lod.md)
-owns lifecycle and optional cache-isolation hooks. It does not provide a separate
-terrain predictor. SeedGen and Voxy/Roxy are not included in the pack.
-
-## Release 0.1.26 verification
-
-The pack adds exact Transmission & Linkage 0.2.9 bytes and published Compat
-0.11.1 on both sides. All three reference distributions build; ZIP integrity,
-new dependency rows, client exclusion of BlueMap, and the Unix terminal wrapper
-check pass. Journal generation checks 86 managed outputs; the configuration
-audit checks 243 files without drift. All 30 pack tests pass. The fresh Atlas
-export verifies the three added journal definitions and preserves prior mechanics.
-
-Source-level and native machinery evidence is owned by Compat's verification
-guide. Native actuation, recipe costs, converter limits, terrain, seed and LOD
-identity remain unchanged. Personal-instance installation is verified separately
-from distribution construction; archive checks do not establish every gameplay
-arrangement or GPU.
+Island-aware request ordering remains a proposal. It would need conservative
+occupancy and fairness without changing generated terrain or starving empty-sky
+requests; no such DH scheduler is claimed here.
 
 ## Resource rendering repairs
 
@@ -1390,3 +717,57 @@ Macaw's sloped chain-hung appearance is approved; flat bridges retain the regula
 standing lantern. The matching optional Compat adaptation moves the stair outline and preserves
 selection outside its owning cell. Physical collision remains empty. Their matched views are in the
 Atlas at `/resourcepacks/reviews?feature=bridge-lantern`.
+
+## Evidence history
+
+[Pack verification](verification.md) records released artifact checks. Older event
+records remain available in the published 0.10.0 tree; they are not current
+operating procedures. Relevant resource comparison records are linked below.
+
+<a id="release-0100"></a>
+- [Release 0.10.0](https://github.com/mannie-exe/create-skyweave/blob/v0.10.0/docs/development/compatibility.md#release-0100)
+
+<a id="release-082"></a>
+- [Release 0.8.2](https://github.com/mannie-exe/create-skyweave/blob/v0.10.0/docs/development/compatibility.md#release-082)
+
+<a id="release-080"></a>
+- [Release 0.8.0](https://github.com/mannie-exe/create-skyweave/blob/v0.10.0/docs/development/compatibility.md#release-080)
+
+<a id="release-060"></a>
+- [Release 0.6.0](https://github.com/mannie-exe/create-skyweave/blob/v0.10.0/docs/development/compatibility.md#release-060)
+
+<a id="release-040"></a>
+- [Release 0.4.0](https://github.com/mannie-exe/create-skyweave/blob/v0.10.0/docs/development/compatibility.md#release-040)
+
+<a id="release-023"></a>
+- [Release 0.2.3](https://github.com/mannie-exe/create-skyweave/blob/v0.10.0/docs/development/compatibility.md#release-023)
+
+<a id="shader-assembly-022"></a>
+- [Shader assembly, 0.2.2](https://github.com/mannie-exe/create-skyweave/blob/v0.10.0/docs/development/compatibility.md#shader-assembly-022)
+
+<a id="pack-verification-0124"></a>
+- [Pack verification, 0.1.24](https://github.com/mannie-exe/create-skyweave/blob/v0.10.0/docs/development/compatibility.md#pack-verification-0124)
+
+<a id="pack-verification-0123"></a>
+- [Pack verification, 0.1.23](https://github.com/mannie-exe/create-skyweave/blob/v0.10.0/docs/development/compatibility.md#pack-verification-0123)
+
+<a id="journal-adaptation-2026-10-31"></a>
+- [Journal adaptation, 2026-10-31](https://github.com/mannie-exe/create-skyweave/blob/v0.10.0/docs/development/compatibility.md#journal-adaptation-2026-10-31)
+
+<a id="rendering-baseline-2026-10-29"></a>
+- [Rendering baseline, 2026-10-29](https://github.com/mannie-exe/create-skyweave/blob/v0.10.0/docs/development/compatibility.md#rendering-baseline-2026-10-29)
+
+<a id="weight-classification-verification"></a>
+- [Weight classification verification](https://github.com/mannie-exe/create-skyweave/blob/v0.10.0/docs/development/compatibility.md#weight-classification-verification)
+
+<a id="analog-audio-release-verification-0119"></a>
+- [Analog Audio release verification, 0.1.19](https://github.com/mannie-exe/create-skyweave/blob/v0.10.0/docs/development/compatibility.md#analog-audio-release-verification-0119)
+
+<a id="release-verification-2026-10-29"></a>
+- [Release verification, 2026-10-29](https://github.com/mannie-exe/create-skyweave/blob/v0.10.0/docs/development/compatibility.md#release-verification-2026-10-29)
+
+<a id="compatibility-fixture"></a>
+- [Compatibility fixture](https://github.com/mannie-exe/create-skyweave/blob/v0.10.0/docs/development/compatibility.md#compatibility-fixture)
+
+<a id="release-0126-verification"></a>
+- [Release 0.1.26 verification](https://github.com/mannie-exe/create-skyweave/blob/v0.10.0/docs/development/compatibility.md#release-0126-verification)

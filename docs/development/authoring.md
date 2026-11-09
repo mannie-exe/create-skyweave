@@ -1,9 +1,9 @@
 # Pack authoring
 
-The pack owns journal source, the configuration register and model recipes. The local Atlas app
+The pack owns quest source, the configuration register and model recipes. The local Atlas app
 in [`web/`](../../web/README.md) edits those files; it does not own a second copy
 or install changes into Minecraft. The [editor guide](web/authoring.md) describes
-the journal and disclaimer workbenches; [model authoring](web/models.md) covers
+the quest and shared-text workbenches; [model authoring](web/models.md) covers
 texture extrusion, UV fitting and resource-pack generation.
 
 The [Debug World guide](debug-world.md) owns curated native displays, profile
@@ -15,112 +15,77 @@ Complementary/Euphoria shader generation, including texture-based Create window
 material changes. Run its builder before `empack sync` or a pack build. The pack
 consumes generated shaders; source inputs and runtime integrations have separate roles.
 
-## Journal source
+## Quest source
 
-The paths and commands below describe the installed Questlog compiler. FTB Quests
-is the selected replacement; its authoring and native SNBT generation are not yet
-implemented. Replace the Atlas editor, source validation, generation jobs, locale
-output, managed-file policies and verification together. Retain legacy runtime
-definitions during the trial, not a second editable Questlog workflow. The
-[quest design guide](journal.md) owns the new capability/dependency direction.
+FTB Quests is the sole authoring target. The [quest design reference](journal.md)
+owns capability progression, completion evidence and reward budgets. The Atlas
+edits the same files as the compiler; it has no separate quest database. Questlog
+runtime definitions and language resources remain frozen during the trial.
 
-The [journal design reference](journal.md#design-policy) owns entry purpose,
-completion evidence and reward budgets. This guide owns source editing and
-generation; the Atlas edits the same files and must not maintain separate rules.
+| Path | Content |
+| --- | --- |
+| `authoring/quests/book.json` | Native book defaults and chapter groups |
+| `authoring/quests/chapters/*.json` | Chapter properties, quest positions/dependencies, tasks and rewards |
+| `authoring/quests/locales/<locale>.json` | Localized object text and shared paragraphs |
+| `overrides/common/config/ftbquests/quests/` | Generated native SNBT and ownership manifest |
+| `empack.bindings.yml` | Exact managed policies for generated native files |
 
-| Path                                      | Content                                                                  |
-| ----------------------------------------- | ------------------------------------------------------------------------ |
-| `authoring/journal/chapters/*.json`       | Native chapter properties and quest mechanics, split by chapter          |
-| `authoring/journal/defaults.json`         | Shared native display properties                                         |
-| `authoring/journal/locales/<locale>.json` | Chapter names, entry text, shared disclaimers and short objective labels |
-| `overrides/common/config/questlog/`       | Generated native chapters and quests                                     |
-| `resource-patches/assets/create_skyweave/lang/` | Generated Minecraft language resources                                   |
+Schema 1 uses stable positive signed-long, uppercase 16-digit hexadecimal IDs for
+chapter groups, chapters, quests, tasks and rewards. IDs 0 and 1 belong to native
+default-group/file objects and cannot be authored. Source filenames and readable
+quest keys are separate from native IDs. Keep IDs when changing titles, positions
+or chapter membership; deleting/reusing an ID can reinterpret saved progress.
+Dependencies refer to quest IDs. Chapter groups organize the book, not recipe gates.
 
-Each locale entry has `title`, optional `flavor`, full `requirements`, a
-`description` paragraph array, a shared `disclaimer` key or null, and `labels`.
-The description renders flavor, requirements, description paragraphs and
-disclaimer in that order, separated by blank lines. Flavor is currently empty.
-Descriptions normally contain one to five paragraphs of two or three sentences.
-An empty array marks unfinished explanatory text and is allowed during authoring;
-the editor counts those entries. Sentence counts are editorial guidance.
+English owns the complete `objects` set. Each object has a title; quests can add
+`quest_subtitle` and `quest_desc`, and chapters can add `chapter_subtitle`. Description
+arrays contain literal paragraphs or `{ "shared": "key" }` references. Locale
+`shared` maps own the referenced text. Sparse additional locales inherit missing
+fields from English; arrays replace whole arrays and explicit empty optional
+fields remain empty. Resolve shared paragraphs in the selected locale. Unknown
+objects, missing references and invalid native fields fail compilation.
 
-Each locale's `shared` object maps disclaimer keys to nonempty messages. Entries
-reference those keys through `disclaimer`; they do not own copies of the text.
-Shared messages can serve multiple entries. Keep similar interaction messages
-separate when they describe different completion checks.
-
-The app's **Disclaimers** tab creates, edits and deletes these shared messages.
-Keys use lowercase letters, numbers and underscores. The editor keeps existing
-keys fixed and lists referring entries; reassign those entries before deletion.
-The generator rejects invalid keys, blank messages and missing references, including
-edits made through Source JSON or external tools. Messages and references resolve through the selected locale. Missing overrides
-inherit English; editing English does not overwrite authored translations.
-
-`requirements` here is prose in the **left-hand description**. It does not change
-native Questlog's `requirements` array, which controls unlocking. `labels` owns
-the short **right-hand objective labels**, indexed by stable objective positions
-such as `0` and `0.1`. Full conditions and caveats belong in the left-hand text.
-The preview shows section order, not Minecraft's exact font width or truncation.
-
-Keep locale IDs aligned with Minecraft, for example `en_us` and `de_de`. English
-is required and owns the complete set of chapter/entry IDs and objective labels.
-Additional schema-1 locales can contain sparse `shared`, `chapters` and `entries`
-overrides. Missing fields inherit English recursively; arrays such as description
-paragraphs replace the complete English array. Explicit empty optional fields do
-not inherit. Unknown keys and invalid resolved text fail compilation.
-
-The Atlas creates sparse locales and maintains entry IDs across mechanics and
-translations when adding or deleting entries. Existing complete locale files
-remain valid. Native keys are derived from stable chapter/entry IDs:
-`create_skyweave.journal.<chapter>.<entry>.title`, `.description`, and `.objective.<position>`.
-The description key composes the authored sections and resolved disclaimer.
-Additional languages receive full resolved output, so mixed translated/fallback
-sections agree with the editor preview. Chapter names use
-`create_skyweave.journal.chapter.<chapter>`.
-
-Generated descriptions use JSON translation components to retain client-side
-locale selection. Inline Markdown-like Questlog links are not parsed inside
-these translated strings. Recipe/Ponder actions are not supported by the
-generator. See [integration findings](journal-integrations.md) before adding them.
+The supported native contract includes inventory item/list/tag tasks, advancement
+and criterion tasks, block interactions and explicit manual acknowledgements.
+Rewards support items, experience points and levels with native claim scope and
+collection settings. Additional supported native properties remain available as
+JSON; unsupported fields fail rather than being silently discarded. See
+`scripts/quests.py` for the exact version-pinned allowlists. Runtime team/player
+progress is never authored source.
 
 ## Save, generate and build
 
-The Atlas **Pack authoring** page edits source files on the configured local pack.
-Save validates all journal source and register structure in a temporary directory
-before replacing the coordinated changed files. Ordinary replacement failures
-roll back; the batch is not crash-atomic. It refuses stale revisions and preserves the
-editor's unsaved text on failure. Generation uses saved source only and checks
-that its revision still matches. Neither action touches instances or worlds.
+Save validates the coordinated source set in staging before replacing changed
+files. Ordinary replacement failures roll back; the batch is not crash-atomic.
+Stale revisions reject the write and keep browser drafts. Generation uses saved
+source, rechecks source/tool/output revisions and commits native SNBT, translations,
+ownership manifest and binding policies together. Neither action installs files
+or changes Minecraft worlds.
 
 From the pack root:
 
 ```sh
-python3 scripts/generate-journal.py --preview
-python3 scripts/generate-journal.py
-python3 scripts/generate-journal.py --check
+python3 scripts/generate-quests.py --preview
+python3 scripts/generate-quests.py
+python3 scripts/generate-quests.py --check
 python3 scripts/audit-changes.py
 python3 -m unittest discover -s tests -v
 python3 scripts/build-resource-patches.py
 ```
 
-Generated JSON and exact `managed` policies in `empack.bindings.yml` stay in Git
-for review. Generation updates policies for current definitions and removes policies
-for retired pack-owned definitions; unrelated configuration retains its policy.
-Run `empack sync --materialize` after policy changes before building releases.
-The resource JAR is rebuilt and ignored.
-The build refuses stale journal output. The preview lists removed quest or locale outputs. Generate removes obsolete
-files bearing the journal identity; unrelated native quests are preserved.
-Review quest IDs, objective and reward order, locale references and existing
-progress before removing or changing mechanics. A category move must not silently
-rename saved quests. Adding rewards to completed entries needs an explicit policy
-for existing players. Follow the [update checks](journal.md#update-checks).
-The regression fixture records the accepted mechanics baseline; deliberate
-mechanics changes require a reviewed update to that fixture after inspecting the
-semantic diff, not merely to make a failing comparison pass.
+Generated SNBT and the manifest remain in Git for review. The compiler follows
+the pinned native writer's defaults and omissions; verify save/reopen stability
+when updating FTB. It refuses edited, missing or unowned native files instead of
+importing unknown SNBT or overwriting in-game edits. Reapply intentional changes
+to `authoring/quests` or explicitly restore the previously generated bytes after
+review. The manifest authorizes removal only of previously owned outputs. Foreign
+binding policies and comments are retained.
 
-Install native quest JSON and the rebuilt resource JAR together during an explicit
-instance update. Client translations require the JAR. A successful source build
-does not verify language switching, game layout or quest progress in a client.
+Run `empack sync --materialize` after changing file policies. Build and instance
+installation are separate operations. Generated FTB locale files are native SNBT;
+they do not require the resource JAR. The resource JAR still packages maintained
+resources and frozen Questlog translations. A successful build does not prove
+native task triggers, team claims, language switching or playable progression.
 
 ## Configuration register
 
@@ -133,7 +98,7 @@ need review; `reviewed` can cover a specific change within a larger inherited fi
 
 The checker reports drift, missing files and files absent from the register.
 It covers distributed client/common config, shader settings, client options,
-resource recipes/tags/drops and the server properties template. Generated journal
+resource recipes/tags/drops and the server properties template. Generated quest
 files have their own semantic check. Dependency selection, live-instance settings,
 worlds, LOD caches and private seeds are outside this register. The structures
 register covers the Sky Villages integration; broader density tuning remains
@@ -154,9 +119,9 @@ to formatting; Git diffs and the owning document explain the actual setting chan
    Keep unrelated inherited keys distinguishable from deliberate tuning.
 5. Generate, run checks and inspect the resulting exports. Test affected behavior
    in an isolated instance when source checks cannot establish it.
-6. Commit the source, generated journal files and rationale together. Schedule
+6. Commit the source, generated quest files and rationale together. Schedule
    installation separately, preserving worlds and player progress.
 
-This provides repeatable journal output and traceable config decisions. General
+This provides repeatable quest output and traceable config decisions. General
 config generation, automatic upstream merges and an in-browser diff editor remain
 outside the current implementation.

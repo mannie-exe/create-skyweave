@@ -10,6 +10,7 @@ test('coverage status controls grid and minimap colors independently of depth an
     'excluded',
     'unified',
     'blocked',
+    'unknown',
   ]
   await page.route('**/generated/catalog.json', async (route) => {
     const response = await route.fetch()
@@ -37,7 +38,7 @@ test('coverage status controls grid and minimap colors independently of depth an
     }
   })
   await page.goto('/')
-  await expect(page.locator('#grid .cell')).toHaveCount(6)
+  await expect(page.locator('#grid .cell')).toHaveCount(7)
   const markers = await page.locator('#grid .cell').evaluateAll((cells) =>
     cells.map((cell) => {
       const marker = getComputedStyle(cell, '::after')
@@ -52,7 +53,7 @@ test('coverage status controls grid and minimap colors independently of depth an
   expect(markers[2].line).toBe('dashed')
   expect(markers[3].color).toBe(markers[4].color)
   expect(markers[5].color).toBe(markers[1].color)
-  expect(await page.evaluate(() => window.minimapColors.slice(-6))).toEqual(
+  expect(await page.evaluate(() => window.minimapColors.slice(-7))).toEqual(
     markers.map((marker) => marker.color),
   )
   await expect(page.locator('#grid .note-indicator')).toHaveCount(1)
@@ -72,7 +73,19 @@ test('coverage status controls grid and minimap colors independently of depth an
     'mapped',
   )
   await page.locator('#route-filter').selectOption('unknown')
-  await expect(page.locator('#grid .cell')).toHaveCount(3)
+  await expect(page.locator('#grid .cell')).toHaveCount(1)
+  await expect(page.locator('#grid .cell')).toHaveAttribute(
+    'data-coverage',
+    'unknown',
+  )
+  await page.locator('#route-filter').selectOption('unresolved')
+  await expect(page.locator('#grid .cell')).toHaveCount(4)
+  await page.locator('#coverage-summary [data-coverage="unknown"]').click()
+  await expect(page.locator('#grid .cell')).toHaveCount(1)
+  await expect(page.locator('#grid .cell')).toHaveAttribute(
+    'data-coverage',
+    'unknown',
+  )
   await page.locator('#route-filter').selectOption('notes')
   await expect(page.locator('#grid .cell')).toHaveCount(1)
   await expect(page.locator('#grid .cell')).toHaveAttribute(

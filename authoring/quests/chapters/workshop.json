@@ -1,0 +1,376 @@
+{
+  "schema": 1,
+  "id": "23B017913379E4C4",
+  "order": 1,
+  "native": {
+    "icon": "create:mechanical_press"
+  },
+  "quests": [
+    {
+      "id": "455BF53E14EF174E",
+      "key": "alloy",
+      "x": 0,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "create:andesite_alloy"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "create:andesite_alloy",
+            "count": 1
+          },
+          "count": 2,
+          "consume_items": false,
+          "id": "32054FD43E39C977"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:andesite",
+            "count": 1
+          },
+          "count": 2,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "76F915EEBD91F30B"
+        }
+      ],
+      "covers": [
+        "workshop/alloy"
+      ]
+    },
+    {
+      "id": "6D83C35B7EED3D20",
+      "key": "rotation",
+      "x": 3,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "create:water_wheel"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "match": {
+            "items": [
+              "create:water_wheel",
+              "create:large_water_wheel",
+              "create:windmill_bearing"
+            ]
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "687AB5431B647C3C"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "create:shaft",
+            "count": 1
+          },
+          "count": 4,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "167F2CAFD03E495B"
+        }
+      ],
+      "covers": [
+        "workshop/wheel"
+      ]
+    },
+    {
+      "id": "1C17ADD8E0CC7B27",
+      "key": "press",
+      "x": 6,
+      "y": 0,
+      "dependencies": [
+        "455BF53E14EF174E"
+      ],
+      "native": {
+        "icon": "create:mechanical_press"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "create:mechanical_press",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "6E652FA469F965F2"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "workshop/press"
+      ]
+    },
+    {
+      "id": "5626C6B76EC3B141",
+      "key": "press_sheets",
+      "x": 9,
+      "y": 0,
+      "dependencies": [
+        "1C17ADD8E0CC7B27"
+      ],
+      "native": {
+        "icon": "create:iron_sheet"
+      },
+      "tasks": [
+        {
+          "type": "advancement",
+          "advancement": "create:mechanical_press",
+          "id": "3F39F5AD1112DC27"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:iron_ingot",
+            "count": 1
+          },
+          "count": 2,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "20C65FC52C76106C"
+        }
+      ],
+      "covers": [
+        "workshop/press_sheets"
+      ]
+    },
+    {
+      "id": "42A2559609A59C98",
+      "key": "grinding",
+      "x": 0,
+      "y": 3,
+      "dependencies": [],
+      "native": {
+        "icon": "create:millstone"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "create:millstone",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "384A73F3A96E2111"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "workshop/millstone"
+      ]
+    },
+    {
+      "id": "3449703C5C2160AA",
+      "key": "fan",
+      "x": 3,
+      "y": 3,
+      "dependencies": [],
+      "native": {
+        "icon": "create:encased_fan"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "create:encased_fan",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "7FA19C9FEF9EA4BF"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "workshop/fan"
+      ]
+    },
+    {
+      "id": "167629D82AAE71E6",
+      "key": "fan_work",
+      "x": 6,
+      "y": 3,
+      "dependencies": [
+        "3449703C5C2160AA"
+      ],
+      "native": {
+        "icon": "create:encased_fan"
+      },
+      "tasks": [
+        {
+          "type": "advancement",
+          "advancement": "create:fan_processing",
+          "id": "02E041494755AE9C"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:gravel",
+            "count": 1
+          },
+          "count": 4,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "400143DB70A100DB"
+        }
+      ],
+      "covers": [
+        "workshop/fan_processing"
+      ]
+    },
+    {
+      "id": "13AB39CE6DB73970",
+      "key": "mixer",
+      "x": 9,
+      "y": 3,
+      "dependencies": [],
+      "native": {
+        "icon": "create:mechanical_mixer"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "create:mechanical_mixer",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "3824B39EF5E7295A"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "workshop/mixer"
+      ]
+    },
+    {
+      "id": "54A4B34485363149",
+      "key": "mix",
+      "x": 0,
+      "y": 6,
+      "dependencies": [
+        "13AB39CE6DB73970"
+      ],
+      "native": {
+        "icon": "create:basin"
+      },
+      "tasks": [
+        {
+          "type": "advancement",
+          "advancement": "create:mechanical_mixer",
+          "id": "652823430E1C3866"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:andesite",
+            "count": 1
+          },
+          "count": 4,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "2A9241FDC999A469"
+        }
+      ],
+      "covers": [
+        "workshop/mix"
+      ]
+    },
+    {
+      "id": "060605249CC199CE",
+      "key": "heat",
+      "x": 3,
+      "y": 6,
+      "dependencies": [],
+      "native": {
+        "icon": "createpropulsion:solid_burner"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "createpropulsion:solid_burner",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "7821D0637E8F0154"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:coal",
+            "count": 1
+          },
+          "count": 2,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "341E5E42DC9BA764"
+        }
+      ],
+      "covers": [
+        "workshop/heat"
+      ]
+    },
+    {
+      "id": "69BDFD16D87E1401",
+      "key": "brass",
+      "x": 6,
+      "y": 6,
+      "dependencies": [],
+      "native": {
+        "icon": "create:brass_ingot"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "create:brass_ingot",
+            "count": 1
+          },
+          "count": 2,
+          "consume_items": false,
+          "id": "235A9F92FA0DC371"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "workshop/brass"
+      ]
+    }
+  ]
+}

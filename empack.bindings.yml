@@ -410,3 +410,16 @@ policies:
   config/questlog/quests/workshop/press_sheets.json: managed
   config/questlog/quests/workshop/rotation_recovery.json: managed
   config/questlog/quests/workshop/wheel.json: managed
+  config/ftbquests/quests/.skyweave-generated.json: managed
+  config/ftbquests/quests/chapter_groups.snbt: managed
+  config/ftbquests/quests/chapters/control.snbt: managed
+  config/ftbquests/quests/chapters/crossings.snbt: managed
+  config/ftbquests/quests/chapters/electricity.snbt: managed
+  config/ftbquests/quests/chapters/flight.snbt: managed
+  config/ftbquests/quests/chapters/foothold.snbt: managed
+  config/ftbquests/quests/chapters/handbook.snbt: managed
+  config/ftbquests/quests/chapters/production.snbt: managed
+  config/ftbquests/quests/chapters/projects.snbt: managed
+  config/ftbquests/quests/chapters/workshop.snbt: managed
+  config/ftbquests/quests/data.snbt: managed
+  config/ftbquests/quests/lang/en_us.snbt: managed

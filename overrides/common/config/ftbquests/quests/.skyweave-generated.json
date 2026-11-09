@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "files": {
+    "overrides/common/config/ftbquests/quests/chapter_groups.snbt": "e57d8311aec9f524911ed1313cabf138bb7fa5a2d3ba985a00a2a267ff35ef78",
+    "overrides/common/config/ftbquests/quests/chapters/control.snbt": "3349424d8a69c24b4b2d3b670d05c1f26aa9b509a51e5002ee21b0c95d92f8aa",
+    "overrides/common/config/ftbquests/quests/chapters/crossings.snbt": "6d231d1486c13de2b3a6d9880b554475e161d71950eb1f8e9f89d717a10dbed7",
+    "overrides/common/config/ftbquests/quests/chapters/electricity.snbt": "59d526f16dc11bff4f20b4d23c0a484fa1330453706963f76c324d6998e8a465",
+    "overrides/common/config/ftbquests/quests/chapters/flight.snbt": "e573a5d8728f71f879dae290db7d2f3257b0f41c25e2dfe341885b8d5a48023b",
+    "overrides/common/config/ftbquests/quests/chapters/foothold.snbt": "7b4d54896f8014bda7b0665f348e7c13102098323d6755aec91b893d763e72d2",
+    "overrides/common/config/ftbquests/quests/chapters/handbook.snbt": "aea7986f751ab9e71da4627a8dcfc6235d3b5ebb07b3150f9891090b9a6ff7e9",
+    "overrides/common/config/ftbquests/quests/chapters/production.snbt": "2044c541fc100331deae538a6bb4e7c965b60dc1a9de0eb9ab78b308b08c321f",
+    "overrides/common/config/ftbquests/quests/chapters/projects.snbt": "3f7f46333360a8ba1c2601021c4abd39636a54cad76731d97892bc8acbc1e54d",
+    "overrides/common/config/ftbquests/quests/chapters/workshop.snbt": "ff6fa4ad27e9e2bad9731f590cb7793bb204369560b2c5b84a578449654ba109",
+    "overrides/common/config/ftbquests/quests/data.snbt": "d6755c560e2add0df2ea7b6ff8744acf6a27ce34ba5a9bd163c33f9bc06c3a98",
+    "overrides/common/config/ftbquests/quests/lang/en_us.snbt": "5592150bfed82e25f15cd096311f2f5e6b06af32e122d5dcec57aac0a7032759"
+  }
+}

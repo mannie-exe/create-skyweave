@@ -1,0 +1,242 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "workshop"
+	group: ""
+	icon: {
+		id: "create:mechanical_press"
+	}
+	id: "23B017913379E4C4"
+	images: [ ]
+	order_index: 1
+	quest_links: [ ]
+	quests: [
+		{
+			icon: {
+				id: "create:andesite_alloy"
+			}
+			id: "455BF53E14EF174E"
+			rewards: [{
+				auto: "disabled"
+				count: 2
+				id: "76F915EEBD91F30B"
+				item: {
+					count: 1
+					id: "minecraft:andesite"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [{
+				consume_items: false
+				count: 2L
+				id: "32054FD43E39C977"
+				item: { count: 1, id: "create:andesite_alloy" }
+				type: "item"
+			}]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "create:water_wheel"
+			}
+			id: "6D83C35B7EED3D20"
+			rewards: [{
+				auto: "disabled"
+				count: 4
+				id: "167F2CAFD03E495B"
+				item: {
+					count: 1
+					id: "create:shaft"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [{
+				consume_items: false
+				id: "687AB5431B647C3C"
+				item: { components: { "minecraft:custom_data": { "skyweave_compat:quest_items": { items: [ "create:water_wheel", "create:large_water_wheel", "create:windmill_bearing" ], schema: 1 } } }, count: 1, id: "minecraft:paper" }
+				match_components: "strict"
+				type: "item"
+			}]
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["455BF53E14EF174E"]
+			icon: {
+				id: "create:mechanical_press"
+			}
+			id: "1C17ADD8E0CC7B27"
+			tasks: [{
+				consume_items: false
+				id: "6E652FA469F965F2"
+				item: { count: 1, id: "create:mechanical_press" }
+				type: "item"
+			}]
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["1C17ADD8E0CC7B27"]
+			icon: {
+				id: "create:iron_sheet"
+			}
+			id: "5626C6B76EC3B141"
+			rewards: [{
+				auto: "disabled"
+				count: 2
+				id: "20C65FC52C76106C"
+				item: {
+					count: 1
+					id: "minecraft:iron_ingot"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [{
+				advancement: "create:mechanical_press"
+				criterion: ""
+				id: "3F39F5AD1112DC27"
+				type: "advancement"
+			}]
+			x: 9.0d
+			y: 0.0d
+		}
+		{
+			icon: {
+				id: "create:millstone"
+			}
+			id: "42A2559609A59C98"
+			tasks: [{
+				consume_items: false
+				id: "384A73F3A96E2111"
+				item: { count: 1, id: "create:millstone" }
+				type: "item"
+			}]
+			x: 0.0d
+			y: 3.0d
+		}
+		{
+			icon: {
+				id: "create:encased_fan"
+			}
+			id: "3449703C5C2160AA"
+			tasks: [{
+				consume_items: false
+				id: "7FA19C9FEF9EA4BF"
+				item: { count: 1, id: "create:encased_fan" }
+				type: "item"
+			}]
+			x: 3.0d
+			y: 3.0d
+		}
+		{
+			dependencies: ["3449703C5C2160AA"]
+			icon: {
+				id: "create:encased_fan"
+			}
+			id: "167629D82AAE71E6"
+			rewards: [{
+				auto: "disabled"
+				count: 4
+				id: "400143DB70A100DB"
+				item: {
+					count: 1
+					id: "minecraft:gravel"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [{
+				advancement: "create:fan_processing"
+				criterion: ""
+				id: "02E041494755AE9C"
+				type: "advancement"
+			}]
+			x: 6.0d
+			y: 3.0d
+		}
+		{
+			icon: {
+				id: "create:mechanical_mixer"
+			}
+			id: "13AB39CE6DB73970"
+			tasks: [{
+				consume_items: false
+				id: "3824B39EF5E7295A"
+				item: { count: 1, id: "create:mechanical_mixer" }
+				type: "item"
+			}]
+			x: 9.0d
+			y: 3.0d
+		}
+		{
+			dependencies: ["13AB39CE6DB73970"]
+			icon: {
+				id: "create:basin"
+			}
+			id: "54A4B34485363149"
+			rewards: [{
+				auto: "disabled"
+				count: 4
+				id: "2A9241FDC999A469"
+				item: {
+					count: 1
+					id: "minecraft:andesite"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [{
+				advancement: "create:mechanical_mixer"
+				criterion: ""
+				id: "652823430E1C3866"
+				type: "advancement"
+			}]
+			x: 0.0d
+			y: 6.0d
+		}
+		{
+			icon: {
+				id: "createpropulsion:solid_burner"
+			}
+			id: "060605249CC199CE"
+			rewards: [{
+				auto: "disabled"
+				count: 2
+				id: "341E5E42DC9BA764"
+				item: {
+					count: 1
+					id: "minecraft:coal"
+				}
+				team_reward: true
+				type: "item"
+			}]
+			tasks: [{
+				consume_items: false
+				id: "7821D0637E8F0154"
+				item: { count: 1, id: "createpropulsion:solid_burner" }
+				type: "item"
+			}]
+			x: 3.0d
+			y: 6.0d
+		}
+		{
+			icon: {
+				id: "create:brass_ingot"
+			}
+			id: "69BDFD16D87E1401"
+			tasks: [{
+				consume_items: false
+				count: 2L
+				id: "235A9F92FA0DC371"
+				item: { count: 1, id: "create:brass_ingot" }
+				type: "item"
+			}]
+			x: 6.0d
+			y: 6.0d
+		}
+	]
+}

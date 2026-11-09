@@ -1,0 +1,310 @@
+{
+  "schema": 1,
+  "id": "14F11A63CBA900C3",
+  "order": 0,
+  "native": {
+    "icon": "minecraft:water_bucket"
+  },
+  "quests": [
+    {
+      "id": "569DA99C5DF8EDF1",
+      "key": "provisions",
+      "x": 0,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "minecraft:bread"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "match": {
+            "items": [
+              "minecraft:bread",
+              "minecraft:baked_potato"
+            ]
+          },
+          "count": 16,
+          "consume_items": false,
+          "id": "7A54B1CDD63D195B"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:bread",
+            "count": 1
+          },
+          "count": 2,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "459CF8F6A7B6BD5F"
+        }
+      ],
+      "covers": [
+        "main/food"
+      ]
+    },
+    {
+      "id": "59F5B094F4342246",
+      "key": "livestock",
+      "x": 3,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "minecraft:wheat"
+      },
+      "tasks": [
+        {
+          "type": "advancement",
+          "advancement": "minecraft:husbandry/breed_an_animal",
+          "id": "48B720A38ACFCE45"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:wheat",
+            "count": 1
+          },
+          "count": 2,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "236B802A881EF5C1"
+        }
+      ],
+      "covers": [
+        "main/breeding"
+      ]
+    },
+    {
+      "id": "692B8E7D2B4DBC77",
+      "key": "water",
+      "x": 6,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "minecraft:water_bucket"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:water_bucket",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "605E219DB056AD9C"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "main/water"
+      ]
+    },
+    {
+      "id": "14CF2731483376DB",
+      "key": "travel_pack",
+      "x": 9,
+      "y": 0,
+      "dependencies": [],
+      "native": {
+        "icon": "travelersbackpack:standard"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "match": {
+            "tag": "travelersbackpack:custom_travelers_backpack"
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "6136E8B46009B6F1"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "main/travel_pack"
+      ]
+    },
+    {
+      "id": "0878FDE4B22E9B49",
+      "key": "portable_rest",
+      "x": 0,
+      "y": 3,
+      "dependencies": [
+        "14CF2731483376DB"
+      ],
+      "native": {
+        "icon": "travelersbackpack:white_sleeping_bag"
+      },
+      "tasks": [
+        {
+          "type": "advancement",
+          "advancement": "travelersbackpack:use_sleeping_bag",
+          "id": "619EB48D0B880F41"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:bread",
+            "count": 1
+          },
+          "count": 1,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "4E597FA34FA29327"
+        }
+      ],
+      "covers": [
+        "main/pack_sleeping_bag"
+      ]
+    },
+    {
+      "id": "7E967B37502DB0E4",
+      "key": "ready_tools",
+      "x": 3,
+      "y": 3,
+      "dependencies": [
+        "14CF2731483376DB"
+      ],
+      "native": {
+        "icon": "minecraft:iron_pickaxe"
+      },
+      "tasks": [
+        {
+          "type": "advancement",
+          "advancement": "travelersbackpack:tool_slots",
+          "id": "5314EF3CB87BBF40"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:torch",
+            "count": 1
+          },
+          "count": 4,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "7E3D01461E345E14"
+        }
+      ],
+      "covers": [
+        "main/pack_tools"
+      ]
+    },
+    {
+      "id": "04B76914A9753A5F",
+      "key": "portable_fluids",
+      "x": 6,
+      "y": 3,
+      "dependencies": [
+        "14CF2731483376DB"
+      ],
+      "native": {
+        "icon": "minecraft:glass_bottle"
+      },
+      "tasks": [
+        {
+          "type": "advancement",
+          "advancement": "travelersbackpack:hose_suck",
+          "id": "7CA4331444E059BB"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:glass",
+            "count": 1
+          },
+          "count": 2,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "5AB62022C4F4B54A"
+        }
+      ],
+      "covers": [
+        "main/pack_fluids"
+      ]
+    },
+    {
+      "id": "1885DC93776CDB69",
+      "key": "repair",
+      "x": 9,
+      "y": 3,
+      "dependencies": [],
+      "native": {
+        "icon": "minecraft:anvil"
+      },
+      "tasks": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:anvil",
+            "count": 1
+          },
+          "count": 1,
+          "consume_items": false,
+          "id": "51BA01EDBBD88779"
+        }
+      ],
+      "rewards": [],
+      "covers": [
+        "main/anvil"
+      ]
+    },
+    {
+      "id": "5434887C8E6DA306",
+      "key": "enchant",
+      "x": 0,
+      "y": 6,
+      "dependencies": [],
+      "native": {
+        "icon": "minecraft:enchanting_table"
+      },
+      "tasks": [
+        {
+          "type": "advancement",
+          "advancement": "minecraft:story/enchant_item",
+          "id": "1AA6F3E09AA7CF84"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": {
+            "id": "minecraft:lapis_lazuli",
+            "count": 1
+          },
+          "count": 3,
+          "native": {
+            "team_reward": true,
+            "auto": "disabled"
+          },
+          "id": "79D5B14785364799"
+        }
+      ],
+      "covers": [
+        "main/enchanting"
+      ]
+    }
+  ]
+}
