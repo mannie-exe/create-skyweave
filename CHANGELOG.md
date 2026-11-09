@@ -2,6 +2,12 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.8.2 · 2026-11-09
+
+### Build and verification
+
+- **atlas:** Decouple feature parsing from pack defaults ([dae1d45](https://github.com/mannie-exe/create-skyweave/commit/dae1d45e7b7b0d53940d2f3a43d2083fdfcdebfe))
+
 ## v0.8.1 · 2026-11-08
 
 ### Fixes
