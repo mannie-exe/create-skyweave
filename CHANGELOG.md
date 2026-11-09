@@ -2,6 +2,12 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.10.0 · 2026-11-09
+
+### Features
+
+- **pack:** Add FTB trial and inventory controls ([e505a30](https://github.com/mannie-exe/create-skyweave/commit/e505a30fe0d77e07b8a21917c1b2cf569dc9e0b2))
+
 ## v0.9.0 · 2026-11-09
 
 ### Features
