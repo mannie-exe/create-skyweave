@@ -2,6 +2,12 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.11.0 · 2026-11-09
+
+### Features
+
+- **pack:** Add capability quests and bounded discovery ([e3e3e75](https://github.com/mannie-exe/create-skyweave/commit/e3e3e7530e75420587980fc93b679f1527f06292))
+
 ## v0.10.0 · 2026-11-09
 
 ### Features
