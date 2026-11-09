@@ -7,6 +7,13 @@ own [guide](models.md).
 
 ## Journal
 
+This is currently the legacy Questlog editor. FTB Quests is installed, but this
+editor does not yet save FTB chapters, dependencies or rewards. The approved
+replacement must use FTB Quests semantics throughout the workspace service,
+generator, localization and preview; it must remove the Questlog authoring path
+rather than add a parallel backend selector. See the pack's
+[quest design](../journal.md) and [authoring](../authoring.md) owners.
+
 Entries, Disclaimers and Localization share one draft. Moving between them retains
 edits. **Save journal** validates and saves all changed journal source files
 together, including new locales. **Generate Questlog files** uses saved source and

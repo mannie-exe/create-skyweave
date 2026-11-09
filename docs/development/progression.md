@@ -47,7 +47,7 @@ explain setup without claiming a working installation; see
 [compatibility](compatibility.md#linear-bearing).
 
 [Transmission & Linkage](https://modrinth.com/mod/create-aeronautics-transmission-linkage)
-remains a candidate. Its hydraulic rods, redstone length controls, joints and
+is installed. Its hydraulic rods, redstone length controls, joints and
 rotational energy conversion cover a broader role than a guide rail; it is not
 a direct replacement merely because both move structures. Review extension,
 return force and damping as control choices before adding journal routes.
@@ -109,12 +109,14 @@ but mining access and wool/slime acquisition still require survival playtesting.
 | Flywheel Bearing | The block is enabled, but kinetic storage is disabled. Its recipe already requires brass. | It currently has no storage role. Do not describe it as an early energy buffer until that feature is enabled and tested. |
 | Backpacks | Base storage is 27 slots, with larger tiers and portable processing upgrades. | Ships need roles beyond carrying a player's normal inventory: mounted machines, bulk flows and physical delivery cargo. |
 
-The quartz bootstrap deserves a practical check. Crushing diorite and washing
+The no-Nether quartz bootstrap requires review. Crushing diorite and washing
 crushed gold provide later quartz routes, but Crushing Wheels themselves require
 mechanical crafters and electron tubes. The Atlas's restricted no-exploration,
-no-Nether scenario still blocks that bootstrap. An early Nether trip is a valid
-route; adding an alternate quartz source would be a progression choice, not an
-obvious missing-recipe repair. The journal's three-crafter checkpoint also does
+no-Nether scenario still blocks that bootstrap. Nether access is now selected for
+closure, so verify existing Overworld acquisition before designing a low-tier
+alternative; do not rely on a Nether trip in the new capability questline. The
+[dimension/access guide](team-world-progress.md#mapper-findings-and-progression-consequences)
+owns graph limitations and affected resources. The legacy journal's three-crafter checkpoint also does
 not satisfy the 21-crafter crushing-wheel arrangement.
 
 ## Settlements and deliveries

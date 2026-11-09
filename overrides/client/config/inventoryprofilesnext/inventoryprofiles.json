@@ -1,0 +1,47 @@
+{
+  "Features": {
+    "enable_sorting_and_moving": {
+      "value": true
+    },
+    "enable_auto_refill": {
+      "value": true
+    },
+    "enable_profiles": {
+      "value": false
+    },
+    "item_scrolling": {
+      "value": false
+    }
+  },
+  "ModSettings": {
+    "first_run": false
+  },
+  "SortSettings": {
+    "restock_hotbar": {
+      "value": false
+    }
+  },
+  "AutoRefillSettings": {
+    "refill_armor": {
+      "value": false
+    },
+    "refill_before_tool_break": {
+      "value": true
+    }
+  },
+  "Tweaks": {
+    "container_swipe_moving_items": {
+      "value": false
+    },
+    "swipe_move_crafting_result_slot": {
+      "value": false
+    }
+  },
+  "Hotkeys": {
+    "sort_inventory": {
+      "main": {
+        "keys": "BUTTON_3"
+      }
+    }
+  }
+}

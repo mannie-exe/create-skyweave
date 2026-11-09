@@ -6,6 +6,21 @@ Player instructions belong in [graphics](../players/graphics.md) and
 [content list](../MODLIST.md), with authoritative selections in `empack.yml` and
 `empack.lock`.
 
+## Release 0.10.0
+
+Published Compat 0.29.1 matches its SHA-256/SHA-512 manifests and passes the
+Linux, Windows and Intel macOS release matrix. Its only runtime-artifact change
+from 0.29.0 is native logo metadata/artwork; no terrain code changes. The shader
+lab uses the same verified runner as the playable pack and retains both generated
+shader outputs. Managed terrain profiles and generation identity are unchanged.
+
+All 73 pack Python tests, the 383-file configuration audit and 88 unchanged
+journal outputs pass. The Prism, server and Modrinth reference exports build and
+pass CRC checks; both applicable sides contain the three FTB dependencies and
+the server excludes the client inventory additions. The Unix server wrapper is
+applied and checked. FTB Quests ships without authored chapters. Registry export
+and Atlas checks are recorded in [web verification](web/verification.md#pack-0100-questteam-trial-refresh).
+
 ## Release 0.8.2
 
 The pack enables Compat's existing per-world DH cache identity and corrects the
@@ -707,6 +722,15 @@ or verified in game; the pack retains the existing default.
 
 ## Controls and resource packs
 
+FTB Quests 2101.1.38, FTB Teams 2101.1.12 and FTB Library 2101.1.39 pass an
+isolated full-pack dedicated startup and clean shutdown with Questlog retained
+(2026-11-09, NeoForge 21.1.265 / Java 21). Exact JAR metadata satisfies the shared
+Architectury 13.0.11 requirement. The native key IDs are inspected and source
+defaults/export payloads verified; client key dispatch, FTB UI, shared quest
+gameplay and the planned spawn/Nether adapters are not qualified by that startup.
+The [team/access guide](team-world-progress.md) owns the selected policy and
+remaining implementation boundaries.
+
 Better Climbing, Ping Wheel, Easy Anvils, Easy Magic and
 Inventory Totem ship on both sides. Camera/UI/rendering mods and resource
 packs are client-only. EMF/ETF support Fresh Animations; Puzzles Lib, Collective
@@ -720,6 +744,8 @@ and Searchables satisfy the corresponding dependencies. Exact selections are in 
 | Tooltips           | Keep durability/enchantment information, omit extra blank-line spacing. Shulker Box Tooltip retains its native preview defaults.                                                                                             |
 | Workstations       | Keep generated Easy Anvils costs and maintenance settings. Easy Magic shows all enchantments while retaining paid rerolls. Do not disable old vanilla workstations.                                                          |
 | Visual resources   | Use the current selection and ordering in [Graphics](../players/graphics.md#resource-packs). Retain EMF/ETF defaults. Existing options remain seed-managed; explicit syncs update only the reviewed selection.               |
+
+Mouse Tweaks 2.26.1, Inventory Profiles Next 2.2.5 and libIPN 6.6.3 are client-only. The isolated full-pack survival fixture verifies one-item wheel transfer, Shift-drag of two stacks, middle-click sorting/stack merging and IPN's manual transfer button with conserved counts. A worn iron pick (damage 245) is retained in inventory while a replacement is selected and used (damage 1). Authored IPN settings disable scrolling, swipe movement, equipment profiles, armor refill and hotbar restocking. Mouse Tweaks owns wheel/drag; IPN sorting uses middle-click to preserve R recipe lookup. Auto Refill also handles consumed stacks. These checks do not cover every machine/filter/result slot or every modded tool. Update boundaries live in [patch maintenance](patches.md#routine-dependency-upgrades).
 
 Creative-flight inventory sneaking uses InvMove's `MaintainWhilePressed`: descent
 already active when the screen opens continues until the sneak key is released.

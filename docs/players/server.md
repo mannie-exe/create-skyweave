@@ -2,6 +2,13 @@
 
 Use the server archive from the same Create: Skyweave release as your clients.
 
+New server templates set `allow-nether=false`. This blocks ordinary native Nether
+portal travel but does not remove the dimension, prevent portal ignition or
+configure singleplayer. The complete Compat access policy is planned; existing
+server properties remain installation-local until explicitly changed. Do not
+delete Nether world files to apply this setting. See the
+[dimension policy](../development/team-world-progress.md#dimension-access-policy).
+
 ## First launch
 
 1. Extract `server-references.zip` into its own directory. Install

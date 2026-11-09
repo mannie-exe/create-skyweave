@@ -107,6 +107,11 @@ Preserve useful evidence with exact seed/config/artifact identity; remove dispos
 
 ## Deferred terrain direction
 
+The [prison dimension](prison.md) is accepted planned content with its own
+generation and island-linked exit model. It is separate from Overworld terrain
+composition and the immediate Nether access policy; no external horror mod or
+prison generator is installed by this decision.
+
 Tectonic's vanilla density-router replacements do not automatically affect Sky Archipelago's descriptor/density exterior. A future bounded experiment could sample selected Tectonic ridge/height signals within the accepted island envelope, preserving thickness, climate and the shared final field used by water, structures and previews. Replacing Sky Archipelago would also require recovering cluster placement, fragments, oceans, geology and saved identity; no simplification or performance advantage has been demonstrated.
 
 Dynamic Waters has Tectonic-specific integration that can disable its underground rivers. Any future experiment must select one hydrology owner and inspect that mutation. Keep Tectonic deferred; installing both is not an approved terrain composition.

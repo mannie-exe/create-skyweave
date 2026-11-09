@@ -17,6 +17,10 @@ from pane_lighting import build as build_pane_lighting
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT = ROOT / 'overrides/client/resourcepacks/skyweave-visual-patches-0.1.0.zip'
 PLANTS = {'brown_mushroom': 2, 'red_mushroom': 3, 'crimson_fungus': 3, 'warped_fungus': 2}
+INPUT_FILES = ('authoring/visual-patches.json', 'authoring/model-recipes.json',
+               'empack.yml', 'empack.lock', 'empack.bindings.yml', 'authoring/resource-selections.json',
+               'authoring/resource-licenses/nautilus3d-AGPL-3.0.txt', 'authoring/texture-resources.json',
+               'authoring/visual-patches/pack.mcmeta', 'authoring/visual-patches/pack.png')
 
 
 def verify_output(output):
@@ -98,9 +102,9 @@ def patch_chain(original):
     return result
 
 
-def build(archives, recipes, config, selections=None, nautilus_license=None, textures=None):
-    entries = {'pack.mcmeta': {'pack': {'pack_format': 34,
-                'description': 'Skyweave: Visual Patches'}}}
+def build(archives, recipes, config, selections=None, nautilus_license=None, textures=None, *, metadata, icon):
+    require(metadata['pack']['pack_format'] == 34, 'Unsupported visual pack format')
+    entries = {'pack.mcmeta': metadata}
     for plant in PLANTS:
         path, value = compose_pot(archives['fresh-flower-pots'], archives['3d-crops'], plant)
         entries[path] = value
@@ -184,20 +188,21 @@ def build(archives, recipes, config, selections=None, nautilus_license=None, tex
         encoded['LICENSES/nautilus3d.txt'] = nautilus_license
     if credits:
         encoded["CREDITS.txt"] = ("\n\n".join(credits) + "\n").encode()
+    encoded['pack.png'] = icon
     return archive_bytes(encoded, (2026, 10, 23, 0, 0, 0))
 
 
 def generate_pack(root=ROOT, output=OUTPUT, check=False):
     # Acquisition can take time. Build from one captured recipe set, then refuse
     # publication if an external editor changed its sources while we worked.
-    paths = ['authoring/visual-patches.json', 'authoring/model-recipes.json',
-             'empack.yml', 'empack.lock', 'empack.bindings.yml', 'authoring/resource-selections.json', 'authoring/resource-licenses/nautilus3d-AGPL-3.0.txt', 'authoring/texture-resources.json']
+    paths = INPUT_FILES
     before = {name: (root / name).read_bytes() for name in paths}
     config = json.loads(before[paths[0]])
     recipes = json.loads(before[paths[1]])
     archives = load_inputs(root, recipe=config)
     try:
-        data = build(archives, recipes, config, json.loads(before['authoring/resource-selections.json']), before['authoring/resource-licenses/nautilus3d-AGPL-3.0.txt'], json.loads(before['authoring/texture-resources.json']))
+        data = build(archives, recipes, config, json.loads(before['authoring/resource-selections.json']), before['authoring/resource-licenses/nautilus3d-AGPL-3.0.txt'], json.loads(before['authoring/texture-resources.json']),
+                     metadata=json.loads(before['authoring/visual-patches/pack.mcmeta']), icon=before['authoring/visual-patches/pack.png'])
     finally:
         for archive in archives.values():
             archive.close()

@@ -4,9 +4,9 @@
   "records": [
     {
       "path": "overrides/client/options.txt",
-      "sha256": "eee04108e243cc19250b28c9f9fc6878a5fc03a3498134adbe85d7e4c1f26932",
+      "sha256": "9ebd3875a4c02e6daaf3bcff319b72cf439429d1049a655463ead3de2263479b",
       "review": "reviewed",
-      "reason": "Select the reviewed visual stack, including Better Lanterns and the generated pot/chain overrides at highest priority. Accept the inspected 3D Crops format mismatch; dedicated cane and rails retain priority. Existing instance options are seeded, not replaced. Shader reload uses F8 to avoid ordinary R interactions and recipe lookup. Client defaults use 12-chunk view distance and 10-chunk simulation distance.",
+      "reason": "Select the reviewed visual stack, including Better Lanterns and the generated pot/chain overrides at highest priority. Accept the inspected 3D Crops format mismatch; dedicated cane and rails retain priority. Existing instance options are seeded, not replaced. Shader reload uses F8 to avoid ordinary R interactions and recipe lookup. Client defaults use 12-chunk view distance and 10-chunk simulation distance. Grave accent opens FTB Quests; explicitly unbind legacy Questlog during coexistence. Existing installations retain seeded options until a targeted authorized update.",
       "reference": "docs/players/graphics.md#resource-packs"
     },
     {
@@ -463,6 +463,20 @@
       "review": "reviewed",
       "reason": "Keep ordinary slot interactions available; open the menu deliberately with an empty hand and Shift.",
       "reference": "docs/development/compatibility.md"
+    },
+    {
+      "path": "overrides/client/config/MouseTweaks.cfg",
+      "sha256": "4d7000d05de977aa54f72dbf127785fd3a80185e05c671f2e904ec552bc6fd4b",
+      "review": "reviewed",
+      "reason": "Enable Mouse Tweaks left/right drag and wheel transfers; it owns these gestures instead of IPN.",
+      "reference": "docs/players/getting-started.md#controls"
+    },
+    {
+      "path": "overrides/client/config/inventoryprofilesnext/inventoryprofiles.json",
+      "sha256": "3d04f9608aa91e049b2d702cdc5f9df15bc60053137c066d1becd0fde7e34c4b",
+      "review": "reviewed",
+      "reason": "Keep manual IPN sorting/transfers and Auto Refill tool replacement; disable IPN scrolling/swipe, equipment profiles, armor refill and hotbar restocking. Middle-click sorting preserves R recipe lookup.",
+      "reference": "docs/players/getting-started.md#controls"
     }
   ]
 }

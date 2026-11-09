@@ -4,6 +4,11 @@ Inspected on 2026-10-22 against Questlog 3.4.1, EMI 1.1.24, JEI 19.64.0.455,
 Reliable EMI 4.7.12 and Create 6.0.10 on Minecraft 1.21.1 / NeoForge.
 These findings establish available APIs and source behavior, not a tested bridge.
 
+FTB Quests is now the selected replacement. The Questlog recipe/Ponder bridge
+below is legacy research, not an active implementation task. Inspect FTB's own
+recipe integration before adding another adapter; existing verified Ponder scenes
+remain reusable. [Quest design](journal.md) owns the current direction.
+
 ## Recipe viewer
 
 EMI is the active item/recipe interface. The client configuration enables it, and

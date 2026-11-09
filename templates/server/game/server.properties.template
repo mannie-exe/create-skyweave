@@ -30,7 +30,7 @@ enable-status=true
 network-compression-threshold=256
 
 allow-flight=true
-allow-nether=true
+allow-nether=false
 enable-command-block=true
 pvp=true
 operator-permission-level=4

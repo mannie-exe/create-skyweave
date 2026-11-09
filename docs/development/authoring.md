@@ -17,6 +17,13 @@ consumes generated shaders; source inputs and runtime integrations have separate
 
 ## Journal source
 
+The paths and commands below describe the installed Questlog compiler. FTB Quests
+is the selected replacement; its authoring and native SNBT generation are not yet
+implemented. Replace the Atlas editor, source validation, generation jobs, locale
+output, managed-file policies and verification together. Retain legacy runtime
+definitions during the trial, not a second editable Questlog workflow. The
+[quest design guide](journal.md) owns the new capability/dependency direction.
+
 The [journal design reference](journal.md#design-policy) owns entry purpose,
 completion evidence and reward budgets. This guide owns source editing and
 generation; the Atlas edits the same files and must not maintain separate rules.

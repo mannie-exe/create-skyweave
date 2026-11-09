@@ -29,12 +29,15 @@ navigation and a minimap without mounting every recipe editor at once.
 Run authoring through named, allowlisted jobs with bounded inputs, output and
 concurrency. Do not add arbitrary shell/Python execution or filesystem access.
 Keep source editing, generation, snapshot refresh and instance sync distinct.
-Refresh triggers are sufficient unless evidence warrants a live state system.
+Use the existing workspace service, WebSocket client and revision-aware jobs;
+do not introduce parallel polling or another source/publication authority.
 
-Journal mechanics, locale prose and keyed disclaimers have separate owners.
-Preserve the distinction between left-hand requirements and short right-hand
-objective labels. Preview flavor, requirements, description and disclaimer in that
-order; optional flavor must not obscure detectable completion conditions.
+Quest mechanics, locale prose and shared explanatory text have separate owners.
+The selected replacement is FTB Quests capability/dependency authoring; the current
+Questlog editor is legacy and must be replaced rather than maintained alongside it.
+Preserve readable text, stable IDs, reward scope and real completion evidence.
+Do not treat Questlog's column arrangement as a universal quest schema. Follow
+the pack's quest design and authoring guides for current capability boundaries.
 
 Show source, uncertainty and missing coverage where they help decisions. Recipe
 diagrams represent exported data, not simulated game GUIs; do not imply that a

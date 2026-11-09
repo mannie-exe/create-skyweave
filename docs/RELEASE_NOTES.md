@@ -1,29 +1,31 @@
-# Create: Skyweave 0.9.0
+# Create: Skyweave 0.10.0
 
-Update Skyweave: Compatibility Patches to 0.29.0 for construct picking, closer
-floating villages, coherent ocean-fragment materials and clearer discovery.
-Minecraft remains 1.21.1 and NeoForge 21.1.265.
+Add FTB Quests and FTB Teams for the quest/team trial, inventory conveniences,
+and independently replaceable product icons. Minecraft remains 1.21.1 and
+NeoForge 21.1.265. Skyweave: Compatibility Patches is now 0.29.1.
 
-- Repair the Macaw/Sable picking interaction that could freeze rendering after
-  assembling a platform. The optional adaptation defaults on.
-- Keep Sky Villages 64–128 blocks from a substantial host body, measured from
-  their final footprint. Preserve exact overlap rejection and existing allowances.
-- Paint dry Lagoon fragments with sandy shore materials and Broken Reef fragments
-  with their exposed native rock palette. Water membership remains separate.
-- Set ordinary-village and mansion targets to 0.889 and 0.32 opportunities per 1024
-  eligible terrain chunks. Retain family caps, biome/fit checks and intentional
-  ruin variants; these values are not per-island probabilities.
-- Use independent `shoreline=` and `fringe=` island filters. Island and structure
-  commands provide consistent progress, paging and empty/partial-result feedback.
-- Use canonical `outline`, `fringe` and `fractures` shape groups. Atlas reads use
-  current authorized manifests and reject retired configuration/world inputs.
+- Install FTB Quests 2101.1.38, FTB Teams 2101.1.12 and FTB Library 2101.1.39.
+  The FTB quest book is intentionally empty. Keep the existing Questlog entries
+  available during the trial; new installations bind grave accent to FTB Quests
+  and leave Questlog unbound. Existing seeded key bindings require a manual change.
+- Add Mouse Tweaks 2.26.1, Inventory Profiles Next 2.2.5 and libIPN 6.6.3 on
+  clients. Keep Mouse Tweaks drag/wheel interactions and manual sorting/transfers;
+  disable automatic inventory rearrangement and overlapping IPN gestures.
+  Enable automatic tool replacement and stack replenishment.
+- Give the Compatibility Patches mod, Resource Patches mod, Visual Patches pack
+  and published instance separate white placeholder PNG icons. Visual Patches
+  now owns its native pack metadata rather than relying on the ZIP filename.
+- Set `allow-nether=false` in the dedicated-server template. This is not a complete
+  dimension-access policy: integrated-server access and portal ignition remain
+  unchanged. Team island allocation, first-entry selection, the prison dimension,
+  Hoofprint changes and FTB authoring migration are planned, not included.
+- Update player and maintenance documentation for the trial, dependency pins,
+  resource generation and private goal/evidence storage.
 
-**Create a fresh Skyweave world.** Generation identity is
-`islands_v1-skyarch-1.4-6`; existing saves are not silently converted. Apply the
-updated managed profiles; custom profiles must supply their canonical fields.
-Island spacing, accepted geometry, HIGH river density and approved coastal
-Lagoon settings retain their existing values.
+**No fresh world is required.** Terrain code and managed generation profiles are
+unchanged from 0.9.0; generation identity remains `islands_v1-skyarch-1.4-6`.
+Keep existing worlds, player progress, BlueMap tiles and Distant Horizons caches.
 
-Broad vanilla `/locate` remains synchronous; use `/skyweavecompat structures`
-for bounded searches. Native checks and limits are recorded in
-[Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/v0.29.0/docs/development/verification.md).
+FTB startup alongside Questlog was checked on an isolated dedicated server.
+The first-entry team chooser and shared-quest gameplay have not been implemented
+or verified by this release.

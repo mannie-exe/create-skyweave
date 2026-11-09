@@ -12,10 +12,14 @@ because that future system should own route/service authority. Earlier technolog
 need repeated uses and natural resource constraints, not compulsory recipe gates.
 The [progression guide](progression.md) traces current routes and unresolved overlaps.
 
-Questlog provides an optional, bookless journal with game-detectable conditions.
-Mechanics are grouped by chapter; prose is grouped by locale, with shared disclaimer
-keys and independent short objective labels. The [authoring guide](authoring.md)
-owns the schema and generation procedure. No journal rewards impose a progression gate.
+FTB Quests and FTB Teams are selected for shared, non-linear capability progression.
+Keep Questlog available during the trial while replacing its authoring workflow.
+Chapters cross mod boundaries, completion claims require observable evidence,
+and reward scope is independent of shared progress. The [quest guide](journal.md)
+owns writing/budgets; [authoring](authoring.md) owns source and generation.
+[Team/world progress](team-world-progress.md) owns secondary-island starts and
+Nether access closure; the [prison](prison.md) is planned content, not an installed
+dimension. No quest rewards impose an arbitrary progression gate.
 
 Elytra retain vanilla flight. Do a Barrel Roll was removed after reported movement
 and rotation jitter; the cause remains unresolved, and ordinary banking/smoothing

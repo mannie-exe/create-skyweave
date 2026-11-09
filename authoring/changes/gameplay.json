@@ -564,9 +564,9 @@
     },
     {
       "path": "templates/server/game/server.properties.template",
-      "sha256": "b3f9406d3973b4ef0bef3b772ef8904eb7395f7b4c09c061683963c5277f7bf6",
+      "sha256": "0227b301c2c986a987607532bde0ed5036bd11f65fdac8488fdcdb5dcf982bd7",
       "review": "reviewed",
-      "reason": "Use 16-chunk server view distance and 12-chunk simulation distance; preserve the existing world preset and other server defaults.",
+      "reason": "Use 16-chunk server view distance and 12-chunk simulation distance; preserve the existing world preset and other server defaults. Disable native Nether portal travel in new dedicated installations. Full ignition/travel policy and singleplayer coverage require the planned Compat adapter; this does not remove the Nether level or rewrite live server settings.",
       "reference": "docs/players/server.md"
     },
     {

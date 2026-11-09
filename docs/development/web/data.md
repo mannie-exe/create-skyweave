@@ -568,6 +568,14 @@ is generated. The separate [pack authoring editor](authoring.md) edits that sour
 and inspects categorized configuration drift. Player quest progress is not read
 or edited by the app.
 
+FTB Quests is the selected authoring replacement. Its native SNBT, translations,
+stable IDs, dependency graph and reward scope must enter the existing workspace
+service and revision-aware generation path together. The current editor/exporter
+is still Questlog-specific. Do not add an independent quest store, parallel
+Questlog/FTB editor modes or use player save data as authored content. The
+[quest design](../journal.md) and [team/access policy](../team-world-progress.md)
+own the accepted content and dimension-availability direction.
+
 [Journal definitions](../journal.md) owns quest conditions and authoring;
 [Compatibility](../compatibility.md) owns installed fixes;
 [upstream findings](../upstream.md) owns issue research. Keep gameplay fixes there and map

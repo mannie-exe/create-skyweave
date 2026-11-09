@@ -5,6 +5,8 @@ license="MIT"
 modId="skyweave_resource_patches"
 version="0.1.0"
 displayName="Skyweave: Resource Patches"
+logoFile="pack.png"
+logoBlur=false
 description='''Resource repairs and journal presentation for Create: Skyweave.'''
 [[dependencies.skyweave_resource_patches]]
 modId="t_and_t"

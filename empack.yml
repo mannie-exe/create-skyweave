@@ -1,7 +1,7 @@
 schema: 5
 pack:
   name: Skyweave modpack
-  version: 0.9.0
+  version: 0.10.0
   id: create_skyweave
   authors:
     - mannie-exe
@@ -736,10 +736,10 @@ dependencies:
     source:
       kind: url
       downloads:
-        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.29.0/skyweave-compat-0.29.0-mc1.21.1-neoforge.jar
+        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.29.1/skyweave-compat-0.29.1-mc1.21.1-neoforge.jar
     digests:
-      sha1: 50cad1476d0b05c98aaee5111d29835836ac2565
-      sha512: 88d050eec234f7b23325841782a272ee8805321d993b5e2426717a29ecfd53ee2bb5ab79ec964b1d20f29078ce1e7905f5b6c51db183b499ca2eebbdb63c0b48
+      sha1: 11413df0a41fdefec95fa11adc0ad8b2761fc2af
+      sha512: 1beaf8ce0ae2dde3ca276a52f460e9658154975395ddb58ca308ecc4f0b6eaeb632fa821a875348c4fbb86d7513520b7764a3ff62bc66aa58dd84d6a7362f276
     environment:
       client: required
       server: required
@@ -810,6 +810,49 @@ dependencies:
   yungs-better-witch-huts:
     pin: AvedwcIe
     source: modrinth:yungs-better-witch-huts
+  mouse-tweaks:
+    pin: 9I21YYxf
+    source: modrinth:mouse-tweaks
+    environment:
+      client: required
+      server: unsupported
+  inventory-profiles-next:
+    pin: vjuNnHLv
+    source: modrinth:inventory-profiles-next
+    environment:
+      client: required
+      server: unsupported
+  libipn:
+    source: modrinth:libipn
+    pin: BGe4KMlE
+    environment:
+      client: required
+      server: unsupported
+
+  ftb-library:
+    source:
+      kind: url
+      downloads:
+        - https://edge.forgecdn.net/files/9350/706/ftb-library-neoforge-2101.1.39.jar
+    digests:
+      sha1: ff852d99ade215fb892369687d0634ecf0bca6ae
+      sha512: e28a5c032395b96ce696800ca7689315074110e572186d8ba08bdf326e0ff43f6fcce942c35a3fe60637dc2bf2077f04b3e222892e60016fe545339dcc7529aa
+  ftb-teams:
+    source:
+      kind: url
+      downloads:
+        - https://edge.forgecdn.net/files/9434/81/ftb-teams-neoforge-2101.1.12.jar
+    digests:
+      sha1: 9c831fbbbccf2178827c3ccf278b2f2a0ce57306
+      sha512: c2c8853615c1ec97e0ace07c320db8f0ad4a18c59746e1d30c86f7af0e6ad36d9bbfe0ca6a365aa63d29244e1690323296fb29d99a38bab97e2c19181a57e376
+  ftb-quests:
+    source:
+      kind: url
+      downloads:
+        - https://edge.forgecdn.net/files/9405/148/ftb-quests-neoforge-2101.1.38.jar
+    digests:
+      sha1: 389fb269d338ed4c7f14f945a07759b6d444af40
+      sha512: fc97e8f2848b72ca04eba930a5382a9839faf860c1f943eeb698b4859cd5fa9a9533b900f06855b878cf8b7f1c2c10a9c3db37194e5dcb3ed3e2df342538009d
 
 build:
   default:

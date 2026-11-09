@@ -1,4 +1,13 @@
-# Journal design and definitions
+# Quest design and definitions
+
+FTB Quests and FTB Teams are selected for a non-linear, team-aware capability
+graph. Both quest mods remain installed for the trial; the current generator and
+Atlas editor still produce Questlog definitions. The replacement authoring system
+must target FTB Quests exclusively, with one mechanics/text owner. See
+[team and world progress](team-world-progress.md) for spawn, membership and
+dimension-access boundaries, and [pack authoring](authoring.md) for tool ownership.
+
+## Installed Questlog implementation
 
 Questlog provides an optional, bookless journal for Create: Skyweave. The selected
 artifact is recorded in `empack.yml`; the current implementation review covers
@@ -40,13 +49,23 @@ alternative travel and production methods visible and give early equipment a
 lasting role. Avoid compulsory chapter gates, a quest for every ingredient,
 reward-exclusive resources and an assumed universal technology ladder.
 
+For FTB Quests, make chapters meaningful expansions of what a player/team can do,
+not a list of mods or item categories. Let workshop power, resource processing,
+local crossings, sustained flight, cargo and habitat exploration cross mod
+boundaries. Branches may converge on the same capability; dependencies express
+actual prerequisites or explicit alternatives. Chapter membership alone must not
+lock unrelated tasks or recipes. Preserve progress for observable actions that
+happen before a display dependency unlocks where the native task supports it;
+verify that behavior instead of assuming it. Rare-island discovery must use an
+authoritative actual-location check, not a locator result.
+
 Distinguish three kinds of entry:
 
-| Kind | Completion claim |
-| --- | --- |
-| Equipment acquired | The player has obtained the stated equipment or supplies. |
-| Action demonstrated | A verified event or advancement confirms the stated operation. |
-| Suggested project | An explanation proposes a useful arrangement; it does not claim the whole build was detected. |
+| Kind                | Completion claim                                                                              |
+| ------------------- | --------------------------------------------------------------------------------------------- |
+| Equipment acquired  | The player has obtained the stated equipment or supplies.                                     |
+| Action demonstrated | A verified event or advancement confirms the stated operation.                                |
+| Suggested project   | An explanation proposes a useful arrangement; it does not claim the whole build was detected. |
 
 Suggested projects can live inside descriptions without separate completion or
 rewards. Never label an inventory check as successful flight, a functioning
@@ -57,14 +76,14 @@ what an advancement detects or which player receives credit.
 
 For each substantive entry or route, establish:
 
-| Authoring question | Required reasoning |
-| --- | --- |
-| Purpose | The capability, interaction or discovery introduced. |
-| Practical setup | Equipment, materials, quantities, power, fuel, access and supporting machinery. |
-| Evidence | Exact completion condition, attribution and limits; distinguish source inspection from runtime checks. |
-| Continuing use | Repeated activity, alternatives, trade-offs and adjacent routes. |
-| Reward | Its purpose, reference budget and effect on other entries. |
-| Maintenance | Owning recipes, tags, config or triggers that must be rechecked on updates. |
+| Authoring question | Required reasoning                                                                                     |
+| ------------------ | ------------------------------------------------------------------------------------------------------ |
+| Purpose            | The capability, interaction or discovery introduced.                                                   |
+| Practical setup    | Equipment, materials, quantities, power, fuel, access and supporting machinery.                        |
+| Evidence           | Exact completion condition, attribution and limits; distinguish source inspection from runtime checks. |
+| Continuing use     | Repeated activity, alternatives, trade-offs and adjacent routes.                                       |
+| Reward             | Its purpose, reference budget and effect on other entries.                                             |
+| Maintenance        | Owning recipes, tags, config or triggers that must be rechecked on updates.                            |
 
 These are review questions, not a requirement for a new schema or a parallel
 ledger. Put durable explanations in the owning source or document. Use concise,
@@ -77,16 +96,16 @@ objective rows. Reuse keyed disclaimers without repeating ordinary explanations.
 Use these subjects to review coverage, merging or splitting chapters where the
 actual content warrants it. They are not final names or mandatory gates.
 
-| Subject | Coverage to consider |
-| --- | --- |
-| Field supplies and survival | Food, renewable crops, animals, portable rest, backpacks, repair and enchanting. |
-| Island access and exploration | Gliders, climbing, ropes, ascent, descent and return access. |
-| Workshop and processing | Rotation, transmission, pressing, washing, heat, alloys, crushing and assembly. |
-| Airframe and lift | Physics assembly, glue roles, envelope enclosure, heat, mass and levitite. |
-| Propulsion and control | Portable engines, propellers, bearings, controllers, transmissions, steering, sensors and fuel alternatives. |
-| Cargo and infrastructure | Routing, storage, docking, packaging and existing delivery contracts. |
-| Electricity | Generation, wiring, motors, storage and conversion under actual operating constraints. |
-| Optional projects and discoveries | Photography, construction, rail transport and appropriate combat activities. |
+| Subject                           | Coverage to consider                                                                                         |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| Field supplies and survival       | Food, renewable crops, animals, portable rest, backpacks, repair and enchanting.                             |
+| Island access and exploration     | Gliders, climbing, ropes, ascent, descent and return access.                                                 |
+| Workshop and processing           | Rotation, transmission, pressing, washing, heat, alloys, crushing and assembly.                              |
+| Airframe and lift                 | Physics assembly, glue roles, envelope enclosure, heat, mass and levitite.                                   |
+| Propulsion and control            | Portable engines, propellers, bearings, controllers, transmissions, steering, sensors and fuel alternatives. |
+| Cargo and infrastructure          | Routing, storage, docking, packaging and existing delivery contracts.                                        |
+| Electricity                       | Generation, wiring, motors, storage and conversion under actual operating constraints.                       |
+| Optional projects and discoveries | Photography, construction, rail transport and appropriate combat activities.                                 |
 
 Do not invent settlement demand or an economy around ADQ's supplied cargo.
 Existing delivery contracts retain their purpose and rewards. Story-driven world
@@ -123,9 +142,13 @@ collected together; physical crates need a gameplay purpose beyond packaging.
 Keep contents understandable before collection and check inventory overflow and
 choice behavior in the installed version before enabling a reward design.
 
-Progress remains personal. Current inventory checks do not consume inputs, so
-players can share equipment and independently qualify. Accept that property while
-reviewing rewards; do not introduce team progression or an anti-sharing system.
+The selected FTB system shares quest progress through FTB Teams. Decide reward
+scope separately: setup materials can be claimed once per team, while personal
+equipment may be claimable per player. Budget accordingly, including join/leave,
+offline members and already-claimed rewards. World milestones remain separate;
+no team quest silently advances a server-wide stage. Avoid anti-sharing gates.
+Existing Questlog inventory checks remain personal and non-consuming during
+coexistence; that legacy behavior is not the new shared-progress contract.
 
 ## Current definitions
 
@@ -179,12 +202,12 @@ Four Field supplies entries cover the pack and its existing operating controls.
 They use Traveler's Backpack 10.1.40's native advancements rather than custom
 detectors or possession checks for components that may already be installed.
 
-| Entry | Native condition | Limit |
-| --- | --- | --- |
-| Carry a backpack | `standard` or `custom_backpack` inventory advancement | Ownership, not equipping or a particular storage tier |
-| Deploy a sleeping bag | `use_sleeping_bag` | Successful deployment followed by a sleep attempt; sleep itself can fail |
-| Swap carried tools | `tool_slots` | The swap action, including exchanges involving empty slots |
-| Draw fluid with a hose | `hose_suck` | The hose's fluid pickup action; bucket filling through another interface does not satisfy it |
+| Entry                  | Native condition                                      | Limit                                                                                        |
+| ---------------------- | ----------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Carry a backpack       | `standard` or `custom_backpack` inventory advancement | Ownership, not equipping or a particular storage tier                                        |
+| Deploy a sleeping bag  | `use_sleeping_bag`                                    | Successful deployment followed by a sleep attempt; sleep itself can fail                     |
+| Swap carried tools     | `tool_slots`                                          | The swap action, including exchanges involving empty slots                                   |
+| Draw fluid with a hose | `hose_suck`                                           | The hose's fluid pickup action; bucket filling through another interface does not satisfy it |
 
 Quick sleeping-bag use is enabled and does not set spawn. The leather tier has
 27 storage slots and two tool slots; fluid capacity is 1,000 mB per storage row,
@@ -198,22 +221,22 @@ These are authoring reference batches, not measured trip durations or proven
 minimum installations. Counts are deliberately small and remain subject to
 survival playtesting. Do not increase an objective count to justify a payout.
 
-| Route | Total supplement | Reference use and limit |
-| --- | --- | --- |
-| Food, glider and field rest | 5 bread across three entries | About 21% of a 24-food travel reserve; the one-bread rest supplement is an indivisible rounding exception; no membranes or leather |
-| Backpack tool and fluid use | 4 torches and 2 glass | 12.5% of a 32-torch reserve and 17% of the glass for a pair of backpack tanks; no complete upgrade, hose or extra backpack |
-| Animal breeding | 4 wheat | 17% of a 24-wheat breeding/feed reserve; no new animal or crop species |
-| Enchanting | 3 lapis | 17% of an 18-lapis session; no enchanted equipment or levels |
-| Workshop rotation and flexible shafts | 5 shafts across two entries | About 21% of a 24-shaft distribution batch; the extra one-shaft supplement is indivisible and adds no scarce component |
-| Pressing, mixing, fan processing | 2 iron ingots, 4 andesite, 4 gravel | Roughly 12–17% of separate 16/32/32 input batches; no zinc, quartz or platinum |
-| Mechanical crafting | 3 crafters | 14% of the 21-crafter crushing-wheel arrangement, after the first recipe batch |
-| Hot air | 2 wool and 2 sticks | One four-envelope recipe; 12.5% of a 32-envelope expansion, not a claim that 32 encloses a viable balloon |
-| Powered propeller | 4 coal | 17% of a 24-coal operating reserve; no measured flight duration implied |
-| Turpentine | 4 spruce logs | 12.5% of 32 logs for further probabilistic resin processing; no free resin or fuel |
-| Controls | 4 redstone | 17% of a 24-dust wiring/control reserve |
-| Cargo handling | 2 funnels and 4 cardboard | 17% of a 12-funnel expansion and a 24-cardboard batch; delivery contracts retain their own rewards |
-| Motor operation | 2 copper ingots | 12.5% of a 16-ingot electrical-component reserve; no free energy or complete circuit |
-| Printing, rail, ranged equipment | 4 paper, 4 tracks, 4 arrows | 12.5% of separate 32-item expansion/consumable batches |
+| Route                                 | Total supplement                    | Reference use and limit                                                                                                            |
+| ------------------------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Food, glider and field rest           | 5 bread across three entries        | About 21% of a 24-food travel reserve; the one-bread rest supplement is an indivisible rounding exception; no membranes or leather |
+| Backpack tool and fluid use           | 4 torches and 2 glass               | 12.5% of a 32-torch reserve and 17% of the glass for a pair of backpack tanks; no complete upgrade, hose or extra backpack         |
+| Animal breeding                       | 4 wheat                             | 17% of a 24-wheat breeding/feed reserve; no new animal or crop species                                                             |
+| Enchanting                            | 3 lapis                             | 17% of an 18-lapis session; no enchanted equipment or levels                                                                       |
+| Workshop rotation and flexible shafts | 5 shafts across two entries         | About 21% of a 24-shaft distribution batch; the extra one-shaft supplement is indivisible and adds no scarce component             |
+| Pressing, mixing, fan processing      | 2 iron ingots, 4 andesite, 4 gravel | Roughly 12–17% of separate 16/32/32 input batches; no zinc, quartz or platinum                                                     |
+| Mechanical crafting                   | 3 crafters                          | 14% of the 21-crafter crushing-wheel arrangement, after the first recipe batch                                                     |
+| Hot air                               | 2 wool and 2 sticks                 | One four-envelope recipe; 12.5% of a 32-envelope expansion, not a claim that 32 encloses a viable balloon                          |
+| Powered propeller                     | 4 coal                              | 17% of a 24-coal operating reserve; no measured flight duration implied                                                            |
+| Turpentine                            | 4 spruce logs                       | 12.5% of 32 logs for further probabilistic resin processing; no free resin or fuel                                                 |
+| Controls                              | 4 redstone                          | 17% of a 24-dust wiring/control reserve                                                                                            |
+| Cargo handling                        | 2 funnels and 4 cardboard           | 17% of a 12-funnel expansion and a 24-cardboard batch; delivery contracts retain their own rewards                                 |
+| Motor operation                       | 2 copper ingots                     | 12.5% of a 16-ingot electrical-component reserve; no free energy or complete circuit                                               |
+| Printing, rail, ranged equipment      | 4 paper, 4 tracks, 4 arrows         | 12.5% of separate 32-item expansion/consumable batches                                                                             |
 
 The crafter and funnel rewards deliberately expand equipment already obtained.
 No reward directly completes a different journal entry at its authored quantity.
@@ -246,7 +269,6 @@ files: when upgrading those installations, inspect the previous release manifest
 remove only unchanged retired pack definitions, and explicitly replace the reviewed
 current definitions to transfer ownership. Preserve custom definitions and player
 saves. Do not delete the whole Questlog directory.
-
 
 Quest IDs are `questlog:<relative path without .json>`. Questlog fixes the namespace
 to `questlog` and persists objectives and rewards by position. Moving an entry
@@ -316,14 +338,14 @@ The following downloaded source snapshots informed the design policy. They are
 examples, not dependencies or copied content, and were not played through in this
 review. Retain the applicable lesson rather than accumulating pack-review reports.
 
-| Source | Useful distinction |
-| --- | --- |
-| [ATM10 `827e361`](https://github.com/AllTheMods/ATM-10/tree/827e3610c356922e59412834d4b08ca5b16a6ce0/config/ftbquests/quests) | Practical cross-mod subjects alongside mod references; discovery rewards can deliberately accelerate expansion. |
-| [Above and Beyond `f551e98`](https://github.com/simibubi/Above-and-Beyond/tree/f551e984ee2a11c20b9aa3d10b670d4589fa34b2/config/ftbquests/quests) | Production routes, optional utility branches and explicit self-reported automation. |
-| [Liminal Industries `19929b5`](https://github.com/Appocryptha/Liminal-Industries/tree/19929b596c2251caa57f2ad25a6df60696cf2c25) | Environment-specific processing and rewards for another attempt; verify described chances against scripts. |
-| [StoneBlock 4 1.24.1](https://www.curseforge.com/minecraft/modpacks/ftb-stoneblock-4/files/9282328) | Distinguish ordinary supplies from consequential world actions and gated story progression. |
-| [Enigmatica 6 `edf25e0`](https://github.com/EnigmaticaModpacks/Enigmatica6/tree/edf25e0f50ce6b8ff052f7d10ff3c748bb90eafe) | Concept-oriented instruction and themed reward families; random distribution is a separate choice. |
-| [Bliss `1f56661`](https://github.com/VazkiiMods/Bliss/tree/1f56661bbdbc1fd89ecad77703dbbd405ceddbd7/patchouli_books/blissguide) | Contextual discoveries tied to existing activities; presentation need not imply a material reward. |
+| Source                                                                                                                                           | Useful distinction                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| [ATM10 `827e361`](https://github.com/AllTheMods/ATM-10/tree/827e3610c356922e59412834d4b08ca5b16a6ce0/config/ftbquests/quests)                    | Practical cross-mod subjects alongside mod references; discovery rewards can deliberately accelerate expansion. |
+| [Above and Beyond `f551e98`](https://github.com/simibubi/Above-and-Beyond/tree/f551e984ee2a11c20b9aa3d10b670d4589fa34b2/config/ftbquests/quests) | Production routes, optional utility branches and explicit self-reported automation.                             |
+| [Liminal Industries `19929b5`](https://github.com/Appocryptha/Liminal-Industries/tree/19929b596c2251caa57f2ad25a6df60696cf2c25)                  | Environment-specific processing and rewards for another attempt; verify described chances against scripts.      |
+| [StoneBlock 4 1.24.1](https://www.curseforge.com/minecraft/modpacks/ftb-stoneblock-4/files/9282328)                                              | Distinguish ordinary supplies from consequential world actions and gated story progression.                     |
+| [Enigmatica 6 `edf25e0`](https://github.com/EnigmaticaModpacks/Enigmatica6/tree/edf25e0f50ce6b8ff052f7d10ff3c748bb90eafe)                        | Concept-oriented instruction and themed reward families; random distribution is a separate choice.              |
+| [Bliss `1f56661`](https://github.com/VazkiiMods/Bliss/tree/1f56661bbdbc1fd89ecad77703dbbd405ceddbd7/patchouli_books/blissguide)                  | Contextual discoveries tied to existing activities; presentation need not imply a material reward.              |
 
 - [Player access and current behavior](../players/journal.md)
 - [Objective definitions](https://moddedmc.wiki/en/project/questlog/latest/docs/questlog/objective_types)

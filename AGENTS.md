@@ -43,14 +43,18 @@ For an authorized rename:
   Review placement, loot, salvage and delivery access together. Broader structure
   tuning, including Structures Arise, remains a separate pass.
 - Keep automatic Hostile Skies raids disabled pending deliberate encounter design.
-- Questlog is a bookless, optional journal. Use detectable conditions, short
-  objective labels, clear descriptions and shared disclaimer IDs. Organize around
-  useful capabilities and lasting roles; distinguish equipment acquired, actions
-  demonstrated and suggested projects. No invented triggers or compulsory gates.
+- FTB Quests and FTB Teams are the selected quest/team direction; retain Questlog
+  during the trial without maintaining two authoring systems. Organize non-linear
+  chapters around capability expansion and actual progression across mods.
+  Distinguish equipment acquired, actions demonstrated and suggested projects;
+  do not invent triggers or impose arbitrary chapter/recipe gates.
 - Follow `docs/development/journal.md` for journal design and reward budgets.
   Rewards supplement useful setups or operating batches without replacing scarce
   discoveries. Budget across a route, including reward-triggered completions.
-  Keep multiplayer progress personal; leave final naming and flavor to the owner.
+  Separate team completion, personal/team rewards and server-wide milestones;
+  leave final naming and flavor to the owner. Follow the accepted spawn, dimension
+  access and prison-content direction in `docs/development/team-world-progress.md`
+  and `docs/development/prison.md`; planned behavior is not an implemented claim.
 
 ## Work and evidence
 
@@ -82,6 +86,14 @@ For an authorized rename:
   the resulting saved world when requested; DH cache data is not a world save.
 - Keep existing backups and the preserved empack findings report. Remove temporary
   runs, logs and experiments after incorporating useful evidence into owning docs.
+- Goals may remain conversation-only. When saving private goals or supporting
+  design documents as files, use each repository's `.git/goals/`; keep retained
+  captures and verification evidence in `.git/captures/`.
+  Write there directly or consolidate during cleanup; keep goals flat and evidence
+  shallow, grouping related captures/runs only when useful. Use file timestamps
+  for recency and separate archives for exceptional historical material. Remove
+  disposable builds, downloads, runtimes and logs after retaining useful evidence;
+  update moved references and never alter Git internals during cleanup.
 - Do not commit, push or release without authorization. Never commit credentials,
   worlds, third-party JARs or decompiled sources.
 

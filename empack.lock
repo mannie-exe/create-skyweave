@@ -89,12 +89,16 @@ coverage:
   fresh-animations-details: complete
   fresh-animations-objects: complete
   fresh-flower-pots: complete
+  ftb-library: unknown
+  ftb-quests: unknown
+  ftb-teams: unknown
   fusion-connected-textures: complete
   fzzy-config: complete
   geophilic: complete
   hoofprint: unknown
   immediatelyfast: complete
   interiors: complete
+  inventory-profiles-next: complete
   inventory-totem: complete
   invmove: complete
   invmovecompats: complete
@@ -105,6 +109,7 @@ coverage:
   jei: complete
   kotlin-for-forge: complete
   lambdynamiclights: unknown
+  libipn: complete
   library-ferret: complete
   linear-bearing: complete
   linear-bearings-fix: complete
@@ -125,6 +130,7 @@ coverage:
   mezzconfig: complete
   modernfix: complete
   moreculling: complete
+  mouse-tweaks: complete
   mt-ct-d: complete
   owo-lib: complete
   photon-shader: complete
@@ -4920,6 +4926,114 @@ dependencies:
       provider: modrinth
       selector: fresh-flower-pots
     title: Fresh Flower Pots
+  ftb-library:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - https://edge.forgecdn.net/files/9350/706/ftb-library-neoforge-2101.1.39.jar
+        kind: url
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: ff852d99ade215fb892369687d0634ecf0bca6ae
+          sha512: >-
+            e28a5c032395b96ce696800ca7689315074110e572186d8ba08bdf326e0ff43f6fcce942c35a3fe60637dc2bf2077f04b3e222892e60016fe545339dcc7529aa
+        size: null
+      placements:
+      - destination: mods/ftb-library-neoforge-2101.1.39.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: ff852d99ade215fb892369687d0634ecf0bca6ae
+          sha512: >-
+            e28a5c032395b96ce696800ca7689315074110e572186d8ba08bdf326e0ff43f6fcce942c35a3fe60637dc2bf2077f04b3e222892e60016fe545339dcc7529aa
+        location: null
+        source: url-file
+      slot: primary
+    identity:
+      key: ftb-library
+      kind: url
+    incompatibilities: []
+    selection: null
+    source-selector: null
+    title: ftb-library
+  ftb-quests:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - https://edge.forgecdn.net/files/9405/148/ftb-quests-neoforge-2101.1.38.jar
+        kind: url
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 389fb269d338ed4c7f14f945a07759b6d444af40
+          sha512: >-
+            fc97e8f2848b72ca04eba930a5382a9839faf860c1f943eeb698b4859cd5fa9a9533b900f06855b878cf8b7f1c2c10a9c3db37194e5dcb3ed3e2df342538009d
+        size: null
+      placements:
+      - destination: mods/ftb-quests-neoforge-2101.1.38.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 389fb269d338ed4c7f14f945a07759b6d444af40
+          sha512: >-
+            fc97e8f2848b72ca04eba930a5382a9839faf860c1f943eeb698b4859cd5fa9a9533b900f06855b878cf8b7f1c2c10a9c3db37194e5dcb3ed3e2df342538009d
+        location: null
+        source: url-file
+      slot: primary
+    identity:
+      key: ftb-quests
+      kind: url
+    incompatibilities: []
+    selection: null
+    source-selector: null
+    title: ftb-quests
+  ftb-teams:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - https://edge.forgecdn.net/files/9434/81/ftb-teams-neoforge-2101.1.12.jar
+        kind: url
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 9c831fbbbccf2178827c3ccf278b2f2a0ce57306
+          sha512: >-
+            c2c8853615c1ec97e0ace07c320db8f0ad4a18c59746e1d30c86f7af0e6ad36d9bbfe0ca6a365aa63d29244e1690323296fb29d99a38bab97e2c19181a57e376
+        size: null
+      placements:
+      - destination: mods/ftb-teams-neoforge-2101.1.12.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 9c831fbbbccf2178827c3ccf278b2f2a0ce57306
+          sha512: >-
+            c2c8853615c1ec97e0ace07c320db8f0ad4a18c59746e1d30c86f7af0e6ad36d9bbfe0ca6a365aa63d29244e1690323296fb29d99a38bab97e2c19181a57e376
+        location: null
+        source: url-file
+      slot: primary
+    identity:
+      key: ftb-teams
+      kind: url
+    incompatibilities: []
+    selection: null
+    source-selector: null
+    title: ftb-teams
   fusion-connected-textures:
     content: mod
     files:
@@ -5232,6 +5346,61 @@ dependencies:
       provider: modrinth
       selector: r4Knci2k
     title: "Create: Interiors"
+  inventory-profiles-next:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/O7RBXm3n/versions/vjuNnHLv/InventoryProfilesNext-neoforge-1.21.1-2.2.5.jar
+        kind: provider
+        pin:
+          project:
+            project: O7RBXm3n
+            provider: modrinth
+          selection:
+            id: vjuNnHLv
+            provider: modrinth
+        slot: InventoryProfilesNext-neoforge-1.21.1-2.2.5.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: b09d7c0820c233ea34af54d0a3ab7ed510b32dcc
+          sha512: >-
+            521296cc7e4fa48e06eb0c00d430968c7b879946db5b02e632cc724672759ac152e11bd9d320bd09f7418edd6fe4ece521a1a2cac49d7f5687519c69a0bcbf12
+        size: 1295466
+      placements:
+      - destination: mods/InventoryProfilesNext-neoforge-1.21.1-2.2.5.jar
+        environment:
+          client: required
+          server: unsupported
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: b09d7c0820c233ea34af54d0a3ab7ed510b32dcc
+          sha512: >-
+            521296cc7e4fa48e06eb0c00d430968c7b879946db5b02e632cc724672759ac152e11bd9d320bd09f7418edd6fe4ece521a1a2cac49d7f5687519c69a0bcbf12
+        location: O7RBXm3n
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: O7RBXm3n
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: O7RBXm3n
+        provider: modrinth
+      selection:
+        id: vjuNnHLv
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: inventory-profiles-next
+    title: Inventory Profiles Next
   inventory-totem:
     content: mod
     files:
@@ -5763,6 +5932,61 @@ dependencies:
     selection: null
     source-selector: null
     title: lambdynamiclights
+  libipn:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/onSQdWhM/versions/BGe4KMlE/libIPN-neoforge-1.21.1-6.6.3.jar
+        kind: provider
+        pin:
+          project:
+            project: onSQdWhM
+            provider: modrinth
+          selection:
+            id: BGe4KMlE
+            provider: modrinth
+        slot: libIPN-neoforge-1.21.1-6.6.3.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: baab9e8cae3d2b77b5e172b5694e465ee9f30d4a
+          sha512: >-
+            89383465eb8dfa296e7518dd0e6ddc1a242f4537a3183425f2319c79a3e97843ded0f5e13f86b095f2f09beacd2a1f249f554e0f4e18291209720826031a8b93
+        size: 626146
+      placements:
+      - destination: mods/libIPN-neoforge-1.21.1-6.6.3.jar
+        environment:
+          client: required
+          server: unsupported
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: baab9e8cae3d2b77b5e172b5694e465ee9f30d4a
+          sha512: >-
+            89383465eb8dfa296e7518dd0e6ddc1a242f4537a3183425f2319c79a3e97843ded0f5e13f86b095f2f09beacd2a1f249f554e0f4e18291209720826031a8b93
+        location: onSQdWhM
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: onSQdWhM
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: onSQdWhM
+        provider: modrinth
+      selection:
+        id: BGe4KMlE
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: libipn
+    title: libIPN
   library-ferret:
     content: mod
     files:
@@ -6841,6 +7065,61 @@ dependencies:
       provider: modrinth
       selector: 51shyZVL
     title: More Culling
+  mouse-tweaks:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/aC3cM3Vq/versions/9I21YYxf/MouseTweaks-neoforge-mc1.21-2.26.1.jar
+        kind: provider
+        pin:
+          project:
+            project: aC3cM3Vq
+            provider: modrinth
+          selection:
+            id: 9I21YYxf
+            provider: modrinth
+        slot: MouseTweaks-neoforge-mc1.21-2.26.1.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 6dae57f4f50f7808d2ed9a18f6cd1c0d4640c6bc
+          sha512: >-
+            f95c0cc881211ee0442434976775e07aae40b4a2ba4e3a85455bc57ca9d3c991e239cd98374a8abd442dc9c378dcd9001e2caa1bf69991d424b5652dd7f3483b
+        size: 73938
+      placements:
+      - destination: mods/MouseTweaks-neoforge-mc1.21-2.26.1.jar
+        environment:
+          client: required
+          server: unsupported
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 6dae57f4f50f7808d2ed9a18f6cd1c0d4640c6bc
+          sha512: >-
+            f95c0cc881211ee0442434976775e07aae40b4a2ba4e3a85455bc57ca9d3c991e239cd98374a8abd442dc9c378dcd9001e2caa1bf69991d424b5652dd7f3483b
+        location: aC3cM3Vq
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: aC3cM3Vq
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: aC3cM3Vq
+        provider: modrinth
+      selection:
+        id: 9I21YYxf
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: mouse-tweaks
+    title: Mouse Tweaks
   mt-ct-d:
     content: resource-pack
     files:
@@ -8326,14 +8605,14 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.29.0/skyweave-compat-0.29.0-mc1.21.1-neoforge.jar
+          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.29.1/skyweave-compat-0.29.1-mc1.21.1-neoforge.jar
         kind: url
       expected:
         accepted-observation: null
         digests:
-          sha1: 50cad1476d0b05c98aaee5111d29835836ac2565
+          sha1: 11413df0a41fdefec95fa11adc0ad8b2761fc2af
           sha512: >-
-            88d050eec234f7b23325841782a272ee8805321d993b5e2426717a29ecfd53ee2bb5ab79ec964b1d20f29078ce1e7905f5b6c51db183b499ca2eebbdb63c0b48
+            1beaf8ce0ae2dde3ca276a52f460e9658154975395ddb58ca308ecc4f0b6eaeb632fa821a875348c4fbb86d7513520b7764a3ff62bc66aa58dd84d6a7362f276
         size: null
       placements:
       - destination: mods/skyweave-compat.jar
@@ -8344,9 +8623,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: 50cad1476d0b05c98aaee5111d29835836ac2565
+          sha1: 11413df0a41fdefec95fa11adc0ad8b2761fc2af
           sha512: >-
-            88d050eec234f7b23325841782a272ee8805321d993b5e2426717a29ecfd53ee2bb5ab79ec964b1d20f29078ce1e7905f5b6c51db183b499ca2eebbdb63c0b48
+            1beaf8ce0ae2dde3ca276a52f460e9658154975395ddb58ca308ecc4f0b6eaeb632fa821a875348c4fbb86d7513520b7764a3ff62bc66aa58dd84d6a7362f276
         location: null
         source: url-file
       slot: primary
@@ -9594,7 +9873,7 @@ dependencies:
       provider: modrinth
       selector: OnlVIpq5
     title: Fast Noise
-intent-revision: 40f17d02a9704f7b289f78626e0c0d7e9161d80c7230b8c3160e6639f31e43f4
+intent-revision: b49dd757791b4a2a74927c6bfdcfec906f5915c07708532e24ea68e5d9329d99
 required-edges:
   accessories:
   - owo-lib
@@ -9678,6 +9957,9 @@ required-edges:
   - create
   fzzy-config:
   - kotlin-for-forge
+  inventory-profiles-next:
+  - kotlin-for-forge
+  - libipn
   inventory-totem:
   - collective
   invmove:
@@ -9691,6 +9973,8 @@ required-edges:
   - jade
   jei:
   - mezzconfig
+  libipn:
+  - kotlin-for-forge
   linear-bearing:
   - create
   - create-aeronautics

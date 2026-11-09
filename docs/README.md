@@ -27,6 +27,8 @@ record what was tested at the time; they do not define current defaults.
 | [Debug World](development/debug-world.md) | Generated districts, native placement checks and safe fixture installation |
 | [Web map and authoring](development/web/README.md) | App setup, editor controls, data pipeline and verification |
 | [Journal integrations](development/journal-integrations.md) | EMI/JEI, translation and Ponder findings |
+| [Teams and world progress](development/team-world-progress.md) | Team spawn/respawn, FTB Quests trial, Nether closure and prison proposal |
+| [Prison dimension](development/prison.md) | Planned protected liminal dimension and island-linked travel |
 | [World generation](development/worldgen.md) | Spacing policy and biome compatibility |
 | [Terrain and structure candidates](development/worldgen-candidates.md) | Selected projects, exclusions and integration review |
 | [Performance investigation](development/performance.md) | Bounded startup, teardown, GC, terrain and server-work profiling |

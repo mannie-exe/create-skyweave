@@ -265,10 +265,27 @@ compatibility.
 
 ## Maintained resources
 
-`resource-patches/` contains the resource-only fixes mod and journal client assets.
-Rebuild it before exporting. The generated JAR is an ignored build artifact;
-its source files are maintained. Quest definitions ship from common config and
-client presentation settings ship from client config. See [journal authoring](journal.md).
+`resource-patches/` contains the resource-only fixes mod and journal client assets. Rebuild it before exporting. The generated JAR is an ignored build artifact; its source files are maintained. Quest definitions ship from common config and client presentation settings ship from client config. See [journal authoring](journal.md).
+
+Visual Patches metadata and icon are authored in `authoring/visual-patches/pack.mcmeta` and `authoring/visual-patches/pack.png`. Both enter the builder's source-change checks. Minecraft 1.21.1 resource packs use format 34; their supported metadata describes the pack but does not replace the filename-derived title in the pack list. Keep the archive filename stable unless its saved resource-pack selection is deliberately updated.
+
+Product images have separate editable sources:
+
+| Product or surface | Source | Consumer |
+| --- | --- | --- |
+| Compatibility Patches | `skyweave-compat/src/main/resources/logo.png` in its sibling repository | NeoForge mod-list logo, declared in that mod's metadata |
+| Resource Patches | `resource-patches/pack.png` | NeoForge mod-list logo, declared in the resource JAR's metadata |
+| Visual Patches | `authoring/visual-patches/pack.png` | Generated resource-pack ZIP's root `pack.png` |
+| Modpack | `templates/client/icon.png` | Prism export's root icon; source for future publishing uploads |
+| Game window | `overrides/client/icon.png` | Seeded game-root icon; Prism may replace this copy at launch |
+
+These are opaque, plain-white indexed PNG placeholders, with lossless compression.
+Resource and Visual Patches may use matching artwork while retaining independent
+files. Replace the owning image, then rebuild its artifact; do not edit generated
+archives. The modpack's Prism icon key is `create-skyweave`; importing another pack
+must not overwrite a generic shared icon key. Existing launcher selections remain
+local. Publishing icons are not uploaded automatically by the release workflow;
+use the modpack source when a publishing integration is added.
 
 ## Unix terminal wrapper
 

@@ -51,6 +51,20 @@ CTOV resource exclusions use `neoforge:false` overrides for seven obsolete Wares
 
 ## Routine dependency upgrades
 
+FTB Quests 2101.1.38, FTB Teams 2101.1.12 and FTB Library 2101.1.39 share
+Architectury 13.0.11. Their actual NeoForge metadata requires Library >=2101.1.39
+for Quests and >=2101.1.37 for Teams; FTB XMod Compat is optional and not selected.
+The pack uses exact official CDN URLs and SHA-1/SHA-512 assertions because empack
+0.8.2-beta's CurseForge chain duplicates the existing Modrinth Architectury
+placement. Keep one shared Architectury JAR and requalify metadata on FTB updates;
+return to provider pins when cross-provider identity can be represented safely.
+These URL selections do not receive normal provider-version discovery from
+`empack outdated`; consult the linked FTB releases and requalify their exact
+metadata/digests before updating them.
+Check both logical sides, Questlog coexistence, actual key IDs, team join/leave
+progress, reward scope and native SNBT/localization codecs. Do not assume that
+installing FTB replaces existing quest definitions or imports player progress.
+
 Resolve JEI and its retained parents together, including Aeronautics Covers.
 Review the bundled MezzConfig range as well as any standalone selection; a
 compatible installed library can remain old unless it is explicitly updated.
@@ -62,6 +76,8 @@ Colorwheel 1.3.2 must be paired with Compat's corresponding version/hash guards
 and the BSL recipe's runtime requirement. Keep Colorwheel Patcher 1.0.5 and the
 shader inputs pinned unless their own implementations change. Upstream buffer
 repairs alone do not establish that Compat's sampler/material hooks can retire.
+
+Inventory controls couple client-only Mouse Tweaks 2.26.1, Inventory Profiles Next 2.2.5 and libIPN 6.6.3. Kotlin for Forge remains shared with its existing consumers. Preserve IPN's disabled scrolling/swipe handlers and equipment profiles, middle-click sorting, and enabled pre-break tool replacement; its Auto Refill also handles consumed stacks. Recheck native configuration codecs, special result/filter slots, component-preserving transfers and InvMove modifier behavior on updates. Do not propagate these three client dependencies onto a dedicated server.
 
 When updating Reliable Gliders, review newly introduced defaults explicitly.
 The pack retains updraft strength 0.7, height 15 and speed 1.0, permits the previous

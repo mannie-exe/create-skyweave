@@ -106,12 +106,10 @@ were recorded; explicitly requested state properties were checked. Both runs
 completed the checks and shut down normally; their disposable worlds were removed.
 
 `python3 scripts/build-resource-patches.py --check` and `python3 scripts/audit-changes.py`
-passed after regeneration. Local fixture sources, manifests, comparison output
-and the work/future-integration ledgers are retained in `.git/weight-review/`;
-they are not distributed pack content. The local native commands were
-`python3 .git/weight-review/run.py baseline`,
-`python3 .git/weight-review/run.py candidate` and
-`python3 .git/weight-review/verify.py`.
+passed after regeneration. Local fixture definitions, manifests, comparison
+reports and work/future-integration notes are retained in
+`.git/captures/weight-review/`. These are historical evidence, not runnable
+tooling or distributed pack content.
 
 This establishes state-level classification and representative assembled mass,
 not every moving mechanism, contents-dependent inventory/tank behavior, copied

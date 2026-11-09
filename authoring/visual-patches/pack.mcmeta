@@ -1,0 +1,14 @@
+{
+  "pack": {
+    "pack_format": 34,
+    "description": {
+      "text": "Skyweave: Visual Patches",
+      "extra": [
+        {
+          "text": "\nModels, textures, and visual fixes.",
+          "color": "gray"
+        }
+      ]
+    }
+  }
+}

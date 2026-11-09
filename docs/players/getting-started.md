@@ -28,6 +28,12 @@ books, advancements and unrecognized mod screens keep movement disabled. This
 includes the journal by default. Sneaking is retained when opening an inventory;
 inventory input does not dismount a seated player.
 
+Grave accent (`) opens FTB Quests in new pack defaults. Questlog remains available
+through its inventory button with its opening key unbound; see [quests](journal.md)
+for the current content and authoring boundaries.
+
+Mouse Tweaks supplies left/right dragging and wheel transfers. Inventory Profiles Next adds manual sorting with **middle-click** over an inventory, transfer buttons and slot locking. Its scrolling and swipe movement are disabled so Mouse Tweaks owns those gestures; **R** remains available for recipe lookup. Equipment profiles and hotbar restocking are off. Auto Refill replaces worn tools before they break and also replenishes consumed stacks; automatic armor replacement is off. Configure these features through **Mods → Inventory Profiles Next → Config**.
+
 Ping Wheel uses its **Ping Location** binding, initially Mouse 5; remap it here
 if your mouse has no side buttons. Pings last ten seconds with reduced volume.
 Hold Shift over a shulker box for its contents preview. Clean Tooltips displays

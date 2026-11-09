@@ -46,10 +46,16 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Cool Rain Reforged | 1.0.2 | [Exact version](https://modrinth.com/mod/cool-rain-reforged/version/SwSSfJQQ) |
 | Copycat Bar Extrusion | 0.1.0 | [Exact release](https://github.com/mannie-exe/copycat-bar-extrusion/releases/tag/v0.1.0) |
 | Cristel Lib | neoforge-1.21.1-3.1.7 | [Exact version](https://modrinth.com/mod/cristel-lib/version/Sduz0AWP) |
+| FTB Library | 2101.1.39 | [Exact release](https://www.curseforge.com/minecraft/mc-mods/ftb-library-forge/files/9350706) |
+| FTB Quests | 2101.1.38 | [Exact release](https://www.curseforge.com/minecraft/mc-mods/ftb-quests-forge/files/9405148) |
+| FTB Teams | 2101.1.12 | [Exact release](https://www.curseforge.com/minecraft/mc-mods/ftb-teams-forge/files/9434081) |
 | Geophilic | 3.7 | [Exact version](https://modrinth.com/mod/geophilic/version/5kFV8CEz) |
+| Inventory Profiles Next | 2.2.5 | [Exact version](https://modrinth.com/mod/inventory-profiles-next/version/vjuNnHLv) |
+| libIPN | 6.6.3 | [Exact version](https://modrinth.com/mod/libipn/version/BGe4KMlE) |
 | Library Ferret | 4.0.0 | [Exact version](https://modrinth.com/mod/library-ferret/version/AKcIMUil) |
 | Lithostitched | 1.8.1-neoforge-21.1 | [Exact version](https://modrinth.com/mod/lithostitched/version/cZu4cHY3) |
-| Skyweave: Compatibility Patches | 0.28.0 | [GitHub release](https://github.com/mannie-exe/skyweave-compat/releases/tag/v0.28.0) |
+| Mouse Tweaks | 2.26.1 | [Exact version](https://modrinth.com/mod/mouse-tweaks/version/9I21YYxf) |
+| Skyweave: Compatibility Patches | 0.29.1 | [GitHub release](https://github.com/mannie-exe/skyweave-compat/releases/tag/v0.29.1) |
 | Create Accessories Compat | 1.0 | [Exact version](https://modrinth.com/mod/create-accessories-compat/version/2r7hvkCQ) |
 | Create Aeronautics | 1.3.2+mc1.21.1 | [Exact version](https://modrinth.com/mod/create-aeronautics/version/44pLdPGg) |
 | Create Aeronautics: Transmission & Linkage | 0.2.9 | [Exact version](https://modrinth.com/mod/create-aeronautics-transmission-linkage/version/WoUjC6d4) |

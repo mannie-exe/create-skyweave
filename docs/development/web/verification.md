@@ -4,6 +4,21 @@ Checks apply to the recorded source or artifact, not every later checkout. Brows
 checks establish interface behavior; native game checks and survey evidence have
 separate owners and limits. Commands and prerequisites live in [setup](setup.md).
 
+## Pack 0.10.0 quest/team trial refresh
+
+A fresh isolated runtime capture loads the locked FTB trio alongside Questlog and
+published Compat 0.29.1. Its source fingerprint remains unchanged. Extraction
+uses that capture's own `--work` directory, including its diagnostics and generated
+configuration; it must not read a previous audit's log or defaults. The snapshot
+checks pass with 10,136 items, 9,547 blocks, 9,254 recipes and 188 entities.
+Extraction finds 34,270 resource paths and 10,070 texture previews across 494 JARs.
+
+Formatting, unused-code checks, 158 application tests, 37 Python tests (one existing
+skip), Astro checks and the 16-page static build pass. Static generation correctly
+rejects input changes during a build; the final build runs after capture and
+compilation finish. Existing world surveys retain their original dates. Neither
+this export nor the empty FTB book establishes native team/quest gameplay.
+
 ## Pack 0.9.0 terrain and configuration refresh
 
 The isolated `pnpm data:refresh` captures the current lock and the public Compat 0.29.0 JAR (SHA-256 `275510a308c6c221aba5c8f4976dca0e926e4d59e612468810927a8038b6709c`). The export records no source changes during capture and its lock digest matches the pack. Extraction retains 10,122 items, 34,256 resource paths and 10,056 texture previews across 488 JARs. Unchanged counts do not imply unchanged generation.
@@ -183,9 +198,9 @@ recorded builds; they are not new interaction checks of every added machine.
 
 The [Debug World guide](../debug-world.md) owns generation, installation, coverage
 and dependency-update procedures. This pass runs the six Debug World compiler
-and write-boundary tests plus `git diff --check`. Audit summaries, selected native
-logs, manifests and client captures are retained locally in
-`create-skyweave/.git/debug-world-audit/`. Disposable server installations and
+and write-boundary tests plus `git diff --check`. Audit summaries, manifests and
+client captures are retained locally in
+`create-skyweave/.git/captures/debug-world-audit/`. Disposable server installations and
 failed generation worlds are removed after useful evidence is retained.
 
 ## Release checks, 0.1.34
