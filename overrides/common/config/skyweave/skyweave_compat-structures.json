@@ -54,5 +54,14 @@
       "targetStartsPer1024Chunks": 0.889,
       "maximumPerCluster": 3
     }
+  },
+  "villageFitting": {
+    "minimumSupportFraction": 0.9,
+    "maximumGroundGap": 3,
+    "maximumUnsupportedDepth": 2,
+    "minimumRetainedBuildings": 0.65,
+    "siteAttemptsPerVillage": 8,
+    "assembliesPerSite": 12,
+    "maximumColumnProbes": 16384
   }
 }

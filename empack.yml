@@ -1,7 +1,7 @@
 schema: 5
 pack:
   name: Skyweave modpack
-  version: 0.12.0
+  version: 0.13.0
   id: create_skyweave
   authors:
     - mannie-exe
@@ -736,10 +736,10 @@ dependencies:
     source:
       kind: url
       downloads:
-        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.31.0/skyweave-compat-0.31.0-mc1.21.1-neoforge.jar
+        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.32.0/skyweave-compat-0.32.0-mc1.21.1-neoforge.jar
     digests:
-      sha1: 6527802852591b507b6d4bbc9d24374f168f5835
-      sha512: 7566bc082912fe236317ba0e5d2b6cc7aad4fecad55b5846c49e505b2df5062d9a4f6187eed2a91adb458e5c7936deaa4c81e0d46cb53a3016fe7dd210b10d29
+      sha1: 12d6bfd6a19191f5ab142d55512368aac7d8345f
+      sha512: 5386f736cbac7ee3d03aeefd981b3b00bdce02c49cffed9b08a97c73a9a647ba4c5dba7f0c5470ac673d8b5d52dd3e82c8df036a6c1e4da96fc6113464fe0ccf
     environment:
       client: required
       server: required

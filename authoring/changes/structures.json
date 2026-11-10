@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "baseline": "b5465d2aaf4b685baa46093fc805da0a51047bd9",
-  "note": "Sky Villages placement and resources; staged ordinary-settlement resource exclusions. Layout composition and loot tiers remain under review.",
+  "note": "Settlement placement and authored village resources, processors and loot.",
   "records": [
     {
       "path": "resource-patches/data/skyvillages/worldgen/template_pool/skyvillage_bridges.json",
@@ -299,9 +299,9 @@
     },
     {
       "path": "overrides/common/config/skyweave/skyweave_compat-structures.json",
-      "sha256": "0ada41d279f2466e9385551e68004c565f58208a724ed38d057fa05a1d6086c2",
+      "sha256": "c3f0276c448af2829840786b2d47b45f906a4903ca72868c90f244e8993f7f3e",
       "review": "reviewed",
-      "reason": "Increase eligible-area village and mansion encounter targets to 0.889/0.32; preserve family caps, fit safety and other rates.",
+      "reason": "Preserve family encounter rates and caps; configure supported, connected village fits with bounded alternatives.",
       "reference": "docs/development/structures.md"
     },
     {

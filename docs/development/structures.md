@@ -40,7 +40,16 @@ will appear in an ocean void; structure placement rules still apply.
 
 Ground villages target 0.889 and mansions 0.32 opportunities per 1024 eligible terrain chunks, capped at 3 and 1 per cluster respectively. Eligible biome area, seeded rounding, layout fitting and other reservations still reduce actual counts; these are not per-island probabilities. Sky Villages retain their separate allowance and require a substantial host body within 64–128 blocks of their final footprint. Detached fringes cannot qualify alone.
 
-Native surveys found losses between allowed opportunities and usable layouts. Rates provide more opportunities without forcing invalid layouts or removing ruins; the existing fit budget and terrain safety checks remain. Intentional ruin variants are not proof of an inhabited settlement. [Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/verification.md#settlement-evidence) owns the exact native counts and limits.
+Native surveys found losses between allowed opportunities and usable layouts. Rates provide more opportunities without forcing invalid layouts or removing ruins; the existing fit budget and terrain safety checks remain. Intentional ruin variants are not proof of an inhabited settlement. [Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/verification.md#village-fitting-and-discovery-0320) owns the exact native counts and limits.
+
+Village fitting has a separate `villageFitting` group in the same authored policy.
+It controls structural support, retained inhabited buildings and bounded site,
+assembly and column work. These settings improve usable placement rather than
+changing the encounter allowance. Native pools and processors remain authoritative;
+connectivity checks and compatible road endings constrain trimming. See the
+[Compat configuration reference](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/configuration.md#structure-distribution)
+for defaults and units. Foundation blending also follows the island's surface
+materials instead of imposing generic grass around structures on sandy terrain.
 
 ## Cluster discoveries
 

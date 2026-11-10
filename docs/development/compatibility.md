@@ -575,6 +575,16 @@ light-shaft sampling may show more noise in motion.
 
 ## Verification scope
 
+The 0.13.0 release pins Compat 0.32.0 and the same published JAR as the shader-lab
+runner. Its local qualification passes 82 pack tests, 37 Atlas Python tests
+(one skipped), Atlas lint/unused-code/JavaScript/build checks, the configuration
+and village/quest generation audits, and all three distribution builds. Archive
+inspection verifies one Compat JAR, the seven authored village-fitting defaults,
+client/server separation and portable Prism commands. Native village, material,
+locator, persistence and Wayfinder evidence is owned by
+[Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/verification.md#village-fitting-and-discovery-0320).
+These bounded checks do not establish world-wide encounter rates.
+
 Choose checks that exercise the change:
 
 | Change                    | Relevant checks                                                                                        |

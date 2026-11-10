@@ -66,7 +66,7 @@ See [missing distant terrain](graphics.md#missing-distant-terrain) for client ch
 Operators with permission level 2 can press **G** while looking at terrain or run
 `/skyweavecompat wayfinder`. Both use the same server policy. Press again or use
 `/skyweavecompat wayfinder cancel` to cancel a pending query. A successful warp
-preserves view direction and has a two-second cooldown.
+preserves view direction. The cooldown is off by default.
 
 Native loaded terrain works without Distant Horizons. Distant targeting needs a
 compatible client and existing DH data along the sight ray. There is no configured
@@ -75,9 +75,11 @@ checks real footing, body space and hazards before moving the player.
 
 The server owns `config/skyweave/skyweave_compat-wayfinder.json`; changes apply
 at server startup. Client configuration cannot grant remote access. The file
-controls permission policy, cooldown, work limits and a block/tag blacklist.
-Denied hotkey presses are silent by default; explicit commands still explain
-denied access. Servers can disable this suppression in the same editor.
+controls permission policy, feedback, cooldown, upward placement lookup, work
+limits and a block/tag blacklist. Lookup searches up to 16 blocks above the
+pointed block by default; it never searches downward. Debug feedback is off by
+default for both commands and hotkeys, including denied access. Enable it in the
+same editor when troubleshooting. Existing explicit settings remain authoritative.
 Do not run the former Wayfinder datapack alongside the native feature; disable
 and remove its installation without deleting unrelated player tags or scoreboards.
 
