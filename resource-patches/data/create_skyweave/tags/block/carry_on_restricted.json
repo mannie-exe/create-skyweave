@@ -2,6 +2,26 @@
   "replace": false,
   "values": [
     {
+      "id": "aeroworks:control_desk",
+      "required": false
+    },
+    {
+      "id": "aeroworks:control_stand",
+      "required": false
+    },
+    {
+      "id": "aeroworks:copycat_control_desk",
+      "required": false
+    },
+    {
+      "id": "aeroworks:copycat_control_stand",
+      "required": false
+    },
+    {
+      "id": "aeroworks:joystick",
+      "required": false
+    },
+    {
       "id": "simulated:physics_assembler",
       "required": false
     },

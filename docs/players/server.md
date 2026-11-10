@@ -61,6 +61,26 @@ A large pregen does not override the client's LOD display radius or make transfe
 immediate. Keep download progress optional in the client UI.
 See [missing distant terrain](graphics.md#missing-distant-terrain) for client checks.
 
+## Wayfinder
+
+Operators with permission level 2 can press **G** while looking at terrain or run
+`/skyweavecompat wayfinder`. Both use the same server policy. Press again or use
+`/skyweavecompat wayfinder cancel` to cancel a pending query. A successful warp
+preserves view direction and has a two-second cooldown.
+
+Native loaded terrain works without Distant Horizons. Distant targeting needs a
+compatible client and existing DH data along the sight ray. There is no configured
+distance limit, and no destination is guessed through missing data. The server
+checks real footing, body space and hazards before moving the player.
+
+The server owns `config/skyweave/skyweave_compat-wayfinder.json`; changes apply
+at server startup. Client configuration cannot grant remote access. The file
+controls permission policy, cooldown, work limits and a block/tag blacklist.
+Denied hotkey presses are silent by default; explicit commands still explain
+denied access. Servers can disable this suppression in the same editor.
+Do not run the former Wayfinder datapack alongside the native feature; disable
+and remove its installation without deleting unrelated player tags or scoreboards.
+
 ## Finding islands and structures
 
 Operators with permission level2 can search without running a broad synchronous

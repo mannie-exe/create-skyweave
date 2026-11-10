@@ -669,9 +669,9 @@
     },
     {
       "path": "resource-patches/data/create_skyweave/tags/block/carry_on_restricted.json",
-      "sha256": "51002e42c040ada7132270a70b9e9f26c0592676e52c42826780481ac97699df",
+      "sha256": "5a109d3e258406820d1873fc01b2149deca04d9b60302de0a7e6908fbadd18b5",
       "review": "reviewed",
-      "reason": "Restrict relocation of reviewed joints, assembly helpers and linked endpoints without excluding unrelated blocks from their mods. Optional IDs tolerate removed dependencies.",
+      "reason": "Restrict relocation of reviewed joints, assembly helpers, linked endpoints and Aeroworks consoles with conflicting sneak interactions. Optional IDs tolerate removed dependencies; unrelated machinery remains individually reviewed.",
       "reference": "docs/development/compatibility.md#carry-on-machinery"
     }
   ]

@@ -6,6 +6,28 @@ owns dependency checks; [Atlas verification](web/verification.md) owns applicati
 and export results. Keep exact inputs, negative controls and limitations with
 native evidence. Archive checks alone do not establish gameplay or GPU behavior.
 
+## Release 0.12.0
+
+Published Compat 0.31.0 passes Linux, Windows and Intel macOS CI. The downloaded
+binary matches SHA-256/SHA-512 manifests and the native-tested local candidate
+`9339c656f98f50c4ec901ddf8174cf4f3594121bc6302011e87cd2a8ab3d547d`.
+The playable lock changes only Compat among 183 selections; the shader-lab runner
+uses identical released bytes. Both shader recipes qualify with cached outputs,
+and the eight shader-engine/runtime classes are byte-identical to 0.30.0.
+This is a coupled runner-pin update, not a new shader transformation.
+
+All 82 pack Python tests, the 383-file configuration audit, 14 quest checks and
+maintained Resource/Visual Patches checks pass. The Prism, server and Modrinth
+reference profiles build and pass archive CRC checks. Each contains exactly one
+canonical Compat entry at 0.31.0; Unix server-wrapper application/check passes.
+Aeroworks Carry On restrictions are source/asset-verified; this pass does not
+claim a fresh native pickup test for every control variant.
+
+[Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/v0.31.0/docs/development/verification.md#wayfinder-0310)
+owns Wayfinder's native shapes/authority/lifecycle, actual G8192/32768 arrivals,
+TCP capability controls and optionality evidence. Those tests use disposable
+worlds. Personal worlds, LODs and player progress are not reset by this update.
+
 ## Release 0.11.0
 
 Compat 0.30.0 is published after successful Linux, Windows and Intel macOS checks;

@@ -104,6 +104,7 @@ Skyweave: Resource Patches JAR. Carry On supports [tag-based exclusions](https:/
 | Transmission & Linkage | All eight linked machinery/auxiliary blocks, including heads, regulator and conversion bearing                        |
 | Linear Bearing         | Bearing/carriage, magnetic port, torsional anchor and gyroscopic gearbox                                              |
 | Aerocables             | The two cable endpoint blocks                                                                                         |
+| Aeroworks              | Control Desk, Control Stand, both Copycat variants and Joystick                                                       |
 
 Carry On configuration uses the seed policy. Existing installations must merge
 `#create_skyweave:carry_on_restricted` into `blacklist.forbiddenTiles` and restart;
@@ -113,9 +114,15 @@ other operator settings.
 Keep the upstream Create/Copycats, protected-container, grave and entity exclusions.
 Backpacks were already excluded by the loaded rules; no duplicate namespace rule
 was needed. Ordinary chests, barrels and furnaces remain carryable. The Linear
-Bearing redstone converter also remains eligible. Other Simulated and Aeroworks
-controls, Power Grid networks and modded inventories need individual evidence
-before changing their rules; a block entity alone is not a reason for exclusion.
+Bearing redstone converter also remains eligible. Other Simulated controls,
+Aeroworks' gyroscope and servos, Power Grid networks and modded inventories need
+individual evidence before changing their rules; a block entity alone is not a
+reason for exclusion.
+
+Aeroworks 1.5.0's five excluded controls share `ConsoleBlock`, including its
+Shift-right-click configuration and active-user handling. Joystick and both
+Copycat variants inherit that same interaction boundary. The added exclusions
+are source-reviewed; they have not had a new native pickup comparison.
 
 A 2026-11-01 isolated native comparison covered the complete block registry and
 fourteen pickup cases. The tag removed exactly 25 previously eligible block-entity
