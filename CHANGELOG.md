@@ -2,6 +2,12 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.13.0 · 2026-11-10
+
+### Fixes
+
+- **pack:** Update island structures and navigation ([023a900](https://github.com/mannie-exe/create-skyweave/commit/023a900dd3eba75d50aaa95de3e78dee66c9ac8c))
+
 ## v0.12.0 · 2026-11-10
 
 ### Features
