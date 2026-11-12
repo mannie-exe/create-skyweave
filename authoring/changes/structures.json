@@ -299,9 +299,9 @@
     },
     {
       "path": "overrides/common/config/skyweave/skyweave_compat-structures.json",
-      "sha256": "c3f0276c448af2829840786b2d47b45f906a4903ca72868c90f244e8993f7f3e",
+      "sha256": "637153360aba0e777af9efaf5dffe4338151a2d60aeb5d3bb05c8c954ebdcf97",
       "review": "reviewed",
-      "reason": "Preserve family encounter rates and caps; configure supported, connected village fits with bounded alternatives.",
+      "reason": "Preserve family encounter rates and caps. Require complete shallow-support reach for centers, buildings and farms; keep separate road overhang and bounded fitting controls. Startup writes only absent defaults; explicit editor changes retain managed-file conflict detection.",
       "reference": "docs/development/structures.md"
     },
     {

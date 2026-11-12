@@ -59,6 +59,7 @@
     "minimumSupportFraction": 0.9,
     "maximumGroundGap": 3,
     "maximumUnsupportedDepth": 2,
+    "requireCompleteBuildingSupport": true,
     "minimumRetainedBuildings": 0.65,
     "siteAttemptsPerVillage": 8,
     "assembliesPerSite": 12,

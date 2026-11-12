@@ -1,8 +1,6 @@
 # Create: Skyweave documentation
 
-Player guides explain installation and operation. Development documents describe
-pack authoring, compatibility constraints and verification. Historical decisions
-record what was tested at the time; they do not define current defaults.
+Player guides explain installation and operation. Development documents describe pack authoring, compatibility constraints and verification. Historical decisions record what was tested at the time; they do not define current defaults.
 
 ## Players and server owners
 
@@ -32,6 +30,7 @@ record what was tested at the time; they do not define current defaults.
 | [Teams and world progress](development/team-world-progress.md) | Initial spawn, deferred team/home policy, FTB Quests trial and dimension access |
 | [Prison dimension](development/prison.md) | Planned protected liminal dimension and island-linked travel |
 | [World generation](development/worldgen.md) | Spacing policy and biome compatibility |
+| [Island generation reference](development/island-generation.md) | Biome eligibility, archetypes, descriptor combinations and shaping/placement controls |
 | [Terrain and structure candidates](development/worldgen-candidates.md) | Selected projects, exclusions and integration review |
 | [Performance investigation](development/performance.md) | Bounded startup, teardown, GC, terrain and server-work profiling |
 | [Structures](development/structures.md) | Sky Villages placement, loot and delivery integration |
@@ -42,8 +41,6 @@ record what was tested at the time; they do not define current defaults.
 
 ## Source and releases
 
-Current defaults live in `overrides/` and `templates/`. Building source does not
-update a downloaded release or an installed instance. Archived release notes
-describe their named version; the unreleased notes describe the working tree.
+Current defaults live in `overrides/` and `templates/`. Building source does not update a downloaded release or an installed instance. Archived release notes describe their named version; the unreleased notes describe the working tree.
 
 [Archived release notes](releases/) retain version-specific changes and verification. The [changelog](../CHANGELOG.md) records repository history.

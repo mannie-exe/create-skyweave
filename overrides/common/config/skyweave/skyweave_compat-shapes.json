@@ -32,7 +32,14 @@
     "gapWidth": 6,
     "verticalRange": 32,
     "removalChance": 0.28,
-    "deepDarkChance": 0.1,
-    "sculkPatchChance": 0.25
+    "deepDarkChance": 0.1
+  },
+  "deepDark": {
+    "sculkCoverage": 0.94,
+    "surfaceScale": 48,
+    "veinChance": 0.25,
+    "sensorChance": 0.25,
+    "catalystChance": 0.08,
+    "shriekerChance": 0.02
   }
 }

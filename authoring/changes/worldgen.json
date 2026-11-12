@@ -53,9 +53,9 @@
     },
     {
       "path": "overrides/common/config/skyweave/skyweave_compat-shapes.json",
-      "sha256": "f3d762b57f12cd9ef82d7b3967908bb60ac11a082a66c283229470aa16916078",
+      "sha256": "4b044f80cb558272bc03f8f2e4de190816214855310926af54044bac2fd92047",
       "review": "reviewed",
-      "reason": "Use canonical outline/fringe/fractures groups while retaining accepted geometry and Deep Dark selection.",
+      "reason": "Use canonical outline/fringe/fractures/deepDark groups: preserve island selection, add contributor-specific deepslate and coherent sculk, and bound natural devices independently. No Ancient City is required.",
       "reference": "docs/development/worldgen.md"
     },
     {
@@ -161,6 +161,13 @@
       "sha256": "56008b836660306ecb3a1add15a2c814dd639191596ff46d43482bf76b84794b",
       "review": "reviewed",
       "reason": "Bound operator structure discovery to 65536 candidates, 120 seconds, two native structure-start requests and 5ms per-tick bookkeeping; exhaustion reports partial results. These limits do not change terrain identity.",
+      "reference": "docs/development/worldgen.md"
+    },
+    {
+      "path": "overrides/common/config/skyweave/skyweave_compat-climate.json",
+      "sha256": "675d9ffe00a9e4bbd5f1e808d1f361c7eb3a73c9ac4ca4d8c0aa93663aa868de",
+      "review": "reviewed",
+      "reason": "Own island-relative altitude, bounded air association and native underground-depth policy. Immutable startup reader writes only a missing default; explicit editor changes retain managed-file conflict detection.",
       "reference": "docs/development/worldgen.md"
     }
   ]

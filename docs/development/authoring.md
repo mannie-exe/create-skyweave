@@ -1,26 +1,14 @@
 # Pack authoring
 
-The pack owns quest source, the configuration register and model recipes. The local Atlas app
-in [`web/`](../../web/README.md) edits those files; it does not own a second copy
-or install changes into Minecraft. The [editor guide](web/authoring.md) describes
-the quest and shared-text workbenches; [model authoring](web/models.md) covers
-texture extrusion, UV fitting and resource-pack generation.
+The pack owns quest source, the configuration register and model recipes. The local Atlas app in [`web/`](../../web/README.md) edits those files; it does not own a second copy or install changes into Minecraft. The [editor guide](web/authoring.md) describes the quest and shared-text workbenches; [model authoring](web/models.md) covers texture extrusion, UV fitting and resource-pack generation.
 
-The [Debug World guide](debug-world.md) owns curated native displays, profile
-configuration, regeneration and guarded installation. It is separate from Atlas
-world-generation surveys and the playable server world.
+The [Debug World guide](debug-world.md) owns curated native displays, profile configuration, regeneration and guarded installation. It is separate from Atlas world-generation surveys and the playable server world.
 
-The [shader lab](../../tools/shader-lab/README.md) owns BSL/Colorwheel and
-Complementary/Euphoria shader generation, including texture-based Create window
-material changes. Run its builder before `empack sync` or a pack build. The pack
-consumes generated shaders; source inputs and runtime integrations have separate roles.
+The [shader lab](../../tools/shader-lab/README.md) owns BSL/Colorwheel and Complementary/Euphoria shader generation, including texture-based Create window material changes. Run its builder before `empack sync` or a pack build. The pack consumes generated shaders; source inputs and runtime integrations have separate roles.
 
 ## Quest source
 
-FTB Quests is the sole authoring target. The [quest design reference](journal.md)
-owns capability progression, completion evidence and reward budgets. The Atlas
-edits the same files as the compiler; it has no separate quest database. Questlog
-runtime definitions and language resources remain frozen during the trial.
+FTB Quests is the sole authoring target. The [quest design reference](journal.md) owns capability progression, completion evidence and reward budgets. The Atlas edits the same files as the compiler; it has no separate quest database. Questlog runtime definitions and language resources remain frozen during the trial.
 
 | Path | Content |
 | --- | --- |
@@ -30,37 +18,15 @@ runtime definitions and language resources remain frozen during the trial.
 | `overrides/common/config/ftbquests/quests/` | Generated native SNBT and ownership manifest |
 | `empack.bindings.yml` | Exact managed policies for generated native files |
 
-Schema 1 uses stable positive signed-long, uppercase 16-digit hexadecimal IDs for
-chapter groups, chapters, quests, tasks and rewards. IDs 0 and 1 belong to native
-default-group/file objects and cannot be authored. Source filenames and readable
-quest keys are separate from native IDs. Keep IDs when changing titles, positions
-or chapter membership; deleting/reusing an ID can reinterpret saved progress.
-Dependencies refer to quest IDs. Chapter groups organize the book, not recipe gates.
+Schema 1 uses stable positive signed-long, uppercase 16-digit hexadecimal IDs for chapter groups, chapters, quests, tasks and rewards. IDs 0 and 1 belong to native default-group/file objects and cannot be authored. Source filenames and readable quest keys are separate from native IDs. Keep IDs when changing titles, positions or chapter membership; deleting/reusing an ID can reinterpret saved progress. Dependencies refer to quest IDs. Chapter groups organize the book, not recipe gates.
 
-English owns the complete `objects` set. Each object has a title; quests can add
-`quest_subtitle` and `quest_desc`, and chapters can add `chapter_subtitle`. Description
-arrays contain literal paragraphs or `{ "shared": "key" }` references. Locale
-`shared` maps own the referenced text. Sparse additional locales inherit missing
-fields from English; arrays replace whole arrays and explicit empty optional
-fields remain empty. Resolve shared paragraphs in the selected locale. Unknown
-objects, missing references and invalid native fields fail compilation.
+English owns the complete `objects` set. Each object has a title; quests can add `quest_subtitle` and `quest_desc`, and chapters can add `chapter_subtitle`. Description arrays contain literal paragraphs or `{ "shared": "key" }` references. Locale `shared` maps own the referenced text. Sparse additional locales inherit missing fields from English; arrays replace whole arrays and explicit empty optional fields remain empty. Resolve shared paragraphs in the selected locale. Unknown objects, missing references and invalid native fields fail compilation.
 
-The supported native contract includes inventory item/list/tag tasks, advancement
-and criterion tasks, block interactions and explicit manual acknowledgements.
-Rewards support items, experience points and levels with native claim scope and
-collection settings. Additional supported native properties remain available as
-JSON; unsupported fields fail rather than being silently discarded. See
-`scripts/quests.py` for the exact version-pinned allowlists. Runtime team/player
-progress is never authored source.
+The supported native contract includes inventory item/list/tag tasks, advancement and criterion tasks, block interactions and explicit manual acknowledgements. Rewards support items, experience points and levels with native claim scope and collection settings. Additional supported native properties remain available as JSON; unsupported fields fail rather than being silently discarded. See `scripts/quests.py` for the exact version-pinned allowlists. Runtime team/player progress is never authored source.
 
 ## Save, generate and build
 
-Save validates the coordinated source set in staging before replacing changed
-files. Ordinary replacement failures roll back; the batch is not crash-atomic.
-Stale revisions reject the write and keep browser drafts. Generation uses saved
-source, rechecks source/tool/output revisions and commits native SNBT, translations,
-ownership manifest and binding policies together. Neither action installs files
-or changes Minecraft worlds.
+Save validates the coordinated source set in staging before replacing changed files. Ordinary replacement failures roll back; the batch is not crash-atomic. Stale revisions reject the write and keep browser drafts. Generation uses saved source, rechecks source/tool/output revisions and commits native SNBT, translations, ownership manifest and binding policies together. Neither action installs files or changes Minecraft worlds.
 
 From the pack root:
 
@@ -73,55 +39,37 @@ python3 -m unittest discover -s tests -v
 python3 scripts/build-resource-patches.py
 ```
 
-Generated SNBT and the manifest remain in Git for review. The compiler follows
-the pinned native writer's defaults and omissions; verify save/reopen stability
-when updating FTB. It refuses edited, missing or unowned native files instead of
-importing unknown SNBT or overwriting in-game edits. Reapply intentional changes
-to `authoring/quests` or explicitly restore the previously generated bytes after
-review. The manifest authorizes removal only of previously owned outputs. Foreign
-binding policies and comments are retained.
+Generated SNBT and the manifest remain in Git for review. The compiler follows the pinned native writer's defaults and omissions; verify save/reopen stability when updating FTB. It refuses edited, missing or unowned native files instead of importing unknown SNBT or overwriting in-game edits. Reapply intentional changes to `authoring/quests` or explicitly restore the previously generated bytes after review. The manifest authorizes removal only of previously owned outputs. Foreign binding policies and comments are retained.
 
-Run `empack sync --materialize` after changing file policies. Build and instance
-installation are separate operations. Generated FTB locale files are native SNBT;
-they do not require the resource JAR. The resource JAR still packages maintained
-resources and frozen Questlog translations. A successful build does not prove
-native task triggers, team claims, language switching or playable progression.
+Run `empack sync --materialize` after changing file policies. Build and instance installation are separate operations. Generated FTB locale files are native SNBT; they do not require the resource JAR. The resource JAR still packages maintained resources and frozen Questlog translations. A successful build does not prove native task triggers, team claims, language switching or playable progression.
 
 ## Configuration register
 
-`authoring/changes/*.json` separates client, shaders, worldgen, structures, recipes,
-drops, journal and gameplay. Each record identifies an authored file, its accepted
-SHA-256, review status, reason and owning reference. `baseline` records the initial
-source revision. A matching hash establishes file equality, not gameplay validity
-or equality with upstream defaults. `inherited` means individual settings still
-need review; `reviewed` can cover a specific change within a larger inherited file.
+`authoring/changes/*.json` separates client, shaders, worldgen, structures, recipes, drops, journal and gameplay. Each record identifies an authored file, its accepted SHA-256, review status, reason and owning reference. `baseline` records the initial source revision. A matching hash establishes file equality, not gameplay validity or equality with upstream defaults. `inherited` means individual settings still need review; `reviewed` can cover a specific change within a larger inherited file.
 
-The checker reports drift, missing files and files absent from the register.
-It covers distributed client/common config, shader settings, client options,
-resource recipes/tags/drops and the server properties template. Generated quest
-files have their own semantic check. Dependency selection, live-instance settings,
-worlds, LOD caches and private seeds are outside this register. The structures
-register covers the Sky Villages integration; broader density tuning remains
-deferred. See [structures](structures.md).
+The checker reports drift, missing files and files absent from the register. It covers distributed client/common config, shader settings, client options, resource recipes/tags/drops and the server properties template. Generated quest files have their own semantic check. Dependency selection, live-instance settings, worlds, LOD caches and private seeds are outside this register. The structures register covers the Sky Villages integration; broader density tuning remains deferred. See [structures](structures.md).
 
-The checker is read-only. It does not restore files, generate arbitrary mod
-configuration, or accept new hashes automatically. Whole-file hashing is sensitive
-to formatting; Git diffs and the owning document explain the actual setting change.
+The checker is read-only. It does not restore files, generate arbitrary mod configuration, or accept new hashes automatically. Whole-file hashing is sensitive to formatting; Git diffs and the owning document explain the actual setting change.
+
+## Installation file policies
+
+The [shared ownership policy](../../AGENTS.md#installation-file-ownership) is managed-first. Pack-owned gameplay rules, compatibility rules, generation tuning, compiled quests, shader recipes and resource artifacts should follow pack updates. Declare seed exceptions for player preferences, operator/host settings, credentials, installation identifiers and genuinely native-owned mutable files. Keep caches, logs and installation-generated runtime state out of distributions.
+
+Empack currently defaults files under `config/` to seed. The pack must therefore record managed config paths explicitly in `empack.bindings.yml`. Existing releases still contain the earlier seed classifications; the ownership sweep must qualify and change them before exports can claim the new policy. Current explicit managed exceptions include compiled FTB/legacy journal definitions and shader build recipes.
+
+Inspect actual readers, UI saves and startup/runtime writers. A file being JSON or TOML, having an editor, or receiving regenerated comments does not by itself settle ownership. Empack compares bytes: harmless native normalization can still cause a managed-file conflict. Qualify save/reopen and repeated launcher preparation before converting a path. Do not solve conflicts by weakening checks, discarding player choices or making all configs seeds. For mixed ownership, prefer existing supported separation; otherwise document a justified exception and its update procedure. Delivery Quests has a native custom-template rewrite path, which needs qualification before its authored templates can become managed content.
+
+Managed installation reports modified-file conflicts rather than silently replacing user edits. Existing seed-to-managed transitions also require an explicit decision; a changed binding alone does not safely adopt previously user-owned files. Compare old defaults, new content and local edits, then use the installed empack version's supported reconciliation options. Preserve meaningful feature opt-outs and unrelated settings. Test unchanged and edited seeds, managed edits and repeated preparation.
+
+A deliberate local refresh is separate from installation. With the instance stopped, compare files against a verified snapshot and apply approved defaults. Preserve installation-specific DH `serverId`, BlueMap credentials and host JVM settings. World-generation changes retain generation-identity protections; changing ownership never authorizes a world migration, reset or silent reinterpretation of terrain. Player preferences copied into authoring remain defaults when their files are explicitly seed-owned.
 
 ## Update reconciliation
 
 1. Run the audit before an update and retain the Git revision being compared.
-2. Compare changed mod defaults and schemas with the authored config. A matching
-   pack hash cannot establish that an upgraded mod still recognizes a setting.
-3. Edit the smallest relevant file. For a recipe, edit its maintained resource;
-   for a quest, edit mechanics or locale source rather than generated JSON.
-4. Update the owning rationale and register digest only after reviewing the diff.
-   Keep unrelated inherited keys distinguishable from deliberate tuning.
-5. Generate, run checks and inspect the resulting exports. Test affected behavior
-   in an isolated instance when source checks cannot establish it.
-6. Commit the source, generated quest files and rationale together. Schedule
-   installation separately, preserving worlds and player progress.
+2. Compare changed mod defaults and schemas with the authored config. A matching pack hash cannot establish that an upgraded mod still recognizes a setting.
+3. Edit the smallest relevant file. For a recipe, edit its maintained resource; for a quest, edit mechanics or locale source rather than generated JSON.
+4. Update the owning rationale and register digest only after reviewing the diff. Keep unrelated inherited keys distinguishable from deliberate tuning.
+5. Generate, run checks and inspect the resulting exports. Test affected behavior in an isolated instance when source checks cannot establish it.
+6. Commit the source, generated quest files and rationale together. Schedule installation separately, preserving worlds and player progress.
 
-This provides repeatable quest output and traceable config decisions. General
-config generation, automatic upstream merges and an in-browser diff editor remain
-outside the current implementation.
+This provides repeatable quest output and traceable config decisions. General config generation, automatic upstream merges and an in-browser diff editor remain outside the current implementation.

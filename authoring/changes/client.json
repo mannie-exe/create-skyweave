@@ -60,10 +60,10 @@
     },
     {
       "path": "overrides/common/config/create-client.toml",
-      "sha256": "cce3eab1a290cc1f0eada00031f0577f661f883aee3438cf1139283c65d1f319",
-      "review": "inherited",
-      "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "sha256": "68b08d3453668759f20ecac6b2e01e7b6e09f338b04d9aa5ff1028121b929322",
+      "review": "reviewed",
+      "reason": "Use the reviewed Create menu positions: main-menu row 3 and in-game-menu row 4. Other inherited settings remain unchanged.",
+      "reference": "docs/development/authoring.md#configuration-register"
     },
     {
       "path": "overrides/common/config/create_radar-client.toml",
@@ -477,6 +477,13 @@
       "review": "reviewed",
       "reason": "Keep manual IPN sorting/transfers, equipment profile support and Auto Refill tool replacement; disable overlapping IPN scrolling/swipe, armor refill and hotbar restocking. Middle-click sorting preserves R recipe lookup. Hide only settings and overlay-editor buttons; retain sort buttons and refill indicators.",
       "reference": "docs/players/getting-started.md#controls"
+    },
+    {
+      "path": "overrides/client/config/spyglass-improvements/settings.json",
+      "sha256": "35ba4aa654e5721ebaa63382f70f8e15c30862fea084189459dfa3a10cdc0deb",
+      "review": "reviewed",
+      "reason": "Use the player-reviewed spyglass overlay style 1 and hide its settings button; preserve the exported zoom, crosshair and camera preferences.",
+      "reference": "docs/development/authoring.md#configuration-register"
     }
   ]
 }

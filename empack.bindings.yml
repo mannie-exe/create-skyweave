@@ -313,6 +313,9 @@ bindings:
             server: unsupported
           layer: client
 policies:
+  config/skyweave/skyweave_compat-climate.json: managed
+  config/skyweave/skyweave_compat-shapes.json: managed
+  config/skyweave/skyweave_compat-structures.json: managed
   shaderpacks/photon_v1.4.zip.txt: seed
   config/bluemap/core.conf: seed
   config/bluemap/maps/world.conf: seed
