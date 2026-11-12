@@ -2,6 +2,12 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.14.0 · 2026-11-12
+
+### Features
+
+- **terrain:** Adopt climate and village support ([4847c3e](https://github.com/mannie-exe/create-skyweave/commit/4847c3e774ab6f9d7ca422d67534f16e89ae2b57))
+
 ## v0.13.0 · 2026-11-10
 
 ### Fixes
