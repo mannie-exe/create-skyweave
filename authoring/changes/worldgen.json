@@ -4,171 +4,256 @@
   "records": [
     {
       "path": "overrides/client/config/defaultworldtype/client-config.toml",
-      "sha256": "b312418b1606c2fd7e05c915a5b70c1b5182f5b2f230c6cab1d3555f7bc22070",
+      "sha256": "cf00520a8a1af6b5062e28452ac7a3508c5e64751ae216acf01cff5e9f2f05b8",
       "review": "reviewed",
       "reason": "Default new worlds to Skyweave Islands; keep the world-type selector available.",
-      "reference": "docs/development/worldgen.md"
+      "reference": "docs/development/worldgen.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/sky_archipelago-common.toml",
-      "sha256": "35e48ebc9dd47a939202255df1e105bfce48e292a0b29f53a2dcdd26d8b69bdf",
+      "sha256": "1562d0c2a32878e52f4e76e9e551809f5ec4f5f00b4e00a691352920583a88e8",
       "review": "reviewed",
       "reason": "Retain ordinary-preset tuning using native 1.4 keys; the marked Skyweave preset owns its own geometry and river settings.",
-      "reference": "docs/development/worldgen.md"
+      "reference": "docs/development/worldgen.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/sky_archipelago-server.toml",
-      "sha256": "11c452a2d05387bc78fefb2429900c2c7e5b23e27f9a81ce0d9b301871b23718",
+      "sha256": "19cd8446b51d10fe4038a6c985ca7e43021b9b7feb51299ec222ec76082a2192",
       "review": "reviewed",
       "reason": "Native diagnostics remain off; adaptive caches, crash shielding and serialized parallel structure placement retain their existing values.",
-      "reference": "docs/development/worldgen.md"
+      "reference": "docs/development/worldgen.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/sky_archipelago/default-preset.toml",
       "sha256": "2a00dc239a4089e9be35b2f2d9b08c3f01c019c4c6594e22f138244897352785",
       "review": "reviewed",
       "reason": "Sky-island generation, consistent cluster spacing and biome redirect compatibility. Some unrelated inherited keys remain.",
-      "reference": "docs/development/worldgen.md"
+      "reference": "docs/development/worldgen.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/sky_archipelago/presets/eee.json",
       "sha256": "63962aab7355dffe7810ba984cbbafe2bae5271207e76e88178ee633ae1d8234",
       "review": "reviewed",
       "reason": "Retain the legacy ordinary preset with native rivers disabled; fresh Skyweave worlds use their separate Dynamic Waters adaptation.",
-      "reference": "docs/development/worldgen.md"
-    },
-    {
-      "path": "overrides/common/config/zfastnoise.mixin.properties",
-      "sha256": "faae1c9f11a61265939fe82ce13ff5c80a23f90f3531a56340e359a2a59664de",
-      "review": "reviewed",
-      "reason": "Sky-island generation, consistent cluster spacing and biome redirect compatibility. Some unrelated inherited keys remain.",
-      "reference": "docs/development/worldgen.md"
+      "reference": "docs/development/worldgen.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/skyweave/skyweave_compat-generation.json",
       "sha256": "71bb245ec656c8b0c40822b880be720236eb6cf7095570ea72d204c838654a8c",
       "review": "reviewed",
       "reason": "Displaced sparse clusters retain native 1.4 exterior bodies and independent interior/geological ownership; changes require a fresh world.",
-      "reference": "docs/development/worldgen.md"
+      "reference": "docs/development/worldgen.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/skyweave/skyweave_compat-shapes.json",
       "sha256": "4b044f80cb558272bc03f8f2e4de190816214855310926af54044bac2fd92047",
       "review": "reviewed",
       "reason": "Use canonical outline/fringe/fractures/deepDark groups: preserve island selection, add contributor-specific deepslate and coherent sculk, and bound natural devices independently. No Ancient City is required.",
-      "reference": "docs/development/worldgen.md"
+      "reference": "docs/development/worldgen.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/skyweave/skyweave_compat-interiors.json",
       "sha256": "8e76c9253ddbd9fddf810faab23ae0d8dd31532044d5fa7632c3f00c4936216f",
       "review": "reviewed",
       "reason": "Independent NOISE/HOLLOW interiors retain planned water beds; selected HOLLOW skylights use bounded seeded outlines while side entrances remain independent.",
-      "reference": "docs/development/worldgen.md"
+      "reference": "docs/development/worldgen.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/skyweave/skyweave_compat-rivers.json",
       "sha256": "3194d9d80d703384722af491c882dc934b0d053ba63c2d09a152f3ace146e942",
       "review": "reviewed",
       "reason": "Disable both native Sky Archipelago river and lake planners; the optional Dynamic Waters watershed owns local channels and lakes.",
-      "reference": "docs/development/worldgen.md"
+      "reference": "docs/development/worldgen.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/skyweave/skyweave_compat-oceans.json",
       "sha256": "293a9097b24ae025040a548313197a8c96a2587f5133a77db93662f116f2b1a7",
       "review": "reviewed",
       "reason": "Admit 20% of ocean-biome opportunities with equal Lagoon/Broken Reef weights; retain 25% open-cove lagoons, disable falling-perimeter selection, preserve normal sizing and solid spire companions.",
-      "reference": "docs/development/worldgen.md"
+      "reference": "docs/development/worldgen.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/skyweave/skyweave_compat-ancient-cities.json",
       "sha256": "75fbbacdf1ec06e84a1c8b5547f0b175c4cf5a2679f6213ab2fe12f7b123b4b1",
       "review": "reviewed",
       "reason": "Interior Ancient Cities require at least 90% body burial plus independent core and floor support; HOLLOW hosts retain stricter fit.",
-      "reference": "docs/development/worldgen.md"
+      "reference": "docs/development/worldgen.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/dynamicwaters-common.toml",
       "sha256": "dbcf04f4bb8f290577331894187168ed4daf380d5556b7189baee2905eafa1a9",
       "review": "reviewed",
       "reason": "Use island-aware mountain watersheds with VANILLA lowland mode and no tunnels; keep the pack title UI and hide upstream welcome/menu additions.",
-      "reference": "docs/development/terrain.md"
+      "reference": "docs/development/terrain.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/betterdeserttemples-neoforge-1_21.toml",
       "sha256": "d086bc41b30a69de78c1799f0d4850118fbf26919dc343a12b3230560d06f73c",
       "review": "inherited",
       "reason": "Stage native generated defaults for content review; island placement, scarcity and integration remain unqualified.",
-      "reference": "docs/development/worldgen-candidates.md"
+      "reference": "docs/development/worldgen-candidates.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/betterjungletemples-neoforge-1_21.toml",
       "sha256": "6879ca8d1bb26e900af3a960e655fa6fdbb28b9abe983526ddbab9303ecf1273",
       "review": "inherited",
       "reason": "Stage native generated defaults for content review; island placement, scarcity and integration remain unqualified.",
-      "reference": "docs/development/worldgen-candidates.md"
+      "reference": "docs/development/worldgen-candidates.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/bettermineshafts-neoforge-1_21.toml",
       "sha256": "ee344cb26d156e67baa987f193fb44947fa6b3869b80aa16ef2b257370dc1ff1",
       "review": "inherited",
       "reason": "Stage native generated defaults for content review; island placement, scarcity and integration remain unqualified.",
-      "reference": "docs/development/worldgen-candidates.md"
+      "reference": "docs/development/worldgen-candidates.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/betteroceanmonuments-neoforge-1_21.toml",
       "sha256": "25d995ddf8f2a61c241358cd806555513d7d262a326b82eb610e01cfac1d3161",
       "review": "inherited",
       "reason": "Stage native generated defaults for content review; island placement, scarcity and integration remain unqualified.",
-      "reference": "docs/development/worldgen-candidates.md"
+      "reference": "docs/development/worldgen-candidates.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/betterwitchhuts-neoforge-1_21.toml",
       "sha256": "b78cccad5e036fc43fcf0fc3f17da81b993c3985cbff54dad2053f6ebe007de5",
       "review": "inherited",
       "reason": "Stage native generated defaults for content review; island placement, scarcity and integration remain unqualified.",
-      "reference": "docs/development/worldgen-candidates.md"
+      "reference": "docs/development/worldgen-candidates.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/ctov-common.toml",
-      "sha256": "ec3a5b57a8047a43ccc2114df62e822986d4d1f9c81a5141e3dd33c336557928",
+      "sha256": "624404b92af189399237584b8db6b58ade431d0be75d088422b860fe750c0f99",
       "review": "inherited",
       "reason": "Stage native generated defaults for content review; island placement, scarcity and integration remain unqualified.",
-      "reference": "docs/development/worldgen-candidates.md"
+      "reference": "docs/development/worldgen-candidates.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/lithostitched.json",
       "sha256": "ce8ab190281862b0554c92043c2bf8af106fbe4116bcd6dab433f6506781dbc0",
       "review": "inherited",
       "reason": "Stage native generated defaults for content review; island placement, scarcity and integration remain unqualified.",
-      "reference": "docs/development/worldgen-candidates.md"
+      "reference": "docs/development/worldgen-candidates.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/bettervillage_1.properties",
       "sha256": "866836ffd1448bdd190624261543e3b6f75636be11511830d5fb29237630317c",
       "review": "reviewed",
       "reason": "Disable Better Villages placement replacement so native/Compat placement remains authoritative; retain generated values for review.",
-      "reference": "docs/development/worldgen-candidates.md"
+      "reference": "docs/development/worldgen-candidates.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/towns_and_towers/structure_enable_or_disable_new.json5",
       "sha256": "f6c7989a9e44b14f012f095ee15b219cd48b5383233cb0d0b619b3111c48f908",
       "review": "reviewed",
       "reason": "Unified authored sets exclude ship profiles; keep Cristel Lib town/tower toggles inert to avoid rebuilding original schedules. Independent ocean wreckage stays disabled.",
-      "reference": "docs/development/worldgen-candidates.md"
+      "reference": "docs/development/worldgen-candidates.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/skyweave/skyweave_compat-search.json",
-      "sha256": "56008b836660306ecb3a1add15a2c814dd639191596ff46d43482bf76b84794b",
+      "sha256": "6055855da39d2dc47a864ffbc67e9e28debe27774796696374c57ba11fdb079b",
       "review": "reviewed",
-      "reason": "Bound operator structure discovery to 65536 candidates, 120 seconds, two native structure-start requests and 5ms per-tick bookkeeping; exhaustion reports partial results. These limits do not change terrain identity.",
-      "reference": "docs/development/worldgen.md"
+      "reason": "Allow 600 wall seconds for operator structure discovery after 120-second searches exhausted their budget with 0\u201318 sites checked. Retain 65536 candidates, two native requests and 5ms per-tick bookkeeping. This is a temporary lifetime allowance, not a throughput or respawn repair; it does not change terrain identity.",
+      "reference": "docs/development/worldgen.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/skyweave/skyweave_compat-climate.json",
       "sha256": "675d9ffe00a9e4bbd5f1e808d1f361c7eb3a73c9ac4ca4d8c0aa93663aa868de",
       "review": "reviewed",
       "reason": "Own island-relative altitude, bounded air association and native underground-depth policy. Immutable startup reader writes only a missing default; explicit editor changes retain managed-file conflict detection.",
-      "reference": "docs/development/worldgen.md"
+      "reference": "docs/development/worldgen.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     }
   ]
 }

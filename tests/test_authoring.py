@@ -16,6 +16,7 @@ class ConfigurationAuditTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
         shutil.copytree(ROOT / 'authoring/changes', self.root / 'authoring/changes')
+        shutil.copyfile(ROOT / 'empack.bindings.yml', self.root / 'empack.bindings.yml')
 
     def test_legacy_questlog_mechanics_remain_frozen(self):
         def mechanics(value):
@@ -50,6 +51,19 @@ class ConfigurationAuditTests(unittest.TestCase):
         data['records'][0]['path'] = '../secret'
         path.write_text(json.dumps(data))
         with self.assertRaises(ValueError): audit(self.root)
+
+    def test_installation_ownership_must_match_bindings(self):
+        path = self.root / 'authoring/changes/client.json'
+        data = json.loads(path.read_text())
+        record = next(record for record in data['records'] if 'installation' in record)
+        record['installation']['policy'] = ('seed' if record['installation']['policy'] == 'managed' else 'managed')
+        path.write_text(json.dumps(data))
+        with self.assertRaisesRegex(ValueError, 'installation register and binding disagree'):
+            audit(self.root)
+        del record['installation']
+        path.write_text(json.dumps(data))
+        with self.assertRaisesRegex(ValueError, 'installation ownership and family required'):
+            audit(self.root)
 
 
 if __name__ == '__main__':

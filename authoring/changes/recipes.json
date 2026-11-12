@@ -7,42 +7,66 @@
       "sha256": "435ad46870d033c8652097d64c6ec592907e5ab6f1877240532a6a1743d4fca5",
       "review": "reviewed",
       "reason": "Unify overlapping material variants; keep native ore generation and inspect tag/recipe consequences.",
-      "reference": "docs/development/progression.md"
+      "reference": "docs/development/progression.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/almostunified/duplicates.json",
       "sha256": "b70f57eadf6eec0ce43acd4c441f08feac1432826e04cb8e2736a73997c20c08",
       "review": "reviewed",
       "reason": "Unify overlapping material variants; keep native ore generation and inspect tag/recipe consequences.",
-      "reference": "docs/development/progression.md"
+      "reference": "docs/development/progression.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/almostunified/placeholders.json",
       "sha256": "43733b207b9f0238c7a5bec47f19e8fd5bec80499b286e0ac4994671702dfed9",
       "review": "reviewed",
       "reason": "Unify overlapping material variants; keep native ore generation and inspect tag/recipe consequences.",
-      "reference": "docs/development/progression.md"
+      "reference": "docs/development/progression.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/almostunified/startup.json",
       "sha256": "37f013c49586db025c17f9fa6657c6f239e0169ebc97ef682ff114a2ede43c5e",
       "review": "reviewed",
       "reason": "Unify overlapping material variants; keep native ore generation and inspect tag/recipe consequences.",
-      "reference": "docs/development/progression.md"
+      "reference": "docs/development/progression.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/almostunified/tags.json",
       "sha256": "2512b9c947342813ee667013941f07c3be8323ac4cb8d3d1686dd8530c7c66b1",
       "review": "reviewed",
       "reason": "Unify overlapping material variants; keep native ore generation and inspect tag/recipe consequences.",
-      "reference": "docs/development/progression.md"
+      "reference": "docs/development/progression.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/almostunified/unification/materials.json",
       "sha256": "9e4447a8f46b45f76d81c10fd175388f11821cda0ef83f89ed0745de571ab965",
       "review": "reviewed",
       "reason": "Keep geological ore variants distinct so Create crushing yields and times retain their intended inputs; continue processed-material and zinc-sheet unification.",
-      "reference": "docs/development/progression.md"
+      "reference": "docs/development/progression.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "resource-patches/data/aerocables/recipe/ae_cable.json",

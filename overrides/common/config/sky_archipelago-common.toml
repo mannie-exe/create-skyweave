@@ -3,58 +3,58 @@
 # Range: 0.01 ~ 1.0
 islandDensity = 0.4
 #Minimum horizontal island radius in blocks.
-# Default: 30
-# Range: 8 ~ 128
+# Default: 24
+# Range: 8 ~ 600
 minIslandRadius = 10
 #Maximum horizontal island radius in blocks.
 # Default: 75
-# Range: 8 ~ 500
+# Range: 8 ~ 600
 maxIslandRadius = 500
 #How island radius sizes are selected. RANDOM preserves global min/max behavior, SPECIFIC uses small/medium/large bands.
 #Allowed Values: RANDOM, SPECIFIC
 islandSizeMode = "RANDOM"
 #Specific mode: minimum radius for small islands.
-# Default: 30
-# Range: 8 ~ 500
+# Default: 50
+# Range: 8 ~ 600
 smallIslandMinRadius = 10
 #Specific mode: maximum radius for small islands.
-# Default: 42
-# Range: 8 ~ 500
+# Default: 60
+# Range: 8 ~ 600
 smallIslandMaxRadius = 173
 #Specific mode: spawn weight for small islands.
-# Default: 0.28
+# Default: 0.1
 # Range: 0.0 ~ 1.0
 smallIslandWeight = 0.34
 #Specific mode: minimum radius for medium islands.
-# Default: 43
-# Range: 8 ~ 500
+# Default: 70
+# Range: 8 ~ 600
 mediumIslandMinRadius = 174
 #Specific mode: maximum radius for medium islands.
-# Default: 58
-# Range: 8 ~ 500
+# Default: 95
+# Range: 8 ~ 600
 mediumIslandMaxRadius = 336
 #Specific mode: spawn weight for medium islands.
-# Default: 0.3
+# Default: 0.6
 # Range: 0.0 ~ 1.0
 mediumIslandWeight = 0.33
 #Specific mode: minimum radius for large islands.
-# Default: 50
-# Range: 8 ~ 500
+# Default: 150
+# Range: 8 ~ 600
 largeIslandMinRadius = 337
 #Specific mode: maximum radius for large islands.
-# Default: 75
-# Range: 8 ~ 500
+# Default: 160
+# Range: 8 ~ 600
 largeIslandMaxRadius = 500
 #Specific mode: spawn weight for large islands.
-# Default: 0.42
+# Default: 0.3
 # Range: 0.0 ~ 1.0
 largeIslandWeight = 0.33
 #Minimum Y for island centers. Values above 320 require world-height expansion mods/settings.
-# Default: 20
+# Default: -30
 # Range: -32 ~ 2000
 minIslandY = -32
 #Maximum Y for island centers. Values above 320 require world-height expansion mods/settings.
-# Default: 170
+# Default: 250
 # Range: -16 ~ 2000
 maxIslandY = 300
 #Maximum vertical island thickness in blocks. Prevents giant islands from becoming too tall/deep.
@@ -62,15 +62,15 @@ maxIslandY = 300
 # Range: 24 ~ 1024
 maxIslandThicknessBlocks = 300
 #Relative weight of the uncommon low-island height band.
-# Default: 0.15
+# Default: 0.5
 # Range: 0.0 ~ 10.0
 lowBandWeight = 0.15
 #Relative weight of the dominant mid/high island height band.
-# Default: 0.75
+# Default: 0.3
 # Range: 0.0 ~ 10.0
 midHighBandWeight = 0.75
 #Relative weight of the rare very-high island height band.
-# Default: 0.1
+# Default: 0.2
 # Range: 0.0 ~ 10.0
 veryHighBandWeight = 0.1
 #Center offset applied to the low-island band within the configured vertical envelope.
@@ -82,18 +82,18 @@ lowBandCenterOffset = -18
 # Range: -96 ~ 96
 veryHighBandCenterOffset = 12
 #Average spacing between island clusters in blocks.
-# Default: 96
+# Default: 100
 # Range: 32 ~ 2000
 clusterSpacing = 1494
 #Cluster spacing mode. CONSISTENT uses fixed spacing. DYNAMIC picks deterministic per-world spacing from min/max.
 #Allowed Values: CONSISTENT, DYNAMIC
 clusterSpacingMode = "CONSISTENT"
 #Dynamic spacing mode: minimum cluster spacing in blocks.
-# Default: 96
+# Default: 150
 # Range: 32 ~ 2000
 minClusterSpacing = 1494
 #Dynamic spacing mode: maximum cluster spacing in blocks.
-# Default: 96
+# Default: 250
 # Range: 32 ~ 2000
 maxClusterSpacing = 1494
 #Multiplier for island top-surface height variation. Higher values create rougher, less flat tops.
@@ -133,23 +133,23 @@ oceanLevelY = 0
 #Whether to shape an ocean floor beneath the ocean surface using deterministic noise.
 oceanFloorNoiseEnabled = true
 #Base depth below ocean level for the ocean floor shape.
-# Default: 18
+# Default: 32
 # Range: 0 ~ 2000
 oceanFloorBaseOffset = 18
 #Vertical amplitude of ocean floor noise in blocks.
-# Default: 10
+# Default: 26
 # Range: 0 ~ 2000
 oceanFloorNoiseAmplitude = 10
 #Horizontal scale of ocean floor noise. Lower values make broader features.
-# Default: 0.05
+# Default: 0.008
 # Range: 0.001 ~ 1.0
 oceanFloorNoiseScale = 0.05
 #Minimum depth below ocean level for ocean floor clamping.
-# Default: 8
+# Default: 6
 # Range: 1 ~ 2000
 oceanFloorMinDepth = 8
 #Maximum depth below ocean level for ocean floor clamping.
-# Default: 40
+# Default: 56
 # Range: 1 ~ 2000
 oceanFloorMaxDepth = 40
 #Source-fluid block used by the optional ocean layer. Use a registered block id, such as minecraft:water.
@@ -163,14 +163,14 @@ supportCheckDepth = 48
 # Range: 1 ~ 15
 supportSampleGridSize = 5
 #Required fraction of supported samples for a structure to be accepted.
-# Default: 0.6
+# Default: 0.25
 # Range: 0.0 ~ 1.0
 supportThreshold = 0.6
-#Required fraction of supported samples for surface-sky structures.
+#Required fraction of supported samples for medium-ground structures.
 # Default: 0.42
 # Range: 0.0 ~ 1.0
 surfaceSkySupportThreshold = 0.42
-#Required fraction of supported samples for small sky structures.
+#Required fraction of supported samples for small ground structures.
 # Default: 0.32
 # Range: 0.0 ~ 1.0
 smallSkySupportThreshold = 0.32
@@ -187,7 +187,7 @@ smallSkyFootprintInsetRatio = 0.28
 # Range: 0 ~ 12
 surfaceSkySearchRadiusChunks = 3
 #How many chunks outward to search for an island-top candidate for smaller sky structures.
-# Default: 6
+# Default: 8
 # Range: 0 ~ 12
 smallSkySearchRadiusChunks = 8
 #Minimum number of stable top-surface samples required for a larger sky-surface structure candidate.
@@ -211,15 +211,15 @@ smallSkyTopOffset = 1
 # Range: 1 ~ 32
 surfaceSkyLocalSearchStepBlocks = 8
 #Block step size used when sweeping local placement sites for smaller sky structures.
-# Default: 8
+# Default: 4
 # Range: 1 ~ 32
 smallSkyLocalSearchStepBlocks = 4
 #Maximum local offset radius in blocks tested across an island top for larger sky-surface structures.
-# Default: 16
+# Default: 24
 # Range: 0 ~ 96
 surfaceSkyLocalSearchRadiusBlocks = 24
 #Maximum local offset radius in blocks tested across an island top for smaller sky structures.
-# Default: 10
+# Default: 20
 # Range: 0 ~ 96
 smallSkyLocalSearchRadiusBlocks = 14
 #Required grounded-base sample ratio for larger sky-surface structures at their native X/Z placement.
@@ -258,7 +258,7 @@ smallSkyMinHostStableTopCells = 7
 customStructureRulesEnabled = true
 #Whether satellite/spire companion islands generate around anchor islands.
 clusterCompanionIslandsEnabled = true
-#Island interior below or at this Y uses deepslate substrate. Values above 320 require world-height expansion mods/settings.
+#Island interiors and ocean substrate below or at this Y use deepslate. Values above 320 require world-height expansion mods/settings.
 # Default: 16
 # Range: -64 ~ 2000
 deepslateStartY = 16
@@ -270,7 +270,8 @@ skyStructureWhitelist = ["shellbound_for_airship:airship_ship1", "shellbound_for
 #Leave empty by default so future special handling can still be added later.
 skyStructureDenylist = []
 #Optional per-structure placement categories in the form modid:structure=CATEGORY.
-#Preferred categories: DEFAULT, SKY, SMALL_GROUND, MEDIUM_GROUND, LARGE_GROUND, GROUND_VILLAGE, STRONGHOLD, UNDERGROUND, WATER.
+#Preferred categories: DEFAULT, SKY, SMALL_GROUND, MEDIUM_GROUND, LARGE_GROUND, GROUND_VILLAGE, STRONGHOLD, UNDERGROUND, WATER, EXPERIMENTAL.
+#EXPERIMENTAL anchors on an island without terrain-fit checks; temporary until proper support is added.
 #Legacy aliases still supported: SMALL_SKY, SURFACE_SKY, HAMLET_SKY.
 skyStructureCategoryOverrides = ["minecraft:pillager_outpost=MEDIUM_GROUND", "minecraft:ruined_portal_desert=SMALL_GROUND", "valhelsia_structures:desert_house=SMALL_GROUND", "repurposed_structures:outpost_oak=MEDIUM_GROUND", "valhelsia_structures:player_house=SMALL_GROUND", "valhelsia_structures:forge=SMALL_GROUND", "valhelsia_structures:tower_ruin=SMALL_GROUND", "valhelsia_structures:big_tree=SMALL_GROUND", "mostructures:villager_tower=MEDIUM_GROUND", "mostructures:villager_market=MEDIUM_GROUND", "mvs:large_warped_tower=LARGE_GROUND"]
 #Case-insensitive path tokens used to infer SKY category for floating structures when no explicit override is present.
@@ -288,7 +289,7 @@ defaultSurfaceLocalSearchRadiusBlocks = 24
 # Range: 0 ~ 128
 defaultSurfaceLargeStructureLocalSearchRadiusBlocks = 48
 #Maximum staged site offsets evaluated for DEFAULT surface structures before stopping.
-# Default: 40
+# Default: 26
 # Range: 1 ~ 256
 defaultSurfaceMaxSiteOffsets = 40
 #DEFAULT throttling: minimum generation attempts before a zero-accept high-cost structure is throttled.
@@ -305,7 +306,7 @@ defaultSurfaceThrottleDurationMsThreshold = 25.0
 defaultSurfaceThrottleSiteOffsetsThreshold = 48
 #DEFAULT throttling: reduced max site offsets applied after the first regional zero-accept high-cost offense.
 # Default: 16
-# Range: 1 ~ 256
+# Range: 16 ~ 256
 defaultSurfaceThrottleReducedMaxSiteOffsets = 16
 #DEFAULT throttling: chunk width/height used to bucket regional throttle state.
 # Default: 32
@@ -328,3 +329,93 @@ undergroundStructureCategoryTokens = ["mineshaft", "trial_chambers", "ancient_ci
 villageStructureCategoryTokens = ["village"]
 #Case-insensitive path tokens used to infer STRONGHOLD category when no explicit override is present.
 strongholdStructureCategoryTokens = ["stronghold"]
+#Generate deterministic on-island rivers.
+riversEnabled = true
+#Generate deterministic standalone and river-fed lakes.
+lakesEnabled = true
+# Default: 0.65
+# Range: 0.0 ~ 1.0
+anchorRiverFrequency = 0.65
+# Default: 36
+# Range: > 8
+anchorRiverMinimumRadius = 36
+# Default: 4
+# Range: > 1
+anchorRiverMinimumWidth = 4
+# Default: 14
+# Range: > 1
+anchorRiverMaximumWidth = 14
+# Default: 12
+# Range: > 2
+anchorRiverMinimumLakeRadius = 12
+# Default: 96
+# Range: > 2
+anchorRiverMaximumLakeRadius = 96
+# Default: 3
+# Range: 0 ~ 4
+anchorRiverMaximumTributaries = 3
+# Default: 0.25
+# Range: 0.0 ~ 1.0
+satelliteRiverFrequency = 0.25
+# Default: 32
+# Range: > 8
+satelliteRiverMinimumRadius = 32
+# Default: 3
+# Range: > 1
+satelliteRiverMinimumWidth = 3
+# Default: 6
+# Range: > 1
+satelliteRiverMaximumWidth = 6
+# Default: 5
+# Range: > 2
+satelliteRiverMinimumLakeRadius = 5
+# Default: 10
+# Range: > 2
+satelliteRiverMaximumLakeRadius = 10
+# Default: 0
+# Range: 0 ~ 4
+satelliteRiverMaximumTributaries = 0
+# Default: 1
+# Range: > 1
+riverMinimumDepth = 1
+# Default: 3
+# Range: > 1
+riverMaximumDepth = 3
+# Default: 1.0
+# Range: 0.0 ~ 1.0
+riverMeanderStrength = 1.0
+# Default: 1.0
+# Range: 0.0 ~ 1.0
+headwaterLakeChance = 1.0
+# Default: 0.35
+# Range: 0.0 ~ 1.0
+standaloneLakeChance = 0.35
+riverSourceFluidBlock = "minecraft:water"
+temperateRiverBiome = "minecraft:river"
+coldRiverBiome = "minecraft:frozen_river"
+#Land biome IDs where river channels and banks cannot generate. Empty allows all biomes. Standalone lakes are unaffected.
+riverExcludedBiomes = []
+# Default: 4
+# Range: > 0
+riverEcologicalBankWidth = 4
+lagoonArchetypeEnabled = true
+# Default: 1.0
+# Range: 0.0 ~ 10.0
+lagoonArchetypeWeight = 1.0
+reefRingArchetypeEnabled = true
+# Default: 1.0
+# Range: 0.0 ~ 10.0
+reefRingArchetypeWeight = 1.0
+deadOceanShelfArchetypeEnabled = true
+brokenOceanReefArchetypeEnabled = true
+# Default: 1.0
+# Range: 0.0 ~ 10.0
+deadOceanShelfArchetypeWeight = 1.0
+# Default: 1.0
+# Range: 0.0 ~ 10.0
+brokenOceanReefArchetypeWeight = 1.0
+#Allow climate-selected beach, snowy beach, stony shore, and tagged beach biomes on ordinary islands. Does not create coastline terrain.
+naturalShoreBiomesEnabled = false
+#Ocean floor fractal style: FBM (rolling terrain) or RIDGED (ridges and trenches).
+#Allowed Values: FBM, RIDGED
+oceanFloorNoiseType = "RIDGED"

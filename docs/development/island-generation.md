@@ -232,7 +232,7 @@ With current positive fringe settings, eligible non-spire descriptors select MIX
 | DEAD_OCEAN_SHELF† | O      | X          | X          |
 | BROKEN_OCEAN_REEF | O      | X          | X          |
 
-FRACTURED needs one of the four configured host biome IDs. DEEP_DARK needs the proxy climate and cave adaptation; it wins before the ordinary fracture roll. Both apply to land anchors, not satellites/spires. A fractured style can still have a mixed/disintegrating fringe and an eligible NOISE/HOLLOW interior. The 10% draw is **among eligible land anchors**, not a global island probability. No Ancient City is guaranteed by the style.
+FRACTURED needs one of the four configured host biome IDs. DEEP_DARK needs the proxy climate and cave adaptation; it wins before the ordinary fracture roll. Both apply to land anchors, not satellites/spires. A fractured style can still have a mixed/disintegrating fringe and an eligible NOISE/HOLLOW interior. Fractured HOLLOW and special Deep Dark bodies carry the parent chamber through their admitted cell shifts and expose it at physical cuts; added fringe lobes retain BASELINE interiors. Shell thickness protects surviving parent caps and outer shoulders rather than lining each fractured cell. The 10% draw is **among eligible land anchors**, not a global island probability. No Ancient City is guaranteed by the style.
 
 ### Interior and skylight
 

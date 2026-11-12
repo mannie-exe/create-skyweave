@@ -47,10 +47,14 @@
     },
     {
       "path": "overrides/common/config/skyweave/skyweave_compat-common.toml",
-      "sha256": "0b80c4b366b83ef3974a3698ac22da422426774192b2b267d763bb6fdf1f4181",
+      "sha256": "e0c8e58771e19a296dc26e21a51bcf56ce7f39424af6fb290eb2226a08d12acb",
       "review": "reviewed",
       "reason": "Keep floating villages 64–128 blocks from a substantial same-cluster host; exact full-footprint clearance remains authoritative.",
-      "reference": "docs/development/structures.md"
+      "reference": "docs/development/structures.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "resource-patches/data/ctov/lithostitched/worldgen_modifier/advancedperipherals/beach.json",
@@ -302,7 +306,11 @@
       "sha256": "637153360aba0e777af9efaf5dffe4338151a2d60aeb5d3bb05c8c954ebdcf97",
       "review": "reviewed",
       "reason": "Preserve family encounter rates and caps. Require complete shallow-support reach for centers, buildings and farms; keep separate road overhang and bounded fitting controls. Startup writes only absent defaults; explicit editor changes retain managed-file conflict detection.",
-      "reference": "docs/development/structures.md"
+      "reference": "docs/development/structures.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "resource-patches/data/minecraft/worldgen/structure_set/pillager_outposts.json",

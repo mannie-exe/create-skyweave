@@ -8,6 +8,8 @@ displayName="Skyweave: Resource Patches"
 logoFile="pack.png"
 logoBlur=false
 description='''Resource repairs and journal presentation for Create: Skyweave.'''
+# Native ZFastNoise policy keeps Sky Archipelago biome projection available.
+"zfastnoise:overrides"=["mixin.perf.biome"]
 [[dependencies.skyweave_resource_patches]]
 modId="t_and_t"
 type="optional"

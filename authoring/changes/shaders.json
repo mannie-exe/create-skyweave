@@ -21,14 +21,22 @@
       "sha256": "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/iris.properties",
       "sha256": "5fe152fc28c07df049a7cb0e86806bb6cf71eaa06ce6dd1fa74dd28401db36d4",
       "review": "reviewed",
       "reason": "Select the generated Complementary/Euphoria/Skyweave shader; preserve shader enablement and player rendering policy.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/client/shaderpacks/photon_v1.4.zip.txt",
@@ -42,14 +50,22 @@
       "sha256": "0db2ba67bc36296c972163ff42e85927f9f308af01a8a546732fee9785a85c88",
       "review": "reviewed",
       "reason": "Generate qualified shaders with existing material corrections and world-scoped cave/void fixes through the shared Java engine.",
-      "reference": "tools/shader-lab/README.md"
+      "reference": "tools/shader-lab/README.md",
+      "installation": {
+        "policy": "managed",
+        "family": "shader-recipes"
+      }
     },
     {
       "path": "overrides/client/config/skyweave/shaders/recipes/complementary-euphoria-skyweave.json",
       "sha256": "09739e1f5b4809aec59371ed7cd7464709effa620abfd606702577b0826bf303",
       "review": "reviewed",
       "reason": "Generate qualified shaders with existing material corrections and world-scoped cave/void fixes through the shared Java engine.",
-      "reference": "tools/shader-lab/README.md"
+      "reference": "tools/shader-lab/README.md",
+      "installation": {
+        "policy": "managed",
+        "family": "shader-recipes"
+      }
     }
   ]
 }

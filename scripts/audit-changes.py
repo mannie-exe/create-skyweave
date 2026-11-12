@@ -8,6 +8,27 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 
+def installation_policies(text):
+    """Read this repository's exact block policies; reject unsupported authoring syntax."""
+    sections = re.split(r'^policies:\s*\n', text, flags=re.MULTILINE)
+    if len(sections) != 2:
+        raise ValueError('Expected one block policies mapping in empack.bindings.yml')
+    policies = {}
+    for line in sections[1].splitlines():
+        if not line.strip() or line.lstrip().startswith('#'):
+            continue
+        if not line.startswith(' '):
+            break
+        match = re.fullmatch(r'  ("(?:[^"\\]|\\.)*"|[^\s:][^:]*): (managed|seed)', line)
+        if not match:
+            raise ValueError(f'Unsupported installation policy: {line}')
+        key = json.loads(match[1]) if match[1].startswith('"') else match[1]
+        if key in policies:
+            raise ValueError(f'Duplicate installation policy: {key}')
+        policies[key] = match[2]
+    return policies
+
+
 def managed_paths(root):
     paths = set()
     for folder in ['overrides/common/config', 'overrides/client/config', 'overrides/server/config', 'overrides/client/shaderpacks', 'resource-patches/data']:
@@ -23,6 +44,7 @@ def managed_paths(root):
 def audit(root=ROOT):
     results, seen = [], set()
     managed = managed_paths(root)
+    policies = None
     for source in sorted((root / 'authoring/changes').glob('*.json')):
         data = json.loads(source.read_text())
         if data.get('schema') != 1 or not isinstance(data.get('records'), list):
@@ -38,6 +60,15 @@ def audit(root=ROOT):
                 raise ValueError(f'{rel}: invalid baseline digest')
             if record['review'] not in ['reviewed', 'inherited'] or not record['reason'].strip():
                 raise ValueError(f'{rel}: review status and reason required')
+            if re.match(r'overrides/(common|client|server)/config/', rel):
+                if policies is None:
+                    policies = installation_policies((root / 'empack.bindings.yml').read_text())
+                installation = record.get('installation', {})
+                destination = rel.split('/', 2)[2]
+                if installation.get('policy') not in {'managed', 'seed'} or not installation.get('family'):
+                    raise ValueError(f'{rel}: installation ownership and family required')
+                if policies.get(destination) != installation['policy']:
+                    raise ValueError(f'{rel}: installation register and binding disagree')
             seen.add(rel)
             current = hashlib.sha256(candidate.read_bytes()).hexdigest() if candidate.is_file() else None
             results.append({**record, 'category': source.stem, 'current': current,

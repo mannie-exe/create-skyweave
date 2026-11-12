@@ -7,644 +7,979 @@
       "sha256": "9ca14293603e6665aaa4605ec208e63f5ea139340495f8e793aa04cad8417df8",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/accessories_compat.json5",
       "sha256": "f121e63f366d1aaa0f2a7bbe030d9f9e5473aeaa72eb2898493fd0292703f233",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/aerocables-common.toml",
-      "sha256": "4fc1d52e8754d2fdc3c8713bee9bc25cc502af7b873855d6972699268313953d",
+      "sha256": "7aabd9cc3120de8e2ddd42afd41222441a320db20f65b2d5555c1fe6a78cfc9a",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/aerocables-server.toml",
-      "sha256": "a7ddc2a9dc4227fcf96d5c7cb37f886c72d9c405657367e2c9a3a75820917a4b",
+      "sha256": "9df1be19e79d91f118702a0c03a35f2cdad8b9d633fea51f24ad3d5320c7aab4",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/aeronautics-server.toml",
-      "sha256": "a9302b0253e494e7d80f0a2785bf4514b0b67da85796437ca032482db62be514",
+      "sha256": "733a50c4a935c18257572c88cf0df06e85978671930984248d4dac1ffdfb6b19",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/aeronautics_delivery_quests.toml",
       "sha256": "10d5b2a8eef39efe81ac07b8dec28a8de711038bc70465b78777c05ae8ec6f4e",
       "review": "reviewed",
       "reason": "Village routes retain native safety checks and a 120-minute limit. Sample destination offsets up to 6000 blocks for the sparse cluster grid; this is not a hard final-route maximum.",
-      "reference": "docs/development/worldgen.md"
+      "reference": "docs/development/worldgen.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/aeroworks-common.toml",
-      "sha256": "f04225b206f72fba5f82d1bed7cfa9d5c13854e41f2a4d88ddde1e7b62cb2ac6",
+      "sha256": "7a9d2c4a4bf8a063767138f297f64fd0c56a13d1c36f0a83ab051b9bebf1dd66",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/analogaudio/analogaudio.fileserver.toml",
       "sha256": "5fe926981735b6c33520dd9deaf7dc6a5f0234533c1b6949452922c2bf453f08",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "host-settings"
+      }
     },
     {
       "path": "overrides/common/config/analogaudio/analogaudio.server.toml",
       "sha256": "3a192987f63452a3ac776b65c27967ce4b5d13a662e7b71d61bd39c18fd32031",
       "review": "reviewed",
       "reason": "Native radio and speaker ranges are 128 blocks. Existing attenuation, volume, spatiality and filtering remain unchanged.",
-      "reference": "docs/development/compatibility.md"
+      "reference": "docs/development/compatibility.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/azimuth-common.toml",
-      "sha256": "4a9cd37863c26859ac84d949fb46855e1e0d27401611b171353c5d9933c76f26",
+      "sha256": "c7386c2e095faf8079add2e2046da0f6e2576069e9997bba550c438ba671b0f9",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/bakery-common.toml",
       "sha256": "4d5bce6ceb2c092e593b9d1f2c83dbe848f84bb0fd8cc2eaa16792653f144d2e",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/bits_n_bobs-common.toml",
-      "sha256": "00757ada43adbcaa5be2a9faf0ef5daf7a24a0db6846a12ec75b747bee0bd033",
+      "sha256": "ef974c139b71fdbc4cc14048f46150ff95e8d9911d32a0f5c5bd0b393742fb80",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/bits_n_bobs-server.toml",
-      "sha256": "893dff0a92483f684c5be7f9a4bb89df6471c244d61bf49941ee2b00de4542b5",
+      "sha256": "7cbe159ecaee877701616a6525afcc14ec04d8b114a77306413a3b3be0a4c505",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/c2me.toml",
       "sha256": "2a77b034c45ec8a3a8c70ad488006273084ed8df6e6bdd591c254b3a0acc554f",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "host-settings"
+      }
     },
     {
       "path": "overrides/common/config/cable_facades-common.toml",
-      "sha256": "bd77c76879bfd3b99f7b35d98c3b2e538edda29908ef4875e1ed5defd6c747ce",
+      "sha256": "4656a4a02376a6013e07c1d33324f34f2f962cb20b206bdc7e381e0dfee03df5",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/carryon-common.toml",
       "sha256": "479ff6dfb65d556283461030384ee5f664cebadd9bf690553f0ef6ec7eccb6ee",
       "review": "reviewed",
       "reason": "Retain ordinary container carrying; exclude reviewed construct joints and linked endpoints through the pack-owned relocation tag. Keep upstream Create, protected-container and native-backpack exclusions.",
-      "reference": "docs/development/compatibility.md#carry-on-machinery"
+      "reference": "docs/development/compatibility.md#carry-on-machinery",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/climbable_ropes-server.toml",
-      "sha256": "54c68b969f18965c7fd3c57aa147ef659a89187cedf73d48fb5bfb598ce81242",
+      "sha256": "f72f094ea3c2af730edcadf11e4d883ec348acae5dfff66984ca3bc19a7d4bf2",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/connector.json",
       "sha256": "67bee06b2b321ed25e0d4e9b5bac7ab76c8ae76442de6caf11f463ce2ae1ac5e",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/copycats-common.toml",
-      "sha256": "4554d0df9a25e4f58c07df938806bb435fa2556263b60537bcd8f3f3cd28f1c3",
+      "sha256": "14818ac4ed5c487630e917c6bcbb986b6dfad26357111cdb4619ad5456b3a46e",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/copycats-server.toml",
-      "sha256": "3a2e328d298b0ef379673beffa566eda2d92b4f1d0e00425573b59f0ea66e646",
+      "sha256": "dac18a20718319d6556a7b2709d8f7a64b5da718d2b05ab9d32604087860322a",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/create-common.toml",
-      "sha256": "2e77b1d93b40ce3f381ad7eb2a9e6d7148de917518be5c2616939a4369c4b140",
+      "sha256": "1c632f62c30f4e1223669267196d2ff1a2c03e400bf565ff4fe81e20c7cd2bdf",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/create-server.toml",
-      "sha256": "36216a05f3ed63106ba587c8c24ed6315385829e7f3dae695dcf545aba41a270",
+      "sha256": "f1a3edd31cdcf2b602b7d51d1fe8ba5e88d6403580ba382ba4cbfab1ecb3a365",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/create_aeronautics_throwable_rope_connector-common.toml",
-      "sha256": "1bc0378dfeae3168554d69d6d89886bb72e812e0f93fb9984af90b02f99df150",
+      "sha256": "7fa52ef7398ad8457fbf0ac45b0f37e86b93c5e19c22ee30c9c7d81b92797f84",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/create_connected-common.toml",
-      "sha256": "e86f10b33d7354d0e05bee3cecd5d0026e6e7cbba81f99ed724866fc298b7ffb",
+      "sha256": "1253337e0ecd925751860f37fbddbea801e4f21cd88d4d39e0857aef50540ea7",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/create_connected-server.toml",
-      "sha256": "e2459ed5488a8abe79b0987c7527655c6fcc4677b15231fb5b630298b0119d4b",
+      "sha256": "5b0f4cdc30aac70ead5b98c9768e0aa39868141b999cfcdebc3e49f18a8ac9eb",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/create_power_loader-server.toml",
-      "sha256": "5c8b5c30f43e493b8e38b5a1bc767f5c117560ea1d9970d9c850dd02040ccbf2",
+      "sha256": "1f4b0b0c376b660a33567301e8df9923ef1f10de85c1791c9cd8dc19acd88a65",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/create_radar-server.toml",
       "sha256": "60c47415f831e356c0cfc795df3a6b0bcb8bdeb14db85c4440c24487e8922074",
       "review": "reviewed",
       "reason": "Radar controls retain pack choices; directional jamming uses native full-power RPM and onset fractions.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/createbigcannons-server.toml",
-      "sha256": "c60e6569fe14060ce087f8d9faa5e7877a9084327ac071d578f31defed6007f2",
+      "sha256": "e2144a02f5959e6b2ab662d04963e1d2b75fe6ee872881fcf381e8f790f237a0",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/createdynlight-server.toml",
       "sha256": "0d33cc877b08f3f3cbcb5db499153be52578512f3ac76ce0dd38e18d07ecc150",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/createpropulsion-common.toml",
       "sha256": "bd7194849785c9704eb361f82d084f3e92e2374f518946e786c5016ce027e9e4",
       "review": "reviewed",
       "reason": "Retained survival tuning; see progression constraints and deferred playtests.",
-      "reference": "docs/development/progression.md"
+      "reference": "docs/development/progression.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/createtransmission-server.toml",
-      "sha256": "f05f18b98c32fae988fb028da22e2c0af13845ac991e638e13860aa0cade8803",
+      "sha256": "d4a575e6a041d532908b3fe55bbf23c479f49b9a06f0728ccb1692eafdf398f8",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/curios-common.toml",
-      "sha256": "9f00a6b9904cf63a36c0c72f8346642962d538aaa78b59943b9de60dda82e6d0",
+      "sha256": "16c71790deac2bbdea0099e39cdf8eb47b3dd7ef6337b69ba9fce793a1bf9674",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/curios-server.toml",
-      "sha256": "1a3bee95a96f082b8e97cccbce30c1efe1352b616c78e06d5884fd4475668add",
+      "sha256": "3c34cf9f7918c6a9ec15b14a87aa4570a751c1688f8ac01cb2e9acfb9392a734",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/dndecor-server.toml",
-      "sha256": "daaeeb6fa5aaaaf013bb024e9d18604c3d7b4677985e637963d68b50d43fd80a",
+      "sha256": "712d07cd68e9abfea7d7be0f92ab355da6f21dc669d96c27e20b4352b0888132",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/dynamic_fps.json",
       "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/entityculling.json",
       "sha256": "7c617805e9f4fbece05a7b500905b687e6dbd6d715fe8df996f35e321d2afa4d",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/escalated-server.toml",
-      "sha256": "1601cca18190ea48cb33303a654133a1475f9aed370da5f2120f2b850aa4d740",
+      "sha256": "dc38be15cae51c0235f39c08d7055d09b5916234a7761270cc9035201d6cc788",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/euphoria_patcher/settings.toml",
       "sha256": "9e32f003a7d8eecb4af11d557aca88afe0761e77db69e416df3b68316dd6ce39",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
-    },
-    {
-      "path": "overrides/common/config/fabric/indigo-renderer.properties",
-      "sha256": "ce0d4b92dab5e07fa4e8dea5f659f4d190c90553b395c8dc8f13eae5c95b3602",
-      "review": "inherited",
-      "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/farm_and_charm-common.toml",
       "sha256": "da28fa1644961041bdcf36405f79b7cd40eee9bd37af07fdc3cf39c1525dd040",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/ferritecore-mixin.toml",
       "sha256": "b6c85cb392f799ed932ffe8d6051f48a283a0df3f8674acf4f8d89341836e686",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/fml.toml",
       "sha256": "cc127c6067eb9e23289edc1c774afd71456456eef06c688af6731a72d3bba5e5",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "host-settings"
+      }
     },
     {
       "path": "overrides/common/config/fzzy_config/keybinds.toml",
       "sha256": "26ac5810c9b5dc5c1968827357f0a58c58ac2b6f7b082630960228e16585062f",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/herbalbrews-common.toml",
       "sha256": "2885a870b53534c8f8d3c580973a1fee8a303e7919b482b7ccf946bb6822d6ba",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/hoofprint.toml",
       "sha256": "ae35c66416a7ac0aa2cb457d5bbe42f467d14e8f2c5b1e2bca5f5255649222e8",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/hostile_skies-common.toml",
       "sha256": "afd6eb6dbb25e896e60d9555c390c6584f5b64be51bf904ba19fbea0f896719a",
       "review": "reviewed",
       "reason": "Retained survival tuning; see progression constraints and deferred playtests.",
-      "reference": "docs/development/progression.md"
+      "reference": "docs/development/progression.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/immediatelyfast.json",
       "sha256": "a6c9d147a51c9e432c5c74c00285cfc5ba8b6fa4a0c6686051a7168b158d0d7a",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/jade/hide-blocks.json",
       "sha256": "309df4ae96864c19eae41b646d58497c85a73b1fc3c584e772ef4d5822794baa",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/jade/hide-entities.json",
       "sha256": "3741bb54a4535fb5a00fb0ee1f4386f3dd17834aebdf9e89c21fcd3307109709",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/jade/jade.json",
       "sha256": "5754114a0a663b321793a61f741bafa70c2a6dd649657260cdc096600763ad94",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/jade/plugins.json",
       "sha256": "ededcea352126d94c202441926dae878b967a88ca9a69aed44e4bfee769f45a6",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
-    },
-    {
-      "path": "overrides/common/config/jade/sort-order.json",
-      "sha256": "6cbfc991f7b041b703a40d6b9793cb507d886da8bc99fb2347182f43659cbd9a",
-      "review": "inherited",
-      "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/lithium.properties",
       "sha256": "6cf6f83720071fd1657c8e79b357caf68d40f410ae123e5f922483eb1d1d25be",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/mcqoy.toml",
       "sha256": "5ded9a920b11f1d4cab63993bc52dad330c6c2f2172356b964953e502c655937",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/meadow-common.toml",
       "sha256": "324b52459292c3ebcedd329bfd7ac55347645d384ce19e172a5a11e8fbf50a93",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/modernfix-common.toml",
-      "sha256": "72ca2bcea2a9946a3a54842f14eff6f7b47d8fc96ef497c1b56406643b153fd7",
+      "sha256": "ee24e2b1bc100942a1c605f996255742cd6a5bb3662877aa906bc301100ccf27",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
-    },
-    {
-      "path": "overrides/common/config/modernfix-mixins.properties",
-      "sha256": "f5a0f49486f11b4b5ce143b5f81729e018dac9425ccb2766134a5a84f1a2256f",
-      "review": "inherited",
-      "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/moreculling.toml",
       "sha256": "db63bd41fae1b92828f13b34b93215549ca167ccf44a4c09d050fe559fa203a5",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/neoforge-common.toml",
-      "sha256": "8575eb5db529376141370dc9cf80bc762c4c70c22f538d3c89254b592e329f73",
+      "sha256": "0f6d56b78517db000f8326f434f10c3c6ebcb5504fe632123e8e740df397805b",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/neoforge-server.toml",
-      "sha256": "b1e3b38d612295f8d9dfa0fbdb538a992b7a1a3b7a766c491b4e9fdf3823396f",
+      "sha256": "0f1415d7fef6d7f6194275501d500b633dd3310aea40d64128edd1b096372f60",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/offroad-server.toml",
-      "sha256": "d5f0ed8390618c769d9cb40a77df04779b7bbe636343b753c1ed6f92d325ae2b",
+      "sha256": "7dda83d4436419564b495e65b4123ab8453eb926cdd8dabc526e41d3ace6bf40",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/powergrid-common.toml",
-      "sha256": "83e87856ebe127cef716c77137b3ebc0178612438022fe12498750f94432555c",
+      "sha256": "84ccea01cf443aec50e3ba787a2d6d865752e98e919f45512868a41861a56732",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/powergrid-server.toml",
       "sha256": "33b5b6fcb9ad170fffc9ab7ac53bf21df6b2c09ad8dabddc8634dcc4fd2b0758",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "host-settings"
+      }
     },
     {
       "path": "overrides/common/config/railways-untold/config.toml",
       "sha256": "4a5b7f325a7390b593c8d79ad801f5e696ce50242daa92e2eaf905c13a018639",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/reliable_gliders.json",
-      "sha256": "83f87a6cc5052064ba82993c17b92abae96291fb60dcdb2fdd0f42dc7520d674",
+      "sha256": "ee5fca96cde29a7ae3cb8bf51dcf5323dc21919d58388b506415eaffa7c7a506",
       "review": "reviewed",
       "reason": "Preserve survival flight tuning and updraft availability in all dimensions; prevent glider deployment during creative building and review.",
-      "reference": "docs/development/progression.md"
+      "reference": "docs/development/progression.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/remi/remi.json",
       "sha256": "38ad6465608dd577493c081be47417a9d491be67cfd1e8cfeaa0ac4694d533bd",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/ritchiesprojectilelib-server.toml",
-      "sha256": "793c05c7f9975032f536f7b9702a4f892b8beb31e641af1f12ee9c96aed4d013",
+      "sha256": "0118936ae0375d6c318582b47e0cf631540ba683d4a5db25a3ca7f090eda54c1",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/sable-common.toml",
-      "sha256": "2a6e4c1541f83960f510849cc4fdc31e763275aad379318974d4dc46abb2629d",
+      "sha256": "ef1f56689ff18f41aa9962c36fea285fb5b2812f80062260f40fc12d4c328f62",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/sable-server.toml",
-      "sha256": "9c3e9012ea23ca1449fdfc7df7a8134d4f0f2eacc46f8f8c1ab9ccb2b4510783",
+      "sha256": "086c61695c31826b3fbcd4e5f55be8f42c3e4f25d6e1d3ffb680588a7457d2bc",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/simulated-server.toml",
-      "sha256": "fbcf40465f120ceac12fdc297e8e196ca2774936406404165402d94009f0e53c",
+      "sha256": "74ceaca226933e2471df76e5f6a8b1d0e2e339754419fd7c0c8f37fb3b90d243",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/ssrd-common.toml",
       "sha256": "76959e1ea37c9e92f87fe0a60c121fe2614dcce62219de9b18d463ce3751b754",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/surveyor.toml",
       "sha256": "08758cef55bb61b444355c687edc3ec479be04f862b4e96b5b180ae16efb21a4",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/tracks-server.toml",
       "sha256": "5670de4aa967e03b3ccdc4feb44e9f68656204051b68cac5ec993d349036afdf",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/transition.json",
       "sha256": "60420a41571a4658b91babfa2b47d6fefb7c1766eeea969f51ff98ab34c2431c",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "consent"
+      }
     },
     {
       "path": "overrides/common/config/travelersbackpack-common.toml",
-      "sha256": "37ce5a56214bb9ca267ea3a4bdeee69da309afbbd6f74866efdd6e987a709ce3",
+      "sha256": "961a398de15c5db5ce71a268f00d50d1a668b64bd09797501ce157b649362e82",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/travelersbackpack-server.toml",
-      "sha256": "ee2c026ddeb974f0b1bae3d14862845cfe92fda6fa886056760f1555415443ba",
+      "sha256": "3edfe26a7d4a51aec9045e8ace3faa3f321749b7a1bdb07cea43f8f9fbac028e",
       "review": "reviewed",
       "reason": "YiGD owns equipped backpack recovery. Disable separate death placement while retaining normal storage, equipment and loose-item protections. Other imported settings remain unchanged.",
-      "reference": "docs/development/compatibility.md"
+      "reference": "docs/development/compatibility.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/treechop-common.toml",
-      "sha256": "1ab671e18fba6c422ea0e103914e0d912b25ea4e13341c3d88e292bb5d459498",
+      "sha256": "20b31a54b8ad265c9094ae5987e3aa806f6010d533a480556793282d75d509af",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/trender.json",
       "sha256": "0a282f3623f7f9443a1d10b5768865f69e58b74e000dcfb4f40399626b7a6124",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/vinery.toml",
       "sha256": "19912990f7f94b54ea5e3acd3eecb20e43f4005a13d1dbe929da5976b91e30b7",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/yacl.json5",
       "sha256": "121b93764159be6fb7dab523b29a844e2bb78400ce8c48f52135a097e9b0006e",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "templates/server/game/server.properties.template",
       "sha256": "0227b301c2c986a987607532bde0ed5036bd11f65fdac8488fdcdb5dcf982bd7",
       "review": "reviewed",
       "reason": "Use 16-chunk server view distance and 12-chunk simulation distance; preserve the existing world preset and other server defaults. Disable native Nether portal travel in new dedicated installations. Full ignition/travel policy and singleplayer coverage require the planned Compat adapter; this does not remove the Nether level or rewrite live server settings.",
-      "reference": "docs/players/server.md"
+      "reference": "docs/players/server.md",
+      "installation": {
+        "policy": "seed",
+        "family": "host-settings"
+      }
     },
     {
       "path": "overrides/common/config/aeronautics_delivery_quests/custom_quests.json",
       "sha256": "c789f31b50aa9c9206fc216de210ec0d642a6a64daa7af893ee65be8e90ac9a4",
       "review": "reviewed",
       "reason": "Own the six stock delivery templates with direct descriptions; preserve cargo schematics, masses, rewards and automatic endpoints. Do not imply simulated scarcity, guarded cargo or NPC demand.",
-      "reference": "docs/development/progression.md"
+      "reference": "docs/development/progression.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/easyanvils-common.toml",
       "sha256": "1c1f72154cd2a25cda17b09650a1c46d8c08d6e524c4fdfcd685ae6fbc936074",
       "review": "reviewed",
       "reason": "Native defaults reviewed for the controls, equipment and resource-pack integration; intentional settings are described in compatibility.md.",
-      "reference": "docs/development/compatibility.md#controls-and-resource-packs"
+      "reference": "docs/development/compatibility.md#controls-and-resource-packs",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/easyanvils-server.toml",
       "sha256": "61228450bef35c2871f9438b12f4dfba2f52aa740038a8a27ffbf2fc659592a2",
       "review": "reviewed",
       "reason": "Native defaults reviewed for the controls, equipment and resource-pack integration; intentional settings are described in compatibility.md.",
-      "reference": "docs/development/compatibility.md#controls-and-resource-packs"
+      "reference": "docs/development/compatibility.md#controls-and-resource-packs",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/easymagic-common.toml",
       "sha256": "e5764e002f97dee7943fcd556c36ac425959787f245ed3ef6a4138b8b54dc7f3",
       "review": "reviewed",
       "reason": "Native defaults reviewed for the controls, equipment and resource-pack integration; intentional settings are described in compatibility.md.",
-      "reference": "docs/development/compatibility.md#controls-and-resource-packs"
+      "reference": "docs/development/compatibility.md#controls-and-resource-packs",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/easymagic-server.toml",
       "sha256": "637680dcc102387df862afb9ba7e82082e04b6b6abca326efa55cf508497f4b5",
       "review": "reviewed",
       "reason": "Native defaults reviewed for the controls, equipment and resource-pack integration; intentional settings are described in compatibility.md.",
-      "reference": "docs/development/compatibility.md#controls-and-resource-packs"
+      "reference": "docs/development/compatibility.md#controls-and-resource-packs",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/pingwheel.server.json",
       "sha256": "821d5d12d0c096996c82d1a65349ac803adffcc25b89420a146c727fb92b381a",
       "review": "reviewed",
       "reason": "Native defaults reviewed for the controls, equipment and resource-pack integration; intentional settings are described in compatibility.md.",
-      "reference": "docs/development/compatibility.md#controls-and-resource-packs"
+      "reference": "docs/development/compatibility.md#controls-and-resource-packs",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/server/config/bluemap/core.conf",
       "sha256": "13657b39ff5faf1b60a102563dcbae8117c65c95cd28e01ccca36e1f8ef0ddca",
       "review": "reviewed",
       "reason": "Limit map rendering to one worker and discover mod resources. Resource download consent belongs to each server owner.",
-      "reference": "docs/development/build.md#server-webmap"
+      "reference": "docs/development/build.md#server-webmap",
+      "installation": {
+        "policy": "seed",
+        "family": "host-settings"
+      }
     },
     {
       "path": "overrides/server/config/bluemap/maps/world.conf",
       "sha256": "ca1addfa3c783471282eaf05a404a56b723ceea08206e0b6d2e116d4d83e6e00",
       "review": "reviewed",
       "reason": "Map all saved Overworld chunks across the full Compat height range, preserving island undersides without horizontal coverage limits.",
-      "reference": "docs/development/build.md#server-webmap"
+      "reference": "docs/development/build.md#server-webmap",
+      "installation": {
+        "policy": "seed",
+        "family": "host-settings"
+      }
     },
     {
       "path": "overrides/server/config/bluemap/webapp.conf",
       "sha256": "bd8697a41bde86cd6b1ba229adbaf766c6bd592dbd8d363888c098226e443752",
       "review": "reviewed",
       "reason": "Use perspective view with moderate detailed and distant view defaults; these distances do not limit map generation.",
-      "reference": "docs/development/build.md#server-webmap"
+      "reference": "docs/development/build.md#server-webmap",
+      "installation": {
+        "policy": "seed",
+        "family": "host-settings"
+      }
     },
     {
       "path": "overrides/server/config/bluemap/webserver.conf",
       "sha256": "23df86003bafadcabf859dee07fa781f2a0a34fe59ee9966704f8ade037d47b9",
       "review": "reviewed",
       "reason": "Serve the server-only webmap on TCP 8100; public routing remains an operator decision.",
-      "reference": "docs/development/build.md#server-webmap"
+      "reference": "docs/development/build.md#server-webmap",
+      "installation": {
+        "policy": "seed",
+        "family": "host-settings"
+      }
     },
     {
       "path": "overrides/server/config/skyweave/skyweave_compat-bluemap.json",
       "sha256": "1f3e769440d8c5b892cdda7148aa5f932f1c38494fcaa43cab6f438c681c2865",
       "review": "reviewed",
       "reason": "Opt the Overworld into the optional server-only BlueMap viewer adapter, with bounded detailed geometry and requests.",
-      "reference": "docs/development/build.md#server-webmap"
+      "reference": "docs/development/build.md#server-webmap",
+      "installation": {
+        "policy": "seed",
+        "family": "host-settings"
+      }
     },
     {
       "path": "resource-patches/data/sable/tags/block/light.json",

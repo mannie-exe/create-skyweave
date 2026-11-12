@@ -14,476 +14,759 @@
       "sha256": "fec30458fb13e44f6c0e0b89b624965b70e8712a90d388ff543ee7c7918628b1",
       "review": "reviewed",
       "reason": "Bound multiplayer LOD transfers to 2048 KB/s, 64 fresh requests and 100 sync requests. Disable height-based cave culling for floating island undersides. Exclude glow lichen from LOD rendering because DH 3.3.3 transfers its tint and emissive material to columns below, including fluids; native lichen remains visible. Retain 256-chunk rendering, four workers, CHUNKS_ONLY generation and hidden progress; preserve installation-specific identities.",
-      "reference": "docs/development/compatibility.md#dh-multiplayer-cache-filling"
+      "reference": "docs/development/compatibility.md#dh-multiplayer-cache-filling",
+      "installation": {
+        "policy": "seed",
+        "family": "host-settings"
+      }
     },
     {
       "path": "overrides/common/config/aeroworks-client.toml",
       "sha256": "628087ba57e5d8428a316f39a43d521fdae4b676a37aed81eedca9a91239db4a",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/analogaudio/analogaudio.client.toml",
       "sha256": "dc4f4a56a03602dbfe9ea54dd5223c6bec28d59d3d7e01e22909fa857fc8aae0",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/analoglib/analoglib.client.toml",
       "sha256": "b440ef818e3078419377b41f37a03dc2956ac6f81b8185b0bb51ab95ae6afa1c",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/azimuth-client.toml",
       "sha256": "c74cfa25fddf439d78dc58eee2c453a2dd66b2b5b80e67124f7eaad5ae7f6191",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/climbable_ropes-client.toml",
       "sha256": "35cd0bcbc4b906d318ab55dc8c7cef22c47289042adc21a5511914a0d6620288",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/copycats-client.toml",
       "sha256": "381f51308cca7e8aaa1aebb9253a6be686f74ebc70d4da39dd7750d2ca2e9598",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/create-client.toml",
       "sha256": "68b08d3453668759f20ecac6b2e01e7b6e09f338b04d9aa5ff1028121b929322",
       "review": "reviewed",
       "reason": "Use the reviewed Create menu positions: main-menu row 3 and in-game-menu row 4. Other inherited settings remain unchanged.",
-      "reference": "docs/development/authoring.md#configuration-register"
+      "reference": "docs/development/authoring.md#configuration-register",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/create_radar-client.toml",
       "sha256": "817347288c8082b0a2da18e381d80548b6c6b86ffcb2b820ffdd54f600205d83",
       "review": "reviewed",
       "reason": "Retain existing radar display settings and accept native 5.0.2 Sable silhouette and sound-volume defaults. Debug overlays stay disabled.",
-      "reference": "docs/development/compatibility.md#dependency-constraints"
+      "reference": "docs/development/compatibility.md#dependency-constraints",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/createbigcannons-client.toml",
       "sha256": "d03d2cca267025b38559b95fff67a1106eb2e46ac6e5ba501bece256d912b5f6",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/createdynlight-client.toml",
       "sha256": "1a83004fb3cd30fcf947beccf007280dc19b195ae504711375d4065a7827f9a7",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/curios-client.toml",
       "sha256": "8af475d222d452c40b548db89c8956f3e4d1e2aaf729464e3065f029936b3e0d",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/distraction_free_recipes-client.toml",
       "sha256": "1ac3e06b909d5fdcfb07405da21a1c546df068af8f910dd2c78bbb77a04b16e0",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/emi.css",
       "sha256": "b2fefce8b997851759990d1ec0c71d4be631e435857eb7b19516e4806986ac34",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/emi_loot_config.toml",
       "sha256": "374a21b90368302fd58761d913159113f827700d255ee17880d0c6c92ba97b34",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/emixx/emixx-client.toml",
       "sha256": "4f775bba8aad2877fdb1da0ffb46f039ec5737c05c98bc5f919d10952f964ee0",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/emixx/remi.json",
       "sha256": "38ad6465608dd577493c081be47417a9d491be67cfd1e8cfeaa0ac4694d533bd",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/flywheel-client.toml",
       "sha256": "a9cd30fcabe8378661dd95cbdd97d2091d76344e98a07329839337b39812faea",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/immersivelanterns-client.toml",
       "sha256": "1a2a564890db1595ce7dc41040581bfe3a5a2e573c3411d5cf52f936097f4faf",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/jei-server.toml",
       "sha256": "702acd04d99445bce659d04fcc488e1a98c8a803983c31ae262b0f3a47fdc8d3",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     },
     {
       "path": "overrides/common/config/jei/blacklist.json",
       "sha256": "b4174dc6e985aa90be5002c14e94b956d8d586683c44b7b6710c44d08fb13648",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/jei/client/default/jei-client.ini",
       "sha256": "aa4ef758061013cfdac67aafb156d267f31b05ab9f6beeb048075ac8d41c379f",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/jei/client/default/jei-colors.ini",
       "sha256": "c6d4ae48280627d04a7ae2b6d3db65e71d73670a72732f5aed9f4cfaac3837c7",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/jei/client/default/jei-debug.ini",
       "sha256": "376cc883cac002d07792f209f7bc1915ea7fa8822effc67734f1589bab9bb806",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/jei/client/default/jei-mod-id-format.ini",
       "sha256": "2e5119684366f75bc8a6df871381c6094a812cadd0d5ed0547405b5f1353f9e1",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/jei/client/jei-client.ini",
       "sha256": "6d091bde5e3e379638bbc2b87e6ab660c5821cbccbab887ebd8c6c896c360b4e",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/jei/client/jei-colors.ini",
       "sha256": "1372b094bf8f1d444f04cf4da7f9dc05c445d7ab5b3f73ecd7cfbef79ccad1d7",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/jei/client/jei-debug.ini",
       "sha256": "6fbae6db21c604fa008d2e4a696789c1fd2fccdbc741194c8fdfb3f1cd8bdc05",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/jei/client/jei-mod-id-format.ini",
       "sha256": "e64349cae34367965848d7fb390dcd6a52d23c012c4711005a70084d958cee67",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/jei/client/recipe-category-sort-order.ini",
       "sha256": "a70943d8117d59fbb1623a320c0de2e02bd8cde4d3955def3ddc763922597828",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/jei/jei-client.ini",
       "sha256": "f6841387ba118885299e6fe6574daaa62ad5adcf4e73f851ec2e9f8977ea066d",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/jei/jei-colors.ini",
       "sha256": "755f199a3868224bdccb2a8ffd8f1a4eb2d96140757f444ba31f8d677a66034f",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/jei/jei-debug.ini",
       "sha256": "960b16c7af6d62bbe7b58fb52216a8a15771bddecbeefab49a8614b7ca86dcbd",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/jei/jei-mod-id-format.ini",
       "sha256": "6a91c09d1cabc1980d90ab102a03ec58c0551213ab16a459b599d768b334d054",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/jei/recipe-category-sort-order.ini",
       "sha256": "5c3b396d12c504a8602ddd2c5f0b5b07edeb6388d947fa4c7106c71cdd9129c4",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/jei/server/world/default/jei-server.ini",
       "sha256": "d143422ba3144d592e3627874cec2d980f4ce0e3c776bdbd109919dde3c5f4c2",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/mezz_config/client/default/settings.ini",
       "sha256": "1febf6ff1d35f4ffe34d6e5444e3c9496155a6abf3f49eb4ef5650d102645249",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/neoforge-client.toml",
       "sha256": "d58d93e2c429410d0abf25507d1679f732e1023b03bb52414348efcf5cf3ddb0",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/ponder-client.toml",
       "sha256": "55affffe67e84dfe11e590769e235aee999b77f9484a3adf7ee8247a9f3d35ba",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/powergrid-client.toml",
       "sha256": "22fd5be0f190b1ac641557360d5ba104807726dcd4bb612744cc1c2fa94d2c12",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/sable-client.toml",
       "sha256": "c3d01c66d3b1de25d79cac53b9554865ce55d264dd60b99d4e16a4101738b118",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/sablejade-client.toml",
       "sha256": "2d6d13001c969cb509a900b7f8959bf62e0a32e974a93353704a8a18160036dd",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/simulated-client.toml",
       "sha256": "aaeeaedb8179a8e2404a468c0b62fee76dd5becb6c87d870f206733e20009991",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/sodium-extra-options.json",
       "sha256": "5bf6a1ce6978c0d44903f99c87b1e2b09854cdf28c893f89d2d085fa73d1f9e1",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/sodium-extra.properties",
       "sha256": "a2f1b47c1eaa119ab34727f1d43c2506cb3d7f17ba8fb4efb49e20c8e0b58e70",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/sodium-mixins.properties",
       "sha256": "b627c4456e6fa0bc4b5f85e2f1cd949faedae3cb9afdaf2a5f52e6f3b6ae1f01",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/sodium-options.json",
       "sha256": "44478bef0973f1aa587c0493568a5cbc5426233b611f14bd2be489b5b862fa7f",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/sodiumdynamiclights-client.toml",
       "sha256": "d8ebc5a26f6f4fc0d27c3746a3aa6ec8d2652873bd3cec6f254be1628f0472f7",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/travelersbackpack-client.toml",
       "sha256": "cd1bd3af16d2f93b16db571d21b5db5d2ac0a7e4637f2c5068dbf184c672838d",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/common/config/treechop-client.toml",
       "sha256": "ffc1a7e9ff53a47a30ab571c536c78c77ad3899ebb81fe3bb736e1198c2027b8",
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md"
+      "reference": "docs/development/decisions.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/client/config/betterthirdperson-common.toml",
       "sha256": "b575252aa76d3d513d0fea882dfe41de1dca75bda6f93f1d773ff9660bede052",
       "review": "reviewed",
       "reason": "Native defaults reviewed for the controls, equipment and resource-pack integration; intentional settings are described in compatibility.md.",
-      "reference": "docs/development/compatibility.md#controls-and-resource-packs"
+      "reference": "docs/development/compatibility.md#controls-and-resource-packs",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/client/config/chat_heads.json5",
       "sha256": "e198750061411cf7fca624e38b894ca104ca2cf2c2940da0409ce4240dcc2503",
       "review": "reviewed",
       "reason": "Native defaults reviewed for the controls, equipment and resource-pack integration; intentional settings are described in compatibility.md.",
-      "reference": "docs/development/compatibility.md#controls-and-resource-packs"
+      "reference": "docs/development/compatibility.md#controls-and-resource-packs",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/client/config/clean_tooltips-client.toml",
       "sha256": "fc92b91afc98e0bc40cd56af699f08ecdd0e94c6afdd1f1a2f500e9c49bf6db3",
       "review": "reviewed",
       "reason": "Native defaults reviewed for the controls, equipment and resource-pack integration; intentional settings are described in compatibility.md.",
-      "reference": "docs/development/compatibility.md#controls-and-resource-packs"
+      "reference": "docs/development/compatibility.md#controls-and-resource-packs",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/client/config/easyanvils-client.toml",
       "sha256": "60e86e56dd00882a281e8ee88800b75abd4119361edd91fc9948e7da13e2e473",
       "review": "reviewed",
       "reason": "Native defaults reviewed for the controls, equipment and resource-pack integration; intentional settings are described in compatibility.md.",
-      "reference": "docs/development/compatibility.md#controls-and-resource-packs"
+      "reference": "docs/development/compatibility.md#controls-and-resource-packs",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/client/config/easymagic-client.toml",
       "sha256": "541675df333589853c40092d5d978861fa9dd3ba134e5670f8179ce363462698",
       "review": "reviewed",
       "reason": "Native defaults reviewed for the controls, equipment and resource-pack integration; intentional settings are described in compatibility.md.",
-      "reference": "docs/development/compatibility.md#controls-and-resource-packs"
+      "reference": "docs/development/compatibility.md#controls-and-resource-packs",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/client/config/entity_model_features.json",
       "sha256": "4d13dfd4a71e0f9b0e6f673233856185f10bc2465916d7e43ace4e3621334067",
       "review": "reviewed",
       "reason": "Native defaults reviewed for the controls, equipment and resource-pack integration; intentional settings are described in compatibility.md.",
-      "reference": "docs/development/compatibility.md#controls-and-resource-packs"
+      "reference": "docs/development/compatibility.md#controls-and-resource-packs",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/client/config/entity_texture_features.json",
       "sha256": "bd66edf9d1a72cd717bbe9b17b41ffd16963b089493e5ddae3d3ad69153105ba",
       "review": "reviewed",
       "reason": "Native defaults reviewed for the controls, equipment and resource-pack integration; intentional settings are described in compatibility.md.",
-      "reference": "docs/development/compatibility.md#controls-and-resource-packs"
+      "reference": "docs/development/compatibility.md#controls-and-resource-packs",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/client/config/invmove/cloth-config.json",
       "sha256": "65242c90d0248278a7d2293b4ac8e531ba9d9981255a4c81f938b077b58c79f2",
       "review": "reviewed",
       "reason": "Native defaults reviewed for the controls, equipment and resource-pack integration; intentional settings are described in compatibility.md.",
-      "reference": "docs/development/compatibility.md#controls-and-resource-packs"
+      "reference": "docs/development/compatibility.md#controls-and-resource-packs",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/client/config/invmove/emi.json",
       "sha256": "65242c90d0248278a7d2293b4ac8e531ba9d9981255a4c81f938b077b58c79f2",
       "review": "reviewed",
       "reason": "Native defaults reviewed for the controls, equipment and resource-pack integration; intentional settings are described in compatibility.md.",
-      "reference": "docs/development/compatibility.md#controls-and-resource-packs"
+      "reference": "docs/development/compatibility.md#controls-and-resource-packs",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/client/config/invmove/jei.json",
       "sha256": "65242c90d0248278a7d2293b4ac8e531ba9d9981255a4c81f938b077b58c79f2",
       "review": "reviewed",
       "reason": "Native defaults reviewed for the controls, equipment and resource-pack integration; intentional settings are described in compatibility.md.",
-      "reference": "docs/development/compatibility.md#controls-and-resource-packs"
+      "reference": "docs/development/compatibility.md#controls-and-resource-packs",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/client/config/invmove/ponder.json",
       "sha256": "2178d661d3b56e22ba3a031a768ca1c8f31607c167b9e048cedc7735ce837bc3",
       "review": "reviewed",
       "reason": "Native defaults reviewed for the controls, equipment and resource-pack integration; intentional settings are described in compatibility.md.",
-      "reference": "docs/development/compatibility.md#controls-and-resource-packs"
+      "reference": "docs/development/compatibility.md#controls-and-resource-packs",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/client/config/invmove/vanilla.json",
       "sha256": "6595f33672384d39255ca3c35ee212583c6947d483b6770378993fccf46108e7",
       "review": "reviewed",
       "reason": "Native defaults reviewed for the controls, equipment and resource-pack integration; intentional settings are described in compatibility.md.",
-      "reference": "docs/development/compatibility.md#controls-and-resource-packs"
+      "reference": "docs/development/compatibility.md#controls-and-resource-packs",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/client/config/invmove.json",
       "sha256": "86e8fc022573107a8381e3f38af8b1220b21485041ff5dfc82965c72f435fac3",
       "review": "reviewed",
       "reason": "Keep inventory movement and text-focus protection. Creative-flight descent is maintained only until its pre-existing sneak key is released; fresh GUI Shift presses do not start descent.",
-      "reference": "docs/development/compatibility.md#controls-and-resource-packs"
+      "reference": "docs/development/compatibility.md#controls-and-resource-packs",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/client/config/pingwheel.json",
       "sha256": "1c94701ea5194d89c0bfc7bcc278a4a27d2cdd02bdbfc87c417689cc50458679",
       "review": "reviewed",
       "reason": "Native defaults reviewed for the controls, equipment and resource-pack integration; intentional settings are described in compatibility.md.",
-      "reference": "docs/development/compatibility.md#controls-and-resource-packs"
+      "reference": "docs/development/compatibility.md#controls-and-resource-packs",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/client/config/createredstonelinkgui-client.toml",
       "sha256": "0fe6822b8e81818adee8c96c427b9b0cdf5b45964730a64be2e1c90ecd8067e8",
       "review": "reviewed",
       "reason": "Keep ordinary slot interactions available; open the menu deliberately with an empty hand and Shift.",
-      "reference": "docs/development/compatibility.md"
+      "reference": "docs/development/compatibility.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/client/config/MouseTweaks.cfg",
       "sha256": "4d7000d05de977aa54f72dbf127785fd3a80185e05c671f2e904ec552bc6fd4b",
       "review": "reviewed",
       "reason": "Enable Mouse Tweaks left/right drag and wheel transfers; it owns these gestures instead of IPN.",
-      "reference": "docs/players/getting-started.md#controls"
+      "reference": "docs/players/getting-started.md#controls",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/client/config/inventoryprofilesnext/inventoryprofiles.json",
       "sha256": "1f599b313189bc09083130d4b244285a15c12eda8ae27dcdb018a920cf524eae",
       "review": "reviewed",
       "reason": "Keep manual IPN sorting/transfers, equipment profile support and Auto Refill tool replacement; disable overlapping IPN scrolling/swipe, armor refill and hotbar restocking. Middle-click sorting preserves R recipe lookup. Hide only settings and overlay-editor buttons; retain sort buttons and refill indicators.",
-      "reference": "docs/players/getting-started.md#controls"
+      "reference": "docs/players/getting-started.md#controls",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     },
     {
       "path": "overrides/client/config/spyglass-improvements/settings.json",
       "sha256": "35ba4aa654e5721ebaa63382f70f8e15c30862fea084189459dfa3a10cdc0deb",
       "review": "reviewed",
       "reason": "Use the player-reviewed spyglass overlay style 1 and hide its settings button; preserve the exported zoom, crosshair and camera preferences.",
-      "reference": "docs/development/authoring.md#configuration-register"
+      "reference": "docs/development/authoring.md#configuration-register",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
+    },
+    {
+      "path": "overrides/common/config/fabric/indigo-renderer.properties",
+      "sha256": "41693c9e3d9af445eb41e2dbca454c0cae1c78023862f2d9ef7e97d7fc645160",
+      "review": "reviewed",
+      "reason": "Client Indigo rendering and lighting preferences; its native properties writer updates the timestamp on startup. Preserve user-selected rendering modes instead of treating them as gameplay rules.",
+      "reference": "docs/development/authoring.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     }
   ]
 }

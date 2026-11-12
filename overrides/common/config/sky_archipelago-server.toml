@@ -46,7 +46,7 @@ strongholdCompactMode = false
 worldgenPerformanceMetricsEnabled = false
 #Serialize final structure placement mutations for compatibility with parallel worldgen mods such as C2ME. Disable only for benchmarking or debugging.
 serializeStructurePlacementForParallelWorldgen = true
-
-# Additional native diagnostics remain off.
+#Place river debug wool pillars: blue lake centers, cyan channel centerlines, and white waterfall lips.
 riverDebugPillarsEnabled = false
+#Emit the first 96 slow cold-worldgen events (terrain, river planning, and column resolution). Enable only while diagnosing new-world startup stalls.
 worldgenStartupDiagnosticsEnabled = false

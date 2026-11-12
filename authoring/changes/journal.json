@@ -7,7 +7,11 @@
       "sha256": "d173e637a727e5203e16c2b41178965c0c07a426710438a8aa5d7592601b000c",
       "review": "reviewed",
       "reason": "Bookless journal access, native parchment/ink palette, and display defaults; generated quest content is checked separately.",
-      "reference": "docs/development/journal.md"
+      "reference": "docs/development/journal.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
     }
   ]
 }

@@ -1,5 +1,12 @@
-# Keep floating villages beside island terrain. Applies to new starts only.
-# Restart the world/server after changes. The server controls multiplayer generation.
+#Minimum horizontal column distance from the full village bounds to any island terrain. Overlap is always rejected.
+# Default: 64
+# Range: 0 ~ 2048
 minimumGap = 64
+#Maximum horizontal column distance to a qualifying island. Must be at least minimumGap.
+# Default: 128
+# Range: 0 ~ 2048
 maximumGap = 128
+#Minimum native descriptor radius of the nearby island. Does not change island generation.
+# Default: 96
+# Range: 0 ~ 2048
 minimumIslandRadius = 96

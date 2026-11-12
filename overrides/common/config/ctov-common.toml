@@ -1,5 +1,3 @@
-# Village and outpost schedules are authored in authoring/villages.json.
-# Disable automatic CTOV set injections to avoid duplicate opportunities.
 #Structure spawning settings
 [structures]
 	#Should CTOV small villages generate?
