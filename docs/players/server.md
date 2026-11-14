@@ -17,6 +17,8 @@ The pack enables and enforces the whitelist. The default port is 25565, normal v
 
 Keep Java 21's default G1 collector as the server baseline. The client ZGC setting does not apply to the dedicated server. Before changing collectors, measure GC pauses alongside tick times during normal play and pre-generation. Test ZGC only if collection pauses contribute to stalls, and compare tick times, CPU use and memory use with the same workload. No server-specific GC tuning is shipped.
 
+The native `game/user_jvm_args.txt` owns server JVM options and is preserved on updates. Its distributed contents do not set a heap bound, so Java chooses one for the host. Add explicit `-Xms`/`-Xmx` there when administering the server; arguments appended to `start.sh` are game arguments, not JVM options. Restart after editing, and remove your added lines to restore Java's defaults. Two GiB is insufficient for the measured full-pack startup; a small four-GiB fixture does not establish enough memory for populated play or pre-generation. Reserve memory outside the heap for native data and other processes. See the [measured launch policy](../development/performance.md#heap-and-collector-decisions).
+
 The [performance procedure](../development/performance.md) describes bounded recordings for startup, disconnect/shutdown, GC and terrain/structure lookup. Use isolated fixtures before changing a playing server's JVM or background generation settings.
 
 ## Terrain and distant generation
@@ -99,4 +101,4 @@ dh pregen start minecraft:overworld 0 0 1024
 dh pregen status
 ```
 
-The radius is 1024 chunks (16,384 blocks), centered at block coordinates 0, 0. `dh pregen stop` cancels the job. The installed DH 3.3.3 command implementation accepts dimension, X/Z origin and chunk radius. This run generates real chunks and LODs; allow sufficient disk space. Storage use depends on the generated terrain and LOD data. The example uses the world origin, not spawn; replace X/Z with the actual spawn coordinates to center the run there.
+The radius is 1024 chunks (16,384 blocks), centered at block coordinates 0, 0. `dh pregen stop` cancels the job. The installed DH 3.3.3 command implementation accepts dimension, X/Z origin and chunk radius, with a minimum radius of 32 chunks. This run generates real chunks and LODs; allow sufficient disk space. Storage use depends on the generated terrain and LOD data. The example uses the world origin, not spawn; replace X/Z with the actual spawn coordinates to center the run there.

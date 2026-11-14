@@ -1,15 +1,17 @@
-# Create: Skyweave 0.14.0
+# Create: Skyweave 0.15.0
 
-Update Skyweave: Compatibility Patches to 0.33.0 for height-aware island climate, underground biomes and processed village support. Minecraft remains 1.21.1 and NeoForge remains 21.1.265.
+Update Skyweave: Compatibility Patches to 0.34.0 for the completed configuration, Wayfinder and terrain follow-up. Minecraft remains 1.21.1, NeoForge remains 21.1.265 and the content-mod selection is unchanged.
 
-- Blend ground-village foundations with the island’s original materials, preserve roads and intentional damage, and verify shallow contact after feature placement. Inhabited buildings require complete support by default. Bounded alternatives preserve family allowances; unsafe layouts can be rejected.
-- Resolve underground-biome depth and temperature from actual solid, water and cavity contributors, including overlapping islands. Synchronize bounded climate context for client weather and qualified shader precipitation.
-- Give special Deep Dark islands a deepslate body, coherent sculk coverage and a sheltered cavern with openings. Ordinary Ancient Cities remain independently eligible; the special island does not require or force a city.
-- Repair qualified elevated-water habitat and movement, Dynamic Waters floe temperature and cached river-node heights. Keep Sable climate projection and dedicated-server water-force integration independently optional.
-- Preserve the owner’s updated Create menu placement and Spyglass Improvements presentation defaults. Add the climate controls to the managed configuration register and document file ownership and the complete island-generation matrix.
+- Use typed settings, measured layouts, native text/list/choice controls and staged edits, with complete-file validation, external-edit conflicts and explicit save/application receipts. Local client copies cannot administer a remote server.
+- Apply qualified client presentation preferences live. Reload Wayfinder and structure-search operational policy on the owning server without changing saved generation rules.
+- Target existing coarse DH terrain through Wayfinder's bounded native destination refinement. Operator diagnostics are live client preferences, private and off by default.
+- Preserve island/structure-search ownership through same-connection respawn and distinguish partial zero-result searches from verified absence.
+- Keep fractured HOLLOW and special Deep Dark chambers exposed at cellular cuts, and handle qualified local watershed banks without unsupported water fill.
+- Remove repeated preset-ID parsing. Three matched native predicate windows reduce allocation from 136,000,072 bytes to 72 bytes per million calls while preserving their terrain outputs. This is not a whole-game speedup claim.
+- Deliver managed pack-rule configuration updates while preserving explicit player/operator seed exceptions and edited-file conflicts. Native save/exit checks and the configuration register qualify those ownership choices.
 
-This release changes saved generation identity. Create a fresh marked world for the new generation; existing structures are not moved or repaired retroactively. Installing the update does not automatically delete worlds. Update client and server together.
+The completed terrain corrections change saved generation identity and require a fresh marked world. Installing the release does not delete a world or migrate an old identity. Retain the previous binary/configuration for an old world, or create a new one; do not edit the marker to bypass the guard.
 
-Native checks cover processed contacts, material provenance, bounded alternative layouts, save/reopen, reordered generation, climate publication, elevated-water behavior and optional/disabled controls. A packaged Prism client verifies both generated BSL/Colorwheel and Complementary/Euphoria shaders and integrated-world reopening. Independent source/evidence review found no blocking defect in its inspected boundaries. See [Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/v0.33.0/docs/development/verification.md) for exact evidence and limits.
+Before starting an existing installation, remove retired `debugMessages` and `hideHotkeyPermissionMessage` fields from `config/skyweave/skyweave_compat-wayfinder.json`, preserving access and work settings. Local operator visibility now belongs in `config/skyweave/skyweave_compat-wayfinder-client.toml`. Update client and server together.
 
-These checks do not certify every donor road, every modded feature writer or worldwide encounter rates. An existing Euphoria watcher can warn about an unrelated BSL output during an explicit in-process rebuild; both tested generated shaderpacks still render. No content mods are added or removed.
+Keep the existing 8 GiB/512 MiB Java 21 generational-ZGC client policy and native G1 server baseline. Bounded current-build checks qualify loaded terrain, shader activation and save/reopen; startup resource allocation stalls and one explicit server full GC remain observed limitations. No generic JVM flag bundle is added. See [launch policy](development/performance.md#heap-and-collector-decisions) and [Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/v0.34.0/docs/development/verification.md) for exact scopes and limits.

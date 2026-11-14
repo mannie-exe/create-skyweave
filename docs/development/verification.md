@@ -2,6 +2,16 @@
 
 Evidence qualifies its recorded artifact, not arbitrary later changes. The [build guide](build.md) owns commands and release gates; [patch maintenance](patches.md) owns dependency checks; [Atlas verification](web/verification.md) owns application and export results. Keep exact inputs, negative controls and limitations with native evidence. Archive checks alone do not establish gameplay or GPU behavior.
 
+## Release 0.15.0
+
+Published Compat 0.34.0 passes Linux, Windows and Intel macOS CI. Its downloaded binary matches both published checksum manifests and the native-qualified SHA-256 `946e4b6d7c7f6a9eec63b961916a067c39b919f8f9c61cdc88eb2e535d0ed3ea`. Only Compat changes among 183 playable selections; the shader-lab runner uses the same released bytes. Both shader recipes report cached outputs. [Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/v0.34.0/docs/development/verification.md) records the predicate allocation comparison, saved structures, generation identity, current Resource Patches admission, client lifecycle and compiler-forwarding distinction.
+
+All 83 pack Python tests, the 382-file configuration audit, 14 quest outputs, 75 village resources and maintained Resource/Visual Patches checks pass after the pin update. The web suite passes 40 Python tests with one skip and 178 Node tests with one test file at a time; Astro check/build passes. These serial results do not establish the parallel suite's stability under arbitrary host contention.
+
+Prism, server and Modrinth reference archives build and pass CRC checks. Client configuration has 195 managed and 95 seed entries; server configuration has 192 and 81. Each applicable recipe selects exactly one canonical Compat JAR at the published hash. Prism retains an 8 GiB maximum, 512 MiB initial heap and Java 21 generational ZGC, with no diagnostic CPU/JFR flags. The server preserves native `user_jvm_args.txt` ownership and the G1 baseline. The Unix foreground wrapper applies and rechecks cleanly.
+
+The inherited terrain repairs change generation identity; existing marked worlds must retain the previous binary/configuration or be replaced deliberately. Publication does not authorize a world reset by itself. JVM observations support retaining the launch policy, not a claim that all stutter is fixed. See the [performance procedure](performance.md#heap-and-collector-decisions) for the decision table, observed startup allocation stalls and explicit full-GC limitation.
+
 ## Installation ownership qualification
 
 The managed-first configuration register passes the 382-file audit with no drift, missing files or unregistered inputs. All 83 pack Python tests pass, including rejection of missing ownership metadata and disagreement between a record and its installation binding. The 14 quest outputs, 75 village resources and both maintained resource archives are current. Web checks run 40 Python tests with one skip; all 178 Node tests pass with one test file at a time. The default parallel Node run has one three-second job-test timeout under concurrent host load; the focused test passes without changing its limit. These results do not establish that the parallel suite is stable under arbitrary contention.
