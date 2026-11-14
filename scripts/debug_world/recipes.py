@@ -285,33 +285,6 @@ def light(s, case):
     s.notes.append("Unpowered / powered")
 
 
-def bridge(s, case):
-    variant = case.get("variant", "stair-east")
-    facing = variant.rsplit("-", 1)[-1] if variant != "flat" else "east"
-    if facing not in {"east", "south", "west", "north"}:
-        raise ValueError("Unknown bridge facing")
-    if variant.startswith("flat"):
-        support = case.get("support", "mcwbridges:oak_log_bridge_middle")
-        for offset in range(-2, 3):
-            s.block(
-                offset if facing in {"east", "west"} else 0,
-                0,
-                offset if facing in {"south", "north"} else 0,
-                support,
-            )
-        s.block(0, 1, 0, case["block"], {"facing": facing, "lightstate": "bridge"})
-    else:
-        stairs = {"east": "north", "south": "east", "west": "south", "north": "west"}
-        s.block(
-            0,
-            0,
-            0,
-            case.get("support", "mcwbridges:oak_log_bridge_stair"),
-            {"facing": stairs[facing], "connection": "base"},
-        )
-        s.block(0, 1, 0, case["block"], {"facing": facing, "lightstate": "stair"})
-
-
 def storage(s, case):
     id = case["block"]
     props = s.registry.blocks[id]["properties"]
@@ -649,7 +622,6 @@ RECIPES = {
         "lantern",
         "wall_light",
         "light",
-        "bridge",
         "storage",
         "double_chest",
         "copycat",

@@ -6,7 +6,7 @@ New server templates set `allow-nether=false`. Compat's optional default-on acce
 
 ## First launch
 
-1. Extract `server-references.zip` into its own directory. Install [empack 0.8.2-beta](https://github.com/inherent-design/empack/releases/tag/v0.8.2-beta) on `PATH`. On macOS/Linux, also install Python 3 for the pack's terminal wrapper. Keep `foreground-runtime.py` beside the launch scripts. The launch scripts prepare the exact pack before starting Java; first preparation needs network access.
+1. Extract `server-references.zip` into its own directory. Keep its `.empack-tools/` directory and `.empack-consumer/` release assets beside the launch scripts. The included Java bootstrap downloads and verifies the exact empack engine and prepares the pack before starting the game. First preparation needs network access; no global empack or Python installation is required.
 2. Set `JAVA_HOME` to a Java 21 installation, or make Java 21 the `java` on your `PATH`. Run `start.sh` on macOS/Linux or `start.bat` on Windows and confirm the Java version in the startup output.
 3. Review Minecraft's EULA and accept it in the generated EULA file if you agree.
 4. Start the server and add players with `whitelist add <player>` in its console.

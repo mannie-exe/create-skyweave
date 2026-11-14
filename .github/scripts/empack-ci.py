@@ -118,11 +118,6 @@ def build(release=False):
     for profile in report["profiles"]:
         args += ["--profile", profile["name"]]
     run(*args)
-    servers = [str(artifact(Path.cwd(), profile["output"])) for profile in report["profiles"]
-               if profile["recipe"]["consumer"] == "server"
-               and profile["recipe"]["delivery"] == "references"]
-    if servers:
-        run("python3", "scripts/patch-server-archives.py", *servers)
     destination = Path(os.environ["RUNNER_TEMP"]) / "empack-artifacts"
     stage(Path.cwd(), report, destination)
     if release:

@@ -2,10 +2,6 @@
   "replace": false,
   "values": [
     {
-      "id": "#mcwlights:slab_lights",
-      "required": false
-    },
-    {
       "id": "#mcwstairs:railings",
       "required": false
     },
@@ -30,47 +26,11 @@
       "required": false
     },
     {
-      "id": "#mcwbridges:log_bridges",
-      "required": false
-    },
-    {
-      "id": "#mcwbridges:rope_bridges",
-      "required": false
-    },
-    {
-      "id": "#mcwbridges:log_stairs",
-      "required": false
-    },
-    {
-      "id": "#mcwbridges:rope_stairs",
-      "required": false
-    },
-    {
-      "id": "#mcwbridges:wooden_piers",
-      "required": false
-    },
-    {
-      "id": "#mcwbridges:bamboo_bridges",
-      "required": false
-    },
-    {
-      "id": "#mcwbridges:bamboo_stairs",
-      "required": false
-    },
-    {
-      "id": "#mcwbridges:bamboo_piers",
-      "required": false
-    },
-    {
       "id": "#interiors:chairs",
       "required": false
     },
     {
       "id": "#interiors:floor_chairs",
-      "required": false
-    },
-    {
-      "id": "#mcwbridges:rail_bridges",
       "required": false
     },
     {
@@ -515,10 +475,6 @@
     },
     {
       "id": "lootr:lootr_trapped_chest",
-      "required": false
-    },
-    {
-      "id": "mcwbridges:asian_red_bridge",
       "required": false
     },
     {

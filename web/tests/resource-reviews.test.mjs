@@ -199,11 +199,11 @@ test('repair preferences use their own capture run and preserve prior choices', 
   const repair = await editor.save({
     revision: old.revision,
     evidence: old.evidence,
-    feature: 'bridge-lantern',
-    review: { preference: 'defer', notes: 'Review stair attachment first.' },
+    feature: 'window-interiors',
+    review: { preference: 'defer', notes: 'Review connected faces first.' },
   })
   assert.equal(
-    repair.document.reviews['lantern-hanging-20261103/bridge-lantern']
+    repair.document.reviews['window-culling-20261103/window-interiors']
       .preference,
     'defer',
   )
@@ -212,7 +212,7 @@ test('repair preferences use their own capture run and preserve prior choices', 
     'nautilus-3d',
   )
   assert.equal(
-    repair.document.reviews['selective-20261101/bridge-lantern'],
+    repair.document.reviews['selective-20261101/window-interiors'],
     undefined,
   )
 })

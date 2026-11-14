@@ -97,7 +97,7 @@ The manifest selects client-only Colorwheel 1.3.2+mc1.21.1 with Compat's optiona
 
 Compat supplies terrain/emission metadata on Sable's direct non-AO model path and releases unused OIT sampler slots when Colorwheel's own renderer guard disables OIT. On the tested Apple driver, the unadapted embedded translucent program failed at `shadowtex0`; the adapted selection renders with the current Complementary/Euphoria configuration unchanged. Do not replace supported OIT allocation or disable shaders to mask that failure.
 
-Native checks cover shader on/off backend selection, static and assembled glass / Copycats, moving Sable/Create geometry, press/propeller Ponder, a Macaw lamp, shader reload, and minimum optional loading. Full dedicated-server startup selects no client hooks. See the [exact verification and limits](https://github.com/mannie-exe/skyweave-compat/blob/v0.8.0/docs/development/verification.md#release-080). No measured performance gain or general shadow repair is claimed. Keep patch retirement tied to the actual released Colorwheel/Sable implementations.
+Native checks cover shader on/off backend selection, static and assembled glass / Copycats, moving Sable/Create geometry, press/propeller Ponder, shader reload, and minimum optional loading. Full dedicated-server startup selects no client hooks. See the [exact verification and limits](https://github.com/mannie-exe/skyweave-compat/blob/v0.8.0/docs/development/verification.md#release-080). No measured performance gain or general shadow repair is claimed. Keep patch retirement tied to the actual released Colorwheel/Sable implementations.
 
 Colorwheel 1.3.2 requires the updated version guards introduced in Compat 0.21.1. The playable pack and shader-lab runner use the same verified engine. Keep their exact pins aligned when its shared implementation or recipe schema changes; qualify generated outputs against the playable runtime. Colorwheel's sampler, material and buffer adapters remain separate from the offline shader engine. [Patch maintenance](patches.md) owns their individual update/removal checks.
 
@@ -298,7 +298,7 @@ Create/Rechiseled missing interior window faces originate in native face-removal
 
 `create.glass_backfaces` and `fusion.glass_backfaces` additionally show exposed surfaces from behind after native texture processing. Both default on when their optional dependencies qualify. Neighbor visibility remains a separate decision, so matching interfaces and opaque-neighbor occlusion retain their native rules. The [patch reference](patches.md) owns coverage and update checks.
 
-The [generated Debug World](debug-world.md) classifies glass blocks, panes and mesh/grates by registered inheritance, tags and explicit family choices. Doors and pipes are excluded from those groups. The Macaw's sloped chain-hung appearance is approved; flat bridges retain the regular standing lantern. The matching optional Compat adaptation moves the stair outline and preserves selection outside its owning cell. Physical collision remains empty. Their matched views are in the Atlas at `/resourcepacks/reviews?feature=bridge-lantern`.
+The [generated Debug World](debug-world.md) classifies glass blocks, panes and mesh/grates by registered inheritance, tags and explicit family choices. Doors and pipes are excluded from those groups.
 
 ## Evidence history
 

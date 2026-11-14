@@ -1,6 +1,6 @@
 # Build and release maintenance
 
-Use empack **0.8.2-beta** and Java **21** from the repository root. Builds use the recorded lock and explicit distribution profiles. They do not update installed clients or servers.
+Use empack **0.8.5-beta** and Java **21** from the repository root. Author manifests use schema 6 with `runtime.java.preferred: 21`; locks use schema 3 and retain the resolved `java-policy`. Bindings remain schema 1. Regenerate metadata with the native engine and review exact selected files, placement and policies; do not translate old locks by changing their schema number. Builds use the recorded lock and explicit distribution profiles. They do not update installed clients or servers.
 
 ## Source layout
 
@@ -34,7 +34,7 @@ The root `.gitignore` adapts Toptal templates for macOS, Windows, Linux, common 
 
 Update Prism's pre-launch digest and the server install scripts to that same published payload. Preserve local executable paths, memory/Java preferences and other host settings when updating launcher files. Do not extract the entire archive over a playing installation or replace seeded preferences as a shortcut. Use the consumer install preview and deliberately reconcile any seed-to-managed transitions against the configuration register. Conflict-choice arguments use release destinations such as `config/example.toml`, without the `.minecraft/` or `game/` display prefix.
 
-With Minecraft stopped, run preparation through the installed bootstrap recipe and exact digest. A completed update should have no pending managed-file changes or downloads. Verify the selected JAR and runtime, then start normally. Launcher bootstrap refresh does not authorize a world reset or a generation-marker edit.
+With Minecraft stopped, run preparation through the installed bootstrap recipe and exact digest. Use `empack pending list`, `pending show`, `pending resume` or `pending discard` for durable unfinished operations. Preparation is `instance ensure`; a completed update should have no pending managed-file changes or downloads. Verify the selected JAR and runtime, then start normally. Launcher bootstrap refresh does not authorize a world reset or a generation-marker edit.
 
 ## Local builds
 
@@ -50,18 +50,17 @@ empack status
 empack sync --materialize --yes
 python3 scripts/build-visual-patches.py
 empack build --profile prism --profile modrinth --profile server --yes --optional-defaults
-python3 scripts/patch-server-archives.py
 ```
 
 The [shader lab](../../tools/shader-lab/README.md) qualifies both recipes through Compat's shared Java engine. Authoring/CI builds materialize exact inputs and produce complete review ZIPs; exports reference original shader/payload inputs in `shader-inputs/` and include the managed recipes. The client generates its finished ZIPs before Iris opens them. Complete merged shaders are not published as pack assets or simultaneously managed by empack. Euphoria and Colorwheel retain their runtime roles. The lab owns recipe and input update procedures.
 
-The defaults build reference Modrinth, Prism and server archives under `dist/`. Prism and server recipients need empack 0.8.2-beta on `PATH`; the generated hooks prepare and verify exact files before launch. Modrinth-compatible launchers handle the `.mrpack` downloads. Authored files remain included, and empack includes prepared server-runtime assets. Check content sources and installation as well as archive integrity.
+The defaults build reference Modrinth, Prism and server archives under `dist/`. Prism and server references include a Java bootstrap that acquires and verifies the exact empack 0.8.5-beta engine before preparation and launch; recipients need Java, not a global empack installation or Python. Modrinth-compatible launchers handle the `.mrpack` downloads. Authored files remain included, and empack includes prepared server-runtime assets. Check content sources and installation as well as archive integrity.
 
 The shared resource builder excludes Finder/AppleDouble and Windows desktop metadata while retaining authored assets. Archives use stable ordering and publication avoids rewriting unchanged output. Verify generated archives before release; source-directory cleanliness alone does not prove archive cleanliness.
 
 Local edits can change an export without changing its filename. Use the published release's checksums to identify released bytes; a local rebuild is not a substitute for verifying downloaded release assets.
 
-`authoring/visual-patches.json` pins the archive inputs for the client model patch. `build-visual-patches.py` checks selected empack versions for installed inputs and SHA-512 hashes for all archives, then writes `skyweave-visual-patches-0.1.0.zip` in client overrides. It combines four Crops plants with Fresh Flower Pots, restores Macaw's chain texture bindings, and includes enabled model-authoring recipes and compatibility adapters. Approved texture inclusion comes from `authoring/texture-resources.json`; the same generator supplies the web preview and shipping PNGs, with approval fingerprints checked before publication. `authoring/resource-selections.json` adds approved per-feature donor models and the Fresh chest composition. Source-only archives remain outside the enabled resource stack; required donor textures and licenses are copied into the generated ZIP. [Model authoring](web/models.md) owns extrusion and artwork-fitting controls. Keep this generated pack above its inputs. Unknown versions or model structures stop generation for review; follow the [update procedure](patches.md#update-sequence). CI runs the same generator, downloading exact inputs when they are not materialized.
+`authoring/visual-patches.json` pins the archive inputs for the client model patch. `build-visual-patches.py` checks selected empack versions for installed inputs and SHA-512 hashes for all archives, then writes `skyweave-visual-patches-0.1.0.zip` in client overrides. It combines four Crops plants with Fresh Flower Pots and includes enabled model-authoring recipes and compatibility adapters. Approved texture inclusion comes from `authoring/texture-resources.json`; the same generator supplies the web preview and shipping PNGs, with approval fingerprints checked before publication. `authoring/resource-selections.json` adds approved per-feature donor models and the Fresh chest composition. Source-only archives remain outside the enabled resource stack; required donor textures and licenses are copied into the generated ZIP. [Model authoring](web/models.md) owns extrusion and artwork-fitting controls. Keep this generated pack above its inputs. Unknown versions or model structures stop generation for review; follow the [update procedure](patches.md#update-sequence). CI runs the same generator, downloading exact inputs when they are not materialized.
 
 ### Copycat renderer
 
@@ -103,7 +102,7 @@ Skyweave: Compatibility Patches optionally adapts the BlueMap 5.7 browser viewer
 
 ## Dependency updates
 
-Use [dependency and patch maintenance](patches.md) for coupled versions, URL pins, resource overrides and required update checks. `empack outdated` reports provider candidates; it does not validate gameplay or replace exact-artifact review. For pinned provider updates, unpin only the reviewed keys, run `update` with their retained required dependents, then pin the resulting selections and materialize. Review the selected release policy: `prefer-stable` can choose an older stable release on a previously selected beta line. Confirm exact version IDs afterward.
+Use [dependency and patch maintenance](patches.md) for coupled versions, URL pins, resource overrides and required update checks. `empack update --all --json` previews provider candidates without applying them; it does not validate gameplay or replace exact-artifact review. For pinned provider updates, unpin only the reviewed keys, run `update` with their retained required dependents, then pin the resulting selections and materialize. Review the selected release policy: `prefer-stable` can choose an older stable release on a previously selected beta line. Confirm exact version IDs afterward.
 
 Ponder's explicit upstream Maven URL is valid in the referenced archives, but Modrinth hosting does not allow that download domain. GitHub distributions remain the publication target; review hosting eligibility before any Modrinth upload.
 
@@ -119,7 +118,7 @@ Publishing is a separate action from editing or building. Tag only when the rele
 
 ## CI maintenance
 
-The pack validation and release workflows select `modrinth`, `prism` and `server`, use Temurin 21, and pin GitHub Actions to commits. `.github/scripts/empack-ci.py` comes from the empack scaffold, reviewed against `v0.8.2-beta` at `f29064dc`, with a project-specific release-notes option. Its build-explanation check expects schema 2.
+The pack validation and release workflows select `modrinth`, `prism` and `server`, use Temurin 21, and pin GitHub Actions to commits. `.github/scripts/empack-ci.py` comes from the empack scaffold, reviewed against `v0.8.5-beta` at `a4f10241`, with a project-specific release-notes option. Its build-explanation check expects schema 2.
 
 The helper verifies the downloaded empack binary against GitHub's asset digest, rejects stale locks and tag/version mismatches, and stages only the outputs named by `build --explain --json`. It normalizes filenames before hashing and publishes a draft only after uploads succeed. Published names use hyphens for spaces, such as `Create-Sky-0.1.7-prism-references.zip`.
 
@@ -155,20 +154,10 @@ Product images have separate editable sources:
 
 These are opaque, plain-white indexed PNG placeholders, with lossless compression. Resource and Visual Patches may use matching artwork while retaining independent files. Replace the owning image, then rebuild its artifact; do not edit generated archives. The modpack's Prism icon key is `create-skyweave`; importing another pack must not overwrite a generic shared icon key. Existing launcher selections remain local. Publishing icons are not uploaded automatically by the release workflow; use the modpack source when a publishing integration is added.
 
-## Unix terminal wrapper
+## Native bootstrap and terminal ownership
 
-Empack 0.8.2-beta starts runtimes in a separate process group without transferring foreground terminal control. An interactive Java server can consequently stop while initializing its console. The pack retains empack preparation and runtime supervision and adds a small terminal-handoff helper until the upstream fix lands.
+Reference exports contain `.empack-tools/empack-bootstrap.jar`, `prepare.json` and `launch.json` outside the game payload. The invocation records select the exact exporting engine, bind the release digest and distinguish preparation from launch. Prism uses its selected `$INST_JAVA`; server scripts use `JAVA_HOME` or PATH Java. The bootstrap checks a matching local engine, its private cache and then the official release, without following a latest-version pointer or changing a global installation. Its UTF-8 setting applies only to its own JVM; preserve the game's authored Java arguments.
 
-After every local build, run:
+Keep the generated JAR, invocation records, scripts and immutable release assets together. Refresh these launcher files when changing the selected engine; installing game content alone does not rewrite them. Old launchers and native release schemas are not an interoperability path: reimport the current reference distribution, preserving only reviewed installation-local settings and authorized saves.
 
-```sh
-python3 scripts/patch-server-archives.py
-```
-
-This selects the current default server reference ZIP from `empack build --explain`. Explicit archive paths are also accepted. It checks the exact generated scripts, adds `foreground-runtime.py`, and replaces only the Unix runtime command. Unknown scripts or helpers fail without modifying the archive; rerunning is a no-op. Use `python3 scripts/patch-server-archives.py --check` to verify existing exports without rewriting them. Explicit archive paths work in check mode too; an unpatched or unfamiliar archive fails the check. The immutable release recipe, game content, Windows launchers and preparation script remain byte-identical. CI runs the same step before staging and checksums.
-
-Unix server recipients need Python 3 in addition to Java and empack. The helper hands the terminal to its process group before replacing itself with Java; the runtime lease and process-tree supervision remain active. It skips terminal work when stdin is not a TTY and does not take the terminal from an unrelated foreground job. Windows and Modrinth installations do not use this helper.
-
-Remove this packaging step only after an empack upgrade passes real terminal input, Ctrl-C and shutdown checks. The patcher deliberately rejects unfamiliar launcher templates rather than silently accommodating an upstream change.
-
-The `create_skyweave` pack identity starts a distinct consumer lineage. Existing `create_sky` instances and saves are not converted or synchronized by this release. Install a fresh instance for the renamed registry identities.
+Empack owns Unix foreground process-group transfer, console input, interrupt forwarding and terminal restoration. No pack-specific Python wrapper or archive rewriting step remains. Qualify terminal input, Ctrl-C and clean shutdown through the generated bootstrap when updating empack; archive inspection alone does not establish console behavior.

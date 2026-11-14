@@ -54,17 +54,8 @@
           "block": "minecraft:lantern"
         },
         {
-          "recipe": "wall_light",
-          "block": "mcwlights:bell_wall_lantern"
-        },
-        {
           "recipe": "light",
           "block": "createdeco:yellow_iron_lamp"
-        },
-        {
-          "recipe": "bridge",
-          "block": "mcwbridges:bridge_lantern",
-          "variant": "stair-east"
         },
         {
           "recipe": "storage",

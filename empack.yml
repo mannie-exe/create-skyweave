@@ -1,7 +1,7 @@
-schema: 5
+schema: 6
 pack:
   name: Skyweave modpack
-  version: 0.15.0
+  version: 0.16.0
   id: create_skyweave
   authors:
     - mannie-exe
@@ -11,7 +11,8 @@ runtime:
     kind: neoforge
     pin: "21.1.265"
   minecraft: 1.21.1
-  java: 21
+  java:
+    preferred: 21
 dependencies:
   carryon-animation-fix:
     side: client
@@ -315,18 +316,12 @@ dependencies:
   lootr:
     source: modrinth:EltpO5cN
     pin: SPOrIzX8
-  macaws-bridges:
-    source: modrinth:GURcjz8O
-    pin: aQ7rY7ng
   macaws-doors:
     source: modrinth:kNxa8z3e
     pin: u7BRX44F
   macaws-fences-and-walls:
     source: modrinth:GmwLse2I
     pin: jVdb0r4W
-  macaws-lights-and-lamps:
-    source: modrinth:w4an97C2
-    pin: 5U2kQZIL
   macaws-paths-and-pavings:
     source: modrinth:VRLhWB91
     pin: tlymsxUG
@@ -736,10 +731,10 @@ dependencies:
     source:
       kind: url
       downloads:
-        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.34.0/skyweave-compat-0.34.0-mc1.21.1-neoforge.jar
+        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.35.0/skyweave-compat-0.35.0-mc1.21.1-neoforge.jar
     digests:
-      sha1: 02c57eb0e1123dd5aaa0732b947d09245ada86fd
-      sha512: b12e96e0072ca60b9cf104b7027ea9459248fa0131ed1a043e710cd06d5ef9dee8480f5b8200fc9889e8aedb17e6a073883b5e74744b12d01fae0fac8807aa28
+      sha1: f3cdaa43949f6f5c2e4545b362f28175f151f0a6
+      sha512: e3d3692dee59ba7d83fecea32ef3f31504f36a2a6c6e661060c3a5dc92afacb02c293201652749eee4bd7597c3ef2522b30b3f7eb6a463091533513b976bcd27
     environment:
       client: required
       server: required

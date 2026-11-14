@@ -12,6 +12,10 @@ import { WorkspaceError } from './errors.ts'
 import { canonical, hash } from './identity.ts'
 import { scopeKey, target, type Context } from './policy.ts'
 import { createInputDigests } from './digests.ts'
+import {
+  currentEmpackAuthor,
+  currentEmpackLock,
+} from '../../src/lib/empack.mjs'
 
 const profileSchema = z.strictObject({
   schema: z.literal(1),
@@ -136,10 +140,20 @@ export function createEnvironmentResolver(
       context && options.nativeManifest
         ? ((await options.nativeManifest(registration, context)) ?? null)
         : null
-    const intent = YAML.parse(intentBytes!.toString('utf8'), {
-        maxAliasCount: 20,
-      }),
-      lock = YAML.parse(lockBytes!.toString('utf8'), { maxAliasCount: 20 })
+    let intent, lock
+    try {
+      intent = currentEmpackAuthor(
+        YAML.parse(intentBytes!.toString('utf8'), { maxAliasCount: 20 }),
+      )
+      lock = currentEmpackLock(
+        YAML.parse(lockBytes!.toString('utf8'), { maxAliasCount: 20 }),
+      )
+    } catch {
+      throw new WorkspaceError(
+        'INVALID_INPUT',
+        'Empack 0.8.5-beta author schema 6 and lock schema 3 are required',
+      )
+    }
     const runtime = runtimeSchema.parse(lock.runtime),
       supported = profileSchema.parse(profile)
     const matches =
@@ -363,7 +377,7 @@ export function createEnvironmentResolver(
     )
     capability(
       'empack-inspection',
-      'empack-manifest-0.8.2',
+      'empack-manifest-0.8.5',
       ['empack'],
       'Uses the inspected manifest machine-output contract. Tool availability is not a version check.',
     )

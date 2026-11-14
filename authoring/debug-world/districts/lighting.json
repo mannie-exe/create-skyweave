@@ -21,24 +21,9 @@
           "LanternBlock"
         ],
         "namespaces": [
-          "minecraft",
-          "mcwlights"
+          "minecraft"
         ],
         "optional": false
-      }
-    },
-    {
-      "id": "wall-lanterns",
-      "title": "Wall lanterns",
-      "recipe": "wall_light",
-      "selector": {
-        "classes": [
-          "WallLantern"
-        ],
-        "namespaces": [
-          "mcwlights"
-        ],
-        "optional": true
       }
     },
     {
@@ -71,65 +56,6 @@
       }
     },
     {
-      "id": "bridge-lanterns",
-      "title": "Bridge lanterns",
-      "recipe": "bridge",
-      "cases": [
-        {
-          "block": "mcwbridges:bridge_lantern",
-          "variant": "flat-east"
-        },
-        {
-          "block": "mcwbridges:bridge_lantern",
-          "variant": "flat-south"
-        },
-        {
-          "block": "mcwbridges:bridge_lantern",
-          "variant": "flat-west"
-        },
-        {
-          "block": "mcwbridges:bridge_lantern",
-          "variant": "flat-north"
-        },
-        {
-          "block": "mcwbridges:bridge_lantern",
-          "variant": "stair-east"
-        },
-        {
-          "block": "mcwbridges:bridge_lantern",
-          "variant": "stair-south"
-        },
-        {
-          "block": "mcwbridges:bridge_lantern",
-          "variant": "stair-west"
-        },
-        {
-          "block": "mcwbridges:bridge_lantern",
-          "variant": "stair-north"
-        },
-        {
-          "block": "mcwbridges:bridge_lantern",
-          "variant": "flat-rope-east",
-          "support": "mcwbridges:rope_oak_bridge"
-        },
-        {
-          "block": "mcwbridges:bridge_lantern",
-          "variant": "flat-stone-east",
-          "support": "mcwbridges:stone_brick_bridge"
-        },
-        {
-          "block": "mcwbridges:bridge_lantern",
-          "variant": "stair-rope-east",
-          "support": "mcwbridges:oak_rope_bridge_stair"
-        },
-        {
-          "block": "mcwbridges:bridge_lantern",
-          "variant": "stair-stone-east",
-          "support": "mcwbridges:stone_brick_bridge_stair"
-        }
-      ]
-    },
-    {
       "id": "emissive",
       "title": "Emissive blocks",
       "recipe": "block",
@@ -152,9 +78,7 @@
       "recipe": "block",
       "selector": {
         "ids": [
-          "minecraft:chain",
-          "mcwlights:copper_chain",
-          "mcwlights:golden_chain"
+          "minecraft:chain"
         ],
         "optional": true
       }

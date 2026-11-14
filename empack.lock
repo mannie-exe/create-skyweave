@@ -118,10 +118,8 @@ coverage:
   lootr: complete
   low-on-fire: complete
   low-shield-pack: complete
-  macaws-bridges: complete
   macaws-doors: complete
   macaws-fences-and-walls: complete
-  macaws-lights-and-lamps: complete
   macaws-paths-and-pavings: complete
   macaws-stairs: complete
   macaws-trapdoors: complete
@@ -327,7 +325,7 @@ dependencies:
     incompatibilities: []
     selection: null
     source-selector: null
-    title: absolute_kinematics-1.0.1.jar
+    title: absolute_kinematics-1.0.1
   accessories:
     content: mod
     files:
@@ -1573,7 +1571,9 @@ dependencies:
       selection:
         id: d78uVgbq
         provider: modrinth
-    source-selector: null
+    source-selector:
+      provider: modrinth
+      selector: e0M1UDsY
     title: Collective
   colorwheel:
     content: mod
@@ -3514,7 +3514,9 @@ dependencies:
       selection:
         id: Sduz0AWP
         provider: modrinth
-    source-selector: null
+    source-selector:
+      provider: modrinth
+      selector: cl223EMc
     title: Cristel Lib
   ct-overhaul-village:
     content: mod
@@ -6038,7 +6040,9 @@ dependencies:
       selection:
         id: AKcIMUil
         provider: modrinth
-    source-selector: null
+    source-selector:
+      provider: modrinth
+      selector: DOB2l4oJ
     title: Library Ferret
   linear-bearing:
     content: mod
@@ -6423,61 +6427,6 @@ dependencies:
       provider: modrinth
       selector: low-shield-pack
     title: Low Shield
-  macaws-bridges:
-    content: mod
-    files:
-    - acquisition:
-        downloads:
-        - >-
-          https://cdn.modrinth.com/data/GURcjz8O/versions/aQ7rY7ng/mcw-bridges-3.1.2-mc1.21.1neoforge.jar
-        kind: provider
-        pin:
-          project:
-            project: GURcjz8O
-            provider: modrinth
-          selection:
-            id: aQ7rY7ng
-            provider: modrinth
-        slot: mcw-bridges-3.1.2-mc1.21.1neoforge.jar
-      expected:
-        accepted-observation: null
-        digests:
-          sha1: 71ece28129789a2123cf07e79938f488d8675bb2
-          sha512: >-
-            e98e476324229564132288f0a59bfcc897cff4cda7d12fe218563ca48d382d880662375687c69d1b4619144262ae09cbef130f4330474d8eacd37a21e8e9afb4
-        size: 661387
-      placements:
-      - destination: mods/mcw-bridges-3.1.2-mc1.21.1neoforge.jar
-        environment:
-          client: required
-          server: required
-        layer: common
-      provenance:
-        conversions: []
-        declared-digests:
-          sha1: 71ece28129789a2123cf07e79938f488d8675bb2
-          sha512: >-
-            e98e476324229564132288f0a59bfcc897cff4cda7d12fe218563ca48d382d880662375687c69d1b4619144262ae09cbef130f4330474d8eacd37a21e8e9afb4
-        location: GURcjz8O
-        source: provider-catalog
-      slot: primary
-    identity:
-      kind: provider
-      project:
-        project: GURcjz8O
-        provider: modrinth
-    incompatibilities: []
-    selection:
-      project:
-        project: GURcjz8O
-        provider: modrinth
-      selection:
-        id: aQ7rY7ng
-        provider: modrinth
-    source-selector:
-      provider: modrinth
-      selector: GURcjz8O
-    title: Macaw's Bridges
   macaws-doors:
     content: mod
     files:
@@ -6588,61 +6537,6 @@ dependencies:
       provider: modrinth
       selector: GmwLse2I
     title: Macaw's Fences and Walls
-  macaws-lights-and-lamps:
-    content: mod
-    files:
-    - acquisition:
-        downloads:
-        - >-
-          https://cdn.modrinth.com/data/w4an97C2/versions/5U2kQZIL/mcw-lights-1.1.5-mc1.21.1neoforge.jar
-        kind: provider
-        pin:
-          project:
-            project: w4an97C2
-            provider: modrinth
-          selection:
-            id: 5U2kQZIL
-            provider: modrinth
-        slot: mcw-lights-1.1.5-mc1.21.1neoforge.jar
-      expected:
-        accepted-observation: null
-        digests:
-          sha1: 13c1107caf26b2c60d8626b3658b26cc7f634b38
-          sha512: >-
-            a6e1c4419b70a3f9225ad03daafca22c8a7da432ec4939b8029455927e3b44683a20e89a3299da78f124d0438e188dad3735d2018a931ad4d553ec9d3b83a9ca
-        size: 525744
-      placements:
-      - destination: mods/mcw-lights-1.1.5-mc1.21.1neoforge.jar
-        environment:
-          client: required
-          server: required
-        layer: common
-      provenance:
-        conversions: []
-        declared-digests:
-          sha1: 13c1107caf26b2c60d8626b3658b26cc7f634b38
-          sha512: >-
-            a6e1c4419b70a3f9225ad03daafca22c8a7da432ec4939b8029455927e3b44683a20e89a3299da78f124d0438e188dad3735d2018a931ad4d553ec9d3b83a9ca
-        location: w4an97C2
-        source: provider-catalog
-      slot: primary
-    identity:
-      kind: provider
-      project:
-        project: w4an97C2
-        provider: modrinth
-    incompatibilities: []
-    selection:
-      project:
-        project: w4an97C2
-        provider: modrinth
-      selection:
-        id: 5U2kQZIL
-        provider: modrinth
-    source-selector:
-      provider: modrinth
-      selector: w4an97C2
-    title: Macaw's Lights and Lamps
   macaws-paths-and-pavings:
     content: mod
     files:
@@ -7592,7 +7486,9 @@ dependencies:
       selection:
         id: kiX1lfse
         provider: modrinth
-    source-selector: null
+    source-selector:
+      provider: modrinth
+      selector: QAGBst4M
     title: Puzzles Lib
   questlog:
     content: mod
@@ -8605,14 +8501,14 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.34.0/skyweave-compat-0.34.0-mc1.21.1-neoforge.jar
+          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.35.0/skyweave-compat-0.35.0-mc1.21.1-neoforge.jar
         kind: url
       expected:
         accepted-observation: null
         digests:
-          sha1: 02c57eb0e1123dd5aaa0732b947d09245ada86fd
+          sha1: f3cdaa43949f6f5c2e4545b362f28175f151f0a6
           sha512: >-
-            b12e96e0072ca60b9cf104b7027ea9459248fa0131ed1a043e710cd06d5ef9dee8480f5b8200fc9889e8aedb17e6a073883b5e74744b12d01fae0fac8807aa28
+            e3d3692dee59ba7d83fecea32ef3f31504f36a2a6c6e661060c3a5dc92afacb02c293201652749eee4bd7597c3ef2522b30b3f7eb6a463091533513b976bcd27
         size: null
       placements:
       - destination: mods/skyweave-compat.jar
@@ -8623,9 +8519,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: 02c57eb0e1123dd5aaa0732b947d09245ada86fd
+          sha1: f3cdaa43949f6f5c2e4545b362f28175f151f0a6
           sha512: >-
-            b12e96e0072ca60b9cf104b7027ea9459248fa0131ed1a043e710cd06d5ef9dee8480f5b8200fc9889e8aedb17e6a073883b5e74744b12d01fae0fac8807aa28
+            e3d3692dee59ba7d83fecea32ef3f31504f36a2a6c6e661060c3a5dc92afacb02c293201652749eee4bd7597c3ef2522b30b3f7eb6a463091533513b976bcd27
         location: null
         source: url-file
       slot: primary
@@ -9529,7 +9425,9 @@ dependencies:
       selection:
         id: 2prKITKh
         provider: modrinth
-    source-selector: null
+    source-selector:
+      provider: modrinth
+      selector: Ua7DFN59
     title: YUNG's API
   yungs-better-desert-temples:
     content: mod
@@ -9873,7 +9771,15 @@ dependencies:
       provider: modrinth
       selector: OnlVIpq5
     title: Fast Noise
-intent-revision: fe578f84232c48d3fde29340359c502e9e7792cf33c2c7f139fc3e012c9ac8e3
+intent-revision: 1e47be558095ca64d87c4f6a6f6e7319aca9ecf30ab6febd82275a45dbb93a46
+java-policy:
+  historical-minimum: 21
+  id: empack-java-1
+  metadata-revision: b8e2a3e1ba241414f8b861f13c9a6fd6bc5d922d
+  recommended: 21
+  required-minimum: 21
+  supported:
+  - 21
 required-edges:
   accessories:
   - owo-lib
@@ -10018,4 +9924,4 @@ runtime:
   loader: neoforge
   loader-version: "21.1.265"
   minecraft: "1.21.1"
-schema: 2
+schema: 3

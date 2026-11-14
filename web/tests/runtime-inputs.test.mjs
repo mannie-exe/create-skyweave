@@ -14,6 +14,7 @@ const file = (destination, layer, server = 'required') => ({
   placements: [{ destination, layer, environment: { server } }],
 })
 const lock = (files) => ({
+  schema: 3,
   runtime: {
     minecraft: '1.21.1',
     loader: 'neoforge',

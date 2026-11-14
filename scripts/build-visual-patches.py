@@ -1,5 +1,4 @@
 """Build Skyweave: Visual Patches from exact upstream archives."""
-import copy
 import argparse
 import hashlib
 import json
@@ -94,14 +93,6 @@ def compose_azalea(fresh, plants, plant):
     return path, pot
 
 
-def patch_chain(original):
-    require(original['parent'] in ('block/chain', 'minecraft:block/chain'), 'Chain parent changed')
-    require('all' in original['textures'] and '1' not in original['textures'], 'Chain bindings changed')
-    result = copy.deepcopy(original)
-    result['textures']['1'] = original['textures']['all']
-    return result
-
-
 def build(archives, recipes, config, selections=None, nautilus_license=None, textures=None, *, metadata, icon):
     require(metadata['pack']['pack_format'] == 34, 'Unsupported visual pack format')
     entries = {'pack.mcmeta': metadata}
@@ -115,12 +106,6 @@ def build(archives, recipes, config, selections=None, nautilus_license=None, tex
                    for item in selections['selections']):
                 path, value = compose_azalea(archives['fresh-flower-pots'], archives['3d-plants'], plant)
                 entries[path] = value
-    chain = model(archives['better-lanterns'], 'assets/minecraft/models/block/chain.json')
-    require({face for e in chain['elements'] for face in face_textures(e)} == {'#1'},
-            'Better Lanterns chain texture contract changed')
-    for material in ('copper', 'golden'):
-        path = f'assets/mcwlights/models/block/{material}_chain.json'
-        entries[path] = patch_chain(model(archives['macaws-lights-and-lamps'], path))
     additions, _ = generate_models(recipes, archives)
     require(not entries.keys() & additions.keys(), 'Model recipe collides with maintained patch')
     entries.update(additions)

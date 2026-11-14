@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs'
 import { basename, isAbsolute, relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import YAML from 'yaml'
+import { currentEmpackLock } from '../src/lib/empack.mjs'
 
 function participates(requirement) {
   if (requirement === 'required') return true
@@ -16,6 +17,7 @@ function participates(requirement) {
 }
 
 export function serverModDeclarations(pack, lock) {
+  currentEmpackLock(lock)
   const mods = []
   const destinations = new Set()
   for (const [key, dependency] of Object.entries(lock.dependencies)) {

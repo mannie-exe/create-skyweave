@@ -48,13 +48,6 @@ const descriptions = {
     limit:
       'These are selective model treatments. Candidate UI, global shaders and broad texture changes are excluded.',
   },
-  'bridge-lantern': {
-    run: 'lantern-hanging-20261103',
-    title: 'Sloped bridge lantern',
-    question: 'Approved appearance: chain-hung lantern on the sloped bridge.',
-    limit:
-      'Flat bridges keep their regular lantern. Sloped bridges use the approved hanging model with matching Compat selection.',
-  },
   'lootr-repairs': {
     run: 'repairs-20261102',
     title: 'Lootr repairs',

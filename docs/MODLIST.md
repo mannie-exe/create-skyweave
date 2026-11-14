@@ -1,9 +1,6 @@
 # Included content
 
-Selections from `empack.yml` and `empack.lock`. Minecraft is 1.21.1 and NeoForge is 21.1.265.
-The manifest/lock are authoritative; this list excludes libraries bundled inside
-mods. Shader inputs are assembled on clients through the [shared shader engine](../tools/shader-lab/README.md).
-See [release notes](RELEASE_NOTES.md) for the published version.
+Selections from `empack.yml` and `empack.lock`. Minecraft is 1.21.1 and NeoForge is 21.1.265. The manifest/lock are authoritative; this list excludes libraries bundled inside mods. Shader inputs are assembled on clients through the [shared shader engine](../tools/shader-lab/README.md). See [release notes](RELEASE_NOTES.md) for the published version.
 
 The [terrain and structure guide](development/worldgen-candidates.md) records selected content, exclusions and integration limits.
 
@@ -134,10 +131,8 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Lootr | 1.21.1-1.11.38.127 | [Exact version](https://modrinth.com/version/SPOrIzX8) |
 | Low On Fire | 26.3 | [Exact version](https://modrinth.com/version/yQdcUfnr) |
 | Low Shield | 3.0.0 | [Exact version](https://modrinth.com/version/AV6Mwfm5) |
-| Macaw's Bridges | 3.1.2 | [Exact version](https://modrinth.com/mod/macaws-bridges/version/aQ7rY7ng) |
 | Macaw's Doors | 1.1.5 | [Exact version](https://modrinth.com/mod/macaws-doors/version/u7BRX44F) |
 | Macaw's Fences and Walls | 1.2.1 | [Exact version](https://modrinth.com/mod/macaws-fences-and-walls/version/jVdb0r4W) |
-| Macaw's Lights and Lamps | 1.1.5 | [Exact version](https://modrinth.com/mod/macaws-lights-and-lamps/version/5U2kQZIL) |
 | Macaw's Paths and Pavings | 1.1.1 | [Exact version](https://modrinth.com/mod/macaws-paths-and-pavings/version/tlymsxUG) |
 | Macaw's Stairs | 1.0.2 | [Exact version](https://modrinth.com/mod/macaws-stairs/version/4t8L0dGP) |
 | Macaw's Trapdoors | 1.1.5 | [Exact version](https://modrinth.com/mod/macaws-trapdoors/version/StnP0RNi) |

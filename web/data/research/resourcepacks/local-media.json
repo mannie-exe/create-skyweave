@@ -43,12 +43,6 @@
       "evidence": "docs/development/compatibility.md#resource-rendering-repairs",
       "packRevision": "06b5a3986ad24cad98ce0ab11857375d84020504"
     },
-    "lantern-hanging-20261103": {
-      "date": "2026-11-03",
-      "context": "Isolated Minecraft 1.21.1 / NeoForge 21.1.264; shaders off, noon. Approved sloped hanging appearance; flat bridge restored to its regular standing lantern. Native interaction bounds remain pending.",
-      "evidence": "docs/development/web/verification.md#hanging-bridge-lanterns-2026-11-03",
-      "packRevision": "06b5a3986ad24cad98ce0ab11857375d84020504"
-    },
     "window-boundaries-20261103": {
       "date": "2026-11-03",
       "context": "Minecraft 1.21.1 / NeoForge 21.1.264, Fusion 1.3.16, shaders off. Matched native control, old unconditional workaround and conditional added-face prototype. The prototype restores native base models; only the three Create framed-glass variants receive conditional faces. Added-face CT remains unresolved.",
@@ -216,17 +210,6 @@
       "caption": "DnD frontlight with the shorter two-plate hood; shaders on.",
       "sha256": "d631d8fa9b55d1fe001b0ac918357579b4525e30db464a7168482d09e0edee26",
       "source": "harness/images/2026-10-24-compat-pass/hood-shader.png"
-    },
-    {
-      "id": "bridge-stair-mounted-on-visual",
-      "projects": ["better-lanterns"],
-      "file": "harness/2026-10-24-visual-pass/bridge-stair-mounted-on.png",
-      "kind": "image",
-      "run": "visual-20261024",
-      "stage": "Observed",
-      "caption": "Macaw bridge lantern mounted on stairs; shaders on.",
-      "sha256": "f92a57c2768c7af4508e71722f0e8d4bb840c91f193b3ffe65febc2da6325905",
-      "source": "harness/images/2026-10-24-visual-pass/bridge-stair-mounted-on.png"
     },
     {
       "id": "overlays-connected-on-visual",
@@ -2398,44 +2381,6 @@
       "height": 1656
     },
     {
-      "id": "repairs-20261102-repair-bridge-close-bridge-bridge-lantern-45-plain",
-      "projects": ["skyweave-visual-patches"],
-      "file": "repairs-20261102/repair-bridge-close-bridge-bridge-lantern-45-plain.png",
-      "kind": "image",
-      "run": "repairs-20261102",
-      "stage": "Superseded",
-      "caption": "Superseded yaw study; the requested change is pitch along the stair walking slope.",
-      "sha256": "75e761f202771e4a556bb1903cce057aa6abe32191132cc05a6a978cf56cbf2a",
-      "source": "harness/images/2026-11-02-repairs/repair-bridge-close-bridge-bridge-lantern-45-plain.png",
-      "gallery": false,
-      "width": 2560,
-      "height": 1656
-    },
-    {
-      "id": "repairs-20261102-comparison-bridge-lantern-bridge",
-      "projects": ["skyweave-visual-patches"],
-      "file": "repairs-20261102/comparison-bridge-lantern-bridge.png",
-      "kind": "image",
-      "run": "repairs-20261102",
-      "stage": "Superseded",
-      "caption": "Superseded yaw study; the requested change is pitch along the stair walking slope.",
-      "sha256": "154a39bc5e65eb24d33d5320aa16ee37680059f71ba3531765fb57832812b8d4",
-      "source": "harness/images/2026-11-02-repairs/repair-bridge-close-bridge-baseline-plain.png",
-      "originals": [
-        {
-          "label": "A · Current",
-          "file": "repairs-20261102/repair-bridge-close-bridge-baseline-plain.png"
-        },
-        {
-          "label": "B · 45° rotation",
-          "file": "repairs-20261102/repair-bridge-close-bridge-bridge-lantern-45-plain.png"
-        }
-      ],
-      "width": 2560,
-      "height": 1656,
-      "gallery": false
-    },
-    {
       "id": "repairs-20261102-repair-bridge-close-stairs-baseline-plain",
       "projects": ["skyweave-visual-patches"],
       "file": "repairs-20261102/repair-bridge-close-stairs-baseline-plain.png",
@@ -2448,44 +2393,6 @@
       "gallery": false,
       "width": 2560,
       "height": 1656
-    },
-    {
-      "id": "repairs-20261102-repair-bridge-close-stairs-bridge-lantern-45-plain",
-      "projects": ["skyweave-visual-patches"],
-      "file": "repairs-20261102/repair-bridge-close-stairs-bridge-lantern-45-plain.png",
-      "kind": "image",
-      "run": "repairs-20261102",
-      "stage": "Superseded",
-      "caption": "Superseded yaw study; the requested change is pitch along the stair walking slope.",
-      "sha256": "344f604e96c8ca9ea938acb4f063625cbad8bd794c887a044c9c205437997448",
-      "source": "harness/images/2026-11-02-repairs/repair-bridge-close-stairs-bridge-lantern-45-plain.png",
-      "gallery": false,
-      "width": 2560,
-      "height": 1656
-    },
-    {
-      "id": "repairs-20261102-comparison-bridge-lantern-stairs",
-      "projects": ["skyweave-visual-patches"],
-      "file": "repairs-20261102/comparison-bridge-lantern-stairs.png",
-      "kind": "image",
-      "run": "repairs-20261102",
-      "stage": "Superseded",
-      "caption": "Superseded yaw study; the requested change is pitch along the stair walking slope.",
-      "sha256": "94ac0d4ef337372d192454f2eaec8e295e275cf97cec00cfbfe3e009ae9ce37e",
-      "source": "harness/images/2026-11-02-repairs/repair-bridge-close-stairs-baseline-plain.png",
-      "originals": [
-        {
-          "label": "A · Current",
-          "file": "repairs-20261102/repair-bridge-close-stairs-baseline-plain.png"
-        },
-        {
-          "label": "B · 45° rotation",
-          "file": "repairs-20261102/repair-bridge-close-stairs-bridge-lantern-45-plain.png"
-        }
-      ],
-      "width": 2560,
-      "height": 1656,
-      "gallery": false
     },
     {
       "id": "repairs-20261102-repair-final-unopened-barrel-baseline-plain",
@@ -3023,109 +2930,6 @@
       "source": "harness/images/2026-11-02-repairs/repair-chest-motion-trapped.mp4"
     },
     {
-      "id": "lantern-hanging-20261103-lantern-hanging-flat-baseline-plain",
-      "projects": ["skyweave-visual-patches"],
-      "file": "lantern-hanging-20261103/lantern-hanging-flat-baseline-plain.png",
-      "kind": "image",
-      "run": "lantern-hanging-20261103",
-      "stage": "Selected appearance",
-      "caption": "Flat bridge: regular standing lantern retained.",
-      "sha256": "dd0343b2f97f3e28d094f948e9ab1509d4da60b4b6701e5b192473be4be1e642",
-      "width": 2560,
-      "height": 1656,
-      "source": "harness/images/2026-11-03-lantern-hanging/lantern-hanging-flat-baseline-plain.png",
-      "gallery": true
-    },
-    {
-      "id": "lantern-hanging-20261103-lantern-hanging-flat-bridge-lantern-hanging-plain",
-      "projects": ["skyweave-visual-patches"],
-      "file": "lantern-hanging-20261103/lantern-hanging-flat-bridge-lantern-hanging-plain.png",
-      "kind": "image",
-      "run": "lantern-hanging-20261103",
-      "stage": "Review only",
-      "caption": "Flat bridge; B · Hanging. Shaders off.",
-      "sha256": "1e6cb0d11e7af65db8869211f0ae7dec8759a11f8fdf7f5ae7e1cb5759220f51",
-      "width": 2560,
-      "height": 1656,
-      "source": "harness/images/2026-11-03-lantern-hanging/lantern-hanging-flat-bridge-lantern-hanging-plain.png",
-      "gallery": false
-    },
-    {
-      "id": "lantern-hanging-20261103-comparison-bridge-lantern-flat",
-      "projects": ["skyweave-visual-patches"],
-      "file": "lantern-hanging-20261103/comparison-bridge-lantern-flat.png",
-      "kind": "image",
-      "run": "lantern-hanging-20261103",
-      "stage": "Comparison",
-      "caption": "Flat bridge decision: retain the standing lantern (A); hanging variant rejected.",
-      "sha256": "dd0343b2f97f3e28d094f948e9ab1509d4da60b4b6701e5b192473be4be1e642",
-      "width": 2560,
-      "height": 1656,
-      "source": "harness/images/2026-11-03-lantern-hanging/lantern-hanging-flat-baseline-plain.png",
-      "originals": [
-        {
-          "label": "A · Standing",
-          "file": "lantern-hanging-20261103/lantern-hanging-flat-baseline-plain.png"
-        },
-        {
-          "label": "B · Hanging",
-          "file": "lantern-hanging-20261103/lantern-hanging-flat-bridge-lantern-hanging-plain.png"
-        }
-      ],
-      "gallery": false
-    },
-    {
-      "id": "lantern-hanging-20261103-lantern-hanging-stair-baseline-plain",
-      "projects": ["skyweave-visual-patches"],
-      "file": "lantern-hanging-20261103/lantern-hanging-stair-baseline-plain.png",
-      "kind": "image",
-      "run": "lantern-hanging-20261103",
-      "stage": "Review only",
-      "caption": "Stair bridge; A · Standing. Shaders off.",
-      "sha256": "4471b344b32a02de80d22c0a71cba7364efd3da64eb946e45e8441eb568aadf6",
-      "width": 2560,
-      "height": 1656,
-      "source": "harness/images/2026-11-03-lantern-hanging/lantern-hanging-stair-baseline-plain.png",
-      "gallery": false
-    },
-    {
-      "id": "lantern-hanging-20261103-lantern-hanging-stair-bridge-lantern-hanging-plain",
-      "projects": ["skyweave-visual-patches"],
-      "file": "lantern-hanging-20261103/lantern-hanging-stair-bridge-lantern-hanging-plain.png",
-      "kind": "image",
-      "run": "lantern-hanging-20261103",
-      "stage": "Review only",
-      "caption": "Stair bridge; B · Hanging. Shaders off.",
-      "sha256": "338d3453524cc28b8d482edd4733cfa67d9cfa6238d2efa79cbaf1dc68ebc711",
-      "width": 2560,
-      "height": 1656,
-      "source": "harness/images/2026-11-03-lantern-hanging/lantern-hanging-stair-bridge-lantern-hanging-plain.png",
-      "gallery": false
-    },
-    {
-      "id": "lantern-hanging-20261103-comparison-bridge-lantern-stair",
-      "projects": ["skyweave-visual-patches"],
-      "file": "lantern-hanging-20261103/comparison-bridge-lantern-stair.png",
-      "kind": "image",
-      "run": "lantern-hanging-20261103",
-      "stage": "Comparison",
-      "caption": "Sloped bridge decision: use the upright, chain-hung lantern (B). Interaction bounds require adaptation before adoption.",
-      "sha256": "4471b344b32a02de80d22c0a71cba7364efd3da64eb946e45e8441eb568aadf6",
-      "width": 2560,
-      "height": 1656,
-      "source": "harness/images/2026-11-03-lantern-hanging/lantern-hanging-stair-baseline-plain.png",
-      "originals": [
-        {
-          "label": "A · Standing",
-          "file": "lantern-hanging-20261103/lantern-hanging-stair-baseline-plain.png"
-        },
-        {
-          "label": "B · Hanging",
-          "file": "lantern-hanging-20261103/lantern-hanging-stair-bridge-lantern-hanging-plain.png"
-        }
-      ]
-    },
-    {
       "id": "window-boundaries-20261103-window-boundaries-matching-window-native-plain",
       "projects": ["skyweave-visual-patches"],
       "file": "window-boundaries-20261103/window-boundaries-matching-window-native-plain.png",
@@ -3275,32 +3079,6 @@
       "width": 2560,
       "height": 1656,
       "source": "harness/images/2026-11-03-window-boundaries/fusion-internal-control-vanilla-slope-lantern-and-windows-plain.png"
-    },
-    {
-      "id": "lantern-hanging-20261103-final-lantern-choice-flat-slope-lantern-and-windows-plain",
-      "projects": ["skyweave-visual-patches"],
-      "file": "lantern-hanging-20261103/final-lantern-choice-flat-slope-lantern-and-windows-plain.png",
-      "kind": "image",
-      "run": "lantern-hanging-20261103",
-      "stage": "Selected appearance",
-      "caption": "Final flat-bridge choice: regular standing lantern restored. Shaders off.",
-      "sha256": "bd248030fd34f2ecf07ae939a59df30063d60b5c526185cdb8e5593ac47a7c95",
-      "width": 2560,
-      "height": 1656,
-      "source": "harness/images/2026-11-03-window-boundaries/final-lantern-choice-flat-slope-lantern-and-windows-plain.png"
-    },
-    {
-      "id": "lantern-hanging-20261103-final-lantern-choice-slope-slope-lantern-and-windows-plain",
-      "projects": ["skyweave-visual-patches"],
-      "file": "lantern-hanging-20261103/final-lantern-choice-slope-slope-lantern-and-windows-plain.png",
-      "kind": "image",
-      "run": "lantern-hanging-20261103",
-      "stage": "Selected appearance",
-      "caption": "Approved sloped appearance: upright chain-hung lantern beneath the rail. Native interaction bounds remain pending. Shaders off.",
-      "sha256": "33dcb77a29b028ce7451425cf370c1d964f446b2c8d5be024addf2ae644ae95e",
-      "width": 2560,
-      "height": 1656,
-      "source": "harness/images/2026-11-03-window-boundaries/final-lantern-choice-slope-slope-lantern-and-windows-plain.png"
     },
     {
       "id": "window-culling-20261103-framed-disabled",

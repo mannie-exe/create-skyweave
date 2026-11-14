@@ -4,6 +4,12 @@ Checks apply to the recorded source or artifact, not every later checkout. Brows
 checks establish interface behavior; native game checks and survey evidence have
 separate owners and limits. Commands and prerequisites live in [setup](setup.md).
 
+## Empack 0.8.5 and resource removal
+
+The author schema 6 / lock schema 3 readers reject older documents before projecting resource or runtime inputs. Native empack document/content checks, three reference builds and generated Prism/server bootstrap preparations pass. All 181 remaining dependency selections initially match the previous lock exactly after removing Macaw's Bridges and Macaw's Lights and Lamps; the following Compat release pin is a separate reviewed change.
+
+The 65 retained model recipes remain value-equal. Resource ZIP/JAR checks find no removed-mod assets or Sable weight entries. Named static-model export and object generation produce 150 objects with neither removed namespace nor resource layer. Headless browser checks cover all three model editor cases, including an unsaved vanilla-template fitting draft, four comparison cases and eight resource-pack cases. Application tests pass all 180 cases; the Python suite passes 39 with one existing skip. The final released-lock refresh loads Compat 0.35.0 (`1ec68752c9df10c2ab19bf7c593dcbdae0a8b319ae0daa782b352bb7f6c3bc35`) and retains an unchanged source fingerprint. Snapshot checks pass with 9,850 items, 9,262 blocks, 8,858 recipes, 188 entities and all 74 FTB quests. Blocked and unknown acquisition coverage stays explicit. The regenerated Debug World has 1,059 cases in 65 groups with no omitted selections; native construction and saved-state verification complete in about 94 seconds. These checks do not qualify game rendering or natural generation.
+
 ## Pack 0.11.0 released-lock refresh
 
 The fresh workspace `snapshot.refresh` loads published Compat 0.30.0 with SHA-256

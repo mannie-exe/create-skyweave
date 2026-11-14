@@ -19,12 +19,6 @@
       "sha512": "e2bbb4555928f418ec5953228fe0200ae62baffa7fc3a189cf3595843061ea76f61465d591ebdb07b05d9d2f281f6b64944f55e99343d8700f2c5f475f40f745",
       "url": "https://cdn.modrinth.com/data/PGGrfcvL/versions/jRAsb6KQ/Better%2BLanterns%2Bv1.2%28mc-1.21%29.zip"
     },
-    "macaws-lights-and-lamps": {
-      "version": "5U2kQZIL",
-      "path": "pack/mods/mcw-lights-1.1.5-mc1.21.1neoforge.jar",
-      "sha512": "a6e1c4419b70a3f9225ad03daafca22c8a7da432ec4939b8029455927e3b44683a20e89a3299da78f124d0438e188dad3735d2018a931ad4d553ec9d3b83a9ca",
-      "url": "https://cdn.modrinth.com/data/w4an97C2/versions/5U2kQZIL/mcw-lights-1.1.5-mc1.21.1neoforge.jar"
-    },
     "create-deco": {
       "version": "qrcMVoBD",
       "path": "pack/mods/createdeco-2.1.3.jar",
@@ -54,12 +48,6 @@
       "path": "pack/mods/create-1.21.1-6.0.10.jar",
       "sha512": "11cc8fc049d2f67f6548c7abfada6b82a3adb5c7ca410a742de04bbca76e03862c518721b88d806f6e6d768a4d68531fdb903a85859b25d1484d550cc7bafd4b",
       "url": "https://cdn.modrinth.com/data/LNytGWDc/versions/UjX6dr61/create-1.21.1-6.0.10.jar"
-    },
-    "macaws-bridges": {
-      "version": "aQ7rY7ng",
-      "path": "pack/mods/mcw-bridges-3.1.2-mc1.21.1neoforge.jar",
-      "sha512": "e98e476324229564132288f0a59bfcc897cff4cda7d12fe218563ca48d382d880662375687c69d1b4619144262ae09cbef130f4330474d8eacd37a21e8e9afb4",
-      "url": "https://cdn.modrinth.com/data/GURcjz8O/versions/aQ7rY7ng/mcw-bridges-3.1.2-mc1.21.1neoforge.jar"
     },
     "create-design-n-decor": {
       "version": "uQsIRky8",
@@ -152,13 +140,11 @@
     "Fresh Flower Pots \u2014 BlueHDGaming: https://modrinth.com/resourcepack/fresh-flower-pots",
     "3D Crops Revamped \u2014 vexcenot; adapted models credit Stridey; project credits NinthWorld: https://modrinth.com/resourcepack/3d-crops",
     "Better Lanterns \u2014 Nico4play: https://modrinth.com/resourcepack/better-lanterns",
-    "Macaw\u2019s Lights and Lamps \u2014 sketch_macaw: https://modrinth.com/mod/macaws-lights-and-lamps",
     "Create Deco \u2014 talrey, Ordana and Baileybun: https://modrinth.com/mod/create-deco",
     "Fresh Animations: Objects \u2014 FreshLX: https://modrinth.com/resourcepack/fresh-animations-objects",
     "Compatibility adaptations and generated geometry \u2014 Create: Skyweave",
     "Original assets retain their authors\u2019 licenses. Required packs/mods supply unmodified textures; selected donor textures are included with their models.",
     "Create \u2014 simibubi and contributors: https://modrinth.com/mod/create",
-    "Macaw\u2019s Bridges \u2014 sketch_macaw: https://modrinth.com/mod/macaws-bridges",
     "Design n\u2019 Decor \u2014 LopyLuna and contributors: https://modrinth.com/mod/create-design-n-decor",
     "Fresh Animations and Details \u2014 FreshLX: https://modrinth.com/resourcepack/fresh-animations-details",
     "3D Default \u2014 GeForceLegend: https://github.com/GeForceLegend/Minecraft-3D-Default",

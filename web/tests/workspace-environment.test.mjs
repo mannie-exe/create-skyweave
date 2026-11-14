@@ -37,6 +37,7 @@ async function fixture(t) {
     path.join(root, 'profiles/minecraft-1.21.1-neoforge.json'),
   )
   const lock = {
+    schema: 3,
     runtime: {
       minecraft: '1.21.1',
       loader: 'neoforge',
@@ -56,7 +57,9 @@ async function fixture(t) {
     )
   await write('empack.lock', lock)
   await write('empack.yml', {
+    schema: 6,
     runtime: {
+      java: { preferred: 21 },
       minecraft: '1.21.1',
       loader: { kind: 'neoforge', pin: '21.1.264' },
     },
@@ -258,7 +261,9 @@ test('optional dependency removal preserves vanilla adapter identity; stale and 
     capability(after, 'static-entities').inputRevision,
   )
   await f.write('empack.yml', {
+    schema: 6,
     runtime: {
+      java: { preferred: 21 },
       minecraft: '1.21.1',
       loader: { kind: 'neoforge', pin: '21.1.265' },
     },

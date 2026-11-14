@@ -2,18 +2,6 @@
   "replace": false,
   "values": [
     {
-      "id": "#mcwlights:lanterns",
-      "required": false
-    },
-    {
-      "id": "#mcwlights:wall_lanterns",
-      "required": false
-    },
-    {
-      "id": "#mcwlights:chains",
-      "required": false
-    },
-    {
       "id": "#mcwwindows:blinds",
       "required": false
     },
@@ -367,58 +355,6 @@
     },
     {
       "id": "dndecor:netherite_frontlight",
-      "required": false
-    },
-    {
-      "id": "#mcwlights:candle_holders",
-      "required": false
-    },
-    {
-      "id": "#mcwlights:ceiling_fan_lights",
-      "required": false
-    },
-    {
-      "id": "#mcwlights:ceiling_lights",
-      "required": false
-    },
-    {
-      "id": "#mcwlights:chandeliers",
-      "required": false
-    },
-    {
-      "id": "#mcwlights:garden_lights",
-      "required": false
-    },
-    {
-      "id": "#mcwlights:lamps",
-      "required": false
-    },
-    {
-      "id": "#mcwlights:lava_lamps",
-      "required": false
-    },
-    {
-      "id": "#mcwlights:paper_lamps",
-      "required": false
-    },
-    {
-      "id": "#mcwlights:soul_street_lamps",
-      "required": false
-    },
-    {
-      "id": "#mcwlights:soul_tiki_torches",
-      "required": false
-    },
-    {
-      "id": "#mcwlights:street_lamps",
-      "required": false
-    },
-    {
-      "id": "#mcwlights:tiki_torches",
-      "required": false
-    },
-    {
-      "id": "#mcwlights:wall_lamps",
       "required": false
     },
     {

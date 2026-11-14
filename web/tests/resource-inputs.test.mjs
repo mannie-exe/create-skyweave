@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import test from 'node:test'
 import { clientResourceInputs } from '../scripts/resource-inputs.mjs'
 const lock = (destination, layer = 'common', client = 'required') => ({
+  schema: 3,
   runtime: { minecraft: '1.21.1' },
   dependencies: {
     fixture: {

@@ -53,18 +53,5 @@ class VisualPatches(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Changed patch input'):
             patches.verify_bytes(b'changed', source)
 
-    def test_chain_retains_mod_rendering_and_original_binding(self):
-        original = {'parent': 'block/chain', 'render_type': 'cutout',
-                    'textures': {'all': 'mcwlights:block/copper_chain', 'particle': 'mcwlights:block/copper_chain'}}
-        result = patches.patch_chain(original)
-        self.assertEqual(result['textures']['1'], original['textures']['all'])
-        self.assertEqual(result['render_type'], 'cutout')
-        self.assertNotIn('1', original['textures'])
-        with self.assertRaisesRegex(ValueError, 'bindings changed'):
-            patches.patch_chain(result)
-        with self.assertRaisesRegex(ValueError, 'parent changed'):
-            patches.patch_chain({**original, 'parent': 'mcwlights:block/new_chain'})
-
-
 if __name__ == '__main__':
     unittest.main()

@@ -13,6 +13,7 @@ import packLock from '../../../empack.lock?raw'
 import observations from '../../data/research/resourcepacks/projects.json'
 import catalog from '../../data/research/resourcepacks/catalog.json'
 import localMedia from '../../data/research/resourcepacks/local-media.json'
+import { currentEmpackAuthor, currentEmpackLock } from './empack.mjs'
 
 export const statuses: Record<string, string> = {
   installed: 'Selected stack',
@@ -112,10 +113,10 @@ const localArtifacts = Object.fromEntries(
     ]
   }),
 )
-export const pack = YAML.parse(packSource)
+export const pack = currentEmpackAuthor(YAML.parse(packSource))
 const { stack, selected } = resourceStack(
   pack,
-  YAML.parse(packLock),
+  currentEmpackLock(YAML.parse(packLock)),
   defaultOptions,
   projects,
   localArtifacts,

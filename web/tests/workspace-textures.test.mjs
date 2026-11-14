@@ -52,15 +52,18 @@ async function fixture(t) {
   await fs.writeFile(
     path.join(root, 'empack.yml'),
     JSON.stringify({
+      schema: 6,
       runtime: {
         minecraft: '1.21.1',
         loader: { kind: 'neoforge', pin: '21.1.264' },
+        java: { preferred: 21 },
       },
     }),
   )
   await fs.writeFile(
     path.join(root, 'empack.lock'),
     JSON.stringify({
+      schema: 3,
       runtime: {
         minecraft: '1.21.1',
         loader: 'neoforge',

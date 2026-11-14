@@ -27,21 +27,44 @@ test('model workbench previews extrusion and fitting without saving', async ({
   )
   await expect(page.locator('#models-save')).toBeEnabled()
   await expect(page.locator('#models-generate')).toBeDisabled()
-  await selectSource(page, 'models', 'bell-lantern')
+  await selectSource(page, 'models', 'industrial-bars-side')
+  // Exercise the supported fitting editor without shipping a fixture recipe.
+  const fitting = {
+    id: 'industrial-bars-side',
+    label: 'Lantern fitting fixture',
+    kind: 'fitting',
+    enabled: true,
+    output: 'create_skyweave:block/fitting_fixture',
+    texture: { source: 'minecraft', id: 'minecraft:block/lantern' },
+    texture_bindings: {
+      lantern: { source: 'minecraft', id: 'minecraft:block/lantern' },
+    },
+    model: { source: 'minecraft', id: 'minecraft:block/template_lantern' },
+    edits: [{ element: 0, name: '', faces: { north: { uv: [0, 0, 8, 8] } } }],
+  }
+  await page.locator('summary').filter({ hasText: 'Recipe JSON' }).click()
+  await page.locator('#model-json').fill(JSON.stringify(fitting))
+  await page.locator('#model-apply-json').click()
+  await expect(page.locator('#models-status')).toHaveText(
+    'Unsaved changes; preview current',
+  )
   await expect(page.locator('#model-canvas')).toHaveAttribute(
     'data-ready',
-    'bell-lantern',
+    'industrial-bars-side',
   )
   await page
     .getByRole('combobox', { name: 'Element', exact: true })
-    .selectOption('9')
+    .selectOption('0')
+  await page
+    .getByRole('combobox', { name: 'Face', exact: true })
+    .selectOption('north')
   await page.getByLabel('U start', { exact: true }).fill('2')
   await expect(page.locator('#models-status')).toHaveText(
     'Unsaved changes; preview current',
   )
   const recipe = JSON.parse(await page.locator('#model-json').inputValue())
-  const window = recipe.edits.find((edit) => edit.element === 9)
-  expect(Object.values(window.faces)[0].uv[0]).toBe(2)
+  const element = recipe.edits.find((edit) => edit.element === 0)
+  expect(element.faces.north.uv[0]).toBe(2)
   await selectSource(page, 'models', 'industrial-bars-post')
   await expect(page.getByLabel('Depth', { exact: true })).toHaveValue('1.5')
   const hostileLabel = 'Fixture <img src=x onerror="window.atlasInjected=1">'
@@ -75,7 +98,7 @@ test('unapplied JSON survives recipe switches and cannot be silently generated',
   await expect(page.locator('#models-status')).toHaveText('Source loaded')
   await page.locator('summary').filter({ hasText: 'Recipe JSON' }).click()
   await page.locator('#model-json').fill('{unfinished')
-  await selectSource(page, 'models', 'bell-lantern')
+  await selectSource(page, 'models', 'industrial-bars-side')
   await selectSource(page, 'models', 'industrial-bars-post')
   await expect(page.locator('#model-json')).toHaveValue('{unfinished')
   await expect(page.locator('#models-generate')).toBeDisabled()

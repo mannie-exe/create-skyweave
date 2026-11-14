@@ -294,11 +294,8 @@ candidates:
     status: installed
     description: Adds depth to lanterns and chains.
     fit: A small decoration change that retains the vanilla visual vocabulary.
-    concern: The maintained patch restores chain colors and fits covered, bell,
-      cross, festive, tavern, chain and striped lanterns, including wall variants.
-      Bridge/stair and wall mounts retain their attachment geometry. Deco cage
-      bends use joined beveled connectors; DnD hoods use a shorter overlapping
-      two-plate shell. Representative shader-off/on views passed native review.
+    concern: The maintained patch gives Deco cages joined beveled connectors;
+      DnD hoods use a shorter overlapping two-plate shell. Representative shader-off/on views passed native review.
       The client Copycat Bar Extrusion mod gives normal Create panels fitted bar
       materials; it does not substitute arbitrary resource-pack models.
     nextCheck: Use Model authoring for UV/geometry edits. Moving contraptions,
@@ -540,7 +537,7 @@ candidates:
     category: Pack-owned
     status: installed
     description: Combines client model repairs, selected donor geometry and chest animations.
-    fit: Gives potted plants, Create and Deco bars, Macaw lanterns, cage lamps,
+    fit: Gives potted plants, Create and Deco bars, cage lamps,
       DnD frontlights and Lootr storage compatible models, including barrel corner clasps and relit storage artwork.
     concern: Must load above its source packs. Dated comparisons retain their
       original conditions. Lootr materials and azalea pots have native repair checks;

@@ -2,8 +2,10 @@ import { readFileSync } from 'node:fs'
 import { isAbsolute, relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import YAML from 'yaml'
+import { currentEmpackLock } from '../src/lib/empack.mjs'
 
 export function clientResourceInputs(pack, lock) {
+  currentEmpackLock(lock)
   const inputs = []
   for (const [id, dependency] of Object.entries(lock.dependencies)) {
     for (const file of dependency.files) {
