@@ -77,7 +77,7 @@ Configuration under `game/config/bluemap/` is seeded once, so future pack instal
 
 ## Updates
 
-Stop the server cleanly before replacing files. Retain:
+Stop the server cleanly before replacing files. Reference installs also need the matching bootstrap snapshot and launcher digest; follow [existing reference installations](../development/build.md#existing-reference-installations). Retain:
 
 - The entire world directory, including dimension data, DH databases and Sable sublevels.
 - The world's Sky Archipelago and Skyweave: Compatibility Patches configuration and presets.
