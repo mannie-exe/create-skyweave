@@ -2,6 +2,16 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.15.0 · 2026-11-14
+
+### Features
+
+- Ship compatibility and settings follow-up ([c5a43cd](https://github.com/mannie-exe/create-skyweave/commit/c5a43cdd730025f65c18ce4912344fb8b0ee997d))
+
+### Fixes
+
+- Enforce managed configuration ownership ([9374967](https://github.com/mannie-exe/create-skyweave/commit/93749678349649b2168c1ae37e6e7749c1cda88d))
+
 ## v0.14.0 · 2026-11-12
 
 ### Features
