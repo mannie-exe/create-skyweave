@@ -2,6 +2,16 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.16.0 · 2026-11-14
+
+### Documentation
+
+- Explain reference snapshot updates ([ed956fe](https://github.com/mannie-exe/create-skyweave/commit/ed956fe017cb7926b3dfe42a8c2ef4036b997fd9))
+
+### Maintenance
+
+- **pack:** Adopt empack 0.8.5 and retire Macaw mods ([17b9013](https://github.com/mannie-exe/create-skyweave/commit/17b90139857cb946da6bebb6b2bade54725328d7))
+
 ## v0.15.0 · 2026-11-14
 
 ### Features
