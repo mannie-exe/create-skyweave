@@ -2,6 +2,16 @@
 
 Evidence qualifies its recorded artifact, not arbitrary later changes. The [build guide](build.md) owns commands and release gates; [patch maintenance](patches.md) owns dependency checks; [Atlas verification](web/verification.md) owns application and export results. Keep exact inputs, negative controls and limitations with native evidence. Archive checks alone do not establish gameplay or GPU behavior.
 
+## Release 0.19.0
+
+Published Compat 0.38.0 matches both checksum manifests at SHA-256 `ea4ae8301828b77e2fb17f93cb48ebb2c099603290fd5aaa2502cba3b74f9152`. Its public-binary replay covers eight core glass forms, 26 partial orientations/halves, nine conversion crafts and four worker views with 16 matching samples. The implementation, 447-test build, native shader comparisons and explicit moving-renderer limits are owned by [Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/v0.38.0/docs/development/verification.md#cohesive-transparency-0380).
+
+The pack passes 88 Python tests and its 395-file configuration audit without drift. All three release-mode reference exports pass archive integrity and carry the same Resource Patches JAR, SHA-256 `7271fc928272cb8c2255defa74bb367162a099491a160e55cd99a17d9aa76cc4`, with installed identity 0.19.0. Prism and server invocation records select empack 0.8.6-beta and its published bootstrap, SHA-256 `f1b30f4aadb8c7848d8460f2c194804108a59c3d62daa48a251c83de5661f65c`. Both source validation workflows pass at `cfbfd134`.
+
+A fresh actual Prism 11.1.1 import on Apple Silicon, using Temurin 21.0.13, reaches the main menu through one normal launch request without pre-running preparation, manually retrying or repairing the profile. The runtime uses the published engine SHA-256 `8303d415c0571b8aae7dad395a9f9ef21f4d847c1e9e483ccdd94c7e9bb930c2`; all 18 resource packs remain selected. The observed footer displays Create: Skyweave 0.19.0 with Compat 0.38.0 and preserves NeoForge 21.1.265's 246-mod line. A separate forced-offline attempt with incomplete launcher metadata passes preparation but fails before the menu because LWJGL is absent from its classpath; it is retained as a failed control, not offline-startup qualification.
+
+Generation remains `islands_v1-skyarch-1.4-17`, with watersheds `island_watersheds_v7`, unchanged from 0.18.0. No world reset is required. Native facade physics, JVM policies and distance defaults remain unchanged. These startup and rendering checks do not certify broader gameplay, moving Sable/contraption rendering or arbitrary launcher cache states.
+
 ## Release 0.17.0
 
 Compat 0.36.0 passes Linux, Windows and Intel macOS CI. The downloaded JAR matches both published checksum manifests at SHA-256 `05e66dd2b8c921df815b2a75906cc91f9058af8950f23e5a5629714f64765c47`; its natural fortified-swamp fixture passes save/reopen with no failures. Only Compat changes among 181 playable dependency selections, and the shader-lab runner uses the same bytes. Both shader recipes retain their cached outputs. [Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/verification.md#bounded-riverbank-and-village-follow-up-0360) distinguishes the broader local-candidate matrix from the published-binary replay and compiler-forwarding inspection.

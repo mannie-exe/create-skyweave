@@ -2,6 +2,14 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.19.0 · 2026-11-15
+
+### Fixes
+
+- **pack:** Integrate final-shape Copycat glass ([a954f07](https://github.com/mannie-exe/create-skyweave/commit/a954f077268cce39c285e72c24c6edb353d2ffd7))
+
+- **pack:** Adopt verified empack 0.8.6 ([cfbfd13](https://github.com/mannie-exe/create-skyweave/commit/cfbfd13440326acdd4cc1580cac05610424764af))
+
 ## v0.18.0 · 2026-11-15
 
 ### Features
