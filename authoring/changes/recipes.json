@@ -403,6 +403,69 @@
       "review": "reviewed",
       "reason": "Interpret the upstream copper-plate ingredient as its intended tag, preserving the receiver recipe shape and cost.",
       "reference": "docs/development/upstream.md#create-radars-501-recipes"
+    },
+    {
+      "path": "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_beam_compat.json",
+      "sha256": "0edf01e65b95317ccf47901b2a2f2d28600d5352559f0a1022c244d778d6e918",
+      "review": "reviewed",
+      "reason": "Retain the native one-to-one Connected-to-Copycats+ conversion while the redundant Connected category is hidden. Respect the target Copycats+ feature selection.",
+      "reference": "docs/development/weights.md#copycat-selection"
+    },
+    {
+      "path": "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_block_compat.json",
+      "sha256": "d4f6cf2706a5455b370f1e5c6bb95669f5b02bab11f1d1e27ebf81c44b30aace",
+      "review": "reviewed",
+      "reason": "Retain the native one-to-one Connected-to-Copycats+ conversion while the redundant Connected category is hidden. Respect the target Copycats+ feature selection.",
+      "reference": "docs/development/weights.md#copycat-selection"
+    },
+    {
+      "path": "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_board_compat.json",
+      "sha256": "cc780ad203584fcbfa1446df731adfa220110e1b40c9db9fd33f6a306c01329a",
+      "review": "reviewed",
+      "reason": "Retain the native one-to-one Connected-to-Copycats+ conversion while the redundant Connected category is hidden. Respect the target Copycats+ feature selection.",
+      "reference": "docs/development/weights.md#copycat-selection"
+    },
+    {
+      "path": "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_fence_compat.json",
+      "sha256": "da5840eb33b30a1fa0d0ed6485b0f198ea3f892c215d31ecc4f49b3e8adb3b06",
+      "review": "reviewed",
+      "reason": "Retain the native one-to-one Connected-to-Copycats+ conversion while the redundant Connected category is hidden. Respect the target Copycats+ feature selection.",
+      "reference": "docs/development/weights.md#copycat-selection"
+    },
+    {
+      "path": "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_fence_gate_compat.json",
+      "sha256": "8cd284c5ab22b213483a379abdac1b39397c23ce131f9c94c0f3cab13bcfd3a4",
+      "review": "reviewed",
+      "reason": "Retain the native one-to-one Connected-to-Copycats+ conversion while the redundant Connected category is hidden. Respect the target Copycats+ feature selection.",
+      "reference": "docs/development/weights.md#copycat-selection"
+    },
+    {
+      "path": "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_slab_compat.json",
+      "sha256": "6bd254de28de7c5f06046588892176fb0288d365083465cbfe6af5682036b7a7",
+      "review": "reviewed",
+      "reason": "Retain the native one-to-one Connected-to-Copycats+ conversion while the redundant Connected category is hidden. Respect the target Copycats+ feature selection.",
+      "reference": "docs/development/weights.md#copycat-selection"
+    },
+    {
+      "path": "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_stairs_compat.json",
+      "sha256": "b6dcdea43e95489aee5aad0760f28e3fb96b28030f542b7c064c00c00b87f1d6",
+      "review": "reviewed",
+      "reason": "Retain the native one-to-one Connected-to-Copycats+ conversion while the redundant Connected category is hidden. Respect the target Copycats+ feature selection.",
+      "reference": "docs/development/weights.md#copycat-selection"
+    },
+    {
+      "path": "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_vertical_step_compat.json",
+      "sha256": "010d846d6fbd3019ae096ca12332d0c27f5741a6e439ee1199d2d892706825b3",
+      "review": "reviewed",
+      "reason": "Retain the native one-to-one Connected-to-Copycats+ conversion while the redundant Connected category is hidden. Respect the target Copycats+ feature selection.",
+      "reference": "docs/development/weights.md#copycat-selection"
+    },
+    {
+      "path": "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_wall_compat.json",
+      "sha256": "16352620157c385def60bfc0de75998579a0ded25abe301c14caa2168786b706",
+      "review": "reviewed",
+      "reason": "Retain the native one-to-one Connected-to-Copycats+ conversion while the redundant Connected category is hidden. Respect the target Copycats+ feature selection.",
+      "reference": "docs/development/weights.md#copycat-selection"
     }
   ]
 }

@@ -43,6 +43,10 @@ Generated SNBT and the manifest remain in Git for review. The compiler follows t
 
 Run `empack sync --materialize` after changing file policies. Build and instance installation are separate operations. Generated FTB locale files are native SNBT; they do not require the resource JAR. The resource JAR still packages maintained resources and frozen Questlog translations. A successful build does not prove native task triggers, team claims, language switching or playable progression.
 
+## Glass support resources
+
+The Macaw mosaic profile in `resource-patches/assets/skyweave_compat/transparency/` replaces Compat's same-ID default through normal resource priority. Maintain actual registered blocks/panes, not every translucent or similarly named window. Other topology or provider changes require native geometry/CT/reload qualification. Rebuild Resource Patches, verify the winning profile and check the affected shader combinations; the builder's file equality alone does not qualify rendering. Runtime adapters, schema limits and fallback behavior belong to [Compat's glass contract](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/rendering.md#glass-backfaces).
+
 ## Configuration register
 
 `authoring/changes/*.json` separates client, shaders, worldgen, structures, recipes, drops, journal and gameplay. Each record identifies an authored file, its accepted SHA-256, review status, reason and owning reference. `baseline` records the initial source revision. A matching hash establishes file equality, not gameplay validity or equality with upstream defaults. `inherited` means individual settings still need review; `reviewed` can cover a specific change within a larger inherited file.

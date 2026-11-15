@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "feature": "macaw.glass_backfaces",
+  "providers": [
+    "plain",
+    "material"
+  ],
+  "targets": [
+    {
+      "block": "mcwwindows:black_mosaic_glass"
+    },
+    {
+      "block": "mcwwindows:black_mosaic_glass_pane"
+    },
+    {
+      "block": "mcwwindows:blue_mosaic_glass"
+    },
+    {
+      "block": "mcwwindows:blue_mosaic_glass_pane"
+    },
+    {
+      "block": "mcwwindows:brown_mosaic_glass"
+    },
+    {
+      "block": "mcwwindows:brown_mosaic_glass_pane"
+    },
+    {
+      "block": "mcwwindows:cyan_mosaic_glass"
+    },
+    {
+      "block": "mcwwindows:cyan_mosaic_glass_pane"
+    },
+    {
+      "block": "mcwwindows:gray_mosaic_glass"
+    },
+    {
+      "block": "mcwwindows:gray_mosaic_glass_pane"
+    },
+    {
+      "block": "mcwwindows:green_mosaic_glass"
+    },
+    {
+      "block": "mcwwindows:green_mosaic_glass_pane"
+    },
+    {
+      "block": "mcwwindows:light_blue_mosaic_glass"
+    },
+    {
+      "block": "mcwwindows:light_blue_mosaic_glass_pane"
+    },
+    {
+      "block": "mcwwindows:light_gray_mosaic_glass"
+    },
+    {
+      "block": "mcwwindows:light_gray_mosaic_glass_pane"
+    },
+    {
+      "block": "mcwwindows:lime_mosaic_glass"
+    },
+    {
+      "block": "mcwwindows:lime_mosaic_glass_pane"
+    },
+    {
+      "block": "mcwwindows:magenta_mosaic_glass"
+    },
+    {
+      "block": "mcwwindows:magenta_mosaic_glass_pane"
+    },
+    {
+      "block": "mcwwindows:orange_mosaic_glass"
+    },
+    {
+      "block": "mcwwindows:orange_mosaic_glass_pane"
+    },
+    {
+      "block": "mcwwindows:pink_mosaic_glass"
+    },
+    {
+      "block": "mcwwindows:pink_mosaic_glass_pane"
+    },
+    {
+      "block": "mcwwindows:purple_mosaic_glass"
+    },
+    {
+      "block": "mcwwindows:purple_mosaic_glass_pane"
+    },
+    {
+      "block": "mcwwindows:red_mosaic_glass"
+    },
+    {
+      "block": "mcwwindows:red_mosaic_glass_pane"
+    },
+    {
+      "block": "mcwwindows:white_mosaic_glass"
+    },
+    {
+      "block": "mcwwindows:white_mosaic_glass_pane"
+    },
+    {
+      "block": "mcwwindows:yellow_mosaic_glass"
+    },
+    {
+      "block": "mcwwindows:yellow_mosaic_glass_pane"
+    }
+  ]
+}

@@ -257,10 +257,10 @@
     },
     {
       "path": "overrides/common/config/create_connected-common.toml",
-      "sha256": "1253337e0ecd925751860f37fbddbea801e4f21cd88d4d39e0857aef50540ea7",
-      "review": "inherited",
-      "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
-      "reference": "docs/development/decisions.md",
+      "sha256": "408c5ca58e574ebaf88ef692b58f4fc5b11851385f542c74ca8bf2597b69acc5",
+      "review": "reviewed",
+      "reason": "Hide duplicate Connected Copycats through its native category switch. Preserve registry IDs, native saved-block migration and one-to-one conversion recipes; prefer Copycats+ for ordinary shapes.",
+      "reference": "docs/development/weights.md#copycat-selection",
       "installation": {
         "policy": "managed",
         "family": "pack-rules"

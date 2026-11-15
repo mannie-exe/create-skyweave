@@ -26,6 +26,12 @@ Collisionless decorations, including curtains, remain massless. A multi-position
 
 After Sable or building-mod updates, check the live mass values and an assembled structure. A tooltip or a matching tag does not establish the assembled mass. Use registered blocks rather than asset filenames: DnD ships resources for extra colors that are not registered in the selected configuration. See the verification below for measured scope and [patch maintenance](patches.md) for update criteria.
 
+## Copycat selection
+
+Copycats+ supplies the ordinary facade shapes. Connected's `feature_categories.copycats=false` hides its duplicate category through the native feature system; registry entries and native saved-block migration remain available. Resource Patches retains the nine native one-to-one conversion recipe IDs without the hidden-category prerequisite, while retaining the target Copycats+ feature condition. Existing Connected items can still convert to the corresponding Copycats+ item. Resource Patches declares Connected as a prerequisite because these resources use its native condition codec; Compat itself does not require Connected. Recheck creative tabs, EMI and resolved recipes after updating either mod; exported crafting recipes alone do not establish index visibility.
+
+Keep Create's panel and step, Copycat Bar Extrusion, all specialized Copycats+ forms and all Simulated variants. The Simulated normal shapes have not established physics parity with the general facade shapes; their similar appearance is insufficient to hide them. Retain Linear Bearing's entity-friction surface, Aeroworks controls and Propulsion wings as distinct behaviors. Copied materials do not gain new mass, friction, restitution, lift or drag inheritance. Preserve the native base properties and the classifications described above.
+
 ## Multipart machinery
 
 Bits 'n' Bobs 2.3.5 places its gigantic cogwheel in a 3×3 plane. Its center schedules placement of eight colliding satellites through `GiganticCogwheelBlock.tick`; `GiganticCogwheelSatelliteBlock` points each part back toward the center. The satellites have empty rendered models because the center renders the whole wheel, but they are physical positions, not duplicate mass records.
