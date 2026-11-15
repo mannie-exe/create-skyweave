@@ -2,6 +2,12 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.18.0 · 2026-11-15
+
+### Features
+
+- **pack:** Publish installed pack identity ([768482d](https://github.com/mannie-exe/create-skyweave/commit/768482db4cd42a135bda41644bffe72fe2e85b42))
+
 ## v0.17.0 · 2026-11-15
 
 ### Fixes
