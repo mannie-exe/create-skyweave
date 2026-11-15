@@ -2,6 +2,12 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.17.0 · 2026-11-15
+
+### Fixes
+
+- **worldgen:** Preserve village material provenance ([9037c7e](https://github.com/mannie-exe/create-skyweave/commit/9037c7ed11e67ffddb297f7cdd638d24643fb295))
+
 ## v0.16.0 · 2026-11-14
 
 ### Documentation
