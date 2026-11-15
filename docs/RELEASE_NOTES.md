@@ -1,13 +1,12 @@
-# Create: Skyweave 0.17.0
+# Create: Skyweave 0.18.0
 
-Update Skyweave: Compatibility Patches to 0.36.0 and preserve village soil and foundations on floating islands. Minecraft remains 1.21.1; NeoForge remains 21.1.265.
+Add installed pack identity to the main-menu footer with Skyweave: Compatibility Patches 0.37.0. Minecraft remains 1.21.1; NeoForge remains 21.1.265.
 
-- Bound Dynamic Waters post-carver riverbank repair to the correct island column. Dry banks use their local elevation, while connected outlets, falling water, retained shells and separate lower islands remain intact.
-- Keep swamp village ambient soil consistent with the original island palette while preserving authored roads, paving, farms and wet walkways. Generated Resource Patches lists use Compat's conditional processor and require 0.36.0 or newer.
-- Omit only a safely detachable oasis that cuts beneath an inhabited building. Keep valid oases available and preserve traced rejection/fallback for ambiguous layouts.
-- Protect admitted village foundations from conflicting native mangrove roots and recognize bed-bearing dwellings outside conventional house folders. Existing farm roles and family encounter allowances remain unchanged.
-- Extend native verification with effective schedules, pool orders, connectors, templates, processors and explicit unsupported routes.
+- Preserve the Minecraft, NeoForge/mod-count, ModernFix and other existing footer lines. Add `Create: Skyweave <pack version> + Compat <installed version>` through the native branding cache.
+- Derive release identity from `empack.yml` during resource preparation. Normal local and branch builds display `DEV`; an explicit, validated release build embeds the manifest version. Resource Patches keeps its own mod version and installed filename.
+- Keep the presentation adaptation client-only and default-on. Missing or invalid pack metadata falls back to the installed Compatibility Patches version.
+- Verify the Resource Patches identity inside every selected export before publication. Use the repository pack builder when preparing development or release exports.
+- Keep footer text clear of menu buttons in small windows by closing excess row gaps. Preserve existing button sizes, actions, logo and copyright.
+- Use the canonical `Create: Skyweave` Prism title. The portable pack/export name is `Create - Skyweave`; machine identities stay unchanged.
 
-The terrain changes advance saved generation identity to `islands_v1-skyarch-1.4-17` and watersheds to `island_watersheds_v7`. Use a fresh marked world or retain the original artifacts/settings for an existing save. Existing curtains and structures do not repair themselves; installation does not delete worlds or derived map/LOD data automatically. Never edit saved markers to bypass the guard.
-
-Client view/simulation defaults remain 12/10 and server defaults remain 16/12. Heap/collector policies and the remaining dependency selections are unchanged. Native contact, fluid, optional-loading and saved-state checks are bounded; they do not certify every village's appearance or complete navigation. See [Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/v0.36.0/docs/development/verification.md).
+Generation identity remains `islands_v1-skyarch-1.4-17`, with watersheds `island_watersheds_v7`. This presentation update does not require another world reset. Other dependency selections, gameplay settings, distances and JVM policies are unchanged.

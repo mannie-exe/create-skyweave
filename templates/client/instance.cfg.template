@@ -9,7 +9,7 @@ MinMemAlloc=512
 ; Java 21 client default; players can override this in instance settings.
 OverrideJavaArgs=true
 JvmArgs=-XX:+UseZGC -XX:+ZGenerational
-name={{ini_quote NAME}}
+name=Create: Skyweave
 iconKey=create-skyweave
 AutoUpdate=false
 ManagedPack=true

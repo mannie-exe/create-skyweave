@@ -24,6 +24,18 @@ Generated JARs and archives are ignored by Git. Both resource builders accept `-
 
 The root `.gitignore` adapts Toptal templates for macOS, Windows, Linux, common editors and Python tools. `web/.gitignore` adds Node, Astro and extracted game data. Shared editor settings, dependency locks, `web/src/lib/` and Minecraft tag files remain trackable; generated assets and local credentials stay ignored.
 
+## Installed pack identity
+
+`empack.yml` owns the pack ID and release version. `scripts/build-resource-patches.py` reads empack's native build explanation and stamps an in-memory copy of `META-INF/neoforge.mods.toml`; it never rewrites the authored metadata. Resource Patches keeps mod ID `skyweave_resource_patches`, its own version `0.1.0`, stable filename, dependencies and other properties.
+
+The generated `[modproperties.skyweave_resource_patches]` table contains integer `"skyweave:identity-schema" = 1`, `"skyweave:pack-id" = "create_skyweave"`, and string `"skyweave:pack-version"`. Versions are bounded single-line ASCII tokens, at most 128 characters. Normal local builds and branch validation stamp `DEV`. An explicit `--release-tag v<manifest-version>` validates the tag and current lock before preparation, then stamps the complete manifest version. The tag cannot supply a different version; an authored duplicate property owner is refused. Use the same mode with `--check`.
+
+Use `python3 scripts/build-pack.py` for supported local exports. It prepares the DEV resource JAR, builds the selected native profiles and inspects the JAR actually delivered inside each export. Use `python3 scripts/build-pack.py --release-tag v<manifest-version>` for a release-mode build; repeatable `--profile` arguments select native profiles. Raw empack consumes prepared files and does not run this identity preparation automatically. The CI helper calls the same orchestration, and release CI validates/stamps its explicit tag before the other maintained-resource steps. Missing, stale, duplicated or mismatched exported identity stops publication.
+
+Compat's client-only footer combines this installed pack baseline with Compat's actual loaded version. A modified installation keeps its baseline identity; missing or invalid properties select the standalone Compat label. Resource/language reload uses native branding-cache invalidation. Pack identity is presentation metadata and does not change terrain identity, server policy or early loading screens. Recheck NeoForge/FML properties, branding/ModernFix composition, empack explanation/recipe formats and all three exports when their dependencies change.
+
+Empack's pack name is the portable **Create - Skyweave**, while `templates/client/instance.cfg.template` supplies the canonical Prism display name **Create: Skyweave**. The [naming policy](../../AGENTS.md#naming-and-artifact-identity) owns restricted-character fallbacks; display changes do not rename the pack ID or existing instance folder.
+
 ## Editable installation defaults
 
 `empack.bindings.yml` marks `icon.png`, `options.txt` and the authored shader preset TXT files as `seed`: initial installation writes the default, while later preparation preserves edits. Prism rewrites `icon.png` before its pre-launch hook. Server properties come from the server template and remain installation-local. When a visual pack filename changes, update only its matching saved resource-pack ID during an authorized stopped-client sync; seeded `options.txt` will not replace an existing player's selection. Preserve the rest of the list, its order, and other player settings. Generated FTB definitions and frozen Questlog resources have exact `managed` policies. FTB source generation rejects external definition edits before replacing outputs; native world/team progress is separate. See [quest maintenance](journal.md) for source ownership and update checks.
@@ -49,7 +61,7 @@ python3 scripts/build-resource-patches.py
 empack status
 empack sync --materialize --yes
 python3 scripts/build-visual-patches.py
-empack build --profile prism --profile modrinth --profile server --yes --optional-defaults
+python3 scripts/build-pack.py --profile prism --profile modrinth --profile server
 ```
 
 The [shader lab](../../tools/shader-lab/README.md) qualifies both recipes through Compat's shared Java engine. Authoring/CI builds materialize exact inputs and produce complete review ZIPs; exports reference original shader/payload inputs in `shader-inputs/` and include the managed recipes. The client generates its finished ZIPs before Iris opens them. Complete merged shaders are not published as pack assets or simultaneously managed by empack. Euphoria and Colorwheel retain their runtime roles. The lab owns recipe and input update procedures.

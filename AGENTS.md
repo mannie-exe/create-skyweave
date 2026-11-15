@@ -17,6 +17,8 @@ This table owns the shared naming policy. Canonical slugs apply to new or explic
 
 Use kebab-case for slugs, dependency keys, and artifact basenames; use underscores where Minecraft/NeoForge identifiers require them. Published filenames use `<slug>-<version>.jar` or `.zip`. Repository-local shared source may use `resource-patches/`; keep visual inputs with their existing authoring owners, with `authoring/visual-patches.json` as the visual build definition. Builder names are `build-resource-patches.py` for the JAR and `build-visual-patches.py` for the ZIP. The word “resource” alone must not imply executable code; both artifacts contain resources, while Compatibility Patches owns runtime hooks.
 
+Prefer canonical display names wherever supported. If a destination forbids `:`, use a spaced hyphen, such as **Create - Skyweave** or **Skyweave - Resource Patches**. If it allows only spaces and alphabetic/alphanumeric characters, omit the separator: **Create Skyweave** or **Skyweave Resource Patches**. These are presentation fallbacks, not new slugs, mod IDs or saved-data identities. Empack's pack name must form a portable artifact filename; Prism's display template can retain **Create: Skyweave**.
+
 For an authorized rename:
 
 - Inspect actual source paths, metadata, and outputs first. Preserve established machine identities, Java packages/classes, registry/resource IDs, and saved-world/configuration identities unless their change is explicitly in scope. Do not rename foreign namespaces or unrelated modpack content to match an artifact's branding.

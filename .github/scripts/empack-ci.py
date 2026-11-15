@@ -8,8 +8,13 @@ from pathlib import Path
 import re
 import shutil
 import subprocess
+import sys
 import tarfile
 import tempfile
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'scripts'))
+from pack_build import build as build_exports
+from pack_identity import explanation
 
 REPOSITORY = "inherent-design/empack"
 
@@ -54,16 +59,8 @@ def install(version):
 
 
 def selection():
-    args = ["--optional-defaults"]
-    for name in os.environ.get("EMPACK_PROFILES", "").splitlines():
-        if name.strip():
-            args += ["--profile", name.strip()]
-    report = json.loads(run("empack", "build", "--explain", "--json", *args, capture=True))
-    if report.get("schema") != 2 or report.get("lock") != "current":
-        raise ValueError("Build requires a schema-2 explanation with a current lock; run empack sync locally")
-    if not report.get("profiles"):
-        raise ValueError("No build profiles selected")
-    return report
+    profiles = [name.strip() for name in os.environ.get("EMPACK_PROFILES", "").splitlines() if name.strip()]
+    return explanation(Path.cwd(), profiles)
 
 
 def artifact(root, output):
@@ -85,7 +82,7 @@ def stage(root, report, destination):
     names = {"sha256sums"}
     for profile in report["profiles"]:
         source = artifact(root, profile["output"])
-        name = re.sub(r"[^A-Za-z0-9._-]+", "-", source.name).strip(".-")
+        name = re.sub(r"[^A-Za-z0-9._]+", "-", source.name).strip(".-")
         if not name or name.lower() in names:
             raise ValueError(f"Published filename is empty or collides: {source.name}")
         names.add(name.lower())
@@ -114,10 +111,7 @@ def build(release=False):
     tag = os.environ.get("GITHUB_REF_NAME", "")
     if release and tag != "v" + report["version"]:
         raise ValueError(f"Release tag {tag!r} must match authored version v{report['version']}")
-    args = ["empack", "--yes", "build", "--optional-defaults"]
-    for profile in report["profiles"]:
-        args += ["--profile", profile["name"]]
-    run(*args)
+    build_exports(Path.cwd(), report, tag if release else None)
     destination = Path(os.environ["RUNNER_TEMP"]) / "empack-artifacts"
     stage(Path.cwd(), report, destination)
     if release:
