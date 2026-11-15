@@ -1,14 +1,13 @@
-# Create: Skyweave 0.16.0
+# Create: Skyweave 0.17.0
 
-Update Skyweave: Compatibility Patches to 0.35.0, remove Macaw's Bridges and Macaw's Lights and Lamps, and move reference distributions to empack 0.8.5-beta. Minecraft remains 1.21.1 and NeoForge remains 21.1.265.
+Update Skyweave: Compatibility Patches to 0.36.0 and preserve village soil and foundations on floating islands. Minecraft remains 1.21.1; NeoForge remains 21.1.265.
 
-- Preserve floor embeddings, repair native scaffold/stair bearing and isolate terrain-overlay palettes in village support.
-- Keep routed river junctions and outlets connected while retaining void falls and refusing uphill receivers. Existing HOLLOW water seals remain protected.
-- Remove both Macaw mods, their visual recipes, generated resources, Sable weight entries, Debug World cases and active Atlas review subjects. Other installed Macaw mods remain included.
-- Include a Java bootstrap in Prism/server references. It acquires the exact verified empack engine, prepares content and supervises launch without requiring a global empack or Python installation. Keep its generated tool files and invocation records together.
-- Use native Unix terminal handling instead of the previous Python wrapper. Generated full-pack server checks cover console input, clean stop, Ctrl-C and direct SIGINT.
-- Update authoring, shader-lab, CI and Atlas readers to current empack formats without changing the remaining dependency selections.
+- Bound Dynamic Waters post-carver riverbank repair to the correct island column. Dry banks use their local elevation, while connected outlets, falling water, retained shells and separate lower islands remain intact.
+- Keep swamp village ambient soil consistent with the original island palette while preserving authored roads, paving, farms and wet walkways. Generated Resource Patches lists use Compat's conditional processor and require 0.36.0 or newer.
+- Omit only a safely detachable oasis that cuts beneath an inhabited building. Keep valid oases available and preserve traced rejection/fallback for ambiguous layouts.
+- Protect admitted village foundations from conflicting native mangrove roots and recognize bed-bearing dwellings outside conventional house folders. Existing farm roles and family encounter allowances remain unchanged.
+- Extend native verification with effective schedules, pool orders, connectors, templates, processors and explicit unsupported routes.
 
-The terrain fixes advance saved generation identity and require a fresh marked world with matching client/server builds. Installation does not reset a world automatically. Do not edit saved generation markers to bypass the guard. For older reference installations, reimport the current archive rather than combining old launcher commands or release schemas with the new content; retain reviewed personal settings and saves separately.
+The terrain changes advance saved generation identity to `islands_v1-skyarch-1.4-17` and watersheds to `island_watersheds_v7`. Use a fresh marked world or retain the original artifacts/settings for an existing save. Existing curtains and structures do not repair themselves; installation does not delete worlds or derived map/LOD data automatically. Never edit saved markers to bypass the guard.
 
-The client keeps its Java 21 generational-ZGC policy, 8 GiB maximum heap and 512 MiB initial heap. Server view/simulation distances remain 16/12. The native G1 server policy and explicit installation-local preferences remain unchanged. See [build maintenance](development/build.md) and [Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/v0.35.0/docs/development/verification.md) for qualification boundaries.
+Client view/simulation defaults remain 12/10 and server defaults remain 16/12. Heap/collector policies and the remaining dependency selections are unchanged. Native contact, fluid, optional-loading and saved-state checks are bounded; they do not certify every village's appearance or complete navigation. See [Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/v0.36.0/docs/development/verification.md).

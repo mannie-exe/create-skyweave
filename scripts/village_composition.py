@@ -12,6 +12,8 @@ SETS = {BASE + 'minecraft/worldgen/structure_set/villages.json',
         BASE + 'minecraft/worldgen/structure_set/pillager_outposts.json',
         BASE + 'towns_and_towers/worldgen/structure_set/towns.json',
         BASE + 'towns_and_towers/worldgen/structure_set/towers.json'}
+SOIL_LISTS = {f'{BASE}ctov/worldgen/processor_list/village/{theme}/{kind}.json'
+              for theme in ('swamp', 'swamp_fortified') for kind in ('town_center', 'road')}
 
 
 def encoded(value):
@@ -61,6 +63,18 @@ def compose(recipe, archives):
     require(type(recipe['regionalWeight']) is int and 1 <= recipe['regionalWeight'] <= 100, 'Invalid regional layout weight')
     require(type(recipe['outpostWeight']) is int and 1 <= recipe['outpostWeight'] <= 100, 'Invalid outpost weight')
     conditions = [{'type': 'neoforge:mod_loaded', 'modid': 'ctov'}]
+    # Preserve native wear, roads and wet walkways, then adapt only explicitly authored
+    # ambient soil through Compat's retained pre-structure material input.
+    for theme in ('swamp', 'swamp_fortified'):
+        for kind in ('town_center', 'road'):
+            resource = f'ctov:village/{theme}/{kind}'
+            definition = read(ctov, resource, 'worldgen/processor_list')
+            require(isinstance(definition.get('processors'), list), f'{resource}: processor contract changed')
+            require(not any(p.get('processor_type') == 'skyweave_compat:natural_soil'
+                            for p in definition['processors']), f'{resource}: soil adaptation already supplied upstream')
+            definition['processors'].append({'processor_type': 'skyweave_compat:natural_soil'})
+            definition['neoforge:conditions'] = conditions
+            result['resource-patches/' + path_for(resource, 'worldgen/processor_list')] = encoded(definition)
     for theme in themes:
         key = theme['theme']
         require(re.fullmatch('[a-z0-9_]+', key) is not None and key != 'underground', 'Unsupported surface village theme')

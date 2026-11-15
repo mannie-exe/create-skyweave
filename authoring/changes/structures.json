@@ -313,6 +313,34 @@
       }
     },
     {
+      "path": "resource-patches/data/ctov/worldgen/processor_list/village/swamp/road.json",
+      "sha256": "1cd2c41838a2cb56f9e34d4cb0a5217658db4c257d5739e30e6b87f5a6d7fe2a",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/ctov/worldgen/processor_list/village/swamp/town_center.json",
+      "sha256": "41c45904c0c11d5a3ef94ab9fc290ec8a269387fbedbe4cdfe40f23bc0a20dcb",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/ctov/worldgen/processor_list/village/swamp_fortified/road.json",
+      "sha256": "1cd2c41838a2cb56f9e34d4cb0a5217658db4c257d5739e30e6b87f5a6d7fe2a",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
+      "path": "resource-patches/data/ctov/worldgen/processor_list/village/swamp_fortified/town_center.json",
+      "sha256": "37c005cb5787e0b38204d42be76ce1142a5de2887d8d27b2cebe944f7caf2cdd",
+      "review": "reviewed",
+      "reason": "Generated unified settlement policy and bounded, pinned donor references.",
+      "reference": "docs/development/worldgen-candidates.md"
+    },
+    {
       "path": "resource-patches/data/minecraft/worldgen/structure_set/pillager_outposts.json",
       "sha256": "6c6ac8b5b9f4d1bc2aa7864cd9fd244579220e222aea50645adeea7f0013c73b",
       "review": "reviewed",

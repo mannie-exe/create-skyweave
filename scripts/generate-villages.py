@@ -4,14 +4,14 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
-from village_composition import build, encoded, MODIFIERS, TAGS, SETS
+from village_composition import build, encoded, MODIFIERS, TAGS, SETS, SOIL_LISTS
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def generate(root, *, check=False, download=True):
     outputs = build(root, download=download)
-    owned = set(SETS) | {TAGS + family + '.json' for family in ('villages', 'outposts')}
+    owned = set(SETS) | SOIL_LISTS | {TAGS + family + '.json' for family in ('villages', 'outposts')}
     owned.update(path.relative_to(root).as_posix() for path in (root / MODIFIERS).rglob('*.json'))
     stale = owned - outputs.keys()
     audit_path = root / 'authoring/changes/structures.json'

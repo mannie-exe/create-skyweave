@@ -2,6 +2,16 @@
 
 Evidence qualifies its recorded artifact, not arbitrary later changes. The [build guide](build.md) owns commands and release gates; [patch maintenance](patches.md) owns dependency checks; [Atlas verification](web/verification.md) owns application and export results. Keep exact inputs, negative controls and limitations with native evidence. Archive checks alone do not establish gameplay or GPU behavior.
 
+## Release 0.17.0
+
+Compat 0.36.0 passes Linux, Windows and Intel macOS CI. The downloaded JAR matches both published checksum manifests at SHA-256 `05e66dd2b8c921df815b2a75906cc91f9058af8950f23e5a5629714f64765c47`; its natural fortified-swamp fixture passes save/reopen with no failures. Only Compat changes among 181 playable dependency selections, and the shader-lab runner uses the same bytes. Both shader recipes retain their cached outputs. [Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/verification.md#bounded-riverbank-and-village-follow-up-0360) distinguishes the broader local-candidate matrix from the published-binary replay and compiler-forwarding inspection.
+
+All 78 pack Python tests, the 386-file configuration audit, 14 quest outputs and 79 generated village resources pass. Resource and Visual Patches are current. The four generated swamp processor lists preserve their exact native processor sequence, append the conditional soil adapter and require CTOV presence before registry decoding. Their resource-only JAR requires Compat 0.36.0 or newer; an explicitly disabled ground-support adapter retains native processing.
+
+Prism, server and Modrinth reference archives build and pass CRC checks. Both applicable release recipes contain exactly one canonical Compat entry at the published hash and the same Resource Patches JAR, SHA-256 `16eaeaa0719fb73a09b3e390abce7dd8e532a31b59d383bb226f1d5b241105d8`. The packaged processor lists retain their presence conditions and minimum Compat dependency. Client configuration retains 195 managed and 95 seed files; server configuration retains 192 and 81. BlueMap remains server-only, and the removed Macaw's Bridges/Lights mods and probe artifacts are absent.
+
+Saved generation identity advances to `islands_v1-skyarch-1.4-17`, with watersheds `island_watersheds_v7`. Existing terrain does not repair itself. Use a fresh marked world or retain its matching previous artifacts and settings; never bypass the saved identity guard. Bounded support, fluid and optional-loading checks do not certify every village's appearance, complete navigation or world-wide encounter rates. Heap, collector and distance defaults are unchanged.
+
 ## Release 0.15.0
 
 Published Compat 0.34.0 passes Linux, Windows and Intel macOS CI. Its downloaded binary matches both published checksum manifests and the native-qualified SHA-256 `946e4b6d7c7f6a9eec63b961916a067c39b919f8f9c61cdc88eb2e535d0ed3ea`. Only Compat changes among 183 playable selections; the shader-lab runner uses the same released bytes. Both shader recipes report cached outputs. [Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/v0.34.0/docs/development/verification.md) records the predicate allocation comparison, saved structures, generation identity, current Resource Patches admission, client lifecycle and compiler-forwarding distinction.
