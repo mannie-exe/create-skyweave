@@ -1,6 +1,6 @@
 # Build and release maintenance
 
-Use empack **0.8.5-beta** and Java **21** from the repository root. Author manifests use schema 6 with `runtime.java.preferred: 21`; locks use schema 3 and retain the resolved `java-policy`. Bindings remain schema 1. Regenerate metadata with the native engine and review exact selected files, placement and policies; do not translate old locks by changing their schema number. Builds use the recorded lock and explicit distribution profiles. They do not update installed clients or servers.
+Use empack **0.8.6-beta** and Java **21** from the repository root. Author manifests use schema 6 with `runtime.java.preferred: 21`; locks use schema 3 and retain the resolved `java-policy`. Bindings remain schema 1. Regenerate metadata with the native engine and review exact selected files, placement and policies; do not translate old locks by changing their schema number. Builds use the recorded lock and explicit distribution profiles. They do not update installed clients or servers.
 
 ## Source layout
 
@@ -66,7 +66,7 @@ python3 scripts/build-pack.py --profile prism --profile modrinth --profile serve
 
 The [shader lab](../../tools/shader-lab/README.md) qualifies both recipes through Compat's shared Java engine. Authoring/CI builds materialize exact inputs and produce complete review ZIPs; exports reference original shader/payload inputs in `shader-inputs/` and include the managed recipes. The client generates its finished ZIPs before Iris opens them. Complete merged shaders are not published as pack assets or simultaneously managed by empack. Euphoria and Colorwheel retain their runtime roles. The lab owns recipe and input update procedures.
 
-The defaults build reference Modrinth, Prism and server archives under `dist/`. Prism and server references include a Java bootstrap that acquires and verifies the exact empack 0.8.5-beta engine before preparation and launch; recipients need Java, not a global empack installation or Python. Modrinth-compatible launchers handle the `.mrpack` downloads. Authored files remain included, and empack includes prepared server-runtime assets. Check content sources and installation as well as archive integrity.
+The defaults build reference Modrinth, Prism and server archives under `dist/`. Prism and server references include a Java bootstrap that acquires and verifies the exact empack 0.8.6-beta engine before preparation and launch; recipients need Java, not a global empack installation or Python. Modrinth-compatible launchers handle the `.mrpack` downloads. Authored files remain included, and empack includes prepared server-runtime assets. Check content sources and installation as well as archive integrity.
 
 The shared resource builder excludes Finder/AppleDouble and Windows desktop metadata while retaining authored assets. Archives use stable ordering and publication avoids rewriting unchanged output. Verify generated archives before release; source-directory cleanliness alone does not prove archive cleanliness.
 
@@ -130,7 +130,7 @@ Publishing is a separate action from editing or building. Tag only when the rele
 
 ## CI maintenance
 
-The pack validation and release workflows select `modrinth`, `prism` and `server`, use Temurin 21, and pin GitHub Actions to commits. `.github/scripts/empack-ci.py` comes from the empack scaffold, reviewed against `v0.8.5-beta` at `a4f10241`, with a project-specific release-notes option. Its build-explanation check expects schema 2.
+The pack validation and release workflows select `modrinth`, `prism` and `server`, use Temurin 21, and pin GitHub Actions to commits. `.github/scripts/empack-ci.py` comes from the empack scaffold, reviewed against `v0.8.6-beta` at `a709c854`, with project-specific pack-identity verification, release notes, title and filename normalization. Its build-explanation check expects schema 2.
 
 The helper verifies the downloaded empack binary against GitHub's asset digest, rejects stale locks and tag/version mismatches, and stages only the outputs named by `build --explain --json`. It normalizes filenames before hashing and publishes a draft only after uploads succeed. Published names use hyphens for spaces, such as `Create-Sky-0.1.7-prism-references.zip`.
 
