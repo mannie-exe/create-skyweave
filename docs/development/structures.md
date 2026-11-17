@@ -23,6 +23,8 @@ Sky Archipelago classifies `skyvillage` as `SKY` before its village-name rule. V
 
 ## Settlement encounter policy
 
+[Encounter maintenance](encounters.md) owns guard/golem population policy, biome-variant spawning and the separate raid/patrol/structure controls. Defender population is separate from village opportunity and geometric fitting; current marker-based Guard Villagers defaults do not scale with community size.
+
 Ground villages target 0.889 and mansions 0.32 opportunities per 1024 eligible terrain chunks, capped at 3 and 1 per cluster respectively. Eligible biome area, seeded rounding, layout fitting and other reservations still reduce actual counts; these are not per-island probabilities. Sky Villages retain their separate allowance and require a substantial host body within 64–128 blocks of their final footprint. Detached fringes cannot qualify alone.
 
 Native surveys found losses between allowed opportunities and usable layouts. Rates provide more opportunities without forcing invalid layouts or removing ruins; the existing fit budget and terrain safety checks remain. Intentional ruin variants are not proof of an inhabited settlement. [Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/verification.md#village-fitting-and-discovery-0320) owns the exact native counts and limits.

@@ -65,6 +65,37 @@ class ConfigurationAuditTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'installation ownership and family required'):
             audit(self.root)
 
+    def test_duplicate_register_json_keys_rejected(self):
+        path = self.root / 'authoring/changes/client.json'
+        for content in ['{"schema": 1, "schema": 1, "records": []}',
+                        '{"schema": 1, "records": [], "extra": {"enabled": true, "enabled": false}}']:
+            with self.subTest(content=content):
+                path.write_text(content)
+                with self.assertRaisesRegex(ValueError, 'Duplicate JSON key'):
+                    audit(self.root)
+
+    def test_common_and_side_override_collision_rejected(self):
+        for layer in ['common', 'client']:
+            path = self.root / f'overrides/{layer}/config/shared.json'
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text('{}')
+        with self.assertRaisesRegex(ValueError, 'Ambiguous installation destination'):
+            audit(self.root)
+
+    def test_distinct_client_and_server_destinations_allowed(self):
+        for layer in ['client', 'server']:
+            path = self.root / f'overrides/{layer}/config/shared.json'
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text('{}')
+        self.assertEqual(len(audit(self.root)['unregistered']), 2)
+
+    def test_duplicate_client_option_keys_rejected(self):
+        path = self.root / 'overrides/client/options.txt'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text('renderDistance:12\nrenderDistance:8\n')
+        with self.assertRaisesRegex(ValueError, 'Duplicate client option'):
+            audit(self.root)
+
 
 if __name__ == '__main__':
     unittest.main()

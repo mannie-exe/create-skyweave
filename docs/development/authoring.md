@@ -4,7 +4,7 @@ The pack owns quest source, the configuration register and model recipes. The lo
 
 The [Debug World guide](debug-world.md) owns curated native displays, profile configuration, regeneration and guarded installation. It is separate from Atlas world-generation surveys and the playable server world.
 
-The [shader lab](../../tools/shader-lab/README.md) owns BSL/Colorwheel and Complementary/Euphoria shader generation, including texture-based Create window material changes. Run its builder before `empack sync` or a pack build. The pack consumes generated shaders; source inputs and runtime integrations have separate roles.
+The [shader lab](../../tools/shader-lab/README.md) owns BSL/Colorwheel, Complementary/Euphoria and Photon shader generation, including texture-based Create window material changes. Run its builder before `empack sync` or a pack build. The pack consumes generated shaders; source inputs and runtime integrations have separate roles.
 
 ## Quest source
 
@@ -49,9 +49,11 @@ The Macaw mosaic profile in `resource-patches/assets/skyweave_compat/transparenc
 
 ## Configuration register
 
-`authoring/changes/*.json` separates client, shaders, worldgen, structures, recipes, drops, journal and gameplay. Each record identifies an authored file, its accepted SHA-256, review status, reason and owning reference. `baseline` records the initial source revision. A matching hash establishes file equality, not gameplay validity or equality with upstream defaults. `inherited` means individual settings still need review; `reviewed` can cover a specific change within a larger inherited file.
+`authoring/changes/*.json` separates client, shaders, worldgen, structures, recipes, drops, journal and gameplay. These files are a configuration register, not a stack of patches: their records do not write or merge setting values. Each record identifies an authored file, its accepted SHA-256, review status, reason and owning reference. `baseline` records the initial source revision. A matching hash establishes file equality, not gameplay validity or equality with upstream defaults. `inherited` means individual settings still need review; `reviewed` can cover a specific change within a larger inherited file.
 
-The checker reports drift, missing files and files absent from the register. It covers distributed client/common config, shader settings, client options, resource recipes/tags/drops and the server properties template. Generated quest files have their own semantic check. Dependency selection, live-instance settings, worlds, LOD caches and private seeds are outside this register. The structures register covers the Sky Villages integration; broader density tuning remains deferred. See [structures](structures.md).
+The checker rejects duplicate JSON keys or file records in the register, repeated client-option keys, and common/side override files that target the same installation path. Put a shared file in `overrides/common`, or put distinct client/server versions in their respective layers; do not rely on a common file being shadowed. Client and server counterparts may share a destination because they are installed separately.
+
+It reports drift, missing files and files absent from the register. Coverage includes distributed client/common/server config, shader settings, client options, resource recipes/tags/drops and the server properties template. Generated quest files have their own semantic check. Dependency selection, live-instance settings, worlds, LOD caches and private seeds are outside this register. The structures register covers the Sky Villages integration; broader density tuning remains deferred. See [structures](structures.md).
 
 The checker is read-only. It does not restore files, generate arbitrary mod configuration, or accept new hashes automatically. Whole-file hashing is sensitive to formatting; Git diffs and the owning document explain the actual setting change.
 
@@ -71,6 +73,8 @@ Empack defaults files under `config/` to seed. Every distributed configuration t
 | `consent` | Seed | Crash-report consent remains the installation owner's decision. |
 
 Inspect actual readers, UI saves and startup/runtime writers. A file being JSON or TOML, having an editor, or receiving regenerated comments does not by itself settle ownership. Empack compares bytes: harmless native normalization can still cause a managed-file conflict. Qualify save/reopen and repeated launcher preparation before converting a path. Do not solve conflicts by weakening checks, discarding player choices or making all configs seeds. For mixed ownership, prefer existing supported separation; otherwise document a justified exception and its update procedure.
+
+Use the actual native parser when validating configuration syntax. AnalogLib 0.1.0's client file has a `.toml` suffix but uses LampLib's line-based category parser and bare enum names; strict TOML rejection alone does not establish a broken native config. Lithostitched's `.json` file contains native-supported comments. Preserve these native formats and validate them with their owning readers.
 
 Managed native TOML inputs use the pinned reader/writer's canonical representation. Preserve native comment bytes during formatting cleanup: a writer can restore trimmed whitespace and cause a managed-file conflict without changing a value. Requalify both first-load normalization and subsequent no-value-change saves when a dependency changes. Cable Facades' version-1 migration merges its former `added_blocks` into `blocks`; compare the resulting union rather than only the version number. ADQ 1.1.1 leaves the authored custom templates unchanged on load/reload; its world quest state is separate. Check its special legacy-template rewrite conditions on updates. Powergrid 0.6.2 can change `NATIVE` to `JAVA` when the native solver is unsupported; that is a meaningful host fallback, not a formatting normalization.
 

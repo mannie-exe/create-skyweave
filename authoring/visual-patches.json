@@ -13,12 +13,6 @@
       "sha512": "57073e45b1499cb7c4e6e40f9314fa6bb24716f116ef83a65914c86a7999bb26d28c023afd502e2bdbce60312c225199c4e46a3194e8dbe7bb60121894338996",
       "url": "https://cdn.modrinth.com/data/PgpTtNoI/versions/iKYRZwnm/crops-3d%282%29.zip"
     },
-    "better-lanterns": {
-      "version": "jRAsb6KQ",
-      "path": "pack/resourcepacks/Better+Lanterns+v1.2(mc-1.21).zip",
-      "sha512": "e2bbb4555928f418ec5953228fe0200ae62baffa7fc3a189cf3595843061ea76f61465d591ebdb07b05d9d2f281f6b64944f55e99343d8700f2c5f475f40f745",
-      "url": "https://cdn.modrinth.com/data/PGGrfcvL/versions/jRAsb6KQ/Better%2BLanterns%2Bv1.2%28mc-1.21%29.zip"
-    },
     "create-deco": {
       "version": "qrcMVoBD",
       "path": "pack/mods/createdeco-2.1.3.jar",
@@ -129,17 +123,77 @@
       "path": "pack/resourcepacks/Midnighttigger's Default Connected Textures.zip",
       "sha512": "ad43b77f10a58a838e6ba2e6fd8a190f3eba823df991d8c475192b5c77ffe76abb314c008fad1d92fc8d9dc2b23b20cd0c96331787b1e63d6ab61f0249386b11",
       "url": "https://cdn.modrinth.com/data/TjOXlt9Y/versions/UPBKvt5T/Midnighttigger%27s%20Default%20Connected%20Textures.zip"
+    },
+    "refined-buckets": {
+      "version": "3xfWCDi5",
+      "path": "pack/resourcepacks/Refined Buckets 3.0.zip",
+      "sha512": "3b9c7f2eb699267cbb311563bb6864331aebec989fb6be81acd2000f96883849d29d96d584c26ffc4ff2fd29c41f7175d9ef8dd794b28578449596ec7c7173ab",
+      "url": "https://cdn.modrinth.com/data/l2nl8HQJ/versions/3xfWCDi5/Refined%20Buckets%203.0.zip"
+    },
+    "refined-create-buckets": {
+      "version": "ByxDrT5M",
+      "path": "pack/resourcepacks/Refined \u0421reate Buckets PV.zip",
+      "sha512": "5e421da835064d4f48fb8b1028775a37e8f5f7908a619504f3aff2d04693b1acbcabba76df8ec85b5649f4c7ed6b7a53a13924de068004c4f2493d7e26d420d2",
+      "url": "https://cdn.modrinth.com/data/5m3ARu6i/versions/ByxDrT5M/Refined%20%D0%A1reate%20Buckets%20PV.zip",
+      "provider": "url"
+    },
+    "3d-flint-steel-for-punchy": {
+      "version": "oJUygH2s",
+      "selection": "build-only",
+      "path": ".cache/resource-inputs/3d-flint-steel-for-punchy-26.3.zip",
+      "sha512": "22ba45bf0c5e16b10ac5e6af5d1ee42750b290a9335e2c90a2a39d7f8748b5e69570b0524aa9dd7ee2e0b85f8559ab032b5a02b777dd8a2b61bb658e28a927f3",
+      "url": "https://cdn.modrinth.com/data/HprzSiqB/versions/oJUygH2s/3D%20Flint%20%26%20Steel%20for%20Punchy.zip"
+    },
+    "create-factory": {
+      "version": "OA9Dvj5m",
+      "path": "pack/mods/create_factory-0.7b-1.21.1.jar",
+      "sha512": "4acc37144a644ea0ddc1290e2419b2eb852e38faa48992f702afc2555162fcc8baa9b79c9dab2f77da57b5b530011ad737cf638ba4813053a63c43b3a554d485",
+      "url": "https://cdn.modrinth.com/data/j6Zt3N7W/versions/OA9Dvj5m/create_factory-0.7b-1.21.1.jar"
+    },
+    "create-propulsion-simulated": {
+      "version": "H13U56dc",
+      "path": "pack/mods/createpropulsion-1.1.5.jar",
+      "sha512": "6096c9c5cb220219a0b58b56f9fefd63f8b79a0967d326727b4206d62df1813da73956aeae2fa5b839160a1bb5af8e099726d12d2d93f10e5f157beb85bb9c52",
+      "url": "https://cdn.modrinth.com/data/ApkoHNO9/versions/H13U56dc/createpropulsion-1.1.5.jar"
+    },
+    "create-confectionery": {
+      "version": "ndnETBEN",
+      "path": "pack/mods/create-confectionery1.21.1_v1.1.3b.jar",
+      "sha512": "ee299e0b3fc12edc506f7385a44eef207fcdc30ba6a0d30248614eed3486f78c661d9a176cb715eba044ac1a4255e38aa522bdd4b3fc1778049625108e114e82",
+      "url": "https://cdn.modrinth.com/data/WPE5gRs9/versions/ndnETBEN/create-confectionery1.21.1_v1.1.3b.jar"
+    },
+    "power-grid": {
+      "version": "jCkPHjmP",
+      "path": "pack/mods/powergrid-mc1.21.1-0.6.2.jar",
+      "sha512": "60307e23a27526d22bf753d387edef5a2f2a063a04a47b69e98b7f71bbad32fdf17e05f9838008e47a5999a60e5e77a91f0695215d0ab57694f0034fde9873ca",
+      "url": "https://cdn.modrinth.com/data/eWiBLJ9R/versions/jCkPHjmP/powergrid-mc1.21.1-0.6.2.jar"
+    },
+    "create-big-cannons": {
+      "version": "bOiDu0LS",
+      "path": "pack/mods/createbigcannons-5.11.7+mc.1.21.1.jar",
+      "sha512": "24f414dfbb973a0f4d9c9b2aa059edc7bed4d23b4f39eb1f7d23a1d6b437e3b5d64cca6e4b85ff7eb2815743fa711d54ad652bffe96d1eb1234544716006440d",
+      "url": "https://cdn.modrinth.com/data/GWp4jCJj/versions/bOiDu0LS/createbigcannons-5.11.7%2Bmc.1.21.1.jar"
+    },
+    "create-aeronautics": {
+      "version": "44pLdPGg",
+      "path": "pack/mods/create-aeronautics-bundled-1.21.1-1.3.2.jar",
+      "sha512": "dc7e8e1148fa442243889ba29412207137e1bb86206e6c92bc0a589f1374a466e93de22bdbf14f753984d86c29308fbbdc0f14a4b9618b14c0ac1666a36b46f5",
+      "url": "https://cdn.modrinth.com/data/oWaK0Q19/versions/44pLdPGg/create-aeronautics-bundled-1.21.1-1.3.2.jar",
+      "archive_entry": "META-INF/jarjar/dev.eriksonn.aeronautics.aeronautics-neoforge-1.21.1-1.3.2.jar",
+      "nested_sha512": "f7faf42c6d6b314eb0851283f7aff4660a81906d48a29ede055e785ac284f42133282a0ec89503893ccd50933e17a8b336f3d83a50fe3c6e14613dd08cf284f7"
     }
   },
   "compatibility": {
     "lootr_fresh_objects": true,
     "window_interior_faces": false,
-    "fusion_pane_lighting": true
+    "fusion_pane_lighting": true,
+    "refined_buckets": true,
+    "flint_and_steel_backport": true,
+    "luminous_lanterns": true
   },
   "credits": [
     "Fresh Flower Pots \u2014 BlueHDGaming: https://modrinth.com/resourcepack/fresh-flower-pots",
     "3D Crops Revamped \u2014 vexcenot; adapted models credit Stridey; project credits NinthWorld: https://modrinth.com/resourcepack/3d-crops",
-    "Better Lanterns \u2014 Nico4play: https://modrinth.com/resourcepack/better-lanterns",
     "Create Deco \u2014 talrey, Ordana and Baileybun: https://modrinth.com/mod/create-deco",
     "Fresh Animations: Objects \u2014 FreshLX: https://modrinth.com/resourcepack/fresh-animations-objects",
     "Compatibility adaptations and generated geometry \u2014 Create: Skyweave",
@@ -159,6 +213,16 @@
     "Jacob\u2019s 3D Workspace+: selected model/texture features adapted by Create: Skyweave. Source: https://modrinth.com/resourcepack/jacobs-workspace-plus; license: CC-BY-NC-4.0. Unselected assets are not included.",
     "Toasty's Perfect Pitchers (3d pitcher plants): selected model/texture features adapted by Create: Skyweave. Source: https://modrinth.com/resourcepack/toastys-perfect-pitchers-3d-pitcher-plants; license: LicenseRef-All-Rights-Reserved. Unselected assets are not included.",
     "3D Models: selected model/texture features adapted by Create: Skyweave. Source: https://modrinth.com/resourcepack/ulticraft-models-3d; license: CC-BY-NC-SA-4.0. Unselected assets are not included.",
-    "Midnighttigger's Default Connected Textures: pane model ambient-occlusion property spelling adapted to Fusion's schema by Create: Skyweave; geometry and textures retained. Source: https://modrinth.com/resourcepack/mt-ct-d; exact input recorded in SOURCES.json."
+    "Midnighttigger's Default Connected Textures: pane model ambient-occlusion property spelling adapted to Fusion's schema by Create: Skyweave; geometry and textures retained. Source: https://modrinth.com/resourcepack/mt-ct-d; exact input recorded in SOURCES.json.",
+    "Refined Buckets 3.0 \u2014 patovskiz: https://modrinth.com/resourcepack/refined-buckets; required external models and textures remain in that pack.",
+    "Refined Create Buckets \u2014 CRAFTINGC00KIE and patovskiz: https://modrinth.com/resourcepack/refined-reate-buckets; required external honey/chocolate textures remain in that pack. Create: Skyweave supplies model references and current-base bindings.",
+    "3D Flint & Steel for Punchy \u2014 vikicapikica094: https://modrinth.com/resourcepack/3d-flint-steel-for-punchy; selected models/textures adapted for Minecraft 1.21.1 with Modefite, CC-BY-SA-4.0. Shelf/name selectors omitted; original geometry retained.",
+    "Create: Factory: native fluid surfaces referenced by the Refined bucket bindings; original assets remain in the required mod. https://modrinth.com/mod/create-factory (exact input recorded in SOURCES.json).",
+    "Create Propulsion: Simulated: native fluid surfaces referenced by the Refined bucket bindings; original assets remain in the required mod. https://modrinth.com/mod/create-propulsion-simulated (exact input recorded in SOURCES.json).",
+    "Create Confectionery: native fluid surfaces referenced by the Refined bucket bindings; original assets remain in the required mod. https://modrinth.com/mod/create-confectionery (exact input recorded in SOURCES.json).",
+    "Create: Power Grid: native fluid surfaces referenced by the Refined bucket bindings; selected acid frames are reordered for Punchy under Apache-2.0, with license retained in LICENSES/powergrid-Apache-2.0.txt. https://modrinth.com/mod/power-grid (exact input recorded in SOURCES.json).",
+    "Create Big Cannons: native fluid surfaces referenced by the Refined bucket bindings; original assets remain in the required mod. https://modrinth.com/mod/create-big-cannons (exact input recorded in SOURCES.json).",
+    "Minecraft 1.21.1 water surface \u2014 Mojang/Microsoft; tinted with the pinned Propulsion client fluid colours for turpentine and oxidizer. Only the generated bucket surfaces are included; exact source input and ARGB values are recorded in SOURCES.json and held-items.json.",
+    "Create Aeronautics: native Levitite Blend surface referenced from the exact nested Aeronautics JAR; original assets remain in the required mod. https://modrinth.com/mod/create-aeronautics (outer and nested identities recorded in SOURCES.json)."
   ]
 }

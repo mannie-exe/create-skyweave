@@ -20,6 +20,8 @@ Skyweave: Compatibility Patches includes the Veil/Iris framebuffer correction an
 
 Native checks covered the selected shader stack, Ponder, heated balloons, and material controls. Single-block glass rendering is corrected; flickering or gapped airship shadows remain unresolved. Report the shader pack, block types, whether the balloon is inflated, and whether camera or ship motion changes the artifact. Do not clear worlds or LOD caches to troubleshoot it.
 
+The separate `rendering.construct_coverage` adaptation waits for usable terrain between the camera and an already delivered distant ship. Unknown or unmeshed terrain withholds that draw; confirmed void remains valid. The existing opaque-depth guard then decides actual terrain occlusion. Nearby ships retain native behavior. Coverage needs DH, Sable, and SSRD but not Iris; it does not load chunks, increase server tracking limits, or activate dormant ships.
+
 ## Colorwheel
 
 Colorwheel enables shader-aware Flywheel rendering with compatible shaders. The generated Complementary/Euphoria/Skyweave selection includes native support. Its Euphoria mod supplies runtime integration. Shader-off rendering keeps Flywheel's ordinary backend. The Mac uses instancing; indirect rendering and Colorwheel OIT are unavailable there. Skyweave: Compatibility Patches releases unused OIT sampler slots on that renderer and supplies material metadata for direct Sable model draws.
@@ -34,17 +36,29 @@ Lamb's settings control ordinary dynamic lighting. If a shader already lights yo
 
 ## Resource packs
 
-The selected stack includes RAY's ladders and rails, Midnighttigger's Fusion connected textures, Low Shield, Soft Weather, Cubic Sun & Moon, Fresh Flower Pots, Create Touch-Ups, Low On Fire, Fresh Animations Details/Objects and Better Lanterns. Crops, sugar cane, iron bars, Redstone Tweaks and base Fresh Animations are also selected. The [content list](../MODLIST.md) records exact dependencies.
+The selected stack includes RAY's ladders and rails, Midnighttigger's Fusion connected textures, Low Shield, Soft Weather, Cubic Sun & Moon, Fresh Flower Pots, Create Touch-Ups, Low On Fire, Fresh Animations: Objects, Refined Tools, Refined Torches, Refined Buckets with its Create addon, Luminous Lanterns, Fluid & Foolish and Punched Backpacks. Crops, sugar cane, iron bars and Redstone Tweaks are also selected. Base Fresh Animations and Details remain available but deselected. The [content list](../MODLIST.md) records exact dependencies.
 
 Dedicated Sugar Cane and RAY's Rails sit above 3D Crops and Redstone Tweaks respectively. Keep 3D Crops above Fresh Flower Pots for the four shared potted mushrooms and fungi as a fallback. **Skyweave: Visual Patches** sits above both and combines the 3D plants with Fresh pots and approved model compositions. Keep the patch at highest priority. Objects owns trapped-chest textures, reducing the front-face distinction from normal chests. Lootr retains its own opened/unopened appearance.
 
 The pinned 3D Crops archive declares a newer format despite its 1.21.1 download tag. Default options explicitly accept this inspected archive so Minecraft does not silently deselect it. This acceptance is specific to the pinned file; review it again on updates. Icons is excluded because its symbols add visual clutter.
 
+Punchy supplies the first-person animations; Hold My Items and InteractiveStuff are alternative animation systems and are not installed. Modefite reads the newer item definitions on Minecraft 1.21.1, and Respackopts supplies the Refined packs’ conditional resource options. Luminous owns lanterns; the placed redstone torch keeps Skyweave’s existing model. Enchanted Fishing Line adds a client-side simulated fishing line.
+
 Fresh installations receive this selection. Existing installations retain player options unless explicitly synchronized. Reordering packs changes which overlapping models win. These packs do not restyle every modded counterpart; moving ships, Copycats, large farms and shader interactions still need visual testing.
+
+## Player and world effects
+
+3D Skin Layers adds depth to the outer skin layer without changing player collision or movement. Its preferences live in `config/skinlayers.json`. Punchy owns first-person animation; Moves owns the selected player and cape animation direction. Compat’s `punchy_moves.touch_n_motion` startup adaptation connects the pinned Touch’n Motion body/contact and pose-copy API without another cape engine.
+
+Interactive Foliage reacts to nearby entities through SWAY. Its supplied defaults use the GPU renderer and disable ambient foliage/leaves waving and weather wind, leaving ambient wind to shaders. Entity interactions remain available with shaders off. Use `config/mc2_interactivefoliage.json` to change these preferences; the CPU renderer remains a fallback for rendering issues. Shader and resource-model compatibility still needs qualification on the selected stack.
+
+Subtle Effects supplies block, entity and environmental particles. Its five configuration files live in `config/subtle_effects/`. Particle culling is enabled at five chunks, and waterfall effects retain distance checks. Entity water-entry splashes and underwater container bubbles remain disabled in the initial defaults. The existing Cool Rain/Sable Cool Rain stack still owns weather rendering.
+
+These files are player-owned seeds: changed pack defaults do not overwrite existing preferences. The native render combinations, custom plant models and moving ships need visual comparison before treating every effect as qualified. See [effect maintenance](../development/patches.md#client-effect-defaults).
 
 ## Visual checks
 
-Compare the same blocks with shaders enabled and disabled before changing the resource stack. Check connected blocks from several sides, opening and closing chests, animated textures and moving contraptions. The maintained patch includes Lootr/Fresh Objects animation bindings, mooshroom model adaptation, lantern artwork fitting and authored bar/lamp geometry. It does not restyle every mod.
+Compare the same blocks with shaders enabled and disabled before changing the resource stack. Check connected blocks from several sides, opening and closing chests, animated textures and moving contraptions. The maintained patch includes Lootr/Fresh Objects animation bindings, mooshroom model adaptation, held-item resource bindings and authored bar/lamp geometry. It does not restyle every mod.
 
 Maintainers can use a disposable scene with labeled samples; the local Resource Review fixture and captured comparisons are described in [Atlas verification](../development/web/verification.md). Test saves and optional comparison packs are not distributed with Create: Skyweave.
 
@@ -54,15 +68,17 @@ Shaders are off by default. Select a pack through Iris's shader settings:
 
 | Pack | Included version | Notes |
 | --- | --- | --- |
-| Complementary + Euphoria + Skyweave | r5.9.3 + 1.10.5 + 0.2.0 | Generated shader with window and island-environment corrections |
-| BSL + Colorwheel + Skyweave | 10.1.8 + 1.0.5 + 0.2.0 | Generated alternative with the supplied BSL settings |
-| Photon | 1.4 | High defaults with machinery shadows; native Colorwheel and DH support |
+| Complementary + Euphoria + Skyweave | r5.9.3 + 1.10.5 + 0.3.0 | Generated shader with window and island-environment corrections |
+| BSL + Colorwheel + Skyweave | 10.1.8 + 1.0.5 + 0.3.0 | Generated alternative with the supplied BSL settings |
+| Photon + Skyweave | 1.4 + 0.3.0 | Generated correction retaining native Colorwheel; supported GPUs only |
 
 The supplied Complementary, Euphoria and BSL presets use 128-block shadow distance. Complementary and Euphoria also use Low light-shaft sampling. Their clouds, water reflections, ambient occlusion, bloom and anti-aliasing retain the stock HIGH behavior. BSL disables depth of field, motion blur and multicolored blocklight.
 
+The generated corrections also supply DH shadow programs and qualify affected directional light-shaft samples against finite shadow-map coverage. Ambient lighting remains native. Coarse LODs can miss narrow openings; beyond the map, the correction conservatively omits unverified direct shafts. Larger shadow distance does not create missing terrain and spreads the same resolution over more ground.
+
 These settings reduce selected rendering costs while retaining most effects; there is no measured FPS guarantee. Check moving ships, water and glass, island edges, and sunrise/sunset after changing settings.
 
-Select `BSL_v10.1.8 + Clrwl_1.0.5 + Skyweave_0.2.0.zip` for the BSL alternative. The installed runner assembles supported outputs before Iris opens them; original inputs stay outside the shader selection list. Current Complementary, Euphoria and Photon support Colorwheel natively.
+Select `BSL_v10.1.8 + Clrwl_1.0.5 + Skyweave_0.3.0.zip` for the BSL alternative. The installed runner assembles supported outputs before Iris opens them; original inputs stay outside the shader selection list. Current Complementary, Euphoria and Photon support Colorwheel natively.
 
 Photon retains its native High lighting settings, including SH Skylight and colored shadows, with block-entity shadows enabled for machinery. Shadow distance is 128 blocks at 2048 resolution; depth of field and motion blur are disabled. Its Ultra profile and colored-lighting options remain available through the shader menu.
 
@@ -91,4 +107,10 @@ F8 reloads the selected shader. R remains available for recipe lookup and Power 
 
 ## Shader generation
 
-The first client launch assembles the two qualified shader choices from verified installed inputs. Later launches check their cache without rewriting shaders. Only complete results appear in Iris. Keep the default Complementary/Euphoria/ Skyweave selection, or select BSL/Colorwheel; your enablement and quality options remain yours. Compat settings list recipe status and **Rebuild shaders**. A failed recipe is reported there and in the log; the client does not silently select an unpatched shader. This works with ordinary launchers and needs no Python or launcher-specific patching command.
+The first client launch assembles the three authored shader choices from verified installed inputs. Later launches check their cache without rewriting shaders. Only complete results appear in Iris. Keep the default Complementary/Euphoria/ Skyweave selection, or select BSL/Colorwheel or Photon on a supported GPU; your enablement and quality options remain yours. Compat settings list recipe status and **Rebuild shaders**. A failed recipe is reported there and in the log; the client does not silently select an unpatched shader. This works with ordinary launchers and needs no Python or launcher-specific patching command.
+
+## Enchanted equipment outlines
+
+Outline Effects adds outlines, animated runes and glow to enchanted held items and armor. Its O shortcut opens the quick settings panel in-world; the Mods menu exposes its configuration as well. The authored defaults retain vanilla glint alongside these effects. Colors, thickness, runes, glow, third-person rendering and saved presets are client preferences. This effect concerns equipment, independently of block-selection outlines.
+
+The independent `iris.hand_effects` Compat adaptation restores the outline, runes, and hand glow through Iris’s actual hand passes. The global unknown-shader setting remains false. Outline Effects still owns colors, item eligibility, glow, and glint preferences. Changing the adaptation requires a game restart; native effect preferences retain their own controls. Shader-off rendering keeps its native path.

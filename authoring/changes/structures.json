@@ -313,6 +313,27 @@
       }
     },
     {
+      "path": "resource-patches/data/minecraft/worldgen/template_pool/trial_chambers/spawner/slow_ranged/murk.json",
+      "sha256": "809062512a55ff1479e81f1f6a2b33e4b71c46cfbc1c232a1ba1cb22e7e8cf19",
+      "review": "reviewed",
+      "reason": "Replace the missing V&V1.0.29 slow-ranged murk template reference with its existing ranged template plus the pack-owned cadence processor. Preserve weight1, rigid projection and empty fallback. NeoForge mod-loaded condition removes this override without V&V; no third-party template is copied.",
+      "reference": "docs/development/encounters.md"
+    },
+    {
+      "path": "resource-patches/data/minecraft/worldgen/template_pool/trial_chambers/spawner/slow_ranged/verdant.json",
+      "sha256": "1ecd44ab1c986eeccf932dfbfedc358075af0db9f874bde4d406a2073bb774a2",
+      "review": "reviewed",
+      "reason": "Replace the missing V&V1.0.29 slow-ranged verdant template reference with its existing ranged template plus the pack-owned cadence processor. Preserve weight1, rigid projection and empty fallback. NeoForge mod-loaded condition removes this override without V&V; no third-party template is copied.",
+      "reference": "docs/development/encounters.md"
+    },
+    {
+      "path": "resource-patches/data/create_skyweave/worldgen/processor_list/variants_slow_ranged.json",
+      "sha256": "1ff9b5b9953df0a8a327ad834d0ecd83e5574c00fe0f45a74183576b0e1afc98",
+      "review": "reviewed",
+      "reason": "Merge only slow-ranged native timing/scaling into both trial configurations:160ticks,4simultaneous,+2per extra player. TrialSpawnerBlockEntity merges normal into ominous; patch both explicit V&V configurations while retaining entity, equipment, reward and total-mob data. Native trial block state only; conditional on V&V.",
+      "reference": "docs/development/encounters.md"
+    },
+    {
       "path": "resource-patches/data/ctov/worldgen/processor_list/village/swamp/road.json",
       "sha256": "1cd2c41838a2cb56f9e34d4cb0a5217658db4c257d5739e30e6b87f5a6d7fe2a",
       "review": "reviewed",

@@ -20,6 +20,8 @@ InvMove permits movement in ordinary inventories. Focused text fields, Ponder, b
 
 Grave accent (`) opens FTB Quests in new pack defaults. Questlog remains available through its inventory button with its opening key unbound; see [quests](journal.md) for the current content and authoring boundaries.
 
+See [movement and combat](movement-combat.md) for the authored movement and interaction controls.
+
 Mouse Tweaks supplies drag and wheel gestures; Inventory Profiles Next adds manual sorting, transfers and refill. See [inventory controls](inventory.md) for ownership, defaults and the current creative-screen workaround.
 
 Ping Wheel uses its **Ping Location** binding, initially Mouse 5; remap it here if your mouse has no side buttons. Pings last ten seconds with reduced volume. Operators can use **G** for [Wayfinder](server.md#wayfinder), a sight-based teleport. It is rebindable under Skyweave: Compatibility Patches; ordinary players cannot use it unless the server explicitly changes its access policy. Hold Shift over a shulker box for its contents preview. Clean Tooltips displays durability and enchantments without extra blank lines between sections.

@@ -94,13 +94,13 @@ For a fitting draft, bind opaque regions to frames and recessed regions to windo
 
 The browser uses Three.js with nearest-neighbor textures, Minecraft face winding, UV rotation, and supported element rotation. Drag to orbit, scroll to zoom, or use **Reset view**. Wireframe exposes emitted geometry. Small gray spinners appear in the upper-right corners during refresh; they retain the previous content and do not intercept input.
 
-| Area                          | Current behavior                                                                                                                                                                                                  | Deferred work                                                                                                                     |
-| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Block models and artwork      | Registered model recipes and fixed artwork cases; ordered stack resolution, parents, aliases, matching format overlays and supported filters.                                                                     | Custom loaders, CTM/adjacency, arbitrary block-entity rendering.                                                                  |
-| Entity models and FA          | Headless native factories for cow, pig, chicken, creeper and Confectionery gingerbread; explicit static CEM stances for those four vanilla species and mooshroom. Compare native, FA base and selected resources. | FA expressions, model animation, conditional variants, arbitrary mod renderers and unadmitted CEM (including unadmitted species). |
-| Animated textures             | Two-dimensional frame layouts, frame order and durations; synchronized pause/play, reduced-motion freeze. Editors use the first frame and compose every frame.                                                    | Interpolation is not reproduced; texture timeline editing remains deferred.                                                       |
-| Block states and interactions | Declared fixed components and material cases.                                                                                                                                                                     | General state selection, transitions, redstone or neighbor simulation.                                                            |
-| Audio                         | None.                                                                                                                                                                                                             | Event resolution, listening and audio authoring.                                                                                  |
+| Area | Current behavior | Deferred work |
+| --- | --- | --- |
+| Block models and artwork | Registered model recipes and fixed artwork cases; ordered stack resolution, parents, aliases, matching format overlays and supported filters. | Custom loaders, CTM/adjacency, arbitrary block-entity rendering. |
+| Entity models and FA | Headless native factories for cow, pig, chicken, creeper and Confectionery gingerbread; explicit static CEM stances for those four vanilla species and mooshroom. Compare native, FA base and selected resources. | FA expressions, model animation, conditional variants, arbitrary mod renderers and unadmitted CEM (including unadmitted species). |
+| Animated textures | Two-dimensional frame layouts, frame order and durations; synchronized pause/play, reduced-motion freeze. Editors use the first frame and compose every frame. | Interpolation is not reproduced; texture timeline editing remains deferred. |
+| Block states and interactions | Declared fixed components and material cases. | General state selection, transitions, redstone or neighbor simulation. |
+| Audio | None. | Event resolution, listening and audio authoring. |
 
 These deferrals concern the web authoring/preview system. They do not disable FA, block interactions, or audio in Minecraft. Keep the existing harness and archived captures for behavior that needs the game renderer. Browser previews do not prove shader, lighting, ambient occlusion, emissive, CTM, moving-construct, or runtime animation compatibility. Unsupported geometry must report its limitation rather than substitute a plausible model.
 
@@ -147,20 +147,20 @@ The loopback middleware shares the existing host/origin, body-size and serialize
 
 Paths in this table are relative to the pack repository root.
 
-| Responsibility                                       | Owner                                    |
-| ---------------------------------------------------- | ---------------------------------------- |
-| Object catalogue and preview stacks                  | `scripts/build-resource-objects.py`      |
-| Native/static CEM export                             | `web/scripts/export-models.py`           |
-| Object navigation and comparison                     | `web/src/components/objects/`            |
-| Archive selection and hash verification              | `scripts/resource_inputs.py`             |
-| PNG decoding, masks, geometry and fitting validation | `scripts/model_authoring.py`             |
-| Read-only editor bridge                              | `scripts/model-workbench.py`             |
-| Deterministic combined resource pack                 | `scripts/build-visual-patches.py`        |
-| Local file revisions, saves and generation requests  | `web/scripts/workspace/models.ts`        |
-| Recipe controls and draft state                      | `web/src/lib/model-authoring.ts`         |
-| Built artwork/model preview and catalogue            | `web/src/lib/resource-preview.ts`        |
-| View-only recipe texture overlay                     | `web/src/lib/model-resource-textures.ts` |
-| Model-to-preview conversion and renderer lifecycle   | `web/src/lib/model-preview.ts`           |
+| Responsibility | Owner |
+| --- | --- |
+| Object catalogue and preview stacks | `scripts/build-resource-objects.py` |
+| Native/static CEM export | `web/scripts/export-models.py` |
+| Object navigation and comparison | `web/src/components/objects/` |
+| Archive selection and hash verification | `scripts/resource_inputs.py` |
+| PNG decoding, masks, geometry and fitting validation | `scripts/model_authoring.py` |
+| Read-only editor bridge | `scripts/model-workbench.py` |
+| Deterministic combined resource pack | `scripts/build-visual-patches.py` |
+| Local file revisions, saves and generation requests | `web/scripts/workspace/models.ts` |
+| Recipe controls and draft state | `web/src/lib/model-authoring.ts` |
+| Built artwork/model preview and catalogue | `web/src/lib/resource-preview.ts` |
+| View-only recipe texture overlay | `web/src/lib/model-resource-textures.ts` |
+| Model-to-preview conversion and renderer lifecycle | `web/src/lib/model-preview.ts` |
 
 Use `python3 scripts/model-workbench.py --validate` to validate saved recipes without publishing. `--stdin` validates or previews an unsaved JSON document. Run `python3 scripts/build-visual-patches.py --check` to check existing output, or omit `--check` to generate it. The owning [patch guide](../patches.md) covers dependency updates and the separate Lootr/Fresh Objects renderer integration.
 

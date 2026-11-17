@@ -3,142 +3,80 @@ reviewed: 2026-10-24
 candidates:
   - id: fresh-animations
     category: Entities
-    status: installed
+    status: defer
     description: Animates vanilla mobs using custom entity models.
-    fit:
-      Already paired with EMF and ETF; villagers and golems were observed in the
-      previous isolated client test.
-    concern:
-      Does not automatically animate every modded mob. Source gallery images
-      may show a different version or optional extensions. The separate Carry On
-      Animation Fix mod stabilizes carried entities; this is not a resource-pack
-      override. Cow and villager pickup, carrying and placement were checked;
-      other entities remain unverified.
-    nextCheck: Use this as the baseline when comparing extensions and player animation.
+    fit: Retained as an optional EMF/ETF resource; the default client selection leaves the base pack and Details disabled while keeping Objects enabled.
+    concern: Source galleries and archived client checks describe the pinned pack, not its current enablement. Carried entities also use the separate Carry On Animation Fix; no single animation pack covers every modded mob or pose.
+    nextCheck: Re-enable only for a deliberate mob-renderer comparison. Check creepers, endermen, equipment, carrying and rare variants against the active renderer stack.
   - id: redstone-tweaks
     category: Visibility
     status: installed
     description: Adds visual information to redstone-related blocks and components.
     fit: Already selected as the baseline for readable circuits.
-    concern:
-      'Its scope includes more than redstone wire: rail, chest, language and
-      font resources can overlap other candidates.'
-    nextCheck:
-      Keep one explicit owner for rail states and indicators when selecting
-      model packs.
+    concern: 'Its scope includes more than redstone wire: rail, chest, language and font resources can overlap other candidates.'
+    nextCheck: Keep one explicit owner for rail states and indicators when selecting model packs.
   - id: fresh-flower-pots
     category: Models
     status: installed
     description: Adds detailed potted-plant models and variations.
-    fit:
-      Confines its changes to a decorative object family instead of replacing the
-      terrain palette.
-    concern: 'Skyweave: Visual Patches combines the four overlapping 3D Crops
-      plants and selected azaleas with Fresh pots. Keep the generated patch
-      above both inputs; its pinned models need review after upstream updates.'
-    nextCheck: Compare all potted plants and mushrooms; keep pot silhouettes
-      consistent with any modded counterparts.
+    fit: Confines its changes to a decorative object family instead of replacing the terrain palette.
+    concern: 'Skyweave: Visual Patches combines the four overlapping 3D Crops plants and selected azaleas with Fresh pots. Keep the generated patch above both inputs; its pinned models need review after upstream updates.'
+    nextCheck: Compare all potted plants and mushrooms; keep pot silhouettes consistent with any modded counterparts.
   - id: 3d-crops
     category: Foliage
     status: installed
     description: Adds depth to crops and several related plants and potted models.
     fit: A narrow model treatment already enabled in the pack.
-    concern:
-      The pinned file declares format 55 despite its 1.21.1 tag. Minecraft
-      silently deselects it without explicit acceptance; the default options now
-      retain that acceptance. Dedicated Sugar Cane remains above it. Lily pads,
-      kelp, seagrass and pitcher plants have no replacement geometry in the
-      selected stack, including active overlays.
-    nextCheck:
-      Resource Review includes crop ages, stems and aquatic plants. The captured
-      registry has no additional modded crop blocks; large farms remain untested.
+    concern: The pinned file declares format 55 despite its 1.21.1 tag. Minecraft silently deselects it without explicit acceptance; the default options now retain that acceptance. Dedicated Sugar Cane remains above it. Lily pads, kelp, seagrass and pitcher plants have no replacement geometry in the selected stack, including active overlays.
+    nextCheck: Resource Review includes crop ages, stems and aquatic plants. The captured registry has no additional modded crop blocks; large farms remain untested.
   - id: 3d-sugar-cane
     category: Foliage
     status: installed
     description: Gives sugar cane a separate 3D model.
     fit: A small dedicated treatment of a frequently farmed plant.
-    concern: Selected above 3D Crops so the dedicated sugar-cane model wins. A
-      subtractive build could make that ownership independent of their relative
-      order.
-    nextCheck:
-      Check cane joints, water edges and large farms with the dedicated pack
-      above 3D Crops.
+    concern: Selected above 3D Crops so the dedicated sugar-cane model wins. A subtractive build could make that ownership independent of their relative order.
+    nextCheck: Check cane joints, water edges and large farms with the dedicated pack above 3D Crops.
   - id: simple-3d-iron-bars
     category: Models
     status: installed
     description: Adds depth to vanilla iron bars.
     fit: A restrained model change using familiar materials.
-    concern:
-      Create Deco inherits vanilla parents with different UV assumptions. The
-      maintained patch now extrudes each Create/Deco bar family and Deco overlay
-      from its own masks, preserving native connection blockstates.
-    nextCheck: Posts, corners, crossings and stacks were reviewed in Resource
-      Review. Moving contraptions and large installations remain untested.
+    concern: Create Deco inherits vanilla parents with different UV assumptions. The maintained patch now extrudes each Create/Deco bar family and Deco overlay from its own masks, preserving native connection blockstates.
+    nextCheck: Posts, corners, crossings and stacks were reviewed in Resource Review. Moving contraptions and large installations remain untested.
   - id: create-touch-ups
     category: Create
     status: installed
-    description:
-      Simplifies some Create cogwheel models and adjusts pipes, goggles,
-      crafters and copper shading.
-    fit: Directly targets the modpack’s main machinery rather than only vanilla
-      blocks.
-    concern: Midnighttigger’s connected copper uses separate texture sheets. DnD
-      Decoration cogs and Create Deco pipes inherit changed models; their
-      appearance needs visual checks.
-    nextCheck: Compare Create 6.0.10 machinery with Power Grid, Create Deco,
-      mechanical crafters and moving contraptions.
+    description: Simplifies some Create cogwheel models and adjusts pipes, goggles, crafters and copper shading.
+    fit: Directly targets the modpack’s main machinery rather than only vanilla blocks.
+    concern: Midnighttigger’s connected copper uses separate texture sheets. DnD Decoration cogs and Create Deco pipes inherit changed models; their appearance needs visual checks.
+    nextCheck: Compare Create 6.0.10 machinery with Power Grid, Create Deco, mechanical crafters and moving contraptions.
   - id: mt-ct-d
     category: Connected textures
     status: installed
-    description:
-      Connects glass, sandstone, bookshelves and selected copper surfaces
-      using Fusion.
-    fit:
-      Uses the renderer already installed. Its minimum Fusion 1.3.13 is below our
-      pinned 1.3.16.
-    concern: Fusion override assets must be counted, not just the ZIP root.
-      Connected vanilla materials do not imply matching behavior for every
-      Copycat or decorative glass block.
-    nextCheck:
-      Native Create, Create Deco and Rechiseled Create glass connections
-      were checked at corners, panes and mixed boundaries with shaders off/on.
-      Keep their material patterns. Visual Patches corrects the pane-center
-      lighting property without changing geometry or connection predicates.
-      Waterlogged cases and moving airships remain unverified.
+    description: Connects glass, sandstone, bookshelves and selected copper surfaces using Fusion.
+    fit: Uses the renderer already installed. Its minimum Fusion 1.3.13 is below our pinned 1.3.16.
+    concern: Fusion override assets must be counted, not just the ZIP root. Connected vanilla materials do not imply matching behavior for every Copycat or decorative glass block.
+    nextCheck: Native Create, Create Deco and Rechiseled Create glass connections were checked at corners, panes and mixed boundaries with shaders off/on. Keep their material patterns. Visual Patches corrects the pane-center lighting property without changing geometry or connection predicates. Waterlogged cases and moving airships remain unverified.
   - id: rays-3d-ladders
     category: Models
     status: installed
     description: Gives ladders depth, including variants from Create and Create Deco.
-    fit:
-      A stronger coverage candidate than changing only the vanilla ladder. The
-      inspected file contains assets matching both installed mods.
-    concern:
-      The earlier 3D Ladders pack is removed. Resource Review contains all eight
-      ladder families, including the Copycat form that needs a chosen material.
-    nextCheck:
-      Compare vanilla, brass, andesite, copper and Create Deco ladders on
-      static walls and moving ships.
+    fit: A stronger coverage candidate than changing only the vanilla ladder. The inspected file contains assets matching both installed mods.
+    concern: The earlier 3D Ladders pack is removed. Resource Review contains all eight ladder families, including the Copycat form that needs a chosen material.
+    nextCheck: Compare vanilla, brass, andesite, copper and Create Deco ladders on static walls and moving ships.
   - id: rays-3d-rails
     category: Models
     status: installed
-    description: Adds rail depth and covers Create controller rails and
-      cart-assembler models.
-    fit: The inspected archive contains real Create assets, not just a general
-      mod-compatibility claim.
-    concern: Its detector-rail files overlap Redstone Tweaks. This is not a
-      replacement for Create train-track textures. Optional PBR effects depend
-      on shader settings.
-    nextCheck:
-      Check rail power states, curves, slopes and cart assemblers; decide
-      which pack owns detector-rail indicators.
+    description: Adds rail depth and covers Create controller rails and cart-assembler models.
+    fit: The inspected archive contains real Create assets, not just a general mod-compatibility claim.
+    concern: Its detector-rail files overlap Redstone Tweaks. This is not a replacement for Create train-track textures. Optional PBR effects depend on shader settings.
+    nextCheck: Check rail power states, curves, slopes and cart assemblers; decide which pack owns detector-rail indicators.
   - id: low-shield-pack
     category: Visibility
     status: installed
     description: Lowers the held vanilla shield to expose more of the view.
-    fit: Keeps block and item artwork unchanged and directly helps visibility on
-      narrow decks.
-    concern: Does not establish matching transforms for custom modded shields or
-      every camera mode.
+    fit: Keeps block and item artwork unchanged and directly helps visibility on narrow decks.
+    concern: Does not establish matching transforms for custom modded shields or every camera mode.
     nextCheck: Check both hands, blocking, third-person view and elytra transitions.
   - id: soft-weather
     category: Visibility
@@ -150,52 +88,31 @@ candidates:
   - id: cubic-sun-moon
     category: Sky
     status: installed
-    description: Replaces the sun and moon textures with cube-shaped artwork and
-      retains the moon phases.
-    fit:
-      Changes a narrow sky element without leaving modded blocks in a different
-      art style.
-    concern:
-      This is textured artwork, not new celestial geometry. Shader sun/moon
-      settings can hide it; the pack also changes one painting.
-    nextCheck:
-      Check all moon phases and the vanilla-texture sun/moon options in BSL
-      and Complementary.
+    description: Replaces the sun and moon textures with cube-shaped artwork and retains the moon phases.
+    fit: Changes a narrow sky element without leaving modded blocks in a different art style.
+    concern: This is textured artwork, not new celestial geometry. Shader sun/moon settings can hide it; the pack also changes one painting.
+    nextCheck: Check all moon phases and the vanilla-texture sun/moon options in BSL and Complementary.
   - id: low-on-fire
     category: Visibility
     status: installed
     description: Lowers the first-person fire overlay.
     fit: Improves visibility without recoloring ores, tools or machinery.
-    concern: Fire remains a gameplay hazard. A font resource overlaps Redstone
-      Tweaks, so do not treat the archive as only a pair of fire textures.
-    nextCheck:
-      Check ordinary and soul fire, shader behavior and redstone text after
-      the pack is layered.
+    concern: Fire remains a gameplay hazard. A font resource overlaps Redstone Tweaks, so do not treat the archive as only a pair of fire textures.
+    nextCheck: Check ordinary and soul fire, shader behavior and redstone text after the pack is layered.
   - id: fresh-animations-details
     category: Entities
-    status: installed
+    status: defer
     description: Adds model details and texture variants on top of Fresh Animations.
-    fit:
-      Uses the EMF/ETF stack already selected and follows the same base animation
-      style.
-    concern:
-      Details 2.4 supplies the current shared FA 1.11 rigs and juvenile models.
-      No pack rig replacement is generated. Modded mobs retain their own styling;
-      rare variants and every equipment state are not established by archive checks.
-    nextCheck:
-      Recheck shared rig references, sleeping poses and equipment visibility
-      whenever Fresh Animations or Details changes. Rare variants remain untested.
+    fit: Included alongside the optional base pack, with both disabled in the default client selection.
+    concern: Details 2.4 supplies pinned FA 1.11 shared rigs and juvenile models. No pack rig replacement is generated. Archive checks do not establish every pose, equipment state or rare variant.
+    nextCheck: Compare shared rig references, sleeping poses, juveniles and equipment visibility when evaluating the pair; keep Fresh Objects independently enabled.
   - id: fresh-animations-objects
     category: Entities
     status: installed
     description: Animates vanilla boats, minecarts, chests and shulker boxes.
     fit: Extends the existing animation treatment to transport and storage objects.
-    concern: Objects owns trapped-chest textures. Lootr retains separate opened
-      and unopened materials. The maintained adapter adds the normal/trapped
-      chest rig at EMF's observed lookup paths; local motion and state checks pass.
-      Barrels have no Objects animation model.
-    nextCheck: Recheck lookup names after EMF/Lootr updates. Moving storage and
-      multiplayer rendering need separate checks.
+    concern: Objects owns trapped-chest textures. Lootr retains separate opened and unopened materials. The maintained adapter adds the normal/trapped chest rig at EMF's observed lookup paths; local motion and state checks pass. Barrels have no Objects animation model.
+    nextCheck: Recheck lookup names after EMF/Lootr updates. Moving storage and multiplayer rendering need separate checks.
   - id: icons
     category: Interface
     status: reject
@@ -208,253 +125,148 @@ candidates:
     status: try
     description: Extends grass-like top textures down the sides of their blocks.
     fit: Uses ordinary block models and requires no additional renderer.
-    concern:
-      This is the fast all-sided effect, not slope-aware connected grass. It
-      can make sheer island sides read as grass walls.
-    nextCheck:
-      Inspect cliff edges, snow transitions and exposed dirt around island
-      undersides.
+    concern: This is the fast all-sided effect, not slope-aware connected grass. It can make sheer island sides read as grass walls.
+    nextCheck: Inspect cliff edges, snow transitions and exposed dirt around island undersides.
   - id: gentler-weather-sounds
     category: Audio
     status: compare
     description: Replaces vanilla rain and thunder with softer recordings.
-    fit:
-      Leaves the visual palette intact and may make long flights in rain easier
-      to listen to.
-    concern:
-      The gallery cannot demonstrate audio. Sound Physics Remastered changes
-      playback acoustics; only a listening test can establish the result.
-    nextCheck:
-      Use the author’s audio preview, then compare indoor rain, open decks
-      and nearby thunder at unchanged volume settings.
+    fit: Leaves the visual palette intact and may make long flights in rain easier to listen to.
+    concern: The gallery cannot demonstrate audio. Sound Physics Remastered changes playback acoustics; only a listening test can establish the result.
+    nextCheck: Use the author’s audio preview, then compare indoor rain, open decks and nearby thunder at unchanged volume settings.
   - id: better-leaves
     category: Foliage
     status: compare
     description: Adds dense outer leaf geometry with broad explicit mod support.
-    fit:
-      Preserves the general vanilla palette; the selected file covers many leaf
-      families without a full terrain retexture.
-    concern:
-      Version 9.x prebakes textures. Unlike 8.1, it does not automatically
-      adapt to arbitrary leaf textures. Extra foliage geometry also needs a
-      performance check.
-    nextCheck:
-      Compare against Cubic Leaves in the same forest, shaders and DH view;
-      choose one leaf pack.
+    fit: Preserves the general vanilla palette; the selected file covers many leaf families without a full terrain retexture.
+    concern: Version 9.x prebakes textures. Unlike 8.1, it does not automatically adapt to arbitrary leaf textures. Extra foliage geometry also needs a performance check.
+    nextCheck: Compare against Cubic Leaves in the same forest, shaders and DH view; choose one leaf pack.
   - id: cubic-leaves
     category: Foliage
     status: compare
     description: Adds blocky foliage with distinct leaf shapes.
-    fit:
-      Its restrained geometry may fit Minecraft machinery and island silhouettes
-      better than very fluffy leaves.
-    concern: The inspected edition is the performance variant; the separate
-      resource-pack-compatible edition makes a different tradeoff. Author shader
-      advice is not a measured FPS result.
-    nextCheck: Compare matched canopy scenes with Motschen’s leaves, including
-      Complementary leaf shadows and DH transitions.
+    fit: Its restrained geometry may fit Minecraft machinery and island silhouettes better than very fluffy leaves.
+    concern: The inspected edition is the performance variant; the separate resource-pack-compatible edition makes a different tradeoff. Author shader advice is not a measured FPS result.
+    nextCheck: Compare matched canopy scenes with Motschen’s leaves, including Complementary leaf shadows and DH transitions.
   - id: fancyfast-bushy-leaves
     category: Foliage
     status: conditional
     description: Adds bushy outer foliage around opaque leaf interiors.
-    fit:
-      A plausible alternative when dense leaves are wanted without changing the
-      rest of the world.
-    concern: The current author requires Polytone for v2+ on Minecraft versions
-      below 1.21.11. It is not in this pack, despite the selected file declaring
-      1.21.1 support.
-    nextCheck: Resolve the renderer requirement or inspect an older compatible
-      edition before runtime testing.
+    fit: A plausible alternative when dense leaves are wanted without changing the rest of the world.
+    concern: The current author requires Polytone for v2+ on Minecraft versions below 1.21.11. It is not in this pack, despite the selected file declaring 1.21.1 support.
+    nextCheck: Resolve the renderer requirement or inspect an older compatible edition before runtime testing.
   - id: fancy-crops
     category: Foliage
     status: compare
     description: Changes crop geometry, crop variations, seeds and hay.
-    fit: Offers a consistent farm-focused alternative to the current 3D Crops
-      selection.
-    concern:
-      Overlaps both 3D Crops and 3D Sugar Cane. Farmer’s Delight support is
-      not proof that every modded crop uses the same base model.
-    nextCheck:
-      Compare all growth stages and Create harvesting; replace the existing
-      crop treatment rather than layering blindly.
+    fit: Offers a consistent farm-focused alternative to the current 3D Crops selection.
+    concern: Overlaps both 3D Crops and 3D Sugar Cane. Farmer’s Delight support is not proof that every modded crop uses the same base model.
+    nextCheck: Compare all growth stages and Create harvesting; replace the existing crop treatment rather than layering blindly.
   - id: simple-grass-flowers
     category: Foliage
     status: compare
     description: Adds small flowers, stones and clovers to grass-like surfaces.
-    fit: Keeps the familiar palette and can add detail to sparsely decorated
-      islands.
-    concern: Some biome-specific matching uses OptiFine/Continuity, which our
-      current Fusion setup does not replace. More surface detail may reduce the
-      readability of small islands.
-    nextCheck:
-      Check non-CTM behavior, snow, mycelium, nylium and distant terrain
-      transitions.
+    fit: Keeps the familiar palette and can add detail to sparsely decorated islands.
+    concern: Some biome-specific matching uses OptiFine/Continuity, which our current Fusion setup does not replace. More surface detail may reduce the readability of small islands.
+    nextCheck: Check non-CTM behavior, snow, mycelium, nylium and distant terrain transitions.
   - id: better-lanterns
     category: Models
-    status: installed
+    status: replaced
     description: Adds depth to lanterns and chains.
-    fit: A small decoration change that retains the vanilla visual vocabulary.
-    concern: The maintained patch gives Deco cages joined beveled connectors;
-      DnD hoods use a shorter overlapping two-plate shell. Representative shader-off/on views passed native review.
-      The client Copycat Bar Extrusion mod gives normal Create panels fitted bar
-      materials; it does not substitute arbitrary resource-pack models.
-    nextCheck: Use Model authoring for UV/geometry edits. Moving contraptions,
-      multiplayer, other shaders and performance remain unverified. Copycat Bar Extrusion 0.1.0 is a
-      hash-pinned client dependency; its scope is standard Create panels.
+    fit: Luminous Lanterns now owns the selected vanilla lantern treatment.
+    concern: Better Lanterns is no longer included. The maintained Create Deco cage and DnD hood models are separate resources and remain in Visual Patches; changing the lantern pack does not replace them.
+    nextCheck: Review Luminous against Refined Torches and the generated Model Parts filter. Check remaining machine lamps independently in the Debug World.
   - id: fresh-flower-pots-compats
     category: Models
     status: defer
     description: Extends Fresh Flower Pots to a specific list of other mods.
     fit: Useful if those supported plant mods enter the pack later.
-    concern:
-      No inspected asset path currently matches an installed mod namespace. A
-      compatibility add-on is not useful simply because it supports many
-      unrelated mods.
-    nextCheck:
-      Recheck its supported namespaces if the mod list changes; do not add
-      it just for its title.
+    concern: No inspected asset path currently matches an installed mod namespace. A compatibility add-on is not useful simply because it supports many unrelated mods.
+    nextCheck: Recheck its supported namespaces if the mod list changes; do not add it just for its title.
   - id: vanilla-connected-glass
     category: Connected textures
     status: compare
     description: Hides glass borders using thin model geometry and vanilla face culling.
-    fit:
-      A renderer-free alternative discovered in the Planet Minecraft ranking. It
-      can reuse another pack’s glass textures.
-    concern: It connects against opaque neighbors, not only glass, and can show
-      borders from inside. These are documented method limits, not true
-      connected-texture rules.
-    nextCheck: Compare interior views, mixed opaque neighbors, panes and ship
-      windows against the Fusion candidate.
+    fit: A renderer-free alternative discovered in the Planet Minecraft ranking. It can reuse another pack’s glass textures.
+    concern: It connects against opaque neighbors, not only glass, and can show borders from inside. These are documented method limits, not true connected-texture rules.
+    nextCheck: Compare interior views, mixed opaque neighbors, panes and ship windows against the Fusion candidate.
   - id: clean-connected-glass
     category: Connected textures
     status: conditional
     description: Removes glass streaks and connects neighboring glass surfaces.
-    fit:
-      A restrained visual target, but its implementation matters more than the
-      name.
-    concern:
-      Requires OptiFine or Continuity. Fusion alone does not read this pack’s
-      OptiFine CTM files.
-    nextCheck:
-      Prefer the Fusion candidate first; evaluate a separate renderer only
-      if its appearance is materially better.
+    fit: A restrained visual target, but its implementation matters more than the name.
+    concern: Requires OptiFine or Continuity. Fusion alone does not read this pack’s OptiFine CTM files.
+    nextCheck: Prefer the Fusion candidate first; evaluate a separate renderer only if its appearance is materially better.
   - id: default-dark-mode
     category: Interface
     status: compare
-    description: Darkens vanilla and supported mod interfaces while largely
-      retaining their structure.
-    fit:
-      The inspected file matches EMI, JEI, Easy Anvils, Easy Magic and Shulker
-      Box Tooltip assets already in the pack.
-    concern: It does not establish complete Create, Questlog or Aeronautics UI
-      coverage. Core shader files and the optional dark loading screen require
-      separate checking.
-    nextCheck:
-      Open the journal, recipe viewers, new workstations and Create screens
-      together; reject a visibly mixed interface.
+    description: Darkens vanilla and supported mod interfaces while largely retaining their structure.
+    fit: The inspected file matches EMI, JEI, Easy Anvils, Easy Magic and Shulker Box Tooltip assets already in the pack.
+    concern: It does not establish complete Create, Questlog or Aeronautics UI coverage. Core shader files and the optional dark loading screen require separate checking.
+    nextCheck: Open the journal, recipe viewers, new workstations and Create screens together; reject a visibly mixed interface.
   - id: unique-dark
     category: Interface
     status: compare
     description: Provides distinct dark interfaces for functional blocks and many mods.
-    fit:
-      The inspected Lite file includes matching Create, EMI, JEI, Accessories and
-      Traveler’s Backpack assets.
-    concern: The public Lite edition differs from the paid Full edition. Some
-      variants require OptiGUI, which is absent; Questlog coverage is unproven.
-    nextCheck: Compare the actual Lite download, not just the project’s combined
-      promotional gallery, across all main screens.
+    fit: The inspected Lite file includes matching Create, EMI, JEI, Accessories and Traveler’s Backpack assets.
+    concern: The public Lite edition differs from the paid Full edition. Some variants require OptiGUI, which is absent; Questlog coverage is unproven.
+    nextCheck: Compare the actual Lite download, not just the project’s combined promotional gallery, across all main screens.
   - id: mandalas-gui-dark-mode
     category: Interface
     status: conditional
     description: Applies a blue-gray dark interface theme.
-    fit: Can leave world textures unchanged while grouping workstation screens
-      visually.
-    concern: The file advertised for 1.20.1–1.21.10 declares pack format 64, not
-      Minecraft 1.21.1’s 34. Its effective asset scan did not establish current
-      mod-screen coverage.
-    nextCheck:
-      Find or adapt an exact 1.21.1 file before comparing it with Default
-      Dark Mode and Unique Dark.
+    fit: Can leave world textures unchanged while grouping workstation screens visually.
+    concern: The file advertised for 1.20.1–1.21.10 declares pack format 64, not Minecraft 1.21.1’s 34. Its effective asset scan did not establish current mod-screen coverage.
+    nextCheck: Find or adapt an exact 1.21.1 file before comparing it with Default Dark Mode and Unique Dark.
   - id: unofficial-mandalas-gui-dark-mode-mod-compatibility
     category: Interface
     status: conditional
     description: Adds selected mod screens to Mandala’s theme.
     fit: The inspected file matches Accessories and EMI paths.
-    concern: Depends on a separately suitable Mandala base. Metadata contains a
-      literal newline requiring lenient JSON parsing; many desired screens still
-      lack evidence.
-    nextCheck:
-      Resolve the base pack first, then verify the complete UI set rather
-      than treating this add-on as universal coverage.
+    concern: Depends on a separately suitable Mandala base. Metadata contains a literal newline requiring lenient JSON parsing; many desired screens still lack evidence.
+    nextCheck: Resolve the base pack first, then verify the complete UI set rather than treating this add-on as universal coverage.
   - id: enchant-icons-countxd
     category: Interface
     status: reject
     description: Adds icons and colors to enchantment labels.
     fit: Could improve scanning of enchanting results without a full UI skin.
-    concern: Added label symbols are outside the selected interface style. Keep
-      Clean Tooltips without an enchantment-icon resource pack.
-    nextCheck: Compare Easy Magic’s full preview and item tooltips in supported
-      locales, including long modded enchantment names.
+    concern: Added label symbols are outside the selected interface style. Keep Clean Tooltips without an enchantment-icon resource pack.
+    nextCheck: Compare Easy Magic’s full preview and item tooltips in supported locales, including long modded enchantment names.
   - id: beautiful-enchanted-books
     category: Items
     status: conditional
     description: Gives enchanted books distinct artwork based on their enchantments.
     fit: Targets a useful distinction and explicitly supports many mods.
-    concern:
-      The inspected file uses OptiFine-style CIT, requiring a compatible CIT
-      renderer. EMF/ETF alone do not supply that item-selection system.
-    nextCheck:
-      Establish a compatible NeoForge 1.21.1 CIT solution before testing
-      mixed-enchantment books and EMI previews.
+    concern: The inspected file uses OptiFine-style CIT, requiring a compatible CIT renderer. EMF/ETF alone do not supply that item-selection system.
+    nextCheck: Establish a compatible NeoForge 1.21.1 CIT solution before testing mixed-enchantment books and EMI previews.
   - id: new-glowing-ores
     category: Visibility
     status: defer
     description: Adds emissive ores and connected outlines, including Create zinc.
     fit: Has explicit Create coverage, unlike many vanilla-only ore highlighters.
-    concern: The selected border edition needs Continuity. Bright outlines also
-      change resource visibility, so this is a progression choice as well as an
-      art choice.
-    nextCheck:
-      Decide whether ore highlighting fits scarcity and exploration before
-      adding a renderer or testing visibility.
+    concern: The selected border edition needs Continuity. Bright outlines also change resource visibility, so this is a progression choice as well as an art choice.
+    nextCheck: Decide whether ore highlighting fits scarcity and exploration before adding a renderer or testing visibility.
   - id: dramatic-skys
     category: Sky
     status: conditional
     description: Adds detailed biome-dependent sky textures and weather-like visual effects.
     fit: Its scope suits a sky-focused pack without directly recoloring machinery.
-    concern:
-      Needs a custom-sky implementation; Iris alone is not that dependency.
-      The photographic skies may also clash with blocky clouds and the selected
-      shaders.
-    nextCheck: Verify a compatible sky renderer, then compare its horizon and
-      weather with DH, BSL and Complementary.
+    concern: Needs a custom-sky implementation; Iris alone is not that dependency. The photographic skies may also clash with blocky clouds and the selected shaders.
+    nextCheck: Verify a compatible sky renderer, then compare its horizon and weather with DH, BSL and Complementary.
   - id: tras-fresh-player
     category: Entities
     status: conditional
-    description: Adds player animation through EMF; the inspected edition omits
-      animated eyes.
-    fit:
-      Could complement third-person play without imposing special eye pixels on
-      player skins.
-    concern:
-      Player-model animation must coexist with Better Third Person, gliders,
-      held tools and ship seating. Author compatibility with
-      other mods is not evidence for this combination.
-    nextCheck:
-      Test the no-eyes edition through climbing, flight, seats and tool use
-      with both camera modes.
+    description: Adds player animation through EMF; the inspected edition omits animated eyes.
+    fit: Could complement third-person play without imposing special eye pixels on player skins.
+    concern: Player-model animation must coexist with Better Third Person, gliders, held tools and ship seating. Author compatibility with other mods is not evidence for this combination.
+    nextCheck: Test the no-eyes edition through climbing, flight, seats and tool use with both camera modes.
   - id: fresh-food
     category: Items
     status: defer
     description: Adds held-food geometry, eating animations and display variants.
-    fit: The food-family scope is understandable, but vanilla-only depth can
-      separate it from modded foods.
-    concern:
-      The selected file is tagged 1.21.1 but declares format 46–128 and uses
-      the newer item-definition layout. It also lists additional required
-      rendering mods.
-    nextCheck: Do not treat this download as a verified 1.21.1 option; locate a
-      compatible implementation and complete food coverage first.
+    fit: The food-family scope is understandable, but vanilla-only depth can separate it from modded foods.
+    concern: The selected file is tagged 1.21.1 but declares format 46–128 and uses the newer item-definition layout. It also lists additional required rendering mods.
+    nextCheck: Do not treat this download as a verified 1.21.1 option; locate a compatible implementation and complete food coverage first.
   - id: nautilus3d
     category: Models
     status: partial
@@ -479,86 +291,52 @@ candidates:
   - id: vanilla-exp
     category: Overhauls
     status: defer
-    description:
-      Combines vanilla-style fixes, model changes, texture variations and
-      item details.
-    fit: Less stylistically distant than a fantasy overhaul, but still a large
-      change set.
-    concern:
-      Overlaps crops, Fresh Animations and redstone. Some item variants need
-      CIT before 1.21.5; core shaders and optional features broaden the
-      integration work.
+    description: Combines vanilla-style fixes, model changes, texture variations and item details.
+    fit: Less stylistically distant than a fantasy overhaul, but still a large change set.
+    concern: Overlaps crops, Fresh Animations and redstone. Some item variants need CIT before 1.21.5; core shaders and optional features broaden the integration work.
     nextCheck: Review individual useful features before considering the complete bundle.
   - id: faithful-32x
     category: Overhauls
     status: reject
     description: Doubles the resolution of vanilla artwork.
-    fit:
-      Retains recognizable motifs, but does not retain the pack’s shared 16-pixel
-      scale.
-    concern: Our many mod textures remain at their original resolutions. The
-      inspected 1.21.1 file also has an inverted supported-format range, 34–33.
+    fit: Retains recognizable motifs, but does not retain the pack’s shared 16-pixel scale.
+    concern: Our many mod textures remain at their original resolutions. The inspected 1.21.1 file also has an inverted supported-format range, 34–33.
     nextCheck: Reconsider only with a maintained, comprehensive mod-texture coverage plan.
   - id: whimscape
     category: Overhauls
     status: reject
     description: Reworks Minecraft’s palette, terrain, entities and interfaces.
     fit: Useful as a visual comparison, not a small enhancement to the current pack.
-    concern:
-      The file has selected mod UI support, but that is not full art support
-      for Create and its add-ons. It substantially overlaps the selected resources.
+    concern: The file has selected mod UI support, but that is not full art support for Create and its add-ons. It substantially overlaps the selected resources.
     nextCheck: A separate art-direction decision and mod-support project would be needed.
   - id: 3d-ladders
     category: Models
     status: replaced
     description: Makes the vanilla ladder three-dimensional.
     fit: A small baseline with only three effective assets in the inspected archive.
-    concern:
-      Replaced by RAY’s 3D Ladders, which also covers installed Create and
-      Create Deco models.
+    concern: Replaced by RAY’s 3D Ladders, which also covers installed Create and Create Deco models.
     nextCheck: Compare the existing appearance with the broader ladder candidate.
   - id: stay-true
     category: Overhauls
     status: reject
-    description:
-      Retextures terrain and vegetation while adding connected textures
-      and leaf variations.
-    fit:
-      Keeps recognizable vanilla subjects, but changes the surrounding palette
-      broadly.
-    concern:
-      The author requires OptiFine for connected textures, overlays and some
-      leaf features, and does not claim full mod compatibility. Create add-ons
-      would retain their own material treatment.
-    nextCheck:
-      Prefer individual geometry improvements; adopting the full pack would
-      need renderer and mod-art adaptation.
+    description: Retextures terrain and vegetation while adding connected textures and leaf variations.
+    fit: Keeps recognizable vanilla subjects, but changes the surrounding palette broadly.
+    concern: The author requires OptiFine for connected textures, overlays and some leaf features, and does not claim full mod compatibility. Create add-ons would retain their own material treatment.
+    nextCheck: Prefer individual geometry improvements; adopting the full pack would need renderer and mod-art adaptation.
   - id: skyweave-visual-patches
     category: Pack-owned
     status: installed
     description: Combines client model repairs, selected donor geometry and chest animations.
-    fit: Gives potted plants, Create and Deco bars, cage lamps,
-      DnD frontlights and Lootr storage compatible models, including barrel corner clasps and relit storage artwork.
-    concern: Must load above its source packs. Dated comparisons retain their
-      original conditions. Lootr materials and azalea pots have native repair checks;
-      the window-face workaround stays disabled; Compat handles native window culling.
-      Coverage does not include every model or shader.
-      Copycat panel geometry comes from the separate Copycat Bar Extrusion mod.
-    nextCheck: Rebuild and inspect the affected families when an input pack,
-      model or renderer changes; keep exact input hashes in the patch manifest.
+    fit: Gives potted plants, Create and Deco bars, cage lamps, DnD frontlights and Lootr storage compatible models, including barrel corner clasps and relit storage artwork.
+    concern: Must load above its source packs. Dated comparisons retain their original conditions. Lootr materials and azalea pots have native repair checks; the window-face workaround stays disabled; Compat handles native window culling. Coverage does not include every model or shader. Copycat panel geometry comes from the separate Copycat Bar Extrusion mod.
+    nextCheck: Rebuild and inspect the affected families when an input pack, model or renderer changes; keep exact input hashes in the patch manifest.
   - id: skyweave-resource-patches
     category: Pack-owned
     status: installed
     description: Packages shared data repairs and journal presentation as a resource-only mod.
-    fit: Supplies recipe and loot repairs, Sable weight tags, Sky Villages
-      resources, Questlog translations on the appropriate sides. The journal uses native
-      Questlog artwork and ink colors.
-      Expanded weight tiers cover partial building blocks, furniture and fixtures;
-      recolored DnD flywheels now match Create. These tags do not change lift or
-      introduce item-count-based ship weights.
+    fit: Supplies recipe and loot repairs, Sable weight tags, Sky Villages resources, Questlog translations on the appropriate sides. The journal uses native Questlog artwork and ink colors. Expanded weight tiers cover partial building blocks, furniture and fixtures; recolored DnD flywheels now match Create. These tags do not change lift or introduce item-count-based ship weights.
     concern: 'This JAR is loaded as a mod, not selected in the client resource-pack list. It contains no Java gameplay hooks. Skyweave: Compatibility Patches, DH Polygon Fix, and animation or geometry mods remain separate dependencies. Veil/Iris runtime hooks are incorporated in Skyweave: Compatibility Patches.'
-    nextCheck: Check upstream recipe, loot, tag and journal changes before
-      rebuilding. A resource build alone does not verify runtime behavior.
+    nextCheck: Check upstream recipe, loot, tag and journal changes before rebuilding. A resource build alone does not verify runtime behavior.
 
   - id: ulticraft-models-3d
     category: Models

@@ -16,6 +16,24 @@ def verify_bytes(data, source):
     return data
 
 
+def open_archive(data, source):
+    archive = zipfile.ZipFile(io.BytesIO(data))
+    entry = source.get('archive_entry')
+    if entry is None:
+        return archive
+    try:
+        require(isinstance(entry, str) and not Path(entry).is_absolute()
+                and '..' not in Path(entry).parts and entry.endswith('.jar'), 'Invalid nested resource archive')
+        require(entry in archive.namelist() and archive.getinfo(entry).file_size <= 64 * 1024 * 1024,
+                'Missing or oversized nested resource archive')
+        nested = archive.read(entry)
+        require(hashlib.sha512(nested).hexdigest() == source.get('nested_sha512'),
+                'Changed nested resource archive; review its owner before updating the pin')
+        return zipfile.ZipFile(io.BytesIO(nested))
+    finally:
+        archive.close()
+
+
 def inputs(root, *, download=True, recipe=None):
     if recipe is None:
         recipe = json.loads((root / 'authoring/visual-patches.json').read_text())
@@ -51,7 +69,7 @@ def inputs(root, *, download=True, recipe=None):
             request = Request(source['url'], headers={'User-Agent': 'Skyweave-Visual-Patches/1'})
             with urlopen(request, timeout=60) as response:
                 data = response.read()
-        archives[key] = zipfile.ZipFile(io.BytesIO(verify_bytes(data, source)))
+        archives[key] = open_archive(verify_bytes(data, source), source)
         if key == 'minecraft':
             require(json.loads(archives[key].read('version.json'))['id'] == source['version'],
                     'Vanilla asset version differs from its pin')

@@ -16,14 +16,14 @@ class PathTests(unittest.TestCase):
             (root / 'data').mkdir()
             (root / 'data/local.example.json').write_text(json.dumps({
                 'pack': '..',
-                'server': '../../create_sky-server/game',
+                'server': '../../create-skyweave-server/game',
                 'vanilla': '~/minecraft-client.jar',
                 'java': '/opt/jdk/bin',
             }))
             with patch.object(paths, 'ROOT', root):
                 defaults = paths.paths()
                 self.assertEqual(defaults['pack'], root.parent.resolve())
-                self.assertEqual(defaults['server'], (root / '../../create_sky-server/game').resolve())
+                self.assertEqual(defaults['server'], (root / '../../create-skyweave-server/game').resolve())
                 self.assertEqual(defaults['vanilla'], (Path.home() / 'minecraft-client.jar').resolve())
                 (root / 'data/local.json').write_text('{"vanilla":"assets/client.jar"}')
                 configured = paths.paths()

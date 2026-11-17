@@ -1,6 +1,6 @@
 {
   "pack": "..",
-  "server": "../../create_sky-server/game",
+  "server": "../../create-skyweave-server/game",
   "vanilla": "~/Library/Application Support/PrismLauncher/libraries/com/mojang/minecraft/1.21.1/minecraft-1.21.1-client.jar",
   "java": "/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home/bin"
 }

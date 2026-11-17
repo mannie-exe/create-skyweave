@@ -2,5 +2,6 @@
   "singleQuote": true,
   "semi": false,
   "trailingComma": "all",
+  "proseWrap": "never",
   "plugins": ["prettier-plugin-astro"]
 }

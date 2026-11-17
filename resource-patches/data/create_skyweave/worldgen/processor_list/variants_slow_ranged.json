@@ -1,0 +1,46 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "variantsandventures"
+    }
+  ],
+  "processors": [
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:block_match",
+            "block": "minecraft:trial_spawner"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:trial_spawner",
+            "Properties": {
+              "ominous": "false",
+              "trial_spawner_state": "waiting_for_players"
+            }
+          },
+          "block_entity_modifier": {
+            "type": "minecraft:append_static",
+            "data": {
+              "normal_config": {
+                "ticks_between_spawn": 160,
+                "simultaneous_mobs": 4.0,
+                "simultaneous_mobs_added_per_player": 2.0
+              },
+              "ominous_config": {
+                "ticks_between_spawn": 160,
+                "simultaneous_mobs": 4.0,
+                "simultaneous_mobs_added_per_player": 2.0
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

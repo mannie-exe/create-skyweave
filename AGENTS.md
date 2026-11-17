@@ -26,6 +26,8 @@ For an authorized rename:
 - Handle installed identity separately from display text. A mod ID rename can affect dependency/loading references; a resource-pack filename rename affects Minecraft's saved pack selection. Validate load order and remove superseded managed outputs through the owning build/sync process without installing duplicates, losing user selections, or editing personal instances implicitly.
 - Regenerate derived outputs and verify archive contents, sides, priority, references, and affected runtime behavior. Retain one owner per naming rule and link to it from sibling AGENTS.md files. Record rename-specific history privately; maintained docs describe current behavior and maintenance procedures. Naming approval alone is not authorization to publish, sync, or rename unrelated identities.
 
+The local server installation is named `create-skyweave-server`; its game directory is `game/` under that root. Atlas defaults and local fixture instructions use this identity. Resolve host-specific roots through their owning configuration. Historical run records retain their original paths and do not define the current installation or authorize operations on it.
+
 ## Direction
 
 - Make geography, resources, production and travel work together. Evaluate useful outward and return journeys, cargo, fuel and repeated use, not just first unlocks.

@@ -209,7 +209,6 @@ export function createArtifactStore(options: {
         )
           files[name] = reference
       }
-      if (Object.keys(files).length) retention.lease(scope, result.id)
       return { ...result, files }
     } catch (error) {
       if ((error as NodeJS.ErrnoException).code === 'ENOENT') return null
@@ -447,7 +446,6 @@ export function createArtifactStore(options: {
     )
       throw missing()
     await referenceGeneration(scope, reference)
-    retention.lease(scope, reference.generationId)
     const file = path.join(
       await directory('blobs/' + reference.sha256.slice(0, 2)),
       reference.sha256,
@@ -584,9 +582,9 @@ export function createArtifactStore(options: {
       registered(scope)
       return retention.pin(context, scope, namespace, id, enabled)
     },
-    prune(context: Execution, scope: Scope, dryRun = true) {
+    prune(context: Execution, scope: Scope, dryRun = true, storeWide = false) {
       registered(scope)
-      return retention.prune(context, scope, dryRun)
+      return retention.prune(context, scope, dryRun, storeWide)
     },
     dispose: retention.dispose,
     recoveryLock(context: Context, scope: Scope) {
@@ -605,14 +603,14 @@ export function createArtifactStore(options: {
       work: (generation: Generation) => Promise<T>,
     ) {
       registered(scope)
-      const generation = await retention.generation(
+      const release = retention.reader(scope, id)
+      try {
+        const generation = await retention.generation(
           context,
           scope,
           namespace,
           id,
-        ),
-        release = retention.reader(scope, id)
-      try {
+        )
         return await work(generation)
       } finally {
         await release()

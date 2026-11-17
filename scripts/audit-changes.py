@@ -8,6 +8,38 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 
+def read_register(source):
+    def unique_keys(items):
+        result = {}
+        for key, value in items:
+            if key in result:
+                raise ValueError(f'{source.name}: Duplicate JSON key: {key}')
+            result[key] = value
+        return result
+    return json.loads(source.read_text(), object_pairs_hook=unique_keys)
+
+
+def validate_source_destinations(root):
+    common = root / 'overrides/common'
+    for side in ['client', 'server']:
+        folder = root / 'overrides' / side
+        for path in folder.rglob('*'):
+            if path.is_file():
+                destination = path.relative_to(folder)
+                if (common / destination).is_file():
+                    raise ValueError(f'Ambiguous installation destination: {destination.as_posix()} '
+                                     f'appears in overrides/common and overrides/{side}')
+    options = root / 'overrides/client/options.txt'
+    if options.is_file():
+        seen = set()
+        for line in options.read_text().splitlines():
+            key, separator, _ = line.partition(':')
+            if separator:
+                if key in seen:
+                    raise ValueError(f'Duplicate client option: {key}')
+                seen.add(key)
+
+
 def installation_policies(text):
     """Read this repository's exact block policies; reject unsupported authoring syntax."""
     sections = re.split(r'^policies:\s*\n', text, flags=re.MULTILINE)
@@ -42,11 +74,12 @@ def managed_paths(root):
 
 
 def audit(root=ROOT):
+    validate_source_destinations(root)
     results, seen = [], set()
     managed = managed_paths(root)
     policies = None
     for source in sorted((root / 'authoring/changes').glob('*.json')):
-        data = json.loads(source.read_text())
+        data = read_register(source)
         if data.get('schema') != 1 or not isinstance(data.get('records'), list):
             raise ValueError(f'{source.name}: invalid register')
         for record in data['records']:

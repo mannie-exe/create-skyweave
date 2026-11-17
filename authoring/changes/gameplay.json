@@ -488,9 +488,9 @@
     },
     {
       "path": "overrides/common/config/hostile_skies-common.toml",
-      "sha256": "afd6eb6dbb25e896e60d9555c390c6584f5b64be51bf904ba19fbea0f896719a",
+      "sha256": "010cd9eb9901af96355e51efb839d04b1bf59f8ca1d3c285517635aaeca077ec",
       "review": "reviewed",
-      "reason": "Retained survival tuning; see progression constraints and deferred playtests.",
+      "reason": "Keep automatic raids and explosions disabled. Stage server-wide capacity 8 and native 90-minute attempts, starting at 0 percent with one-third-of-100 failed-roll increments capped at 100 percent. Unblocked prior failures yield 3h:one-third, 4.5h:two-thirds, 6h:100 percent; blocked attempts retain the native 1-point increment.",
       "reference": "docs/development/progression.md",
       "installation": {
         "policy": "managed",
@@ -1008,6 +1008,83 @@
       "review": "reviewed",
       "reason": "Restrict relocation of reviewed joints, assembly helpers, linked endpoints and Aeroworks consoles with conflicting sneak interactions. Optional IDs tolerate removed dependencies; unrelated machinery remains individually reviewed.",
       "reference": "docs/development/compatibility.md#carry-on-machinery"
+    },
+    {
+      "path": "overrides/common/config/guardvillagers-common.toml",
+      "sha256": "663d69b9ec26e699bcceea296b0bd6c4383f9bed0b1fb1bcf603428a2347b5a8",
+      "review": "reviewed",
+      "reason": "Retain native Guard Villagers gameplay defaults as the review baseline. Generation creates six guards per configured iron-golem template, not per measured village population; density and curated-template coverage still need qualification. No dynamic patrol workload is enabled.",
+      "reference": "docs/development/encounters.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
+    },
+    {
+      "path": "overrides/common/config/guardvillagers-startup.toml",
+      "sha256": "2f5602a6b087b162e6b0977884c7663f072a9621f6131f1d369510bddb6fa8c7",
+      "review": "reviewed",
+      "reason": "Retain native guard base attributes: 20 health, 0.5 movement speed and 20 follow range. These are startup entity-attribute rules, not player UI preferences.",
+      "reference": "docs/development/encounters.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
+    },
+    {
+      "path": "overrides/common/config/illagerinvasion-server.toml",
+      "sha256": "82de1c857bdfa233b180df2555e168c2d5d4dec63c32d9ea6aa094eea9f77bad",
+      "review": "reviewed",
+      "reason": "Retain native raid participation for nine new roles with Invoker participation off, native boss bar and platinum-trim behavior. This file does not disable Marauder patrol substitution or authored structure enemies; generation rarity remains data-driven.",
+      "reference": "docs/development/encounters.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
+    },
+    {
+      "path": "overrides/common/config/variantsandventures.json",
+      "sha256": "7b23c929d14035acfb5b1aefc04e690e5512d9ff51d59ff409feddfa7dc6fb3e",
+      "review": "reviewed",
+      "reason": "Keep 30-percent ordinary natural/structure replacement, Murk weight 4/group 1 and all trial additions. Disable all six native dungeon-type conversion chances so Compat PER_EMISSION makes one 5-percent roll per eligible ordinary block-spawner attempt. Preserve the -128 ordinary replacement floor; Murk depth and swimming use the independently optional loaded local-water adapter.",
+      "reference": "docs/development/encounters.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
+    },
+    {
+      "path": "overrides/common/config/combatnouveau-common.toml",
+      "sha256": "2d5233abbb0c0bf7014ee8b16f29bad036c0f708956643d9c6ddad054b8f0e01",
+      "review": "reviewed",
+      "reason": "Retain native 21.1.2 common combat rules: half-strength Sweeping Edge scaling, 64 snowball/egg and 16 potion stacks, +0.5 sword/mace and +1 hoe/trident entity reach, and no custom damage/speed/reach overrides. Freeze pack gameplay defaults separately from client animation preferences.",
+      "reference": "docs/players/movement-combat.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
+    },
+    {
+      "path": "overrides/common/config/combatnouveau-server.toml",
+      "sha256": "aaae746bff2ec2ccfeeef8bf1883d2add9706a648d2c6e5a636b653cbb5dc206",
+      "review": "reviewed",
+      "reason": "Retain native 21.1.2 server combat baseline: full-charge attacks, no hold-to-attack, misses consume charge, hotbar switching preserves charge, sprint attacks/crits, Sweeping Edge-gated air swings, immediate directional shields, timed shield knockback and native item-use/projectile changes. Server-synchronized gameplay is managed; client presentation remains seeded.",
+      "reference": "docs/players/movement-combat.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
+    },
+    {
+      "path": "overrides/common/config/skyweave/skyweave_compat-encounters.json",
+      "sha256": "dc0418d79534b9ab51150c0d28100a07bd1451303beff7127fcd48085761dd14",
+      "review": "reviewed",
+      "reason": "Server-owned patrol check probability 15 percent and explicit PER_EMISSION ordinary V&V spawner mode with a single 5-percent roll, deterministic six-rule tag priorities, unchanged authored identities and a mixed-family nearby cap. Native V&V dungeon conversion chances are explicitly zero; client preferences cannot change these pack rules.",
+      "reference": "docs/development/encounters.md",
+      "installation": {
+        "policy": "managed",
+        "family": "pack-rules"
+      }
     }
   ]
 }

@@ -17,7 +17,7 @@
 	#Maximum active raid encounters server-wide
 	# Default: 3
 	# Range: 1 ~ 20
-	maxActiveRaids = 1
+	maxActiveRaids = 8
 	#Minutes of cooldown per player after an encounter ends
 	# Default: 10
 	# Range: 0 ~ 120
@@ -57,19 +57,19 @@
 	#Minutes between spawn attempts
 	# Default: 15
 	# Range: 1 ~ 120
-	spawnAttemptInterval = 15
+	spawnAttemptInterval = 90
 	#Starting spawn chance (%) on first attempt
 	# Default: 10.0
 	# Range: 0.0 ~ 100.0
-	spawnChanceBase = 10.0
+	spawnChanceBase = 0.0
 	#Maximum spawn chance (%) Never exceeds this
 	# Default: 50.0
 	# Range: 0.0 ~ 100.0
-	spawnChanceMax = 50.0
+	spawnChanceMax = 100.0
 	#Added to spawn chance (%) after each failed roll
 	# Default: 4.0
 	# Range: 0.0 ~ 100.0
-	spawnChanceIncrement = 4.0
+	spawnChanceIncrement = 33.333333333333336
 	#Spawn chance increment (%) when blocked (max raids or no eligible groups).
 	#Set lower than normal increment to prevent rapid back to back spawns.
 	# Default: 1.0

@@ -50,6 +50,11 @@
     },
     "enable_inventory_editor_button": {
       "value": false
-    }
+    },
+    "show_continuous_crafting_checkbox": {
+      "value": false
+    },
+    "continuous_crafting_checkbox_value": "UNCHECKED",
+    "continuous_crafting_saved_value": false
   }
 }

@@ -9,6 +9,8 @@ from pack_identity import explanation, identity, verify_export
 
 def build(root, report, release_tag=None):
     expected = identity(report, release_tag)
+    subprocess.run([sys.executable, str(root / 'scripts/build-resource-pack-repairs.py')],
+                   cwd=root, check=True)
     command = [sys.executable, str(root / 'scripts/build-resource-patches.py')]
     if release_tag is not None:
         command += ['--release-tag', release_tag]

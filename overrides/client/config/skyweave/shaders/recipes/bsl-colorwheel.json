@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "id": "bsl-colorwheel",
-  "version": "2",
-  "output": "BSL_v10.1.8 + Clrwl_1.0.5 + Skyweave_0.2.0.zip",
+  "version": "0.3.0",
+  "output": "BSL_v10.1.8 + Clrwl_1.0.5 + Skyweave_0.3.0.zip",
   "base": "bsl",
   "inputs": {
     "bsl": {
@@ -132,6 +132,102 @@
       "find": "",
       "replace": "Skyweave 0.2.0: local recipient-generated shader adaptations.\nInputs: BSL 10.1.8 and Colorwheel Patcher 1.0.5.\nEnvironment correction: scoped Skyweave-world cave/void fades through Compat environment uniforms.\nUpstream notices and licenses remain authoritative. Report adaptation issues to Skyweave.\n",
       "count": 0
+    },
+    {
+      "type": "text",
+      "path": "shaders/program/shadow.glsl",
+      "sha256": "a618327cd628e18f8d8cb7bbcb4a5c1fe8d38f120c0a90580e97c25583be4202",
+      "find": "#if MC_VERSION >= 11300\r\n\tif (blockEntityId / 100 == 155)",
+      "replace": "#if MC_VERSION >= 11300 && !defined SKYWEAVE_DH_SHADOW\r\n\tif (blockEntityId / 100 == 155)",
+      "count": 1
+    },
+    {
+      "type": "text",
+      "path": "shaders/program/shadow.glsl",
+      "sha256": "5f2530465e8225bbd509bd257f0c27a05e2e2ab9997523f336f304ac5b326b0b",
+      "find": "    vec4 albedo = texture2D(tex, texCoord.xy);",
+      "replace": "    #ifdef SKYWEAVE_DH_SHADOW\n    vec4 albedo = vec4(1.0, 1.0, 1.0, color.a);\n    #else\n    vec4 albedo = texture2D(tex, texCoord.xy);\n    #endif",
+      "count": 1
+    },
+    {
+      "type": "text",
+      "path": "shaders/program/skyweave_dh_shadow.glsl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "find": "",
+      "replace": "// Skyweave: reuse the native fragment, sun projection and distortion; no texture/entity IDs are fabricated.\n#include \"/lib/settings.glsl\"\nvarying float mat;\nvarying vec2 texCoord;\nvarying vec4 color;\n#ifdef WATER_CAUSTICS\nvarying vec3 worldPos;\n#endif\nuniform vec3 cameraPosition;\nuniform mat4 shadowModelView, shadowModelViewInverse, shadowProjection;\n#ifdef WORLD_CURVATURE\n#include \"/lib/vertex/worldCurvature.glsl\"\n#endif\nvoid main() {\n    texCoord = vec2(0.0);\n    color = gl_Color;\n    mat = color.a < 0.98 ? 1.0 : 0.0;\n    if (dhMaterialId == DH_BLOCK_WATER) mat = 2.0;\n#ifndef SHADOW_VEGETATION\n    if (dhMaterialId == DH_BLOCK_LEAVES) mat = 3.0;\n#endif\n    vec4 position = shadowModelViewInverse * gl_ModelViewMatrix * gl_Vertex;\n#ifdef WATER_CAUSTICS\n    worldPos = position.xyz + cameraPosition;\n#endif\n#ifdef WORLD_CURVATURE\n    position.y -= WorldCurvature(position.xz);\n#endif\n    gl_Position = shadowProjection * shadowModelView * position;\n    gl_Position.xy /= length(gl_Position.xy) * shadowMapBias + (1.0 - shadowMapBias);\n    gl_Position.z *= 0.2;\n}\n",
+      "count": 0
+    },
+    {
+      "type": "text",
+      "path": "shaders/world0/dh_shadow.vsh",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "find": "",
+      "replace": "#version 130\n#define OVERWORLD\n#define VSH\n#define SKYWEAVE_DH_SHADOW\n#include \"/program/skyweave_dh_shadow.glsl\"\n",
+      "count": 0
+    },
+    {
+      "type": "text",
+      "path": "shaders/world0/dh_shadow.fsh",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "find": "",
+      "replace": "#version 130\n#define OVERWORLD\n#define FSH\n#define SKYWEAVE_DH_SHADOW\n#include \"/program/shadow.glsl\"\n",
+      "count": 0
+    },
+    {
+      "type": "text",
+      "path": "shaders/world1/dh_shadow.vsh",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "find": "",
+      "replace": "#version 130\n#define END\n#define VSH\n#define SKYWEAVE_DH_SHADOW\n#include \"/program/skyweave_dh_shadow.glsl\"\n",
+      "count": 0
+    },
+    {
+      "type": "text",
+      "path": "shaders/world1/dh_shadow.fsh",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "find": "",
+      "replace": "#version 130\n#define END\n#define FSH\n#define SKYWEAVE_DH_SHADOW\n#include \"/program/shadow.glsl\"\n",
+      "count": 0
+    },
+    {
+      "type": "text",
+      "path": "shaders/world-1/dh_shadow.vsh",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "find": "",
+      "replace": "#version 130\n#define NETHER\n#define VSH\n#define SKYWEAVE_DH_SHADOW\n#include \"/program/skyweave_dh_shadow.glsl\"\n",
+      "count": 0
+    },
+    {
+      "type": "text",
+      "path": "shaders/world-1/dh_shadow.fsh",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "find": "",
+      "replace": "#version 130\n#define NETHER\n#define FSH\n#define SKYWEAVE_DH_SHADOW\n#include \"/program/shadow.glsl\"\n",
+      "count": 0
+    },
+    {
+      "type": "text",
+      "path": "shaders/shaders.properties",
+      "sha256": "8856162fcf6846e1b56f5c092e6eaee04af687875f85e87cde87e1bd0a0d3169",
+      "find": "dhShadow.enabled=false",
+      "replace": "dhShadow.enabled=true",
+      "count": 1
+    },
+    {
+      "type": "text",
+      "path": "shaders/lib/atmospherics/lightShafts.glsl",
+      "sha256": "9f1c140735575a73a2dff3d121c80753b516e6358df77653e9211450656a7988",
+      "find": "\t\t\tshadow = vec3(1.0);",
+      "replace": "            #ifdef DISTANT_HORIZONS\n            shadow = vec3(0.0); // finite shadow-map coverage does not establish sunlight outside it\n            #else\n            shadow = vec3(1.0);\n            #endif",
+      "count": 1
+    },
+    {
+      "type": "text",
+      "path": "SKYWEAVE.txt",
+      "sha256": "96e3dc14fabb320db1e57726ea46207f606d8fc3f76952191c548994d5ff9d27",
+      "find": "Skyweave 0.2.0: local recipient-generated shader adaptations.\nInputs: BSL 10.1.8 and Colorwheel Patcher 1.0.5.\nEnvironment correction: scoped Skyweave-world cave/void fades through Compat environment uniforms.\nUpstream notices and licenses remain authoritative. Report adaptation issues to Skyweave.\n",
+      "replace": "Skyweave 0.3.0: local recipient-generated shader adaptations.\nInputs: BSL 10.1.8 and Colorwheel Patcher 1.0.5.\nEnvironment correction: scoped Skyweave-world cave/void fades through Compat environment uniforms.\nUpstream notices and licenses remain authoritative. Report adaptation issues to Skyweave.\n\nDH shadows share the native water/colored-shadow fragment and sun-space distortion. Directional shafts outside finite shadow-map coverage remain unqualified; ambient and open-sky rendering are unchanged.\n",
+      "count": 1
     }
   ],
   "requires": {
@@ -142,5 +238,5 @@
     "compatible": true,
     "seedSha256": "6f76fd65f400a54d9098ef031f8221ecb8ab1a73b7b1a16a7e505e1a046c809e"
   },
-  "expected": "e547bde9d48293b54010f49db1afb2beab0515e7d3e4052043a582f22d222a1f"
+  "expected": "f4f4a96dbf8c5fd64c7b08a52ea9abc8b30872cbf646c37adf3a3fb1a14b1d96"
 }

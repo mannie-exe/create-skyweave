@@ -5,6 +5,7 @@ coverage:
   complementary-unbound: complete
   create: complete
   euphoria-patches: complete
+  photon-shader: complete
   shader-json: unknown
   shader-runner: unknown
 dependencies:
@@ -282,6 +283,60 @@ dependencies:
       provider: modrinth
       selector: 4H6sumDB
     title: Euphoria Patches
+  photon-shader:
+    content: shader-pack
+    files:
+    - acquisition:
+        downloads:
+        - https://cdn.modrinth.com/data/lLqFfGNs/versions/BnGklH5y/photon_v1.4.zip
+        kind: provider
+        pin:
+          project:
+            project: lLqFfGNs
+            provider: modrinth
+          selection:
+            id: BnGklH5y
+            provider: modrinth
+        slot: photon_v1.4.zip
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 96c7730f5891a42e39bbf1f0f5a98fa99628a7fe
+          sha512: >-
+            2dec87084dccf91a72a06235ecbfb3627f066699b5f70583f06077cba61433aedbfa6af28eb68bf1cdc726149cc3d9a587517cfab59e6a24e9d6a40b6874d655
+        size: 3857333
+      placements:
+      - destination: shader-inputs/photon_v1.4.zip
+        environment:
+          client: required
+          server: unsupported
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 96c7730f5891a42e39bbf1f0f5a98fa99628a7fe
+          sha512: >-
+            2dec87084dccf91a72a06235ecbfb3627f066699b5f70583f06077cba61433aedbfa6af28eb68bf1cdc726149cc3d9a587517cfab59e6a24e9d6a40b6874d655
+        location: lLqFfGNs
+        source: provider-catalog
+      slot: photon_v1.4.zip
+    identity:
+      kind: provider
+      project:
+        project: lLqFfGNs
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: lLqFfGNs
+        provider: modrinth
+      selection:
+        id: BnGklH5y
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: photon-shader
+    title: Photon Shaders
   shader-json:
     content: other-file
     files:
@@ -321,12 +376,12 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.38.0/skyweave-compat-0.38.0-mc1.21.1-neoforge.jar
+          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.39.0/skyweave-compat-0.39.0-mc1.21.1-neoforge.jar
         kind: url
       expected:
         accepted-observation: null
         digests:
-          sha256: ea4ae8301828b77e2fb17f93cb48ebb2c099603290fd5aaa2502cba3b74f9152
+          sha256: 9d65e5771385b64ddf0e16818bb4cc6ee9097312ae1beed0d24c5c42059146ec
         size: null
       placements:
       - destination: shader-tools/runner.jar
@@ -337,7 +392,7 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha256: ea4ae8301828b77e2fb17f93cb48ebb2c099603290fd5aaa2502cba3b74f9152
+          sha256: 9d65e5771385b64ddf0e16818bb4cc6ee9097312ae1beed0d24c5c42059146ec
         location: null
         source: url-file
       slot: content
@@ -348,7 +403,7 @@ dependencies:
     selection: null
     source-selector: null
     title: shader-runner
-intent-revision: be180eb1f4a10c9ead6161c034374559c1fdf6a6f0066cba784e2b68dd74c5e4
+intent-revision: 998de0a98f6bf0ef46e0ebb3516ffa3c65d89648190c4a23fa3ea10252f78665
 java-policy:
   historical-minimum: 21
   id: empack-java-1

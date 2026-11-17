@@ -37,16 +37,26 @@ test('review filters persist, reset and reveal catalog references', async ({
   const errors = []
   page.on('pageerror', (error) => errors.push(error.message))
   await page.goto('/resourcepacks?decision=installed')
+  const allCandidates = await page.locator('[data-candidate]').count()
+  const selectedCandidates = await page
+    .locator('[data-candidate][data-status="installed"]')
+    .count()
   await expect(page.locator('[id="3d-ladders"]')).toBeHidden()
   await expect(page.locator('#icons')).toBeHidden()
   await expect(page.locator('#rays-3d-ladders .review-status')).toHaveText(
     'Selected stack',
   )
-  await expect(page.locator('[data-candidate]:visible')).toHaveCount(19)
+  await expect(page.locator('[data-candidate]:visible')).toHaveCount(
+    selectedCandidates,
+  )
+  await expect(page.locator('#fresh-animations')).toBeHidden()
+  await expect(page.locator('#fresh-animations-objects')).toBeVisible()
   await page.locator('#pack-search').fill('does not exist')
   await expect(page.locator('#pack-empty')).toBeVisible()
   await page.getByRole('button', { name: 'Reset', exact: true }).click()
-  await expect(page.locator('[data-candidate]:visible')).toHaveCount(54)
+  await expect(page.locator('[data-candidate]:visible')).toHaveCount(
+    allCandidates,
+  )
   await page.locator('#pack-category').selectOption('Connected textures')
   await expect(page).toHaveURL(/scope=Connected/)
   await page.reload()
@@ -58,6 +68,29 @@ test('review filters persist, reset and reveal catalog references', async ({
   await expect(page.locator('#rays-3d-ladders')).toBeVisible()
   await expect(page.locator('#pack-category')).toHaveValue('')
   expect(errors).toEqual([])
+})
+
+test('current resource defaults distinguish disabled packs from unarchived selected files', async ({
+  page,
+}) => {
+  await page.goto('/resourcepacks')
+  const defaults = page.locator('#default-resource-stack')
+  await defaults.locator('summary').click()
+  await expect(
+    defaults.locator('[data-resource-selection="fresh-animations"]'),
+  ).toContainText('Disabled')
+  await expect(
+    defaults.locator('[data-resource-selection="fresh-animations"]'),
+  ).toContainText('Matches locked source')
+  await expect(
+    defaults.locator('[data-resource-selection="fresh-animations-objects"]'),
+  ).toContainText('Enabled')
+  await expect(
+    defaults.locator('[data-resource-selection="refined-tools"]'),
+  ).toContainText('Enabled')
+  await expect(
+    defaults.locator('[data-resource-selection="refined-tools"]'),
+  ).toContainText('Not archived')
 })
 
 test('gallery selection, keyboard viewer and responsive columns', async ({
@@ -208,13 +241,19 @@ test('reading rail follows the document and shares its filters', async ({
   page.on('pageerror', (error) => errors.push(error.message))
   await page.goto('/resourcepacks?decision=installed')
   const index = page.getByRole('navigation', { name: 'Resource pack index' })
-  await expect(index.locator('a:visible')).toHaveCount(19)
+  const allCandidates = await page.locator('[data-candidate]').count()
+  const selectedCandidates = await page
+    .locator('[data-candidate][data-status="installed"]')
+    .count()
+  await expect(index.locator('a:visible')).toHaveCount(selectedCandidates)
   await index.locator('[href="#skyweave-resource-patches"]').click()
   await expect(page.locator('#skyweave-resource-patches h2')).toBeFocused()
   await expect(
     index.locator('[href="#skyweave-resource-patches"]'),
   ).toHaveAttribute('aria-current', 'location')
-  await expect(page.locator('[data-candidate]:visible')).toHaveCount(19)
+  await expect(page.locator('[data-candidate]:visible')).toHaveCount(
+    selectedCandidates,
+  )
   await page
     .locator('#rays-3d-ladders')
     .evaluate((card) => card.scrollIntoView({ block: 'start' }))
@@ -228,7 +267,7 @@ test('reading rail follows the document and shares its filters', async ({
   await expect(page.locator('#pack-empty')).toBeVisible()
   await expect(index.locator('a:visible')).toHaveCount(0)
   await page.locator('#pack-reset').click()
-  await expect(index.locator('a:visible')).toHaveCount(54)
+  await expect(index.locator('a:visible')).toHaveCount(allCandidates)
   await page.setViewportSize({ width: 390, height: 844 })
   await index.locator('[href="#skyweave-visual-patches"]').click()
   await expect(page.locator('#skyweave-visual-patches h2')).toBeFocused()
@@ -265,7 +304,9 @@ test('old preview links preserve filters and reveal their target on the adopted 
         }),
       )
       .toBe(true)
-    await expect(page.locator('[data-candidate]:visible')).toHaveCount(19)
+    await expect(page.locator('[data-candidate]:visible')).toHaveCount(
+      await page.locator('[data-candidate][data-status="installed"]').count(),
+    )
   }
   await page.goto('/resourcepacks?scope=Pack-owned#rays-3d-ladders')
   await expect(page.locator('#pack-category')).toHaveValue('')

@@ -4,9 +4,9 @@
   "records": [
     {
       "path": "overrides/client/options.txt",
-      "sha256": "9ebd3875a4c02e6daaf3bcff319b72cf439429d1049a655463ead3de2263479b",
+      "sha256": "d979ebecef834bf24926b89013881d2e1bf962e41c046d10da22c3d3a6834f24",
       "review": "reviewed",
-      "reason": "Select the reviewed visual stack, including Better Lanterns and the generated pot/chain overrides at highest priority. Accept the inspected 3D Crops format mismatch; dedicated cane and rails retain priority. Existing instance options are seeded, not replaced. Shader reload uses F8 to avoid ordinary R interactions and recipe lookup. Client defaults use 12-chunk view distance and 10-chunk simulation distance. Grave accent opens FTB Quests; explicitly unbind legacy Questlog during coexistence. Existing installations retain seeded options until a targeted authorized update.",
+      "reason": "Select Refined Tools/Torches/Buckets, the Create bucket addon and Luminous Lanterns, with Visual Patches last for current-base bucket bindings, the 1.21.1 flint-and-steel backport and the independent redstone torch. Retain Fluid & Foolish, Punched Backpacks and FA+Objects while mob Fresh Animations and Details stay deselected. Seed 12/10 distances and the existing input bindings; existing players retain seeded preferences.",
       "reference": "docs/players/graphics.md#resource-packs"
     },
     {
@@ -737,9 +737,9 @@
     },
     {
       "path": "overrides/client/config/inventoryprofilesnext/inventoryprofiles.json",
-      "sha256": "1f599b313189bc09083130d4b244285a15c12eda8ae27dcdb018a920cf524eae",
+      "sha256": "c8742b168093f7ef73ff65a1d143fc95af60e4eac00db0ba9520d86c7d9dbf06",
       "review": "reviewed",
-      "reason": "Keep manual IPN sorting/transfers, equipment profile support and Auto Refill tool replacement; disable overlapping IPN scrolling/swipe, armor refill and hotbar restocking. Middle-click sorting preserves R recipe lookup. Hide only settings and overlay-editor buttons; retain sort buttons and refill indicators.",
+      "reason": "Keep manual IPN sorting/transfers, equipment profile support and Auto Refill tool replacement; disable overlapping IPN scrolling/swipe, armor refill and hotbar restocking. Middle-click sorting preserves R recipe lookup. Hide only settings and overlay-editor buttons; retain sort buttons and refill indicators. Disable continuous crafting with its native unchecked default, saved value false and hidden checkbox; preserve manual sorting, transfers, profiles and refill.",
       "reference": "docs/players/getting-started.md#controls",
       "installation": {
         "policy": "seed",
@@ -763,6 +763,116 @@
       "review": "reviewed",
       "reason": "Client Indigo rendering and lighting preferences; its native properties writer updates the timestamp on startup. Preserve user-selected rendering modes instead of treating them as gameplay rules.",
       "reference": "docs/development/authoring.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
+    },
+    {
+      "path": "overrides/client/config/skinlayers.json",
+      "sha256": "eb3ec3eab19a13c0b8a710a490be519840508417dce22ea2d0ab4d3b523ddfe1",
+      "review": "reviewed",
+      "reason": "Preserve outer-skin depth, proportions and LOD preferences; target native 1.11.4 recognizes these fields and supplies newer compatibility defaults.",
+      "reference": "docs/development/patches.md#client-effect-defaults",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
+    },
+    {
+      "path": "overrides/client/config/mc2_interactivefoliage.json",
+      "sha256": "04ee61f777586c6fcc1b328783d82f0efa32e111a3da04439a5d77b5a3ed59a1",
+      "review": "reviewed",
+      "reason": "Use the native GPU renderer as selected by the owner; retain CPU as a fallback. Keep entity reactions while leaving ambient foliage/leaves waving and weather wind to shaders. Offscreen Mac shader compile/link passed; actual Iris, models, moving ships and performance still need qualification.",
+      "reference": "docs/development/patches.md#client-effect-defaults",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
+    },
+    {
+      "path": "overrides/client/config/subtle_effects/general.toml",
+      "sha256": "d19b513d48ddadb41bff67e1ae371bd84f853bfa4a571e09611d6346be7fd62d",
+      "review": "reviewed",
+      "reason": "Retain existing visual preferences in the five current native Subtle Effects configs; no obsolete biomes file. Keep reviewed splash/container opt-outs, remove duplicate culling entries/absent-mod IDs, and retain native waterfall distance culling. Other retained values remain inherited preferences; full-stack visuals are not yet qualified.",
+      "reference": "docs/development/patches.md#client-effect-defaults",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
+    },
+    {
+      "path": "overrides/client/config/subtle_effects/blocks.toml",
+      "sha256": "21dbd6f934ae69737fee1edafae352282ec356421b303b336bb3ce7a7b85381e",
+      "review": "reviewed",
+      "reason": "Retain existing visual preferences in the five current native Subtle Effects configs; no obsolete biomes file. Keep reviewed splash/container opt-outs, remove duplicate culling entries/absent-mod IDs, and retain native waterfall distance culling. Other retained values remain inherited preferences; full-stack visuals are not yet qualified.",
+      "reference": "docs/development/patches.md#client-effect-defaults",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
+    },
+    {
+      "path": "overrides/client/config/subtle_effects/entities.toml",
+      "sha256": "1aae2f0fc023d9dd2aaf167be0770d2f71e6b6323a541a2a8899ed1d20e8b461",
+      "review": "reviewed",
+      "reason": "Retain existing visual preferences in the five current native Subtle Effects configs; no obsolete biomes file. Keep reviewed splash/container opt-outs, remove duplicate culling entries/absent-mod IDs, and retain native waterfall distance culling. Other retained values remain inherited preferences; full-stack visuals are not yet qualified.",
+      "reference": "docs/development/patches.md#client-effect-defaults",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
+    },
+    {
+      "path": "overrides/client/config/subtle_effects/environment.toml",
+      "sha256": "7eb987b3a5a0d114022a8ba2d92fd698680fc2c8bd2cc60f9d1d09f55947be55",
+      "review": "reviewed",
+      "reason": "Retain existing visual preferences in the five current native Subtle Effects configs; no obsolete biomes file. Keep reviewed splash/container opt-outs, remove duplicate culling entries/absent-mod IDs, and retain native waterfall distance culling. Other retained values remain inherited preferences; full-stack visuals are not yet qualified.",
+      "reference": "docs/development/patches.md#client-effect-defaults",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
+    },
+    {
+      "path": "overrides/client/config/subtle_effects/items.toml",
+      "sha256": "ffffa9bccaa9fe6d50a316328aabde229edb769039269c72093670b5e017f987",
+      "review": "reviewed",
+      "reason": "Retain existing visual preferences in the five current native Subtle Effects configs; no obsolete biomes file. Keep reviewed splash/container opt-outs, remove duplicate culling entries/absent-mod IDs, and retain native waterfall distance culling. Other retained values remain inherited preferences; full-stack visuals are not yet qualified.",
+      "reference": "docs/development/patches.md#client-effect-defaults",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
+    },
+    {
+      "path": "overrides/client/config/pickupnotifier-client.toml",
+      "sha256": "9b24e12a6901fcd475229ef023d0aa831b208692bf607a3e176f26c282a8f2aa",
+      "review": "reviewed",
+      "reason": "Seed a lower-right pickup list bounded to one quarter of HUD height. Retain native four-second display, merging except custom names, item/arrow/XP tracking and inventory-count off; players own later presentation choices.",
+      "reference": "docs/players/inventory.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
+    },
+    {
+      "path": "overrides/client/config/hmioutline.json",
+      "sha256": "3f267a9a25772f469ff7ea73254501cbdde0faca007c944dacc364354b70821c",
+      "review": "reviewed",
+      "reason": "Seed native enchanted-item and armor outlines while retaining vanilla glint and the native rune/glow defaults. Native UI rewrites the preference file and keeps user presets; exact shader and framebuffer combinations require client checks.",
+      "reference": "docs/players/graphics.md",
+      "installation": {
+        "policy": "seed",
+        "family": "client-preferences"
+      }
+    },
+    {
+      "path": "overrides/client/config/combatnouveau-client.toml",
+      "sha256": "c53b03636363df1be8c6be387f7b884cdb1c0c567b42c05ffd99ac1ba9768ed7",
+      "review": "reviewed",
+      "reason": "Keep Combat Nouveau alternative swing timing off and passive offhand hiding empty so Punchy retains held-item presentation. Retain native server combat rules for the trial; client display preferences stay player-owned.",
+      "reference": "docs/players/movement-combat.md",
       "installation": {
         "policy": "seed",
         "family": "client-preferences"

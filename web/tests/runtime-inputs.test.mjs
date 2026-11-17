@@ -67,6 +67,43 @@ test('missing and modified materialized bytes cannot certify a fresh snapshot', 
   )
 })
 
+test('local candidates bind the accepted SHA-256 observation as well as declared hashes', () => {
+  const candidate = file('mods/local.jar', 'common')
+  candidate.expected = {
+    size: bytes.length,
+    digests: null,
+    'accepted-observation': createHash('sha256').update(bytes).digest('hex'),
+  }
+  assert.equal(
+    serverModInputs('/fixture', lock([candidate]), () => bytes).mods.length,
+    1,
+  )
+  assert.throws(
+    () =>
+      serverModInputs('/fixture', lock([candidate]), () =>
+        Buffer.alloc(bytes.length),
+      ),
+    /sha256 mismatch/,
+  )
+  candidate.expected.digests = expected.digests
+  candidate.expected['accepted-observation'] = '0'.repeat(64)
+  assert.throws(
+    () => serverModInputs('/fixture', lock([candidate]), () => bytes),
+    /sha256 mismatch/,
+  )
+  candidate.expected['accepted-observation'] = 'not-a-content-id'
+  assert.throws(
+    () => serverModInputs('/fixture', lock([candidate]), () => bytes),
+    /invalid accepted observation/,
+  )
+  delete candidate.expected['accepted-observation']
+  candidate.expected.digests = null
+  assert.throws(
+    () => serverModInputs('/fixture', lock([candidate]), () => bytes),
+    /no locked digest/,
+  )
+})
+
 test('ambiguous destinations, client-layer server mods and traversal fail', () => {
   for (const files of [
     [file('mods/main.jar', 'common'), file('mods/main.jar', 'server')],

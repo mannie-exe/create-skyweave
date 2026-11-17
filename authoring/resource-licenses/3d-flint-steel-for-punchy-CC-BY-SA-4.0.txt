@@ -1,0 +1,11 @@
+3D Flint & Steel for Punchy
+
+Author: vikicapikica094
+Source: https://modrinth.com/resourcepack/3d-flint-steel-for-punchy/version/oJUygH2s
+License: Creative Commons Attribution-ShareAlike 4.0 International
+License terms: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+Create: Skyweave retains the original selected models and textures and supplies
+Minecraft 1.21.1 item definitions through Modefite. The modern shelf/custom-name
+selectors are omitted. These adaptations are licensed under CC-BY-SA-4.0.
+Original assets retain their attribution; the upstream icon is not redistributed.

@@ -2,10 +2,12 @@ import { z } from 'zod'
 import { defineOperation } from './service.ts'
 import { target } from './policy.ts'
 import { projectionNamespaces } from './inventory.ts'
+import { scopeSchema } from '../../src/lib/workspace/contracts.ts'
 import type { createArtifactStore } from './artifacts.ts'
 
 export function artifactMaintenanceDefinitions(
   store: ReturnType<typeof createArtifactStore>,
+  options: { storeWide?: boolean } = {},
 ) {
   const pruneTargets = (ctx: { scope: Parameters<typeof target>[0] }) => [
     {
@@ -15,6 +17,17 @@ export function artifactMaintenanceDefinitions(
   ]
   const result = z.strictObject({
     dryRun: z.boolean(),
+    policy: z.literal('active-or-latest-two'),
+    retained: z.array(
+      z.strictObject({
+        scope: scopeSchema,
+        namespace: z.string(),
+        generationId: z.uuid(),
+        reasons: z.array(
+          z.enum(['current', 'latest-two', 'pin', 'dependency', 'foreign']),
+        ),
+      }),
+    ),
     generations: z.number().int().nonnegative(),
     references: z.number().int().nonnegative(),
     blobs: z.number().int().nonnegative(),
@@ -22,6 +35,34 @@ export function artifactMaintenanceDefinitions(
     bytes: z.number().int().nonnegative(),
   })
   return [
+    // Store-wide maintenance belongs to the trusted local CLI. Scoped app
+    // delivery and cached command results must not expose another pack's data.
+    ...(options.storeWide
+      ? [
+          defineOperation({
+            name: 'artifacts.store.retention',
+            effect: 'query',
+            input: z.strictObject({}),
+            output: result,
+            label: 'Review store retention',
+            href: '/',
+            success: '',
+            targets: pruneTargets,
+            execute: (ctx) => store.prune(ctx, ctx.scope, true, true),
+          }),
+          defineOperation({
+            name: 'artifacts.store.prune',
+            effect: 'generate',
+            input: z.strictObject({}),
+            output: result,
+            label: 'Clean obsolete store artifacts',
+            href: '/',
+            success: 'Obsolete store artifacts cleaned.',
+            targets: pruneTargets,
+            execute: (ctx) => store.prune(ctx, ctx.scope, false, true),
+          }),
+        ]
+      : []),
     defineOperation({
       name: 'artifacts.retention',
       effect: 'query',

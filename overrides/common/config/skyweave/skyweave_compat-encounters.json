@@ -1,0 +1,39 @@
+{
+  "patrolCheckPercent": 15.0,
+  "spawners": {
+    "mode": "PER_EMISSION",
+    "replacementPercent": 5.0,
+    "rules": {
+      "husk": {
+        "enabled": true,
+        "priority": 10,
+        "biomeTags": ["variantsandventures:has_husk"]
+      },
+      "gelid": {
+        "enabled": true,
+        "priority": 20,
+        "biomeTags": ["variantsandventures:has_gelid"]
+      },
+      "thicket": {
+        "enabled": true,
+        "priority": 30,
+        "biomeTags": ["variantsandventures:has_thicket"]
+      },
+      "stray": {
+        "enabled": true,
+        "priority": 10,
+        "biomeTags": ["variantsandventures:has_stray"]
+      },
+      "bogged": {
+        "enabled": true,
+        "priority": 20,
+        "biomeTags": ["variantsandventures:has_bogged"]
+      },
+      "verdant": {
+        "enabled": true,
+        "priority": 30,
+        "biomeTags": ["variantsandventures:has_verdant"]
+      }
+    }
+  }
+}

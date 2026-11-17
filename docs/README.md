@@ -7,6 +7,7 @@ Player guides explain installation and operation. Development documents describe
 | Guide | Contents |
 | --- | --- |
 | [Getting started](players/getting-started.md) | Installation, world creation and updates |
+| [Movement and combat](players/movement-combat.md) | Movement controls and authored defaults |
 | [Inventory controls](players/inventory.md) | Gestures, sorting, refill and known screen issues |
 | [Journal](players/journal.md) | Local quest conditions and controls |
 | [Graphics](players/graphics.md) | DH rendering, shader choices and missing LODs |
@@ -34,6 +35,7 @@ Player guides explain installation and operation. Development documents describe
 | [Terrain and structure candidates](development/worldgen-candidates.md) | Selected projects, exclusions and integration review |
 | [Performance investigation](development/performance.md) | Bounded startup, teardown, GC, terrain and server-work profiling |
 | [Structures](development/structures.md) | Sky Villages placement, loot and delivery integration |
+| [Encounters and settlement population](development/encounters.md) | Illager, guard and biome-variant settings, spawn paths and integration limits |
 | [Building weights](development/weights.md) | Classification policy, multipart decisions and native verification |
 | [Progression review](development/progression.md) | Routes, overlaps and remaining play checks |
 | [Upstream findings](development/upstream.md) | Known reports and candidates for submission |

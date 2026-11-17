@@ -1,7 +1,7 @@
 schema: 6
 pack:
   name: Create - Skyweave
-  version: 0.19.0
+  version: 0.20.0
   id: create_skyweave
   authors:
     - mannie-exe
@@ -685,10 +685,67 @@ dependencies:
     environment:
       client: required
       server: unsupported
-  better-lanterns:
-    pin: jRAsb6KQ
-    source: modrinth:better-lanterns
+  refined-tools:
+    source: modrinth:6l1WUegn
+    pin: ndAFoNmO
     type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  refined-torches:
+    source: modrinth:M6aa729D
+    pin: e7EW6ibn
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  refined-buckets:
+    source: modrinth:l2nl8HQJ
+    pin: 3xfWCDi5
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  luminous-lanterns:
+    source: modrinth:9k8RMjsM
+    pin: S2z4ITQ6
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  modefite-item-definition-backport:
+    source: modrinth:qjlkcVfy
+    pin: cy8BkRZc
+    environment:
+      client: required
+      server: unsupported
+  respackopts:
+    source: modrinth:TiF5QWZY
+    pin: zVaOQTh5
+    environment:
+      client: required
+      server: unsupported
+  libjf:
+    source: modrinth:WKwQAwke
+    pin: kCSwQJ9C
+    environment:
+      client: required
+      server: unsupported
+  enchanted-fishing-line:
+    source: modrinth:FtXZNeim
+    pin: HNRIgUFH
+    environment:
+      client: required
+      server: unsupported
+  refined-create-buckets:
+    type: resource-pack
+    source:
+      kind: url
+      downloads:
+        - https://cdn.modrinth.com/data/5m3ARu6i/versions/ByxDrT5M/Refined%20%D0%A1reate%20Buckets%20PV.zip
+    digests:
+      sha1: 62a657d70f30286dfaf272a9529d9ac50a0330c4
+      sha512: 5e421da835064d4f48fb8b1028775a37e8f5f7908a619504f3aff2d04693b1acbcabba76df8ec85b5649f4c7ed6b7a53a13924de068004c4f2493d7e26d420d2
     environment:
       client: required
       server: unsupported
@@ -731,10 +788,10 @@ dependencies:
     source:
       kind: url
       downloads:
-        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.38.0/skyweave-compat-0.38.0-mc1.21.1-neoforge.jar
+        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.39.0/skyweave-compat-0.39.0-mc1.21.1-neoforge.jar
     digests:
-      sha1: a943608f577dd39f5d231b7a2275390b779836b2
-      sha512: e91c12e60105f13c65797f20257492ac7120223dbcd6ea6b832d616a67502d50e82440f0fa64d4f8b335773c46fc5e4230f6ce6d91c03dbdd8c6a176ed7f49e2
+      sha1: 2e905dfb78a2981435144796fe14a15a6b8f670f
+      sha512: 40334418f4b3db941128857b56647c96837d11d0a466cbce3a6a25cc0eef8fe68afc898397a61dfb16c289222c549b3879a45eb24c402a89294ef6d785f811f4
     environment:
       client: required
       server: required
@@ -848,6 +905,78 @@ dependencies:
     digests:
       sha1: 389fb269d338ed4c7f14f945a07759b6d444af40
       sha512: fc97e8f2848b72ca04eba930a5382a9839faf860c1f943eeb698b4859cd5fa9a9533b900f06855b878cf8b7f1c2c10a9c3db37194e5dcb3ed3e2df342538009d
+  mc2-interactive-foliage:
+    pin: oKmXJIL5
+    source: modrinth:mc2-interactive-foliage
+    side: client
+  sway:
+    pin: uGTq42kW
+    source: modrinth:sway
+    side: client
+  subtle-effects:
+    pin: Xbx8Sis8
+    source: modrinth:subtle-effects
+    side: client
+  3dskinlayers:
+    pin: GJTnQGfe
+    source: modrinth:3dskinlayers
+    side: client
+  illager-invasion:
+    pin: 9bEpNrvK
+    source: modrinth:illager-invasion
+  guard-villagers:
+    pin: JyXugpy2
+    source: modrinth:guard-villagers
+  variants-and-ventures:
+    pin: v5OIE4J8
+    source: modrinth:variants-and-ventures
+  pick-up-notifier:
+    pin: 5NZounJc
+    source: modrinth:pick-up-notifier
+    side: client
+  outline-effects:
+    source:
+      kind: url
+      downloads:
+        - https://cdn.modrinth.com/data/tzMIGXhD/versions/4Scic1zd/outline-effects-neoforge-2.2%2Bmc1.21.1.jar
+    digests:
+      sha1: 0c58c99206659283ee786cd4c7ab07d0332d7816
+      sha512: 245165436c97c04b67d44e5dc799758d6d68e09d0e49a72f021abd04cea4eff6f6ec80eb3953d29a65de1f7473fbc555a7a129cbb0cd50f5441d54d03229dab9
+    environment:
+      client: required
+      server: unsupported
+  punchy-fpa:
+    pin: aVZEe0j8
+    side: client
+    source: modrinth:punchy-fpa
+  emf-compat-core:
+    pin: upzqIWB0
+    side: client
+    source: modrinth:emf-compat-core
+  punchymoves:
+    pin: SYcipAjI
+    side: client
+    source: modrinth:punchymoves
+  punched-backpacks:
+    pin: prexQWb0
+    source: modrinth:punched-backpacks
+    type: resource-pack
+    side: client
+
+  touch-n-motion:
+    source:
+      kind: url
+      downloads:
+        - https://edge.forgecdn.net/files/9524/859/touch_n_motion_neoforge_1.21.1_1.0.5.jar
+    digests:
+      sha1: 888c6175492105f4df7be86ad5bc0fb65332064e
+      sha512: 2cb1c096b86539550158c2a1b45b57b46fd806428f7388254543e93d10b4ff8f41149cc3204121d69e5911789d91366325f573ec8b5321c5b032fb9dce0488bb
+    environment:
+      client: required
+      server: required
+  combat-nouveau:
+    pin: us081FGF
+    source: modrinth:combat-nouveau
 
 build:
   default:

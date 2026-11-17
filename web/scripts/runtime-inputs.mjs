@@ -65,6 +65,16 @@ export function serverModInputs(pack, lock, read = readFileSync) {
     if (expected.size != null && expected.size !== bytes.length)
       throw new Error(`${key}: materialized JAR size changed`)
     const digests = Object.entries(expected.digests || {})
+    const observation = expected['accepted-observation']
+    if (observation != null) {
+      if (
+        typeof observation !== 'string' ||
+        !/^[0-9a-f]{64}$/.test(observation)
+      )
+        throw new Error(`${key}: invalid accepted observation`)
+      // Native local inputs retain their SHA-256 content identity instead of provider hashes.
+      digests.push(['sha256', observation])
+    }
     if (!digests.length)
       throw new Error(`${key}: no locked digest for runtime input`)
     for (const [algorithm, digest] of digests) {

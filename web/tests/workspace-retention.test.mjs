@@ -12,6 +12,7 @@ import {
   defineOperation,
 } from '../scripts/workspace/service.ts'
 import { hash } from '../scripts/workspace/identity.ts'
+import { cleanArtifacts } from '../scripts/artifact-cleanup.mjs'
 
 const actor = {
   principal: { kind: 'anonymous', id: 'local' },
@@ -66,7 +67,7 @@ async function fixture(t, multiple = false) {
     registrations,
     policy,
     definitions: [
-      ...artifactMaintenanceDefinitions(store),
+      ...artifactMaintenanceDefinitions(store, { storeWide: true }),
       defineOperation({
         name: 'fixture.publish',
         effect: 'generate',
@@ -159,7 +160,40 @@ async function fixture(t, multiple = false) {
   }
 }
 
-test('retention protects active/recent generations, review pins and transitive inputs; dry run matches scoped cleanup', async (t) => {
+test('current generation replaces historical retention even for just-published runs', async (t) => {
+  const f = await fixture(t)
+  const first = await f.publish('first')
+  await f.publish('second')
+  const current = await f.publish('current')
+  // A completed read is not activity and must not start a retention timer.
+  await f.store.resolve(actor, f.scopes[0], first.files['payload.txt'].id)
+  assert.equal((await f.inspect()).generations, 2)
+  await f.run('artifacts.prune')
+  assert.equal((await f.store.active(actor, f.scopes[0], 'map')).id, current.id)
+})
+
+test('without a current generation, keep exactly the latest two per namespace', async (t) => {
+  const f = await fixture(t)
+  const versions = []
+  for (let i = 0; i < 4; i++) versions.push(await f.publish('version ' + i))
+  await fs.unlink(path.join(f.root, 'artifacts/manifests/local/alpha/map.json'))
+  await f.publish('other category', 'objects')
+  assert.equal((await f.inspect()).generations, 2)
+  await f.run('artifacts.prune')
+  for (const i of [2, 3])
+    assert(
+      await f.store.resolve(
+        actor,
+        f.scopes[0],
+        versions[i].files['payload.txt'].id,
+      ),
+    )
+  await assert.rejects(
+    f.store.resolve(actor, f.scopes[0], versions[0].files['payload.txt'].id),
+  )
+})
+
+test('retention protects current generations, explicit review pins and transitive inputs; dry run matches cleanup', async (t) => {
   const f = await fixture(t),
     [scope] = f.scopes,
     versions = []
@@ -170,18 +204,16 @@ test('retention protects active/recent generations, review pins and transitive i
     enabled: true,
   })
   await f.publish('dependent', 'objects', [versions[0].files['payload.txt']])
-  assert.equal((await f.inspect()).generations, 0)
-  f.advance(2 * day)
   const plan = await f.inspect()
-  assert.equal(plan.generations, 1)
-  assert.equal(plan.references, 1)
-  assert.equal(plan.blobs, 1)
+  assert.equal(plan.generations, 2)
+  assert.equal(plan.references, 2)
+  assert.equal(plan.blobs, 2)
   const actual = await f.run('artifacts.prune')
   assert.deepEqual({ ...actual, dryRun: true }, plan)
   await assert.rejects(
     f.store.resolve(actor, scope, versions[2].files['payload.txt'].id),
   )
-  for (const i of [0, 1, 3, 4])
+  for (const i of [0, 1, 4])
     assert.equal(
       (await f.store.resolve(actor, scope, versions[i].files['payload.txt'].id))
         .reference.generationId,
@@ -206,7 +238,7 @@ test('foreign scope references protect shared bytes and unavailable scope author
   f.advance(2 * day)
   f.deny('beta')
   const removed = await f.run('artifacts.prune')
-  assert.equal(removed.generations, 1)
+  assert.equal(removed.generations, 2)
   assert.equal(removed.blobs, 0)
   await assert.rejects(
     f.store.resolve(actor, alpha, first.files['payload.txt'].id),
@@ -221,7 +253,7 @@ test('foreign scope references protect shared bytes and unavailable scope author
   await assert.rejects(f.inspect(), (error) => error.code === 'NOT_FOUND')
 })
 
-test('reader leases and active reads outlive replacement; maintenance never races another attached host', async (t) => {
+test('active reads block maintenance until released; completed reads have no retention timer', async (t) => {
   const f = await fixture(t),
     [scope] = f.scopes
   const old = await f.publish('old')
@@ -229,7 +261,7 @@ test('reader leases and active reads outlive replacement; maintenance never race
   await f.publish('new')
   f.advance(2 * day)
   await f.store.resolve(actor, scope, old.files['payload.txt'].id)
-  assert.equal((await f.inspect()).generations, 0)
+  assert.equal((await f.inspect()).generations, 2)
   const entered = Promise.withResolvers(),
     release = Promise.withResolvers()
   const reading = f.store.withGeneration(
@@ -273,7 +305,7 @@ test('reader leases and active reads outlive replacement; maintenance never race
   await other.active(actor, scope, 'map', '')
   await assert.rejects(f.inspect(), (error) => error.code === 'BUSY')
   await other.dispose()
-  assert.equal((await f.inspect()).generations, 1)
+  assert.equal((await f.inspect()).generations, 2)
 })
 
 test('denied maintenance does not initialize the artifact root', async (t) => {
@@ -284,6 +316,179 @@ test('denied maintenance does not initialize the artifact root', async (t) => {
     fs.access(path.join(f.root, 'artifacts')),
     (error) => error.code === 'ENOENT',
   )
+})
+
+test('store-wide cleanup requires every scope and preserves shared bytes still used by another head', async (t) => {
+  const f = await fixture(t, true)
+  const shared = await f.publish('shared')
+  const other = await f.publish('shared', 'map', [], f.scopes[1])
+  await f.publish('replacement')
+  f.deny('beta')
+  await assert.rejects(
+    f.run('artifacts.store.prune'),
+    (error) => error.code === 'NOT_FOUND',
+  )
+  assert(
+    await f.store.resolve(actor, f.scopes[0], shared.files['payload.txt'].id),
+  )
+  f.deny('')
+  const result = await f.run('artifacts.store.prune')
+  assert.equal(result.generations, 1)
+  assert.equal(result.blobs, 0)
+  assert.equal(result.retained.length, 2)
+  assert(result.retained.every((row) => row.reasons.includes('current')))
+  assert(
+    await f.store.resolve(actor, f.scopes[1], other.files['payload.txt'].id),
+  )
+  await f.publish('beta replacement', 'map', [], f.scopes[1])
+  assert.equal((await f.run('artifacts.store.prune')).blobs, 1)
+})
+
+test('store-wide maintenance is absent from default app operations', async (t) => {
+  const f = await fixture(t)
+  assert(
+    !artifactMaintenanceDefinitions(f.store).some((definition) =>
+      definition.name.includes('.store.'),
+    ),
+  )
+})
+
+test('missing retained bytes stop cleanup before any obsolete generation is removed', async (t) => {
+  const f = await fixture(t)
+  const old = await f.publish('old')
+  const current = await f.publish('current')
+  const digest = current.files['payload.txt'].sha256
+  await fs.unlink(
+    path.join(f.root, 'artifacts/blobs', digest.slice(0, 2), digest),
+  )
+  await assert.rejects(f.run('artifacts.prune'))
+  assert(await f.store.resolve(actor, f.scopes[0], old.files['payload.txt'].id))
+})
+
+test('a newly added review pin invalidates the deletion plan', async (t) => {
+  const f = await fixture(t)
+  const old = await f.publish('old')
+  await f.publish('current')
+  let added = false
+  f.revokeWhen(async () => {
+    if (
+      !added &&
+      (await fs
+        .stat(path.join(f.root, 'artifacts/retention.lock'))
+        .catch(() => null))
+    ) {
+      added = true
+      const folder = path.join(f.root, 'artifacts/pins/local/alpha')
+      await fs.mkdir(folder, { recursive: true })
+      await fs.writeFile(
+        path.join(folder, old.id + '.json'),
+        JSON.stringify({
+          schema: 1,
+          scope: f.scopes[0],
+          generationId: old.id,
+          namespace: 'map',
+          pinnedAt: new Date().toISOString(),
+        }),
+      )
+    }
+    return false
+  })
+  await assert.rejects(f.run('artifacts.prune'))
+  assert(added)
+  assert(await f.store.resolve(actor, f.scopes[0], old.files['payload.txt'].id))
+})
+
+test('unknown temporary scopes prevent a store-wide sweep and protect scoped orphan bytes', async (t) => {
+  const f = await fixture(t)
+  await f.publish('current')
+  f.fail(true)
+  await assert.rejects(f.publish('orphan'))
+  f.fail(false)
+  const folder = path.join(f.root, 'artifacts/references/local/foreign')
+  await fs.mkdir(folder, { recursive: true })
+  const pending = path.join(
+    folder,
+    hash('pending') + '.json.' + randomUUID() + '.tmp',
+  )
+  await fs.writeFile(pending, '{}')
+  await assert.rejects(f.run('artifacts.store.prune'))
+  const result = await f.run('artifacts.prune')
+  assert.equal(result.blobs, 0)
+  assert.equal(await fs.readFile(pending, 'utf8'), '{}')
+})
+
+test('local CLI discovers legacy scopes and previews before applying the shared policy', async (t) => {
+  const f = await fixture(t, true)
+  await f.publish('old alpha')
+  await f.publish('current alpha')
+  await f.publish('old beta', 'map', [], f.scopes[1])
+  await f.publish('current beta', 'map', [], f.scopes[1])
+  await f.store.dispose()
+  await fs.mkdir(path.join(f.root, '.cache/workspace'), { recursive: true })
+  await fs.rename(
+    path.join(f.root, 'artifacts'),
+    path.join(f.root, '.cache/workspace/artifacts'),
+  )
+  const abort = new AbortController()
+  await assert.rejects(
+    cleanArtifacts(f.root, {
+      allScopes: true,
+      apply: true,
+      signal: abort.signal,
+      emit: (value) => {
+        if (value.phase === 'plan') abort.abort()
+      },
+    }),
+    (error) => error.code === 'CANCELLED',
+  )
+  assert.equal(
+    (await cleanArtifacts(f.root, { allScopes: true })).generations,
+    2,
+  )
+  const observations = []
+  const result = await cleanArtifacts(f.root, {
+    allScopes: true,
+    apply: true,
+    emit: (value) => observations.push(value),
+  })
+  assert.deepEqual(
+    observations.map((row) => row.phase),
+    ['plan', 'result'],
+  )
+  assert.equal(result.generations, 2)
+  assert.equal(result.retained.length, 2)
+  assert.equal((await cleanArtifacts(f.root, { allScopes: true })).bytes, 0)
+})
+
+test('large stores exceed the old reference and aggregate JSON limits without weakening per-record checks', async (t) => {
+  const f = await fixture(t)
+  const old = await f.publish('old')
+  await f.publish('current')
+  const folder = path.join(f.root, 'artifacts/references/local/alpha')
+  const template = old.files['payload.txt']
+  let total = 0
+  for (let offset = 0; offset < 50_001; offset += 64) {
+    await Promise.all(
+      Array.from({ length: Math.min(64, 50_001 - offset) }, async (_, i) => {
+        const id = hash('old reference ' + (offset + i))
+        const value =
+          JSON.stringify({
+            ...template,
+            id,
+            url: template.url.replace(template.id, id),
+          }) + '\n'.repeat(1024)
+        total += Buffer.byteLength(value)
+        await fs.writeFile(path.join(folder, id + '.json'), value)
+      }),
+    )
+  }
+  assert(total > 64 * 1024 * 1024)
+  const plan = await f.inspect()
+  assert.equal(plan.references, 50_002)
+  assert.equal((await fs.readdir(folder)).length, 50_003)
+  const result = await f.run('artifacts.prune')
+  assert.deepEqual({ ...result, dryRun: true }, plan)
+  assert.equal((await fs.readdir(folder)).length, 1)
 })
 
 test('revocation during cleanup leaves a committed-stage record without touching active data', async (t) => {
@@ -336,7 +541,7 @@ test('cleanup refuses excessive metadata before parsing or deleting any candidat
   assert.equal((await fs.stat(file)).size, 64 * 1024 * 1024 + 1)
 })
 
-test('failed publications leave only grace-protected orphans and maintenance respects a live writer', async (t) => {
+test('failed publication orphans and abandoned staging are immediately eligible; live writers block maintenance', async (t) => {
   const f = await fixture(t)
   await f.publish('kept')
   f.fail(true)
@@ -346,8 +551,6 @@ test('failed publications leave only grace-protected orphans and maintenance res
   await fs.mkdir(staging, { recursive: true })
   const disposable = path.join(staging, randomUUID())
   await fs.writeFile(disposable, 'unfinished bytes')
-  assert.equal((await f.inspect()).blobs, 0)
-  f.advance(2 * day)
   assert.equal((await f.inspect()).blobs, 1)
   assert.equal((await f.inspect()).temporary, 1)
   const gate = Promise.withResolvers()

@@ -12,6 +12,7 @@ from texture_resources import build as build_textures
 from selective_resources import build as build_selective
 from window_interiors import build as build_window_interiors
 from pane_lighting import build as build_pane_lighting
+from held_item_resources import buckets as build_buckets, flint_and_steel as build_flint, model_part_filters
 
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT = ROOT / 'overrides/client/resourcepacks/skyweave-visual-patches-0.1.0.zip'
@@ -19,6 +20,9 @@ PLANTS = {'brown_mushroom': 2, 'red_mushroom': 3, 'crimson_fungus': 3, 'warped_f
 INPUT_FILES = ('authoring/visual-patches.json', 'authoring/model-recipes.json',
                'empack.yml', 'empack.lock', 'empack.bindings.yml', 'authoring/resource-selections.json',
                'authoring/resource-licenses/nautilus3d-AGPL-3.0.txt', 'authoring/texture-resources.json',
+               'authoring/held-items.json',
+               'authoring/resource-licenses/3d-flint-steel-for-punchy-CC-BY-SA-4.0.txt',
+               'authoring/resource-licenses/powergrid-Apache-2.0.txt',
                'authoring/visual-patches/pack.mcmeta', 'authoring/visual-patches/pack.png')
 
 
@@ -93,8 +97,14 @@ def compose_azalea(fresh, plants, plant):
     return path, pot
 
 
-def build(archives, recipes, config, selections=None, nautilus_license=None, textures=None, *, metadata, icon):
+def build(archives, recipes, config, selections=None, nautilus_license=None, textures=None, *, metadata, icon,
+          licenses=None, held_items=None):
     require(metadata['pack']['pack_format'] == 34, 'Unsupported visual pack format')
+    lanterns = config.get('compatibility', {}).get('luminous_lanterns', False)
+    require(type(lanterns) is bool, 'luminous_lanterns: selection must be a boolean')
+    filters = model_part_filters(lanterns, config.get('compatibility', {}).get('flint_and_steel_backport', False))
+    if filters:
+        metadata = {**metadata, 'filter': {'block': metadata.get('filter', {}).get('block', []) + filters}}
     entries = {'pack.mcmeta': metadata}
     for plant in PLANTS:
         path, value = compose_pot(archives['fresh-flower-pots'], archives['3d-crops'], plant)
@@ -120,6 +130,15 @@ def build(archives, recipes, config, selections=None, nautilus_license=None, tex
     artwork, active_textures, texture_report = build_textures(archives, textures, additions) if textures is not None else ({}, {}, [])
     require(not entries.keys() & artwork.keys(), 'Texture selection collides with a maintained resource')
     entries.update(artwork)
+    for setting, generate in [('refined_buckets', lambda: build_buckets(archives, held_items, licenses)),
+                              ('flint_and_steel_backport', lambda: build_flint(
+                                  archives['3d-flint-steel-for-punchy'], (licenses or {}).get('flint')))]:
+        enabled = config.get('compatibility', {}).get(setting, False)
+        require(type(enabled) is bool, f'{setting}: selection must be a boolean')
+        if enabled:
+            resources = generate()
+            require(not entries.keys() & resources.keys(), f'{setting}: resource collision')
+            entries.update(resources)
     window_interiors = config.get('compatibility', {}).get('window_interior_faces', False)
     require(type(window_interiors) is bool, 'Window interior selection must be a boolean')
     if window_interiors:
@@ -164,8 +183,10 @@ def build(archives, recipes, config, selections=None, nautilus_license=None, tex
             'builder': 'https://github.com/mannie-exe/create-skyweave/tree/main/scripts',
             'selections': selections,
             'textures': textures,
+            'held_items': held_items,
             'compatibility': config.get('compatibility', {}),
-            'inputs': {key: {field: source[field] for field in ('version', 'sha512', 'url', 'provider') if field in source}
+            'inputs': {key: {field: source[field] for field in ('version', 'sha512', 'url', 'provider',
+                                                           'archive_entry', 'nested_sha512') if field in source}
                        for key, source in config['sources'].items()},
         }, ensure_ascii=False, indent=2).encode() + b'\n'
         for key, filename in [('3d-default', 'LICENSE'), ('classic-3d', 'LICENSE.md')]:
@@ -187,7 +208,10 @@ def generate_pack(root=ROOT, output=OUTPUT, check=False):
     archives = load_inputs(root, recipe=config)
     try:
         data = build(archives, recipes, config, json.loads(before['authoring/resource-selections.json']), before['authoring/resource-licenses/nautilus3d-AGPL-3.0.txt'], json.loads(before['authoring/texture-resources.json']),
-                     metadata=json.loads(before['authoring/visual-patches/pack.mcmeta']), icon=before['authoring/visual-patches/pack.png'])
+                     metadata=json.loads(before['authoring/visual-patches/pack.mcmeta']), icon=before['authoring/visual-patches/pack.png'],
+                     licenses={'flint': before['authoring/resource-licenses/3d-flint-steel-for-punchy-CC-BY-SA-4.0.txt'],
+                               'powergrid': before['authoring/resource-licenses/powergrid-Apache-2.0.txt']},
+                     held_items=json.loads(before['authoring/held-items.json']))
     finally:
         for archive in archives.values():
             archive.close()

@@ -279,7 +279,7 @@ bindings:
     placement:
       files:
         photon_v1.4.zip:
-        - destination: shaderpacks/photon_v1.4.zip
+        - destination: shader-inputs/photon_v1.4.zip
           environment:
             client: required
             server: unsupported
@@ -312,7 +312,26 @@ bindings:
             client: required
             server: unsupported
           layer: client
+  emf-compat-core:
+    placement:
+      files:
+        emf_compat_core_neoforge_1.21.1_2.4.0.jar:
+        - destination: mods/emf-compat-core.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: common
+  punchymoves:
+    placement:
+      files:
+        punchy-moves-1.0.9-neoforge-1.21.1.jar:
+        - destination: mods/punchymoves.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: common
 policies:
+  config/combatnouveau-client.toml: seed
   server.properties: seed
   config/DistantHorizons.toml: seed
   config/MouseTweaks.cfg: seed
@@ -563,11 +582,13 @@ policies:
   config/sky_archipelago/default-preset.toml: managed
   config/sky_archipelago/presets/eee.json: managed
   config/skyweave/shaders/recipes/bsl-colorwheel.json: managed
+  config/skyweave/shaders/recipes/photon-skyweave.json: managed
   config/skyweave/shaders/recipes/complementary-euphoria-skyweave.json: managed
   config/skyweave/skyweave_compat-ancient-cities.json: managed
   config/skyweave/skyweave_compat-bluemap.json: seed
   config/skyweave/skyweave_compat-climate.json: managed
   config/skyweave/skyweave_compat-common.toml: managed
+  config/skyweave/skyweave_compat-encounters.json: managed
   config/skyweave/skyweave_compat-features.properties: managed
   config/skyweave/skyweave_compat-generation.json: managed
   config/skyweave/skyweave_compat-interiors.json: managed
@@ -576,6 +597,13 @@ policies:
   config/skyweave/skyweave_compat-search.json: managed
   config/skyweave/skyweave_compat-shapes.json: managed
   config/skyweave/skyweave_compat-structures.json: managed
+  config/mc2_interactivefoliage.json: seed
+  config/skinlayers.json: seed
+  config/subtle_effects/blocks.toml: seed
+  config/subtle_effects/entities.toml: seed
+  config/subtle_effects/environment.toml: seed
+  config/subtle_effects/general.toml: seed
+  config/subtle_effects/items.toml: seed
   config/sodium-extra-options.json: seed
   config/sodium-extra.properties: seed
   config/sodium-mixins.properties: seed
@@ -598,9 +626,17 @@ policies:
   config/yigd.json: seed
   icon.png: seed
   options.txt: seed
-  "shaderpacks/BSL_v10.1.8 + Clrwl_1.0.5 + Skyweave_0.2.0.zip.txt": seed
-  "shaderpacks/Complementary Unbound r5.9.3 + Euphoria 1.10.5 + Skyweave 0.2.0.zip.txt": seed
-  shaderpacks/photon_v1.4.zip.txt: seed
+  "shaderpacks/BSL_v10.1.8 + Clrwl_1.0.5 + Skyweave_0.3.0.zip.txt": seed
+  "shaderpacks/Complementary Unbound r5.9.3 + Euphoria 1.10.5 + Skyweave 0.3.0.zip.txt": seed
+  shaderpacks/Photon v1.4 + Skyweave 0.3.0.zip.txt: seed
+  config/guardvillagers-common.toml: managed
+  config/guardvillagers-startup.toml: managed
+  config/illagerinvasion-server.toml: managed
+  config/variantsandventures.json: managed
+  config/combatnouveau-common.toml: managed
+  config/combatnouveau-server.toml: managed
+  config/pickupnotifier-client.toml: seed
+  config/hmioutline.json: seed
   config/ftbquests/quests/.skyweave-generated.json: managed
   config/ftbquests/quests/chapter_groups.snbt: managed
   config/ftbquests/quests/chapters/control.snbt: managed

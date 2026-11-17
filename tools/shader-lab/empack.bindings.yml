@@ -1,5 +1,14 @@
 schema: 1
 bindings:
+  photon-shader:
+    placement:
+      files:
+        photon_v1.4.zip:
+        - destination: shader-inputs/photon_v1.4.zip
+          environment:
+            client: required
+            server: unsupported
+          layer: common
   shader-json:
     placement:
       files:

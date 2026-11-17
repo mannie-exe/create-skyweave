@@ -137,7 +137,7 @@ export const ownedArtifacts = Object.values(localArtifacts).filter(
   (artifact) => artifact.present,
 ).length
 export const checkedSelections = thirdParty.filter(
-  ([, item]) => item.enabled && item.intentMatches && item.inspectionMatches,
+  ([, item]) => item.intentMatches && item.inspectionMatches,
 ).length
 export const builtInSelections = selected.filter(
   (id: string) =>

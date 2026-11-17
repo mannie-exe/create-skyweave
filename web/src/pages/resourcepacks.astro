@@ -80,11 +80,11 @@ function candidateLink(candidate: (typeof objectSources.candidates)[number]) {
       <a class="ui-button" href="/resourcepacks/reviews">
         Compare captures
       </a>
-      <Field id="pack-search" label="Search" layout="inline">
+      <Field id="pack-search" label="Search reviews" layout="inline">
         <input
           id="pack-search"
           type="search"
-          placeholder="Pack, feature or mod"
+          placeholder="Review, feature or mod"
         />
       </Field>
       <Field id="pack-status" label="Decision" layout="inline">
@@ -123,6 +123,46 @@ function candidateLink(candidate: (typeof objectSources.candidates)[number]) {
       resource-pack files match the archived inspection. Defaults come from the
       modpack; personal client choices can differ.
     </p>
+    <details class="disclosure" id="default-resource-stack">
+      <summary>Included resource packs and defaults</summary>
+      <div class="content-stack">
+        <p data-text-role="caption">
+          This list follows the current manifest and default client options.
+          Archived file inspection is separate from selection and runtime
+          checks; newer files can be included without an archived inspection.
+          Generated option repairs and model overrides follow the maintained
+          resource builders.
+        </p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Pack file</th>
+                <th>Default</th>
+                <th>Manifest and lock</th>
+                <th>Archived file inspection</th>
+              </tr>
+            </thead>
+            <tbody>
+              {thirdParty.map(([id, item]) => (
+                <tr data-resource-selection={id}>
+                  <td>{item.filename || id}</td>
+                  <td>{item.enabled ? 'Enabled' : 'Disabled'}</td>
+                  <td>{item.intentMatches ? 'Match' : 'Differ'}</td>
+                  <td>
+                    {item.inspectionMatches
+                      ? 'Matches locked source'
+                      : projects[id]?.inspection
+                        ? 'Differs from locked source'
+                        : 'Not archived'}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
     <p>
       <a href="/resource-authoring?kind=entity&object=entity%2Fminecraft%3Acreeper&case=rest&a=native&b=pack">
         Compare mob models and textures
@@ -226,7 +266,7 @@ function candidateLink(candidate: (typeof objectSources.candidates)[number]) {
       </p>
     </details>
     <p id="pack-empty" hidden>
-      No projects match these filters.
+      No archived reviews match these filters.
     </p>
     <div class="resource-browse">
       <ReviewIndex />

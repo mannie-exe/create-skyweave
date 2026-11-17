@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "onlyEnchanted": true,
+  "armorEnabled": true,
+  "armorOnlyEnchanted": true,
+  "disableVanillaGlint": false
+}

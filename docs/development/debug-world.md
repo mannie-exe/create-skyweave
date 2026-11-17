@@ -30,7 +30,7 @@ Run from the repository root. Use the Atlas Python environment for verification;
 ```sh
 PY=web/.cache/python/bin/python
 JAVA=/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home/bin/java
-SERVER="$HOME/Minecraft/create_sky-server/game"
+SERVER="$HOME/Minecraft/create-skyweave-server/game"
 REGISTRY=.cache/debug-world/runtime/debug_registry.json
 
 # Creates an isolated exporter runtime; does not read the playing server world.

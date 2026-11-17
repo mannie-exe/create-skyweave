@@ -1,7 +1,8 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import os from 'node:os'
-import { randomUUID } from 'node:crypto'
+import { createHash, randomUUID } from 'node:crypto'
+import { createReadStream } from 'node:fs'
 import { z } from 'zod'
 import {
   artifactSchema,
@@ -16,8 +17,21 @@ import { processPresence } from './ownership.ts'
 import { ownedDirectory } from './paths.ts'
 import { WorkspaceError } from './errors.ts'
 
-const day = 24 * 60 * 60_000,
-  readerTime = 30 * 60_000
+// Inventory metadata is bounded separately from the JSON parsed one record at a time.
+const maximumObjects = 500_000
+type IndexedGeneration = Pick<
+  Generation,
+  'id' | 'scope' | 'namespace' | 'publishedAt' | 'dependencies'
+> & {
+  file: string
+  fingerprint: string
+}
+type Reason = 'current' | 'latest-two' | 'pin' | 'dependency' | 'foreign'
+async function digest(file: string) {
+  const hash = createHash('sha256')
+  for await (const chunk of createReadStream(file)) hash.update(chunk)
+  return hash.digest('hex')
+}
 const pinSchema = z.strictObject({
   schema: z.literal(1),
   scope: scopeSchema,
@@ -59,7 +73,7 @@ export function createArtifactRetention(options: {
 }) {
   const now = options.now ?? Date.now,
     hostId = randomUUID()
-  const readers = new Map<string, { expires: number; active: number }>()
+  const readers = new Map<string, number>()
   let host: Promise<void> | undefined,
     closed = false,
     writers = 0,
@@ -83,7 +97,11 @@ export function createArtifactRetention(options: {
   }
   async function json(file: string, maximum = 8 * 1024 * 1024) {
     if ((await checked(file)).size > maximum)
-      throw new Error('Artifact metadata exceeds its limit')
+      throw new WorkspaceError(
+        'CAPACITY_REACHED',
+        'An artifact metadata record exceeds its limit; inspect the store before retrying.',
+        'inspect-outcome',
+      )
     return JSON.parse(await fs.readFile(file, 'utf8'))
   }
   async function files(relative: string, maximum: number) {
@@ -93,7 +111,7 @@ export function createArtifactRetention(options: {
         relative: string
         stamp: string
         size: number
-        mtime: number
+        allocatedBytes: number
       }> = []
     let visited = 0
     async function visit(folder: string) {
@@ -127,7 +145,7 @@ export function createArtifactRetention(options: {
               .join('/'),
             stamp: stamp(stat),
             size: stat.size,
-            mtime: stat.mtimeMs,
+            allocatedBytes: stat.blocks * 512,
           })
         }
       }
@@ -189,25 +207,6 @@ export function createArtifactRetention(options: {
           'Artifact maintenance is unavailable',
         )
   }
-  function lease(scope: Scope, generationId: string) {
-    available()
-    const key = identity(scope, generationId),
-      previous = readers.get(key)
-    if (previous) previous.expires = now() + readerTime
-    else readers.set(key, { expires: now() + readerTime, active: 0 })
-    if (readers.size > 10_000) {
-      for (const [id, value] of readers)
-        if (!value.active && value.expires < now()) readers.delete(id)
-      if (readers.size > 10_000) {
-        if (!previous) readers.delete(key)
-        throw new WorkspaceError(
-          'CAPACITY_REACHED',
-          'Too many retained artifact readers',
-          'after-idle',
-        )
-      }
-    }
-  }
   async function generation(
     context: Context,
     scope: Scope,
@@ -234,8 +233,21 @@ export function createArtifactRetention(options: {
     )
       throw new WorkspaceError('NOT_FOUND', 'Generation is unavailable')
     await authorize(context, scope, 'artifact.read', 'projection', namespace)
-    lease(scope, id)
     return value
+  }
+  async function writer() {
+    available()
+    writers++
+    try {
+      await ensure()
+    } catch (error) {
+      writers--
+      throw error
+    }
+    return async () => {
+      writers--
+      await releaseHost()
+    }
   }
   async function pin(
     context: Context,
@@ -245,56 +257,62 @@ export function createArtifactRetention(options: {
     enabled: boolean,
   ) {
     await authorize(context, scope, 'review.write', 'source', 'artifact-pins')
-    const value = await generation(context, scope, namespace, id)
-    const existingPins = await files('pins/' + scopeKey(scope), 1000)
-    if (
-      existingPins.length >= 1000 &&
-      enabled &&
-      !existingPins.some((item) => item.relative === id + '.json')
-    )
-      throw new WorkspaceError(
-        'CAPACITY_REACHED',
-        'Review pin limit reached',
-        'after-idle',
+    await authorize(context, scope, 'artifact.read', 'projection', namespace)
+    const release = await writer()
+    try {
+      const value = await generation(context, scope, namespace, id)
+      const existingPins = await files('pins/' + scopeKey(scope), 1000)
+      if (
+        existingPins.length >= 1000 &&
+        enabled &&
+        !existingPins.some((item) => item.relative === id + '.json')
       )
-    const folder = await ownedDirectory(
-        await options.root(),
-        'pins/' + scopeKey(scope),
-      ),
-      file = path.join(folder, id + '.json')
-    await authorize(context, scope, 'review.write', 'source', 'artifact-pins')
-    if (enabled) {
-      const temporary = file + '.' + randomUUID() + '.tmp'
-      try {
-        await fs.writeFile(
-          temporary,
-          JSON.stringify({
-            schema: 1,
-            scope,
-            generationId: value.id,
-            namespace,
-            pinnedAt: new Date(now()).toISOString(),
-          }),
-          { flag: 'wx', mode: 0o600 },
+        throw new WorkspaceError(
+          'CAPACITY_REACHED',
+          'Review pin limit reached',
+          'after-idle',
         )
+      const folder = await ownedDirectory(
+          await options.root(),
+          'pins/' + scopeKey(scope),
+        ),
+        file = path.join(folder, id + '.json')
+      await authorize(context, scope, 'review.write', 'source', 'artifact-pins')
+      if (enabled) {
+        const temporary = file + '.' + randomUUID() + '.tmp'
+        try {
+          await fs.writeFile(
+            temporary,
+            JSON.stringify({
+              schema: 1,
+              scope,
+              generationId: value.id,
+              namespace,
+              pinnedAt: new Date(now()).toISOString(),
+            }),
+            { flag: 'wx', mode: 0o600 },
+          )
+          try {
+            await checked(file)
+          } catch (error) {
+            if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error
+          }
+          await fs.rename(temporary, file)
+        } finally {
+          await fs.rm(temporary, { force: true })
+        }
+      } else {
         try {
           await checked(file)
+          await fs.unlink(file)
         } catch (error) {
           if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error
         }
-        await fs.rename(temporary, file)
-      } finally {
-        await fs.rm(temporary, { force: true })
       }
-    } else {
-      try {
-        await checked(file)
-        await fs.unlink(file)
-      } catch (error) {
-        if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error
-      }
+      return { generationId: id, pinned: enabled }
+    } finally {
+      await release()
     }
-    return { generationId: id, pinned: enabled }
   }
   async function hostUnused() {
     for (const item of await files('hosts', 1000)) {
@@ -311,17 +329,29 @@ export function createArtifactRetention(options: {
       }
     }
   }
-  async function prune(context: Execution, scope: Scope, dryRun = true) {
-    await authorize(
-      context,
-      scope,
-      'generation.run',
-      'projection',
-      'artifact-retention',
-    )
+  async function prune(
+    context: Execution,
+    scope: Scope,
+    dryRun = true,
+    storeWide = false,
+  ) {
+    const selectedScopes = storeWide ? options.scopes : [scope]
+    const selected = (value: Scope) =>
+      selectedScopes.some((item) => scopeKey(item) === scopeKey(value))
+    const permission = async () => {
+      await context.authorize()
+      for (const selectedScope of selectedScopes)
+        await authorize(
+          context,
+          selectedScope,
+          'generation.run',
+          'projection',
+          'artifact-retention',
+        )
+    }
+    await permission()
     await ensure()
-    if (writers || [...readers.values()].some((reader) => reader.active))
-      throw busy()
+    if (writers || readers.size) throw busy()
     collecting = true
     const root = await options.root(),
       lock = path.join(root, 'retention.lock')
@@ -341,22 +371,12 @@ export function createArtifactRetention(options: {
       await hostUnused()
       let generations = await files('generations', 2000),
         manifests = await files('manifests', 2000),
-        references = await files('references', 50_000),
+        references = await files('references', maximumObjects),
         pins = await files('pins', 2000),
-        blobs = await files('blobs', 50_000)
-      if (
-        [...generations, ...manifests, ...references, ...pins].reduce(
-          (sum, item) => sum + item.size,
-          0,
-        ) >
-        64 * 1024 * 1024
-      )
-        throw new WorkspaceError(
-          'CAPACITY_REACHED',
-          'Artifact metadata exceeds the cleanup limit; inspect the store before retrying.',
-          'inspect-outcome',
-        )
+        blobs = await files('blobs', maximumObjects)
       const temporary: typeof generations = []
+      let foreignTemporary = false
+      const originalRoots = [...manifests, ...pins]
       const split = (items: typeof generations) =>
         items.filter((item) => {
           if (
@@ -366,58 +386,87 @@ export function createArtifactRetention(options: {
           )
             return true
           if (
-            item.relative.startsWith(scopeKey(scope) + '/') &&
-            item.mtime < now() - day
+            selectedScopes.some((value) =>
+              item.relative.startsWith(scopeKey(value) + '/'),
+            )
           )
             temporary.push(item)
+          else {
+            if (storeWide)
+              throw new Error(
+                'Store-wide cleanup requires every temporary scope to be registered',
+              )
+            foreignTemporary = true
+          }
           return false
         })
       generations = split(generations)
       manifests = split(manifests)
       references = split(references)
       pins = split(pins)
-      const data = new Map<string, Generation>(),
-        keep = new Set<string>(),
-        grouped = new Map<string, Generation[]>()
-      // A scoped command cannot carry another pack's result-read grants.
-      // Leave shared orphan bytes to a future explicit store-wide authority.
-      let globalSweep = options.scopes.length === 1
+      const data = new Map<string, IndexedGeneration>(),
+        keep = new Map<string, Set<Reason>>(),
+        grouped = new Map<string, IndexedGeneration[]>(),
+        currentGroups = new Set<string>()
+      const retain = (key: string, reason: Reason) => {
+        const reasons = keep.get(key) ?? new Set<Reason>()
+        reasons.add(reason)
+        keep.set(key, reasons)
+      }
+      const groupKey = (value: IndexedGeneration | Generation) =>
+        scopeKey(value.scope) + '/' + value.namespace
+      let globalSweep =
+        !foreignTemporary && (storeWide || options.scopes.length === 1)
       for (const item of generations) {
         const value = generationSchema.parse(await json(item.file)),
           key = identity(value.scope, value.id)
         if (item.relative !== scopeKey(value.scope) + '/' + value.id + '.json')
           throw new Error('Generation path mismatch')
-        data.set(key, value)
-        if (scopeKey(value.scope) !== scopeKey(scope)) {
-          keep.add(key)
-          if (
-            !options.scopes.some(
-              (item) => scopeKey(item) === scopeKey(value.scope),
+        const indexed: IndexedGeneration = {
+          id: value.id,
+          scope: value.scope,
+          namespace: value.namespace,
+          publishedAt: value.publishedAt,
+          dependencies: value.dependencies,
+          file: item.file,
+          fingerprint: hash(canonical(value)),
+        }
+        data.set(key, indexed)
+        if (!selected(value.scope)) {
+          if (storeWide)
+            throw new Error(
+              'Store-wide cleanup requires every stored scope to be registered',
             )
-          )
-            globalSweep = false
+          retain(key, 'foreign')
+          globalSweep = false
         } else {
-          const group = grouped.get(value.namespace) ?? []
-          group.push(value)
-          grouped.set(value.namespace, group)
-          if (Date.parse(value.publishedAt) >= now() - day) keep.add(key)
+          const group = grouped.get(groupKey(value)) ?? []
+          group.push(indexed)
+          grouped.set(groupKey(value), group)
         }
       }
-      for (const group of grouped.values())
-        for (const value of group
-          .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
-          .slice(0, 2))
-          keep.add(identity(value.scope, value.id))
       for (const item of manifests) {
         const value = generationSchema.parse(await json(item.file)),
           key = identity(value.scope, value.id)
         if (
           item.relative !==
             scopeKey(value.scope) + '/' + value.namespace + '.json' ||
-          canonical(data.get(key)) !== canonical(value)
+          data.get(key)?.fingerprint !== hash(canonical(value))
         )
           throw new Error('Active manifest is incomplete')
-        keep.add(key)
+        retain(key, 'current')
+        currentGroups.add(groupKey(value))
+      }
+      for (const [group, values] of grouped) {
+        if (currentGroups.has(group)) continue
+        for (const value of values
+          .sort(
+            (a, b) =>
+              b.publishedAt.localeCompare(a.publishedAt) ||
+              b.id.localeCompare(a.id),
+          )
+          .slice(0, 2))
+          retain(identity(value.scope, value.id), 'latest-two')
       }
       for (const item of pins) {
         const pin = pinSchema.parse(await json(item.file, 8192)),
@@ -428,81 +477,93 @@ export function createArtifactRetention(options: {
           data.get(key)?.namespace !== pin.namespace
         )
           throw new Error('Pinned input is unavailable')
-        keep.add(key)
+        retain(key, 'pin')
       }
-      for (const [key, reader] of readers) {
-        if (reader.active || reader.expires > now()) keep.add(key)
-        else readers.delete(key)
-      }
-      const referenceRecords = []
-      for (const item of references) {
-        const reference = artifactSchema.parse(await json(item.file, 8192)),
-          key = identity(reference.scope, reference.generationId)
-        if (
-          item.relative !==
-          scopeKey(reference.scope) + '/' + reference.id + '.json'
-        )
-          throw new Error('Reference path mismatch')
-        const foreign = scopeKey(reference.scope) !== scopeKey(scope)
-        if (
-          !options.scopes.some(
-            (scope) => scopeKey(scope) === scopeKey(reference.scope),
-          )
-        )
-          globalSweep = false
-        if ((foreign || item.mtime >= now() - day) && data.has(key))
-          keep.add(key)
-        referenceRecords.push({ item, reference, key, foreign })
-      }
-      const queue = [...keep]
+      const queue = [...keep.keys()]
       for (let i = 0; i < queue.length; i++) {
         const value = data.get(queue[i])
         if (!value) throw new Error('Retained generation is unavailable')
         for (const dependency of value.dependencies) {
           const key = identity(dependency.scope, dependency.generationId)
           if (!keep.has(key)) {
-            keep.add(key)
+            retain(key, 'dependency')
             queue.push(key)
           }
         }
       }
-      const retainedHashes = new Set<string>(),
-        removeRefs: typeof references = []
-      const referenced = new Set<string>()
-      for (const { item, reference, key, foreign } of referenceRecords) {
-        if (keep.has(key) || foreign || item.mtime >= now() - day) {
-          retainedHashes.add(reference.sha256)
-          referenced.add(reference.id)
+      const retainedHashes = new Map<string, number>(),
+        removeRefs: typeof references = [],
+        referenced = new Map<string, string>()
+      // Parse references individually; do not retain hundreds of thousands of JSON objects.
+      for (const item of references) {
+        const reference = artifactSchema.parse(await json(item.file, 8192)),
+          key = identity(reference.scope, reference.generationId),
+          foreign = !selected(reference.scope)
+        if (
+          item.relative !==
+          scopeKey(reference.scope) + '/' + reference.id + '.json'
+        )
+          throw new Error('Reference path mismatch')
+        if (foreign) {
+          if (storeWide)
+            throw new Error(
+              'Store-wide cleanup requires every stored scope to be registered',
+            )
+          globalSweep = false
+        }
+        if (keep.has(key) || foreign) {
+          const previous = retainedHashes.get(reference.sha256)
+          if (previous !== undefined && previous !== reference.byteLength)
+            throw new Error('Conflicting retained blob lengths')
+          retainedHashes.set(reference.sha256, reference.byteLength)
+          referenced.set(
+            scopeKey(reference.scope) + '/' + reference.id,
+            hash(canonical(reference)),
+          )
         } else removeRefs.push(item)
       }
-      for (const key of keep)
-        for (const reference of Object.values(data.get(key)!.files)) {
-          if (!referenced.has(reference.id))
-            throw new Error('Retained reference is missing')
-          retainedHashes.add(reference.sha256)
+      for (const key of keep.keys()) {
+        const value = data.get(key)!
+        const record = generationSchema.parse(await json(value.file))
+        if (hash(canonical(record)) !== value.fingerprint)
+          throw new Error('Retained generation changed')
+        for (const reference of Object.values(record.files)) {
+          if (
+            identity(reference.scope, reference.generationId) !== key ||
+            referenced.get(scopeKey(reference.scope) + '/' + reference.id) !==
+              hash(canonical(reference))
+          )
+            throw new Error('Retained reference is missing or inconsistent')
         }
+      }
       const removeGenerations = generations.filter(
         (item) => !keep.has(item.relative.slice(0, -5)),
       )
-      const removeBlobs = []
+      const removeBlobs = [],
+        seenHashes = new Set<string>()
       for (const item of blobs) {
         if (
           !/^[a-f0-9]{2}\/[a-f0-9]{64}$/.test(item.relative) ||
           item.relative.slice(0, 2) !== path.basename(item.file).slice(0, 2)
         )
           throw new Error('Unexpected blob')
-        if (
-          globalSweep &&
-          !retainedHashes.has(path.basename(item.file)) &&
-          item.mtime < now() - day
-        )
-          removeBlobs.push(item)
+        const name = path.basename(item.file)
+        if (retainedHashes.has(name)) {
+          if (
+            item.size !== retainedHashes.get(name) ||
+            (await digest(item.file)) !== name
+          )
+            throw new Error('Retained blob is missing or corrupt')
+          seenHashes.add(name)
+        } else if (globalSweep) removeBlobs.push(item)
       }
+      if ([...retainedHashes.keys()].some((key) => !seenHashes.has(key)))
+        throw new Error('Retained blob is missing')
       const staged = await files('staging', 2000)
       for (const item of staged) {
         if (!z.uuid().safeParse(item.relative).success)
           throw new Error('Unexpected staging file')
-        if (globalSweep && item.mtime < now() - day) temporary.push(item)
+        if (globalSweep) temporary.push(item)
       }
       const plan = {
         generations: removeGenerations,
@@ -512,6 +573,15 @@ export function createArtifactRetention(options: {
       }
       const result = {
         dryRun,
+        policy: 'active-or-latest-two' as const,
+        retained: [...keep]
+          .filter(([key]) => selected(data.get(key)!.scope))
+          .map(([key, reasons]) => ({
+            scope: data.get(key)!.scope,
+            namespace: data.get(key)!.namespace,
+            generationId: data.get(key)!.id,
+            reasons: [...reasons],
+          })),
         generations: removeGenerations.length,
         references: removeRefs.length,
         blobs: removeBlobs.length,
@@ -524,17 +594,19 @@ export function createArtifactRetention(options: {
         ].reduce((sum, item) => sum + item.size, 0),
       }
       const stable = async () => {
-        await context.authorize()
-        await authorize(
-          context,
-          scope,
-          'generation.run',
-          'projection',
-          'artifact-retention',
+        await permission()
+        const currentRoots = [
+          ...(await files('manifests', 2000)),
+          ...(await files('pins', 2000)),
+        ]
+        const current = new Map(
+          currentRoots.map((item) => [item.file, item.stamp]),
         )
-        for (const item of [...manifests, ...pins])
-          if (stamp(await checked(item.file)) !== item.stamp)
-            throw new Error('Artifact roots changed during cleanup')
+        if (
+          current.size !== originalRoots.length ||
+          originalRoots.some((item) => current.get(item.file) !== item.stamp)
+        )
+          throw new Error('Artifact roots changed during cleanup')
       }
       await stable()
       if (!dryRun)
@@ -542,7 +614,7 @@ export function createArtifactRetention(options: {
           await stable()
           let removed = 0
           for (const item of items) {
-            await context.authorize()
+            await permission()
             if (stamp(await checked(item.file)) !== item.stamp)
               throw new Error('Artifact changed during cleanup')
             await fs.unlink(item.file)
@@ -569,12 +641,7 @@ export function createArtifactRetention(options: {
     }
   }
   async function releaseHost() {
-    if (
-      closed &&
-      writers === 0 &&
-      ![...readers.values()].some((reader) => reader.active) &&
-      host
-    ) {
+    if (closed && writers === 0 && readers.size === 0 && host) {
       await host
       await fs
         .unlink(path.join(await options.root(), 'hosts', hostId + '.json'))
@@ -655,33 +722,29 @@ export function createArtifactRetention(options: {
   }
   return {
     ensure,
-    lease,
     generation,
     pin,
     prune,
     recoveryLock,
     recoverLock,
-    async writer() {
-      available()
-      writers++
-      try {
-        await ensure()
-      } catch (error) {
-        writers--
-        throw error
-      }
-      return async () => {
-        writers--
-        await releaseHost()
-      }
-    },
+    writer,
     reader(scope: Scope, id: string) {
-      lease(scope, id)
-      const value = readers.get(identity(scope, id))!
-      value.active++
+      available()
+      const key = identity(scope, id)
+      if (!readers.has(key) && readers.size >= 10_000)
+        throw new WorkspaceError(
+          'CAPACITY_REACHED',
+          'Too many active artifact readers',
+          'after-idle',
+        )
+      readers.set(key, (readers.get(key) ?? 0) + 1)
+      let released = false
       return async () => {
-        value.active--
-        value.expires = now() + readerTime
+        if (released) return
+        released = true
+        const count = readers.get(key)! - 1
+        if (count) readers.set(key, count)
+        else readers.delete(key)
         await releaseHost()
       }
     },

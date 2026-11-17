@@ -1,0 +1,132 @@
+{
+  "schema": 1,
+  "buckets": [
+    {
+      "item": "create_factory:sweet_berries_jam_bucket",
+      "fluid": "create_factory:sweet_berries_jam",
+      "source": "create-factory",
+      "texture_source": "create-factory",
+      "texture": "create_factory:fluid/sweet_berries_jam_still"
+    },
+    {
+      "item": "create_factory:glow_berries_jam_bucket",
+      "fluid": "create_factory:glow_berries_jam",
+      "source": "create-factory",
+      "texture_source": "create-factory",
+      "texture": "create_factory:fluid/glow_berries_jam_still"
+    },
+    {
+      "item": "create_factory:spread_bucket",
+      "fluid": "create_factory:spread",
+      "source": "create-factory",
+      "texture_source": "create-factory",
+      "texture": "create_factory:fluid/spread_still"
+    },
+    {
+      "item": "create_factory:nectar_bucket",
+      "fluid": "create_factory:nectar",
+      "source": "create-factory",
+      "texture_source": "create-factory",
+      "texture": "create_factory:fluid/nectar_still"
+    },
+    {
+      "item": "createpropulsion:coral_bucket",
+      "fluid": "createpropulsion:coral",
+      "source": "create-propulsion-simulated",
+      "texture_source": "create-propulsion-simulated",
+      "texture": "createpropulsion:block/coral_still"
+    },
+    {
+      "item": "createpropulsion:turpentine_bucket",
+      "fluid": "createpropulsion:turpentine",
+      "source": "create-propulsion-simulated",
+      "texture_source": "minecraft",
+      "texture": "minecraft:block/water_still",
+      "tint": "ffd69e49"
+    },
+    {
+      "item": "createpropulsion:oxidizer_bucket",
+      "fluid": "createpropulsion:oxidizer",
+      "source": "create-propulsion-simulated",
+      "texture_source": "minecraft",
+      "texture": "minecraft:block/water_still",
+      "tint": "ff88ccff"
+    },
+    {
+      "item": "create_confectionery:black_chocolate_bucket",
+      "fluid": "create_confectionery:black_chocolate",
+      "source": "create-confectionery",
+      "texture_source": "create-confectionery",
+      "texture": "create_confectionery:block/black_chocolate_still"
+    },
+    {
+      "item": "create_confectionery:white_chocolate_bucket",
+      "fluid": "create_confectionery:white_chocolate",
+      "source": "create-confectionery",
+      "texture_source": "create-confectionery",
+      "texture": "create_confectionery:block/white_chocolate_still"
+    },
+    {
+      "item": "create_confectionery:ruby_chocolate_bucket",
+      "fluid": "create_confectionery:ruby_chocolate",
+      "source": "create-confectionery",
+      "texture_source": "create-confectionery",
+      "texture": "create_confectionery:block/ruby_chocolate_still"
+    },
+    {
+      "item": "create_confectionery:caramel_bucket",
+      "fluid": "create_confectionery:caramel",
+      "source": "create-confectionery",
+      "texture_source": "create-confectionery",
+      "texture": "create_confectionery:block/caramel_still"
+    },
+    {
+      "item": "powergrid:acid_bucket",
+      "fluid": "powergrid:acid",
+      "source": "power-grid",
+      "texture_source": "power-grid",
+      "texture": "powergrid:block/acid_still"
+    },
+    {
+      "item": "createbigcannons:molten_bronze_bucket",
+      "fluid": "createbigcannons:molten_bronze",
+      "source": "create-big-cannons",
+      "texture_source": "create-big-cannons",
+      "texture": "createbigcannons:fluid/molten_bronze_still"
+    },
+    {
+      "item": "createbigcannons:molten_cast_iron_bucket",
+      "fluid": "createbigcannons:molten_cast_iron",
+      "source": "create-big-cannons",
+      "texture_source": "create-big-cannons",
+      "texture": "createbigcannons:fluid/molten_cast_iron_still"
+    },
+    {
+      "item": "createbigcannons:molten_nethersteel_bucket",
+      "fluid": "createbigcannons:molten_nethersteel",
+      "source": "create-big-cannons",
+      "texture_source": "create-big-cannons",
+      "texture": "createbigcannons:fluid/molten_nethersteel_still"
+    },
+    {
+      "item": "createbigcannons:molten_steel_bucket",
+      "fluid": "createbigcannons:molten_steel",
+      "source": "create-big-cannons",
+      "texture_source": "create-big-cannons",
+      "texture": "createbigcannons:fluid/molten_steel_still"
+    },
+    {
+      "item": "aeronautics:levitite_blend_bucket",
+      "fluid": "aeronautics:levitite_blend",
+      "source": "create-aeronautics",
+      "texture_source": "create-aeronautics",
+      "texture": "aeronautics:fluid/levitite_blend_still"
+    }
+  ],
+  "excluded": [
+    {
+      "item": "create_confectionery:hot_chocolate_bucket",
+      "reason": "Model exists, but the pinned item registry has no hot_chocolate_bucket registration. Do not invent a new item or target the drink bottles."
+    }
+  ]
+}

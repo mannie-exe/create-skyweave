@@ -32,6 +32,8 @@ The generated `[modproperties.skyweave_resource_patches]` table contains integer
 
 Use `python3 scripts/build-pack.py` for supported local exports. It prepares the DEV resource JAR, builds the selected native profiles and inspects the JAR actually delivered inside each export. Use `python3 scripts/build-pack.py --release-tag v<manifest-version>` for a release-mode build; repeatable `--profile` arguments select native profiles. Raw empack consumes prepared files and does not run this identity preparation automatically. The CI helper calls the same orchestration, and release CI validates/stamps its explicit tag before the other maintained-resource steps. Missing, stale, duplicated or mismatched exported identity stops publication.
 
+The same wrapper prepares the pinned resource-pack option repairs before exporting. Their generated client ZIPs retain the selected pack filenames; explicit client overrides replace the original provider files in client exports. Keep the original source archives intact and run `python3 scripts/build-resource-pack-repairs.py --check` when checking prepared content. See [resource repair maintenance](patches.md#held-item-resources) for update and removal conditions.
+
 Compat's client-only footer combines this installed pack baseline with Compat's actual loaded version. A modified installation keeps its baseline identity; missing or invalid properties select the standalone Compat label. Resource/language reload uses native branding-cache invalidation. Pack identity is presentation metadata and does not change terrain identity, server policy or early loading screens. Recheck NeoForge/FML properties, branding/ModernFix composition, empack explanation/recipe formats and all three exports when their dependencies change.
 
 Empack's pack name is the portable **Create - Skyweave**, while `templates/client/instance.cfg.template` supplies the canonical Prism display name **Create: Skyweave**. The [naming policy](../../AGENTS.md#naming-and-artifact-identity) owns restricted-character fallbacks; display changes do not rename the pack ID or existing instance folder.
@@ -61,10 +63,11 @@ python3 scripts/build-resource-patches.py
 empack status
 empack sync --materialize --yes
 python3 scripts/build-visual-patches.py
+python3 scripts/build-resource-pack-repairs.py
 python3 scripts/build-pack.py --profile prism --profile modrinth --profile server
 ```
 
-The [shader lab](../../tools/shader-lab/README.md) qualifies both recipes through Compat's shared Java engine. Authoring/CI builds materialize exact inputs and produce complete review ZIPs; exports reference original shader/payload inputs in `shader-inputs/` and include the managed recipes. The client generates its finished ZIPs before Iris opens them. Complete merged shaders are not published as pack assets or simultaneously managed by empack. Euphoria and Colorwheel retain their runtime roles. The lab owns recipe and input update procedures.
+The [shader lab](../../tools/shader-lab/README.md) qualifies all three recipes through Compat's shared Java engine. Authoring/CI builds materialize exact inputs and produce complete review ZIPs; exports reference original shader/payload inputs in `shader-inputs/` and include the managed recipes. The client generates its finished ZIPs before Iris opens them. Complete merged shaders are not published as pack assets or simultaneously managed by empack. Euphoria and Colorwheel retain their runtime roles. The lab owns recipe and input update procedures.
 
 The defaults build reference Modrinth, Prism and server archives under `dist/`. Prism and server references include a Java bootstrap that acquires and verifies the exact empack 0.8.6-beta engine before preparation and launch; recipients need Java, not a global empack installation or Python. Modrinth-compatible launchers handle the `.mrpack` downloads. Authored files remain included, and empack includes prepared server-runtime assets. Check content sources and installation as well as archive integrity.
 
@@ -150,7 +153,7 @@ Windows server launchers support `EMPACK_NO_PAUSE=1` for unattended tests. A suc
 
 ## Maintained resources
 
-`resource-patches/` contains the resource-only fixes mod and journal client assets. Rebuild it before exporting. The generated JAR is an ignored build artifact; its source files are maintained. Quest definitions ship from common config and client presentation settings ship from client config. See [journal authoring](journal.md).
+`resource-patches/` contains Skyweave: Resource Patches, including journal client assets. Rebuild it before exporting. The generated JAR is an ignored build artifact; its source files are maintained. Quest definitions ship from common config and client presentation settings ship from client config. See [journal authoring](journal.md).
 
 Visual Patches metadata and icon are authored in `authoring/visual-patches/pack.mcmeta` and `authoring/visual-patches/pack.png`. Both enter the builder's source-change checks. Minecraft 1.21.1 resource packs use format 34; their supported metadata describes the pack but does not replace the filename-derived title in the pack list. Keep the archive filename stable unless its saved resource-pack selection is deliberately updated.
 

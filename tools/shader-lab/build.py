@@ -28,7 +28,7 @@ def verify_released_runner(runner, manifest):
 
 
 def build(empack, check=False, runner=None):
-    for name in ("create", "euphoria-patches"):
+    for name in ("create", "euphoria-patches", "photon-shader"):
         pins = []
         for manifest in (ROOT / "empack.yml", LAB / "empack.yml"):
             text = manifest.read_text()

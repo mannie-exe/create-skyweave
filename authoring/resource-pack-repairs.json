@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "sources": {
+    "refined-tools": {
+      "version": "ndAFoNmO",
+      "path": "pack/resourcepacks/Refined Tools 3.0.zip",
+      "url": "https://cdn.modrinth.com/data/6l1WUegn/versions/ndAFoNmO/Refined%20Tools%203.0.zip",
+      "sha512": "0b874e634c89a2ebbf24f2658890b6d20d83974d5c0779ea3e9f655d58cb01922ff91bf374db1f872a77a3e359e3eb9184ce5107b6f3949947176715e0fe3d9b"
+    },
+    "refined-torches": {
+      "version": "e7EW6ibn",
+      "path": "pack/resourcepacks/refined torches 2.1.zip",
+      "url": "https://cdn.modrinth.com/data/M6aa729D/versions/e7EW6ibn/refined%20torches%202.1.zip",
+      "sha512": "0e0b7379c26523003e0c0084c0c1fa5b529bdec16c78552937769effae7a4855427a86fd3f91af252e601eb4c4992fa0537b76a721c32ef19ae37ad33065d069"
+    },
+    "redstone-tweaks": {
+      "version": "acYT0fGm",
+      "path": "pack/resourcepacks/Redstone Tweaks 2.4.5.zip",
+      "url": "https://cdn.modrinth.com/data/RvfAlf4Z/versions/acYT0fGm/Redstone%20Tweaks%202.4.5.zip",
+      "sha512": "794b11827b6f8b60e519ab9abc853d2d1d39e3f453bff728c49b6f9abf0a413a959f4ad496340f802d9f90eb64de6c2efb138ad0871fa916dc6067d162376499"
+    }
+  }
+}
