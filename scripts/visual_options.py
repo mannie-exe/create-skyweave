@@ -158,7 +158,6 @@ def configure(entries, recipes, selections, report, variants):
         'lighting.dndLamps': ('Design n’ Decor lamps', 'Changes the matching lamp top and rotated variants together.', ('dnd-frontlight-',)),
         'chains.dnd': ('Design n’ Decor large chains', 'Extrudes all eight decorative materials; native axes and item transforms remain.', ('dnd-chain-',)),
         'chains.lanternLoops': ('Luminous lantern chains and handles', 'Adds thickness to the chain and handle only; retains Luminous’ body.', ('luminous-chain-',)),
-        'storage.lootr': ('Lootr artwork and chest motion', 'Changes the matched Lootr models, textures and chest animation together.', ('lootr-',)),
     }
     for key, (label, description, prefixes) in families.items():
         options.define(key, label, description)
@@ -166,9 +165,6 @@ def configure(entries, recipes, selections, report, variants):
                  for r in recipes['recipes'] if r['enabled'] and r['id'].startswith(prefixes)}
         if key == 'chains.lanternLoops':
             paths = set(variants['lanternRoots'])
-        elif key == 'storage.lootr':
-            paths |= {p for p in entries if p.startswith(('assets/lootr/', 'assets/minecraft/emf/cem/lootr_'))
-                      and not p.endswith('.rpo')}
         options.gate(entries, paths, key)
     # Authored potted compositions have no single lower donor selection.
     potted = [p for p in entries if p.startswith('assets/minecraft/models/block/potted_')]

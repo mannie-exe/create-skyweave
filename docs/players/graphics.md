@@ -70,7 +70,7 @@ These files are player-owned seeds: changed pack defaults do not overwrite exist
 
 ## Visual checks
 
-Compare the same blocks with shaders enabled and disabled before changing the resource stack. Check connected blocks from several sides, opening and closing chests, animated textures and moving contraptions. The maintained patch includes Lootr/Fresh Objects animation bindings, mooshroom model adaptation, held-item resource bindings and authored bar/lamp geometry. It does not restyle every mod.
+Compare the same blocks with shaders enabled and disabled before changing the resource stack. Check connected blocks from several sides, opening and closing chests, animated textures and moving contraptions. Lootr: Styled follows supported selected vanilla/Fresh chest resources. Visual Patches supplies mooshroom adaptation, held-item resource bindings and authored bar/lamp geometry. These selections do not restyle every mod.
 
 Maintainers can use a disposable scene with labeled samples; the local Resource Review fixture and captured comparisons are described in [Atlas verification](../development/web/verification.md). Test saves and optional comparison packs are not distributed with Create: Skyweave.
 
@@ -126,3 +126,11 @@ The first client launch assembles the three authored shader choices from verifie
 Outline Effects adds outlines, animated runes and glow to enchanted held items and armor. Its O shortcut opens the quick settings panel in-world; the Mods menu exposes its configuration as well. The authored defaults retain vanilla glint alongside these effects. Colors, thickness, runes, glow, third-person rendering and saved presets are client preferences. This effect concerns equipment, independently of block-selection outlines.
 
 The independent `iris.hand_effects` Compat adaptation restores the outline, runes, and hand glow through Iris’s actual hand passes. The global unknown-shader setting remains false. Outline Effects still owns colors, item eligibility, glow, and glint preferences. Changing the adaptation requires a game restart; native effect preferences retain their own controls. Shader-off rendering keeps its native path.
+
+## Lootr: Styled
+
+Lootr: Styled adapts supported selected vanilla chest models to Lootr and supplies the default Lootr barrel clasps. Native Lootr loot, per-player looted appearance, trapped identity and opening motion remain. The default profile replaces no artwork.
+
+Use `/lootrstyled` or NeoForge’s Mods configuration button. Model and artwork profiles are independent. Fresh Objects AUTO follows supported installed rigs; OFF retains native chest parts. Apply saves client preferences and reloads resources. The reason view explains requested/effective profiles and source selection. A missing profile ID stays saved while native/inherited resources remain available.
+
+Local profiles live under `config/lootr_styled/`. Export Default makes an editable geometry-only copy and never replaces an existing directory. User choices and local profiles are client preferences. The pack’s relighting artwork is a separate permission-pending development preview, not a bundled default.

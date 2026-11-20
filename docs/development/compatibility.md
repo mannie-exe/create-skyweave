@@ -302,7 +302,7 @@ Island-aware request ordering remains a proposal. It would need conservative occ
 
 ## Resource rendering repairs
 
-The visual ZIP admits eight generated Lootr barrel sprites to the block atlas. Missing admission caused pink/black sides despite valid PNGs and model bindings. Normal and trapped Lootr chests are distinct blocks with the same display name; the trapped variants now receive the approved artwork while retaining their red marker. The fixture labels the trapped specimen explicitly.
+[Lootr: Styled](#lootr-styled) owns Lootr presentation and native atlas admission for local-profile texture dependencies. The visual ZIP supplies no Lootr-specific artwork or geometry. Normal and trapped Lootr chests remain distinct blocks with the same display name; the fixture labels the trapped specimen explicitly.
 
 Selected azalea plant geometry is composed with Fresh pots and soil. Their donor uses shared templates, so selection follows actual shrub roots rather than the similarly named leaf models. Existing mushroom/fungus pots and potted cactus keep their selected treatments; the cactus donor's simpler potted model is not adopted.
 
@@ -379,3 +379,11 @@ The [generated Debug World](debug-world.md) classifies glass blocks, panes and m
 <a id="release-0126-verification"></a>
 
 - [Release 0.1.26 verification](https://github.com/mannie-exe/create-skyweave/blob/v0.10.0/docs/development/compatibility.md#release-0126-verification)
+
+## Lootr: Styled
+
+Lootr: Styled owns runtime Lootr model/artwork adaptation. Visual Patches retains the selected vanilla Fresh Objects + 3D Default composition and emits no Lootr-specific CEM, barrel leaf or texture. Its vanilla composition preserves its donor attribution. The Atlas and relighting editor remain here; `build-lootr-styled-profile.py` exports their permission-pending local profile separately. Runtime adaptation preserves effective source geometry and UVs, with explicit Lootr profile slots above inherited presentation.
+
+The current unreleased addon is an exact local NeoForge 1.21.1 candidate in the empack declaration. Build it in its own repository, then run `python3 scripts/stage-lootr-styled-candidate.py --artifact PATH` to stage the declared bytes. A changed build requires deliberate digest selection and `empack update lootr-styled --apply`. Fresh clones must stage that candidate before materialization; no public addon artifact is implied. Replace the local source with an approved published identity when a release is authorized.
+
+Settings are explicitly seeded client preferences; local profiles are not distributed. Do not reactivate the old `storage.lootr` visual-pack option or author Lootr profile recipes into the shipping ZIP. Update the addon’s native dependency/ABI checks and repeat its native resource/reload/container tests when changing Lootr, EMF/ETF or Minecraft. Artwork permission and native rendering qualification remain separate.

@@ -21,6 +21,7 @@ export type TextureResource = {
   textureOverrides?: Record<string, TextureSource>
   approval: { status: string; date: string }
   included: boolean
+  delivery?: string
   hasTextureChanges: boolean
   hasModelChanges?: boolean
   original: Preview
@@ -40,9 +41,9 @@ export type TextureResource = {
 export class ResourcePreview {
   private current?: TextureResource
   private generation = 0
-  private mode: 'original' | 'pack' = 'pack'
+  private mode: 'original' | 'pack' | 'candidate' = 'pack'
   private viewer: ModelPreview
-  private modpack: HTMLInputElement
+  private modeSelect: HTMLSelectElement
   private element<T extends HTMLElement>(suffix: string) {
     return document.getElementById(`${this.id}-${suffix}`) as T
   }
@@ -57,8 +58,8 @@ export class ResourcePreview {
       | undefined,
   ) {
     this.viewer = new ModelPreview(this.element<HTMLCanvasElement>('model'))
-    this.modpack = this.element<HTMLInputElement>('modpack')
-    this.modpack.addEventListener('change', () => void this.render())
+    this.modeSelect = this.element<HTMLSelectElement>('mode')
+    this.modeSelect.addEventListener('change', () => void this.render())
     for (const view of ['front', 'top'] as const)
       this.element(view).addEventListener('click', () =>
         this.viewer.orient(view),
@@ -72,6 +73,8 @@ export class ResourcePreview {
     this.viewer.active(value)
   }
   async show(resource: TextureResource) {
+    if (!this.current && resource.delivery === 'lootr-styled-profile')
+      this.modeSelect.value = 'candidate'
     this.current = resource
     await this.render()
   }
@@ -112,21 +115,37 @@ export class ResourcePreview {
     )
     this.element('inclusion').textContent = resource.included
       ? 'Included in the generated client resource pack.'
-      : 'Artwork preview; not included in the generated resource pack.'
+      : resource.delivery === 'lootr-styled-profile'
+        ? 'Private Lootr: Styled profile; not included in Visual Patches.'
+        : 'Artwork preview; not included in the generated resource pack.'
+    const hasCandidate = Object.entries(resource.candidate.textures).some(
+      ([key, texture]) => {
+        const original = resource.original.textures[key]
+        return (
+          !original ||
+          (texture.sha256 ?? texture.url) !== (original.sha256 ?? original.url)
+        )
+      },
+    )
     const hasChanges =
-      resource.hasTextureChanges || resource.hasModelChanges === true
+      hasCandidate ||
+      resource.hasTextureChanges ||
+      resource.hasModelChanges === true
     this.element('preview-options').hidden = !hasChanges
-    this.modpack.disabled = !hasChanges
-    this.mode = this.modpack.checked && hasChanges ? 'pack' : 'original'
+    this.modeSelect.disabled = !hasChanges
+    this.mode = hasChanges
+      ? (this.modeSelect.value as typeof this.mode)
+      : 'original'
     const geometry =
       resource.geometries[this.mode === 'pack' ? 'patches' : 'native'] ??
       resource.geometries.native
     this.element('model-note').textContent =
-      `${geometry.label} · static closed pose; animations are not simulated.`
+      `${this.mode === 'candidate' ? 'Candidate artwork on ' : ''}${geometry.label} · static closed pose; runtime rendering and animation are not simulated.`
     this.element('details').textContent = JSON.stringify(
       {
         source: {
           origin: resource.origin,
+          delivery: resource.delivery,
           objects: resource.objects,
           version: resource.sourceVersion,
           sha512: resource.sourceSha512,
@@ -150,7 +169,7 @@ export class ResourcePreview {
       ])
       if (request === this.generation)
         this.report(
-          `${this.mode === 'pack' ? 'Modpack changes' : 'Baseline'} · preview current`,
+          `${{ pack: 'Current pack files', original: 'Baseline', candidate: 'Candidate artwork' }[this.mode]} · preview current`,
         )
     } catch (error) {
       if (request === this.generation)

@@ -132,7 +132,7 @@ export function createResourceInputs(registrations: Registration[]) {
         ? [
             'build-visual-patches.py',
             'archive_output.py',
-            'lootr_models.py',
+            'chest_composition.py',
             'cem_geometry.py',
             'texture_resources.py',
             'lootr_artwork.py',

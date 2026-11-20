@@ -350,11 +350,11 @@ Update both input pins together. Review active Minecraft overlays, sleep/wake an
 
 ### Lootr and Fresh Objects
 
-`lootr_models.py` binds Fresh Objects' normal and trapped chest rigs to the model names requested by the installed Lootr/EMF renderer: `assets/minecraft/emf/cem/lootr_lootr_chest.jem` and `lootr_lootr_trapped_chest.jem`. Confirm those names in EMF's model-creation log after dependency updates. Files under `assets/lootr/emf/cem/lootr_chest.jem` were not selected in the native check; a plausible namespace is not a lookup contract.
+`scripts/chest_composition.py` retains the selected vanilla Fresh Objects motion and 3D Default geometry. The `vanilla_chest_composition` switch in `authoring/visual-patches.json` controls those vanilla outputs. Their donor attribution stays with the pack. Visual Patches emits no Lootr-specific rigs, models or artwork.
 
-The adapter changes attachment targets to `bottom` and `lock`, keeps custom rig IDs intact, and changes animation targets/references from `base.*` to `bottom.*`. The separate `lootr_chest_animations.jpm` avoids replacing Fresh's vanilla JPM. The adapter retains Fresh's ordinary/trapped motion and leaves material selection to Lootr. Do not add a fixed texture override or enable Lootr's `vanilla_textures` setting. The compatibility switch in `authoring/visual-patches.json` controls inclusion; renderer and resource archives are pinned alongside the other inputs.
+[Lootr: Styled](compatibility.md#lootr-styled) adapts supported effective vanilla resources at reload, with explicit Lootr model/artwork profile slots above inheritance. Default supplies only Lootr barrel geometry with native artwork. Its own dependency and verification references govern renderer identities, guarded attachment adapters, material slots and optional EMF capability checks. Do not duplicate those runtime adapters in the pack or enable Lootr's `vanilla_textures` setting to substitute for profile selection. The relighting editor remains here and exports a separate permission-pending local profile.
 
-After an input update, verify model selection, body/latch attachments and animation execution independently. Compare ordinary vanilla and Lootr chests through opening and closing; ender chests deliberately use stronger motion. Check unopened/opened materials, trapped chests, independent neighboring chests, contents, resource reload and shader-on/off rendering. A model loading without an error does not prove motion. Barrels use another renderer/state model and are outside this adapter.
+After an input update, compare ordinary vanilla and Lootr geometry, UVs, body/latch attachments and opening/closing independently. Check unopened/opened materials, trapped identity, independent neighbors, contents, barrel physical-open/player-looted states, reload and shader-on/off rendering. A model loading without an error does not prove motion or material compatibility.
 
 ## Transmission & Linkage
 

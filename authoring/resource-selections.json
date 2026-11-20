@@ -18,16 +18,16 @@
       "source": "current",
       "blocks": ["lootr:lootr_barrel"],
       "action": "keep",
-      "note": "Keep the existing directional artwork and generated corner clasps."
+      "note": "Lootr: Styled owns runtime barrel geometry; the relighting editor exports local profiles separately."
     },
     {
       "id": "chest/single",
       "group": "chest",
-      "title": "Single ordinary, trapped and Lootr chests",
+      "title": "Single ordinary and trapped vanilla chests",
       "source": "3d-default",
       "blocks": [],
       "action": "compose",
-      "note": "C: geometry fitted to Fresh Objects. Large and ender chests retain their current rigs."
+      "note": "Geometry fitted to Fresh Objects. Lootr: Styled follows the effective vanilla rig at runtime; large and ender chests retain their current rigs."
     },
     {
       "id": "workstations/crafting",

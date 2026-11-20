@@ -1,7 +1,7 @@
 ---
 import Button from '../ui/Button.astro'
 import PreviewSurface from '../ui/PreviewSurface.astro'
-import ResourcePreviewOptions from './ResourcePreviewOptions.astro'
+import Field from '../ui/Field.astro'
 import '../../styles/resource-preview.css'
 interface Props {
   id: string
@@ -14,10 +14,23 @@ const { id } = Astro.props
     <h1 id={`${id}-title`} data-text-role="item-title"></h1>
     <span id={`${id}-approval`} data-text-role="caption"></span>
   </header>
-  <ResourcePreviewOptions
+  <fieldset
     id={`${id}-preview-options`}
-    inputId={`${id}-modpack`}
-  />
+    class="content-stack"
+    data-space="control"
+    hidden
+  >
+    <legend>Resource preview</legend>
+    <Field id={`${id}-mode`} label="Preview artwork">
+      <select id={`${id}-mode`}>
+        <option value="original">Baseline</option>
+        <option value="pack" selected>
+          Current pack files
+        </option>
+        <option value="candidate">Candidate artwork</option>
+      </select>
+    </Field>
+  </fieldset>
   <a id={`${id}-related`} data-resource-authoring-link></a>
   <div class="texture-resource-previews">
     <section class="content-stack">

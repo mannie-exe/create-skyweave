@@ -12,6 +12,13 @@ export async function selectSource(page, kind, id) {
   if (!object) throw new Error(`No registered object for ${kind}: ${id}`)
   const variant = object.cases.find((variant) => variant[key] === id)
   await page.getByLabel('Find object', { exact: true }).fill(object.registryId)
+  // Editable/private sources can be identical to the current pack result.
+  const changed = page.getByLabel('Known changes only', { exact: true })
+  if (await changed.isChecked()) {
+    if (!(await changed.isVisible()))
+      await page.getByText('Filters', { exact: true }).click()
+    await changed.uncheck()
+  }
   const browser = page.locator('.object-browser')
   if ((await browser.getAttribute('open')) === null)
     await browser.locator('summary').first().click()

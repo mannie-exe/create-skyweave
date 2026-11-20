@@ -133,6 +133,7 @@ coverage:
   lithium: complete
   lithostitched: complete
   lootr: complete
+  lootr-styled: unknown
   low-on-fire: complete
   low-shield-pack: complete
   luminous-lanterns: complete
@@ -7267,6 +7268,37 @@ dependencies:
       provider: modrinth
       selector: EltpO5cN
     title: Lootr
+  lootr-styled:
+    content: mod
+    files:
+    - acquisition:
+        kind: local
+        path: .cache/local-candidates/lootr-styled-1.21.1-neoforge-0.1.0-dev.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha256: d3688d2d3aeffee5055798a2bcfd7f794d8702eae78e41e867d02b0c47d33ddf
+        size: null
+      placements:
+      - destination: mods/lootr-styled-1.21.1-neoforge-0.1.0-dev.jar
+        environment:
+          client: required
+          server: unsupported
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha256: d3688d2d3aeffee5055798a2bcfd7f794d8702eae78e41e867d02b0c47d33ddf
+        location: null
+        source: local-file
+      slot: primary
+    identity:
+      key: lootr-styled
+      kind: local
+    incompatibilities: []
+    selection: null
+    source-selector: null
+    title: lootr-styled
   low-on-fire:
     content: resource-pack
     files:
@@ -11744,7 +11776,7 @@ dependencies:
       provider: modrinth
       selector: OnlVIpq5
     title: Fast Noise
-intent-revision: 830bb55e48e5d4d09ebebdf794cc640af140060aebe3b81d8c936f4c180b02da
+intent-revision: 5e845b4d62654b8eee3200cb3b07f0cf869ed6f3c418570843fe6d201e94d983
 java-policy:
   historical-minimum: 21
   id: empack-java-1

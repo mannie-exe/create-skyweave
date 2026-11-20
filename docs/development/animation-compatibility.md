@@ -11,7 +11,7 @@ Review the rendered actor and action before choosing a repair. Geometry, texture
 | Cape/body-contact behavior | Touch’n Motion through the optional Compat bridge | Native pose-copy and render order; retain one cape authority |
 | Fresh mob geometry and animation expressions | Fresh Animations/Details interpreted by EMF | Effective entity model, named parts, expressions and actual mob states |
 | Entity textures and variants | ETF plus selected textures/properties | Variant selection, blinking, emissive layers and shader behavior |
-| Lootr chest artwork and motion | Fresh Objects with the generated Lootr adapter | Separate block-entity model/texture lookup and opening/closing playback |
+| Lootr chest/barrel presentation | Lootr: Styled with native Lootr materials/state and supported effective vanilla/Fresh inputs | Independent model/artwork profiles, resource reload and native opening/closing playback |
 | Combat outcomes and permitted attacks | Native game and Combat Nouveau | Server rules and admitted native swings; presentation must follow their outcome |
 
 [EMF](https://modrinth.com/mod/entity-model-features) interprets OptiFine Custom Entity Model resources, including the model hierarchy and animation expressions used by [Fresh Animations](https://modrinth.com/resourcepack/fresh-animations). JEM models can reference shared JPM parts. EMF requires [ETF](https://modrinth.com/mod/entitytexturefeatures) for shared configuration and texture/model-variant support. ETF handles texture features such as random/conditional variants, emissive textures and blinking; it is not a replacement skeleton animator. These client resources do not themselves replace mob AI, server hitboxes or attack mechanics.

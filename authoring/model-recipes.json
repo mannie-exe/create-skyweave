@@ -3553,7 +3553,7 @@
       "id": "lootr-barrel-clasps",
       "label": "Lootr barrel: unlooted clasps",
       "kind": "extrusion",
-      "enabled": true,
+      "enabled": false,
       "output": "create_skyweave:block/lootr_barrel_clasps",
       "texture": {
         "source": "lootr",
@@ -3962,13 +3962,14 @@
           }
         }
       ],
-      "box_corners": true
+      "box_corners": true,
+      "delivery": "lootr-styled-profile"
     },
     {
       "id": "lootr-barrel-looted-clasps",
       "label": "Lootr barrel: looted clasps",
       "kind": "extrusion",
-      "enabled": true,
+      "enabled": false,
       "output": "create_skyweave:block/lootr_barrel_looted_clasps",
       "texture": {
         "source": "lootr",
@@ -4377,7 +4378,8 @@
           }
         }
       ],
-      "box_corners": true
+      "box_corners": true,
+      "delivery": "lootr-styled-profile"
     },
     {
       "id": "dnd-chain-andesite",

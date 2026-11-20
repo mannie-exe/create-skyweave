@@ -367,6 +367,7 @@ bindings:
             server: unsupported
           layer: common
 policies:
+  config/lootr_styled/settings.json: seed
   config/cmdcam-client.json: seed
   config/flashback/flashback.json: seed
   config/combatnouveau-client.toml: seed

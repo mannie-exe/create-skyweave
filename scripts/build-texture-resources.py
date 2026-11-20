@@ -19,9 +19,13 @@ def pack_previews(case, record, patch, archives, root=ROOT, output=OUT):
                                     'source': 'Minecraft/Lootr native model'}}
     if record['id'].startswith('chest-'):
         name = 'assets/minecraft/emf/cem/lootr_lootr_chest.jem'
-        rig = json.loads(patch.read(name))
-        case['geometries']['patches'] = {'label': 'Skyweave: Visual Patches', 'model': closed_chest(rig),
-                                       'source': 'skyweave-visual-patches-0.1.0.zip/' + name}
+        if name in patch.namelist():
+            rig = json.loads(patch.read(name))
+            case['geometries']['patches'] = {'label': 'Skyweave: Visual Patches', 'model': closed_chest(rig),
+                                           'source': 'skyweave-visual-patches-0.1.0.zip/' + name}
+        else:
+            case['runtimePresentation'] = {'owner': 'Lootr: Styled', 'inspection': 'in-game',
+                'note': 'The native baseline and local artwork preview do not resolve runtime model adaptation.'}
     else:
         leaf = 'lootr_barrel_unopened' if record['id'] == 'barrel-unlooted' else 'lootr_opened_barrel'
         path = f'assets/lootr/models/block/{leaf}.json'

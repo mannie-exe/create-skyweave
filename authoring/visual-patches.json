@@ -223,13 +223,13 @@
     }
   },
   "compatibility": {
-    "lootr_fresh_objects": true,
     "window_interior_faces": false,
     "fusion_pane_lighting": true,
     "refined_buckets": true,
     "flint_and_steel_backport": true,
     "configurable_visuals": true,
-    "foliage_veil_wind": true
+    "foliage_veil_wind": true,
+    "vanilla_chest_composition": true
   },
   "credits": [
     "Fresh Flower Pots — BlueHDGaming: https://modrinth.com/resourcepack/fresh-flower-pots",

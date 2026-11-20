@@ -1,7 +1,7 @@
 import { selectSource } from './object-workbench.mjs'
 import { test, expect } from '@playwright/test'
 
-test('texture catalogue compares approved artwork on native and patch geometry without installing', async ({
+test('texture catalogue distinguishes private candidate artwork from baseline and current pack', async ({
   page,
 }) => {
   const errors = [],
@@ -27,9 +27,11 @@ test('texture catalogue compares approved artwork on native and patch geometry w
     await expect(page.locator('#texture-resource-approval')).toContainText(
       'Approved',
     )
-    const checkbox = page.locator('#texture-resource-modpack')
-    for (const enabled of [false, true]) {
-      await checkbox.setChecked(enabled)
+    const choice = page.getByLabel('Preview artwork', { exact: true })
+    const imagesByMode = {}
+    const modelsByMode = {}
+    for (const mode of ['original', 'pack', 'candidate']) {
+      await choice.selectOption(mode)
       await expect(
         page.locator('#texture-resource-model-surface'),
       ).toHaveAttribute('aria-busy', 'false')
@@ -38,7 +40,7 @@ test('texture catalogue compares approved artwork on native and patch geometry w
         `${kind}-${state.toLowerCase()}`,
       )
       await expect(page.locator('#texture-resource-model-note')).toContainText(
-        enabled ? 'Skyweave: Visual Patches' : 'Native',
+        mode === 'candidate' ? 'Candidate artwork on' : 'Native',
       )
       await expect(page.locator('.texture-resource-image')).toHaveCount(
         kind === 'barrel' ? 6 : 1,
@@ -53,12 +55,22 @@ test('texture catalogue compares approved artwork on native and patch geometry w
         )
         .toBe(true)
       await expect(page.locator('#textures-status')).toContainText(
-        `${enabled ? 'Modpack changes' : 'Baseline'} · preview current`,
+        `${{ original: 'Baseline', pack: 'Current pack files', candidate: 'Candidate artwork' }[mode]} · preview current`,
       )
       await expect(page.locator('#texture-resource-inclusion')).toHaveText(
-        'Included in the generated client resource pack.',
+        'Private Lootr: Styled profile; not included in Visual Patches.',
       )
+      imagesByMode[mode] = await page
+        .locator('.texture-resource-image')
+        .evaluateAll((images) => images.map((image) => image.src))
+      modelsByMode[mode] = await page
+        .locator('#texture-resource-model')
+        .screenshot()
     }
+    expect(imagesByMode.pack).toEqual(imagesByMode.original)
+    expect(imagesByMode.candidate).not.toEqual(imagesByMode.original)
+    expect(modelsByMode.pack).toEqual(modelsByMode.original)
+    expect(modelsByMode.candidate).not.toEqual(modelsByMode.original)
   }
   await page.getByLabel('Find object').fill('no such texture')
   await expect(
@@ -67,6 +79,11 @@ test('texture catalogue compares approved artwork on native and patch geometry w
   await page.getByLabel('Find object').fill('')
   await selectSource(page, 'models', 'lootr-barrel-clasps')
   await expect(page.locator('#models-status')).toHaveText('Source loaded')
+  await expect(page.locator('#model-resource-preview')).toBeHidden()
+  await expect(page.locator('#model-texture')).toHaveAttribute(
+    'data-modpack',
+    'false',
+  )
   const label = page.locator('#model-label')
   const original = await label.inputValue()
   await label.fill(`${original} draft`)
@@ -99,7 +116,7 @@ test('texture rebuild uses the named job and rejects arbitrary inputs', async ({
     .getByRole('button', { name: 'Rebuild previews', exact: true })
     .click()
   await expect(page.locator('#textures-status')).toHaveText(
-    'Modpack changes · preview current',
+    'Candidate artwork · preview current',
   )
   const result = await page.evaluate(async () => {
     const { workspaceClient } = await import('/src/lib/workspace/client.ts')
@@ -122,6 +139,7 @@ test('unchanged textures have no preview switch', async ({ page }) => {
   const data = await response.json()
   data.resources[0].hasTextureChanges = false
   data.resources[0].hasModelChanges = false
+  data.resources[0].candidate = data.resources[0].original
   await page.route('**/generated/texture-resources/index.json', (route) =>
     route.fulfill({
       contentType: 'application/json',
@@ -133,13 +151,13 @@ test('unchanged textures have no preview switch', async ({ page }) => {
     'Lootr barrel',
   )
   await expect(page.locator('#texture-resource-preview-options')).toBeHidden()
-  await expect(page.locator('#texture-resource-modpack')).toBeDisabled()
+  await expect(page.locator('#texture-resource-mode')).toBeDisabled()
   await expect(page.locator('#textures-status')).toHaveText(
     'Baseline · preview current',
   )
 })
 
-test('model recipes toggle built textures per face and keep drafts across related views', async ({
+test('model recipes apply a pack-texture fixture per face and keep drafts across related views', async ({
   page,
 }) => {
   const errors = [],
@@ -149,6 +167,29 @@ test('model recipes toggle built textures per face and keep drafts across relate
     if (/\/__atlas\/models\/(save|generate)$/.test(request.url()))
       writes.push(request.url())
   })
+  // The live Lootr catalogue is private now. Keep pack-override routing covered
+  // with an explicit projected-artifact fixture, without changing saved inputs.
+  const data = await (
+    await page.request.get('/generated/texture-resources/index.json')
+  ).json()
+  for (const resource of data.resources) {
+    resource.delivery = 'pack'
+    resource.included = true
+    resource.hasTextureChanges = true
+    resource.pack = structuredClone(resource.candidate)
+    resource.textureOverrides = {}
+    for (const layer of resource.packLayers) {
+      resource.textureOverrides[layer.originalResource] ??=
+        resource.pack.textures[layer.binding]
+      layer.resource = `create_skyweave:generated/lootr/${resource.id}/${layer.binding}`
+    }
+  }
+  await page.route('**/generated/texture-resources/index.json', (route) =>
+    route.fulfill({
+      contentType: 'application/json',
+      body: JSON.stringify(data),
+    }),
+  )
   await page.goto('/resource-authoring?view=models&recipe=lootr-barrel-clasps')
   await expect(page.locator('#model-texture')).toHaveAttribute(
     'data-modpack',
@@ -218,7 +259,8 @@ test('texture entries link only to corresponding authored geometry', async ({
   await expect(page.locator('#model-label')).toHaveValue(
     'Lootr barrel: looted clasps',
   )
-  await expect(page.locator('#model-enabled')).toBeChecked()
+  // Lootr recipes now author private profiles; runtime output belongs to Styled.
+  await expect(page.locator('#model-enabled')).not.toBeChecked()
   await page.locator('#model-related-textures a').click()
   await expect(page.locator('#texture-resource-title')).toHaveText(
     'Lootr barrel · Looted',

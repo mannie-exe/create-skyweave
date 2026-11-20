@@ -30,6 +30,7 @@ export type Model = {
   sceneRotation?: number[]
 }
 export type TextureSource = {
+  sha256?: string
   url: string
   originalUrl?: string
   width: number

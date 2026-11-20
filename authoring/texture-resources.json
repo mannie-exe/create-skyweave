@@ -17,15 +17,14 @@
         "date": "2026-11-02",
         "sha256": "56416600da0c5463db81ed01969d9fb146073f750469375ef44fa991387cf2d3"
       },
-      "enabled": true,
-      "objects": [
-        "lootr:lootr_barrel"
-      ],
+      "enabled": false,
+      "objects": ["lootr:lootr_barrel"],
       "origin": {
         "kind": "mod",
         "id": "lootr"
       },
-      "model": "create_skyweave:block/lootr_barrel_clasps"
+      "model": "create_skyweave:block/lootr_barrel_clasps",
+      "delivery": "lootr-styled-profile"
     },
     {
       "id": "barrel-looted",
@@ -43,15 +42,14 @@
         "date": "2026-11-02",
         "sha256": "938391cb86a4271bf6feef1d0ee07d6e2c1fd6f16d9e4d14e1d8ac9e3f547df6"
       },
-      "enabled": true,
-      "objects": [
-        "lootr:lootr_barrel"
-      ],
+      "enabled": false,
+      "objects": ["lootr:lootr_barrel"],
       "origin": {
         "kind": "mod",
         "id": "lootr"
       },
-      "model": "create_skyweave:block/lootr_barrel_looted_clasps"
+      "model": "create_skyweave:block/lootr_barrel_looted_clasps",
+      "delivery": "lootr-styled-profile"
     },
     {
       "id": "chest-unlooted",
@@ -59,24 +57,19 @@
       "variant": "Unlooted",
       "source": "lootr",
       "generator": "lootr-metal",
-      "inputs": [
-        "lootr:chest",
-        "lootr:chest_trapped"
-      ],
+      "inputs": ["lootr:chest", "lootr:chest_trapped"],
       "approval": {
         "status": "approved",
         "date": "2026-11-02",
         "sha256": "9438b928dba16020e62330e7df6e04c7533f2c4b484f566c9f9e6d4326641a6c"
       },
-      "enabled": true,
-      "objects": [
-        "lootr:lootr_chest",
-        "lootr:lootr_trapped_chest"
-      ],
+      "enabled": false,
+      "objects": ["lootr:lootr_chest", "lootr:lootr_trapped_chest"],
       "origin": {
         "kind": "mod",
         "id": "lootr"
-      }
+      },
+      "delivery": "lootr-styled-profile"
     },
     {
       "id": "chest-looted",
@@ -84,24 +77,19 @@
       "variant": "Looted",
       "source": "lootr",
       "generator": "lootr-metal",
-      "inputs": [
-        "lootr:chest_opened",
-        "lootr:chest_trapped_opened"
-      ],
+      "inputs": ["lootr:chest_opened", "lootr:chest_trapped_opened"],
       "approval": {
         "status": "approved",
         "date": "2026-11-02",
         "sha256": "af1b5bd985ac9c683a3426ca92cd10c38b886407d52b6d3c8f90896e26667efd"
       },
-      "enabled": true,
-      "objects": [
-        "lootr:lootr_chest",
-        "lootr:lootr_trapped_chest"
-      ],
+      "enabled": false,
+      "objects": ["lootr:lootr_chest", "lootr:lootr_trapped_chest"],
       "origin": {
         "kind": "mod",
         "id": "lootr"
-      }
+      },
+      "delivery": "lootr-styled-profile"
     }
   ]
 }

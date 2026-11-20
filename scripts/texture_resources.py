@@ -35,7 +35,11 @@ def generate(archives, catalog):
     return cases, images
 
 
-def build(archives, catalog, models=None):
+def build(archives, catalog, models=None, *, delivery='pack'):
+    require(delivery in ('pack', 'profile'), 'Unknown artwork delivery')
+    require(delivery == 'profile' or not any(record.get('enabled', False)
+            and record.get('delivery') == 'lootr-styled-profile' for record in catalog['resources']),
+            'Lootr artwork is a local Lootr: Styled profile; export it separately from the visual pack')
     cases, images = generate(archives, catalog)
     entries, active, report = {}, {}, []
     block_sprites = set()

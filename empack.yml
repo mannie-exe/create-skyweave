@@ -339,6 +339,11 @@ dependencies:
   lootr:
     source: modrinth:EltpO5cN
     pin: SPOrIzX8
+  lootr-styled:
+    path: .cache/local-candidates/lootr-styled-1.21.1-neoforge-0.1.0-dev.jar
+    type: mod
+    side: client
+    sha256: d3688d2d3aeffee5055798a2bcfd7f794d8702eae78e41e867d02b0c47d33ddf
   macaws-doors:
     source: modrinth:kNxa8z3e
     pin: u7BRX44F

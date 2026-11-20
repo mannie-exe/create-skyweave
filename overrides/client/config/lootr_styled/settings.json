@@ -1,0 +1,7 @@
+{
+  "format": 1,
+  "enabled": true,
+  "models": "lootr_styled:default",
+  "artwork": "lootr_styled:vanilla",
+  "freshObjects": "AUTO"
+}

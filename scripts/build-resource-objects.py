@@ -184,6 +184,9 @@ def scene(admitted, entry, case, names, texture_previews, native_models, context
         source = next(record for record in texture_previews if record['id'] == case['textureResource'])
         patched = 'skyweave-visual-patches' in names
         require(not patched or names[-1] == 'skyweave-visual-patches', 'This fixed Lootr adapter requires Skyweave: Visual Patches at highest priority')
+        require(not patched or source.get('delivery') != 'lootr-styled-profile',
+                'Lootr: Styled runtime geometry requires a native capture. '
+                'Choose Native object for the source model or Edit texture for authored artwork.')
         # Existing validated storage adapter: the base and actual generated CEM are
         # distinct fixed carriers, not inferred native entity model definitions.
         preview = copy.deepcopy(source['pack' if patched else 'original'])

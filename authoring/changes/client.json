@@ -12,17 +12,13 @@
       "family": "client-preferences"
     },
     {
-      "paths": [
-        "overrides/client/options.txt"
-      ],
+      "paths": ["overrides/client/options.txt"],
       "review": "reviewed",
       "reason": "Select Fresh base, Details, Objects, Quivers and Bray’s FA zombie variants in that increasing-priority order. Add dedicated Fresh Vines, the native-format Punchy potion backport and Artifacts 3D; retain the existing Refined/Luminous/Fluid & Foolish/backpack selections. Keep Visual Patches last for maintained model, bucket, chain and animation bindings. Seed existing distances and input bindings; CMDCam's nine global shortcuts are unbound to preserve gameplay controls. Existing players retain their preferences.",
       "reference": "docs/players/graphics.md#resource-packs"
     },
     {
-      "paths": [
-        "overrides/common/config/DistantHorizons.toml"
-      ],
+      "paths": ["overrides/common/config/DistantHorizons.toml"],
       "review": "reviewed",
       "reason": "Bound multiplayer LOD transfers to 2048 KB/s, 64 fresh requests and 100 sync requests. Disable height-based cave culling for floating island undersides. Exclude glow lichen from LOD rendering because DH 3.3.3 transfers its tint and emissive material to columns below, including fluids; native lichen remains visible. Retain 256-chunk rendering, four workers, CHUNKS_ONLY generation and hidden progress; preserve installation-specific identities.",
       "reference": "docs/development/compatibility.md#dh-multiplayer-cache-filling",
@@ -83,27 +79,21 @@
       "family": "client-preferences"
     },
     {
-      "paths": [
-        "overrides/common/config/create-client.toml"
-      ],
+      "paths": ["overrides/common/config/create-client.toml"],
       "review": "reviewed",
       "reason": "Use the reviewed Create menu positions: main-menu row 3 and in-game-menu row 4. Other inherited settings remain unchanged.",
       "reference": "docs/development/authoring.md#configuration-register",
       "family": "client-preferences"
     },
     {
-      "paths": [
-        "overrides/common/config/create_radar-client.toml"
-      ],
+      "paths": ["overrides/common/config/create_radar-client.toml"],
       "review": "reviewed",
       "reason": "Retain existing radar display settings and accept native 5.0.2 Sable silhouette and sound-volume defaults. Debug overlays stay disabled.",
       "reference": "docs/development/compatibility.md#dependency-constraints",
       "family": "client-preferences"
     },
     {
-      "paths": [
-        "overrides/common/config/jei-server.toml"
-      ],
+      "paths": ["overrides/common/config/jei-server.toml"],
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
       "reference": "docs/development/decisions.md",
@@ -131,27 +121,21 @@
       "family": "client-preferences"
     },
     {
-      "paths": [
-        "overrides/client/config/invmove.json"
-      ],
+      "paths": ["overrides/client/config/invmove.json"],
       "review": "reviewed",
       "reason": "Keep inventory movement and text-focus protection. Creative-flight descent is maintained only until its pre-existing sneak key is released; fresh GUI Shift presses do not start descent.",
       "reference": "docs/development/compatibility.md#controls-and-resource-packs",
       "family": "client-preferences"
     },
     {
-      "paths": [
-        "overrides/client/config/createredstonelinkgui-client.toml"
-      ],
+      "paths": ["overrides/client/config/createredstonelinkgui-client.toml"],
       "review": "reviewed",
       "reason": "Keep ordinary slot interactions available; open the menu deliberately with an empty hand and Shift.",
       "reference": "docs/development/compatibility.md",
       "family": "client-preferences"
     },
     {
-      "paths": [
-        "overrides/client/config/MouseTweaks.cfg"
-      ],
+      "paths": ["overrides/client/config/MouseTweaks.cfg"],
       "review": "reviewed",
       "reason": "Enable Mouse Tweaks left/right drag and wheel transfers; it owns these gestures instead of IPN.",
       "reference": "docs/players/getting-started.md#controls",
@@ -167,36 +151,28 @@
       "family": "client-preferences"
     },
     {
-      "paths": [
-        "overrides/client/config/spyglass-improvements/settings.json"
-      ],
+      "paths": ["overrides/client/config/spyglass-improvements/settings.json"],
       "review": "reviewed",
       "reason": "Use the player-reviewed spyglass overlay style 1 and hide its settings button; preserve the exported zoom, crosshair and camera preferences.",
       "reference": "docs/development/authoring.md#configuration-register",
       "family": "client-preferences"
     },
     {
-      "paths": [
-        "overrides/common/config/fabric/indigo-renderer.properties"
-      ],
+      "paths": ["overrides/common/config/fabric/indigo-renderer.properties"],
       "review": "reviewed",
       "reason": "Client Indigo rendering and lighting preferences; its native properties writer updates the timestamp on startup. Preserve user-selected rendering modes instead of treating them as gameplay rules.",
       "reference": "docs/development/authoring.md",
       "family": "client-preferences"
     },
     {
-      "paths": [
-        "overrides/client/config/skinlayers.json"
-      ],
+      "paths": ["overrides/client/config/skinlayers.json"],
       "review": "reviewed",
       "reason": "Preserve outer-skin depth, proportions and LOD preferences; target native 1.11.4 recognizes these fields and supplies newer compatibility defaults.",
       "reference": "docs/development/patches.md#client-effect-defaults",
       "family": "client-preferences"
     },
     {
-      "paths": [
-        "overrides/client/config/mc2_interactivefoliage.json"
-      ],
+      "paths": ["overrides/client/config/mc2_interactivefoliage.json"],
       "review": "reviewed",
       "reason": "Use the native GPU renderer as selected by the owner; retain CPU as a fallback. Keep entity reactions while leaving ambient foliage/leaves waving and weather wind to shaders. Offscreen Mac shader compile/link passed; actual Iris, models, moving ships and performance still need qualification.",
       "reference": "docs/development/patches.md#client-effect-defaults",
@@ -216,48 +192,45 @@
       "family": "client-preferences"
     },
     {
-      "paths": [
-        "overrides/client/config/pickupnotifier-client.toml"
-      ],
+      "paths": ["overrides/client/config/pickupnotifier-client.toml"],
       "review": "reviewed",
       "reason": "Seed a lower-right pickup list bounded to one quarter of HUD height. Retain native four-second display, merging except custom names, item/arrow/XP tracking and inventory-count off; players own later presentation choices.",
       "reference": "docs/players/inventory.md",
       "family": "client-preferences"
     },
     {
-      "paths": [
-        "overrides/client/config/hmioutline.json"
-      ],
+      "paths": ["overrides/client/config/hmioutline.json"],
       "review": "reviewed",
       "reason": "Seed native enchanted-item and armor outlines while retaining vanilla glint and the native rune/glow defaults. Native UI rewrites the preference file and keeps user presets; exact shader and framebuffer combinations require client checks.",
       "reference": "docs/players/graphics.md",
       "family": "client-preferences"
     },
     {
-      "paths": [
-        "overrides/client/config/combatnouveau-client.toml"
-      ],
+      "paths": ["overrides/client/config/combatnouveau-client.toml"],
       "review": "reviewed",
       "reason": "Keep Combat Nouveau alternative swing timing off and passive offhand hiding empty so Punchy retains held-item presentation. Retain native server combat rules for the trial; client display preferences stay player-owned.",
       "reference": "docs/players/movement-combat.md",
       "family": "client-preferences"
     },
     {
-      "paths": [
-        "overrides/client/config/visualworkbench-client.toml"
-      ],
+      "paths": ["overrides/client/config/visualworkbench-client.toml"],
       "review": "reviewed",
       "reason": "Seed native floating contents, result display and nearest-player orientation; model styles belong to Visual Patches.",
       "reference": "docs/development/patches.md#workstation-models-and-resource-options",
       "family": "client-preferences"
     },
     {
-      "paths": [
-        "overrides/client/config/punchy_moves/tutorial_seen_v1"
-      ],
+      "paths": ["overrides/client/config/punchy_moves/tutorial_seen_v1"],
       "review": "reviewed",
       "reason": "Skip Punchy Moves initial guide using its native 1.0.9 dismissal marker, matching the reviewed DEV preference. Only marker presence is read; retain other Punchy/Moves settings as native-owned player preferences.",
       "reference": "docs/development/patches.md#player-animation-ownership",
+      "family": "client-preferences"
+    },
+    {
+      "paths": ["overrides/client/config/lootr_styled/settings.json"],
+      "review": "reviewed",
+      "reason": "Lootr: Styled owns reload-scoped Lootr geometry and optional Fresh adaptation. Seed independent model/artwork/AUTO choices as player preferences; Default changes only the Lootr barrel geometry and retains native artwork. Local profile drafts and permission-pending artwork previews are never shipped as pack defaults.",
+      "reference": "docs/players/graphics.md#lootr-styled",
       "family": "client-preferences"
     }
   ]

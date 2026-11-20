@@ -7,7 +7,7 @@ from pathlib import Path
 from archive_output import archive_bytes, publish
 from resource_inputs import inputs as load_inputs, verify_bytes
 from model_authoring import generate as generate_models, require
-from lootr_models import build as build_lootr_models, fit_native_uvs
+from chest_composition import build as build_chest_composition
 from texture_resources import build as build_textures
 from selective_resources import build as build_selective
 from window_interiors import build as build_window_interiors
@@ -121,6 +121,8 @@ def build(archives, recipes, config, selections=None, nautilus_license=None, tex
                    for item in selections['selections']):
                 path, value = compose_azalea(archives['fresh-flower-pots'], archives['3d-plants'], plant)
                 entries[path] = value
+    require(not any(recipe.get('delivery') == 'lootr-styled-profile' and recipe['enabled'] for recipe in recipes['recipes']),
+            'Lootr profile geometry must be exported as a local Lootr: Styled profile, not selected for the pack')
     additions, _ = generate_models(recipes, archives)
     require(not entries.keys() & additions.keys(), 'Model recipe collides with maintained patch')
     entries.update(additions)
@@ -132,7 +134,7 @@ def build(archives, recipes, config, selections=None, nautilus_license=None, tex
     for record in (textures or {}).get('resources', []):
         require(not record.get('model') or any(recipe['output'] == record['model'] for recipe in recipes['recipes']),
                 f'{record["id"]}: model recipe reference is missing')
-    artwork, active_textures, texture_report = build_textures(archives, textures, additions) if textures is not None else ({}, {}, [])
+    artwork, _, texture_report = build_textures(archives, textures, additions) if textures is not None else ({}, {}, [])
     require(not entries.keys() & artwork.keys(), 'Texture selection collides with a maintained resource')
     entries.update(artwork)
     for setting, generate in [('refined_buckets', lambda: build_buckets(archives, held_items, licenses)),
@@ -157,25 +159,21 @@ def build(archives, recipes, config, selections=None, nautilus_license=None, tex
         require(not entries.keys() & panes.keys(), 'Pane lighting collides with a maintained model')
         entries.update(panes)
     entries['texture-resources.json'] = {'schema': 1, 'resources': texture_report}
-    lootr_enabled = config.get('compatibility', {}).get('lootr_fresh_objects', False)
-    require(type(lootr_enabled) is bool, 'Lootr compatibility selection must be a boolean')
-    require(lootr_enabled or not any(item['action'] == 'compose' for item in (selections or {}).get('selections', [])),
-            'The selected chest composition requires the Fresh/Lootr adapter')
-    if lootr_enabled:
-        require('lootr' in archives and 'entity-model-features' in archives,
-                'Lootr adaptation requires pinned renderer inputs')
+    compatibility = config.get('compatibility', {})
+    require('lootr_fresh_objects' not in compatibility,
+            'Lootr presentation is owned by Lootr: Styled; use vanilla_chest_composition for vanilla chests')
+    chest_enabled = compatibility.get('vanilla_chest_composition', False)
+    require(type(chest_enabled) is bool, 'Vanilla chest composition selection must be a boolean')
+    require(chest_enabled or not any(item['action'] == 'compose' for item in (selections or {}).get('selections', [])),
+            'The selected chest composition requires vanilla_chest_composition')
+    if chest_enabled:
         chest = next((entry for entry in (selections or {}).get('selections', []) if entry['action'] == 'compose'), None)
-        require(chest is None or (chest['id'] == 'chest/single' and chest['source'] == '3d-default'), 'Unknown chest composition')
-        composed = build_lootr_models(archives['fresh-animations-objects'], archives['3d-default'] if chest else None)
-        chest_art = next((case for key, case in active_textures.items() if key.startswith('chest-')), None)
-        if chest_art is not None and chest is not None:
-            for path, rig in composed.items():
-                if path.endswith(('/lootr_lootr_chest.jem', '/lootr_lootr_trapped_chest.jem')):
-                    fit_native_uvs(rig, chest_art['original']['model'])
+        require(chest is not None and chest['id'] == 'chest/single' and chest['source'] == '3d-default',
+                'Unknown vanilla chest composition')
+        composed = build_chest_composition(archives['fresh-animations-objects'], archives['3d-default'])
+        require(not entries.keys() & composed.keys(), 'Vanilla chest composition collision')
         entries.update(composed)
-        if chest:
-            next(item for item in selection_report if item['id'] == chest['id'])['roots'] = sorted(
-                path for path in composed if path.endswith('.jem'))
+        next(item for item in selection_report if item['id'] == chest['id'])['roots'] = sorted(composed)
     configurable = config.get('compatibility', {}).get('configurable_visuals', False)
     require(type(configurable) is bool, 'Configurable visual selection must be a boolean')
     if configurable:

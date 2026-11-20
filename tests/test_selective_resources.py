@@ -13,7 +13,7 @@ import importlib.util
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from selective_resources import build
 from resource_inputs import inputs
-from lootr_models import compose_single_chest
+from chest_composition import compose_single_chest
 from model_authoring import encode_rgba
 from window_interiors import build as window_interiors
 
