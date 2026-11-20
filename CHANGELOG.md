@@ -2,6 +2,16 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.22.2 · 2026-11-20
+
+### Fixes
+
+- **build:** Adopt empack 0.8.8 ([6bdb2fd](https://github.com/mannie-exe/create-skyweave/commit/6bdb2fd35745ecc897f2e6253333a46072facfe8))
+
+### Documentation
+
+- Qualify consolidated workspace exports ([64f7609](https://github.com/mannie-exe/create-skyweave/commit/64f760949de768ab260add427d26a0ec75be7a85))
+
 ## v0.22.1 · 2026-11-20
 
 ### Fixes
