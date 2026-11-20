@@ -2,6 +2,20 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.21.0 · 2026-11-20
+
+### Features
+
+- **modpack:** Stage 0.21.0 dependency upgrade ([e6509f2](https://github.com/mannie-exe/create-skyweave/commit/e6509f2b4be40a837357581cc54837bb9e3f8bf5))
+
+### Fixes
+
+- **pack:** Use NeoForge server JVM defaults ([9f5d0d2](https://github.com/mannie-exe/create-skyweave/commit/9f5d0d22884e04e5542f7bc2cef3820c9758b27d))
+
+### Documentation
+
+- **verification:** Record published Prism qualification ([a862f6e](https://github.com/mannie-exe/create-skyweave/commit/a862f6eaa3973b600038a4b4eb1716bf32b869aa))
+
 ## v0.20.0 · 2026-11-17
 
 ### Features
