@@ -24,11 +24,11 @@ dependencies:
   complementary-unbound:
     source: modrinth:R6NEzAwj
     type: shader-pack
-    pin: B1kyfoUZ
+    pin: QJiYQisE
     side: client
   euphoria-patches:
     source: modrinth:4H6sumDB
-    pin: QMsRXtSJ
+    pin: Gkv3fLVg
     side: client
   create:
     source: modrinth:LNytGWDc
@@ -44,7 +44,7 @@ dependencies:
     type: other-file
     side: client
   shader-runner:
-    url: https://github.com/mannie-exe/skyweave-compat/releases/download/v0.39.0/skyweave-compat-0.39.0-mc1.21.1-neoforge.jar
-    sha256: 9d65e5771385b64ddf0e16818bb4cc6ee9097312ae1beed0d24c5c42059146ec
+    url: https://github.com/mannie-exe/skyweave-compat/releases/download/v0.40.0/skyweave-compat-0.40.0-mc1.21.1-neoforge.jar
+    sha256: 8baa3aa4fec367e4f3ac169b1aaf4e7daaac908dc0b11d0e52379e1658ddbbff
     type: other-file
     side: client

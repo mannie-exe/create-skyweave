@@ -38,6 +38,24 @@ async function fixture(page, live = false) {
     async (frame, { artifact }) => {
       const operation = frame.operation
       if (operation === 'sources.inventory') return inventory()
+      if (operation === 'config.audit')
+        return artifact({
+          records: [
+            {
+              path: 'overrides/client/config/example.toml',
+              category: 'client',
+              status: 'present',
+              review: 'inherited',
+              policy: 'seed',
+              reason: 'Preserve player preferences.',
+              reference: 'docs/development/authoring.md',
+            },
+          ],
+          unregistered: ['overrides/client/config/new.toml'],
+          generated: [
+            'resource-patches/data/skyweave_compat/worldgen/test.json',
+          ],
+        })
       if (['quests.save', 'config.source.save'].includes(operation)) {
         if (state.fail)
           throw Object.assign(
@@ -85,6 +103,7 @@ async function fixture(page, live = false) {
       'quests.preview',
       'quests.save',
       'config.source.save',
+      'config.audit',
       'quests.generate',
       ...(live ? ['sources.inventory'] : []),
     ],
@@ -97,6 +116,42 @@ async function fixture(page, live = false) {
   return state
 }
 const button = (page, name) => page.getByRole('button', { name, exact: true })
+
+test('configuration audit separates rationale coverage, binding policy and generated output checks', async ({
+  page,
+}) => {
+  await fixture(page)
+  await button(page, 'Config audit').click()
+  await button(page, 'Check files').click()
+  await expect(
+    page.getByText('Config files checked', { exact: true }),
+  ).toBeVisible()
+  await expect(
+    page.getByText('1 files; 0 missing. Without rationale: 1.'),
+  ).toBeVisible()
+  await expect(
+    page.getByRole('columnheader', { name: 'Installation policy' }),
+  ).toBeVisible()
+  await expect(
+    page.getByRole('cell', { name: 'seed', exact: true }),
+  ).toBeVisible()
+  await expect(
+    page.getByRole('cell', { name: 'present', exact: true }),
+  ).toBeVisible()
+  await expect(
+    page.getByText('Policies come from empack bindings.', { exact: false }),
+  ).toBeVisible()
+  await page.getByText('1 generated village files', { exact: true }).click()
+  await expect(
+    page.getByText('generate-villages.py --check', { exact: false }),
+  ).toBeVisible()
+  await expect(
+    page.getByText('resource-patches/data/skyweave_compat/worldgen/test.json', {
+      exact: true,
+    }),
+  ).toBeVisible()
+})
+
 const en = (state) => JSON.parse(state.files['quests/locales/en_us.json'].text)
 
 const quest = (state, key) =>

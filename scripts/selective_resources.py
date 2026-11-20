@@ -1,6 +1,7 @@
 """Compose approved model roots and their private asset closure."""
 import copy
 import json
+import re
 from resource_assets import resources
 from model_authoring import require
 from model_transforms import compatible_model
@@ -33,9 +34,15 @@ def build(archives, selections):
         namespace = 'create_skyweave_' + key.replace('-', '_')
         local, visited, roots = {}, set(), set()
         adaptation = selection.get('adaptation')
-        require(adaptation in (None, 'neoforge-root-rotations'), 'Unknown selected model adaptation')
+        require(adaptation in (None, 'neoforge-root-rotations', 'native-enchanting-surface'), 'Unknown selected model adaptation')
         def model_document(path):
             document = rewrite(json.loads(source[path]))
+            if adaptation == 'native-enchanting-surface' and path == 'assets/minecraft/models/block/enchanting_table.json':
+                caps = [e for e in document['elements'] if e['to'][1] == 12.5]
+                require(len(caps) == 12 and all(e['from'][1] in (8.5, 9.5) for e in caps),
+                        'Nautilus enchanting rim changed; review native item clearance')
+                for element in caps:
+                    element['to'][1] = 12
             return compatible_model(document) if adaptation == 'neoforge-root-rotations' and '/models/' in path else document
 
         def dependency(value, kind, suffix):
@@ -102,6 +109,18 @@ def build(archives, selections):
                         if original != rewritten:
                             local[path] = rewritten
                             roots.add(path)
+        items = selection.get('items', [])
+        require(isinstance(items, list) and all(isinstance(item, str)
+                and re.fullmatch(r'[a-z0-9_.-]+:[a-z0-9_.-]+', item) for item in items)
+                and len(set(items)) == len(items), 'Expected distinct named item roots')
+        for item in items:
+            owner, name = item.split(':', 1)
+            definition = f'assets/{owner}/items/{name}.json'
+            legacy = f'assets/{owner}/models/item/{name}.json'
+            path = definition if definition in source else legacy
+            require(path in source, f'{item}: selected source supplies no item root')
+            local[path] = model_document(path)
+            roots.add(path)
         require(roots, f'{selection["id"]}: selected source supplies no model roots')
         for path, value in local.items():
             require(path not in entries or entries[path] == value, f'Selective resource collision: {path}')

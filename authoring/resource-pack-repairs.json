@@ -18,6 +18,12 @@
       "path": "pack/resourcepacks/Redstone Tweaks 2.4.5.zip",
       "url": "https://cdn.modrinth.com/data/RvfAlf4Z/versions/acYT0fGm/Redstone%20Tweaks%202.4.5.zip",
       "sha512": "794b11827b6f8b60e519ab9abc853d2d1d39e3f453bff728c49b6f9abf0a413a959f4ad496340f802d9f90eb64de6c2efb138ad0871fa916dc6067d162376499"
+    },
+    "luminous-lanterns": {
+      "version": "S2z4ITQ6",
+      "path": "pack/resourcepacks/Luminous Lanterns.zip",
+      "url": "https://cdn.modrinth.com/data/9k8RMjsM/versions/S2z4ITQ6/Luminous%20Lanterns.zip",
+      "sha512": "7a480a3d77d636b42142d707414aff7ecb45d27ef7d6a77b26bd0da03f9c9f9ab6b4594ff7b99ef4498b7a2b20c3f6398e993453007c0db28e241e95665280f6"
     }
   }
 }

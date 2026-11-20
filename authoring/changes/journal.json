@@ -1,17 +1,14 @@
 {
-  "schema": 1,
-  "baseline": "b5465d2aaf4b685baa46093fc805da0a51047bd9",
+  "schema": 2,
   "records": [
     {
-      "path": "overrides/client/config/questlog-client.json",
-      "sha256": "d173e637a727e5203e16c2b41178965c0c07a426710438a8aa5d7592601b000c",
+      "paths": [
+        "overrides/client/config/questlog-client.json"
+      ],
       "review": "reviewed",
       "reason": "Bookless journal access, native parchment/ink palette, and display defaults; generated quest content is checked separately.",
       "reference": "docs/development/journal.md",
-      "installation": {
-        "policy": "seed",
-        "family": "client-preferences"
-      }
+      "family": "client-preferences"
     }
   ]
 }

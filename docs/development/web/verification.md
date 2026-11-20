@@ -1,6 +1,36 @@
 # Verification
 
+## Dependency release candidate 0.21.0
+
+The staged source passes `pnpm verify` with 197 Node tests, and the Python suite passes with one native-prerequisite skip in 40 cases. Twenty headless browser checks cover the authoring audit, named jobs and the resource catalog. The browser fixture uses the archived media referenced by the tests and a source path outside Vite's denied cache directories.
+
+A disposable native Atlas export records 9,927 item and 9,266 block types, sorted type hierarchies, default-state block-entity evidence and 212 loaded mod versions. The export records the updated Curios and Radars pins and finds no changes to its source inputs during capture. It leaves the displayed Atlas snapshot intact. [Pack verification](../verification.md#dependency-release-candidate-0210) records the matching game checks.
+
+## Empack inspection — 2026-11-19
+
+The workspace environment uses the inspected empack 0.8.7 manifest capability label and states its schema 6 author/schema 3 lock requirement independently of an executable-version claim. `pnpm verify` passes formatting, unused-code analysis, all 197 Node tests, Astro/TypeScript checks and the static build. The first full run passes 196 tests but misses the existing loaded-code watcher observation at `workspace-watch.test.mjs:232`; all seven watcher tests then pass in isolation, followed by the successful complete rerun. No watcher implementation or timeout is changed. No browser or Minecraft client run is part of this metadata-only application change; [pack verification](../verification.md#empack-087-and-independent-review--2026-11-19) owns native engine/export results.
+
+## Rationale and policy audit — 2026-11-19
+
+On the working tree based on `a862f6eaa397`, `pnpm verify` passes formatting, unused-code analysis, 197 Node tests, Astro/TypeScript checks and the static build. `pnpm test:python` passes 40 tests with one native-prerequisite skip. `ATLAS_TEST_PORT=4367 pnpm exec playwright test tests/authoring.browser.mjs tests/jobs.browser.mjs` passes 11 headless browser cases, including the actual named audit operation and the updated rationale/policy/generated-output display.
+
+The audit reads installation policy from empack bindings and reports source presence and rationale coverage. A failure-injection service test changes the bindings, shared village ownership tool and host JVM template during execution; each change rejects publication and retains the prior audit artifact. Staged rationale validation requires no installation or game inputs. Browser checks retain quest save/generate separation, drafts, stable IDs, localization and existing navigation behavior.
+
+These checks do not run native rendering, refresh Minecraft evidence, scan worlds, install files or establish that generated village content is current. Its separate deterministic generator check is recorded in [pack verification](../verification.md#rationale-register--2026-11-19).
+
 Checks apply to the recorded source or artifact, not every later checkout. Browser checks establish interface behavior; native game checks and survey evidence have separate owners and limits. Commands and prerequisites live in [setup](setup.md).
+
+## Equipment review index — 2026-11-18
+
+Two isolated Minecraft 1.21.1 / NeoForge 21.1.265 exports capture the same 9,928 item and 9,267 block IDs with sorted type hierarchies and default-state block-entity evidence. The second also records 212 actual loaded mod identities/versions. All block records agree by ID. Three item records differ only in native `neoforge:cures` array ordering; registry iteration and arbitrary component serialization are not claimed byte-identical. Neither export reports changed source inputs during capture. The installed server's files and displayed Atlas runtime remain untouched.
+
+The offline register reuses the existing acquisition adapters and classifies 1,361 equipment items, retaining 462 uncertain custom/block-entity items and 3,823 potential routes. Five focused cases exercise functional/decorative distinctions, conditional probabilities, separate item versus block interfaces, stable ordering without input mutation, and stale/malformed evidence refusal. The full application test suite passes 196 cases, formatting and unused-code analysis. This is an item-level triage index with source hashes, not the separately saved interactive resource comparison workbench or proof that every indexed action works. [Equipment evaluation](../equipment.md) owns interpretation and refresh commands.
+
+Nine headless resource-catalog browser cases pass selection/default-source checks, filters and restored links, original-capture attribution, keyboard media navigation, playback cleanup and narrow layouts. The keyboard fixture checks a named gallery's actual choice count and selected image/video source rather than assuming catalog order or four images. External gallery responses are stubbed for these interaction checks; they do not establish current upstream image availability or native rendering.
+
+## Configurable model projection — 2026-11-17
+
+Visual Patches' checked default-resource manifest now projects the same shipped option choices into authoring previews. Unit cases cover pack-local enum fallbacks, disabled roots revealing lower packs, conflicting ownership, missing resources and refused external paths. Both visual-option producer modules participate in the model build revision. The complete pack Python suite passes 125 cases; `pnpm verify` passes 191 application tests, formatting, unused-code analysis, Astro checks and the production build. These checks do not interpret personal RespackOpts preferences. Actual menu, reload and workstation checks are recorded in [native visual compatibility](../compatibility.md#configurable-models--2026-11-17).
 
 ## Authoring consistency — 2026-11-16
 

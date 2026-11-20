@@ -2,7 +2,7 @@
 
 ## Placement and compatibility
 
-The source includes [Sky Villages 1.0.6 for NeoForge](https://modrinth.com/mod/sky-villages/version/3InSHTOp) with Minecraft 1.21.1, the manifest-pinned NeoForge and Architectury 13.0.11. This is distinct from Create: Sky Village. Sky Villages uses datapack resources rather than a generated TOML. Maintained resources live in `resource-patches/data/skyvillages`; the structures audit register owns their hashes and purpose. Build with `python3 scripts/build-resource-patches.py`.
+The source includes [Sky Villages 1.0.6 for NeoForge](https://modrinth.com/mod/sky-villages/version/3InSHTOp) with Minecraft 1.21.1, the manifest-pinned NeoForge and Architectury 13.0.12. This is distinct from Create: Sky Village. Sky Villages uses datapack resources rather than a generated TOML. Maintained resources live in `resource-patches/data/skyvillages`; the structures audit register owns their hashes and purpose. Build with `python3 scripts/build-resource-patches.py`.
 
 | Control | Current choice |
 | --- | --- |

@@ -3,7 +3,7 @@
   "sources": {
     "fresh-flower-pots": {
       "version": "YEM2pUsf",
-      "path": "pack/resourcepacks/\u00a73Fresh \u00a7bFlower Pots.zip",
+      "path": "pack/resourcepacks/§3Fresh §bFlower Pots.zip",
       "sha512": "20f6b1d45f824fd5218bb9ab0798170de158e9d58f71b0ddf3fad1e7a22c90aca8d1f08c8d9a1f1e932754d619c0f9480d81ad4ba2c1746b7c832c241cd2e817",
       "url": "https://cdn.modrinth.com/data/CmEN0T1m/versions/YEM2pUsf/%C2%A73Fresh%20%C2%A7bFlower%20Pots.zip"
     },
@@ -132,7 +132,7 @@
     },
     "refined-create-buckets": {
       "version": "ByxDrT5M",
-      "path": "pack/resourcepacks/Refined \u0421reate Buckets PV.zip",
+      "path": "pack/resourcepacks/Refined Сreate Buckets PV.zip",
       "sha512": "5e421da835064d4f48fb8b1028775a37e8f5f7908a619504f3aff2d04693b1acbcabba76df8ec85b5649f4c7ed6b7a53a13924de068004c4f2493d7e26d420d2",
       "url": "https://cdn.modrinth.com/data/5m3ARu6i/versions/ByxDrT5M/Refined%20%D0%A1reate%20Buckets%20PV.zip",
       "provider": "url"
@@ -181,6 +181,45 @@
       "url": "https://cdn.modrinth.com/data/oWaK0Q19/versions/44pLdPGg/create-aeronautics-bundled-1.21.1-1.3.2.jar",
       "archive_entry": "META-INF/jarjar/dev.eriksonn.aeronautics.aeronautics-neoforge-1.21.1-1.3.2.jar",
       "nested_sha512": "f7faf42c6d6b314eb0851283f7aff4660a81906d48a29ede055e785ac284f42133282a0ec89503893ccd50933e17a8b336f3d83a50fe3c6e14613dd08cf284f7"
+    },
+    "simple-3d-chain": {
+      "version": "zkBdTrjs",
+      "path": ".cache/resource-inputs/simple-3d-chain.zip",
+      "sha512": "9447780d91b855c63cdb8e166c40034db42284a52ab526ba50c3abc6373e0656a1134b8500d7a38fb3b252f4bb3b392b2c562038165fbb8d5469db9fd453692b",
+      "url": "https://cdn.modrinth.com/data/ZKeBoQDj/versions/zkBdTrjs/simple-3d-chain.zip",
+      "selection": "build-only"
+    },
+    "luminous-lanterns": {
+      "version": "S2z4ITQ6",
+      "path": "pack/resourcepacks/Luminous Lanterns.zip",
+      "url": "https://cdn.modrinth.com/data/9k8RMjsM/versions/S2z4ITQ6/Luminous%20Lanterns.zip",
+      "sha512": "7a480a3d77d636b42142d707414aff7ecb45d27ef7d6a77b26bd0da03f9c9f9ab6b4594ff7b99ef4498b7a2b20c3f6398e993453007c0db28e241e95665280f6"
+    },
+    "refined-torches": {
+      "version": "e7EW6ibn",
+      "path": "pack/resourcepacks/refined torches 2.1.zip",
+      "url": "https://cdn.modrinth.com/data/M6aa729D/versions/e7EW6ibn/refined%20torches%202.1.zip",
+      "sha512": "0e0b7379c26523003e0c0084c0c1fa5b529bdec16c78552937769effae7a4855427a86fd3f91af252e601eb4c4992fa0537b76a721c32ef19ae37ad33065d069"
+    },
+    "create-fresh-items": {
+      "version": "iqx9mmIr",
+      "path": ".cache/resource-inputs/create-fresh-items-1.2.2.zip",
+      "sha512": "9e09a467ff5c2e5187d4df4c1cb6aa0ca34916b89b429f5e48fcde92287018c707bf1b4f134d617fecdc1196aa0a425fcce5852f2bedd621ec652cadb8c304be",
+      "url": "https://cdn.modrinth.com/data/iiESLHPz/versions/iqx9mmIr/Create_%20Fresh%20Items.zip",
+      "selection": "build-only"
+    },
+    "3d-cave-vines": {
+      "version": "uifXOpi7",
+      "path": ".cache/resource-inputs/3d-cave-vines.zip",
+      "sha512": "6b2742452b59d0d7ebac496e0af4c537458155e7adfdbb8ee9342cba2de90d94bd82ec140dddbc1d8f7aa191987c2e811935b99af67e4d146a86105bcb26dde9",
+      "url": "https://cdn.modrinth.com/data/dnD3uXxc/versions/uifXOpi7/%C2%A7e3D%20Cave%20Vines.zip",
+      "selection": "build-only"
+    },
+    "mc2-interactive-foliage": {
+      "version": "oKmXJIL5",
+      "path": "pack/mods/mc2_interactivefoliage-2.2.1-neoforge+1.21.1.jar",
+      "sha512": "020d877d0e266fc360ff0e0c2b9f3b471ca1a74acc11da34bc5707fe6d3eebd74048bf725314d204f71adc639e134b0b3f0ce9dfef9724fcb1c51f2f3e80ca82",
+      "url": "https://cdn.modrinth.com/data/ba5MV2CF/versions/oKmXJIL5/mc2_interactivefoliage-2.2.1-neoforge%2B1.21.1.jar"
     }
   },
   "compatibility": {
@@ -189,40 +228,47 @@
     "fusion_pane_lighting": true,
     "refined_buckets": true,
     "flint_and_steel_backport": true,
-    "luminous_lanterns": true
+    "configurable_visuals": true,
+    "foliage_veil_wind": true
   },
   "credits": [
-    "Fresh Flower Pots \u2014 BlueHDGaming: https://modrinth.com/resourcepack/fresh-flower-pots",
-    "3D Crops Revamped \u2014 vexcenot; adapted models credit Stridey; project credits NinthWorld: https://modrinth.com/resourcepack/3d-crops",
-    "Create Deco \u2014 talrey, Ordana and Baileybun: https://modrinth.com/mod/create-deco",
-    "Fresh Animations: Objects \u2014 FreshLX: https://modrinth.com/resourcepack/fresh-animations-objects",
-    "Compatibility adaptations and generated geometry \u2014 Create: Skyweave",
-    "Original assets retain their authors\u2019 licenses. Required packs/mods supply unmodified textures; selected donor textures are included with their models.",
-    "Create \u2014 simibubi and contributors: https://modrinth.com/mod/create",
-    "Design n\u2019 Decor \u2014 LopyLuna and contributors: https://modrinth.com/mod/create-design-n-decor",
-    "Fresh Animations and Details \u2014 FreshLX: https://modrinth.com/resourcepack/fresh-animations-details",
-    "3D Default \u2014 GeForceLegend: https://github.com/GeForceLegend/Minecraft-3D-Default",
+    "Fresh Flower Pots — BlueHDGaming: https://modrinth.com/resourcepack/fresh-flower-pots",
+    "3D Crops Revamped — vexcenot; adapted models credit Stridey; project credits NinthWorld: https://modrinth.com/resourcepack/3d-crops",
+    "Create Deco — talrey, Ordana and Baileybun: https://modrinth.com/mod/create-deco",
+    "Fresh Animations: Objects — FreshLX: https://modrinth.com/resourcepack/fresh-animations-objects",
+    "Compatibility adaptations and generated geometry — Create: Skyweave",
+    "Original assets retain their authors’ licenses. Required packs/mods supply unmodified textures; selected donor textures are included with their models.",
+    "Create — simibubi and contributors: https://modrinth.com/mod/create",
+    "Design n’ Decor — LopyLuna and contributors: https://modrinth.com/mod/create-design-n-decor",
+    "Fresh Animations and Details — FreshLX: https://modrinth.com/resourcepack/fresh-animations-details",
+    "3D Default — GeForceLegend: https://github.com/GeForceLegend/Minecraft-3D-Default",
     "3d-default: GPL-3.0-only; selected assets adapted into isolated namespaces. Source: https://github.com/GeForceLegend/Minecraft-3D-Default",
-    "Classic 3D \u2014 ThePinkHacker: https://github.thepinkhacker.com/classic-3d-redux",
+    "Classic 3D — ThePinkHacker: https://github.thepinkhacker.com/classic-3d-redux",
     "classic-3d: GPL-3.0-only; selected assets adapted into isolated namespaces. Source: https://github.thepinkhacker.com/classic-3d-redux",
-    "Nautilus 3D \u2014 Waschtl and playtrix: https://github.com/FabianMPunkt/Nautilus3D",
+    "Nautilus 3D — Waschtl and playtrix: https://github.com/FabianMPunkt/Nautilus3D",
     "nautilus3d: AGPL-3.0-only; selected assets adapted into isolated namespaces. Source: https://github.com/FabianMPunkt/Nautilus3D",
     "Lootr storage artwork: native Lootr textures, relit by Create: Skyweave. Original source: https://modrinth.com/mod/lootr; exact inputs and approved artwork fingerprints are recorded in SOURCES.json.",
     "Vervada's enhanced plants: selected model/texture features adapted by Create: Skyweave. Source: https://modrinth.com/resourcepack/3d-plants; license: CC-BY-SA-4.0. Unselected assets are not included.",
     "3D Vanilla: selected model/texture features adapted by Create: Skyweave. Source: https://modrinth.com/resourcepack/3dvanilla; license: Apache-2.0. Unselected assets are not included.",
-    "Jacob\u2019s 3D Workspace+: selected model/texture features adapted by Create: Skyweave. Source: https://modrinth.com/resourcepack/jacobs-workspace-plus; license: CC-BY-NC-4.0. Unselected assets are not included.",
+    "Jacob’s 3D Workspace+: selected model/texture features adapted by Create: Skyweave. Source: https://modrinth.com/resourcepack/jacobs-workspace-plus; license: CC-BY-NC-4.0. Unselected assets are not included.",
     "Toasty's Perfect Pitchers (3d pitcher plants): selected model/texture features adapted by Create: Skyweave. Source: https://modrinth.com/resourcepack/toastys-perfect-pitchers-3d-pitcher-plants; license: LicenseRef-All-Rights-Reserved. Unselected assets are not included.",
     "3D Models: selected model/texture features adapted by Create: Skyweave. Source: https://modrinth.com/resourcepack/ulticraft-models-3d; license: CC-BY-NC-SA-4.0. Unselected assets are not included.",
     "Midnighttigger's Default Connected Textures: pane model ambient-occlusion property spelling adapted to Fusion's schema by Create: Skyweave; geometry and textures retained. Source: https://modrinth.com/resourcepack/mt-ct-d; exact input recorded in SOURCES.json.",
-    "Refined Buckets 3.0 \u2014 patovskiz: https://modrinth.com/resourcepack/refined-buckets; required external models and textures remain in that pack.",
-    "Refined Create Buckets \u2014 CRAFTINGC00KIE and patovskiz: https://modrinth.com/resourcepack/refined-reate-buckets; required external honey/chocolate textures remain in that pack. Create: Skyweave supplies model references and current-base bindings.",
-    "3D Flint & Steel for Punchy \u2014 vikicapikica094: https://modrinth.com/resourcepack/3d-flint-steel-for-punchy; selected models/textures adapted for Minecraft 1.21.1 with Modefite, CC-BY-SA-4.0. Shelf/name selectors omitted; original geometry retained.",
+    "Refined Buckets 3.0 — patovskiz: https://modrinth.com/resourcepack/refined-buckets; required external models and textures remain in that pack.",
+    "Refined Create Buckets — CRAFTINGC00KIE and patovskiz: https://modrinth.com/resourcepack/refined-reate-buckets; required external honey/chocolate textures remain in that pack. Create: Skyweave supplies model references and current-base bindings.",
+    "3D Flint & Steel for Punchy — vikicapikica094: https://modrinth.com/resourcepack/3d-flint-steel-for-punchy; selected models/textures adapted for Minecraft 1.21.1 with Modefite, CC-BY-SA-4.0. Shelf/name selectors omitted; original geometry retained.",
     "Create: Factory: native fluid surfaces referenced by the Refined bucket bindings; original assets remain in the required mod. https://modrinth.com/mod/create-factory (exact input recorded in SOURCES.json).",
     "Create Propulsion: Simulated: native fluid surfaces referenced by the Refined bucket bindings; original assets remain in the required mod. https://modrinth.com/mod/create-propulsion-simulated (exact input recorded in SOURCES.json).",
     "Create Confectionery: native fluid surfaces referenced by the Refined bucket bindings; original assets remain in the required mod. https://modrinth.com/mod/create-confectionery (exact input recorded in SOURCES.json).",
     "Create: Power Grid: native fluid surfaces referenced by the Refined bucket bindings; selected acid frames are reordered for Punchy under Apache-2.0, with license retained in LICENSES/powergrid-Apache-2.0.txt. https://modrinth.com/mod/power-grid (exact input recorded in SOURCES.json).",
     "Create Big Cannons: native fluid surfaces referenced by the Refined bucket bindings; original assets remain in the required mod. https://modrinth.com/mod/create-big-cannons (exact input recorded in SOURCES.json).",
-    "Minecraft 1.21.1 water surface \u2014 Mojang/Microsoft; tinted with the pinned Propulsion client fluid colours for turpentine and oxidizer. Only the generated bucket surfaces are included; exact source input and ARGB values are recorded in SOURCES.json and held-items.json.",
-    "Create Aeronautics: native Levitite Blend surface referenced from the exact nested Aeronautics JAR; original assets remain in the required mod. https://modrinth.com/mod/create-aeronautics (outer and nested identities recorded in SOURCES.json)."
+    "Minecraft 1.21.1 water surface — Mojang/Microsoft; tinted with the pinned Propulsion client fluid colours for turpentine and oxidizer. Only the generated bucket surfaces are included; exact source input and ARGB values are recorded in SOURCES.json and held-items.json.",
+    "Create Aeronautics: native Levitite Blend surface referenced from the exact nested Aeronautics JAR; original assets remain in the required mod. https://modrinth.com/mod/create-aeronautics (outer and nested identities recorded in SOURCES.json).",
+    "Simple 3D Chain 1.1.1 — poqbox: https://modrinth.com/resourcepack/simple-3d-chain; selected chain geometry under BSD-3-Clause. Lantern/sign templates omitted; original resources retain their authors’ rights.",
+    "Refined Torches 2.1 — patovskiz: https://modrinth.com/resourcepack/refined-torches; selected original model definitions provide explicit A/B fallbacks; textures and animated geometry remain supplied by the required pack.",
+    "Luminous Lanterns 1.1 — tixul: https://modrinth.com/project/9k8RMjsM; selected model bodies retained and chain/handle silhouettes extruded by Create: Skyweave. Original assets retain upstream LicenseRef-All-Rights-Reserved terms; textures remain in the required pack.",
+    "Create: Fresh Items 1.2.2 — VidTDM_XD, cyber, and contributors credited upstream: https://modrinth.com/resourcepack/create-fresh-food. Selected item definitions/models/textures are namespaced and supplied under GPL-3.0-or-later; exact inputs and adaptations are recorded in SOURCES.json.",
+    "3D Cave Vines — CRAFTINGC00KIE: https://modrinth.com/resourcepack/3d-cave-vines; selected berry/plain head and plant models with their texture closure, under MIT. Item textures and global OptiFine emission settings remain outside this block selection.",
+    "Interactive Foliage shader by KartO and contributors (https://github.com/Kart0/mc2-interactivefoliage), CC-BY-NC-SA-4.0. Create: Skyweave changes only the legacy wind-direction macro into an equivalent helper function to preserve grouping through Veil GLSL Processor 0.2.3. The modified shader retains CC-BY-NC-SA-4.0; see LICENSES/mc2-interactive-foliage.txt."
   ]
 }

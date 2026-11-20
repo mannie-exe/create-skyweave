@@ -1,5 +1,41 @@
 schema: 1
 bindings:
+  flashback:
+    placement:
+      files:
+        content:
+        - destination: mods/flashback.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  flashback-neoforge-fixed:
+    placement:
+      files:
+        primary:
+        - destination: mods/flashback-neoforge-fixed.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  cmdcam:
+    placement:
+      files:
+        primary:
+        - destination: mods/cmdcam.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  creativecore:
+    placement:
+      files:
+        primary:
+        - destination: mods/creativecore.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
   sable-dynamic-lights:
     placement:
       files:
@@ -298,7 +334,7 @@ bindings:
     placement:
       files:
         primary:
-        - destination: shader-inputs/ComplementaryUnbound_r5.9.3.zip
+        - destination: shader-inputs/ComplementaryUnbound_r5.10.zip
           environment:
             client: required
             server: unsupported
@@ -331,8 +367,11 @@ bindings:
             server: unsupported
           layer: common
 policies:
+  config/cmdcam-client.json: seed
+  config/flashback/flashback.json: seed
   config/combatnouveau-client.toml: seed
   server.properties: seed
+  user_jvm_args.txt: seed
   config/DistantHorizons.toml: seed
   config/MouseTweaks.cfg: seed
   config/accessories.json5: seed
@@ -354,6 +393,7 @@ policies:
   config/analogaudio/analogaudio.fileserver.toml: seed
   config/analogaudio/analogaudio.server.toml: managed
   config/analoglib/analoglib.client.toml: seed
+  config/artifacts/general.toml: managed
   config/azimuth-client.toml: seed
   config/azimuth-common.toml: managed
   config/bakery-common.toml: managed
@@ -411,6 +451,8 @@ policies:
   config/easyanvils-common.toml: managed
   config/easyanvils-server.toml: managed
   config/easymagic-client.toml: seed
+  config/visualworkbench-client.toml: seed
+  config/visualworkbench-server.toml: managed
   config/easymagic-common.toml: managed
   config/easymagic-server.toml: managed
   config/emi.css: seed
@@ -480,6 +522,7 @@ policies:
   config/powergrid-client.toml: seed
   config/powergrid-common.toml: managed
   config/powergrid-server.toml: seed
+  config/punchy_moves/tutorial_seen_v1: seed
   config/questlog-client.json: seed
   config/questlog/chapters/cargo.json: managed
   config/questlog/chapters/electricity.json: managed
@@ -627,7 +670,7 @@ policies:
   icon.png: seed
   options.txt: seed
   "shaderpacks/BSL_v10.1.8 + Clrwl_1.0.5 + Skyweave_0.3.0.zip.txt": seed
-  "shaderpacks/Complementary Unbound r5.9.3 + Euphoria 1.10.5 + Skyweave 0.3.0.zip.txt": seed
+  "shaderpacks/Complementary Unbound r5.10 + Euphoria 1.11.1 + Skyweave 0.4.0.zip.txt": seed
   shaderpacks/Photon v1.4 + Skyweave 0.3.0.zip.txt: seed
   config/guardvillagers-common.toml: managed
   config/guardvillagers-startup.toml: managed

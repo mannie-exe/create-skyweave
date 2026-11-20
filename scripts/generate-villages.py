@@ -1,27 +1,16 @@
 #!/usr/bin/env python3
 """Generate unified settlement schedules and bounded donor references; never edit instances."""
 import argparse
-import hashlib
-import json
 from pathlib import Path
-from village_composition import build, encoded, MODIFIERS, TAGS, SETS, SOIL_LISTS
+from village_composition import build
+from village_outputs import owned_paths
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def generate(root, *, check=False, download=True):
     outputs = build(root, download=download)
-    owned = set(SETS) | SOIL_LISTS | {TAGS + family + '.json' for family in ('villages', 'outposts')}
-    owned.update(path.relative_to(root).as_posix() for path in (root / MODIFIERS).rglob('*.json'))
-    stale = owned - outputs.keys()
-    audit_path = root / 'authoring/changes/structures.json'
-    audit = json.loads(audit_path.read_text())
-    audit['records'] = [record for record in audit['records'] if record['path'] not in owned | outputs.keys()]
-    for name, text in sorted(outputs.items()):
-        audit['records'].append({'path': name, 'sha256': hashlib.sha256(text.encode()).hexdigest(),
-            'review': 'reviewed', 'reason': 'Generated unified settlement policy and bounded, pinned donor references.',
-            'reference': 'docs/development/worldgen-candidates.md'})
-    outputs['authoring/changes/structures.json'] = encoded(audit)
+    stale = owned_paths(root) - outputs.keys()
     changed = [name for name, text in outputs.items() if not (root / name).is_file() or (root / name).read_text() != text]
     if check:
         if changed or stale:
@@ -31,7 +20,7 @@ def generate(root, *, check=False, download=True):
             path = root / name; path.parent.mkdir(parents=True, exist_ok=True); path.write_text(outputs[name])
         for name in stale:
             (root / name).unlink()
-    return len(outputs) - 1, len(changed), len(stale)
+    return len(outputs), len(changed), len(stale)
 
 
 def main():

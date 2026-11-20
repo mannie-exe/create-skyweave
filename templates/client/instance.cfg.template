@@ -4,7 +4,7 @@ InstanceType=OneSix
 ExportAuthor={{ini_quote AUTHOR}}
 ; Deliberate pack memory override; otherwise Prism inherits launcher settings.
 OverrideMemory=true
-MaxMemAlloc=8192
+MaxMemAlloc=12288
 MinMemAlloc=512
 ; Java 21 client default; players can override this in instance settings.
 OverrideJavaArgs=true

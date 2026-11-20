@@ -24,7 +24,9 @@ Localization groups object fields by chapter and shared text. Search matches key
 
 Unapplied JSON and incomplete numeric fields survive view changes and prevent saves until applied, corrected or discarded. Reload and browser navigation warn about unsaved changes. Source JSON exposes the same coordinated quest files and individual configuration registers; it is not another authoring authority.
 
-External source changes refresh a clean view without generating output. Dirty or unapplied drafts are retained for deliberate reconciliation. An acknowledged write followed by a failed refresh remains saved; its revision is retained, generation status becomes unavailable and further writes wait for reload. Configuration changes invalidate the audit; **Check files** is an explicit read-only action, not baseline acceptance or restoration.
+External source changes refresh a clean view without generating output. Dirty or unapplied drafts are retained for deliberate reconciliation. An acknowledged write followed by a failed refresh remains saved; its revision is retained, generation status becomes unavailable and further writes wait for reload. Configuration changes invalidate the audit; **Check files** is an explicit read-only action.
+
+Config audit shows rationale coverage, file presence and installation policy derived from empack bindings. Source JSON edits grouped rationale, not accepted byte hashes or another policy declaration. Review ordinary edits through Git. Generated village files are listed separately with their owning check command; the audit does not run that generator or certify its output. The [pack guide](../authoring.md#configuration-register) owns the source contract and retained integrity/provenance checks.
 
 The shared header Activity button docks where space permits and overlays dense or narrow views. Escape/close returns focus to the button. Activity retains operation outcomes, committed stages and diagnostics beyond transient notifications. Reads add no operations; explicit previews do. See [data](data.md#filesystem-boundary) for connection, authorization and retention contracts.
 

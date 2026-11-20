@@ -49,19 +49,19 @@ The Macaw mosaic profile in `resource-patches/assets/skyweave_compat/transparenc
 
 ## Configuration register
 
-`authoring/changes/*.json` separates client, shaders, worldgen, structures, recipes, drops, journal and gameplay. These files are a configuration register, not a stack of patches: their records do not write or merge setting values. Each record identifies an authored file, its accepted SHA-256, review status, reason and owning reference. `baseline` records the initial source revision. A matching hash establishes file equality, not gameplay validity or equality with upstream defaults. `inherited` means individual settings still need review; `reviewed` can cover a specific change within a larger inherited file.
+`authoring/changes/*.json` owns configuration rationale, grouped by client, shaders, worldgen, structures, recipes, drops, journal and gameplay. Schema 2 records contain an exact `paths` list, `review`, `reason`, `reference` and an optional descriptive `family`. Files sharing the same decision share one record; each path has one rationale owner. The register neither applies settings nor stores installation-policy copies, file hashes or historical baseline revisions. Git owns authored-file history. `inherited` means individual settings still need review; `reviewed` describes the stated decision's scope, not complete file or gameplay qualification.
 
 The checker rejects duplicate JSON keys or file records in the register, repeated client-option keys, and common/side override files that target the same installation path. Put a shared file in `overrides/common`, or put distinct client/server versions in their respective layers; do not rely on a common file being shadowed. Client and server counterparts may share a destination because they are installed separately.
 
-It reports drift, missing files and files absent from the register. Coverage includes distributed client/common/server config, shader settings, client options, resource recipes/tags/drops and the server properties template. Generated quest files have their own semantic check. Dependency selection, live-instance settings, worlds, LOD caches and private seeds are outside this register. The structures register covers the Sky Villages integration; broader density tuning remains deferred. See [structures](structures.md).
+`python3 scripts/audit-changes.py` checks rationale coverage, missing source files and explicit installation policies. Policies are read from `empack.bindings.yml`, including files not yet given rationale. Coverage includes distributed client/common/server config, shader settings, client options, maintained resource recipes/tags/drops, host templates and the village recipe. Generated village ownership comes from `scripts/village_outputs.py`, shared with its generator; describe those decisions once at `authoring/villages.json`. Run `python3 scripts/generate-villages.py --check` for generated-byte equality, missing outputs and retired files. Quest files retain their separate semantic/generation check. The audit classifies these boundaries without running generators or claiming that generated content is current.
 
-The checker is read-only. It does not restore files, generate arbitrary mod configuration, or accept new hashes automatically. Whole-file hashing is sensitive to formatting; Git diffs and the owning document explain the actual setting change.
+The checker is read-only. Ordinary config edits need no digest updates; review their Git diff and maintain the rationale when the decision changes. `--validate` checks only the rationale source structure for staged editor saves. Exact archive digests, patch preconditions, native-edit protection, artwork approvals and runtime provenance still belong to their owning tools: Git cannot establish downloaded bytes, a playing installation's state or an editor's unchanged inputs. Dependency selection, live-instance settings, worlds, LOD caches and private seeds remain outside this register.
 
 ## Installation file policies
 
 The [shared ownership policy](../../AGENTS.md#installation-file-ownership) is managed-first. Pack-owned gameplay rules, compatibility rules, generation tuning, compiled quests, shader recipes and resource artifacts should follow pack updates. Declare seed exceptions for player preferences, operator/host settings, credentials, installation identifiers and genuinely native-owned mutable files. Keep caches, logs and installation-generated runtime state out of distributions.
 
-Empack defaults files under `config/` to seed. Every distributed configuration therefore has an explicit policy in `empack.bindings.yml`. The existing configuration register also records its `installation.policy` and ownership `family`; `audit-changes.py` rejects missing ownership or disagreement with the binding. Quest generation owns exact managed FTB paths and preserves unrelated policies. Resource/data artifacts and authored shader recipes remain managed.
+Empack defaults files under `config/` to seed. Every distributed configuration therefore has an explicit policy in `empack.bindings.yml`, the sole policy owner. The register can describe an ownership `family` and the reason for an exception; the audit derives the effective policy from the bindings and rejects missing declarations. Quest generation owns exact managed FTB paths and preserves unrelated policies. Resource/data artifacts and authored shader recipes remain managed.
 
 | Register family | Policy | Ownership and update procedure |
 | --- | --- | --- |
@@ -89,9 +89,9 @@ A deliberate local refresh is separate from installation. With the instance stop
 ## Update reconciliation
 
 1. Run the audit before an update and retain the Git revision being compared.
-2. Compare changed mod defaults and schemas with the authored config. A matching pack hash cannot establish that an upgraded mod still recognizes a setting.
+2. Compare changed mod defaults and schemas with the authored config. Source equality alone cannot establish that an upgraded mod still recognizes a setting.
 3. Edit the smallest relevant file. For a recipe, edit its maintained resource; for a quest, edit mechanics or locale source rather than generated JSON.
-4. Update the owning rationale and register digest only after reviewing the diff. Keep unrelated inherited keys distinguishable from deliberate tuning.
+4. Update the owning rationale when the decision changes, using a shared path group where appropriate. Edit installation policy only in empack bindings. Keep unrelated inherited keys distinguishable from deliberate tuning.
 5. Generate, run checks and inspect the resulting exports. Test affected behavior in an isolated instance when source checks cannot establish it.
 6. Commit the source, generated quest files and rationale together. Schedule installation separately, preserving worlds and player progress.
 

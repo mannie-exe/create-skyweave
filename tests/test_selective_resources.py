@@ -27,6 +27,56 @@ def archive(entries):
 
 
 class SelectiveResources(unittest.TestCase):
+    def test_named_item_definition_keeps_contexts_and_private_dependencies(self):
+        definition = {'model': {'type': 'minecraft:select', 'property': 'minecraft:display_context',
+                      'cases': [{'when': ['gui'], 'model': {'type': 'minecraft:model',
+                                 'model': 'create:item/tea'}}],
+                      'fallback': {'type': 'minecraft:model', 'model': 'create:item/tea_3d'}}}
+        with archive({}) as vanilla, archive({
+                'assets/create/items/tea.json': definition,
+                'assets/create/models/item/tea.json': {'parent': 'minecraft:item/generated',
+                    'textures': {'layer0': 'create:item/tea'}},
+                'assets/create/models/item/tea_3d.json': {'textures': {'skin': 'create:item/tea'}, 'elements': []},
+                'assets/create/textures/item/tea.png': b'pixels',
+                'assets/create/items/unselected.json': {'model': {'type': 'minecraft:empty'}},
+        }) as donor:
+            selection = {'schema': 1, 'selections': [{'id': 'items/tea', 'action': 'apply',
+                         'source': 'donor', 'blocks': [], 'items': ['create:tea']}]}
+            output, report = build({'minecraft': vanilla, 'donor': donor}, selection)
+            root = output['assets/create/items/tea.json']['model']
+            self.assertEqual(root['property'], 'minecraft:display_context')
+            self.assertEqual(root['cases'][0]['when'], ['gui'])
+            self.assertEqual(root['fallback']['model'], 'create_skyweave_donor:create/item/tea_3d')
+            self.assertNotIn('assets/create/models/item/tea.json', output)
+            self.assertNotIn('assets/create/items/unselected.json', output)
+            self.assertEqual(report[0]['roots'], ['assets/create/items/tea.json'])
+            selection['selections'][0]['items'] = ['create:missing']
+            with self.assertRaisesRegex(ValueError, 'no item root'):
+                build({'minecraft': vanilla, 'donor': donor}, selection)
+            selection['selections'][0]['items'] = ['create:../tea']
+            with self.assertRaisesRegex(ValueError, 'distinct named item roots'):
+                build({'minecraft': vanilla, 'donor': donor}, selection)
+
+    def test_enchanting_surface_fits_only_the_twelve_pinned_rim_caps(self):
+        cap = {'from': [0, 8.5, 0], 'to': [2, 12.5, 2],
+               'faces': {'up': {'uv': [0, 0, 2, 2], 'texture': '#top'}}}
+        top = {'from': [3, 11, 3], 'to': [13, 12, 13],
+               'faces': {'up': {'uv': [0, 0, 16, 16], 'texture': '#top'}}}
+        model = {'textures': {'top': 'minecraft:block/obsidian'}, 'elements': [cap for _ in range(12)] + [top]}
+        selection = {'schema': 1, 'selections': [{'id': 'workstations/enchanting', 'action': 'apply',
+                     'source': 'donor', 'blocks': ['minecraft:enchanting_table'], 'adaptation': 'native-enchanting-surface'}]}
+        with archive({'version.json': {'id': '1.21.1'}}) as vanilla, archive({
+                'assets/minecraft/models/block/enchanting_table.json': model}) as donor:
+            output, _ = build({'minecraft': vanilla, 'donor': donor}, selection)
+        result = output['assets/minecraft/models/block/enchanting_table.json']
+        self.assertTrue(all(e['to'][1] == 12 for e in result['elements']))
+        self.assertEqual(result['elements'][-1], top)
+        self.assertEqual(result['elements'][0]['faces'], cap['faces'])
+        with archive({'version.json': {'id': '1.21.1'}}) as vanilla, archive({
+                'assets/minecraft/models/block/enchanting_table.json': {**model, 'elements': [cap]}}) as donor:
+            with self.assertRaisesRegex(ValueError, 'rim changed'):
+                build({'minecraft': vanilla, 'donor': donor}, selection)
+
     def test_window_interiors_preserve_solid_culling_and_connection_metadata(self):
         cube = {'elements': [{'from': [0, 0, 0], 'to': [16, 16, 16], 'faces': {
             'north': {'texture': '#side', 'cullface': 'north'},

@@ -1,13 +1,69 @@
 schema: 1
-reviewed: 2026-10-24
+reviewed: 2026-11-18
 candidates:
+  - id: fresh-music-discs
+    category: Items
+    status: partial
+    description: Three-dimensional native music discs and disc fragments.
+    fit: Existing Modefite handles the display-context definitions; no audio or gameplay resources are changed.
+    concern: The exact 1.4 archive declares format46. Native1.21.1 removes it unless explicitly acknowledged, and the fixture retains its TOO_NEW status.
+    nextCheck: Nineteen native discs and the fragment have first/third-person captures with shaders off and Complementary, plus native fixed/ground and menu/reload checks. Keep unselected pending artistic choice and remaining options; retain native metadata and explicit acknowledgment in comparisons.
+  - id: artifacts-3d
+    category: Equipment
+    status: partial
+    description: Detailed held meshes for 47 Artifacts items.
+    fit: Retains native accessory layers and the animated umbrella renderer.
+    concern: Four modern-rotation meshes require the optional Compat loader adapter before a coupled release. Native controls cover default held models, 45 wearable slot bindings and one synchronized health effect, not every ability or equipment combination.
+    nextCheck: Requalify held/equipped models, umbrella rendering, native slots and explicit adapter-disabled behavior when Artifacts, its model pack, Modefite or Curios/Accessories changes.
+  - id: fresh-vines
+    category: Foliage
+    status: partial
+    description: Three-dimensional ordinary vines with all native attachment combinations.
+    fit: Narrow foliage change that preserves existing flower, pot and crop selections.
+    concern: Native-format models are selected intact. Native state-model, scene, reload and shader controls cover the selected attachments; large canopies and gameplay climbing are not measured by a model scene.
+    nextCheck: Recheck all 32 attachment models and top seams after resource changes; preserve native growth and collision behavior.
+  - id: just-3d-potions-punchy-1.21-backport
+    category: Equipment
+    status: partial
+    description: Native-format potion bottles with a Punchy animation resource.
+    fit: Keeps native potion colors through tint index zero without depending on newer item-tint definitions.
+    concern: Supported static filled bottles need Compat's optional Iris/Punchy material adapter for correct liquid depth with shaders. Native use-key controls separately cover drinking and splash/lingering throwing; the authored clip lowers the bottle early.
+    nextCheck: Recheck material sprites, both-hand pass ownership, tint, glint and native completion after Punchy, Iris or resource updates. Unknown geometry retains native rendering.
+  - id: brays-zombie-overhaul-fresh-animations
+    category: Entities
+    status: partial
+    description: Zombie-family appearance variants adapted to Fresh Animations.
+    fit: The selected 1.4 addon retains the existing EMF/ETF animation authority.
+    concern: Use the native-compatible FA archive alone; current base 1.5 targets a later format. Native controls cover adult/juvenile zombie-family rendering with equipment and the selected JEM. V&V keeps its own models; rare ETF variants and all AI animation states are not exhaustively captured.
+    nextCheck: Compare the retained Fresh control and selected addon on updates; recheck actual JEM/JPM ownership, equipment, juvenile poses and affected texture variants.
   - id: fresh-animations
     category: Entities
-    status: defer
+    status: installed
     description: Animates vanilla mobs using custom entity models.
-    fit: Retained as an optional EMF/ETF resource; the default client selection leaves the base pack and Details disabled while keeping Objects enabled.
+    fit: Selected with EMF/ETF as the mob-animation base, below Details, Objects and Visual Patches.
     concern: Source galleries and archived client checks describe the pinned pack, not its current enablement. Carried entities also use the separate Carry On Animation Fix; no single animation pack covers every modded mob or pose.
-    nextCheck: Re-enable only for a deliberate mob-renderer comparison. Check creepers, endermen, equipment, carrying and rare variants against the active renderer stack.
+    nextCheck: Check creepers, endermen, equipment, carrying and rare variants against the active renderer stack when updating the pair.
+  - id: 3d-cave-vines
+    category: Foliage
+    status: partial
+    description: Selected three-dimensional cave-vine and glow-berry block models.
+    fit: A narrow MIT model closure keeps native growth, light levels and item artwork separate.
+    concern: The original archive's format 64 declaration is not used as a compatibility claim. The selected four legacy block models pass native state-model, scene/reload and shader controls; native growth and light values are unchanged.
+    nextCheck: Recheck plain/berry head/plant geometry, dangling tips and shaders after model changes; berry-item artwork and global emission remain outside this selection.
+  - id: create-fresh-items
+    category: Create
+    status: partial
+    description: Selected food, material and handheld component models from Create Fresh Items.
+    fit: The 41 authored item definitions use the existing Modefite display-context path and preserve 2D GUI/ground/frame presentation.
+    concern: Build-only 1.2.2 source, independently selected from its newer catalog tags. Representative native sweet-roll/tea actions, held/display contexts, reload and shaders are captured; every special tool interaction is not qualified. The older Pommel/Puzzle path is not installed.
+    nextCheck: Recheck the 41 registered definitions, display fallbacks and native action ownership after source, Create, Punchy or Modefite updates.
+  - id: fresh-animations-quivers
+    category: Animation
+    status: installed
+    description: Adds textured quivers to the skeleton-family Fresh Animations models.
+    fit: Official extension above Fresh base and Details; preserves the mob-animation owner.
+    concern: Skeleton, stray and bogged have visible native EMF quiver parts during idle/bow rendering. Murk and Verdant retain their own V&V models without quivers; all five ranged actors still emit native arrows. The future parched type is absent from 1.21.1.
+    nextCheck: Recheck Fresh shared JPM dependencies, equipment, actual ranged poses and the unchanged control after updating the addon or EMF; do not claim a V&V quiver adaptation.
   - id: redstone-tweaks
     category: Visibility
     status: installed
@@ -101,9 +157,9 @@ candidates:
     nextCheck: Check ordinary and soul fire, shader behavior and redstone text after the pack is layered.
   - id: fresh-animations-details
     category: Entities
-    status: defer
+    status: installed
     description: Adds model details and texture variants on top of Fresh Animations.
-    fit: Included alongside the optional base pack, with both disabled in the default client selection.
+    fit: Selected above Fresh Animations base and below Objects and Visual Patches.
     concern: Details 2.4 supplies pinned FA 1.11 shared rigs and juvenile models. No pack rig replacement is generated. Archive checks do not establish every pose, equipment state or rare variant.
     nextCheck: Compare shared rig references, sleeping poses, juveniles and equipment visibility when evaluating the pair; keep Fresh Objects independently enabled.
   - id: fresh-animations-objects
@@ -265,8 +321,8 @@ candidates:
     status: defer
     description: Adds held-food geometry, eating animations and display variants.
     fit: The food-family scope is understandable, but vanilla-only depth can separate it from modded foods.
-    concern: The selected file is tagged 1.21.1 but declares format 46–128 and uses the newer item-definition layout. It also lists additional required rendering mods.
-    nextCheck: Do not treat this download as a verified 1.21.1 option; locate a compatible implementation and complete food coverage first.
+    concern: Modern definitions require Modefite and Compat's optional item-definition adapter. Representative stew/name selection, native use geometry and resource-option reloads qualify; this is not a complete food-family or aesthetic selection.
+    nextCheck: Curate overlaps with the current vanilla and modded food owners before selecting artwork. Recheck exact source definitions, components, both-hand fitting and native consumption; keep the Hyper-style companion unselected.
   - id: nautilus3d
     category: Models
     status: partial

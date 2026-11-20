@@ -1,4 +1,3 @@
-import hashlib
 import importlib.util
 import json
 from pathlib import Path
@@ -7,10 +6,10 @@ import tempfile
 import unittest
 
 SCRIPTS = Path(__file__).resolve().parents[2] / 'scripts'
+sys.path.insert(0, str(SCRIPTS))
 spec = importlib.util.spec_from_file_location('configuration_audit', SCRIPTS / 'audit-changes.py')
 audit_module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(audit_module)
-sys.path.insert(0, str(SCRIPTS))
 from quests import quest_policies
 
 
@@ -24,7 +23,7 @@ class InstallationPoliciesTest(unittest.TestCase):
         self.assertEqual(policies['config/ftbquests/quests/data.snbt'], 'managed')
         self.assertEqual(result, quest_policies(result, {'config/ftbquests/quests/data.snbt'}, set()))
 
-    def test_config_register_cannot_silently_disagree_with_export_binding(self):
+    def test_config_register_reports_export_policy_without_a_second_declaration(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             relative = 'overrides/common/config/example.json'
@@ -33,17 +32,19 @@ class InstallationPoliciesTest(unittest.TestCase):
             file.write_text('{"enabled":false}\n')
             register = root / 'authoring/changes/test.json'
             register.parent.mkdir(parents=True)
-            record = {'path': relative, 'sha256': hashlib.sha256(file.read_bytes()).hexdigest(),
+            record = {'paths': [relative],
                       'review': 'reviewed', 'reason': 'A deliberate pack rule.',
-                      'installation': {'policy': 'managed', 'family': 'pack-rules'}}
-            register.write_text(json.dumps({'schema': 1, 'records': [record]}))
+                      'reference': 'docs/development/authoring.md', 'family': 'pack-rules'}
+            source = json.dumps({'schema': 2, 'records': [record]})
+            register.write_text(source)
             bindings = root / 'empack.bindings.yml'
             bindings.write_text('schema: 1\npolicies:\n  config/example.json: seed\n')
-            with self.assertRaisesRegex(ValueError, 'disagree'):
-                audit_module.audit(root)
+            self.assertEqual(audit_module.audit(root)['records'][0]['policy'], 'seed')
             bindings.write_text('schema: 1\npolicies:\n  config/example.json: managed\n')
             result = audit_module.audit(root)
-            self.assertEqual(result['records'][0]['status'], 'matched')
+            self.assertEqual(result['records'][0]['status'], 'present')
+            self.assertEqual(result['records'][0]['policy'], 'managed')
+            self.assertEqual(register.read_text(), source)
             self.assertEqual(file.read_text(), '{"enabled":false}\n')
 
     def test_duplicate_or_unsupported_bindings_are_rejected(self):

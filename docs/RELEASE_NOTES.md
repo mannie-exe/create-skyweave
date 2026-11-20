@@ -1,13 +1,13 @@
-# Create: Skyweave 0.20.0
+# Create: Skyweave 0.21.0
 
-Add Combat Nouveau, coordinated player presentation, encounter content, and held-item resources with Skyweave: Compatibility Patches 0.39.0. Minecraft remains 1.21.1; NeoForge remains 21.1.265.
+Update the selected Minecraft 1.21.1 dependencies and pair them with Skyweave: Compatibility Patches 0.40.0. See the [content list](MODLIST.md) for exact pins.
 
-- Keep ordinary attack/use controls with full-charge Combat Nouveau attacks, sprint criticals, and its authored shield rules. Epic Fight, ParCool, MineHop, and a separate combat mode are absent. See the [combat guide](players/movement-combat.md) for the selected mechanics.
-- Add Punchy, Moves, Fluid & Foolish, Touch'n Motion, and 3D Skin Layers. Optional Compat repairs follow admitted native actions and critical prediction; separate live first-/third-person pacing controls preserve native damage and recharge. Fresh Animations keeps its mob scope; FA Player Extension and independent cape simulation are not selected.
-- Preserve Outline Effects glow, runes, and hand outlines with Iris. Require published DH coverage along distant-construct sight paths, including genuine empty void, without activating archived ships.
-- Ship the 0.3.0 Complementary/Euphoria, BSL/Colorwheel, and Photon shader recipes with pack-specific DH shadow handling. Complementary and BSL have native Apple GPU qualification; Photon appearance and GPU cost remain unqualified on a supported device.
-- Add Interactive Foliage, Sway, Subtle Effects, and Pickup Notifier with authored defaults. Use Refined Tools, Torches, and Buckets, adapted Create/modded bucket resources, Punched Backpacks, and Enchanted Fishing Line. Luminous Lanterns replaces Better Lanterns; existing custom redstone-torch artwork remains independent.
-- Add Illager Invasion, Guard Villagers, and Variants & Ventures. Retain iron golems. Hostile Skies' automatic raids remain disabled. Ordinary V&V replacements use 30%; eligible ordinary spawner emissions use the optional 5% per-mob policy. Repair slow-ranged trial resources, preserve Lithostitched aliases, and adapt Murk depth to loaded elevated island water. See [encounter configuration](development/encounters.md).
-- Tighten configuration authoring/ownership checks, repair selected resource-option references, and update the Atlas resource stack and artifact maintenance. Existing player preferences retain their explicit seed policies.
+- Rebase Complementary and Euphoria to r5.10 and 1.11.1. Keep Skyweave's window material, sky environment and DH shadow adjustments. Shader-lab carries forward a valid generated preset and keeps the other two shader recipes available.
+- Update Create Radars to 5.1.1. Recreate links authored before 5.1 if their order changed. The legacy T-Pitch block has been removed upstream. The pack keeps only the malformed directional-jammer recipe repair.
+- Give Redstone Additions 1.0.6 ownership of gate placement and updates, wrench rotation, copper scraping, drops and inverter models. Compat retains the Crossroad signal scope correction.
+- Use Curios 9.6.0 with a temporary Compat bridge for Accessories. It preserves equipment slot assignments through world loading and datapack reload.
+- Carry forward the Modefite, held-item, resource-option and chain fixes. Add Artifacts with its authored presentation and use Visual Workbench with the selected workstation accessories.
+- Add client-only Flashback and CMDCam recording tools. See the [filming guide](players/filming.md).
+- Use 12 GiB maximum-heap defaults for fresh client and server installs. An existing server's JVM arguments remain operator-owned. Use 12 GiB system memory at minimum and leave headroom beyond the configured heap for the operating system and native memory.
 
-Generation identity remains `islands_v1-skyarch-1.4-17`, with watersheds `island_watersheds_v7`. No world reset is required. Client/server distance defaults and JVM policies are unchanged. Native tests cover bounded combat, TCP authority, player interactions, shaders, and encounter fixtures; broad multiplayer balance and performance remain separate work. See [Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/verification.md#combat-presentation-0390) for exact artifacts and limits.
+Generation remains `islands_v1-skyarch-1.4-17` with `island_watersheds_v7`. Dynamic Waters remains on 13.1.0.

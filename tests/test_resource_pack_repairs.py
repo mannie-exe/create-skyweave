@@ -8,7 +8,7 @@ from zipfile import ZipFile
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from archive_output import archive_bytes
-from resource_pack_repairs import repair, BOW_ORPHANS, NOTICE, TIMESTAMP
+from resource_pack_repairs import repair, BOW_ORPHANS, NOTICE, TIMESTAMP, REFINED_LANTERN_FILES
 
 
 def fixture(entries):
@@ -24,7 +24,11 @@ RETAINED = {'pack.mcmeta': b'{"pack":{"pack_format":34}}',
 
 class ResourcePackRepairs(unittest.TestCase):
     def torch_entries(self):
-        entries = dict(RETAINED)
+        entries = {**RETAINED, **{name: b'lantern-only resource' for name in REFINED_LANTERN_FILES}}
+        entries['assets/minecraft/punchy/compat/compat.json'] = json.dumps({
+            'item': {'LANTERN': {'keep_arm_tuning': True}, 'TORCH': {'keep_arm_tuning': True}},
+            'itemSpecific': {'minecraft:campfire': {'kind': 'CAMPFIRE'},
+                             'minecraft:redstone_torch': {'kind': 'TORCH'}}}).encode()
         for directory in ('assets/minecraft/particles/',
                           'Polytone/assets/minecraft/polytone/custom_particles/'):
             for name in ('tocha', 'tocha_alma', 'tocha_cobre', 'tocha_fumaca', 'tocha_redstone'):
@@ -33,6 +37,13 @@ class ResourcePackRepairs(unittest.TestCase):
 
     def lamp_entries(self):
         entries = dict(RETAINED)
+        for directory in ('blockstates', 'models/item'):
+            path = f'assets/minecraft/{directory}/redstone_lamp.json'
+            fallback = f'assets/minecraft/{directory}/disabled_features/redstone_lamp.json'
+            entries[path] = b'{"native":"appearance"}'
+            entries[fallback] = b'{"custom":"appearance"}'
+            entries[path + '.rpo'] = json.dumps({
+                'condition': '!redstone.redstone_lamp', 'fallback': fallback}).encode()
         for name in ('off', 'on'):
             path = 'assets/minecraft/textures/block/redstone_lamp/' + name
             entries[path + '.png'] = b'native texture'
@@ -40,6 +51,19 @@ class ResourcePackRepairs(unittest.TestCase):
                 'condition': 'redstone.redstone_lamp',
                 'fallback': 'assets/minecraft/textures/block/redstone_lamp'
                             + ('_on' if name == 'on' else '') + '.png'}).encode()
+        return entries
+
+    def lantern_entries(self):
+        entries = dict(RETAINED)
+        for name in ('lantern', 'soul_lantern', 'copper_lantern', 'exposed_copper_lantern',
+                     'weathered_copper_lantern', 'oxidized_copper_lantern'):
+            for suffix in ('', '_hanging'):
+                entries[f'assets/minecraft/models/block/{name}{suffix}.json'] = json.dumps({
+                    'textures': {'all': 'minecraft:block/lantern'},
+                    'elements': [{'from': [0, 0, 0], 'to': [1, 1, 1],
+                                  'faces': {'north': {'texture': '#all'}},
+                                  'rotation': {'origin': [8, 11.5, 8], 'x': 0, 'y': 135, 'z': 0}}]
+                }).encode()
         return entries
 
     def test_torch_and_smoke_switches_are_independent_in_both_views(self):
@@ -57,6 +81,26 @@ class ResourcePackRepairs(unittest.TestCase):
             for path, value in RETAINED.items():
                 self.assertEqual(result.read(path), value)
             self.assertEqual(json.loads(result.read(NOTICE))['upstream'], SOURCE)
+            self.assertFalse(set(result.namelist()) & REFINED_LANTERN_FILES)
+            profile = json.loads(result.read('assets/minecraft/punchy/compat/compat.json'))
+            self.assertEqual(profile, {
+                'item': {'TORCH': {'keep_arm_tuning': True}},
+                'itemSpecific': {'minecraft:campfire': {'kind': 'CAMPFIRE'},
+                                 'minecraft:redstone_torch': {'kind': 'TORCH'}}})
+
+    def test_lantern_subtraction_refuses_changed_coverage_or_additional_item_tuning(self):
+        entries = self.torch_entries()
+        del entries['assets/minecraft/punchy/model_parts_items/definitions/lantern.json']
+        with fixture(entries) as source:
+            with self.assertRaisesRegex(ValueError, 'coverage changed'):
+                repair('refined-torches', source, SOURCE)
+        entries = self.torch_entries()
+        path = 'assets/minecraft/punchy/compat/compat.json'
+        profile = json.loads(entries[path]); profile['itemSpecific']['minecraft:lantern'] = {'kind': 'LANTERN'}
+        entries[path] = json.dumps(profile).encode()
+        with fixture(entries) as source:
+            with self.assertRaisesRegex(ValueError, 'requires review'):
+                repair('refined-torches', source, SOURCE)
 
     def test_only_unreferenced_orphan_bow_sidecars_are_removed(self):
         entries = {**RETAINED, **{path: b'{condition:"arrowModel.old"}' for path in BOW_ORPHANS}}
@@ -71,22 +115,60 @@ class ResourcePackRepairs(unittest.TestCase):
             with self.subTest(path=path), fixture({**entries, path: data}) as source:
                 with self.assertRaises(ValueError): repair('refined-tools', source, SOURCE)
 
-    def test_lamp_sidecars_bind_the_actual_png_and_preserve_fallback_bytes(self):
+    def test_lamp_appearance_switches_survive_without_missing_texture_fallbacks(self):
         entries = self.lamp_entries()
         with fixture(entries) as source: output = repair('redstone-tweaks', source, SOURCE)
         with ZipFile(io.BytesIO(output)) as result:
+            removed = set()
             for variant in ('off', 'on'):
                 path = 'assets/minecraft/textures/block/redstone_lamp/' + variant
                 self.assertNotIn(path + '.rpo', result.namelist())
-                self.assertEqual(result.read(path + '.png.rpo'), entries[path + '.rpo'])
+                self.assertNotIn(path + '.png.rpo', result.namelist())
                 self.assertEqual(result.read(path + '.png'), entries[path + '.png'])
-            for path, value in RETAINED.items(): self.assertEqual(result.read(path), value)
+                removed.add(path + '.rpo')
+            for path, value in entries.items():
+                if path not in removed: self.assertEqual(result.read(path), value)
+            for enabled in (False, True):
+                for directory in ('blockstates', 'models/item'):
+                    path = f'assets/minecraft/{directory}/redstone_lamp.json'
+                    selector = json.loads(result.read(path + '.rpo'))
+                    self.assertEqual(selector['condition'], '!redstone.redstone_lamp')
+                    selected = selector['fallback'] if enabled else path
+                    self.assertEqual(json.loads(result.read(selected)),
+                                     {'custom' if enabled else 'native': 'appearance'})
 
     def test_changed_or_already_corrected_lamp_contract_refuses(self):
         for extra in ({'assets/minecraft/textures/block/redstone_lamp/off.png.rpo': b'{}'},
-                      {'assets/minecraft/textures/block/redstone_lamp/off.rpo': b'{"condition":"changed"}'}):
+                      {'assets/minecraft/textures/block/redstone_lamp/off.rpo': b'{"condition":"changed"}'},
+                      {'assets/minecraft/blockstates/redstone_lamp.json.rpo': b'{"condition":"changed"}'}):
             with fixture({**self.lamp_entries(), **extra}) as source:
                 with self.assertRaises(ValueError): repair('redstone-tweaks', source, SOURCE)
+
+    def test_lantern_schema_preserves_every_other_model_and_resource_value(self):
+        entries = self.lantern_entries()
+        with fixture(entries) as source: output = repair('luminous-lanterns', source, SOURCE)
+        with ZipFile(io.BytesIO(output)) as result:
+            self.assertEqual(set(result.namelist()), set(entries) | {NOTICE})
+            for path, value in entries.items():
+                if '/models/block/' not in path:
+                    self.assertEqual(result.read(path), value)
+                    continue
+                expected = json.loads(value)
+                expected['elements'][0]['rotation'] = {
+                    'origin': [8, 11.5, 8], 'axis': 'y', 'angle': 135}
+                self.assertEqual(json.loads(result.read(path)), expected)
+            self.assertEqual(len(json.loads(result.read(NOTICE))['repairs']), 12)
+
+    def test_lantern_missing_model_or_new_multi_axis_rotation_refuses(self):
+        entries = self.lantern_entries()
+        path = 'assets/minecraft/models/block/lantern.json'
+        with fixture({k: v for k, v in entries.items() if k != path}) as source:
+            with self.assertRaisesRegex(ValueError, 'coverage changed'):
+                repair('luminous-lanterns', source, SOURCE)
+        model = json.loads(entries[path]); model['elements'][0]['rotation']['x'] = 15
+        with fixture({**entries, path: json.dumps(model).encode()}) as source:
+            with self.assertRaisesRegex(ValueError, 'rotation changed'):
+                repair('luminous-lanterns', source, SOURCE)
 
     def test_deterministic_output_and_changed_torch_condition_refusal(self):
         entries = self.torch_entries()

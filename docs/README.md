@@ -11,6 +11,7 @@ Player guides explain installation and operation. Development documents describe
 | [Inventory controls](players/inventory.md) | Gestures, sorting, refill and known screen issues |
 | [Journal](players/journal.md) | Local quest conditions and controls |
 | [Graphics](players/graphics.md) | DH rendering, shader choices and missing LODs |
+| [Filming](players/filming.md) | Replay recording, camera paths, export and local project files |
 | [Servers](players/server.md) | Hosting, world preservation and DH generation |
 | [Included content](MODLIST.md) | Exact mods, resource packs and shaders in current source |
 | [Release notes](RELEASE_NOTES.md) | Current release notes and links to earlier versions |
@@ -22,6 +23,7 @@ Player guides explain installation and operation. Development documents describe
 | [Build and release](development/build.md) | Source layout, empack commands and CI |
 | [Dependency and patch maintenance](development/patches.md) | Coupled updates, patch ownership, checks and removal criteria |
 | [Compatibility constraints](development/compatibility.md) | Dependency interactions and supported boundaries |
+| [Animation and model compatibility](development/animation-compatibility.md) | Renderer ownership, item fitting and native comparison requirements |
 | [Pack verification](development/verification.md) | Artifact checks, evidence ownership and coverage limits |
 | [Journal design and definitions](development/journal.md) | Capabilities, reward budgets, conditions and update checks |
 | [Pack authoring](development/authoring.md) | Journal generation, locale editing and categorized configuration audit |
@@ -38,6 +40,7 @@ Player guides explain installation and operation. Development documents describe
 | [Encounters and settlement population](development/encounters.md) | Illager, guard and biome-variant settings, spawn paths and integration limits |
 | [Building weights](development/weights.md) | Classification policy, multipart decisions and native verification |
 | [Progression review](development/progression.md) | Routes, overlaps and remaining play checks |
+| [Equipment evaluation](development/equipment.md) | Equipment families, Artifacts effects/acquisition and renderer decisions |
 | [Upstream findings](development/upstream.md) | Known reports and candidates for submission |
 | [Decision history](development/decisions.md) | Accepted pack policies and supporting evidence |
 

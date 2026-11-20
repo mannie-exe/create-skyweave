@@ -20,6 +20,7 @@
     "media:collect": "node scripts/collect-resource-media.mjs",
     "data:runtime": "python3 scripts/runtime.py",
     "data:extract": "python3 scripts/extract.py",
+    "data:equipment": "node scripts/equipment-review.mjs",
     "data:world": ".cache/python/bin/python scripts/world.py",
     "artifacts:plan": "node scripts/artifact-cleanup.mjs --all-scopes",
     "artifacts:prune": "node scripts/artifact-cleanup.mjs --all-scopes --apply",

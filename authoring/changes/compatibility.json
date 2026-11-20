@@ -1,27 +1,23 @@
 {
-  "schema": 1,
+  "schema": 2,
   "records": [
     {
-      "path": "overrides/common/config/skyweave/skyweave_compat-features.properties",
-      "sha256": "fab072cece79ba981f1b2d4fdc7f926db7c09c55d25f68bbbfc48e3f67ba277e",
+      "paths": [
+        "overrides/common/config/skyweave/skyweave_compat-features.properties"
+      ],
       "review": "reviewed",
-      "reason": "Enable reviewed terrain, machinery, journal, rendering and recovery adapters. Glass corrections preserve material and axis boundaries after native Create/Fusion processing and finalize qualified Create/Copycats+ glass after shape assembly. Independent Copycat switches default on in Compat as well as this pack selection. Keep text displays and nametags readable with neutral Iris lighting and independent cast-shadow exclusions. DH caches use per-world identity. Independently enable the server-owned patrol probability, V&V ordinary per-emission mode and active-preset Murk local-water correction. Normalize Lithostitched’s two trial extension slots before V&V’s own updater, preserving its native switches and five-choice families.",
+      "reason": "Enable reviewed terrain, machinery, journal, rendering and recovery adapters. Glass corrections preserve material and axis boundaries after native Create/Fusion processing and finalize qualified Create/Copycats+ glass after shape assembly. Independent Copycat switches default on in Compat as well as this pack selection. Keep text displays and nametags readable with neutral Iris lighting and independent cast-shadow exclusions. DH caches use per-world identity. Independently enable the server-owned patrol probability, V&V ordinary per-emission mode and active-preset Murk local-water correction. Normalize Lithostitched’s two trial extension slots before V&V’s own updater, preserving its native switches and five-choice families. Opt into the Curios 9.6.0 slot-binding bridge for the pinned Accessories stack.",
       "reference": "docs/development/compatibility.md",
-      "installation": {
-        "policy": "managed",
-        "family": "pack-rules"
-      }
+      "family": "pack-rules"
     },
     {
-      "path": "overrides/common/config/createredstonelinkgui-common.toml",
-      "sha256": "54a006c90a10d5a2cfa19331b0a3c138f1399b0e1178ce056a190781f0be3bb1",
+      "paths": [
+        "overrides/common/config/createredstonelinkgui-common.toml"
+      ],
       "review": "reviewed",
       "reason": "Retain the native 24-block limit; Compat permits ordinary links within one coordinate frame.",
       "reference": "docs/development/compatibility.md",
-      "installation": {
-        "policy": "managed",
-        "family": "pack-rules"
-      }
+      "family": "pack-rules"
     }
   ]
 }

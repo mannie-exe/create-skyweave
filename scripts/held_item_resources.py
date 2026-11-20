@@ -20,17 +20,11 @@ def contexts(ordinary, held, first_person=None):
                       'cases': cases, 'fallback': {'type': 'minecraft:model', 'model': held}}}
 
 
-def model_part_filters(lanterns, flint):
-    """Suppress competing lower definitions only while their replacements are selected."""
-    names = []
-    if lanterns:
-        names.extend(('copper_lantern', 'exposed_copper_lantern', 'lantern', 'oxidized_copper_lantern',
-                      'soul_lantern', 'weathered_copper_lantern'))
-    if flint:
-        names.append('held_flint_steel')
+def model_part_filters(flint):
+    """Suppress the competing lower flint definition while its backport is selected."""
     return ([{'namespace': 'minecraft',
-              'path': 'punchy/model_parts_items/definitions/(' + '|'.join(names) + r')\.json'}]
-            if names else [])
+              'path': r'punchy/model_parts_items/definitions/held_flint_steel\.json'}]
+            if flint else [])
 
 
 def buckets(archives, catalog=None, licenses=None):

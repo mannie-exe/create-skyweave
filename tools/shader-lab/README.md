@@ -15,7 +15,7 @@ The lab pins the same Compat artifact as the playable pack, plus Gson. Use relea
 
 `overrides/client/config/skyweave/shaders/recipes/` is the canonical source for patch versions, ordered operations, exact input hashes, runtime requirements, output names and expected payloads. The combined Skyweave correction is versioned independently of its inputs. Its current Complementary output is:
 
-`Complementary Unbound r5.9.3 + Euphoria 1.10.5 + Skyweave 0.3.0.zip`
+`Complementary Unbound r5.10 + Euphoria 1.11.1 + Skyweave 0.4.0.zip`
 
 Skyweave Glass remains the material-classification patch within that result; its 0.1.0 material report is unchanged by the environment corrections.
 

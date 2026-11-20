@@ -7,9 +7,7 @@
       "group": "barrels",
       "title": "Vanilla barrels",
       "source": "current",
-      "blocks": [
-        "minecraft:barrel"
-      ],
+      "blocks": ["minecraft:barrel"],
       "action": "keep",
       "note": "Keep the existing barrel model."
     },
@@ -18,9 +16,7 @@
       "group": "barrels",
       "title": "Lootr barrels",
       "source": "current",
-      "blocks": [
-        "lootr:lootr_barrel"
-      ],
+      "blocks": ["lootr:lootr_barrel"],
       "action": "keep",
       "note": "Keep the existing directional artwork and generated corner clasps."
     },
@@ -37,10 +33,8 @@
       "id": "workstations/crafting",
       "group": "workstations",
       "title": "Crafting table",
-      "source": "classic-3d",
-      "blocks": [
-        "minecraft:crafting_table"
-      ],
+      "source": "nautilus3d",
+      "blocks": ["minecraft:crafting_table"],
       "action": "apply"
     },
     {
@@ -48,9 +42,7 @@
       "group": "workstations",
       "title": "Stonecutter",
       "source": "classic-3d",
-      "blocks": [
-        "minecraft:stonecutter"
-      ],
+      "blocks": ["minecraft:stonecutter"],
       "action": "apply"
     },
     {
@@ -58,9 +50,7 @@
       "group": "plants",
       "title": "Lily pads",
       "source": "3d-default",
-      "blocks": [
-        "minecraft:lily_pad"
-      ],
+      "blocks": ["minecraft:lily_pad"],
       "action": "apply"
     },
     {
@@ -68,9 +58,7 @@
       "group": "plants",
       "title": "Cactus",
       "source": "3d-default",
-      "blocks": [
-        "minecraft:cactus"
-      ],
+      "blocks": ["minecraft:cactus"],
       "action": "apply"
     },
     {
@@ -105,9 +93,7 @@
       "group": "plants",
       "title": "Sugar cane",
       "source": "current",
-      "blocks": [
-        "minecraft:sugar_cane"
-      ],
+      "blocks": ["minecraft:sugar_cane"],
       "action": "keep"
     },
     {
@@ -115,10 +101,7 @@
       "group": "plants",
       "title": "Seagrass",
       "source": "current",
-      "blocks": [
-        "minecraft:seagrass",
-        "minecraft:tall_seagrass"
-      ],
+      "blocks": ["minecraft:seagrass", "minecraft:tall_seagrass"],
       "action": "keep"
     },
     {
@@ -126,10 +109,7 @@
       "group": "shelves",
       "title": "Bookshelves and frame connections",
       "source": "current",
-      "blocks": [
-        "minecraft:bookshelf",
-        "minecraft:chiseled_bookshelf"
-      ],
+      "blocks": ["minecraft:bookshelf", "minecraft:chiseled_bookshelf"],
       "action": "keep",
       "note": "Preserve connected textures."
     },
@@ -138,10 +118,7 @@
       "group": "shelves",
       "title": "Beehives and nests",
       "source": "current",
-      "blocks": [
-        "minecraft:beehive",
-        "minecraft:bee_nest"
-      ],
+      "blocks": ["minecraft:beehive", "minecraft:bee_nest"],
       "action": "keep"
     },
     {
@@ -149,9 +126,7 @@
       "group": "props",
       "title": "Lodestone",
       "source": "3d-default",
-      "blocks": [
-        "minecraft:lodestone"
-      ],
+      "blocks": ["minecraft:lodestone"],
       "action": "apply"
     },
     {
@@ -173,9 +148,7 @@
       "group": "props",
       "title": "Hay bales",
       "source": "3d-default",
-      "blocks": [
-        "minecraft:hay_block"
-      ],
+      "blocks": ["minecraft:hay_block"],
       "action": "apply"
     },
     {
@@ -183,10 +156,7 @@
       "group": "props",
       "title": "Campfires",
       "source": "3d-default",
-      "blocks": [
-        "minecraft:campfire",
-        "minecraft:soul_campfire"
-      ],
+      "blocks": ["minecraft:campfire", "minecraft:soul_campfire"],
       "action": "apply",
       "inherit_template": true,
       "note": "Shared template is isolated to these blocks. Earlier selective screenshots did not activate it; needs a new visual check."
@@ -196,10 +166,15 @@
       "group": "props",
       "title": "Redstone torches: floor, wall, on and off",
       "source": "nautilus3d",
-      "blocks": [
-        "minecraft:redstone_torch",
-        "minecraft:redstone_wall_torch"
-      ],
+      "blocks": ["minecraft:redstone_torch", "minecraft:redstone_wall_torch"],
+      "action": "apply"
+    },
+    {
+      "id": "props/end-portal-frame",
+      "group": "props",
+      "title": "End portal frames and inserted eyes",
+      "source": "nautilus3d",
+      "blocks": ["minecraft:end_portal_frame"],
       "action": "apply"
     },
     {
@@ -271,9 +246,7 @@
       "group": "workstations",
       "title": "Smoker",
       "source": "ulticraft-models-3d",
-      "blocks": [
-        "minecraft:smoker"
-      ],
+      "blocks": ["minecraft:smoker"],
       "action": "apply"
     },
     {
@@ -281,9 +254,7 @@
       "group": "workstations",
       "title": "Smithing table",
       "source": "jacobs-workspace-plus",
-      "blocks": [
-        "minecraft:smithing_table"
-      ],
+      "blocks": ["minecraft:smithing_table"],
       "action": "apply"
     },
     {
@@ -291,9 +262,7 @@
       "group": "workstations",
       "title": "Furnace",
       "source": "ulticraft-models-3d",
-      "blocks": [
-        "minecraft:furnace"
-      ],
+      "blocks": ["minecraft:furnace"],
       "action": "apply"
     },
     {
@@ -301,9 +270,7 @@
       "group": "workstations",
       "title": "Fletching table",
       "source": "ulticraft-models-3d",
-      "blocks": [
-        "minecraft:fletching_table"
-      ],
+      "blocks": ["minecraft:fletching_table"],
       "action": "apply"
     },
     {
@@ -311,9 +278,7 @@
       "group": "workstations",
       "title": "Cartography table",
       "source": "3dvanilla",
-      "blocks": [
-        "minecraft:cartography_table"
-      ],
+      "blocks": ["minecraft:cartography_table"],
       "action": "apply"
     },
     {
@@ -321,9 +286,7 @@
       "group": "workstations",
       "title": "Brewing stand",
       "source": "jacobs-workspace-plus",
-      "blocks": [
-        "minecraft:brewing_stand"
-      ],
+      "blocks": ["minecraft:brewing_stand"],
       "action": "apply"
     },
     {
@@ -331,9 +294,7 @@
       "group": "workstations",
       "title": "Blast furnace",
       "source": "3dvanilla",
-      "blocks": [
-        "minecraft:blast_furnace"
-      ],
+      "blocks": ["minecraft:blast_furnace"],
       "action": "apply"
     },
     {
@@ -341,9 +302,7 @@
       "group": "workstations",
       "title": "Crafter",
       "source": "3dvanilla",
-      "blocks": [
-        "minecraft:crafter"
-      ],
+      "blocks": ["minecraft:crafter"],
       "action": "apply"
     },
     {
@@ -351,9 +310,7 @@
       "group": "workstations",
       "title": "Loom",
       "source": "3dvanilla",
-      "blocks": [
-        "minecraft:loom"
-      ],
+      "blocks": ["minecraft:loom"],
       "action": "apply"
     },
     {
@@ -361,9 +318,7 @@
       "group": "plants",
       "title": "Azalea",
       "source": "3d-plants",
-      "blocks": [
-        "minecraft:azalea"
-      ],
+      "blocks": ["minecraft:azalea"],
       "action": "apply",
       "inherit_template": true
     },
@@ -372,9 +327,7 @@
       "group": "plants",
       "title": "Flowering azalea",
       "source": "3d-plants",
-      "blocks": [
-        "minecraft:flowering_azalea"
-      ],
+      "blocks": ["minecraft:flowering_azalea"],
       "action": "apply",
       "inherit_template": true
     },
@@ -383,10 +336,7 @@
       "group": "plants",
       "title": "Pitcher crop and plant",
       "source": "toastys-perfect-pitchers-3d-pitcher-plants",
-      "blocks": [
-        "minecraft:pitcher_crop",
-        "minecraft:pitcher_plant"
-      ],
+      "blocks": ["minecraft:pitcher_crop", "minecraft:pitcher_plant"],
       "action": "apply",
       "adaptation": "neoforge-root-rotations",
       "note": "Preserve V3 geometry using built-in NeoForge composite root transforms for Minecraft 1.21.1."
@@ -396,10 +346,7 @@
       "group": "plants",
       "title": "Kelp",
       "source": "current",
-      "blocks": [
-        "minecraft:kelp",
-        "minecraft:kelp_plant"
-      ],
+      "blocks": ["minecraft:kelp", "minecraft:kelp_plant"],
       "action": "keep",
       "note": "Bushier Kelp deferred after visual review."
     },
@@ -408,10 +355,84 @@
       "group": "plants",
       "title": "Dead bush",
       "source": "current",
-      "blocks": [
-        "minecraft:dead_bush"
-      ],
+      "blocks": ["minecraft:dead_bush"],
       "action": "keep"
+    },
+    {
+      "id": "workstations/enchanting",
+      "group": "workstations",
+      "title": "Enchanting table",
+      "source": "nautilus3d",
+      "blocks": ["minecraft:enchanting_table"],
+      "action": "apply",
+      "adaptation": "native-enchanting-surface"
+    },
+    {
+      "id": "props/chains",
+      "group": "props",
+      "title": "Vanilla chains",
+      "source": "simple-3d-chain",
+      "blocks": ["minecraft:chain"],
+      "action": "apply"
+    },
+    {
+      "id": "items/create-fresh-items",
+      "group": "items",
+      "title": "Create food, materials and handheld components",
+      "source": "create-fresh-items",
+      "blocks": [],
+      "items": [
+        "create:andesite_alloy",
+        "create:attribute_filter",
+        "create:bar_of_chocolate",
+        "create:blaze_cake",
+        "create:blaze_cake_base",
+        "create:brass_hand",
+        "create:brass_ingot",
+        "create:brass_nugget",
+        "create:builders_tea",
+        "create:cardboard",
+        "create:chocolate_glazed_berries",
+        "create:cinder_flour",
+        "create:copper_nugget",
+        "create:creative_blaze_cake",
+        "create:crushed_raw_copper",
+        "create:crushed_raw_gold",
+        "create:crushed_raw_iron",
+        "create:crushed_raw_zinc",
+        "create:dough",
+        "create:electron_tube",
+        "create:experience_nugget",
+        "create:filter",
+        "create:honeyed_apple",
+        "create:minecart_coupling",
+        "create:package_filter",
+        "create:polished_rose_quartz",
+        "create:powdered_obsidian",
+        "create:precision_mechanism",
+        "create:propeller",
+        "create:pulp",
+        "create:raw_zinc",
+        "create:rose_quartz",
+        "create:super_glue",
+        "create:sweet_roll",
+        "create:track",
+        "create:transmitter",
+        "create:tree_fertilizer",
+        "create:wheat_flour",
+        "create:whisk",
+        "create:zinc_ingot",
+        "create:zinc_nugget"
+      ],
+      "action": "apply"
+    },
+    {
+      "id": "plants/cave-vines",
+      "group": "plants",
+      "title": "Cave vines and glow berries",
+      "source": "3d-cave-vines",
+      "blocks": ["minecraft:cave_vines", "minecraft:cave_vines_plant"],
+      "action": "apply"
     }
   ]
 }

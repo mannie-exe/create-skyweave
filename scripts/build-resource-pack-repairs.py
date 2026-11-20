@@ -1,4 +1,4 @@
-"""Generate client replacements for pinned resource-pack option defects."""
+"""Generate client repairs and exclusions for pinned resource packs."""
 import argparse
 from pathlib import Path
 

@@ -1,11 +1,13 @@
-"""Check categorized configuration baselines without applying changes."""
+"""Check configuration rationale coverage and installation policies without writes."""
 import argparse
-import hashlib
 import json
 import re
 from pathlib import Path
+from village_outputs import owned_paths as village_outputs
 
 ROOT = Path(__file__).resolve().parent.parent
+HOST_TEMPLATES = {'templates/server/game/server.properties.template',
+                  'templates/server/game/user_jvm_args.txt.template'}
 
 
 def read_register(source):
@@ -61,52 +63,74 @@ def installation_policies(text):
     return policies
 
 
-def managed_paths(root):
+def source_paths(root):
     paths = set()
     for folder in ['overrides/common/config', 'overrides/client/config', 'overrides/server/config', 'overrides/client/shaderpacks', 'resource-patches/data']:
         paths.update(p.relative_to(root).as_posix() for p in (root / folder).rglob('*') if p.is_file())
-    paths.add('overrides/client/options.txt')
-    paths.add('templates/server/game/server.properties.template')
+    paths.update(path for path in HOST_TEMPLATES | {'overrides/client/options.txt', 'authoring/villages.json'}
+                 if (root / path).is_file())
     # Quest definitions have their own source/generation check. Legacy Questlog
     # definitions remain frozen during the runtime coexistence period.
     return {p for p in paths if not p.startswith(('overrides/common/config/questlog/',
                                                   'overrides/common/config/ftbquests/quests/'))}
 
 
-def audit(root=ROOT):
-    validate_source_destinations(root)
+def register_records(root):
+    """Expand shared rationale for display; source stores no byte or policy copies."""
     results, seen = [], set()
-    managed = managed_paths(root)
-    policies = None
     for source in sorted((root / 'authoring/changes').glob('*.json')):
         data = read_register(source)
-        if data.get('schema') != 1 or not isinstance(data.get('records'), list):
+        if not isinstance(data, dict) or data.get('schema') != 2 or not isinstance(data.get('records'), list):
             raise ValueError(f'{source.name}: invalid register')
+        if set(data) - {'schema', 'records', 'note'}:
+            raise ValueError(f'{source.name}: unsupported register fields')
         for record in data['records']:
-            rel = record['path']
-            candidate = root / rel
-            if not any(rel.startswith(prefix) for prefix in ['overrides/common/config/', 'overrides/client/config/', 'overrides/server/config/', 'overrides/client/shaderpacks/', 'resource-patches/data/']) and rel not in ['overrides/client/options.txt', 'templates/server/game/server.properties.template']:
-                raise ValueError(f'Path outside configuration inventory: {rel}')
-            if rel in seen or Path(rel).is_absolute() or '..' in Path(rel).parts or not candidate.resolve().is_relative_to(root.resolve()):
-                raise ValueError(f'Invalid or duplicate audit path: {rel}')
-            if not re.fullmatch('[a-f0-9]{64}', record['sha256']):
-                raise ValueError(f'{rel}: invalid baseline digest')
-            if record['review'] not in ['reviewed', 'inherited'] or not record['reason'].strip():
-                raise ValueError(f'{rel}: review status and reason required')
-            if re.match(r'overrides/(common|client|server)/config/', rel):
-                if policies is None:
-                    policies = installation_policies((root / 'empack.bindings.yml').read_text())
-                installation = record.get('installation', {})
-                destination = rel.split('/', 2)[2]
-                if installation.get('policy') not in {'managed', 'seed'} or not installation.get('family'):
-                    raise ValueError(f'{rel}: installation ownership and family required')
-                if policies.get(destination) != installation['policy']:
-                    raise ValueError(f'{rel}: installation register and binding disagree')
-            seen.add(rel)
-            current = hashlib.sha256(candidate.read_bytes()).hexdigest() if candidate.is_file() else None
-            results.append({**record, 'category': source.stem, 'current': current,
-                            'status': 'missing' if current is None else 'matched' if current == record['sha256'] else 'drift'})
-    return {'records': results, 'unregistered': sorted(managed - seen)}
+            if not isinstance(record, dict) or set(record) - {'paths', 'review', 'reason', 'reference', 'family'}:
+                raise ValueError(f'{source.name}: unsupported rationale fields')
+            paths = record.get('paths')
+            if not isinstance(paths, list) or not paths or any(not isinstance(p, str) for p in paths):
+                raise ValueError(f'{source.name}: nonempty paths required')
+            if record.get('review') not in ['reviewed', 'inherited'] or any(
+                    not isinstance(record.get(key), str) or not record[key].strip()
+                    for key in ('reason', 'reference')):
+                raise ValueError(f'{source.name}: review, reason and reference required')
+            if 'family' in record and (not isinstance(record['family'], str) or not record['family'].strip()):
+                raise ValueError(f'{source.name}: invalid ownership family rationale')
+            for rel in paths:
+                candidate = root / rel
+                if not any(rel.startswith(prefix) for prefix in ['overrides/common/config/', 'overrides/client/config/', 'overrides/server/config/', 'overrides/client/shaderpacks/', 'resource-patches/data/']) and rel not in {'overrides/client/options.txt', 'authoring/villages.json'} | HOST_TEMPLATES:
+                    raise ValueError(f'Path outside configuration inventory: {rel}')
+                if rel in seen or Path(rel).is_absolute() or '..' in Path(rel).parts or not candidate.resolve().is_relative_to(root.resolve()) or any(c in rel for c in '*?[\\'):
+                    raise ValueError(f'Invalid or duplicate audit path: {rel}')
+                seen.add(rel)
+                results.append({key: value for key, value in record.items() if key != 'paths'} |
+                               {'path': rel, 'category': source.stem})
+    return results
+
+
+def audit(root=ROOT):
+    validate_source_destinations(root)
+    records = register_records(root)
+    inventory = source_paths(root)
+    policies = installation_policies((root / 'empack.bindings.yml').read_text())
+    # Generated bytes have a deterministic owner/check, not a second review ledger.
+    generated = village_outputs(root) & inventory
+    registered = {r['path'] for r in records}
+    overlap = generated & registered
+    if overlap:
+        raise ValueError('Describe village rationale at authoring/villages.json, not generated outputs: ' + ', '.join(sorted(overlap)))
+    policy_by_path = {}
+    for rel in inventory | registered:
+        if re.match(r'overrides/(common|client|server)/config/', rel) or rel in HOST_TEMPLATES:
+            destination = Path(rel).name.removesuffix('.template') if rel in HOST_TEMPLATES else rel.split('/', 2)[2]
+            if destination not in policies:
+                raise ValueError(f'Missing explicit installation policy: {destination}')
+            policy_by_path[rel] = policies[destination]
+    for record in records:
+        record['status'] = 'present' if (root / record['path']).is_file() else 'missing'
+        record['policy'] = policy_by_path.get(record['path'])
+    return {'records': records, 'unregistered': sorted(inventory - registered - generated),
+            'generated': sorted(generated)}
 
 
 if __name__ == '__main__':
@@ -115,15 +139,16 @@ if __name__ == '__main__':
     parser.add_argument('--validate', action='store_true', help='Validate register structure only')
     parser.add_argument('--root', type=Path, default=ROOT, help='Pack root to inspect')
     args = parser.parse_args()
-    report = audit(args.root)
     if args.validate:
+        register_records(args.root)
         print('Config register structure is valid')
         raise SystemExit(0)
-    failures = [r for r in report['records'] if r['status'] != 'matched']
+    report = audit(args.root)
+    failures = [r for r in report['records'] if r['status'] == 'missing']
     if args.json:
         print(json.dumps(report))
     else:
-        print(f"Config audit: {len(report['records'])} files, {len(failures)} changed/missing, {len(report['unregistered'])} unregistered")
+        print(f"Config audit: {len(report['records'])} source files, {len(failures)} missing, {len(report['unregistered'])} unregistered; {len(report['generated'])} generated village files (run generate-villages.py --check)")
         for record in failures:
             print(record['status'], record['path'])
         for path in report['unregistered']:

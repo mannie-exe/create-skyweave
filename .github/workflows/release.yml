@@ -8,7 +8,7 @@ concurrency:
   group: pack-release-${{ github.ref }}
   cancel-in-progress: false
 env:
-  EMPACK_VERSION: v0.8.6-beta
+  EMPACK_VERSION: v0.8.7-beta
   # Build the reference profiles in build.default.
   EMPACK_PROFILES: ''
   JAVA_VERSION: '21'

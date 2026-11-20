@@ -14,7 +14,7 @@ const { projects } = JSON.parse(
   read('../data/research/resourcepacks/projects.json'),
 )
 
-test('current defaults retain optional Fresh mobs and selected object and held-item resources', () => {
+test('current defaults select ordered Fresh mobs, objects and held-item resources', () => {
   const { stack } = resourceStack(manifest, lock, options, projects)
   assert.deepEqual(
     Object.keys(stack).sort(),
@@ -28,9 +28,11 @@ test('current defaults retain optional Fresh mobs and selected object and held-i
       .filter(([, item]) => !item.enabled)
       .map(([id]) => id)
       .sort(),
-    ['fresh-animations', 'fresh-animations-details'],
+    [],
   )
   for (const id of [
+    'fresh-animations',
+    'fresh-animations-details',
     'fresh-animations-objects',
     'refined-tools',
     'refined-torches',
@@ -40,6 +42,20 @@ test('current defaults retain optional Fresh mobs and selected object and held-i
     'punched-backpacks',
   ])
     assert.ok(stack[id]?.enabled, id)
+  assert.ok(
+    stack['fresh-animations'].order < stack['fresh-animations-details'].order,
+  )
+  assert.ok(
+    stack['fresh-animations-details'].order <
+      stack['fresh-animations-objects'].order,
+  )
+  const selected = JSON.parse(
+    options
+      .split('\n')
+      .find((line) => line.startsWith('resourcePacks:'))
+      .slice('resourcePacks:'.length),
+  )
+  assert.equal(selected.at(-1), 'file/skyweave-visual-patches-0.1.0.zip')
   for (const [id, item] of Object.entries(stack)) {
     assert.ok(item.intentMatches, id)
     if (item.enabled) assert.ok(item.order >= 0, id)

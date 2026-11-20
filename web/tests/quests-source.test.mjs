@@ -37,7 +37,12 @@ async function fixture(t) {
   )
   await fs.mkdir(path.join(root, 'authoring/changes'))
   await fs.mkdir(path.join(root, 'scripts'))
-  for (const name of ['generate-quests.py', 'quests.py', 'audit-changes.py'])
+  for (const name of [
+    'generate-quests.py',
+    'quests.py',
+    'audit-changes.py',
+    'village_outputs.py',
+  ])
     await fs.copyFile(
       path.resolve('../scripts', name),
       path.join(root, 'scripts', name),

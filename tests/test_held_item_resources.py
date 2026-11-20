@@ -89,15 +89,14 @@ class HeldItemResources(unittest.TestCase):
             flint_and_steel(None, None)
 
     def test_filter_covers_competitors_without_hiding_torches(self):
-        path = model_part_filters(True, True)[0]['path']
-        self.assertIsNotNone(re.fullmatch(path, 'punchy/model_parts_items/definitions/lantern.json'))
+        path = model_part_filters(True)[0]['path']
+        self.assertIsNone(re.fullmatch(path, 'punchy/model_parts_items/definitions/lantern.json'))
         self.assertIsNotNone(re.fullmatch(path, 'punchy/model_parts_items/definitions/held_flint_steel.json'))
         self.assertIsNone(re.fullmatch(path, 'punchy/model_parts_items/definitions/tocha_redstone.json'))
         self.assertIsNone(re.fullmatch(path, 'punchy/model_parts_items/geo/lantern.geo.json'))
 
     def test_deselected_replacements_do_not_leave_resource_filters(self):
-        self.assertEqual(model_part_filters(False, False), [])
-        self.assertNotIn('held_flint_steel', model_part_filters(True, False)[0]['path'])
+        self.assertEqual(model_part_filters(False), [])
 
 
 class FluidSurfaces(unittest.TestCase):

@@ -51,7 +51,11 @@ async function inventory(context: Resolved) {
   for (const file of [
     'overrides/client/options.txt',
     'templates/server/game/server.properties.template',
+    'templates/server/game/user_jvm_args.txt.template',
+    'empack.bindings.yml',
+    'authoring/villages.json',
     'scripts/audit-changes.py',
+    'scripts/village_outputs.py',
   ])
     await visit(file)
   return result
@@ -118,7 +122,8 @@ export function auditDefinitions(
         )
         if (
           !Array.isArray(report.records) ||
-          !Array.isArray(report.unregistered)
+          !Array.isArray(report.unregistered) ||
+          !Array.isArray(report.generated)
         )
           throw new WorkspaceError(
             'GENERATION_FAILED',

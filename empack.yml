@@ -1,8 +1,9 @@
 schema: 6
 pack:
   name: Create - Skyweave
-  version: 0.20.0
+  version: 0.21.0
   id: create_skyweave
+  description: Sky islands, airships and engineering. Java 21; minimum 12 GiB system memory, with additional host headroom for the default 12 GiB client/server heap.
   authors:
     - mannie-exe
     - TimdoesLive
@@ -14,6 +15,28 @@ runtime:
   java:
     preferred: 21
 dependencies:
+  # Fabric upstream is intentional: Connector + Forgified Fabric API provide the client bridge.
+  flashback:
+    side: client
+    source:
+      kind: url
+      downloads:
+        - https://cdn.modrinth.com/data/4das1Fjq/versions/nPzvTtsX/Flashback-0.39.10-for-MC1.21.1.jar
+    digests:
+      sha1: 3705800d44eddbb417d8ca741116883525fbb3b2
+      sha512: 97ec529d8d420ebe68df851979f3544c1d290088c2c9ce1458ee046fb5011cfb12459f0bf78cf38e42b74dca1bae6986b89336b4e5764f0587ba13a3f3d437f7
+  flashback-neoforge-fixed:
+    side: client
+    source: modrinth:QaOcZcLU
+    pin: Fglj63ER
+  cmdcam:
+    side: client
+    source: modrinth:hZw3uqi3
+    pin: ZibX3UR8
+  creativecore:
+    side: client
+    source: modrinth:OsZiaDHq
+    pin: v8QrwctR
   carryon-animation-fix:
     side: client
     source:
@@ -78,7 +101,7 @@ dependencies:
     pin: uAKA6Laj
   architectury-api:
     source: modrinth:lhGA9TYQ
-    pin: 1IiqEQGl
+    pin: xGfBrBzj
   azimuth-api:
     source: modrinth:RpH8tmT1
     pin: dxtZVosY
@@ -109,14 +132,14 @@ dependencies:
   complementary-unbound:
     source: modrinth:R6NEzAwj
     type: shader-pack
-    pin: B1kyfoUZ
+    pin: QJiYQisE
     side: client
   connector:
     source: modrinth:u58R1TMW
     pin: IITF0PRC
   copycats:
     source: modrinth:UT2M39wf
-    pin: bPYeUWZx
+    pin: zLlVJXf0
   create:
     source: modrinth:LNytGWDc
     pin: UjX6dr61
@@ -131,7 +154,7 @@ dependencies:
     pin: 44pLdPGg
   create-aeronautics-climbable-rope:
     source: modrinth:jImqv1M5
-    pin: TTGedLb3
+    pin: 1r3CmpkA
   create-aeronautics-covers:
     source: modrinth:eWrKPy9E
     pin: R35biaZf
@@ -182,7 +205,7 @@ dependencies:
     source: modrinth:wPQ6GgFE
     pin: 3Y4r0ItR
   create-radars:
-    pin: q723aMHO
+    pin: ES5qa3pY
     source: modrinth:BLu2Yqfq
   create-transmission:
     source: modrinth:QFCkBuIh
@@ -203,7 +226,7 @@ dependencies:
       server: required
   curios:
     source: modrinth:vvuO3ImH
-    pin: yohfFbgD
+    pin: KJsZIQrT
     environment:
       client: required
       server: required
@@ -247,17 +270,17 @@ dependencies:
   entityculling:
     side: client
     source: modrinth:NNAgCjsB
-    pin: eieYbWYb
+    pin: DDaDZQ47
   escalated:
     source: modrinth:LyOBYG8Q
     pin: vJ49zRJl
   euphoria-patches:
     side: client
     source: modrinth:4H6sumDB
-    pin: QMsRXtSJ
+    pin: Gkv3fLVg
   exposure:
     source: modrinth:hB899VmG
-    pin: iBvaR6AK
+    pin: tjX0GpFW
   ferrite-core:
     source: modrinth:uXXizFIs
     pin: x7kQWVju
@@ -306,10 +329,10 @@ dependencies:
     pin: cxUohR7A
   jei:
     source: modrinth:u6dRKJwZ
-    pin: 1vC6z8wV
+    pin: kmb7KviL
   kotlin-for-forge:
     source: modrinth:ordsPcFz
-    pin: uhJhCT7X
+    pin: 9ZlVvei8
   lithium:
     source: modrinth:gvQqBUqZ
     pin: DDUrRVCA
@@ -388,7 +411,7 @@ dependencies:
     source: modrinth:plgWdsGJ
     pin: uehlsDrT
   reliable-emi:
-    pin: pnPjAfuO
+    pin: yPFwnhDo
     side: client
     source: modrinth:N9WucjHL
   rpl:
@@ -437,7 +460,7 @@ dependencies:
     pin: qKL9jM75
   supermartijn642s-core-lib:
     source: modrinth:rOUBggPv
-    pin: sLRKmslC
+    pin: Bmsxj5pY
   surveyor:
     source:
       downloads:
@@ -477,7 +500,7 @@ dependencies:
     pin: H13U56dc
     source: modrinth:create-propulsion-simulated
   questlog:
-    pin: qnCcrOl2
+    pin: McoSDHAk
     source: modrinth:questlog
   sky-villages:
     pin: 3InSHTOp
@@ -788,10 +811,10 @@ dependencies:
     source:
       kind: url
       downloads:
-        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.39.0/skyweave-compat-0.39.0-mc1.21.1-neoforge.jar
+        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.40.0/skyweave-compat-0.40.0-mc1.21.1-neoforge.jar
     digests:
-      sha1: 2e905dfb78a2981435144796fe14a15a6b8f670f
-      sha512: 40334418f4b3db941128857b56647c96837d11d0a466cbce3a6a25cc0eef8fe68afc898397a61dfb16c289222c549b3879a45eb24c402a89294ef6d785f811f4
+      sha1: 9bfc4d6c5fbce3f9b4774d10cea20b5c60163f58
+      sha512: dbcb737e3d8349ca6d87512ae74b8277d89730067203725b88e9b4e8b5a791843290ac5e9679314608ac4e430c9dae24469753cf45949181f3a934b24d5ee13a
     environment:
       client: required
       server: required
@@ -827,10 +850,10 @@ dependencies:
     pin: s8Yw7I6l
     source: modrinth:create-redstone-link-gui
   create-redstone-additions:
-    pin: 4P4QJB3m
+    pin: Hvlv9gb6
     source: modrinth:create-redstone-additions
   mezzconfig:
-    pin: sPQlt1iR
+    pin: V6oWFnxW
     source: modrinth:7tEfOcA7
   better-village:
     pin: 1IEc4yoG
@@ -914,7 +937,7 @@ dependencies:
     source: modrinth:sway
     side: client
   subtle-effects:
-    pin: Xbx8Sis8
+    pin: 1Cj3QYAu
     source: modrinth:subtle-effects
     side: client
   3dskinlayers:
@@ -928,7 +951,7 @@ dependencies:
     pin: JyXugpy2
     source: modrinth:guard-villagers
   variants-and-ventures:
-    pin: v5OIE4J8
+    pin: Efvt97uC
     source: modrinth:variants-and-ventures
   pick-up-notifier:
     pin: 5NZounJc
@@ -977,6 +1000,48 @@ dependencies:
   combat-nouveau:
     pin: us081FGF
     source: modrinth:combat-nouveau
+  visual-workbench:
+    pin: 3646RfLS
+    source: modrinth:visual-workbench
+  fresh-animations-quivers:
+    pin: dxPm8dtx
+    source: modrinth:fresh-animations-quivers
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  artifacts:
+    pin: lMfuK0o7
+    source: modrinth:artifacts
+  artifacts-3d:
+    pin: kYgAZhY6
+    source: modrinth:artifacts-3d
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  fresh-vines:
+    pin: X7b3irib
+    source: modrinth:fresh-vines
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  just-3d-potions-punchy-1.21-backport:
+    pin: GkDN5SwX
+    source: modrinth:just-3d-potions-punchy-1.21-backport
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+
+  brays-zombie-overhaul-fresh-animations:
+    source: modrinth:brays-zombie-overhaul-fresh-animations
+    type: resource-pack
+    pin: 2YAVbBRq
+    environment:
+      client: required
+      server: unsupported
 
 build:
   default:

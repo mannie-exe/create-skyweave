@@ -36,15 +36,27 @@ Lamb's settings control ordinary dynamic lighting. If a shader already lights yo
 
 ## Resource packs
 
-The selected stack includes RAY's ladders and rails, Midnighttigger's Fusion connected textures, Low Shield, Soft Weather, Cubic Sun & Moon, Fresh Flower Pots, Create Touch-Ups, Low On Fire, Fresh Animations: Objects, Refined Tools, Refined Torches, Refined Buckets with its Create addon, Luminous Lanterns, Fluid & Foolish and Punched Backpacks. Crops, sugar cane, iron bars and Redstone Tweaks are also selected. Base Fresh Animations and Details remain available but deselected. The [content list](../MODLIST.md) records exact dependencies.
+The selected stack includes RAY's ladders and rails, Midnighttigger's Fusion connected textures, Low Shield, Soft Weather, Cubic Sun & Moon, Fresh Flower Pots, Create Touch-Ups, Low On Fire, Fresh Animations with Details, Objects, Quivers and Bray’s FA zombie variants, Refined Tools, Refined Torches, Refined Buckets with its Create addon, Luminous Lanterns, Fluid & Foolish, Punched Backpacks, Artifacts 3D, Fresh Vines and the Punchy potion backport. Crops, sugar cane, iron bars and Redstone Tweaks are also selected. The [content list](../MODLIST.md) records exact dependencies.
 
 Dedicated Sugar Cane and RAY's Rails sit above 3D Crops and Redstone Tweaks respectively. Keep 3D Crops above Fresh Flower Pots for the four shared potted mushrooms and fungi as a fallback. **Skyweave: Visual Patches** sits above both and combines the 3D plants with Fresh pots and approved model compositions. Keep the patch at highest priority. Objects owns trapped-chest textures, reducing the front-face distinction from normal chests. Lootr retains its own opened/unopened appearance.
 
 The pinned 3D Crops archive declares a newer format despite its 1.21.1 download tag. Default options explicitly accept this inspected archive so Minecraft does not silently deselect it. This acceptance is specific to the pinned file; review it again on updates. Icons is excluded because its symbols add visual clutter.
 
-Punchy supplies the first-person animations; Hold My Items and InteractiveStuff are alternative animation systems and are not installed. Modefite reads the newer item definitions on Minecraft 1.21.1, and Respackopts supplies the Refined packs’ conditional resource options. Luminous owns lanterns; the placed redstone torch keeps Skyweave’s existing model. Enchanted Fishing Line adds a client-side simulated fishing line.
+Punchy supplies the first-person animations; Hold My Items and InteractiveStuff are alternative animation systems and are not installed. Modefite reads the newer item definitions on Minecraft 1.21.1, and RespackOpts supplies resource-pack options. Luminous owns lanterns. Enchanted Fishing Line adds a client-side simulated fishing line.
 
 Fresh installations receive this selection. Existing installations retain player options unless explicitly synchronized. Reordering packs changes which overlapping models win. These packs do not restyle every modded counterpart; moving ships, Copycats, large farms and shader interactions still need visual testing.
+
+### Model choices
+
+In **Options → Resource Packs**, use the configuration button for **Skyweave: Visual Patches**. Its choices are personal visual preferences; applying them reloads resources. Use **F3+T** after an external resource-pack update.
+
+**Lighting** has separate placed and held redstone torch choices: Nautilus 3D, Refined Torches and vanilla. Both default to Nautilus. **Workstations** offers Nautilus, Classic 3D and vanilla crafting tables, plus independent **Nautilus file** (on) and **Nautilus pencil** (off) controls. Selected accessories appear at every table position; drawers retain their donor variations. The Nautilus enchanting model is fitted to Easy Magic's item surface. These model choices do not change crafting or enchanting rules.
+
+To compare torches, change **Held redstone torch** for the object in your hand or **Placed redstone torches** for blocks in the world. Use **Done** on Lighting, then **Done** on the parent pack page and wait for resource loading to finish. Esc/Cancel is not the tested save path. The saved choices live beside the ZIP in `resourcepacks/skyweave-visual-patches-0.1.0.zip.rpo`; do not delete that preference file during an update. Both styles retain the red glowing head and wooden handle, so compare from the same close viewpoint. Nautilus' ordinary held model has a gray collar below the head; Refined retains its separate animated item model and particles.
+
+**Chains** independently controls vanilla chains, Design n’ Decor's large chains, and Luminous lantern chains/handles. Other categories let you compare the selected plants, doors, lamps, bars, storage and workstation families against lower packs. Keep their source packs selected: switching off a patch reveals lower resources rather than uninstalling them. Required loading repairs remain active.
+
+Fresh Animations and Details are enabled by default. Keep Details above the base, Fresh Objects above both, Quivers above those, and Visual Patches at highest priority. Quivers adds the selected skeleton-family back equipment; Fresh Objects supplies chest/Lootr artwork independently. Punchy's player animations do not by themselves require disabling these mob packs.
 
 ## Player and world effects
 
@@ -68,7 +80,7 @@ Shaders are off by default. Select a pack through Iris's shader settings:
 
 | Pack | Included version | Notes |
 | --- | --- | --- |
-| Complementary + Euphoria + Skyweave | r5.9.3 + 1.10.5 + 0.3.0 | Generated shader with window and island-environment corrections |
+| Complementary + Euphoria + Skyweave | r5.10 + 1.11.1 + 0.4.0 | Generated shader with window and island-environment corrections |
 | BSL + Colorwheel + Skyweave | 10.1.8 + 1.0.5 + 0.3.0 | Generated alternative with the supplied BSL settings |
 | Photon + Skyweave | 1.4 + 0.3.0 | Generated correction retaining native Colorwheel; supported GPUs only |
 

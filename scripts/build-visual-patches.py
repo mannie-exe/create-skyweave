@@ -13,6 +13,9 @@ from selective_resources import build as build_selective
 from window_interiors import build as build_window_interiors
 from pane_lighting import build as build_pane_lighting
 from held_item_resources import buckets as build_buckets, flint_and_steel as build_flint, model_part_filters
+from visual_variants import build as build_variants
+from visual_options import configure as configure_visuals
+from foliage_shader import build as build_foliage_shader
 
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT = ROOT / 'overrides/client/resourcepacks/skyweave-visual-patches-0.1.0.zip'
@@ -23,6 +26,10 @@ INPUT_FILES = ('authoring/visual-patches.json', 'authoring/model-recipes.json',
                'authoring/held-items.json',
                'authoring/resource-licenses/3d-flint-steel-for-punchy-CC-BY-SA-4.0.txt',
                'authoring/resource-licenses/powergrid-Apache-2.0.txt',
+               'authoring/resource-licenses/simple-3d-chain-BSD-3-Clause.txt',
+               'authoring/resource-licenses/create-fresh-items-GPL-3.0-or-later.txt',
+               'authoring/resource-licenses/3d-cave-vines-MIT.txt',
+               'authoring/resource-licenses/mc2-interactive-foliage-CC-BY-NC-SA-4.0.txt',
                'authoring/visual-patches/pack.mcmeta', 'authoring/visual-patches/pack.png')
 
 
@@ -100,9 +107,7 @@ def compose_azalea(fresh, plants, plant):
 def build(archives, recipes, config, selections=None, nautilus_license=None, textures=None, *, metadata, icon,
           licenses=None, held_items=None):
     require(metadata['pack']['pack_format'] == 34, 'Unsupported visual pack format')
-    lanterns = config.get('compatibility', {}).get('luminous_lanterns', False)
-    require(type(lanterns) is bool, 'luminous_lanterns: selection must be a boolean')
-    filters = model_part_filters(lanterns, config.get('compatibility', {}).get('flint_and_steel_backport', False))
+    filters = model_part_filters(config.get('compatibility', {}).get('flint_and_steel_backport', False))
     if filters:
         metadata = {**metadata, 'filter': {'block': metadata.get('filter', {}).get('block', []) + filters}}
     entries = {'pack.mcmeta': metadata}
@@ -171,6 +176,20 @@ def build(archives, recipes, config, selections=None, nautilus_license=None, tex
         if chest:
             next(item for item in selection_report if item['id'] == chest['id'])['roots'] = sorted(
                 path for path in composed if path.endswith('.jem'))
+    configurable = config.get('compatibility', {}).get('configurable_visuals', False)
+    require(type(configurable) is bool, 'Configurable visual selection must be a boolean')
+    if configurable:
+        require(selections is not None, 'Configurable visuals require authored selections')
+        variants = build_variants(entries, archives)
+        configure_visuals(entries, recipes, selections, selection_report, variants)
+    foliage = config.get('compatibility', {}).get('foliage_veil_wind', False)
+    require(type(foliage) is bool, 'Foliage shader selection must be a boolean')
+    if foliage:
+        shader = build_foliage_shader(archives['mc2-interactive-foliage'])
+        require(not entries.keys() & shader.keys(), 'Foliage shader repair collides with a maintained resource')
+        require(isinstance((licenses or {}).get('foliage'), bytes), 'Missing foliage shader license')
+        entries.update(shader)
+        entries['LICENSES/mc2-interactive-foliage.txt'] = licenses['foliage']
     encoded = {path: value if isinstance(value, bytes) else json.dumps(value, ensure_ascii=False, sort_keys=True,
                                 separators=(',', ':')).encode() + b'\n'
                for path, value in entries.items()}
@@ -192,6 +211,12 @@ def build(archives, recipes, config, selections=None, nautilus_license=None, tex
         for key, filename in [('3d-default', 'LICENSE'), ('classic-3d', 'LICENSE.md')]:
             encoded[f'LICENSES/{key}.txt'] = archives[key].read(filename)
         encoded['LICENSES/nautilus3d.txt'] = nautilus_license
+        if 'chains' in (licenses or {}):
+            encoded['LICENSES/simple-3d-chain.txt'] = licenses['chains']
+        for source in ('create-fresh-items', '3d-cave-vines'):
+            if source in config['sources']:
+                require(isinstance((licenses or {}).get(source), bytes), f'Missing {source} license text')
+                encoded[f'LICENSES/{source}.txt'] = licenses[source]
     if credits:
         encoded["CREDITS.txt"] = ("\n\n".join(credits) + "\n").encode()
     encoded['pack.png'] = icon
@@ -209,8 +234,12 @@ def generate_pack(root=ROOT, output=OUTPUT, check=False):
     try:
         data = build(archives, recipes, config, json.loads(before['authoring/resource-selections.json']), before['authoring/resource-licenses/nautilus3d-AGPL-3.0.txt'], json.loads(before['authoring/texture-resources.json']),
                      metadata=json.loads(before['authoring/visual-patches/pack.mcmeta']), icon=before['authoring/visual-patches/pack.png'],
-                     licenses={'flint': before['authoring/resource-licenses/3d-flint-steel-for-punchy-CC-BY-SA-4.0.txt'],
-                               'powergrid': before['authoring/resource-licenses/powergrid-Apache-2.0.txt']},
+                     licenses={'chains': before['authoring/resource-licenses/simple-3d-chain-BSD-3-Clause.txt'],
+                               'flint': before['authoring/resource-licenses/3d-flint-steel-for-punchy-CC-BY-SA-4.0.txt'],
+                               'powergrid': before['authoring/resource-licenses/powergrid-Apache-2.0.txt'],
+                               'create-fresh-items': before['authoring/resource-licenses/create-fresh-items-GPL-3.0-or-later.txt'],
+                               '3d-cave-vines': before['authoring/resource-licenses/3d-cave-vines-MIT.txt'],
+                               'foliage': before['authoring/resource-licenses/mc2-interactive-foliage-CC-BY-NC-SA-4.0.txt']},
                      held_items=json.loads(before['authoring/held-items.json']))
     finally:
         for archive in archives.values():

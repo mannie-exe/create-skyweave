@@ -49,7 +49,7 @@ test('review filters persist, reset and reveal catalog references', async ({
   await expect(page.locator('[data-candidate]:visible')).toHaveCount(
     selectedCandidates,
   )
-  await expect(page.locator('#fresh-animations')).toBeHidden()
+  await expect(page.locator('#fresh-animations')).toBeVisible()
   await expect(page.locator('#fresh-animations-objects')).toBeVisible()
   await page.locator('#pack-search').fill('does not exist')
   await expect(page.locator('#pack-empty')).toBeVisible()
@@ -70,7 +70,7 @@ test('review filters persist, reset and reveal catalog references', async ({
   expect(errors).toEqual([])
 })
 
-test('current resource defaults distinguish disabled packs from unarchived selected files', async ({
+test('current resource defaults show selected Fresh packs and unarchived selected files', async ({
   page,
 }) => {
   await page.goto('/resourcepacks')
@@ -78,7 +78,10 @@ test('current resource defaults distinguish disabled packs from unarchived selec
   await defaults.locator('summary').click()
   await expect(
     defaults.locator('[data-resource-selection="fresh-animations"]'),
-  ).toContainText('Disabled')
+  ).toContainText('Enabled')
+  await expect(
+    defaults.locator('[data-resource-selection="fresh-animations-details"]'),
+  ).toContainText('Enabled')
   await expect(
     defaults.locator('[data-resource-selection="fresh-animations"]'),
   ).toContainText('Matches locked source')
@@ -97,10 +100,12 @@ test('gallery selection, keyboard viewer and responsive columns', async ({
   page,
 }) => {
   await page.goto('/resourcepacks')
-  const card = page.locator('[data-candidate]').first()
+  const card = page.locator('[id="3d-default"][data-candidate]')
   const copy = card.locator('.candidate-copy')
   const gallery = card.locator('[data-gallery]')
   const choices = gallery.locator('[data-image]')
+  const total = await choices.count()
+  expect(total).toBeGreaterThanOrEqual(3)
   const before = await gallery.locator('.gallery-main').getAttribute('src')
   await choices.nth(1).click()
   await expect(choices.nth(1)).toHaveAttribute('aria-pressed', 'true')
@@ -110,12 +115,31 @@ test('gallery selection, keyboard viewer and responsive columns', async ({
   )
   await gallery.locator('[data-open-image]').click()
   const viewer = page.getByRole('dialog')
+  const expectMedia = async (index) => {
+    const choice = choices.nth(index)
+    const kind = await choice.getAttribute('data-kind')
+    const source = await choice.getAttribute('data-image')
+    expect(['image', 'video']).toContain(kind)
+    expect(source).toBeTruthy()
+    const media = viewer.locator(kind === 'video' ? 'video' : 'img')
+    await expect(media).toBeVisible()
+    await expect(media).toHaveAttribute('src', source)
+  }
   await expect(viewer).toBeVisible()
-  await expect(viewer.locator('[data-viewer-caption]')).toContainText('2 / 4')
+  await expect(viewer.locator('[data-viewer-caption]')).toContainText(
+    `2 / ${total}`,
+  )
+  await expectMedia(1)
   await page.keyboard.press('ArrowRight')
-  await expect(viewer.locator('[data-viewer-caption]')).toContainText('3 / 4')
+  await expect(viewer.locator('[data-viewer-caption]')).toContainText(
+    `3 / ${total}`,
+  )
+  await expectMedia(2)
   await page.keyboard.press('ArrowLeft')
-  await expect(viewer.locator('[data-viewer-caption]')).toContainText('2 / 4')
+  await expect(viewer.locator('[data-viewer-caption]')).toContainText(
+    `2 / ${total}`,
+  )
+  await expectMedia(1)
   await page.keyboard.press('Escape')
   await expect(viewer).toBeHidden()
   await expect(gallery.locator('[data-open-image]')).toBeFocused()

@@ -1,468 +1,115 @@
 {
-  "schema": 1,
-  "baseline": "b5465d2aaf4b685baa46093fc805da0a51047bd9",
+  "schema": 2,
   "records": [
     {
-      "path": "overrides/common/config/almostunified/debug.json",
-      "sha256": "435ad46870d033c8652097d64c6ec592907e5ab6f1877240532a6a1743d4fca5",
+      "paths": [
+        "overrides/common/config/almostunified/debug.json",
+        "overrides/common/config/almostunified/duplicates.json",
+        "overrides/common/config/almostunified/placeholders.json",
+        "overrides/common/config/almostunified/startup.json",
+        "overrides/common/config/almostunified/tags.json"
+      ],
       "review": "reviewed",
       "reason": "Unify overlapping material variants; keep native ore generation and inspect tag/recipe consequences.",
       "reference": "docs/development/progression.md",
-      "installation": {
-        "policy": "managed",
-        "family": "pack-rules"
-      }
+      "family": "pack-rules"
     },
     {
-      "path": "overrides/common/config/almostunified/duplicates.json",
-      "sha256": "b70f57eadf6eec0ce43acd4c441f08feac1432826e04cb8e2736a73997c20c08",
-      "review": "reviewed",
-      "reason": "Unify overlapping material variants; keep native ore generation and inspect tag/recipe consequences.",
-      "reference": "docs/development/progression.md",
-      "installation": {
-        "policy": "managed",
-        "family": "pack-rules"
-      }
-    },
-    {
-      "path": "overrides/common/config/almostunified/placeholders.json",
-      "sha256": "43733b207b9f0238c7a5bec47f19e8fd5bec80499b286e0ac4994671702dfed9",
-      "review": "reviewed",
-      "reason": "Unify overlapping material variants; keep native ore generation and inspect tag/recipe consequences.",
-      "reference": "docs/development/progression.md",
-      "installation": {
-        "policy": "managed",
-        "family": "pack-rules"
-      }
-    },
-    {
-      "path": "overrides/common/config/almostunified/startup.json",
-      "sha256": "37f013c49586db025c17f9fa6657c6f239e0169ebc97ef682ff114a2ede43c5e",
-      "review": "reviewed",
-      "reason": "Unify overlapping material variants; keep native ore generation and inspect tag/recipe consequences.",
-      "reference": "docs/development/progression.md",
-      "installation": {
-        "policy": "managed",
-        "family": "pack-rules"
-      }
-    },
-    {
-      "path": "overrides/common/config/almostunified/tags.json",
-      "sha256": "2512b9c947342813ee667013941f07c3be8323ac4cb8d3d1686dd8530c7c66b1",
-      "review": "reviewed",
-      "reason": "Unify overlapping material variants; keep native ore generation and inspect tag/recipe consequences.",
-      "reference": "docs/development/progression.md",
-      "installation": {
-        "policy": "managed",
-        "family": "pack-rules"
-      }
-    },
-    {
-      "path": "overrides/common/config/almostunified/unification/materials.json",
-      "sha256": "9e4447a8f46b45f76d81c10fd175388f11821cda0ef83f89ed0745de571ab965",
+      "paths": [
+        "overrides/common/config/almostunified/unification/materials.json"
+      ],
       "review": "reviewed",
       "reason": "Keep geological ore variants distinct so Create crushing yields and times retain their intended inputs; continue processed-material and zinc-sheet unification.",
       "reference": "docs/development/progression.md",
-      "installation": {
-        "policy": "managed",
-        "family": "pack-rules"
-      }
+      "family": "pack-rules"
     },
     {
-      "path": "resource-patches/data/aerocables/recipe/ae_cable.json",
-      "sha256": "364eab498df09551bf247e59571cc8894f641063ad2910ccfeada51896062b56",
+      "paths": [
+        "resource-patches/data/aerocables/recipe/ae_cable.json",
+        "resource-patches/data/aerocables/recipe/cc_cable.json",
+        "resource-patches/data/aerocables/recipe/rs_cable.json",
+        "resource-patches/data/bellsandwhistles/recipe/metro/metro_window.json",
+        "resource-patches/data/createdeco/recipe/placard.json",
+        "resource-patches/data/dndecor/tags/item/industrial_cogwheels.json",
+        "resource-patches/data/interiors/recipe/crafting/chair/black_chair_from_other_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/chair/blue_chair_from_other_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/chair/brown_chair_from_other_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/chair/cyan_chair_from_other_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/chair/gray_chair_from_other_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/chair/green_chair_from_other_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/chair/light_blue_chair_from_other_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/chair/light_gray_chair_from_other_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/chair/lime_chair_from_other_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/chair/magenta_chair_from_other_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/chair/orange_chair_from_other_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/chair/pink_chair_from_other_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/chair/purple_chair_from_other_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/chair/red_chair_from_other_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/chair/white_chair_from_other_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/chair/yellow_chair_from_other_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/floor_chair/black_floor_chair_from_other_floor_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/floor_chair/blue_floor_chair_from_other_floor_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/floor_chair/brown_floor_chair_from_other_floor_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/floor_chair/cyan_floor_chair_from_other_floor_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/floor_chair/gray_floor_chair_from_other_floor_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/floor_chair/green_floor_chair_from_other_floor_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/floor_chair/light_blue_floor_chair_from_other_floor_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/floor_chair/light_gray_floor_chair_from_other_floor_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/floor_chair/lime_floor_chair_from_other_floor_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/floor_chair/magenta_floor_chair_from_other_floor_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/floor_chair/orange_floor_chair_from_other_floor_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/floor_chair/pink_floor_chair_from_other_floor_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/floor_chair/purple_floor_chair_from_other_floor_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/floor_chair/red_floor_chair_from_other_floor_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/floor_chair/white_floor_chair_from_other_floor_chair.json",
+        "resource-patches/data/interiors/recipe/crafting/floor_chair/yellow_floor_chair_from_other_floor_chair.json",
+        "resource-patches/data/tfmg/recipe/distillation/crude_oil.json",
+        "resource-patches/data/tfmg/recipe/distillation/crude_oil_light_distillation.json",
+        "resource-patches/data/tfmg/recipe/distillation/crude_oil_no_naphtha.json"
+      ],
       "review": "reviewed",
       "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
       "reference": "docs/development/progression.md"
     },
     {
-      "path": "resource-patches/data/aerocables/recipe/cc_cable.json",
-      "sha256": "29c17b05004aa4f3dae3209d57059107a15ed53c9443da6e6308fd02dd66b14d",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/aerocables/recipe/rs_cable.json",
-      "sha256": "6181bf855957382004bb0b5ba5ce48b17b76c5c688d724ad780027c4ffd7950c",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/bellsandwhistles/recipe/metro/metro_window.json",
-      "sha256": "2e59cf22ec37aae37cbfbc7ea2a0008c5c8ed05338fed4ee4a03d31ba7d422a2",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/createdeco/recipe/placard.json",
-      "sha256": "ddc3d0dd56b604d914bedbf2f985a2f0b5f7374eac79aad668a8a2cfd7cc154c",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/dndecor/tags/item/industrial_cogwheels.json",
-      "sha256": "f43470ee5aab77c298221d8624033015fd05118769edc125578b4992d8a30395",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/chair/black_chair_from_other_chair.json",
-      "sha256": "c203a78c2bf85dbda72316246b0c82afff2d975550d87706bd32d1ea879e138f",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/chair/blue_chair_from_other_chair.json",
-      "sha256": "4a34d0d075398d2a30cb11b758cc91a7c3cded012ea126b26026c84d931fb7d0",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/chair/brown_chair_from_other_chair.json",
-      "sha256": "4094f01912d35f6ab7c2bf6722f16cc9566b0802b4b140029db5a94545d9082e",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/chair/cyan_chair_from_other_chair.json",
-      "sha256": "c6af000eaeeeb9159b85a4e66e9c02db5822716231f14fc1fd9e730ad51c1454",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/chair/gray_chair_from_other_chair.json",
-      "sha256": "702c573ef13c4cae9a76daedbfe8e05e4e32bab59ff6219934bf7067f3a76425",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/chair/green_chair_from_other_chair.json",
-      "sha256": "00c4fc87f4c09e3d3be22f5ae29e978c35572c85d08bafa3055817bb641e3816",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/chair/light_blue_chair_from_other_chair.json",
-      "sha256": "50ec6eccc93e553408b708990bb1f3feecbf00a26ccfaa7eab8ba722d334baec",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/chair/light_gray_chair_from_other_chair.json",
-      "sha256": "0f9af2e751d9205197af7bbfce91dc09bdf1221094cff0c86d3d9c1b295ff8d9",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/chair/lime_chair_from_other_chair.json",
-      "sha256": "04a70d147c8beac805c14647572137810bf245f4b53e209cbc862d4cd0796f46",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/chair/magenta_chair_from_other_chair.json",
-      "sha256": "2d6bc6cebdccc14042de1993a6f5ed2e9f84614de5aaaea0ec993f7dfdb93f09",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/chair/orange_chair_from_other_chair.json",
-      "sha256": "518666998b61ede44eef56aae481b1325da6549239818918d50bf6a38947b2fb",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/chair/pink_chair_from_other_chair.json",
-      "sha256": "6a5a70bee6bd61a86ab6410359da00441b57dd3242e8246e7ffa2b80c2a30913",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/chair/purple_chair_from_other_chair.json",
-      "sha256": "de7c329442ac76eb5990de466cc24451da53fd1d8f701966b30ef9e336f02d72",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/chair/red_chair_from_other_chair.json",
-      "sha256": "c39acb4ce3e44eec42a1d879df2a5acafd2ff967957b616a3908eab714aba985",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/chair/white_chair_from_other_chair.json",
-      "sha256": "523f78b7b49d53ff57c9fc83efcb50e4304110a6e02d4b05af72415353d11561",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/chair/yellow_chair_from_other_chair.json",
-      "sha256": "0f98e9a574a43652e8b4c4571d8c1bcf842021a66714b5f934589ba85e28a549",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/floor_chair/black_floor_chair_from_other_floor_chair.json",
-      "sha256": "6a9663a12e295937b5d28f940447a9010e9ca95d9d272db48dcc2dead998f071",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/floor_chair/blue_floor_chair_from_other_floor_chair.json",
-      "sha256": "a3f43adc44f69c042e938c9e1132d63db834ba30ecf87488f078a6f4bb97d68e",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/floor_chair/brown_floor_chair_from_other_floor_chair.json",
-      "sha256": "9b8ea52c7508e069f0b8a2a22d569db1538b46feee4182718b8fe931ade4b96e",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/floor_chair/cyan_floor_chair_from_other_floor_chair.json",
-      "sha256": "38b83538ad29652abe01f9adafddd99b24e2793b32ff21265d001c85e65ec32b",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/floor_chair/gray_floor_chair_from_other_floor_chair.json",
-      "sha256": "f392baea14a247d90915e3dce8b39d9d425a6568fd6665b13f3ebbb3f925e886",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/floor_chair/green_floor_chair_from_other_floor_chair.json",
-      "sha256": "4dd9441890118b5c2a6177449d30064cd45b08b55a71f33f3cf98cfdd239eb5d",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/floor_chair/light_blue_floor_chair_from_other_floor_chair.json",
-      "sha256": "d4552c891e6b7ebd3319957946d8877205f02569fc8b0ae580630490e1bc614f",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/floor_chair/light_gray_floor_chair_from_other_floor_chair.json",
-      "sha256": "e3949f6510ff14a7be409f7aa2f6b24e9de3947170212a1d3b5964b742230a00",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/floor_chair/lime_floor_chair_from_other_floor_chair.json",
-      "sha256": "b41397bcc9400e22c6615e1f97dbe0a322d57803e474d3beda14623da49c6a91",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/floor_chair/magenta_floor_chair_from_other_floor_chair.json",
-      "sha256": "dcc4453529eb5e0dfe5842368ae2dfc9c0844601d19f78dcb30af70fb998fa5d",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/floor_chair/orange_floor_chair_from_other_floor_chair.json",
-      "sha256": "d81fb6c23a99a1438ea0221c7d2ce1d520393d59bb613c0dfa3557909a2fe49f",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/floor_chair/pink_floor_chair_from_other_floor_chair.json",
-      "sha256": "645f10a4f3f8f5de24674dda54f580617ca6093596749aafbefa4091b0a03770",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/floor_chair/purple_floor_chair_from_other_floor_chair.json",
-      "sha256": "2d3cded47cbb1f94f10aed8904e35409ba9810679493ff67bbe079cc573e49fe",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/floor_chair/red_floor_chair_from_other_floor_chair.json",
-      "sha256": "8a16181bb23bdc719d3f7d65fe2a40e8bbf144bbf93498c18781d1b2fe43ca3f",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/floor_chair/white_floor_chair_from_other_floor_chair.json",
-      "sha256": "16890cc71f6c533ccb984c95754448a330927973ef89b6534266b9d4f35be2ec",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/interiors/recipe/crafting/floor_chair/yellow_floor_chair_from_other_floor_chair.json",
-      "sha256": "46a62a79d15c1869c1d10f0db42051164bb99e756f4c470121d953f521bc03f3",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/tfmg/recipe/distillation/crude_oil.json",
-      "sha256": "d3fa60095b0d2b2c4014e37a520631aab65eb900a6f242da264a66a067421375",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/tfmg/recipe/distillation/crude_oil_light_distillation.json",
-      "sha256": "f21e150c60e5d3981db27eed89f70881a9def2e89f48cd34389c609fd517ab24",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/tfmg/recipe/distillation/crude_oil_no_naphtha.json",
-      "sha256": "746e543a3542a51d6848a258d8ffac33712a44a93c7aadfc7b3f9ce7849beaf5",
-      "review": "reviewed",
-      "reason": "Maintained resource correction; inspect the resource and progression reference for the affected recipe, tag or drop.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/createpropulsion/recipe/crushing/platinum_ore.json",
-      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
+      "paths": [
+        "resource-patches/data/createpropulsion/recipe/crushing/platinum_ore.json",
+        "resource-patches/data/createpropulsion/recipe/crushing/deepslate_platinum_ore.json",
+        "resource-patches/data/createpropulsion/recipe/crushing/raw_platinum_block.json"
+      ],
       "review": "reviewed",
       "reason": "Use the existing Create platinum crushing family consistently; suppress overlapping Propulsion inputs with conflicting metal/XP yields.",
       "reference": "docs/development/progression.md"
     },
     {
-      "path": "resource-patches/data/createpropulsion/recipe/crushing/deepslate_platinum_ore.json",
-      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
-      "review": "reviewed",
-      "reason": "Use the existing Create platinum crushing family consistently; suppress overlapping Propulsion inputs with conflicting metal/XP yields.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/createpropulsion/recipe/crushing/raw_platinum_block.json",
-      "sha256": "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629",
-      "review": "reviewed",
-      "reason": "Use the existing Create platinum crushing family consistently; suppress overlapping Propulsion inputs with conflicting metal/XP yields.",
-      "reference": "docs/development/progression.md"
-    },
-    {
-      "path": "resource-patches/data/createpropulsion/recipe/crushing/spruce_log.json",
-      "sha256": "9fd09a04ab19deecf3a0d0f53a6e5ca94d9c2ad39780c9d0866ecc363dcca494",
+      "paths": [
+        "resource-patches/data/createpropulsion/recipe/crushing/spruce_log.json",
+        "resource-patches/data/createpropulsion/recipe/cutting/copycat_wing.json"
+      ],
       "review": "reviewed",
       "reason": "Use the Create 6 processing_time field so the shipped recipe duration is recognized; retain ingredients and outputs.",
       "reference": "docs/development/progression.md"
     },
     {
-      "path": "resource-patches/data/createpropulsion/recipe/cutting/copycat_wing.json",
-      "sha256": "9ecbbcbcc0934987f55e4582dfb775a115295510b25b8eaaa7b81a7f9415e60e",
+      "paths": [
+        "resource-patches/data/create_radar/recipe/crafting/radar_jammer.json"
+      ],
       "review": "reviewed",
-      "reason": "Use the Create 6 processing_time field so the shipped recipe duration is recognized; retain ingredients and outputs.",
-      "reference": "docs/development/progression.md"
+      "reason": "Repair the missing comma in the native 5.1.1 jammer recipe while retaining its registered output, shaft item and other ingredients.",
+      "reference": "docs/development/upstream.md#create-radars-511"
     },
     {
-      "path": "resource-patches/data/create_radar/recipe/crafting/radar_jammer.json",
-      "sha256": "8a90d443d24ca382ab297e79fb1753c25b2fedebb308bceae7b89e8d283b47af",
-      "review": "reviewed",
-      "reason": "Restore the upstream jammer recipe using its registered directional-jammer output and the actual shaft item; the old output and shaft tag do not resolve.",
-      "reference": "docs/development/upstream.md#create-radars-501-recipes"
-    },
-    {
-      "path": "resource-patches/data/create_radar/recipe/crafting/radar_warning_reciever.json",
-      "sha256": "6c5434cfbc384ae658474d305eccbda112c69eb3f9235ed1d82188cf98340eba",
-      "review": "reviewed",
-      "reason": "Interpret the upstream copper-plate ingredient as its intended tag, preserving the receiver recipe shape and cost.",
-      "reference": "docs/development/upstream.md#create-radars-501-recipes"
-    },
-    {
-      "path": "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_beam_compat.json",
-      "sha256": "0edf01e65b95317ccf47901b2a2f2d28600d5352559f0a1022c244d778d6e918",
-      "review": "reviewed",
-      "reason": "Retain the native one-to-one Connected-to-Copycats+ conversion while the redundant Connected category is hidden. Respect the target Copycats+ feature selection.",
-      "reference": "docs/development/weights.md#copycat-selection"
-    },
-    {
-      "path": "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_block_compat.json",
-      "sha256": "d4f6cf2706a5455b370f1e5c6bb95669f5b02bab11f1d1e27ebf81c44b30aace",
-      "review": "reviewed",
-      "reason": "Retain the native one-to-one Connected-to-Copycats+ conversion while the redundant Connected category is hidden. Respect the target Copycats+ feature selection.",
-      "reference": "docs/development/weights.md#copycat-selection"
-    },
-    {
-      "path": "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_board_compat.json",
-      "sha256": "cc780ad203584fcbfa1446df731adfa220110e1b40c9db9fd33f6a306c01329a",
-      "review": "reviewed",
-      "reason": "Retain the native one-to-one Connected-to-Copycats+ conversion while the redundant Connected category is hidden. Respect the target Copycats+ feature selection.",
-      "reference": "docs/development/weights.md#copycat-selection"
-    },
-    {
-      "path": "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_fence_compat.json",
-      "sha256": "da5840eb33b30a1fa0d0ed6485b0f198ea3f892c215d31ecc4f49b3e8adb3b06",
-      "review": "reviewed",
-      "reason": "Retain the native one-to-one Connected-to-Copycats+ conversion while the redundant Connected category is hidden. Respect the target Copycats+ feature selection.",
-      "reference": "docs/development/weights.md#copycat-selection"
-    },
-    {
-      "path": "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_fence_gate_compat.json",
-      "sha256": "8cd284c5ab22b213483a379abdac1b39397c23ce131f9c94c0f3cab13bcfd3a4",
-      "review": "reviewed",
-      "reason": "Retain the native one-to-one Connected-to-Copycats+ conversion while the redundant Connected category is hidden. Respect the target Copycats+ feature selection.",
-      "reference": "docs/development/weights.md#copycat-selection"
-    },
-    {
-      "path": "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_slab_compat.json",
-      "sha256": "6bd254de28de7c5f06046588892176fb0288d365083465cbfe6af5682036b7a7",
-      "review": "reviewed",
-      "reason": "Retain the native one-to-one Connected-to-Copycats+ conversion while the redundant Connected category is hidden. Respect the target Copycats+ feature selection.",
-      "reference": "docs/development/weights.md#copycat-selection"
-    },
-    {
-      "path": "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_stairs_compat.json",
-      "sha256": "b6dcdea43e95489aee5aad0760f28e3fb96b28030f542b7c064c00c00b87f1d6",
-      "review": "reviewed",
-      "reason": "Retain the native one-to-one Connected-to-Copycats+ conversion while the redundant Connected category is hidden. Respect the target Copycats+ feature selection.",
-      "reference": "docs/development/weights.md#copycat-selection"
-    },
-    {
-      "path": "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_vertical_step_compat.json",
-      "sha256": "010d846d6fbd3019ae096ca12332d0c27f5741a6e439ee1199d2d892706825b3",
-      "review": "reviewed",
-      "reason": "Retain the native one-to-one Connected-to-Copycats+ conversion while the redundant Connected category is hidden. Respect the target Copycats+ feature selection.",
-      "reference": "docs/development/weights.md#copycat-selection"
-    },
-    {
-      "path": "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_wall_compat.json",
-      "sha256": "16352620157c385def60bfc0de75998579a0ded25abe301c14caa2168786b706",
+      "paths": [
+        "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_beam_compat.json",
+        "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_block_compat.json",
+        "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_board_compat.json",
+        "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_fence_compat.json",
+        "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_fence_gate_compat.json",
+        "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_slab_compat.json",
+        "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_stairs_compat.json",
+        "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_vertical_step_compat.json",
+        "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_wall_compat.json"
+      ],
       "review": "reviewed",
       "reason": "Retain the native one-to-one Connected-to-Copycats+ conversion while the redundant Connected category is hidden. Respect the target Copycats+ feature selection.",
       "reference": "docs/development/weights.md#copycat-selection"

@@ -124,25 +124,25 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://cdn.modrinth.com/data/R6NEzAwj/versions/B1kyfoUZ/ComplementaryUnbound_r5.9.3.zip
+          https://cdn.modrinth.com/data/R6NEzAwj/versions/QJiYQisE/ComplementaryUnbound_r5.10.zip
         kind: provider
         pin:
           project:
             project: R6NEzAwj
             provider: modrinth
           selection:
-            id: B1kyfoUZ
+            id: QJiYQisE
             provider: modrinth
-        slot: ComplementaryUnbound_r5.9.3.zip
+        slot: ComplementaryUnbound_r5.10.zip
       expected:
         accepted-observation: null
         digests:
-          sha1: 2ee08300e1d6f039e63eae8484dddf57b3aaaf67
+          sha1: 7a9a6b667b89d6b442837c5c367cd6cc8356b400
           sha512: >-
-            a085d1d8cda67cd17a2b414eeba48bbd809da069f269bab46246235ec8fe714a275013c70d0504527b0987d810deddddba4564332414ab3b3bd7435932ff808c
-        size: 553400
+            bccfca6b07ea4c75b3d7c8bfb875de54ecb3ce4416c960194974d887b65c2aebc9ebd2f6911356bdcb2b0f8740ce70adbf2fdf2e39698616c194104400f70e62
+        size: 567391
       placements:
-      - destination: shaderpacks/ComplementaryUnbound_r5.9.3.zip
+      - destination: shaderpacks/ComplementaryUnbound_r5.10.zip
         environment:
           client: required
           server: unsupported
@@ -150,9 +150,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: 2ee08300e1d6f039e63eae8484dddf57b3aaaf67
+          sha1: 7a9a6b667b89d6b442837c5c367cd6cc8356b400
           sha512: >-
-            a085d1d8cda67cd17a2b414eeba48bbd809da069f269bab46246235ec8fe714a275013c70d0504527b0987d810deddddba4564332414ab3b3bd7435932ff808c
+            bccfca6b07ea4c75b3d7c8bfb875de54ecb3ce4416c960194974d887b65c2aebc9ebd2f6911356bdcb2b0f8740ce70adbf2fdf2e39698616c194104400f70e62
         location: R6NEzAwj
         source: provider-catalog
       slot: primary
@@ -167,7 +167,7 @@ dependencies:
         project: R6NEzAwj
         provider: modrinth
       selection:
-        id: B1kyfoUZ
+        id: QJiYQisE
         provider: modrinth
     source-selector:
       provider: modrinth
@@ -234,25 +234,25 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://cdn.modrinth.com/data/4H6sumDB/versions/QMsRXtSJ/EuphoriaPatcher-1.10.5-r5.9.3-neoforge.jar
+          https://cdn.modrinth.com/data/4H6sumDB/versions/Gkv3fLVg/EuphoriaPatcher-1.11.1-r5.10-neoforge.jar
         kind: provider
         pin:
           project:
             project: 4H6sumDB
             provider: modrinth
           selection:
-            id: QMsRXtSJ
+            id: Gkv3fLVg
             provider: modrinth
-        slot: EuphoriaPatcher-1.10.5-r5.9.3-neoforge.jar
+        slot: EuphoriaPatcher-1.11.1-r5.10-neoforge.jar
       expected:
         accepted-observation: null
         digests:
-          sha1: 2b3f92878d6867fa0199937da25ba882b9db7902
+          sha1: ea16de899b121f72be048a9410f72af0181337d1
           sha512: >-
-            19e5528f6284f68d28e9e8b17a9531bb0f8e0ab862e3ab93a1b53fe3f18765cfa38cc512e66c2d4b308e6783307d132e8b5c337db4a39b016d75e6830376070a
-        size: 4492151
+            fc920172bf56004909381c847b5efd73ecdf734eb0d9302da8e6ce39aa1c806ae50418b929e21550234d9dbcf614f3899938c75807e3afe98fa67e16239bbb88
+        size: 5327310
       placements:
-      - destination: mods/EuphoriaPatcher-1.10.5-r5.9.3-neoforge.jar
+      - destination: mods/EuphoriaPatcher-1.11.1-r5.10-neoforge.jar
         environment:
           client: required
           server: unsupported
@@ -260,9 +260,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: 2b3f92878d6867fa0199937da25ba882b9db7902
+          sha1: ea16de899b121f72be048a9410f72af0181337d1
           sha512: >-
-            19e5528f6284f68d28e9e8b17a9531bb0f8e0ab862e3ab93a1b53fe3f18765cfa38cc512e66c2d4b308e6783307d132e8b5c337db4a39b016d75e6830376070a
+            fc920172bf56004909381c847b5efd73ecdf734eb0d9302da8e6ce39aa1c806ae50418b929e21550234d9dbcf614f3899938c75807e3afe98fa67e16239bbb88
         location: 4H6sumDB
         source: provider-catalog
       slot: primary
@@ -277,7 +277,7 @@ dependencies:
         project: 4H6sumDB
         provider: modrinth
       selection:
-        id: QMsRXtSJ
+        id: Gkv3fLVg
         provider: modrinth
     source-selector:
       provider: modrinth
@@ -376,12 +376,12 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.39.0/skyweave-compat-0.39.0-mc1.21.1-neoforge.jar
+          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.40.0/skyweave-compat-0.40.0-mc1.21.1-neoforge.jar
         kind: url
       expected:
         accepted-observation: null
         digests:
-          sha256: 9d65e5771385b64ddf0e16818bb4cc6ee9097312ae1beed0d24c5c42059146ec
+          sha256: 8baa3aa4fec367e4f3ac169b1aaf4e7daaac908dc0b11d0e52379e1658ddbbff
         size: null
       placements:
       - destination: shader-tools/runner.jar
@@ -392,7 +392,7 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha256: 9d65e5771385b64ddf0e16818bb4cc6ee9097312ae1beed0d24c5c42059146ec
+          sha256: 8baa3aa4fec367e4f3ac169b1aaf4e7daaac908dc0b11d0e52379e1658ddbbff
         location: null
         source: url-file
       slot: content
@@ -403,7 +403,7 @@ dependencies:
     selection: null
     source-selector: null
     title: shader-runner
-intent-revision: 998de0a98f6bf0ef46e0ebb3516ffa3c65d89648190c4a23fa3ea10252f78665
+intent-revision: 53cc02a0cb87741053db3a934756f9e577674de754a775897af9bb85d229193a
 java-policy:
   historical-minimum: 21
   id: empack-java-1

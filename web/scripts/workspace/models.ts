@@ -141,6 +141,8 @@ export function createResourceInputs(registrations: Registration[]) {
             'pane_lighting.py',
             'resource_assets.py',
             'model_transforms.py',
+            'visual_options.py',
+            'visual_variants.py',
           ]
         : []),
     ]

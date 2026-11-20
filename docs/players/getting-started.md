@@ -6,11 +6,17 @@ Create: Skyweave runs on Minecraft 1.21.1, the manifest-pinned NeoForge and Java
 
 1. Download a pack from [GitHub Releases](https://github.com/mannie-exe/create-skyweave/releases).
 2. Import `prism-references.zip` into Prism Launcher, or import the `.mrpack` into a launcher that supports Modrinth packs. Prism's generated Java bootstrap downloads and verifies the exact empack engine and released files; keep its `.empack-tools/` directory and generated pre-launch and wrapper commands. No global empack installation is required.
-3. Select Java 21 in the instance settings and launch the game. The Prism profile sets a maximum heap of 8 GiB; adjust this to fit your machine.
+3. Select Java 21 in the instance settings and launch the game. The Prism profile sets a maximum heap of 12 GiB; existing launcher choices remain local.
 
 If preparation fails before the game starts, check the selected Java executable, network access and the bootstrap's exact-version diagnostic. A missing `.empack-tools/` directory or old global empack command indicates an incomplete or older import; reimport the current reference archive rather than inserting host-specific paths into shared templates. A `ModifiedManagedFile` conflict is a different issue: review the local file before accepting a replacement; do not bypass verification.
 
 Use [graphics settings](graphics.md) to enable shaders or configure distant terrain. The server archive is for [hosting](server.md), not client installation.
+
+## Memory requirements
+
+At least 12 GiB of system memory is required. New Prism and server exports cap the Java heap at 12 GiB (12288 MiB); this is a maximum, not an initial allocation or the entire process footprint. Leave additional host memory for the operating system, native rendering, distant-terrain buffers and other applications. Running a client and server together requires headroom beyond both heaps. A 12 GiB host cannot safely dedicate all memory to a single 12 GiB heap.
+
+Prism retains a 512 MiB initial heap and Java 21 generational ZGC. The server retains Java 21 initial-heap ergonomics and default G1. Modrinth imports do not carry a portable launcher memory setting: select the 12 GiB cap in your launcher. These are documented requirements; the pack does not enforce physical-memory admission. Existing launcher and server JVM preferences remain installation-local. A larger cap does not prove that memory caused or cured stutter.
 
 ## Controls
 
@@ -34,7 +40,7 @@ Prism exports default to Generational ZGC on Java 21 to reduce collection pauses
 -XX:+UseZGC -XX:+ZGenerational
 ```
 
-In Prism, open **Edit instance → Settings → Java**, enable the Java arguments override, and enter both flags. Restart the game after changing them. Keep the memory limits separate in Prism's memory settings; start with the pack's 8 GiB maximum and adjust based on actual usage. Do not combine these flags with another collector selection or `-XX:+DisableExplicitGC`.
+In Prism, open **Edit instance → Settings → Java**, enable the Java arguments override, and enter both flags. Restart the game after changing them. Keep the memory limits separate in Prism's memory settings; start with the pack's 12 GiB maximum and adjust based on actual usage. Do not combine these flags with another collector selection or `-XX:+DisableExplicitGC`.
 
 These defaults are specific to Java 21. Existing player choices remain local; normal empack preparation does not replace launcher arguments. ZGC cannot address rendering or chunk-generation bottlenecks, and its gameplay performance still needs comparison with G1 in this pack. See the [Java 21 GC guide](https://docs.oracle.com/en/java/javase/21/gctuning/hotspot-virtual-machine-garbage-collection-tuning-guide.pdf).
 

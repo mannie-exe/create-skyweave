@@ -50,7 +50,7 @@ defaultGlobalExecutorParallelismExpression = "default"
 threadPoolPriorityPreset = "default"
 # ================================================================
 # (Default: 9) Configures the parallelism of global executor
-globalExecutorParallelism = "default"
+globalExecutorParallelism = 10
 
 [fixes]
 	# ================================================================

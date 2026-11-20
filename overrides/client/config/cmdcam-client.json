@@ -1,0 +1,7 @@
+{
+  "syncMinema": false,
+  "defaultDuration": "10s",
+  "defaultMode": "outside",
+  "defaultInterpolation": "hermite",
+  "defaultSmoothStart": true
+}

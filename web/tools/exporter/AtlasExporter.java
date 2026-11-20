@@ -42,6 +42,13 @@ public final class AtlasExporter {
       Path out = Path.of(destination); Files.createDirectories(out);
       var ops = RegistryOps.create(JsonOps.INSTANCE, server.registryAccess());
       Files.writeString(out.resolve("debug_registry.json"), GSON.toJson(DebugRegistry.capture(server)));
+      JsonArray versions = new JsonArray();
+      for (var mod : net.neoforged.fml.ModList.get().getMods()) {
+        JsonObject row = new JsonObject(); row.addProperty("id", mod.getModId());
+        row.addProperty("version", mod.getVersion().toString()); row.addProperty("name", mod.getDisplayName());
+        versions.add(row);
+      }
+      Files.writeString(out.resolve("mod_versions.json"), GSON.toJson(versions));
       JsonArray items = new JsonArray(), blocks = new JsonArray(), recipes = new JsonArray(), entities = new JsonArray();
       JsonArray errors = new JsonArray();
       JsonArray interactions = new JsonArray(), hooks = new JsonArray(), fluids = new JsonArray();
@@ -51,6 +58,7 @@ public final class AtlasExporter {
         row.addProperty("id", BuiltInRegistries.ITEM.getKey(item).toString());
         row.addProperty("translation", item.getDescriptionId());
         row.addProperty("class", item.getClass().getName());
+        row.add("types", GSON.toJsonTree(registeredTypes(item.getClass())));
         if (seenClasses.add(item.getClass().getName())) {
           JsonObject hook = new JsonObject(); hook.addProperty("id",item.getClass().getName());
           JsonArray methods = new JsonArray();
@@ -73,6 +81,8 @@ public final class AtlasExporter {
         row.addProperty("id", BuiltInRegistries.BLOCK.getKey(block).toString());
         row.addProperty("item", BuiltInRegistries.ITEM.getKey(block.asItem()).toString());
         row.addProperty("class", block.getClass().getName());
+        row.add("types", GSON.toJsonTree(registeredTypes(block.getClass())));
+        row.addProperty("blockEntity", block.defaultBlockState().hasBlockEntity());
         row.addProperty("requiresCorrectTool", block.defaultBlockState().requiresCorrectToolForDrops());
         row.addProperty("destroyTime", block.defaultDestroyTime());
         row.add("tags", GSON.toJsonTree(block.builtInRegistryHolder().tags().map(t -> t.location().toString()).sorted().toList()));
@@ -297,6 +307,19 @@ public final class AtlasExporter {
     row.add("inputs",GSON.toJsonTree(List.of(List.of(input),List.of(tool))));row.add("outputs",GSON.toJsonTree(List.of(output)));
     row.addProperty("evidence","runtime transformation registry");row.addProperty("detail",action.equals("wax")?"Honeycomb applied to placed block; honeycomb is consumed.":action.equals("oxidize")?"Placed copper ages through random ticks. Time, neighboring copper and exposed area affect oxidation; not instantaneous.":"Axe use on placed block; tool is reusable and durability may be spent.");records.add(row);
   }
+  private static List<String> registeredTypes(Class<?> type) {
+    var pending = new ArrayDeque<Class<?>>();
+    var names = new TreeSet<String>();
+    pending.add(type);
+    while (!pending.isEmpty()) {
+      var current = pending.removeFirst();
+      if (!names.add(current.getName())) continue;
+      if (current.getSuperclass() != null) pending.add(current.getSuperclass());
+      pending.addAll(List.of(current.getInterfaces()));
+    }
+    return List.copyOf(names);
+  }
+
   /** Read method names without resolving client-only parameter types on a server. */
   private static List<String> declaredHooks(Class<?> type) throws java.io.IOException {
     List<String> result=new ArrayList<>();

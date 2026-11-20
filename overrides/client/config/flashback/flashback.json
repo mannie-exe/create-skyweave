@@ -1,0 +1,28 @@
+{
+  "configVersion": 2,
+  "recordingControls": {
+    "automaticallyStart": false,
+    "automaticallyFinish": true,
+    "showRecordingToasts": true,
+    "quicksave": false
+  },
+  "recording": {
+    "localPlayerUpdatesPerSecond": 20,
+    "recordVoiceChat": false,
+    "recordBobbyIntoReplay": false
+  },
+  "advanced": {
+    "synchronizeTicking": false,
+    "ignoredCustomPayloads": ""
+  },
+  "internalExport": {
+    "resolution": [1920, 1080],
+    "framerate": [30.0],
+    "container": "MP4",
+    "videoCodec": "H264",
+    "ssaa": false,
+    "noGui": true,
+    "recordAudio": true,
+    "stereoAudio": true
+  }
+}

@@ -30,7 +30,12 @@ async function fixture(t) {
   )
   await fs.mkdir(path.join(root, 'authoring/changes'))
   await fs.mkdir(path.join(root, 'scripts'))
-  for (const script of ['generate-quests.py', 'quests.py', 'audit-changes.py'])
+  for (const script of [
+    'generate-quests.py',
+    'quests.py',
+    'audit-changes.py',
+    'village_outputs.py',
+  ])
     await fs.copyFile(
       path.resolve('../scripts', script),
       path.join(root, 'scripts', script),
@@ -206,13 +211,13 @@ test('denied quest dependencies are filtered on read and prevent validation or g
 test('configuration source saves record their own result without claiming quest generation', async (t) => {
   const f = await fixture(t)
   const source = path.join(f.root, 'authoring/changes/client.json')
-  await fs.writeFile(source, JSON.stringify({ schema: 1, records: [] }))
+  await fs.writeFile(source, JSON.stringify({ schema: 2, records: [] }))
   const before = await f.read()
   const result = await f.command('config.source.save', {
     revision: before.revision,
     changes: {
       'changes/client.json': JSON.stringify(
-        { schema: 1, records: [] },
+        { schema: 2, records: [] },
         null,
         2,
       ),

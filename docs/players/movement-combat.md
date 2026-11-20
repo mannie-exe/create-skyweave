@@ -33,4 +33,4 @@ Compat makes local attack animation follow accepted native swings and uses the a
 
 Touch’n Motion and EMF Compat: Core are installed for procedural interaction poses. Compat supplies an optional bridge between the selected Moves release and Touch’n Motion’s released body/cape API; gameplay and moving-ship pose combinations still need review. FA Player Extension is not selected. See [animation ownership](../development/patches.md#player-animation-ownership) for the boundary. Punched Backpacks supplies Traveler’s Backpack hand-alignment profiles without disabling Punchy’s animations.
 
-Fresh Animations and FA+Details remain installed but deselected pending the next visual choice. FA+Objects stays selected for boats, containers and other object models. The selected mob-rendering stack and the proposed player-animation options are separate decisions.
+Fresh Animations and FA+Details are selected for mob presentation, with FA+Objects above them for boats, containers and other object models. Combat Nouveau's rules and Punchy/Moves player poses retain their existing owners.

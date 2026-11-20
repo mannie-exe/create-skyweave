@@ -151,7 +151,7 @@ export function createEnvironmentResolver(
     } catch {
       throw new WorkspaceError(
         'INVALID_INPUT',
-        'Empack 0.8.6-beta author schema 6 and lock schema 3 are required',
+        'Empack author schema 6 and lock schema 3 are required',
       )
     }
     const runtime = runtimeSchema.parse(lock.runtime),
@@ -377,7 +377,7 @@ export function createEnvironmentResolver(
     )
     capability(
       'empack-inspection',
-      'empack-manifest-0.8.6',
+      'empack-manifest-0.8.7',
       ['empack'],
       'Uses the inspected manifest machine-output contract. Tool availability is not a version check.',
     )

@@ -1,6 +1,6 @@
 # Build and release maintenance
 
-Use empack **0.8.6-beta** and Java **21** from the repository root. Author manifests use schema 6 with `runtime.java.preferred: 21`; locks use schema 3 and retain the resolved `java-policy`. Bindings remain schema 1. Regenerate metadata with the native engine and review exact selected files, placement and policies; do not translate old locks by changing their schema number. Builds use the recorded lock and explicit distribution profiles. They do not update installed clients or servers.
+Use empack **0.8.7-beta** and Java **21** from the repository root. Author manifests use schema 6 with `runtime.java.preferred: 21`; locks use schema 3 and retain the resolved `java-policy`. Bindings remain schema 1. Regenerate metadata with the native engine and review exact selected files, placement and policies; do not translate old locks by changing their schema number. Builds use the recorded lock and explicit distribution profiles. They do not update installed clients or servers.
 
 ## Source layout
 
@@ -32,11 +32,13 @@ The generated `[modproperties.skyweave_resource_patches]` table contains integer
 
 Use `python3 scripts/build-pack.py` for supported local exports. It prepares the DEV resource JAR, builds the selected native profiles and inspects the JAR actually delivered inside each export. Use `python3 scripts/build-pack.py --release-tag v<manifest-version>` for a release-mode build; repeatable `--profile` arguments select native profiles. Raw empack consumes prepared files and does not run this identity preparation automatically. The CI helper calls the same orchestration, and release CI validates/stamps its explicit tag before the other maintained-resource steps. Missing, stale, duplicated or mismatched exported identity stops publication.
 
-The same wrapper prepares the pinned resource-pack option repairs before exporting. Their generated client ZIPs retain the selected pack filenames; explicit client overrides replace the original provider files in client exports. Keep the original source archives intact and run `python3 scripts/build-resource-pack-repairs.py --check` when checking prepared content. See [resource repair maintenance](patches.md#held-item-resources) for update and removal conditions.
+The same wrapper prepares the pinned resource-pack repairs and exclusions before exporting. Their generated client ZIPs retain the selected pack filenames; explicit client overrides replace the original provider files in client exports. Keep the original source archives intact and run `python3 scripts/build-resource-pack-repairs.py --check` when checking prepared content. See [resource repair maintenance](patches.md#held-item-resources) for update and removal conditions.
 
 Compat's client-only footer combines this installed pack baseline with Compat's actual loaded version. A modified installation keeps its baseline identity; missing or invalid properties select the standalone Compat label. Resource/language reload uses native branding-cache invalidation. Pack identity is presentation metadata and does not change terrain identity, server policy or early loading screens. Recheck NeoForge/FML properties, branding/ModernFix composition, empack explanation/recipe formats and all three exports when their dependencies change.
 
 Empack's pack name is the portable **Create - Skyweave**, while `templates/client/instance.cfg.template` supplies the canonical Prism display name **Create: Skyweave**. The [naming policy](../../AGENTS.md#naming-and-artifact-identity) owns restricted-character fallbacks; display changes do not rename the pack ID or existing instance folder.
+
+For an authorized local Compat trial, retain the qualified JAR under the ignored `.local-artifacts/` directory with its content hash in the filename and use a project-relative `path` dependency. Keep the normal client/server placement binding. Reconcile a changed source declaration with `empack sync --materialize --yes`; do not overwrite the tracked installed JAR afterward. An immutable source copy prevents a later Gradle build from changing the candidate implicitly. Qualify shader-lab with its explicit `--runner` candidate option, then build the DEV Prism snapshot through the normal wrapper. Before a public release, restore the verified published URL/digests and align the shader-lab runner; a local source is a development selection, not a published dependency.
 
 ## Editable installation defaults
 
@@ -69,7 +71,7 @@ python3 scripts/build-pack.py --profile prism --profile modrinth --profile serve
 
 The [shader lab](../../tools/shader-lab/README.md) qualifies all three recipes through Compat's shared Java engine. Authoring/CI builds materialize exact inputs and produce complete review ZIPs; exports reference original shader/payload inputs in `shader-inputs/` and include the managed recipes. The client generates its finished ZIPs before Iris opens them. Complete merged shaders are not published as pack assets or simultaneously managed by empack. Euphoria and Colorwheel retain their runtime roles. The lab owns recipe and input update procedures.
 
-The defaults build reference Modrinth, Prism and server archives under `dist/`. Prism and server references include a Java bootstrap that acquires and verifies the exact empack 0.8.6-beta engine before preparation and launch; recipients need Java, not a global empack installation or Python. Modrinth-compatible launchers handle the `.mrpack` downloads. Authored files remain included, and empack includes prepared server-runtime assets. Check content sources and installation as well as archive integrity.
+The defaults build reference Modrinth, Prism and server archives under `dist/`. Prism and server references include a Java bootstrap that acquires and verifies the exact empack 0.8.7-beta engine before preparation and launch; recipients need Java, not a global empack installation or Python. Modrinth-compatible launchers handle the `.mrpack` downloads. Authored files remain included, and empack includes prepared server-runtime assets. Check content sources and installation as well as archive integrity.
 
 The shared resource builder excludes Finder/AppleDouble and Windows desktop metadata while retaining authored assets. Archives use stable ordering and publication avoids rewriting unchanged output. Verify generated archives before release; source-directory cleanliness alone does not prove archive cleanliness.
 
@@ -133,7 +135,7 @@ Publishing is a separate action from editing or building. Tag only when the rele
 
 ## CI maintenance
 
-The pack validation and release workflows select `modrinth`, `prism` and `server`, use Temurin 21, and pin GitHub Actions to commits. `.github/scripts/empack-ci.py` comes from the empack scaffold, reviewed against `v0.8.6-beta` at `a709c854`, with project-specific pack-identity verification, release notes, title and filename normalization. Its build-explanation check expects schema 2.
+The pack validation and release workflows select `modrinth`, `prism` and `server`, use empack `v0.8.7-beta` and Temurin 21, and pin GitHub Actions to commits. `.github/scripts/empack-ci.py` retains the reviewed empack scaffold with project-specific pack-identity verification, release notes, title and filename normalization. Its build-explanation check expects schema 2.
 
 The helper verifies the downloaded empack binary against GitHub's asset digest, rejects stale locks and tag/version mismatches, and stages only the outputs named by `build --explain --json`. It normalizes filenames before hashing and publishes a draft only after uploads succeed. Published names use hyphens for spaces, such as `Create-Sky-0.1.7-prism-references.zip`.
 
@@ -144,10 +146,13 @@ Retain these choices when refreshing the scaffold:
 - `cliff.toml` groups conventional commit history; release/merge commits are excluded. `CHANGELOG.md` is the generated repository history; `docs/RELEASE_NOTES.md` owns the player-facing summary and archived notes retain that context.
 - Release checkout fetches full history. The pinned git-cliff action/tool generates the latest tagged section and appends it to the authored summary in a temporary file. `EMPACK_RELEASE_NOTES` passes that file through `--notes-file`. This follows empack's own GitHub workflow; git-cliff is not an empack CLI command.
 - All three reference profiles are selected through `build.default`; CI uses that default.
-- Prism overrides memory to 512 MiB minimum and 8192 MiB maximum.
+- Prism overrides memory to 512 MiB minimum and 12288 MiB maximum.
+- The server JVM argument template seeds `-Xmx12G` in `game/user_jvm_args.txt`; retain operator edits when preparing or updating installations.
 - Prism defaults to Java 21 Generational ZGC through `OverrideJavaArgs=true` and `JvmArgs=-XX:+UseZGC -XX:+ZGenerational`; retain player overrides in existing installs.
 - Servers enforce the whitelist and create Sky Islands worlds.
 - Checkout credentials are not persisted.
+
+The server heap template requires empack’s explicit initial-JVM-seed composition: `policies.user_jvm_args.txt: seed` must become one required server-only release asset, replacing only the installer’s default argument seed. Empack 0.8.7-beta, like 0.8.6-beta, rejects that authored runtime-path collision. Its dry-run build plan does not detect the later archive collision. The default three-profile CI/release build therefore remains blocked. Before releasing these defaults, use an engine that qualifies the composition contract and update the owning tool/bootstrap pin together. Verify a real NeoForge export and fresh install, plus preservation of operator bytes on repair/update. Keep all other runtime paths reserved; do not patch generated launchers or rewrite ZIPs to bypass an export refusal.
 
 Windows server launchers support `EMPACK_NO_PAUSE=1` for unattended tests. A successful build verifies packaging; it does not establish gameplay or GPU compatibility.
 

@@ -4378,6 +4378,750 @@
         }
       ],
       "box_corners": true
+    },
+    {
+      "id": "dnd-chain-andesite",
+      "label": "DnD large andesite chain",
+      "kind": "extrusion",
+      "enabled": true,
+      "output": "dndecor:block/large_andesite_chain",
+      "texture": {
+        "source": "create-design-n-decor",
+        "id": "dndecor:block/large_chains/andesite"
+      },
+      "depth": 1,
+      "threshold": 128,
+      "parts": [
+        {
+          "axis": "x",
+          "center": 8,
+          "uv": [
+            8,
+            0,
+            16,
+            16
+          ],
+          "span": [
+            4,
+            0,
+            12,
+            16
+          ]
+        },
+        {
+          "axis": "z",
+          "center": 8,
+          "uv": [
+            0,
+            0,
+            8,
+            16
+          ],
+          "span": [
+            4,
+            0,
+            12,
+            16
+          ]
+        }
+      ],
+      "base": {
+        "model": {
+          "source": "create-design-n-decor",
+          "id": "dndecor:block/large_chain"
+        },
+        "elements": [],
+        "textures": {
+          "particle": {
+            "source": "create-design-n-decor",
+            "id": "dndecor:block/large_chains/andesite"
+          }
+        }
+      }
+    },
+    {
+      "id": "dnd-chain-brass",
+      "label": "DnD large brass chain",
+      "kind": "extrusion",
+      "enabled": true,
+      "output": "dndecor:block/large_brass_chain",
+      "texture": {
+        "source": "create-design-n-decor",
+        "id": "dndecor:block/large_chains/brass"
+      },
+      "depth": 1,
+      "threshold": 128,
+      "parts": [
+        {
+          "axis": "x",
+          "center": 8,
+          "uv": [
+            8,
+            0,
+            16,
+            16
+          ],
+          "span": [
+            4,
+            0,
+            12,
+            16
+          ]
+        },
+        {
+          "axis": "z",
+          "center": 8,
+          "uv": [
+            0,
+            0,
+            8,
+            16
+          ],
+          "span": [
+            4,
+            0,
+            12,
+            16
+          ]
+        }
+      ],
+      "base": {
+        "model": {
+          "source": "create-design-n-decor",
+          "id": "dndecor:block/large_chain"
+        },
+        "elements": [],
+        "textures": {
+          "particle": {
+            "source": "create-design-n-decor",
+            "id": "dndecor:block/large_chains/brass"
+          }
+        }
+      }
+    },
+    {
+      "id": "dnd-chain-copper",
+      "label": "DnD large copper chain",
+      "kind": "extrusion",
+      "enabled": true,
+      "output": "dndecor:block/large_copper_chain",
+      "texture": {
+        "source": "create-design-n-decor",
+        "id": "dndecor:block/large_chains/copper"
+      },
+      "depth": 1,
+      "threshold": 128,
+      "parts": [
+        {
+          "axis": "x",
+          "center": 8,
+          "uv": [
+            8,
+            0,
+            16,
+            16
+          ],
+          "span": [
+            4,
+            0,
+            12,
+            16
+          ]
+        },
+        {
+          "axis": "z",
+          "center": 8,
+          "uv": [
+            0,
+            0,
+            8,
+            16
+          ],
+          "span": [
+            4,
+            0,
+            12,
+            16
+          ]
+        }
+      ],
+      "base": {
+        "model": {
+          "source": "create-design-n-decor",
+          "id": "dndecor:block/large_chain"
+        },
+        "elements": [],
+        "textures": {
+          "particle": {
+            "source": "create-design-n-decor",
+            "id": "dndecor:block/large_chains/copper"
+          }
+        }
+      }
+    },
+    {
+      "id": "dnd-chain-gold",
+      "label": "DnD large gold chain",
+      "kind": "extrusion",
+      "enabled": true,
+      "output": "dndecor:block/large_gold_chain",
+      "texture": {
+        "source": "create-design-n-decor",
+        "id": "dndecor:block/large_chains/gold"
+      },
+      "depth": 1,
+      "threshold": 128,
+      "parts": [
+        {
+          "axis": "x",
+          "center": 8,
+          "uv": [
+            8,
+            0,
+            16,
+            16
+          ],
+          "span": [
+            4,
+            0,
+            12,
+            16
+          ]
+        },
+        {
+          "axis": "z",
+          "center": 8,
+          "uv": [
+            0,
+            0,
+            8,
+            16
+          ],
+          "span": [
+            4,
+            0,
+            12,
+            16
+          ]
+        }
+      ],
+      "base": {
+        "model": {
+          "source": "create-design-n-decor",
+          "id": "dndecor:block/large_chain"
+        },
+        "elements": [],
+        "textures": {
+          "particle": {
+            "source": "create-design-n-decor",
+            "id": "dndecor:block/large_chains/gold"
+          }
+        }
+      }
+    },
+    {
+      "id": "dnd-chain-industrial",
+      "label": "DnD large industrial chain",
+      "kind": "extrusion",
+      "enabled": true,
+      "output": "dndecor:block/large_industrial_chain",
+      "texture": {
+        "source": "create-design-n-decor",
+        "id": "dndecor:block/large_chains/industrial"
+      },
+      "depth": 1,
+      "threshold": 128,
+      "parts": [
+        {
+          "axis": "x",
+          "center": 8,
+          "uv": [
+            8,
+            0,
+            16,
+            16
+          ],
+          "span": [
+            4,
+            0,
+            12,
+            16
+          ]
+        },
+        {
+          "axis": "z",
+          "center": 8,
+          "uv": [
+            0,
+            0,
+            8,
+            16
+          ],
+          "span": [
+            4,
+            0,
+            12,
+            16
+          ]
+        }
+      ],
+      "base": {
+        "model": {
+          "source": "create-design-n-decor",
+          "id": "dndecor:block/large_chain"
+        },
+        "elements": [],
+        "textures": {
+          "particle": {
+            "source": "create-design-n-decor",
+            "id": "dndecor:block/large_chains/industrial"
+          }
+        }
+      }
+    },
+    {
+      "id": "dnd-chain-iron",
+      "label": "DnD large iron chain",
+      "kind": "extrusion",
+      "enabled": true,
+      "output": "dndecor:block/large_iron_chain",
+      "texture": {
+        "source": "create-design-n-decor",
+        "id": "dndecor:block/large_chains/iron"
+      },
+      "depth": 1,
+      "threshold": 128,
+      "parts": [
+        {
+          "axis": "x",
+          "center": 8,
+          "uv": [
+            8,
+            0,
+            16,
+            16
+          ],
+          "span": [
+            4,
+            0,
+            12,
+            16
+          ]
+        },
+        {
+          "axis": "z",
+          "center": 8,
+          "uv": [
+            0,
+            0,
+            8,
+            16
+          ],
+          "span": [
+            4,
+            0,
+            12,
+            16
+          ]
+        }
+      ],
+      "base": {
+        "model": {
+          "source": "create-design-n-decor",
+          "id": "dndecor:block/large_chain"
+        },
+        "elements": [],
+        "textures": {
+          "particle": {
+            "source": "create-design-n-decor",
+            "id": "dndecor:block/large_chains/iron"
+          }
+        }
+      }
+    },
+    {
+      "id": "dnd-chain-netherite",
+      "label": "DnD large netherite chain",
+      "kind": "extrusion",
+      "enabled": true,
+      "output": "dndecor:block/large_netherite_chain",
+      "texture": {
+        "source": "create-design-n-decor",
+        "id": "dndecor:block/large_chains/netherite"
+      },
+      "depth": 1,
+      "threshold": 128,
+      "parts": [
+        {
+          "axis": "x",
+          "center": 8,
+          "uv": [
+            8,
+            0,
+            16,
+            16
+          ],
+          "span": [
+            4,
+            0,
+            12,
+            16
+          ]
+        },
+        {
+          "axis": "z",
+          "center": 8,
+          "uv": [
+            0,
+            0,
+            8,
+            16
+          ],
+          "span": [
+            4,
+            0,
+            12,
+            16
+          ]
+        }
+      ],
+      "base": {
+        "model": {
+          "source": "create-design-n-decor",
+          "id": "dndecor:block/large_chain"
+        },
+        "elements": [],
+        "textures": {
+          "particle": {
+            "source": "create-design-n-decor",
+            "id": "dndecor:block/large_chains/netherite"
+          }
+        }
+      }
+    },
+    {
+      "id": "dnd-chain-zinc",
+      "label": "DnD large zinc chain",
+      "kind": "extrusion",
+      "enabled": true,
+      "output": "dndecor:block/large_zinc_chain",
+      "texture": {
+        "source": "create-design-n-decor",
+        "id": "dndecor:block/large_chains/zinc"
+      },
+      "depth": 1,
+      "threshold": 128,
+      "parts": [
+        {
+          "axis": "x",
+          "center": 8,
+          "uv": [
+            8,
+            0,
+            16,
+            16
+          ],
+          "span": [
+            4,
+            0,
+            12,
+            16
+          ]
+        },
+        {
+          "axis": "z",
+          "center": 8,
+          "uv": [
+            0,
+            0,
+            8,
+            16
+          ],
+          "span": [
+            4,
+            0,
+            12,
+            16
+          ]
+        }
+      ],
+      "base": {
+        "model": {
+          "source": "create-design-n-decor",
+          "id": "dndecor:block/large_chain"
+        },
+        "elements": [],
+        "textures": {
+          "particle": {
+            "source": "create-design-n-decor",
+            "id": "dndecor:block/large_chains/zinc"
+          }
+        }
+      }
+    },
+    {
+      "id": "luminous-chain-lantern",
+      "label": "Luminous lantern handle",
+      "kind": "extrusion",
+      "enabled": true,
+      "output": "create_skyweave:block/chains/lantern",
+      "texture": {
+        "source": "luminous-lanterns",
+        "id": "minecraft:block/lantern"
+      },
+      "depth": 0.5,
+      "threshold": 128,
+      "parts": [
+        {
+          "axis": "z",
+          "center": 8,
+          "uv": [
+            7,
+            6,
+            8.5,
+            7
+          ],
+          "span": [
+            6.5,
+            10,
+            9.5,
+            12
+          ],
+          "rotation": {
+            "axis": "y",
+            "angle": 45,
+            "origin": [
+              8,
+              11.5,
+              8
+            ]
+          }
+        },
+        {
+          "axis": "z",
+          "center": 8,
+          "uv": [
+            7,
+            6,
+            8.5,
+            7
+          ],
+          "span": [
+            6.5,
+            10,
+            9.5,
+            12
+          ],
+          "flip_u": true,
+          "rotation": {
+            "axis": "y",
+            "angle": -45,
+            "origin": [
+              8,
+              11.5,
+              8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "luminous-chain-lantern-hanging",
+      "label": "Luminous lantern hanging chain",
+      "kind": "extrusion",
+      "enabled": true,
+      "output": "create_skyweave:block/chains/lantern_hanging",
+      "texture": {
+        "source": "luminous-lanterns",
+        "id": "minecraft:block/lantern"
+      },
+      "depth": 0.5,
+      "threshold": 128,
+      "parts": [
+        {
+          "axis": "z",
+          "center": 8,
+          "uv": [
+            9.25,
+            6,
+            10,
+            7.25
+          ],
+          "span": [
+            6.5,
+            11,
+            9.5,
+            16
+          ],
+          "rotation": {
+            "axis": "y",
+            "angle": 45,
+            "origin": [
+              8,
+              12.5,
+              8
+            ]
+          }
+        },
+        {
+          "axis": "z",
+          "center": 8,
+          "uv": [
+            8.5,
+            6,
+            9.25,
+            7.25
+          ],
+          "span": [
+            6.5,
+            11,
+            9.5,
+            16
+          ],
+          "flip_u": true,
+          "rotation": {
+            "axis": "y",
+            "angle": -45,
+            "origin": [
+              8,
+              12.5,
+              8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "luminous-chain-soul-lantern",
+      "label": "Luminous soul lantern handle",
+      "kind": "extrusion",
+      "enabled": true,
+      "output": "create_skyweave:block/chains/soul_lantern",
+      "texture": {
+        "source": "luminous-lanterns",
+        "id": "minecraft:block/soul_lantern"
+      },
+      "depth": 0.5,
+      "threshold": 128,
+      "parts": [
+        {
+          "axis": "z",
+          "center": 8,
+          "uv": [
+            7,
+            6,
+            8.5,
+            7
+          ],
+          "span": [
+            6.5,
+            10,
+            9.5,
+            12
+          ],
+          "rotation": {
+            "axis": "y",
+            "angle": 45,
+            "origin": [
+              8,
+              11.5,
+              8
+            ]
+          }
+        },
+        {
+          "axis": "z",
+          "center": 8,
+          "uv": [
+            7,
+            6,
+            8.5,
+            7
+          ],
+          "span": [
+            6.5,
+            10,
+            9.5,
+            12
+          ],
+          "flip_u": true,
+          "rotation": {
+            "axis": "y",
+            "angle": -45,
+            "origin": [
+              8,
+              11.5,
+              8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "luminous-chain-soul-lantern-hanging",
+      "label": "Luminous soul lantern hanging chain",
+      "kind": "extrusion",
+      "enabled": true,
+      "output": "create_skyweave:block/chains/soul_lantern_hanging",
+      "texture": {
+        "source": "luminous-lanterns",
+        "id": "minecraft:block/soul_lantern"
+      },
+      "depth": 0.5,
+      "threshold": 128,
+      "parts": [
+        {
+          "axis": "z",
+          "center": 8,
+          "uv": [
+            9.25,
+            6,
+            10,
+            7.25
+          ],
+          "span": [
+            6.5,
+            11,
+            9.5,
+            16
+          ],
+          "rotation": {
+            "axis": "y",
+            "angle": 45,
+            "origin": [
+              8,
+              12.5,
+              8
+            ]
+          }
+        },
+        {
+          "axis": "z",
+          "center": 8,
+          "uv": [
+            8.5,
+            6,
+            9.25,
+            7.25
+          ],
+          "span": [
+            6.5,
+            11,
+            9.5,
+            16
+          ],
+          "flip_u": true,
+          "rotation": {
+            "axis": "y",
+            "angle": -45,
+            "origin": [
+              8,
+              12.5,
+              8
+            ]
+          }
+        }
+      ]
     }
   ]
 }

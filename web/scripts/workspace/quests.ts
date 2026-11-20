@@ -81,6 +81,7 @@ export function questDefinitions(
       'generate-quests.py',
       'quests.py',
       'audit-changes.py',
+      'village_outputs.py',
     ]) {
       const file = path.join(context.registration.pack, 'scripts', script)
       if ((await fs.realpath(file)) !== file)

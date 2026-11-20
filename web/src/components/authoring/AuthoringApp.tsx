@@ -588,10 +588,10 @@ export default function AuthoringApp() {
                         {audit.records.length} files;{' '}
                         {
                           audit.records.filter(
-                            (r: any) => r.status !== 'matched',
+                            (r: any) => r.status === 'missing',
                           ).length
                         }{' '}
-                        changed or missing. Unregistered:{' '}
+                        missing. Without rationale:{' '}
                         {audit.unregistered?.length || 0}.
                       </p>
                       <div className="table-scroll">
@@ -601,6 +601,7 @@ export default function AuthoringApp() {
                               <th>File</th>
                               <th>Status</th>
                               <th>Review</th>
+                              <th>Installation policy</th>
                               <th>Reason</th>
                             </tr>
                           </thead>
@@ -615,6 +616,7 @@ export default function AuthoringApp() {
                                   <td>{r.path}</td>
                                   <td>{r.status}</td>
                                   <td>{r.review}</td>
+                                  <td>{r.policy ?? '—'}</td>
                                   <td>
                                     {r.reason} {r.reference}
                                   </td>
@@ -627,9 +629,35 @@ export default function AuthoringApp() {
                         <p>{documents[`changes/${category}.json`]?.note}</p>
                       )}
                       {audit.unregistered?.length > 0 && (
-                        <Disclosure summary={<>Unregistered files</>}>
+                        <Disclosure summary={<>Files without rationale</>}>
                           <ul>
                             {audit.unregistered.map((p: string) => (
+                              <li key={p}>{p}</li>
+                            ))}
+                          </ul>
+                        </Disclosure>
+                      )}
+                      <p>
+                        Policies come from empack bindings. This checks
+                        rationale coverage and file presence; use Git to review
+                        edits.
+                      </p>
+                      {audit.generated?.length > 0 && (
+                        <Disclosure
+                          summary={
+                            <>
+                              {audit.generated.length} generated village files
+                            </>
+                          }
+                        >
+                          <p>
+                            Review authoring/villages.json and run{' '}
+                            generate-villages.py --check to check generated
+                            bytes. This audit does not run the generator or
+                            establish native behavior.
+                          </p>
+                          <ul>
+                            {audit.generated.map((p: string) => (
                               <li key={p}>{p}</li>
                             ))}
                           </ul>
@@ -638,8 +666,8 @@ export default function AuthoringApp() {
                     </>
                   ) : (
                     <p>
-                      Check files to compare the configuration register with the
-                      pack.
+                      Check files to inspect rationale coverage, file presence
+                      and installation policies.
                     </p>
                   )}
                 </section>

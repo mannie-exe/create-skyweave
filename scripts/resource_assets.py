@@ -41,6 +41,27 @@ def effective_resources(source, target=34, fusion=False):
         for name in source.namelist():
             if name.startswith(prefix + 'assets/') and not name.endswith('/'):
                 files[name[len(prefix):]] = source.read(name)
+    # Our generated manifest describes only the shipped defaults. Resolve those
+    # exact pack-local bindings for authoring; never interpret arbitrary MuScript
+    # or read a personal client's live option files here.
+    if 'visual-options.json' in source.namelist():
+        manifest = json.loads(source.read('visual-options.json'))
+        if manifest.get('id') == 'skyweaveVisuals':
+            if manifest.get('schema') != 1 or not isinstance(manifest.get('defaultResources'), dict):
+                raise ValueError('Unsupported visual option projection')
+            bindings = manifest['defaultResources']
+            if len(bindings) > 4096:
+                raise ValueError('Visual option projection exceeds its limit')
+            original = dict(files)
+            for path, target in bindings.items():
+                if not isinstance(path, str) or not path.startswith('assets/') or path not in original:
+                    raise ValueError('Invalid visual option root')
+                if target is None:
+                    files.pop(path, None)
+                elif isinstance(target, str) and target.startswith('assets/') and target in original:
+                    files[path] = original[target]
+                else:
+                    raise ValueError('Missing pack-local visual option fallback')
     return metadata, files
 
 

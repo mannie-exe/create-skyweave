@@ -1,0 +1,439 @@
+{
+  "schema": 1,
+  "decision": "preserve-native-values",
+  "exclusions": [
+    {
+      "types": ["net.minecraft.world.item.SpawnEggItem"]
+    },
+    {
+      "ids": [
+        "minecraft:air",
+        "minecraft:barrier",
+        "minecraft:command_block",
+        "minecraft:chain_command_block",
+        "minecraft:repeating_command_block",
+        "minecraft:structure_block",
+        "minecraft:structure_void",
+        "minecraft:jigsaw",
+        "minecraft:debug_stick",
+        "minecraft:light"
+      ]
+    },
+    {
+      "types": [
+        "net.minecraft.world.item.DyeItem",
+        "net.minecraft.world.item.BannerPatternItem",
+        "com.simibubi.create.foundation.item.TagDependentIngredientItem"
+      ]
+    },
+    {
+      "blockTypes": [
+        "net.minecraft.world.level.block.SignBlock",
+        "net.minecraft.world.level.block.BannerBlock",
+        "net.minecraft.world.level.block.SkullBlock",
+        "net.minecraft.world.level.block.SpawnerBlock",
+        "net.minecraft.world.level.block.TrialSpawnerBlock",
+        "net.minecraft.world.level.block.EndPortalBlock",
+        "net.minecraft.world.level.block.EndGatewayBlock"
+      ]
+    }
+  ],
+  "families": [
+    {
+      "id": "tools",
+      "title": "Tools",
+      "role": "Harvesting, building and item-specific work",
+      "selectors": [
+        {
+          "types": [
+            "net.minecraft.world.item.DiggerItem",
+            "net.minecraft.world.item.ShearsItem",
+            "net.minecraft.world.item.BrushItem",
+            "net.minecraft.world.item.FlintAndSteelItem"
+          ]
+        },
+        {
+          "tagPrefixes": ["c:tools", "minecraft:enchantable/mining"]
+        },
+        {
+          "typePrefixes": [
+            "com.simibubi.create.content.equipment.wrench.",
+            "dev.propulsionteam.propulsionsimulated.assemblerstick."
+          ]
+        },
+        {
+          "types": [
+            "com.mcwdoors.kikoz.util.Hammer",
+            "com.mcwwindows.kikoz.util.Hammer",
+            "com.mcwwindows.kikoz.util.Key",
+            "com.supermartijn642.rechiseled.ChiselItem",
+            "com.simibubi.create.content.equipment.sandPaper.SandPaperItem",
+            "neoforge.nl.requios.effortlessbuilding.item.RandomizerToolItem"
+          ]
+        },
+        {
+          "typePrefixes": [
+            "com.simibubi.create.content.equipment.symmetryWand.",
+            "com.simibubi.create.content.equipment.zapper.",
+            "rbasamoyai.createbigcannons.equipment.manual_loading.",
+            "rbasamoyai.createbigcannons.crafting.",
+            "org.patryk3211.powergrid.equipment.multimeter."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "weapons",
+      "title": "Weapons and defense",
+      "role": "Native melee, projectile and defensive equipment",
+      "selectors": [
+        {
+          "types": [
+            "net.minecraft.world.item.SwordItem",
+            "net.minecraft.world.item.ProjectileWeaponItem",
+            "net.minecraft.world.item.TridentItem",
+            "net.minecraft.world.item.MaceItem",
+            "net.minecraft.world.item.ShieldItem"
+          ]
+        },
+        {
+          "tagPrefixes": ["minecraft:enchantable/weapon", "minecraft:arrows"]
+        },
+        {
+          "ids": [
+            "minecraft:snowball",
+            "minecraft:fire_charge",
+            "minecraft:tnt",
+            "create:potato_cannon",
+            "create:extendo_grip"
+          ]
+        },
+        {
+          "typePrefixes": [
+            "rbasamoyai.createbigcannons.munitions.",
+            "dev.simulated_team.simulated.content.items.plunger_launcher.",
+            "net.sprocketgames.create_aeronautics_throwable_rope_connector.item.RopeConnectorLauncherItem"
+          ]
+        },
+        {
+          "types": [
+            "net.minecraft.world.item.WindChargeItem",
+            "fuzs.illagerinvasion.world.item.HatchetItem"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "armor",
+      "title": "Armor",
+      "role": "Player and mount protection",
+      "selectors": [
+        {
+          "types": [
+            "net.minecraft.world.item.ArmorItem",
+            "net.minecraft.world.item.AnimalArmorItem"
+          ]
+        },
+        {
+          "tagPrefixes": ["minecraft:enchantable/armor"]
+        }
+      ]
+    },
+    {
+      "id": "accessories",
+      "title": "Accessories",
+      "role": "Native wearable slot effects and equipment layers",
+      "selectors": [
+        {
+          "tagPrefixes": ["accessories:", "curios:", "trinkets:"]
+        },
+        {
+          "namespaces": ["artifacts"]
+        }
+      ]
+    },
+    {
+      "id": "mobility",
+      "title": "Travel and mobility",
+      "role": "Flight, riding, water/rail travel and navigation",
+      "selectors": [
+        {
+          "types": [
+            "net.minecraft.world.item.ElytraItem",
+            "net.minecraft.world.item.BoatItem",
+            "net.minecraft.world.item.MinecartItem",
+            "net.minecraft.world.item.SaddleItem",
+            "net.minecraft.world.item.FoodOnAStickItem",
+            "net.minecraft.world.item.CompassItem"
+          ]
+        },
+        {
+          "namespaces": ["reliable_gliders"]
+        },
+        {
+          "ids": [
+            "minecraft:ender_pearl",
+            "minecraft:ender_eye",
+            "minecraft:firework_rocket",
+            "create:linked_controller",
+            "create:track",
+            "create:track_station",
+            "create:track_signal",
+            "create:track_observer"
+          ]
+        },
+        {
+          "typePrefixes": [
+            "dev.ryanhcode.offroad.content.items.",
+            "com.simibubi.create.content.contraptions.mounted.",
+            "com.simibubi.create.content.contraptions.minecart.MinecartCouplingItem"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "storage",
+      "title": "Carried and placed storage",
+      "role": "Storage, upgrades and custody; world-only containers remain distinct",
+      "selectors": [
+        {
+          "namespaces": ["travelersbackpack", "create_vibrant_vaults", "lootr"]
+        },
+        {
+          "blockTypes": [
+            "net.minecraft.world.level.block.ChestBlock",
+            "net.minecraft.world.level.block.BarrelBlock",
+            "net.minecraft.world.level.block.ShulkerBoxBlock",
+            "net.minecraft.world.level.block.EnderChestBlock"
+          ]
+        },
+        {
+          "tagPrefixes": ["c:chests", "c:barrels"]
+        },
+        {
+          "ids": [
+            "minecraft:bundle",
+            "create:item_vault",
+            "create:package_frogport",
+            "create:packager",
+            "create:repackager"
+          ]
+        },
+        {
+          "typePrefixes": [
+            "com.simibubi.create.content.logistics.box.PackageItem",
+            "com.palm1.analogaudio.item.CassetteBagItem"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "utilities",
+      "title": "Portable utilities",
+      "role": "Fluid handling, observation, recovery and reusable consumables",
+      "selectors": [
+        {
+          "types": [
+            "net.minecraft.world.item.BucketItem",
+            "net.minecraft.world.item.FishingRodItem",
+            "net.minecraft.world.item.SpyglassItem",
+            "net.minecraft.world.item.LeadItem",
+            "net.minecraft.world.item.ClockItem",
+            "net.minecraft.world.item.PotionItem"
+          ]
+        },
+        {
+          "namespaces": ["exposure"]
+        },
+        {
+          "ids": [
+            "minecraft:totem_of_undying",
+            "minecraft:name_tag",
+            "minecraft:experience_bottle",
+            "minecraft:book",
+            "minecraft:enchanted_book",
+            "minecraft:writable_book",
+            "minecraft:written_book",
+            "minecraft:torch",
+            "minecraft:soul_torch",
+            "minecraft:lantern",
+            "minecraft:soul_lantern",
+            "create:filter",
+            "create:attribute_filter",
+            "create:super_glue",
+            "create:clipboard",
+            "create:schematic",
+            "create:schematic_and_quill",
+            "create:crafting_blueprint",
+            "illagerinvasion:magical_fire_charge",
+            "illagerinvasion:illusionary_dust",
+            "illagerinvasion:lost_candle",
+            "illagerinvasion:horn_of_sight"
+          ]
+        },
+        {
+          "types": [
+            "net.minecraft.world.item.MilkBucketItem",
+            "net.minecraft.world.item.MapItem",
+            "net.minecraft.world.item.EmptyMapItem",
+            "net.minecraft.world.item.BottleItem",
+            "net.minecraft.world.item.BoneMealItem",
+            "net.minecraft.world.item.InstrumentItem"
+          ]
+        },
+        {
+          "namespaces": ["yigd", "hostile_skies", "analogaudio"]
+        },
+        {
+          "typePrefixes": [
+            "dev.simulated_team.simulated.content.entities.diagram.",
+            "dev.simulated_team.simulated.content.entities.honey_glue.",
+            "com.simibubi.create.content.equipment.TreeFertilizerItem",
+            "com.simibubi.create.content.trains.schedule.",
+            "com.simibubi.create.content.logistics.tableCloth."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stations",
+      "title": "Workstations",
+      "role": "Processing, repair, enchanting and other placed work",
+      "selectors": [
+        {
+          "blockTypes": [
+            "net.minecraft.world.level.block.AbstractFurnaceBlock",
+            "net.minecraft.world.level.block.AnvilBlock",
+            "net.minecraft.world.level.block.EnchantmentTableBlock",
+            "net.minecraft.world.level.block.BrewingStandBlock",
+            "net.minecraft.world.level.block.BedBlock"
+          ]
+        },
+        {
+          "ids": [
+            "minecraft:crafting_table",
+            "minecraft:stonecutter",
+            "minecraft:smithing_table",
+            "minecraft:grindstone",
+            "minecraft:loom",
+            "minecraft:cartography_table",
+            "minecraft:fletching_table",
+            "minecraft:cauldron",
+            "minecraft:composter",
+            "minecraft:beacon",
+            "minecraft:respawn_anchor",
+            "minecraft:conduit",
+            "minecraft:jukebox",
+            "minecraft:lectern",
+            "illagerinvasion:imbuing_table"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "controls",
+      "title": "Signals and controls",
+      "role": "Native circuits, sensors and control interfaces",
+      "selectors": [
+        {
+          "ids": [
+            "minecraft:redstone",
+            "minecraft:redstone_torch",
+            "minecraft:repeater",
+            "minecraft:comparator",
+            "minecraft:lever",
+            "minecraft:observer",
+            "minecraft:dispenser",
+            "minecraft:dropper",
+            "minecraft:hopper",
+            "minecraft:piston",
+            "minecraft:sticky_piston",
+            "minecraft:target",
+            "minecraft:daylight_detector",
+            "minecraft:lightning_rod",
+            "minecraft:sculk_sensor",
+            "minecraft:calibrated_sculk_sensor",
+            "minecraft:tripwire_hook",
+            "minecraft:note_block"
+          ]
+        },
+        {
+          "tagPrefixes": ["minecraft:buttons", "minecraft:pressure_plates"]
+        },
+        {
+          "namespaces": [
+            "redstone_additions",
+            "create_redstone_additions",
+            "redstone_link_gui",
+            "createredstonelinkgui"
+          ]
+        },
+        {
+          "typePrefixes": [
+            "com.mred231.aeroworks.content.controls.module.",
+            "com.hlysine.create_connected.content.redstonelinkwildcard.",
+            "com.hlysine.create_connected.content.linkedtransmitter.",
+            "org.patryk3211.powergrid.circuits.",
+            "org.patryk3211.powergrid.kinetics.punchcard.",
+            "org.patryk3211.powergrid.electricity.modulardisplay.",
+            "com.happysg.radar.item."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "machines",
+      "title": "Machinery and airship equipment",
+      "role": "Production, power, logistics and construct operation; operation on ships requires separate qualification",
+      "selectors": [
+        {
+          "blockEntity": true,
+          "namespaces": [
+            "create",
+            "create_connected",
+            "create_factory",
+            "createbigcannons",
+            "powergrid",
+            "aeronautics",
+            "createpropulsion",
+            "aeroworks",
+            "simulated",
+            "linearbearing",
+            "transmission_linkage",
+            "create_radar",
+            "createaddition",
+            "aeronautics_utility_objects",
+            "escalated",
+            "aerocables"
+          ]
+        },
+        {
+          "typePrefixes": [
+            "org.patryk3211.powergrid.electricity.wire.",
+            "org.patryk3211.powergrid.electricity.light.",
+            "org.patryk3211.powergrid.equipment.BoostingChipItem",
+            "com.enxv.aerouniversaljoint.content.",
+            "dev.simulated_team.simulated.content.items.spring.",
+            "dev.simulated_team.simulated.content.items.rope.",
+            "com.hlysine.create_connected.content.kineticbattery."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "parts",
+      "title": "Equipment parts and upgrades",
+      "role": "Intermediate assemblies and equipment-changing components, not finished usable tools",
+      "selectors": [
+        {
+          "types": [
+            "net.minecraft.world.item.SmithingTemplateItem",
+            "com.simibubi.create.content.processing.sequenced.SequencedAssemblyItem",
+            "org.patryk3211.powergrid.kinetics.generator.winding.WindingItem",
+            "org.patryk3211.powergrid.circuits.circuitboard.IncompleteCircuitItem"
+          ]
+        }
+      ]
+    }
+  ]
+}

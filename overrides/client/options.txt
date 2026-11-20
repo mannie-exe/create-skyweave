@@ -48,7 +48,7 @@ mouseSensitivity:0.5
 damageTiltStrength:1.0
 highContrast:false
 narratorHotkey:true
-resourcePacks:["vanilla","fabric","mod_resources","mod/analogaudio:resourcepacks/3d_cassettes","file/Redstone Tweaks 2.4.5.zip","file/§3Fresh §bFlower Pots.zip","file/crops-3d(2).zip","file/3D Sugar Cane.zip","file/simple-3d-iron-bars.zip","file/Create Touch-Ups v1.0.zip","file/Midnighttigger's Default Connected Textures.zip","file/RAYs_3D_Ladders_v2.4.zip","file/RAYs_3D_Rails_v3.7.zip","file/Low Shield.zip","file/Soft-Weather-1.0-Universal.zip","file/cubic-sun-moon-v1.8.5.zip","file/LowOnFire v26.2§8.zip","file/FA+Objects-v2.1.2.zip","file/Refined Tools 3.0.zip","file/refined torches 2.1.zip","file/Refined Buckets 3.0.zip","file/Refined Сreate Buckets PV.zip","file/Luminous Lanterns.zip","file/Fluid & Foolish 1.0.1.zip","file/Punched Backpacks.zip","file/skyweave-visual-patches-0.1.0.zip"]
+resourcePacks:["vanilla","fabric","mod_resources","mod/analogaudio:resourcepacks/3d_cassettes","file/Redstone Tweaks 2.4.5.zip","file/§3Fresh §bFlower Pots.zip","file/FreshVines_v1.1.zip","file/crops-3d(2).zip","file/3D Sugar Cane.zip","file/simple-3d-iron-bars.zip","file/Create Touch-Ups v1.0.zip","file/Midnighttigger's Default Connected Textures.zip","file/RAYs_3D_Ladders_v2.4.zip","file/RAYs_3D_Rails_v3.7.zip","file/Low Shield.zip","file/Soft-Weather-1.0-Universal.zip","file/cubic-sun-moon-v1.8.5.zip","file/LowOnFire v26.2§8.zip","file/FreshAnimations_v1.11.2_1.20+.zip","file/FA+Details-v2.4.zip","file/FA+Objects-v2.1.2.zip","file/FA+Quivers-v2.3.zip","file/§9Bray's Zombie Overhaul FA v1.4.zip","file/Refined Tools 3.0.zip","file/refined torches 2.1.zip","file/Refined Buckets 3.0.zip","file/Refined Сreate Buckets PV.zip","file/Just 3D Potions 1.21 Backport.zip","file/Luminous Lanterns.zip","file/Fluid & Foolish 1.0.1.zip","file/Punched Backpacks.zip","file/Artifacts 3D.zip","file/skyweave-visual-patches-0.1.0.zip"]
 incompatibleResourcePacks:["file/crops-3d(2).zip"]
 lang:en_us
 chatVisibility:0
@@ -238,3 +238,12 @@ key_key.punchy_moves.camera_toggle_v:key.keyboard.f6
 key_key.punchy_moves.camera_editor:key.keyboard.f7
 key_key.punchy_moves.free_camera:key.keyboard.unknown
 key_key.punchy_moves.emote_menu:key.keyboard.j
+key_key.zoomin:key.keyboard.unknown
+key_key.centerzoom:key.keyboard.unknown
+key_key.zoomout:key.keyboard.unknown
+key_key.rollleft:key.keyboard.unknown
+key_key.rollcenter:key.keyboard.unknown
+key_key.rollright:key.keyboard.unknown
+key_key.point:key.keyboard.unknown
+key_key.startStop:key.keyboard.unknown
+key_key.clearPoint:key.keyboard.unknown
