@@ -475,3 +475,10 @@ targetTrackingLeadTicks = 3
 	# Default: 16
 	# Range: 0 ~ 512
 	sonarAirRangePenalty = 16
+
+#.
+#Sable cannon aim selection
+[sableCannonTargetingConfig]
+	#.
+	#When enabled, cannon targeting avoids blocks that are unbreakable.
+	damageableBlocksOnly = true

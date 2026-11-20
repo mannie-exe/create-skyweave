@@ -108,6 +108,8 @@ The 5.1.1 native warning receiver has the correct copper-plate tag and supplies 
 
 The 5.1 line changes saved network-link ordering and removes the legacy `create_radar:t_pitch` block. This alpha upgrade uses 5.1.1's native registry and new link behavior. Recreate affected legacy links with the new version and use its replacement controller for new builds. Recheck both recipes, link persistence and affected registry IDs on the next Radars update.
 
+When updating Radars, compare the full runtime-written server configuration with the managed template. Retain native defaults such as `sableCannonTargetingConfig.damageableBlocksOnly = true` in their emitted form so the writer does not create a managed-file conflict at the next preparation. [Native config qualification](verification.md#native-radars-configuration-0221).
+
 ## Recipe-viewer shutdown observation, 2026-10-25
 
 Closing the isolated client while an EMI recipe screen was open logged a caught `NullPointerException` in `JemiPlugin.lambda$register$3`: JEI had already announced its runtime unavailable, while the remaining tooltip render queried that runtime. Recipe viewing worked before shutdown. Normal window close then stalled in `Minecraft.disconnect`; the integrated server remained in its tick wait, so the disposable test process was terminated. A causal link between that stall and the tooltip error has not been established. This is a shutdown-order observation with JEI 19.70.0.460, EMI 1.1.24 and Reliable EMI 4.8.0, not an established regression or gameplay failure. No upstream issue was filed.

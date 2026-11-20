@@ -1,5 +1,9 @@
 # Pack verification
 
+## Native Radars configuration 0.22.1
+
+The existing DEV config differed from the managed template only by Radars 5.1.1's `sableCannonTargetingConfig.damageableBlocksOnly = true`. Inspection of the selected JAR confirms that true is the native default. The authored template now matches the runtime-produced bytes; every pre-existing parsed field and type remains equal. This repairs file ownership convergence without changing another configured rule. The patch retains the 0.22.0 runtime and village qualifications below.
+
 ## Settlements and shared settings 0.22.0
 
 The pack and shader lab select public Compat 0.41.0, SHA-256 `6d6e08a8f32ecf13c3d3ad629ad2079dc73d4c237e412341f851a1e90fb0ddbd`, with re:form 0.1.0, SHA-256 `445a6ca31cf37801be756afbe4abc103083fddcaab7b6f2a9edb1b34210c62db`. Both are required on client and server. Public downloads pass both checksum manifests; Compat's Linux, Windows and macOS release builds agree. Seven actual published-product native assemblies satisfy their required content and reopen with matching starts without loading chunks during inspection. [Compat qualification](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/verification.md#authored-village-contracts) separates those controls from earlier physical island witnesses.
