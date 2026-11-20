@@ -1,4 +1,0 @@
-# Create: Skyweave default maximum heap: 12 GiB (12288 MiB).
-# This is an installation-local seed; retain operator edits on updates.
-# Initial heap and collector remain Java 21 defaults (G1 on the server).
--Xmx12G

@@ -14,9 +14,9 @@ Use [graphics settings](graphics.md) to enable shaders or configure distant terr
 
 ## Memory requirements
 
-At least 12 GiB of system memory is required. New Prism and server exports cap the Java heap at 12 GiB (12288 MiB); this is a maximum, not an initial allocation or the entire process footprint. Leave additional host memory for the operating system, native rendering, distant-terrain buffers and other applications. Running a client and server together requires headroom beyond both heaps. A 12 GiB host cannot safely dedicate all memory to a single 12 GiB heap.
+At least 12 GiB of system memory is required. New Prism exports set a 12 GiB (12288 MiB) maximum heap. Leave additional host memory for the operating system, native rendering, distant-terrain buffers and other applications. Running a client and server together requires headroom beyond both heaps.
 
-Prism retains a 512 MiB initial heap and Java 21 generational ZGC. The server retains Java 21 initial-heap ergonomics and default G1. Modrinth imports do not carry a portable launcher memory setting: select the 12 GiB cap in your launcher. These are documented requirements; the pack does not enforce physical-memory admission. Existing launcher and server JVM preferences remain installation-local. A larger cap does not prove that memory caused or cured stutter.
+Prism uses a 512 MiB initial heap and Java 21 generational ZGC. For Modrinth imports, select the 12 GiB cap in your launcher. Server archives use NeoForge's initial JVM arguments and Java 21's default G1 collector. Existing launcher and server JVM preferences belong to each installation. See the [server configuration guide](server.md#garbage-collection) for server heap settings.
 
 ## Controls
 

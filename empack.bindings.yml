@@ -371,7 +371,6 @@ policies:
   config/flashback/flashback.json: seed
   config/combatnouveau-client.toml: seed
   server.properties: seed
-  user_jvm_args.txt: seed
   config/DistantHorizons.toml: seed
   config/MouseTweaks.cfg: seed
   config/accessories.json5: seed

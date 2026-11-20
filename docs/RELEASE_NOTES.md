@@ -8,6 +8,6 @@ Update the selected Minecraft 1.21.1 dependencies and pair them with Skyweave: C
 - Use Curios 9.6.0 with a temporary Compat bridge for Accessories. It preserves equipment slot assignments through world loading and datapack reload.
 - Carry forward the Modefite, held-item, resource-option and chain fixes. Add Artifacts with its authored presentation and use Visual Workbench with the selected workstation accessories.
 - Add client-only Flashback and CMDCam recording tools. See the [filming guide](players/filming.md).
-- Use 12 GiB maximum-heap defaults for fresh client and server installs. An existing server's JVM arguments remain operator-owned. Use 12 GiB system memory at minimum and leave headroom beyond the configured heap for the operating system and native memory.
+- Set a 12 GiB maximum heap on new Prism installs. The server archive uses NeoForge's initial JVM arguments, with heap size configurable in the operator-owned `game/user_jvm_args.txt`. Use at least 12 GiB of system memory and leave headroom for the operating system and native memory.
 
 Generation remains `islands_v1-skyarch-1.4-17` with `island_watersheds_v7`. Dynamic Waters remains on 13.1.0.

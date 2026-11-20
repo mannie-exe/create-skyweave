@@ -378,15 +378,6 @@
       "reason": "Equipment-only Artifacts introduction: disable campsite generation with campsiteCount=0 while retaining native rarity1.0, mob-equipment0.0015, archaeology0.0625 and item/slot defaults. Campsite/mimic encounter design is separate; do not introduce native global-Y sites into island terrain implicitly. Native NightConfig output is byte-stable across two isolated dedicated boots.",
       "reference": "docs/development/equipment.md#artifacts",
       "family": "pack-rules"
-    },
-    {
-      "paths": [
-        "templates/server/game/user_jvm_args.txt.template"
-      ],
-      "review": "reviewed",
-      "reason": "Seed a 12 GiB maximum server heap without changing initial-heap ergonomics or Java 21 default G1. Preserve operator JVM choices on updates; this is an authored initial runtime seed, not a managed launcher replacement.",
-      "reference": "docs/players/server.md#garbage-collection",
-      "family": "host-settings"
     }
   ]
 }

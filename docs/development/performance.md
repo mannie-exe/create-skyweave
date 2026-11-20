@@ -74,7 +74,7 @@ The current launch policy retains these settings. Changes take effect on the nex
 | --- | --- | --- |
 | Client heap | 512 MiB initial, 12 GiB maximum in `templates/client/instance.cfg.template` | The owner-selected cap is 12288 MiB. Earlier 8 GiB measurements remain historical workload evidence; the larger cap does not establish a stutter fix. Players control both bounds in Prism; the initial heap remains unchanged. |
 | Client collector | Java 21 generational ZGC in the Prism template | Keep both existing flags. The observed short pauses do not prove a terrain-throughput or FPS improvement; startup resource loading still has allocation stalls. |
-| Dedicated-server heap | 12 GiB maximum from `templates/server/game/user_jvm_args.txt.template`; Java chooses the initial heap | The owner-selected `-Xmx12G` is an installation-local initial seed. Preserve operator edits. Earlier 2/4 GiB fixtures do not qualify populated play; leave headroom for native buffers, a co-resident client and other processes. |
+| Dedicated-server heap | NeoForge's initial `game/user_jvm_args.txt`; Java chooses heap bounds unless the operator sets them | Configure `-Xmx12G` locally on a host with sufficient headroom. Empack preserves operator edits. Earlier 2/4 GiB fixtures cover startup only. |
 | Dedicated-server collector | Java 21 default G1 | No measured basis for a collector replacement or generic tuning bundle. The client's ZGC arguments do not apply here. |
 | CPU, pre-touch and diagnostic flags | No added distribution flags | Fixture worker limits, processor counts, JFR, GC logging and error paths are diagnostic inputs only. |
 

@@ -85,13 +85,24 @@ class ConfigurationAuditTests(unittest.TestCase):
                     audit(self.root)
 
     def test_server_jvm_seed_is_inventoried_and_policy_checked(self):
+        source = 'templates/server/game/user_jvm_args.txt.template'
+        template = self.root / source
+        template.parent.mkdir(parents=True, exist_ok=True)
+        template.write_text('-Xmx12G\n')
         path = self.root / 'authoring/changes/gameplay.json'
         data = json.loads(path.read_text())
-        entry = next(row for row in data['records'] if any(p.endswith('/user_jvm_args.txt.template') for p in row['paths']))
-        self.assertEqual(entry['family'], 'host-settings')
-        self.assertEqual(next(r for r in audit(self.root)['records'] if r['path'].endswith('/user_jvm_args.txt.template'))['policy'], 'seed')
+        data['records'].append({'paths': [source], 'review': 'reviewed',
+                                'reason': 'Fixture with pack-authored initial JVM settings.',
+                                'reference': 'docs/players/server.md#garbage-collection', 'family': 'host-settings'})
+        path.write_text(json.dumps(data))
         binding = self.root / 'empack.bindings.yml'
-        binding.write_text(binding.read_text().replace('  user_jvm_args.txt: seed\n', ''))
+        stock = binding.read_text()
+        binding.write_text(stock.replace('policies:\n', 'policies:\n  user_jvm_args.txt: seed\n'))
+        record = next(r for r in audit(self.root)['records'] if r['path'] == source)
+        self.assertEqual(record['family'], 'host-settings')
+        self.assertEqual(record['policy'], 'seed')
+        self.assertEqual(record['status'], 'present')
+        binding.write_text(stock)
         with self.assertRaisesRegex(ValueError, 'Missing explicit installation policy'):
             audit(self.root)
 

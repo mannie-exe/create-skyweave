@@ -147,12 +147,12 @@ Retain these choices when refreshing the scaffold:
 - Release checkout fetches full history. The pinned git-cliff action/tool generates the latest tagged section and appends it to the authored summary in a temporary file. `EMPACK_RELEASE_NOTES` passes that file through `--notes-file`. This follows empack's own GitHub workflow; git-cliff is not an empack CLI command.
 - All three reference profiles are selected through `build.default`; CI uses that default.
 - Prism overrides memory to 512 MiB minimum and 12288 MiB maximum.
-- The server JVM argument template seeds `-Xmx12G` in `game/user_jvm_args.txt`; retain operator edits when preparing or updating installations.
+- The server export seeds `game/user_jvm_args.txt` from the NeoForge installer. Retain operator edits when preparing or updating installations.
 - Prism defaults to Java 21 Generational ZGC through `OverrideJavaArgs=true` and `JvmArgs=-XX:+UseZGC -XX:+ZGenerational`; retain player overrides in existing installs.
 - Servers enforce the whitelist and create Sky Islands worlds.
 - Checkout credentials are not persisted.
 
-The server heap template requires empack’s explicit initial-JVM-seed composition: `policies.user_jvm_args.txt: seed` must become one required server-only release asset, replacing only the installer’s default argument seed. Empack 0.8.7-beta, like 0.8.6-beta, rejects that authored runtime-path collision. Its dry-run build plan does not detect the later archive collision. The default three-profile CI/release build therefore remains blocked. Before releasing these defaults, use an engine that qualifies the composition contract and update the owning tool/bootstrap pin together. Verify a real NeoForge export and fresh install, plus preservation of operator bytes on repair/update. Keep all other runtime paths reserved; do not patch generated launchers or rewrite ZIPs to bypass an export refusal.
+Empack 0.8.7-beta rejects an authored template at `game/user_jvm_args.txt` because NeoForge supplies the same runtime path. Restore the pack-authored heap seed after qualifying the feature in a published engine and its matching bootstrap. Verify a real NeoForge export with one required server-only seed, a fresh install, and preservation of operator bytes during repair and update.
 
 Windows server launchers support `EMPACK_NO_PAUSE=1` for unattended tests. A successful build verifies packaging; it does not establish gameplay or GPU compatibility.
 
