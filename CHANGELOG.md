@@ -2,6 +2,12 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.22.1 · 2026-11-20
+
+### Fixes
+
+- **config:** Retain the native Radars default ([54f2bb7](https://github.com/mannie-exe/create-skyweave/commit/54f2bb7dbae8830737169cd5ebf4e295b74147ca))
+
 ## v0.22.0 · 2026-11-20
 
 ### Features
