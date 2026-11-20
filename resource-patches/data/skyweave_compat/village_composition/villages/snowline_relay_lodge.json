@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "roles": {
+    "authored_court": {
+      "minimum": 1,
+      "alternatives": [
+        {
+          "template": "skyweave_compat:villages/snowline_relay_lodge/town_centers/court_1",
+          "type": "minecraft:single_pool_element",
+          "processors": "minecraft:empty",
+          "projection": "rigid"
+        }
+      ]
+    },
+    "inhabited_core": {
+      "minimum": 2,
+      "alternatives": [
+        {
+          "template": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_small_house_1",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "minecraft:street_snowy_or_taiga",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_small_house_2",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "minecraft:street_snowy_or_taiga",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_small_house_3",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "minecraft:street_snowy_or_taiga",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_small_house_4",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "minecraft:street_snowy_or_taiga",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_small_house_5",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "minecraft:street_snowy_or_taiga",
+          "projection": "rigid"
+        }
+      ]
+    },
+    "regional_landmark": {
+      "minimum": 1,
+      "alternatives": [
+        {
+          "template": "kaisyn:village/snowy_taiga_viking/town_centers/snowy_taiga_meeting_point_1",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "minecraft:street_snowy_or_taiga",
+          "projection": "rigid"
+        }
+      ]
+    }
+  }
+}

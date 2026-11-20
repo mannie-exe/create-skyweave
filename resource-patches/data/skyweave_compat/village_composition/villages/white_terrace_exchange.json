@@ -1,0 +1,140 @@
+{
+  "schema": 1,
+  "roles": {
+    "authored_court": {
+      "minimum": 1,
+      "alternatives": [
+        {
+          "template": "skyweave_compat:villages/white_terrace_exchange/town_centers/exchange_yard_1",
+          "type": "minecraft:single_pool_element",
+          "processors": "minecraft:empty",
+          "projection": "rigid"
+        }
+      ]
+    },
+    "inhabited_core": {
+      "minimum": 2,
+      "alternatives": [
+        {
+          "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_small_house_1",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/exclusives/street_mediterranean",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_small_house_2",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/exclusives/street_mediterranean",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_small_house_3",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/exclusives/street_mediterranean",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_small_house_4",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/exclusives/street_mediterranean",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_small_house_5",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/exclusives/street_mediterranean",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_medium_house_1",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/exclusives/street_mediterranean",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_large_house_1",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/exclusives/street_mediterranean",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_large_house_2",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/exclusives/street_mediterranean",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_large_house_3",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/exclusives/street_mediterranean",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_medium_house_2",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/exclusives/street_mediterranean",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_armorer_and_weaponsmith_1",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/exclusives/street_mediterranean",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_library_1",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/exclusives/street_mediterranean",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_butcher_1",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/exclusives/street_mediterranean",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_shepherd_1",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/exclusives/street_mediterranean",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_cartographer_1",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/exclusives/street_mediterranean",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_fletcher_and_toolsmith_1",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/exclusives/street_mediterranean",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_leatherworker_1",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/exclusives/street_mediterranean",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_farmer_and_mason_1",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/exclusives/street_mediterranean",
+          "projection": "rigid"
+        }
+      ]
+    },
+    "regional_landmark": {
+      "minimum": 1,
+      "alternatives": [
+        {
+          "template": "kaisyn:village/exclusives/mediterranean/town_centers/med_meeting_point_1",
+          "type": "minecraft:single_pool_element",
+          "processors": "kaisyn:village/exclusives/street_mediterranean",
+          "projection": "rigid"
+        }
+      ]
+    }
+  }
+}

@@ -25,7 +25,7 @@
         "resource-patches/data/minecraft/tags/worldgen/structure/village.json"
       ],
       "review": "reviewed",
-      "reason": "Include Sky Villages in standard village discovery.",
+      "reason": "Standard village discovery includes the managed ground family and optional Sky Villages; authored profiles inherit discovery without another schedule.",
       "reference": "docs/development/worldgen-candidates.md"
     },
     {
@@ -167,7 +167,7 @@
         "authoring/villages.json"
       ],
       "review": "inherited",
-      "reason": "Author unified settlement schedules and bounded donor references here. Generated resources belong to generate-villages.py; native placement and progression require separate qualification.",
+      "reason": "Author unified settlement schedules, bounded donor references and original templates here. Generated resources belong to generate-villages.py; native placement and progression require separate qualification.",
       "reference": "docs/development/worldgen-candidates.md"
     }
   ]

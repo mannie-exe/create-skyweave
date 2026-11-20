@@ -1,0 +1,26 @@
+{
+  "name": "skyweave_compat:villages/timber_rigging_landing/civic",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:single_pool_element",
+          "projection": "rigid",
+          "processors": "ctov:village/taiga_fortified/town_center",
+          "location": "ctov:village/taiga_fortified/town_center"
+        },
+        "name": "skyweave_compat:villages/timber_rigging_landing/regional_civic",
+        "max_count": 1
+      }
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ctov"
+    }
+  ]
+}

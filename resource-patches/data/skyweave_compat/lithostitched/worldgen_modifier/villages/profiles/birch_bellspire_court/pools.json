@@ -1,0 +1,40 @@
+{
+  "type": "lithostitched:set_pool_aliases",
+  "structures": [
+    "skyweave_compat:villages/birch_bellspire_court"
+  ],
+  "append": true,
+  "pool_aliases": [
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/birch_forest_romanian/decor",
+      "target": "skyweave_compat:villages/birch_bellspire_court/decor"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/birch_forest_romanian/houses",
+      "target": "skyweave_compat:villages/birch_bellspire_court/houses"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/birch_forest_romanian/streets",
+      "target": "skyweave_compat:villages/birch_bellspire_court/streets"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/birch_forest_romanian/terminators",
+      "target": "skyweave_compat:villages/birch_bellspire_court/terminators"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/birch_forest_romanian/town_centers",
+      "target": "skyweave_compat:villages/birch_bellspire_court/town_centers"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "t_and_t"
+    }
+  ]
+}

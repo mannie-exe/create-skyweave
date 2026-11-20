@@ -254,6 +254,34 @@
       "required": false
     },
     {
+      "id": "skyweave_compat:villages/birch_bellspire_court",
+      "required": false
+    },
+    {
+      "id": "skyweave_compat:villages/flower_gate_dye_court",
+      "required": false
+    },
+    {
+      "id": "skyweave_compat:villages/mill_market_common",
+      "required": false
+    },
+    {
+      "id": "skyweave_compat:villages/red_clay_works",
+      "required": false
+    },
+    {
+      "id": "skyweave_compat:villages/snowline_relay_lodge",
+      "required": false
+    },
+    {
+      "id": "skyweave_compat:villages/timber_rigging_landing",
+      "required": false
+    },
+    {
+      "id": "skyweave_compat:villages/white_terrace_exchange",
+      "required": false
+    },
+    {
       "id": "towns_and_towers:exclusives/village_classic",
       "required": false
     },

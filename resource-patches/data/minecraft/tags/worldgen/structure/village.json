@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
-    "skyvillages:skyvillage"
+    {
+      "id": "skyvillages:skyvillage",
+      "required": false
+    },
+    "#skyweave_compat:managed/villages"
   ]
 }

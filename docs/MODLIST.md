@@ -77,7 +77,8 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Punched Backpacks! | 2.1 | [Exact version](https://modrinth.com/resourcepack/punched-backpacks/version/prexQWb0) |
 | Punchy! | 3.2b | [Exact version](https://modrinth.com/mod/punchy-fpa/version/aVZEe0j8) |
 | Punchy! Moves | 1.0.9 | [Exact version](https://modrinth.com/mod/punchymoves/version/SYcipAjI) |
-| Skyweave: Compatibility Patches | 0.40.0 | [Published adaptations](https://github.com/mannie-exe/skyweave-compat/releases/tag/v0.40.0) |
+| re:form | 0.1.0 | [Published settings library](https://github.com/mannie-exe/reform/releases/tag/v0.1.0) |
+| Skyweave: Compatibility Patches | 0.41.0 | [Published adaptations](https://github.com/mannie-exe/skyweave-compat/releases/tag/v0.41.0) |
 | Create Accessories Compat | 1.0 | [Exact version](https://modrinth.com/mod/create-accessories-compat/version/2r7hvkCQ) |
 | Create Aeronautics | 1.3.2+mc1.21.1 | [Exact version](https://modrinth.com/mod/create-aeronautics/version/44pLdPGg) |
 | Create Aeronautics: Transmission & Linkage | 0.2.9 | [Exact version](https://modrinth.com/mod/create-aeronautics-transmission-linkage/version/WoUjC6d4) |

@@ -1256,5 +1256,3347 @@
         }
       ]
     }
+  ],
+  "profiles": [
+    {
+      "id": "skyweave_compat:villages/timber_rigging_landing",
+      "replaces": "ctov:large/village_taiga_fortified",
+      "depth": 7,
+      "reach": 96,
+      "pools": {
+        "deco": "ctov:village/taiga_fortified/deco",
+        "house": "ctov:village/taiga_fortified/house",
+        "roads": "ctov:village/taiga_fortified/roads",
+        "terminator": "ctov:village/taiga_fortified/terminator",
+        "town_centers": {
+          "source": "ctov:village/taiga_fortified/town_centers",
+          "replace": true,
+          "donors": [
+            {
+              "piece": "timber_rigging_landing_loading_yard",
+              "role": "loading_yard",
+              "weight": 1,
+              "limit": 1
+            }
+          ]
+        },
+        "civic": {
+          "donors": [
+            {
+              "piece": "timber_rigging_landing_regional_civic",
+              "role": "regional_civic",
+              "weight": 1,
+              "limit": 1
+            }
+          ]
+        }
+      },
+      "biomes": [
+        "minecraft:taiga",
+        "minecraft:old_growth_pine_taiga",
+        "minecraft:old_growth_spruce_taiga"
+      ],
+      "requiredRoles": {
+        "inhabited_core": {
+          "minimum": 2,
+          "pieces": [
+            "timber_rigging_landing_home_1",
+            "timber_rigging_landing_home_2",
+            "timber_rigging_landing_home_3",
+            "timber_rigging_landing_home_4",
+            "timber_rigging_landing_home_5",
+            "timber_rigging_landing_home_6",
+            "timber_rigging_landing_home_7",
+            "timber_rigging_landing_home_8"
+          ]
+        },
+        "authored_court": {
+          "minimum": 1,
+          "pieces": [
+            "timber_rigging_landing_loading_yard"
+          ]
+        },
+        "regional_landmark": {
+          "minimum": 1,
+          "pieces": [
+            "timber_rigging_landing_regional_civic"
+          ]
+        }
+      }
+    },
+    {
+      "id": "skyweave_compat:villages/mill_market_common",
+      "replaces": "towns_and_towers:exclusives/village_tudor",
+      "depth": 5,
+      "reach": 116,
+      "pools": {
+        "decor": "kaisyn:village/exclusives/tudor/decor",
+        "houses": "kaisyn:village/exclusives/tudor/houses",
+        "streets": "kaisyn:village/exclusives/tudor/streets",
+        "terminators": "kaisyn:village/exclusives/tudor/terminators",
+        "town_centers": {
+          "source": "kaisyn:village/exclusives/tudor/town_centers",
+          "replace": true,
+          "donors": [
+            {
+              "piece": "mill_market_common_market_center",
+              "role": "market_center",
+              "weight": 1,
+              "limit": 1
+            }
+          ]
+        },
+        "mill": {
+          "source": "kaisyn:village/sunflower_plains_farm/side/windmill",
+          "replace": true,
+          "donors": [
+            {
+              "piece": "sunflower_windmill",
+              "role": "mill",
+              "weight": 1,
+              "limit": 1
+            }
+          ]
+        }
+      },
+      "biomes": [
+        "minecraft:plains",
+        "minecraft:sunflower_plains",
+        "minecraft:meadow"
+      ],
+      "requiredRoles": {
+        "inhabited_core": {
+          "minimum": 2,
+          "pieces": [
+            "mill_market_common_home_1",
+            "mill_market_common_home_2",
+            "mill_market_common_home_3",
+            "mill_market_common_home_4",
+            "mill_market_common_home_5"
+          ]
+        },
+        "authored_court": {
+          "minimum": 1,
+          "pieces": [
+            "mill_market_common_market_center"
+          ]
+        },
+        "regional_landmark": {
+          "minimum": 1,
+          "pieces": [
+            "sunflower_windmill"
+          ]
+        }
+      }
+    },
+    {
+      "id": "skyweave_compat:villages/birch_bellspire_court",
+      "replaces": "towns_and_towers:village_birch_forest",
+      "depth": 7,
+      "reach": 116,
+      "pools": {
+        "decor": "kaisyn:village/birch_forest_romanian/decor",
+        "houses": "kaisyn:village/birch_forest_romanian/houses",
+        "streets": "kaisyn:village/birch_forest_romanian/streets",
+        "terminators": "kaisyn:village/birch_forest_romanian/terminators",
+        "town_centers": {
+          "source": "kaisyn:village/birch_forest_romanian/town_centers",
+          "replace": true,
+          "donors": [
+            {
+              "piece": "birch_bellspire_court_specialist_court",
+              "role": "specialist_court",
+              "weight": 1,
+              "limit": 1
+            }
+          ]
+        },
+        "civic": {
+          "donors": [
+            {
+              "piece": "birch_bellspire_court_regional_civic",
+              "role": "regional_civic",
+              "weight": 1,
+              "limit": 1
+            }
+          ]
+        }
+      },
+      "biomes": [
+        "minecraft:birch_forest",
+        "minecraft:old_growth_birch_forest"
+      ],
+      "requiredRoles": {
+        "inhabited_core": {
+          "minimum": 2,
+          "pieces": [
+            "birch_bellspire_court_home_1",
+            "birch_bellspire_court_home_2",
+            "birch_bellspire_court_home_3",
+            "birch_bellspire_court_home_4",
+            "birch_bellspire_court_home_5",
+            "birch_bellspire_court_home_6",
+            "birch_bellspire_court_home_7",
+            "birch_bellspire_court_home_8",
+            "birch_bellspire_court_home_9"
+          ]
+        },
+        "authored_court": {
+          "minimum": 1,
+          "pieces": [
+            "birch_bellspire_court_specialist_court"
+          ]
+        },
+        "regional_landmark": {
+          "minimum": 1,
+          "pieces": [
+            "birch_bellspire_court_regional_civic"
+          ]
+        }
+      }
+    },
+    {
+      "id": "skyweave_compat:villages/white_terrace_exchange",
+      "replaces": "towns_and_towers:exclusives/village_mediterranean",
+      "depth": 4,
+      "reach": 116,
+      "pools": {
+        "decor": "kaisyn:village/exclusives/mediterranean/decor",
+        "houses/corner": "kaisyn:village/exclusives/mediterranean/houses/corner",
+        "houses/regular": "kaisyn:village/exclusives/mediterranean/houses/regular",
+        "streets/avenue": "kaisyn:village/exclusives/mediterranean/streets/avenue",
+        "streets/avenue_second_turn": "kaisyn:village/exclusives/mediterranean/streets/avenue_second_turn",
+        "streets/promenade": "kaisyn:village/exclusives/mediterranean/streets/promenade",
+        "terminators/avenue": "kaisyn:village/exclusives/mediterranean/terminators/avenue",
+        "terminators/promenade": "kaisyn:village/exclusives/mediterranean/terminators/promenade",
+        "town_centers": {
+          "source": "kaisyn:village/exclusives/mediterranean/town_centers",
+          "replace": true,
+          "donors": [
+            {
+              "piece": "white_terrace_exchange_exchange_yard",
+              "role": "exchange_yard",
+              "weight": 1,
+              "limit": 1
+            }
+          ]
+        },
+        "civic": {
+          "donors": [
+            {
+              "piece": "white_terrace_exchange_regional_civic",
+              "role": "regional_civic",
+              "weight": 1,
+              "limit": 1
+            }
+          ]
+        }
+      },
+      "biomes": [
+        "minecraft:beach",
+        "minecraft:stony_shore",
+        "minecraft:savanna",
+        "minecraft:savanna_plateau"
+      ],
+      "requiredRoles": {
+        "inhabited_core": {
+          "minimum": 2,
+          "pieces": [
+            "white_terrace_exchange_home_1",
+            "white_terrace_exchange_home_2",
+            "white_terrace_exchange_home_3",
+            "white_terrace_exchange_home_4",
+            "white_terrace_exchange_home_5",
+            "white_terrace_exchange_home_6",
+            "white_terrace_exchange_home_7",
+            "white_terrace_exchange_home_8",
+            "white_terrace_exchange_home_9",
+            "white_terrace_exchange_home_10",
+            "white_terrace_exchange_home_11",
+            "white_terrace_exchange_home_12",
+            "white_terrace_exchange_home_13",
+            "white_terrace_exchange_home_14",
+            "white_terrace_exchange_home_15",
+            "white_terrace_exchange_home_16",
+            "white_terrace_exchange_home_17",
+            "white_terrace_exchange_home_18"
+          ]
+        },
+        "authored_court": {
+          "minimum": 1,
+          "pieces": [
+            "white_terrace_exchange_exchange_yard"
+          ]
+        },
+        "regional_landmark": {
+          "minimum": 1,
+          "pieces": [
+            "white_terrace_exchange_regional_civic"
+          ]
+        }
+      }
+    },
+    {
+      "id": "skyweave_compat:villages/red_clay_works",
+      "replaces": "towns_and_towers:village_badlands",
+      "depth": 5,
+      "reach": 116,
+      "pools": {
+        "decor": "kaisyn:village/badlands_pueblo/decor",
+        "houses": "kaisyn:village/badlands_pueblo/houses",
+        "professions_misc": "kaisyn:village/badlands_pueblo/professions_misc",
+        "streets": "kaisyn:village/badlands_pueblo/streets",
+        "terminators": "kaisyn:village/badlands_pueblo/terminators",
+        "town_centers": {
+          "source": "kaisyn:village/badlands_pueblo/town_centers",
+          "replace": true,
+          "donors": [
+            {
+              "piece": "red_clay_works_kiln_materials_yard",
+              "role": "kiln_materials_yard",
+              "weight": 1,
+              "limit": 1
+            }
+          ]
+        },
+        "civic": {
+          "donors": [
+            {
+              "piece": "red_clay_works_regional_civic",
+              "role": "regional_civic",
+              "weight": 1,
+              "limit": 1
+            }
+          ]
+        }
+      },
+      "biomes": [
+        "minecraft:badlands",
+        "minecraft:wooded_badlands",
+        "minecraft:eroded_badlands"
+      ],
+      "requiredRoles": {
+        "inhabited_core": {
+          "minimum": 2,
+          "pieces": [
+            "red_clay_works_home_1",
+            "red_clay_works_home_2",
+            "red_clay_works_home_3",
+            "red_clay_works_home_4",
+            "red_clay_works_home_5",
+            "red_clay_works_home_6",
+            "red_clay_works_home_7",
+            "red_clay_works_home_8",
+            "red_clay_works_home_9",
+            "red_clay_works_home_10",
+            "red_clay_works_home_11",
+            "red_clay_works_home_12",
+            "red_clay_works_home_13",
+            "red_clay_works_home_14",
+            "red_clay_works_home_15",
+            "red_clay_works_home_16",
+            "red_clay_works_home_17",
+            "red_clay_works_home_18",
+            "red_clay_works_home_19"
+          ]
+        },
+        "authored_court": {
+          "minimum": 1,
+          "pieces": [
+            "red_clay_works_kiln_materials_yard"
+          ]
+        },
+        "regional_landmark": {
+          "minimum": 1,
+          "pieces": [
+            "red_clay_works_regional_civic"
+          ]
+        }
+      }
+    },
+    {
+      "id": "skyweave_compat:villages/flower_gate_dye_court",
+      "replaces": "towns_and_towers:village_flower_forest",
+      "depth": 7,
+      "reach": 116,
+      "biomes": [
+        "minecraft:flower_forest"
+      ],
+      "pools": {
+        "streets": "kaisyn:village/flower_forest_japanese/streets",
+        "houses": "kaisyn:village/flower_forest_japanese/houses",
+        "decor": "kaisyn:village/flower_forest_japanese/decor",
+        "terminators": "kaisyn:village/flower_forest_japanese/terminators",
+        "gates": "kaisyn:village/flower_forest_japanese/gates",
+        "lamps": "kaisyn:village/flower_forest_japanese/lamps",
+        "town_centers": {
+          "source": "kaisyn:village/flower_forest_japanese/town_centers",
+          "replace": true,
+          "donors": [
+            {
+              "piece": "flower_gate_dye_court_court",
+              "role": "specialist_court",
+              "weight": 1,
+              "limit": 1
+            }
+          ]
+        },
+        "civic": {
+          "donors": [
+            {
+              "piece": "flower_gate_dye_court_native_landmark",
+              "role": "regional_civic",
+              "weight": 1,
+              "limit": 1
+            }
+          ]
+        }
+      },
+      "requiredRoles": {
+        "inhabited_core": {
+          "minimum": 2,
+          "pieces": [
+            "flower_gate_dye_court_home_1",
+            "flower_gate_dye_court_home_2",
+            "flower_gate_dye_court_home_3",
+            "flower_gate_dye_court_home_4",
+            "flower_gate_dye_court_home_5",
+            "flower_gate_dye_court_home_6"
+          ]
+        },
+        "authored_court": {
+          "minimum": 1,
+          "pieces": [
+            "flower_gate_dye_court_court"
+          ]
+        },
+        "regional_landmark": {
+          "minimum": 1,
+          "pieces": [
+            "flower_gate_dye_court_native_landmark"
+          ]
+        }
+      }
+    },
+    {
+      "id": "skyweave_compat:villages/snowline_relay_lodge",
+      "replaces": "towns_and_towers:village_snowy_taiga",
+      "depth": 7,
+      "reach": 116,
+      "biomes": [
+        "minecraft:snowy_taiga"
+      ],
+      "pools": {
+        "streets": "kaisyn:village/snowy_taiga_viking/streets",
+        "houses": {
+          "source": "kaisyn:village/snowy_taiga_viking/houses",
+          "donors": [
+            {
+              "piece": "snowline_relay_lodge_bv_roadhouse",
+              "role": "guest_roadhouse",
+              "weight": 1,
+              "limit": 1
+            }
+          ]
+        },
+        "decor": "kaisyn:village/snowy_taiga_viking/decor",
+        "terminators": "kaisyn:village/snowy_taiga_viking/terminators",
+        "town_centers": {
+          "source": "kaisyn:village/snowy_taiga_viking/town_centers",
+          "replace": true,
+          "donors": [
+            {
+              "piece": "snowline_relay_lodge_court",
+              "role": "specialist_court",
+              "weight": 1,
+              "limit": 1
+            }
+          ]
+        },
+        "civic": {
+          "donors": [
+            {
+              "piece": "snowline_relay_lodge_native_landmark",
+              "role": "regional_civic",
+              "weight": 1,
+              "limit": 1
+            }
+          ]
+        }
+      },
+      "requiredRoles": {
+        "inhabited_core": {
+          "minimum": 2,
+          "pieces": [
+            "snowline_relay_lodge_home_1",
+            "snowline_relay_lodge_home_2",
+            "snowline_relay_lodge_home_3",
+            "snowline_relay_lodge_home_4",
+            "snowline_relay_lodge_home_5"
+          ]
+        },
+        "authored_court": {
+          "minimum": 1,
+          "pieces": [
+            "snowline_relay_lodge_court"
+          ]
+        },
+        "regional_landmark": {
+          "minimum": 1,
+          "pieces": [
+            "snowline_relay_lodge_native_landmark"
+          ]
+        }
+      }
+    }
+  ],
+  "templates": {
+    "mill_market_common/town_centers/market_common_1": {
+      "size": [
+        17,
+        6,
+        15
+      ],
+      "fills": [
+        {
+          "from": [
+            0,
+            0,
+            0
+          ],
+          "to": [
+            16,
+            0,
+            14
+          ],
+          "block": "minecraft:tuff_bricks"
+        },
+        {
+          "from": [
+            7,
+            0,
+            0
+          ],
+          "to": [
+            9,
+            0,
+            14
+          ],
+          "block": "minecraft:stone_bricks"
+        },
+        {
+          "from": [
+            0,
+            0,
+            6
+          ],
+          "to": [
+            16,
+            0,
+            8
+          ],
+          "block": "minecraft:stone_bricks"
+        },
+        {
+          "from": [
+            1,
+            1,
+            2
+          ],
+          "to": [
+            1,
+            3,
+            2
+          ],
+          "block": "minecraft:stripped_spruce_log"
+        },
+        {
+          "from": [
+            1,
+            1,
+            5
+          ],
+          "to": [
+            1,
+            3,
+            5
+          ],
+          "block": "minecraft:stripped_spruce_log"
+        },
+        {
+          "from": [
+            5,
+            1,
+            2
+          ],
+          "to": [
+            5,
+            3,
+            2
+          ],
+          "block": "minecraft:stripped_spruce_log"
+        },
+        {
+          "from": [
+            5,
+            1,
+            5
+          ],
+          "to": [
+            5,
+            3,
+            5
+          ],
+          "block": "minecraft:stripped_spruce_log"
+        },
+        {
+          "from": [
+            1,
+            4,
+            1
+          ],
+          "to": [
+            5,
+            4,
+            6
+          ],
+          "block": "minecraft:brick_slab[type=bottom]"
+        },
+        {
+          "from": [
+            2,
+            5,
+            2
+          ],
+          "to": [
+            4,
+            5,
+            5
+          ],
+          "block": "minecraft:brick_slab[type=bottom]"
+        },
+        {
+          "from": [
+            2,
+            1,
+            5
+          ],
+          "to": [
+            4,
+            1,
+            5
+          ],
+          "block": "minecraft:spruce_slab[type=bottom]"
+        },
+        {
+          "from": [
+            11,
+            1,
+            2
+          ],
+          "to": [
+            11,
+            3,
+            2
+          ],
+          "block": "minecraft:stripped_spruce_log"
+        },
+        {
+          "from": [
+            11,
+            1,
+            5
+          ],
+          "to": [
+            11,
+            3,
+            5
+          ],
+          "block": "minecraft:stripped_spruce_log"
+        },
+        {
+          "from": [
+            15,
+            1,
+            2
+          ],
+          "to": [
+            15,
+            3,
+            2
+          ],
+          "block": "minecraft:stripped_spruce_log"
+        },
+        {
+          "from": [
+            15,
+            1,
+            5
+          ],
+          "to": [
+            15,
+            3,
+            5
+          ],
+          "block": "minecraft:stripped_spruce_log"
+        },
+        {
+          "from": [
+            11,
+            4,
+            1
+          ],
+          "to": [
+            15,
+            4,
+            6
+          ],
+          "block": "minecraft:brick_slab[type=bottom]"
+        },
+        {
+          "from": [
+            12,
+            5,
+            2
+          ],
+          "to": [
+            14,
+            5,
+            5
+          ],
+          "block": "minecraft:brick_slab[type=bottom]"
+        },
+        {
+          "from": [
+            12,
+            1,
+            5
+          ],
+          "to": [
+            14,
+            1,
+            5
+          ],
+          "block": "minecraft:spruce_slab[type=bottom]"
+        },
+        {
+          "from": [
+            1,
+            1,
+            12
+          ],
+          "to": [
+            1,
+            3,
+            12
+          ],
+          "block": "minecraft:spruce_fence"
+        },
+        {
+          "from": [
+            15,
+            1,
+            12
+          ],
+          "to": [
+            15,
+            3,
+            12
+          ],
+          "block": "minecraft:spruce_fence"
+        },
+        {
+          "from": [
+            2,
+            0,
+            10
+          ],
+          "to": [
+            4,
+            0,
+            13
+          ],
+          "block": "minecraft:farmland[moisture=7]"
+        },
+        {
+          "from": [
+            2,
+            1,
+            10
+          ],
+          "to": [
+            4,
+            1,
+            13
+          ],
+          "block": "minecraft:carrots[age=7]"
+        },
+        {
+          "from": [
+            11,
+            0,
+            10
+          ],
+          "to": [
+            13,
+            0,
+            13
+          ],
+          "block": "minecraft:farmland[moisture=7]"
+        },
+        {
+          "from": [
+            11,
+            1,
+            10
+          ],
+          "to": [
+            13,
+            1,
+            13
+          ],
+          "block": "minecraft:carrots[age=7]"
+        }
+      ],
+      "blocks": [
+        {
+          "pos": [
+            3,
+            1,
+            2
+          ],
+          "block": "minecraft:crafting_table"
+        },
+        {
+          "pos": [
+            13,
+            1,
+            2
+          ],
+          "block": "minecraft:composter[level=0]"
+        },
+        {
+          "pos": [
+            3,
+            1,
+            4
+          ],
+          "block": "minecraft:grindstone[face=floor,facing=south]"
+        },
+        {
+          "pos": [
+            8,
+            1,
+            9
+          ],
+          "block": "minecraft:chiseled_stone_bricks"
+        },
+        {
+          "pos": [
+            8,
+            2,
+            9
+          ],
+          "block": "minecraft:bell[attachment=floor,facing=north]"
+        },
+        {
+          "pos": [
+            1,
+            4,
+            12
+          ],
+          "block": "minecraft:lantern[hanging=false]"
+        },
+        {
+          "pos": [
+            15,
+            4,
+            12
+          ],
+          "block": "minecraft:lantern[hanging=false]"
+        }
+      ],
+      "jigsaws": [
+        {
+          "pos": [
+            8,
+            1,
+            0
+          ],
+          "orientation": "north_up",
+          "name": "minecraft:street",
+          "target": "minecraft:building_entrance",
+          "pool": "skyweave_compat:villages/mill_market_common/mill",
+          "finalState": "minecraft:air",
+          "selectionPriority": 10
+        },
+        {
+          "pos": [
+            0,
+            1,
+            7
+          ],
+          "orientation": "west_up",
+          "name": "minecraft:street",
+          "target": "minecraft:street",
+          "pool": "skyweave_compat:villages/mill_market_common/streets",
+          "finalState": "minecraft:structure_void",
+          "selectionPriority": 0
+        },
+        {
+          "pos": [
+            16,
+            1,
+            7
+          ],
+          "orientation": "east_up",
+          "name": "minecraft:street",
+          "target": "minecraft:street",
+          "pool": "skyweave_compat:villages/mill_market_common/streets",
+          "finalState": "minecraft:structure_void",
+          "selectionPriority": 0
+        },
+        {
+          "pos": [
+            8,
+            1,
+            14
+          ],
+          "orientation": "south_up",
+          "name": "minecraft:street",
+          "target": "minecraft:street",
+          "pool": "skyweave_compat:villages/mill_market_common/streets",
+          "finalState": "minecraft:structure_void",
+          "selectionPriority": 0
+        },
+        {
+          "pos": [
+            6,
+            1,
+            10
+          ],
+          "orientation": "up_north",
+          "name": "minecraft:bottom",
+          "target": "minecraft:bottom",
+          "pool": "minecraft:village/common/cats",
+          "finalState": "minecraft:air",
+          "selectionPriority": 0
+        },
+        {
+          "pos": [
+            6,
+            1,
+            12
+          ],
+          "orientation": "up_north",
+          "name": "minecraft:bottom",
+          "target": "minecraft:bottom",
+          "pool": "minecraft:village/common/cats",
+          "finalState": "minecraft:air",
+          "selectionPriority": 0
+        },
+        {
+          "pos": [
+            10,
+            1,
+            10
+          ],
+          "orientation": "up_north",
+          "name": "minecraft:bottom",
+          "target": "minecraft:bottom",
+          "pool": "minecraft:village/common/cats",
+          "finalState": "minecraft:air",
+          "selectionPriority": 0
+        },
+        {
+          "pos": [
+            10,
+            1,
+            12
+          ],
+          "orientation": "up_north",
+          "name": "minecraft:bottom",
+          "target": "minecraft:bottom",
+          "pool": "minecraft:village/common/cats",
+          "finalState": "minecraft:air",
+          "selectionPriority": 0
+        },
+        {
+          "pos": [
+            7,
+            1,
+            4
+          ],
+          "orientation": "up_north",
+          "name": "minecraft:bottom",
+          "target": "minecraft:bottom",
+          "pool": "minecraft:village/plains/villagers",
+          "finalState": "minecraft:air",
+          "selectionPriority": 0
+        },
+        {
+          "pos": [
+            9,
+            1,
+            4
+          ],
+          "orientation": "up_north",
+          "name": "minecraft:bottom",
+          "target": "minecraft:bottom",
+          "pool": "minecraft:village/plains/villagers",
+          "finalState": "minecraft:air",
+          "selectionPriority": 0
+        },
+        {
+          "pos": [
+            8,
+            1,
+            11
+          ],
+          "orientation": "up_north",
+          "name": "minecraft:bottom",
+          "target": "minecraft:bottom",
+          "pool": "minecraft:village/common/iron_golem",
+          "finalState": "minecraft:air",
+          "selectionPriority": 0
+        }
+      ]
+    },
+    "timber_rigging_landing/town_centers/rigging_yard_1": {
+      "size": [
+        23,
+        11,
+        19
+      ],
+      "fills": [
+        {
+          "from": [
+            0,
+            1,
+            0
+          ],
+          "to": [
+            22,
+            10,
+            18
+          ],
+          "block": "minecraft:air"
+        },
+        {
+          "from": [
+            1,
+            0,
+            1
+          ],
+          "to": [
+            21,
+            0,
+            17
+          ],
+          "block": "minecraft:cobblestone"
+        },
+        {
+          "from": [
+            10,
+            0,
+            0
+          ],
+          "to": [
+            12,
+            0,
+            18
+          ],
+          "block": "minecraft:stone_bricks"
+        },
+        {
+          "from": [
+            2,
+            0,
+            5
+          ],
+          "to": [
+            8,
+            0,
+            15
+          ],
+          "block": "minecraft:spruce_planks"
+        },
+        {
+          "from": [
+            2,
+            1,
+            5
+          ],
+          "to": [
+            2,
+            5,
+            5
+          ],
+          "block": "minecraft:stripped_spruce_log[axis=y]"
+        },
+        {
+          "from": [
+            2,
+            1,
+            15
+          ],
+          "to": [
+            2,
+            5,
+            15
+          ],
+          "block": "minecraft:stripped_spruce_log[axis=y]"
+        },
+        {
+          "from": [
+            8,
+            1,
+            5
+          ],
+          "to": [
+            8,
+            5,
+            5
+          ],
+          "block": "minecraft:stripped_spruce_log[axis=y]"
+        },
+        {
+          "from": [
+            8,
+            1,
+            15
+          ],
+          "to": [
+            8,
+            5,
+            15
+          ],
+          "block": "minecraft:stripped_spruce_log[axis=y]"
+        },
+        {
+          "from": [
+            2,
+            1,
+            6
+          ],
+          "to": [
+            2,
+            3,
+            14
+          ],
+          "block": "minecraft:spruce_planks"
+        },
+        {
+          "from": [
+            3,
+            1,
+            15
+          ],
+          "to": [
+            7,
+            3,
+            15
+          ],
+          "block": "minecraft:spruce_planks"
+        },
+        {
+          "from": [
+            1,
+            5,
+            4
+          ],
+          "to": [
+            9,
+            5,
+            16
+          ],
+          "block": "minecraft:dark_oak_slab[type=bottom]"
+        },
+        {
+          "from": [
+            2,
+            6,
+            5
+          ],
+          "to": [
+            8,
+            6,
+            15
+          ],
+          "block": "minecraft:dark_oak_slab[type=bottom]"
+        },
+        {
+          "from": [
+            3,
+            7,
+            6
+          ],
+          "to": [
+            7,
+            7,
+            14
+          ],
+          "block": "minecraft:dark_oak_slab[type=bottom]"
+        },
+        {
+          "from": [
+            13,
+            0,
+            3
+          ],
+          "to": [
+            20,
+            0,
+            15
+          ],
+          "block": "minecraft:polished_andesite"
+        },
+        {
+          "from": [
+            16,
+            1,
+            5
+          ],
+          "to": [
+            16,
+            8,
+            5
+          ],
+          "block": "minecraft:stripped_spruce_log[axis=y]"
+        },
+        {
+          "from": [
+            16,
+            8,
+            5
+          ],
+          "to": [
+            20,
+            8,
+            5
+          ],
+          "block": "minecraft:stripped_spruce_log[axis=x]"
+        },
+        {
+          "from": [
+            20,
+            4,
+            5
+          ],
+          "to": [
+            20,
+            7,
+            5
+          ],
+          "block": "minecraft:chain[axis=y]"
+        },
+        {
+          "from": [
+            18,
+            1,
+            11
+          ],
+          "to": [
+            20,
+            1,
+            14
+          ],
+          "block": "minecraft:spruce_log[axis=z]"
+        },
+        {
+          "from": [
+            18,
+            2,
+            11
+          ],
+          "to": [
+            19,
+            2,
+            14
+          ],
+          "block": "minecraft:spruce_log[axis=z]"
+        }
+      ],
+      "blocks": [
+        {
+          "pos": [
+            3,
+            1,
+            6
+          ],
+          "block": "minecraft:barrel[facing=east]"
+        },
+        {
+          "pos": [
+            3,
+            1,
+            7
+          ],
+          "block": "minecraft:barrel[facing=east]"
+        },
+        {
+          "pos": [
+            3,
+            1,
+            8
+          ],
+          "block": "minecraft:barrel[facing=east]"
+        },
+        {
+          "pos": [
+            4,
+            1,
+            14
+          ],
+          "block": "minecraft:smithing_table"
+        },
+        {
+          "pos": [
+            6,
+            1,
+            14
+          ],
+          "block": "minecraft:crafting_table"
+        },
+        {
+          "pos": [
+            7,
+            1,
+            6
+          ],
+          "block": "minecraft:fletching_table"
+        },
+        {
+          "pos": [
+            3,
+            3,
+            10
+          ],
+          "block": "minecraft:lantern[hanging=false]"
+        }
+      ],
+      "jigsaws": [
+        {
+          "pos": [
+            11,
+            1,
+            0
+          ],
+          "orientation": "north_up",
+          "name": "minecraft:street",
+          "target": "minecraft:empty",
+          "pool": "skyweave_compat:villages/timber_rigging_landing/civic",
+          "finalState": "minecraft:air",
+          "selectionPriority": 10
+        }
+      ]
+    },
+    "birch_bellspire_court/town_centers/survey_court_1": {
+      "size": [
+        21,
+        8,
+        17
+      ],
+      "fills": [
+        {
+          "from": [
+            0,
+            1,
+            0
+          ],
+          "to": [
+            20,
+            7,
+            16
+          ],
+          "block": "minecraft:air"
+        },
+        {
+          "from": [
+            1,
+            0,
+            1
+          ],
+          "to": [
+            19,
+            0,
+            15
+          ],
+          "block": "minecraft:grass_block"
+        },
+        {
+          "from": [
+            9,
+            0,
+            0
+          ],
+          "to": [
+            11,
+            0,
+            16
+          ],
+          "block": "minecraft:gravel"
+        },
+        {
+          "from": [
+            2,
+            0,
+            7
+          ],
+          "to": [
+            7,
+            0,
+            13
+          ],
+          "block": "minecraft:birch_planks"
+        },
+        {
+          "from": [
+            2,
+            1,
+            7
+          ],
+          "to": [
+            2,
+            4,
+            7
+          ],
+          "block": "minecraft:stripped_dark_oak_log[axis=y]"
+        },
+        {
+          "from": [
+            2,
+            1,
+            13
+          ],
+          "to": [
+            2,
+            4,
+            13
+          ],
+          "block": "minecraft:stripped_dark_oak_log[axis=y]"
+        },
+        {
+          "from": [
+            7,
+            1,
+            7
+          ],
+          "to": [
+            7,
+            4,
+            7
+          ],
+          "block": "minecraft:stripped_dark_oak_log[axis=y]"
+        },
+        {
+          "from": [
+            7,
+            1,
+            13
+          ],
+          "to": [
+            7,
+            4,
+            13
+          ],
+          "block": "minecraft:stripped_dark_oak_log[axis=y]"
+        },
+        {
+          "from": [
+            2,
+            1,
+            13
+          ],
+          "to": [
+            7,
+            3,
+            13
+          ],
+          "block": "minecraft:calcite"
+        },
+        {
+          "from": [
+            1,
+            4,
+            6
+          ],
+          "to": [
+            8,
+            4,
+            14
+          ],
+          "block": "minecraft:birch_slab[type=bottom]"
+        },
+        {
+          "from": [
+            2,
+            5,
+            7
+          ],
+          "to": [
+            7,
+            5,
+            13
+          ],
+          "block": "minecraft:birch_slab[type=bottom]"
+        },
+        {
+          "from": [
+            3,
+            1,
+            12
+          ],
+          "to": [
+            5,
+            2,
+            12
+          ],
+          "block": "minecraft:bookshelf"
+        },
+        {
+          "from": [
+            14,
+            1,
+            4
+          ],
+          "to": [
+            17,
+            1,
+            4
+          ],
+          "block": "minecraft:birch_slab[type=bottom]"
+        },
+        {
+          "from": [
+            14,
+            1,
+            12
+          ],
+          "to": [
+            17,
+            1,
+            12
+          ],
+          "block": "minecraft:birch_slab[type=bottom]"
+        },
+        {
+          "from": [
+            12,
+            1,
+            6
+          ],
+          "to": [
+            12,
+            3,
+            6
+          ],
+          "block": "minecraft:dark_oak_fence"
+        },
+        {
+          "from": [
+            12,
+            1,
+            10
+          ],
+          "to": [
+            12,
+            3,
+            10
+          ],
+          "block": "minecraft:dark_oak_fence"
+        }
+      ],
+      "blocks": [
+        {
+          "pos": [
+            6,
+            1,
+            12
+          ],
+          "block": "minecraft:cartography_table"
+        },
+        {
+          "pos": [
+            4,
+            1,
+            9
+          ],
+          "block": "minecraft:lectern[facing=north]"
+        },
+        {
+          "pos": [
+            2,
+            1,
+            2
+          ],
+          "block": "minecraft:oxeye_daisy"
+        },
+        {
+          "pos": [
+            4,
+            1,
+            2
+          ],
+          "block": "minecraft:oxeye_daisy"
+        },
+        {
+          "pos": [
+            15,
+            1,
+            6
+          ],
+          "block": "minecraft:oxeye_daisy"
+        },
+        {
+          "pos": [
+            17,
+            1,
+            8
+          ],
+          "block": "minecraft:oxeye_daisy"
+        },
+        {
+          "pos": [
+            15,
+            1,
+            10
+          ],
+          "block": "minecraft:oxeye_daisy"
+        },
+        {
+          "pos": [
+            5,
+            1,
+            4
+          ],
+          "block": "minecraft:oxeye_daisy"
+        },
+        {
+          "pos": [
+            12,
+            4,
+            6
+          ],
+          "block": "minecraft:lantern[hanging=false]"
+        },
+        {
+          "pos": [
+            12,
+            4,
+            10
+          ],
+          "block": "minecraft:lantern[hanging=false]"
+        }
+      ],
+      "jigsaws": [
+        {
+          "pos": [
+            10,
+            1,
+            0
+          ],
+          "orientation": "north_up",
+          "name": "minecraft:street",
+          "target": "minecraft:street",
+          "pool": "skyweave_compat:villages/birch_bellspire_court/civic",
+          "finalState": "minecraft:air",
+          "selectionPriority": 10
+        }
+      ]
+    },
+    "white_terrace_exchange/town_centers/exchange_yard_1": {
+      "size": [
+        25,
+        10,
+        19
+      ],
+      "fills": [
+        {
+          "from": [
+            0,
+            1,
+            0
+          ],
+          "to": [
+            24,
+            9,
+            18
+          ],
+          "block": "minecraft:air"
+        },
+        {
+          "from": [
+            1,
+            0,
+            1
+          ],
+          "to": [
+            23,
+            0,
+            17
+          ],
+          "block": "minecraft:smooth_sandstone"
+        },
+        {
+          "from": [
+            10,
+            0,
+            0
+          ],
+          "to": [
+            14,
+            0,
+            18
+          ],
+          "block": "minecraft:polished_andesite"
+        },
+        {
+          "from": [
+            2,
+            0,
+            6
+          ],
+          "to": [
+            8,
+            0,
+            15
+          ],
+          "block": "minecraft:quartz_bricks"
+        },
+        {
+          "from": [
+            2,
+            1,
+            6
+          ],
+          "to": [
+            2,
+            4,
+            15
+          ],
+          "block": "minecraft:quartz_bricks"
+        },
+        {
+          "from": [
+            2,
+            1,
+            15
+          ],
+          "to": [
+            8,
+            4,
+            15
+          ],
+          "block": "minecraft:quartz_bricks"
+        },
+        {
+          "from": [
+            2,
+            1,
+            6
+          ],
+          "to": [
+            8,
+            4,
+            6
+          ],
+          "block": "minecraft:quartz_bricks"
+        },
+        {
+          "from": [
+            8,
+            1,
+            6
+          ],
+          "to": [
+            8,
+            4,
+            15
+          ],
+          "block": "minecraft:quartz_bricks"
+        },
+        {
+          "from": [
+            8,
+            1,
+            9
+          ],
+          "to": [
+            8,
+            3,
+            11
+          ],
+          "block": "minecraft:air"
+        },
+        {
+          "from": [
+            1,
+            5,
+            5
+          ],
+          "to": [
+            9,
+            5,
+            16
+          ],
+          "block": "minecraft:brick_slab[type=bottom]"
+        },
+        {
+          "from": [
+            2,
+            6,
+            6
+          ],
+          "to": [
+            8,
+            6,
+            15
+          ],
+          "block": "minecraft:brick_slab[type=bottom]"
+        },
+        {
+          "from": [
+            3,
+            7,
+            7
+          ],
+          "to": [
+            7,
+            7,
+            14
+          ],
+          "block": "minecraft:brick_slab[type=bottom]"
+        },
+        {
+          "from": [
+            5,
+            2,
+            6
+          ],
+          "to": [
+            6,
+            3,
+            6
+          ],
+          "block": "minecraft:glass_pane"
+        },
+        {
+          "from": [
+            17,
+            1,
+            5
+          ],
+          "to": [
+            17,
+            4,
+            5
+          ],
+          "block": "minecraft:quartz_pillar[axis=y]"
+        },
+        {
+          "from": [
+            17,
+            1,
+            13
+          ],
+          "to": [
+            17,
+            4,
+            13
+          ],
+          "block": "minecraft:quartz_pillar[axis=y]"
+        },
+        {
+          "from": [
+            22,
+            1,
+            5
+          ],
+          "to": [
+            22,
+            4,
+            5
+          ],
+          "block": "minecraft:quartz_pillar[axis=y]"
+        },
+        {
+          "from": [
+            22,
+            1,
+            13
+          ],
+          "to": [
+            22,
+            4,
+            13
+          ],
+          "block": "minecraft:quartz_pillar[axis=y]"
+        },
+        {
+          "from": [
+            16,
+            4,
+            4
+          ],
+          "to": [
+            23,
+            4,
+            14
+          ],
+          "block": "minecraft:brick_slab[type=bottom]"
+        },
+        {
+          "from": [
+            18,
+            1,
+            12
+          ],
+          "to": [
+            21,
+            1,
+            12
+          ],
+          "block": "minecraft:smooth_quartz_slab[type=bottom]"
+        },
+        {
+          "from": [
+            15,
+            1,
+            3
+          ],
+          "to": [
+            15,
+            3,
+            3
+          ],
+          "block": "minecraft:cobblestone_wall"
+        },
+        {
+          "from": [
+            15,
+            1,
+            16
+          ],
+          "to": [
+            15,
+            3,
+            16
+          ],
+          "block": "minecraft:cobblestone_wall"
+        }
+      ],
+      "blocks": [
+        {
+          "pos": [
+            3,
+            1,
+            8
+          ],
+          "block": "minecraft:barrel[facing=east]"
+        },
+        {
+          "pos": [
+            3,
+            2,
+            8
+          ],
+          "block": "minecraft:barrel[facing=east]"
+        },
+        {
+          "pos": [
+            3,
+            1,
+            10
+          ],
+          "block": "minecraft:barrel[facing=east]"
+        },
+        {
+          "pos": [
+            3,
+            2,
+            10
+          ],
+          "block": "minecraft:barrel[facing=east]"
+        },
+        {
+          "pos": [
+            3,
+            1,
+            12
+          ],
+          "block": "minecraft:barrel[facing=east]"
+        },
+        {
+          "pos": [
+            3,
+            2,
+            12
+          ],
+          "block": "minecraft:barrel[facing=east]"
+        },
+        {
+          "pos": [
+            3,
+            1,
+            14
+          ],
+          "block": "minecraft:barrel[facing=east]"
+        },
+        {
+          "pos": [
+            3,
+            2,
+            14
+          ],
+          "block": "minecraft:barrel[facing=east]"
+        },
+        {
+          "pos": [
+            7,
+            1,
+            7
+          ],
+          "block": "minecraft:crafting_table"
+        },
+        {
+          "pos": [
+            18,
+            1,
+            6
+          ],
+          "block": "minecraft:loom[facing=north]"
+        },
+        {
+          "pos": [
+            20,
+            1,
+            6
+          ],
+          "block": "minecraft:cartography_table"
+        },
+        {
+          "pos": [
+            15,
+            4,
+            3
+          ],
+          "block": "minecraft:lantern[hanging=false]"
+        },
+        {
+          "pos": [
+            15,
+            4,
+            16
+          ],
+          "block": "minecraft:lantern[hanging=false]"
+        }
+      ],
+      "jigsaws": [
+        {
+          "pos": [
+            12,
+            1,
+            0
+          ],
+          "orientation": "north_up",
+          "name": "minecraft:thicc_street",
+          "target": "minecraft:thicc_street",
+          "pool": "skyweave_compat:villages/white_terrace_exchange/civic",
+          "finalState": "minecraft:air",
+          "selectionPriority": 10
+        }
+      ]
+    },
+    "red_clay_works/town_centers/kiln_court_1": {
+      "size": [
+        23,
+        13,
+        21
+      ],
+      "fills": [
+        {
+          "from": [
+            0,
+            1,
+            0
+          ],
+          "to": [
+            22,
+            12,
+            20
+          ],
+          "block": "minecraft:air"
+        },
+        {
+          "from": [
+            1,
+            0,
+            1
+          ],
+          "to": [
+            21,
+            0,
+            19
+          ],
+          "block": "minecraft:cut_red_sandstone"
+        },
+        {
+          "from": [
+            10,
+            0,
+            0
+          ],
+          "to": [
+            12,
+            0,
+            20
+          ],
+          "block": "minecraft:smooth_red_sandstone"
+        },
+        {
+          "from": [
+            2,
+            1,
+            6
+          ],
+          "to": [
+            8,
+            4,
+            15
+          ],
+          "block": "minecraft:terracotta"
+        },
+        {
+          "from": [
+            3,
+            1,
+            7
+          ],
+          "to": [
+            7,
+            3,
+            14
+          ],
+          "block": "minecraft:air"
+        },
+        {
+          "from": [
+            8,
+            1,
+            9
+          ],
+          "to": [
+            8,
+            3,
+            11
+          ],
+          "block": "minecraft:air"
+        },
+        {
+          "from": [
+            2,
+            5,
+            6
+          ],
+          "to": [
+            8,
+            5,
+            15
+          ],
+          "block": "minecraft:cut_red_sandstone_slab[type=bottom]"
+        },
+        {
+          "from": [
+            3,
+            6,
+            7
+          ],
+          "to": [
+            7,
+            6,
+            14
+          ],
+          "block": "minecraft:red_sandstone_slab[type=bottom]"
+        },
+        {
+          "from": [
+            3,
+            1,
+            8
+          ],
+          "to": [
+            4,
+            5,
+            11
+          ],
+          "block": "minecraft:bricks"
+        },
+        {
+          "from": [
+            3,
+            6,
+            9
+          ],
+          "to": [
+            4,
+            10,
+            10
+          ],
+          "block": "minecraft:bricks"
+        },
+        {
+          "from": [
+            15,
+            1,
+            7
+          ],
+          "to": [
+            15,
+            4,
+            7
+          ],
+          "block": "minecraft:stripped_acacia_log[axis=y]"
+        },
+        {
+          "from": [
+            15,
+            1,
+            15
+          ],
+          "to": [
+            15,
+            4,
+            15
+          ],
+          "block": "minecraft:stripped_acacia_log[axis=y]"
+        },
+        {
+          "from": [
+            20,
+            1,
+            7
+          ],
+          "to": [
+            20,
+            4,
+            7
+          ],
+          "block": "minecraft:stripped_acacia_log[axis=y]"
+        },
+        {
+          "from": [
+            20,
+            1,
+            15
+          ],
+          "to": [
+            20,
+            4,
+            15
+          ],
+          "block": "minecraft:stripped_acacia_log[axis=y]"
+        },
+        {
+          "from": [
+            14,
+            4,
+            6
+          ],
+          "to": [
+            21,
+            4,
+            16
+          ],
+          "block": "minecraft:cut_red_sandstone_slab[type=bottom]"
+        },
+        {
+          "from": [
+            15,
+            1,
+            2
+          ],
+          "to": [
+            19,
+            1,
+            4
+          ],
+          "block": "minecraft:red_sandstone_slab[type=bottom]"
+        },
+        {
+          "from": [
+            16,
+            2,
+            2
+          ],
+          "to": [
+            18,
+            2,
+            3
+          ],
+          "block": "minecraft:bricks"
+        }
+      ],
+      "blocks": [
+        {
+          "pos": [
+            4,
+            1,
+            9
+          ],
+          "block": "minecraft:furnace[facing=east]"
+        },
+        {
+          "pos": [
+            4,
+            2,
+            10
+          ],
+          "block": "minecraft:furnace[facing=east]"
+        },
+        {
+          "pos": [
+            6,
+            1,
+            14
+          ],
+          "block": "minecraft:stonecutter[facing=east]"
+        },
+        {
+          "pos": [
+            16,
+            1,
+            14
+          ],
+          "block": "minecraft:crafting_table"
+        },
+        {
+          "pos": [
+            18,
+            1,
+            14
+          ],
+          "block": "minecraft:barrel[facing=north]"
+        },
+        {
+          "pos": [
+            14,
+            1,
+            18
+          ],
+          "block": "minecraft:stonecutter[facing=north]"
+        }
+      ],
+      "jigsaws": [
+        {
+          "pos": [
+            11,
+            1,
+            0
+          ],
+          "orientation": "north_up",
+          "name": "minecraft:street",
+          "target": "minecraft:street",
+          "pool": "skyweave_compat:villages/red_clay_works/civic",
+          "finalState": "minecraft:air",
+          "selectionPriority": 10
+        }
+      ]
+    },
+    "flower_gate_dye_court/town_centers/court_1": {
+      "size": [
+        17,
+        8,
+        13
+      ],
+      "fills": [
+        {
+          "from": [
+            1,
+            0,
+            1
+          ],
+          "to": [
+            15,
+            0,
+            11
+          ],
+          "block": "minecraft:stone_bricks"
+        },
+        {
+          "from": [
+            7,
+            0,
+            0
+          ],
+          "to": [
+            9,
+            0,
+            12
+          ],
+          "block": "minecraft:polished_andesite"
+        },
+        {
+          "from": [
+            7,
+            1,
+            0
+          ],
+          "to": [
+            9,
+            3,
+            12
+          ],
+          "block": "minecraft:air"
+        },
+        {
+          "from": [
+            2,
+            0,
+            2
+          ],
+          "to": [
+            5,
+            0,
+            5
+          ],
+          "block": "minecraft:grass_block"
+        },
+        {
+          "from": [
+            2,
+            0,
+            7
+          ],
+          "to": [
+            5,
+            0,
+            10
+          ],
+          "block": "minecraft:grass_block"
+        },
+        {
+          "from": [
+            11,
+            4,
+            3
+          ],
+          "to": [
+            15,
+            4,
+            10
+          ],
+          "block": "minecraft:spruce_slab[type=bottom]"
+        },
+        {
+          "from": [
+            12,
+            5,
+            3
+          ],
+          "to": [
+            14,
+            5,
+            10
+          ],
+          "block": "minecraft:cut_copper_slab[type=bottom]"
+        },
+        {
+          "from": [
+            13,
+            6,
+            3
+          ],
+          "to": [
+            13,
+            6,
+            10
+          ],
+          "block": "minecraft:copper_cut_slab[type=bottom]"
+        },
+        {
+          "from": [
+            11,
+            1,
+            3
+          ],
+          "to": [
+            11,
+            3,
+            3
+          ],
+          "block": "minecraft:stripped_dark_oak_log[axis=y]"
+        },
+        {
+          "from": [
+            11,
+            1,
+            10
+          ],
+          "to": [
+            11,
+            3,
+            10
+          ],
+          "block": "minecraft:stripped_dark_oak_log[axis=y]"
+        },
+        {
+          "from": [
+            15,
+            1,
+            3
+          ],
+          "to": [
+            15,
+            3,
+            3
+          ],
+          "block": "minecraft:stripped_dark_oak_log[axis=y]"
+        },
+        {
+          "from": [
+            15,
+            1,
+            10
+          ],
+          "to": [
+            15,
+            3,
+            10
+          ],
+          "block": "minecraft:stripped_dark_oak_log[axis=y]"
+        }
+      ],
+      "blocks": [
+        {
+          "pos": [
+            12,
+            1,
+            6
+          ],
+          "block": "create:andesite_casing"
+        },
+        {
+          "pos": [
+            13,
+            1,
+            6
+          ],
+          "block": "create:depot"
+        },
+        {
+          "pos": [
+            14,
+            1,
+            6
+          ],
+          "block": "minecraft:cauldron"
+        },
+        {
+          "pos": [
+            14,
+            1,
+            9
+          ],
+          "block": "minecraft:loom[facing=west]"
+        },
+        {
+          "pos": [
+            12,
+            1,
+            9
+          ],
+          "block": "minecraft:barrel[facing=up]"
+        },
+        {
+          "pos": [
+            14,
+            3,
+            6
+          ],
+          "block": "minecraft:lantern[hanging=true]"
+        },
+        {
+          "pos": [
+            3,
+            1,
+            3
+          ],
+          "block": "minecraft:poppy"
+        },
+        {
+          "pos": [
+            4,
+            1,
+            4
+          ],
+          "block": "minecraft:oxeye_daisy"
+        },
+        {
+          "pos": [
+            3,
+            1,
+            8
+          ],
+          "block": "minecraft:allium"
+        },
+        {
+          "pos": [
+            4,
+            1,
+            9
+          ],
+          "block": "minecraft:azure_bluet"
+        }
+      ],
+      "jigsaws": [
+        {
+          "pos": [
+            8,
+            1,
+            0
+          ],
+          "orientation": "north_up",
+          "name": "minecraft:street",
+          "target": "minecraft:street",
+          "pool": "skyweave_compat:villages/flower_gate_dye_court/civic",
+          "finalState": "minecraft:air",
+          "selectionPriority": 10
+        }
+      ]
+    },
+    "snowline_relay_lodge/town_centers/court_1": {
+      "size": [
+        21,
+        9,
+        15
+      ],
+      "fills": [
+        {
+          "from": [
+            1,
+            0,
+            1
+          ],
+          "to": [
+            19,
+            0,
+            13
+          ],
+          "block": "minecraft:stone_bricks"
+        },
+        {
+          "from": [
+            9,
+            0,
+            0
+          ],
+          "to": [
+            11,
+            0,
+            14
+          ],
+          "block": "minecraft:polished_andesite"
+        },
+        {
+          "from": [
+            9,
+            1,
+            0
+          ],
+          "to": [
+            11,
+            6,
+            14
+          ],
+          "block": "minecraft:air"
+        },
+        {
+          "from": [
+            2,
+            0,
+            3
+          ],
+          "to": [
+            7,
+            0,
+            11
+          ],
+          "block": "minecraft:spruce_planks"
+        },
+        {
+          "from": [
+            2,
+            1,
+            3
+          ],
+          "to": [
+            2,
+            4,
+            11
+          ],
+          "block": "minecraft:stripped_spruce_log[axis=y]"
+        },
+        {
+          "from": [
+            3,
+            5,
+            3
+          ],
+          "to": [
+            7,
+            5,
+            11
+          ],
+          "block": "minecraft:spruce_planks"
+        },
+        {
+          "from": [
+            2,
+            4,
+            2
+          ],
+          "to": [
+            8,
+            4,
+            12
+          ],
+          "block": "minecraft:spruce_slab[type=bottom]"
+        },
+        {
+          "from": [
+            4,
+            6,
+            2
+          ],
+          "to": [
+            6,
+            6,
+            12
+          ],
+          "block": "minecraft:spruce_slab[type=bottom]"
+        },
+        {
+          "from": [
+            14,
+            1,
+            10
+          ],
+          "to": [
+            14,
+            7,
+            10
+          ],
+          "block": "minecraft:stripped_spruce_log[axis=y]"
+        },
+        {
+          "from": [
+            13,
+            7,
+            10
+          ],
+          "to": [
+            15,
+            7,
+            10
+          ],
+          "block": "create:metal_girder"
+        },
+        {
+          "from": [
+            9,
+            1,
+            0
+          ],
+          "to": [
+            11,
+            2,
+            3
+          ],
+          "block": "minecraft:stone_bricks"
+        },
+        {
+          "from": [
+            9,
+            1,
+            4
+          ],
+          "to": [
+            11,
+            1,
+            4
+          ],
+          "block": "minecraft:stone_bricks"
+        },
+        {
+          "from": [
+            9,
+            3,
+            0
+          ],
+          "to": [
+            11,
+            3,
+            2
+          ],
+          "block": "minecraft:polished_andesite"
+        },
+        {
+          "from": [
+            9,
+            3,
+            3
+          ],
+          "to": [
+            11,
+            3,
+            3
+          ],
+          "block": "minecraft:stone_brick_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]"
+        },
+        {
+          "from": [
+            9,
+            2,
+            4
+          ],
+          "to": [
+            11,
+            2,
+            4
+          ],
+          "block": "minecraft:stone_brick_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]"
+        },
+        {
+          "from": [
+            9,
+            1,
+            5
+          ],
+          "to": [
+            11,
+            1,
+            5
+          ],
+          "block": "minecraft:stone_brick_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]"
+        }
+      ],
+      "blocks": [
+        {
+          "pos": [
+            3,
+            1,
+            10
+          ],
+          "block": "minecraft:furnace[facing=east]"
+        },
+        {
+          "pos": [
+            4,
+            1,
+            10
+          ],
+          "block": "minecraft:barrel[facing=up]"
+        },
+        {
+          "pos": [
+            4,
+            3,
+            8
+          ],
+          "block": "minecraft:lantern[hanging=true]"
+        },
+        {
+          "pos": [
+            17,
+            1,
+            8
+          ],
+          "block": "create:andesite_casing"
+        },
+        {
+          "pos": [
+            18,
+            1,
+            8
+          ],
+          "block": "create:depot"
+        },
+        {
+          "pos": [
+            13,
+            6,
+            10
+          ],
+          "block": "minecraft:lantern[hanging=true]"
+        },
+        {
+          "pos": [
+            15,
+            6,
+            10
+          ],
+          "block": "minecraft:soul_lantern[hanging=true]"
+        }
+      ],
+      "jigsaws": [
+        {
+          "pos": [
+            10,
+            4,
+            0
+          ],
+          "orientation": "north_up",
+          "name": "minecraft:street",
+          "target": "minecraft:street",
+          "pool": "skyweave_compat:villages/snowline_relay_lodge/civic",
+          "finalState": "minecraft:air",
+          "selectionPriority": 10
+        }
+      ]
+    }
+  },
+  "catalog": {
+    "timber_rigging_landing_loading_yard": {
+      "source": "authored",
+      "template": "skyweave_compat:villages/timber_rigging_landing/town_centers/rigging_yard_1",
+      "processors": "minecraft:empty",
+      "projection": "rigid"
+    },
+    "timber_rigging_landing_regional_civic": {
+      "source": "ct-overhaul-village",
+      "pool": "ctov:village/taiga_fortified/town_centers",
+      "template": "ctov:village/taiga_fortified/town_center"
+    },
+    "timber_rigging_landing_home_1": {
+      "source": "ct-overhaul-village",
+      "pool": "ctov:village/taiga_fortified/house",
+      "template": "ctov:village/taiga_fortified/house/big_1"
+    },
+    "timber_rigging_landing_home_2": {
+      "source": "ct-overhaul-village",
+      "pool": "ctov:village/taiga_fortified/house",
+      "template": "ctov:village/taiga_fortified/house/med_1"
+    },
+    "timber_rigging_landing_home_3": {
+      "source": "ct-overhaul-village",
+      "pool": "ctov:village/taiga_fortified/house",
+      "template": "ctov:village/taiga_fortified/house/med_2"
+    },
+    "timber_rigging_landing_home_4": {
+      "source": "ct-overhaul-village",
+      "pool": "ctov:village/taiga_fortified/house",
+      "template": "ctov:village/taiga_fortified/house/small_1"
+    },
+    "timber_rigging_landing_home_5": {
+      "source": "ct-overhaul-village",
+      "pool": "ctov:village/taiga_fortified/house",
+      "template": "ctov:village/taiga_fortified/house/small_2"
+    },
+    "timber_rigging_landing_home_6": {
+      "source": "ct-overhaul-village",
+      "pool": "ctov:village/taiga_fortified/house",
+      "template": "ctov:village/taiga_fortified/house/small_3"
+    },
+    "timber_rigging_landing_home_7": {
+      "source": "ct-overhaul-village",
+      "pool": "ctov:village/taiga_fortified/house",
+      "template": "ctov:village/taiga_fortified/house/med_3"
+    },
+    "timber_rigging_landing_home_8": {
+      "source": "ct-overhaul-village",
+      "pool": "ctov:village/taiga_fortified/house",
+      "template": "ctov:village/taiga_fortified/house/big_2"
+    },
+    "mill_market_common_market_center": {
+      "source": "authored",
+      "template": "skyweave_compat:villages/mill_market_common/town_centers/market_common_1",
+      "processors": "minecraft:empty",
+      "projection": "rigid"
+    },
+    "mill_market_common_home_1": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/tudor/houses",
+      "template": "kaisyn:village/exclusives/tudor/houses/tudor_large_house_1"
+    },
+    "mill_market_common_home_2": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/tudor/houses",
+      "template": "kaisyn:village/exclusives/tudor/houses/tudor_small_house_1"
+    },
+    "mill_market_common_home_3": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/tudor/houses",
+      "template": "kaisyn:village/exclusives/tudor/houses/tudor_small_house_2"
+    },
+    "mill_market_common_home_4": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/tudor/houses",
+      "template": "kaisyn:village/exclusives/tudor/houses/tudor_small_house_3"
+    },
+    "mill_market_common_home_5": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/tudor/houses",
+      "template": "kaisyn:village/exclusives/tudor/houses/tudor_small_house_4"
+    },
+    "sunflower_windmill": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/sunflower_plains_farm/side/windmill",
+      "template": "kaisyn:village/sunflower_plains_farm/side/sunflower_plains_windmill_1"
+    },
+    "birch_bellspire_court_specialist_court": {
+      "source": "authored",
+      "template": "skyweave_compat:villages/birch_bellspire_court/town_centers/survey_court_1",
+      "processors": "minecraft:empty",
+      "projection": "rigid"
+    },
+    "birch_bellspire_court_regional_civic": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/birch_forest_romanian/town_centers",
+      "template": "kaisyn:village/birch_forest_romanian/town_centers/birch_forest_meeting_point_1"
+    },
+    "birch_bellspire_court_home_1": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/birch_forest_romanian/houses",
+      "template": "kaisyn:village/birch_forest_romanian/houses/birch_forest_small_house_1"
+    },
+    "birch_bellspire_court_home_2": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/birch_forest_romanian/houses",
+      "template": "kaisyn:village/birch_forest_romanian/houses/birch_forest_small_house_2"
+    },
+    "birch_bellspire_court_home_3": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/birch_forest_romanian/houses",
+      "template": "kaisyn:village/birch_forest_romanian/houses/birch_forest_small_house_3"
+    },
+    "birch_bellspire_court_home_4": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/birch_forest_romanian/houses",
+      "template": "kaisyn:village/birch_forest_romanian/houses/birch_forest_small_house_4"
+    },
+    "birch_bellspire_court_home_5": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/birch_forest_romanian/houses",
+      "template": "kaisyn:village/birch_forest_romanian/houses/birch_forest_small_house_5"
+    },
+    "birch_bellspire_court_home_6": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/birch_forest_romanian/houses",
+      "template": "kaisyn:village/birch_forest_romanian/houses/birch_forest_small_house_6"
+    },
+    "birch_bellspire_court_home_7": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/birch_forest_romanian/houses",
+      "template": "kaisyn:village/birch_forest_romanian/houses/birch_forest_medium_house_1"
+    },
+    "birch_bellspire_court_home_8": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/birch_forest_romanian/houses",
+      "template": "kaisyn:village/birch_forest_romanian/houses/birch_forest_medium_house_2"
+    },
+    "birch_bellspire_court_home_9": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/birch_forest_romanian/houses",
+      "template": "kaisyn:village/birch_forest_romanian/houses/birch_forest_large_house_1"
+    },
+    "white_terrace_exchange_exchange_yard": {
+      "source": "authored",
+      "template": "skyweave_compat:villages/white_terrace_exchange/town_centers/exchange_yard_1",
+      "processors": "minecraft:empty",
+      "projection": "rigid"
+    },
+    "white_terrace_exchange_regional_civic": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/mediterranean/town_centers",
+      "template": "kaisyn:village/exclusives/mediterranean/town_centers/med_meeting_point_1"
+    },
+    "white_terrace_exchange_home_1": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/mediterranean/houses/corner",
+      "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_small_house_1"
+    },
+    "white_terrace_exchange_home_2": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/mediterranean/houses/corner",
+      "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_small_house_2"
+    },
+    "white_terrace_exchange_home_3": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/mediterranean/houses/corner",
+      "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_small_house_3"
+    },
+    "white_terrace_exchange_home_4": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/mediterranean/houses/corner",
+      "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_small_house_4"
+    },
+    "white_terrace_exchange_home_5": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/mediterranean/houses/corner",
+      "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_small_house_5"
+    },
+    "white_terrace_exchange_home_6": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/mediterranean/houses/corner",
+      "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_medium_house_1"
+    },
+    "white_terrace_exchange_home_7": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/mediterranean/houses/regular",
+      "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_large_house_1"
+    },
+    "white_terrace_exchange_home_8": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/mediterranean/houses/regular",
+      "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_large_house_2"
+    },
+    "white_terrace_exchange_home_9": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/mediterranean/houses/regular",
+      "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_large_house_3"
+    },
+    "white_terrace_exchange_home_10": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/mediterranean/houses/regular",
+      "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_medium_house_2"
+    },
+    "white_terrace_exchange_home_11": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/mediterranean/houses/regular",
+      "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_armorer_and_weaponsmith_1"
+    },
+    "white_terrace_exchange_home_12": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/mediterranean/houses/regular",
+      "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_library_1"
+    },
+    "white_terrace_exchange_home_13": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/mediterranean/houses/regular",
+      "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_butcher_1"
+    },
+    "white_terrace_exchange_home_14": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/mediterranean/houses/regular",
+      "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_shepherd_1"
+    },
+    "white_terrace_exchange_home_15": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/mediterranean/houses/regular",
+      "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_cartographer_1"
+    },
+    "white_terrace_exchange_home_16": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/mediterranean/houses/regular",
+      "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_fletcher_and_toolsmith_1"
+    },
+    "white_terrace_exchange_home_17": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/mediterranean/houses/regular",
+      "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_leatherworker_1"
+    },
+    "white_terrace_exchange_home_18": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/exclusives/mediterranean/houses/regular",
+      "template": "kaisyn:village/exclusives/mediterranean/houses/regular/med_farmer_and_mason_1"
+    },
+    "red_clay_works_kiln_materials_yard": {
+      "source": "authored",
+      "template": "skyweave_compat:villages/red_clay_works/town_centers/kiln_court_1",
+      "processors": "minecraft:empty",
+      "projection": "rigid"
+    },
+    "red_clay_works_regional_civic": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/badlands_pueblo/town_centers",
+      "template": "kaisyn:village/badlands_pueblo/town_centers/badlands_meeting_point_1"
+    },
+    "red_clay_works_home_1": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/badlands_pueblo/houses",
+      "template": "kaisyn:village/badlands_pueblo/houses/badlands_small_house_1_l"
+    },
+    "red_clay_works_home_2": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/badlands_pueblo/houses",
+      "template": "kaisyn:village/badlands_pueblo/houses/badlands_small_house_1_r"
+    },
+    "red_clay_works_home_3": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/badlands_pueblo/houses",
+      "template": "kaisyn:village/badlands_pueblo/houses/badlands_small_house_2_l"
+    },
+    "red_clay_works_home_4": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/badlands_pueblo/houses",
+      "template": "kaisyn:village/badlands_pueblo/houses/badlands_small_house_2_r"
+    },
+    "red_clay_works_home_5": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/badlands_pueblo/houses",
+      "template": "kaisyn:village/badlands_pueblo/houses/badlands_small_house_3_l"
+    },
+    "red_clay_works_home_6": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/badlands_pueblo/houses",
+      "template": "kaisyn:village/badlands_pueblo/houses/badlands_small_house_3_r"
+    },
+    "red_clay_works_home_7": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/badlands_pueblo/houses",
+      "template": "kaisyn:village/badlands_pueblo/houses/badlands_small_house_4_l"
+    },
+    "red_clay_works_home_8": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/badlands_pueblo/houses",
+      "template": "kaisyn:village/badlands_pueblo/houses/badlands_small_house_4_r"
+    },
+    "red_clay_works_home_9": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/badlands_pueblo/houses",
+      "template": "kaisyn:village/badlands_pueblo/houses/badlands_small_house_5_l"
+    },
+    "red_clay_works_home_10": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/badlands_pueblo/houses",
+      "template": "kaisyn:village/badlands_pueblo/houses/badlands_small_house_5_r"
+    },
+    "red_clay_works_home_11": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/badlands_pueblo/houses",
+      "template": "kaisyn:village/badlands_pueblo/houses/badlands_small_house_6_l"
+    },
+    "red_clay_works_home_12": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/badlands_pueblo/houses",
+      "template": "kaisyn:village/badlands_pueblo/houses/badlands_small_house_6_r"
+    },
+    "red_clay_works_home_13": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/badlands_pueblo/houses",
+      "template": "kaisyn:village/badlands_pueblo/houses/badlands_medium_house_1_l"
+    },
+    "red_clay_works_home_14": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/badlands_pueblo/houses",
+      "template": "kaisyn:village/badlands_pueblo/houses/badlands_medium_house_1_r"
+    },
+    "red_clay_works_home_15": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/badlands_pueblo/houses",
+      "template": "kaisyn:village/badlands_pueblo/houses/badlands_medium_house_2_l"
+    },
+    "red_clay_works_home_16": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/badlands_pueblo/houses",
+      "template": "kaisyn:village/badlands_pueblo/houses/badlands_large_house_1"
+    },
+    "red_clay_works_home_17": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/badlands_pueblo/houses",
+      "template": "kaisyn:village/badlands_pueblo/houses/badlands_large_house_2"
+    },
+    "red_clay_works_home_18": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/badlands_pueblo/houses",
+      "template": "kaisyn:village/badlands_pueblo/houses/badlands_large_house_3"
+    },
+    "red_clay_works_home_19": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/badlands_pueblo/houses",
+      "template": "kaisyn:village/badlands_pueblo/houses/badlands_large_house_4"
+    },
+    "flower_gate_dye_court_home_1": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/flower_forest_japanese/houses",
+      "template": "kaisyn:village/flower_forest_japanese/houses/flower_forest_small_house_1"
+    },
+    "flower_gate_dye_court_home_2": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/flower_forest_japanese/houses",
+      "template": "kaisyn:village/flower_forest_japanese/houses/flower_forest_small_house_2"
+    },
+    "flower_gate_dye_court_home_3": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/flower_forest_japanese/houses",
+      "template": "kaisyn:village/flower_forest_japanese/houses/flower_forest_small_house_3"
+    },
+    "flower_gate_dye_court_home_4": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/flower_forest_japanese/houses",
+      "template": "kaisyn:village/flower_forest_japanese/houses/flower_forest_small_house_4"
+    },
+    "flower_gate_dye_court_home_5": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/flower_forest_japanese/houses",
+      "template": "kaisyn:village/flower_forest_japanese/houses/flower_forest_small_house_5"
+    },
+    "flower_gate_dye_court_home_6": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/flower_forest_japanese/houses",
+      "template": "kaisyn:village/flower_forest_japanese/houses/flower_forest_small_house_6"
+    },
+    "flower_gate_dye_court_court": {
+      "source": "authored",
+      "template": "skyweave_compat:villages/flower_gate_dye_court/town_centers/court_1",
+      "processors": "minecraft:empty",
+      "projection": "rigid"
+    },
+    "flower_gate_dye_court_native_landmark": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/flower_forest_japanese/town_centers",
+      "template": "kaisyn:village/flower_forest_japanese/town_centers/flower_forest_meeting_point_1"
+    },
+    "snowline_relay_lodge_home_1": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/snowy_taiga_viking/houses",
+      "template": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_small_house_1"
+    },
+    "snowline_relay_lodge_home_2": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/snowy_taiga_viking/houses",
+      "template": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_small_house_2"
+    },
+    "snowline_relay_lodge_home_3": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/snowy_taiga_viking/houses",
+      "template": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_small_house_3"
+    },
+    "snowline_relay_lodge_home_4": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/snowy_taiga_viking/houses",
+      "template": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_small_house_4"
+    },
+    "snowline_relay_lodge_home_5": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/snowy_taiga_viking/houses",
+      "template": "kaisyn:village/snowy_taiga_viking/houses/snowy_taiga_small_house_5"
+    },
+    "snowline_relay_lodge_court": {
+      "source": "authored",
+      "template": "skyweave_compat:villages/snowline_relay_lodge/town_centers/court_1",
+      "processors": "minecraft:empty",
+      "projection": "rigid"
+    },
+    "snowline_relay_lodge_native_landmark": {
+      "source": "towns-and-towers",
+      "pool": "kaisyn:village/snowy_taiga_viking/town_centers",
+      "template": "kaisyn:village/snowy_taiga_viking/town_centers/snowy_taiga_meeting_point_1"
+    },
+    "snowline_relay_lodge_bv_roadhouse": {
+      "source": "better-village",
+      "pool": "minecraft:village/snowy/houses",
+      "template": "minecraft:village/snowy/houses/snowy_small_house_4"
+    }
+  },
+  "enabledProfiles": [
+    "skyweave_compat:villages/timber_rigging_landing",
+    "skyweave_compat:villages/mill_market_common",
+    "skyweave_compat:villages/birch_bellspire_court",
+    "skyweave_compat:villages/white_terrace_exchange",
+    "skyweave_compat:villages/red_clay_works",
+    "skyweave_compat:villages/flower_gate_dye_court",
+    "skyweave_compat:villages/snowline_relay_lodge"
   ]
 }

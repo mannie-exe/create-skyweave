@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "roles": {
+    "authored_court": {
+      "minimum": 1,
+      "alternatives": [
+        {
+          "template": "skyweave_compat:villages/flower_gate_dye_court/town_centers/court_1",
+          "type": "minecraft:single_pool_element",
+          "processors": "minecraft:empty",
+          "projection": "rigid"
+        }
+      ]
+    },
+    "inhabited_core": {
+      "minimum": 2,
+      "alternatives": [
+        {
+          "template": "kaisyn:village/flower_forest_japanese/houses/flower_forest_small_house_1",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "minecraft:mossify_10_percent",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/flower_forest_japanese/houses/flower_forest_small_house_2",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "minecraft:mossify_10_percent",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/flower_forest_japanese/houses/flower_forest_small_house_3",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "minecraft:mossify_10_percent",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/flower_forest_japanese/houses/flower_forest_small_house_4",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "minecraft:mossify_10_percent",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/flower_forest_japanese/houses/flower_forest_small_house_5",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "minecraft:mossify_10_percent",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/flower_forest_japanese/houses/flower_forest_small_house_6",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "minecraft:mossify_10_percent",
+          "projection": "rigid"
+        }
+      ]
+    },
+    "regional_landmark": {
+      "minimum": 1,
+      "alternatives": [
+        {
+          "template": "kaisyn:village/flower_forest_japanese/town_centers/flower_forest_meeting_point_1",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "minecraft:empty",
+          "projection": "rigid"
+        }
+      ]
+    }
+  }
+}

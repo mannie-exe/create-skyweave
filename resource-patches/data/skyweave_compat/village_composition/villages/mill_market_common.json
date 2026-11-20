@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "roles": {
+    "authored_court": {
+      "minimum": 1,
+      "alternatives": [
+        {
+          "template": "skyweave_compat:villages/mill_market_common/town_centers/market_common_1",
+          "type": "minecraft:single_pool_element",
+          "processors": "minecraft:empty",
+          "projection": "rigid"
+        }
+      ]
+    },
+    "inhabited_core": {
+      "minimum": 2,
+      "alternatives": [
+        {
+          "template": "kaisyn:village/exclusives/tudor/houses/tudor_large_house_1",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "minecraft:empty",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/exclusives/tudor/houses/tudor_small_house_1",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "minecraft:empty",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/exclusives/tudor/houses/tudor_small_house_2",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "minecraft:empty",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/exclusives/tudor/houses/tudor_small_house_3",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "minecraft:empty",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/exclusives/tudor/houses/tudor_small_house_4",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "minecraft:empty",
+          "projection": "rigid"
+        }
+      ]
+    },
+    "regional_landmark": {
+      "minimum": 1,
+      "alternatives": [
+        {
+          "template": "kaisyn:village/sunflower_plains_farm/side/sunflower_plains_windmill_1",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "minecraft:empty",
+          "projection": "rigid"
+        }
+      ]
+    }
+  }
+}

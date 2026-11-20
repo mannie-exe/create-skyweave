@@ -174,6 +174,7 @@ coverage:
   refined-create-buckets: unknown
   refined-tools: complete
   refined-torches: complete
+  reform: unknown
   reliable-emi: complete
   reliable-gliders: complete
   resourceful-lib: complete
@@ -9408,6 +9409,43 @@ dependencies:
       provider: modrinth
       selector: M6aa729D
     title: Refined Torches
+  reform:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://github.com/mannie-exe/reform/releases/download/v0.1.0/reform-0.1.0-mc1.21.1-neoforge.jar
+        kind: url
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 625f0abb5bede69cec59ccea80f3b23a06c85e77
+          sha512: >-
+            3a740a41c52ca815e7f3018adf96b5c58cb5ce735f64c64b5802645ef5b055148c66ab5c630452acfcdea39b68c194c3e23d60f7f4cc5c71ad90adb136b709e5
+        size: null
+      placements:
+      - destination: mods/reform-0.1.0-mc1.21.1-neoforge.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 625f0abb5bede69cec59ccea80f3b23a06c85e77
+          sha512: >-
+            3a740a41c52ca815e7f3018adf96b5c58cb5ce735f64c64b5802645ef5b055148c66ab5c630452acfcdea39b68c194c3e23d60f7f4cc5c71ad90adb136b709e5
+        location: null
+        source: url-file
+      slot: primary
+    identity:
+      key: reform
+      kind: url
+    incompatibilities: []
+    selection: null
+    source-selector: null
+    title: reform
   reliable-emi:
     content: mod
     files:
@@ -10179,14 +10217,14 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.40.0/skyweave-compat-0.40.0-mc1.21.1-neoforge.jar
+          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.41.0/skyweave-compat-0.41.0-mc1.21.1-neoforge.jar
         kind: url
       expected:
         accepted-observation: null
         digests:
-          sha1: 9bfc4d6c5fbce3f9b4774d10cea20b5c60163f58
+          sha1: a06c600022d9bbf76ea12103e290fb1438e58cba
           sha512: >-
-            dbcb737e3d8349ca6d87512ae74b8277d89730067203725b88e9b4e8b5a791843290ac5e9679314608ac4e430c9dae24469753cf45949181f3a934b24d5ee13a
+            d431e4d4d4012777347e471ada01a447b031e7af0fa4ec887c5b29e4e2582232fc7897ac7c078a79b4b9824fd51e360af1f82805d89ecbf5479da9082f5387bb
         size: null
       placements:
       - destination: mods/skyweave-compat.jar
@@ -10197,9 +10235,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: 9bfc4d6c5fbce3f9b4774d10cea20b5c60163f58
+          sha1: a06c600022d9bbf76ea12103e290fb1438e58cba
           sha512: >-
-            dbcb737e3d8349ca6d87512ae74b8277d89730067203725b88e9b4e8b5a791843290ac5e9679314608ac4e430c9dae24469753cf45949181f3a934b24d5ee13a
+            d431e4d4d4012777347e471ada01a447b031e7af0fa4ec887c5b29e4e2582232fc7897ac7c078a79b4b9824fd51e360af1f82805d89ecbf5479da9082f5387bb
         location: null
         source: url-file
       slot: primary
@@ -11706,7 +11744,7 @@ dependencies:
       provider: modrinth
       selector: OnlVIpq5
     title: Fast Noise
-intent-revision: 6b597dbe4978351ab40684c17fd982b1a1a6afcacaa851756fe66763da60a4f7
+intent-revision: 47b4b17245b98431f9aa7a8975121b891e963ae24fac5f8417d1b74672b80593
 java-policy:
   historical-minimum: 21
   id: empack-java-1

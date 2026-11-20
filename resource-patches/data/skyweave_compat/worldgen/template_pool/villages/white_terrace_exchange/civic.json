@@ -1,0 +1,26 @@
+{
+  "name": "skyweave_compat:villages/white_terrace_exchange/civic",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "location": "kaisyn:village/exclusives/mediterranean/town_centers/med_meeting_point_1",
+          "processors": "kaisyn:village/exclusives/street_mediterranean",
+          "projection": "rigid",
+          "element_type": "minecraft:single_pool_element"
+        },
+        "name": "skyweave_compat:villages/white_terrace_exchange/regional_civic",
+        "max_count": 1
+      }
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "t_and_t"
+    }
+  ]
+}

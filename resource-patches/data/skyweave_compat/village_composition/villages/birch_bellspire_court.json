@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "roles": {
+    "authored_court": {
+      "minimum": 1,
+      "alternatives": [
+        {
+          "template": "skyweave_compat:villages/birch_bellspire_court/town_centers/survey_court_1",
+          "type": "minecraft:single_pool_element",
+          "processors": "minecraft:empty",
+          "projection": "rigid"
+        }
+      ]
+    },
+    "inhabited_core": {
+      "minimum": 2,
+      "alternatives": [
+        {
+          "template": "kaisyn:village/birch_forest_romanian/houses/birch_forest_small_house_1",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/street_romanian",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/birch_forest_romanian/houses/birch_forest_small_house_2",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/street_romanian",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/birch_forest_romanian/houses/birch_forest_small_house_3",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/street_romanian",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/birch_forest_romanian/houses/birch_forest_small_house_4",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/street_romanian",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/birch_forest_romanian/houses/birch_forest_small_house_5",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/street_romanian",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/birch_forest_romanian/houses/birch_forest_small_house_6",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/street_romanian",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/birch_forest_romanian/houses/birch_forest_medium_house_1",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/street_romanian",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/birch_forest_romanian/houses/birch_forest_medium_house_2",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/street_romanian",
+          "projection": "rigid"
+        },
+        {
+          "template": "kaisyn:village/birch_forest_romanian/houses/birch_forest_large_house_1",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/street_romanian",
+          "projection": "rigid"
+        }
+      ]
+    },
+    "regional_landmark": {
+      "minimum": 1,
+      "alternatives": [
+        {
+          "template": "kaisyn:village/birch_forest_romanian/town_centers/birch_forest_meeting_point_1",
+          "type": "minecraft:legacy_single_pool_element",
+          "processors": "kaisyn:village/street_romanian",
+          "projection": "rigid"
+        }
+      ]
+    }
+  }
+}

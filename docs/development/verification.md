@@ -1,5 +1,11 @@
 # Pack verification
 
+## Settlements and shared settings 0.22.0
+
+The pack and shader lab select public Compat 0.41.0, SHA-256 `6d6e08a8f32ecf13c3d3ad629ad2079dc73d4c237e412341f851a1e90fb0ddbd`, with re:form 0.1.0, SHA-256 `445a6ca31cf37801be756afbe4abc103083fddcaab7b6f2a9edb1b34210c62db`. Both are required on client and server. Public downloads pass both checksum manifests; Compat's Linux, Windows and macOS release builds agree. Seven actual published-product native assemblies satisfy their required content and reopen with matching starts without loading chunks during inspection. [Compat qualification](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/verification.md#authored-village-contracts) separates those controls from earlier physical island witnesses.
+
+The seven-profile recipe retains SHA-256 `42d6dd80cde47e72a31fccd607fd7cf2129148f4cff09566dad37a97f4917537`. The complete pack suite passes 157 cases; configuration ownership covers 334 sources with no missing or unregistered files and 165 generated village resources. The current published Compat runner builds all three pinned shader recipes. The native reference lock is current and its required runtime relationships pass. The final release-mode Prism, Modrinth and server archives pass integrity checks, select the exact published Compat/re:form URLs and digests, and carry Resource Patches identity `0.22.0`. Maintained resource and repair generators pass their current-output checks. Export verification does not update an installation or qualify a server upgrade.
+
 ## Dependency release candidate 0.21.0
 
 Empack applies 18 reviewed version changes and retains the dependency closure, including Minecraft 1.21.1, NeoForge 21.1.265 and Dynamic Waters 13.1.0. The staged Java 21 client uses the Curios 9.6.0 opt-in on the managed Compat settings file and passes the 45-artifact equipment check. The matching dedicated recipe generates and reopens a disposable island world for the V&V and Lithostitched controls. A separate two-boot native Radars control verifies the warning-receiver and directional-jammer recipes, the replacement pitch controller and a real data-link placement that remains connected after reopening. Existing 5.0 network conversion is outside that control.

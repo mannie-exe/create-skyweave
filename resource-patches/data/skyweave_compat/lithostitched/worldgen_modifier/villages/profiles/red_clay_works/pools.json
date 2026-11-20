@@ -1,0 +1,45 @@
+{
+  "type": "lithostitched:set_pool_aliases",
+  "structures": [
+    "skyweave_compat:villages/red_clay_works"
+  ],
+  "append": true,
+  "pool_aliases": [
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/badlands_pueblo/decor",
+      "target": "skyweave_compat:villages/red_clay_works/decor"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/badlands_pueblo/houses",
+      "target": "skyweave_compat:villages/red_clay_works/houses"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/badlands_pueblo/professions_misc",
+      "target": "skyweave_compat:villages/red_clay_works/professions_misc"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/badlands_pueblo/streets",
+      "target": "skyweave_compat:villages/red_clay_works/streets"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/badlands_pueblo/terminators",
+      "target": "skyweave_compat:villages/red_clay_works/terminators"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/badlands_pueblo/town_centers",
+      "target": "skyweave_compat:villages/red_clay_works/town_centers"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "t_and_t"
+    }
+  ]
+}

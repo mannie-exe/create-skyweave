@@ -1,0 +1,26 @@
+{
+  "name": "skyweave_compat:villages/red_clay_works/civic",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "location": "kaisyn:village/badlands_pueblo/town_centers/badlands_meeting_point_1",
+          "processors": "kaisyn:village/street_pueblo",
+          "projection": "rigid",
+          "element_type": "minecraft:legacy_single_pool_element"
+        },
+        "name": "skyweave_compat:villages/red_clay_works/regional_civic",
+        "max_count": 1
+      }
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "t_and_t"
+    }
+  ]
+}

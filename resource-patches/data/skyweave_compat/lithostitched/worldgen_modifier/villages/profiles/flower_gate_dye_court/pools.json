@@ -1,0 +1,50 @@
+{
+  "type": "lithostitched:set_pool_aliases",
+  "structures": [
+    "skyweave_compat:villages/flower_gate_dye_court"
+  ],
+  "append": true,
+  "pool_aliases": [
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/flower_forest_japanese/decor",
+      "target": "skyweave_compat:villages/flower_gate_dye_court/decor"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/flower_forest_japanese/gates",
+      "target": "skyweave_compat:villages/flower_gate_dye_court/gates"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/flower_forest_japanese/houses",
+      "target": "skyweave_compat:villages/flower_gate_dye_court/houses"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/flower_forest_japanese/lamps",
+      "target": "skyweave_compat:villages/flower_gate_dye_court/lamps"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/flower_forest_japanese/streets",
+      "target": "skyweave_compat:villages/flower_gate_dye_court/streets"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/flower_forest_japanese/terminators",
+      "target": "skyweave_compat:villages/flower_gate_dye_court/terminators"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/flower_forest_japanese/town_centers",
+      "target": "skyweave_compat:villages/flower_gate_dye_court/town_centers"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "t_and_t"
+    }
+  ]
+}

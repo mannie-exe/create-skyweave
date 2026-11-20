@@ -1,0 +1,88 @@
+{
+  "fallback": "skyweave_compat:villages/timber_rigging_landing/terminator",
+  "elements": [
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "terrain_matching",
+        "processors": "ctov:village/taiga_fortified/road",
+        "location": "ctov:village/taiga_fortified/roads/straight"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "terrain_matching",
+        "processors": "ctov:village/taiga_fortified/road",
+        "location": "ctov:village/taiga_fortified/roads/corner_1"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "terrain_matching",
+        "processors": "ctov:village/taiga_fortified/road",
+        "location": "ctov:village/taiga_fortified/roads/corner_2"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "terrain_matching",
+        "processors": "ctov:village/taiga_fortified/road",
+        "location": "ctov:village/taiga_fortified/roads/t_1"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "terrain_matching",
+        "processors": "ctov:village/taiga_fortified/road",
+        "location": "ctov:village/taiga_fortified/roads/t_2"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "terrain_matching",
+        "processors": "ctov:village/taiga_fortified/road",
+        "location": "ctov:village/taiga_fortified/roads/t_3"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "terrain_matching",
+        "processors": "ctov:village/taiga_fortified/road",
+        "location": "ctov:village/taiga_fortified/roads/crossroad"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:legacy_single_pool_element",
+          "location": "minecraft:village/taiga/streets/straight_05",
+          "processors": "minecraft:street_snowy_or_taiga",
+          "projection": "terrain_matching"
+        },
+        "name": "skyweave_compat:villages/taiga_fortified/road",
+        "max_count": 2
+      }
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ctov"
+    }
+  ]
+}

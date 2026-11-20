@@ -1,0 +1,45 @@
+{
+  "type": "lithostitched:set_pool_aliases",
+  "structures": [
+    "skyweave_compat:villages/mill_market_common"
+  ],
+  "append": true,
+  "pool_aliases": [
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/exclusives/tudor/decor",
+      "target": "skyweave_compat:villages/mill_market_common/decor"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/exclusives/tudor/houses",
+      "target": "skyweave_compat:villages/mill_market_common/houses"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/exclusives/tudor/streets",
+      "target": "skyweave_compat:villages/mill_market_common/streets"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/exclusives/tudor/terminators",
+      "target": "skyweave_compat:villages/mill_market_common/terminators"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/exclusives/tudor/town_centers",
+      "target": "skyweave_compat:villages/mill_market_common/town_centers"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/sunflower_plains_farm/side/windmill",
+      "target": "skyweave_compat:villages/mill_market_common/mill"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "t_and_t"
+    }
+  ]
+}

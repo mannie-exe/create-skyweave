@@ -1,0 +1,60 @@
+{
+  "type": "lithostitched:set_pool_aliases",
+  "structures": [
+    "skyweave_compat:villages/white_terrace_exchange"
+  ],
+  "append": true,
+  "pool_aliases": [
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/exclusives/mediterranean/decor",
+      "target": "skyweave_compat:villages/white_terrace_exchange/decor"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/exclusives/mediterranean/houses/corner",
+      "target": "skyweave_compat:villages/white_terrace_exchange/houses/corner"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/exclusives/mediterranean/houses/regular",
+      "target": "skyweave_compat:villages/white_terrace_exchange/houses/regular"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/exclusives/mediterranean/streets/avenue",
+      "target": "skyweave_compat:villages/white_terrace_exchange/streets/avenue"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/exclusives/mediterranean/streets/avenue_second_turn",
+      "target": "skyweave_compat:villages/white_terrace_exchange/streets/avenue_second_turn"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/exclusives/mediterranean/streets/promenade",
+      "target": "skyweave_compat:villages/white_terrace_exchange/streets/promenade"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/exclusives/mediterranean/terminators/avenue",
+      "target": "skyweave_compat:villages/white_terrace_exchange/terminators/avenue"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/exclusives/mediterranean/terminators/promenade",
+      "target": "skyweave_compat:villages/white_terrace_exchange/terminators/promenade"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "kaisyn:village/exclusives/mediterranean/town_centers",
+      "target": "skyweave_compat:villages/white_terrace_exchange/town_centers"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "t_and_t"
+    }
+  ]
+}

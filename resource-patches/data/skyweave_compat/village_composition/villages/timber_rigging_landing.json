@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "roles": {
+    "authored_court": {
+      "minimum": 1,
+      "alternatives": [
+        {
+          "template": "skyweave_compat:villages/timber_rigging_landing/town_centers/rigging_yard_1",
+          "type": "minecraft:single_pool_element",
+          "processors": "minecraft:empty",
+          "projection": "rigid"
+        }
+      ]
+    },
+    "inhabited_core": {
+      "minimum": 2,
+      "alternatives": [
+        {
+          "template": "ctov:village/taiga_fortified/house/big_1",
+          "type": "minecraft:single_pool_element",
+          "processors": "ctov:village/taiga_fortified/house",
+          "projection": "rigid"
+        },
+        {
+          "template": "ctov:village/taiga_fortified/house/med_1",
+          "type": "minecraft:single_pool_element",
+          "processors": "ctov:village/taiga_fortified/house",
+          "projection": "rigid"
+        },
+        {
+          "template": "ctov:village/taiga_fortified/house/med_2",
+          "type": "minecraft:single_pool_element",
+          "processors": "ctov:village/taiga_fortified/house",
+          "projection": "rigid"
+        },
+        {
+          "template": "ctov:village/taiga_fortified/house/small_1",
+          "type": "minecraft:single_pool_element",
+          "processors": "ctov:village/taiga_fortified/house",
+          "projection": "rigid"
+        },
+        {
+          "template": "ctov:village/taiga_fortified/house/small_2",
+          "type": "minecraft:single_pool_element",
+          "processors": "ctov:village/taiga_fortified/house",
+          "projection": "rigid"
+        },
+        {
+          "template": "ctov:village/taiga_fortified/house/small_3",
+          "type": "minecraft:single_pool_element",
+          "processors": "ctov:village/taiga_fortified/house",
+          "projection": "rigid"
+        },
+        {
+          "template": "ctov:village/taiga_fortified/house/med_3",
+          "type": "minecraft:single_pool_element",
+          "processors": "ctov:village/taiga_fortified/house",
+          "projection": "rigid"
+        },
+        {
+          "template": "ctov:village/taiga_fortified/house/big_2",
+          "type": "minecraft:single_pool_element",
+          "processors": "ctov:village/taiga_fortified/house",
+          "projection": "rigid"
+        }
+      ]
+    },
+    "regional_landmark": {
+      "minimum": 1,
+      "alternatives": [
+        {
+          "template": "ctov:village/taiga_fortified/town_center",
+          "type": "minecraft:single_pool_element",
+          "processors": "ctov:village/taiga_fortified/town_center",
+          "projection": "rigid"
+        }
+      ]
+    }
+  }
+}

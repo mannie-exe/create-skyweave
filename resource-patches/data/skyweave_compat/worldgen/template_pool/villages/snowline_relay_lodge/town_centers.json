@@ -1,0 +1,30 @@
+{
+  "name": "kaisyn:village/snowy_taiga_viking/town_centers",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "skyweave_compat:villages/snowline_relay_lodge/town_centers/court_1",
+          "projection": "rigid",
+          "processors": "minecraft:empty"
+        },
+        "name": "skyweave_compat:villages/snowline_relay_lodge/specialist_court",
+        "max_count": 1
+      }
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "t_and_t"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "bettervillage"
+    }
+  ]
+}

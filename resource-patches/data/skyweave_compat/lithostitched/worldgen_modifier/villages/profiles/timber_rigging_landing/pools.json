@@ -1,0 +1,40 @@
+{
+  "type": "lithostitched:set_pool_aliases",
+  "structures": [
+    "skyweave_compat:villages/timber_rigging_landing"
+  ],
+  "append": true,
+  "pool_aliases": [
+    {
+      "type": "minecraft:direct",
+      "alias": "ctov:village/taiga_fortified/deco",
+      "target": "skyweave_compat:villages/timber_rigging_landing/deco"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "ctov:village/taiga_fortified/house",
+      "target": "skyweave_compat:villages/timber_rigging_landing/house"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "ctov:village/taiga_fortified/roads",
+      "target": "skyweave_compat:villages/timber_rigging_landing/roads"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "ctov:village/taiga_fortified/terminator",
+      "target": "skyweave_compat:villages/timber_rigging_landing/terminator"
+    },
+    {
+      "type": "minecraft:direct",
+      "alias": "ctov:village/taiga_fortified/town_centers",
+      "target": "skyweave_compat:villages/timber_rigging_landing/town_centers"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ctov"
+    }
+  ]
+}

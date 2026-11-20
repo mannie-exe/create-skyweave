@@ -1,13 +1,11 @@
-# Create: Skyweave 0.21.0
+# Create: Skyweave 0.22.0
 
-Update the selected Minecraft 1.21.1 dependencies and pair them with Skyweave: Compatibility Patches 0.40.0. See the [content list](MODLIST.md) for exact pins.
+Use Skyweave: Compatibility Patches 0.41.0 with its required re:form 0.1.0 settings library on client and server. Minecraft remains 1.21.1 and NeoForge remains 21.1.265.
 
-- Rebase Complementary and Euphoria to r5.10 and 1.11.1. Keep Skyweave's window material, sky environment and DH shadow adjustments. Shader-lab carries forward a valid generated preset and keeps the other two shader recipes available.
-- Update Create Radars to 5.1.1. Recreate links authored before 5.1 if their order changed. The legacy T-Pitch block has been removed upstream. The pack keeps only the malformed directional-jammer recipe repair.
-- Give Redstone Additions 1.0.6 ownership of gate placement and updates, wrench rotation, copper scraping, drops and inverter models. Compat retains the Crossroad signal scope correction.
-- Use Curios 9.6.0 with a temporary Compat bridge for Accessories. It preserves equipment slot assignments through world loading and datapack reload.
-- Carry forward the Modefite, held-item, resource-option and chain fixes. Add Artifacts with its authored presentation and use Visual Workbench with the selected workstation accessories.
-- Add client-only Flashback and CMDCam recording tools. See the [filming guide](players/filming.md).
-- Set a 12 GiB maximum heap on new Prism installs. The server archive uses NeoForge's initial JVM arguments, with heap size configurable in the operator-owned `game/user_jvm_args.txt`. Use at least 12 GiB of system memory and leave headroom for the operating system and native memory.
+- Select seven authored ground-village profiles: Timber Rigging Landing, Red Clay Works, Birch Bellspire Court, Flower Gate Dye Court, Snowline Relay Lodge, White Terrace Exchange and Mill Market Common. Their original courts and regional donor choices retain named landmarks, useful stationary blocks and residential requirements. See the [settlement guide](development/worldgen-candidates.md).
+- Retain required village content through bounded assembly, island fitting and support trimming. Trace refusals for missing roles, unsupported pieces and exhausted work; an unsuccessful optional grading shoulder grants no raised ground.
+- Move Compat's configuration screens to the standalone shared settings library. Keep existing native config files, startup switches, validation, operator commands and explicit saved/staged outcomes. Install both dependencies from the recorded public releases.
 
-Generation remains `islands_v1-skyarch-1.4-17` with `island_watersheds_v7`. Dynamic Waters remains on 13.1.0.
+Saved generation identity advances to `islands_v1-skyarch-1.4-18`; watersheds remain `island_watersheds_v7`. Use a fresh matching marked world, or retain the preceding release for an existing world. Never edit a saved identity to bypass the guard. Installation does not delete worlds, LODs or map tiles.
+
+Bounded native checks cover seven assembly/save-reopen cases with the published Compat JAR. Prior physical Snowline and Flower witnesses retain their documented support and access limits. These checks do not certify every profile's physical fit, natural frequency or whole-village navigation. See [Compat verification](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/verification.md#authored-village-contracts).
