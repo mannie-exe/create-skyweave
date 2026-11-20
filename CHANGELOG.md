@@ -2,6 +2,12 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.22.0 · 2026-11-20
+
+### Features
+
+- **pack:** Add authored settlements and shared settings ([902e516](https://github.com/mannie-exe/create-skyweave/commit/902e516e6fc5c47adcefc2079979ae2fa526158e))
+
 ## v0.21.0 · 2026-11-20
 
 ### Features
