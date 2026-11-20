@@ -91,12 +91,13 @@ class ConfigurationAuditTests(unittest.TestCase):
         template.write_text('-Xmx12G\n')
         path = self.root / 'authoring/changes/gameplay.json'
         data = json.loads(path.read_text())
+        data['records'] = [r for r in data['records'] if source not in r['paths']]
         data['records'].append({'paths': [source], 'review': 'reviewed',
                                 'reason': 'Fixture with pack-authored initial JVM settings.',
                                 'reference': 'docs/players/server.md#garbage-collection', 'family': 'host-settings'})
         path.write_text(json.dumps(data))
         binding = self.root / 'empack.bindings.yml'
-        stock = binding.read_text()
+        stock = binding.read_text().replace('  user_jvm_args.txt: seed\n', '')
         binding.write_text(stock.replace('policies:\n', 'policies:\n  user_jvm_args.txt: seed\n'))
         record = next(r for r in audit(self.root)['records'] if r['path'] == source)
         self.assertEqual(record['family'], 'host-settings')

@@ -15,6 +15,8 @@ def build(root, report, release_tag=None):
     if release_tag is not None:
         command += ['--release-tag', release_tag]
     subprocess.run(command, cwd=root, check=True)
+    subprocess.run([sys.executable, str(root / 'scripts/build-visual-patches.py')],
+                   cwd=root, check=True)
     command = ['empack', 'build', '--yes', '--optional-defaults']
     for profile in report['profiles']:
         command += ['--profile', profile['name']]

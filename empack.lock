@@ -11744,7 +11744,7 @@ dependencies:
       provider: modrinth
       selector: OnlVIpq5
     title: Fast Noise
-intent-revision: ae4f1be6fc2a9681b32a5519af69f8808fad308cdf931093bbea6f9353f5b652
+intent-revision: 830bb55e48e5d4d09ebebdf794cc640af140060aebe3b81d8c936f4c180b02da
 java-policy:
   historical-minimum: 21
   id: empack-java-1

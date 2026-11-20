@@ -20,6 +20,6 @@ New worlds default to Skyweave Islands. Shaders are optional; Skyweave Glass ada
 
 ## Development
 
-Builds use empack **0.8.7-beta**. Start with the [build and release guide](docs/development/build.md). The [local web map and authoring app](web/README.md) lives in `web/`. Its [setup guide](docs/development/web/setup.md) covers installation and game data. The [documentation index](docs/README.md) separates player instructions from maintainer references and historical test evidence.
+Builds use empack **0.8.8-beta**. Start with the [build and release guide](docs/development/build.md). The [local web map and authoring app](web/README.md) lives in `web/`. Its [setup guide](docs/development/web/setup.md) covers installation and game data. The [documentation index](docs/README.md) separates player instructions from maintainer references and historical test evidence.
 
 Mod and shader authors retain their respective licenses; this repository does not relicense their work. User worlds, accounts and server lists are not distributed.

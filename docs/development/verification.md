@@ -1,5 +1,13 @@
 # Pack verification
 
+## Empack 0.8.8 and server defaults 0.22.2
+
+The host CLI and validation/release workflows select public empack 0.8.8-beta. The default macOS archive matches the public asset SHA-256 `54c054c71f35c6102994fee968e7a0abbdf58def31c7b0ab768458c1da5c592b`; the installed executable is `99dabfeac357d25c9ec68f05c4d09b3154dbdcd905baf516c28a866e847d447f`. All three release-mode exports pass integrity and pack-identity checks. Prism and server preparation/launch records select 0.8.8-beta and include the public bootstrap JAR, SHA-256 `b5c6ebad53cbc1c80cd2bcfaf41dcecc6718f6e114de951d15b4dca1b35e4b45`. The lock changes only its intent revision; dependency selections remain equal to 0.22.1.
+
+The real NeoForge server export contains exactly one required server-only `user_jvm_args.txt` Seed with the authored bytes. A fresh installation through its archived Java bootstrap receives `-Xmx12G`; Java 21 reports a 12884901888-byte maximum heap and native G1. Re-preparation and native repair preserve exact fixture operator bytes, including CRLF line endings. An exact-release upgrade from the checksum-verified public 0.22.1 server to 0.22.2 also preserves those bytes and passes the installed-content check. Repairing a missing JVM file restores the authored seed. These controls prepare disposable installations; they do not start a game server or exercise publisher-channel updates. [JVM ownership and update procedure](build.md#ci-maintenance).
+
+All 157 pack tests pass. Ownership covers 335 sources with no missing or unregistered files; the 14 quest outputs and 165 generated village resources remain current. The public Compat runner builds all three shader recipes. Local-content checks verify 218 files and required recorded relationships; complete dependency metadata remains unverified for 25 roots. The build wrapper now generates Visual Patches before exporting, preventing clean local exports from omitting the ZIP. Both final client exports include the exact generated visual pack; the final server recipe is byte-identical to the seed-tested recipe. Existing gameplay, village and renderer qualifications remain those of 0.22.1 and its referenced releases.
+
 ## Native Radars configuration 0.22.1
 
 The existing DEV config differed from the managed template only by Radars 5.1.1's `sableCannonTargetingConfig.damageableBlocksOnly = true`. Inspection of the selected JAR confirms that true is the native default. The authored template now matches the runtime-produced bytes; every pre-existing parsed field and type remains equal. This repairs file ownership convergence without changing another configured rule. The patch retains the 0.22.0 runtime and village qualifications below.

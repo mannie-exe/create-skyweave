@@ -201,6 +201,15 @@
     },
     {
       "paths": [
+        "templates/server/game/user_jvm_args.txt.template"
+      ],
+      "review": "reviewed",
+      "reason": "Seed a 12 GiB dedicated-server maximum heap; keep Java 21 initial-heap ergonomics and the default G1 collector. Empack preserves existing operator bytes across preparation, repair and updates. This sets a host budget, not a measured stutter fix.",
+      "reference": "docs/development/performance.md#heap-and-collector-decisions",
+      "family": "host-settings"
+    },
+    {
+      "paths": [
         "overrides/common/config/aeronautics_delivery_quests/custom_quests.json"
       ],
       "review": "reviewed",
