@@ -2,11 +2,12 @@
 import argparse
 import hashlib
 import json
+import sys
 import zipfile
 from pathlib import Path
 from archive_output import archive_bytes, publish
 from resource_inputs import inputs as load_inputs, verify_bytes
-from model_authoring import generate as generate_models, require
+from model_authoring import generate as generate_models, require, ModelRecipeError
 from chest_composition import build as build_chest_composition
 from texture_resources import build as build_textures
 from selective_resources import build as build_selective
@@ -247,7 +248,7 @@ def generate_pack(root=ROOT, output=OUTPUT, check=False):
     return publish(output, data, check), hashlib.sha256(data).hexdigest()
 
 
-if __name__ == '__main__':
+def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check', action='store_true', help='Verify inputs and the existing ZIP without rewriting it')
     parser.add_argument('--root', type=Path, default=ROOT, help='Pack source root')
@@ -261,3 +262,12 @@ if __name__ == '__main__':
     output = args.output or args.root / 'overrides/client/resourcepacks/skyweave-visual-patches-0.1.0.zip'
     changed, digest = generate_pack(root=args.root, output=output, check=args.check)
     print(f'{output}: {"updated" if changed else "current"}, sha256 {digest}')
+
+
+if __name__ == '__main__':
+    try:
+        main()
+    except ModelRecipeError as error:
+        print(error.json_line(), file=sys.stderr)
+        print(f'Invalid model recipe: {str(error)[:2048]}', file=sys.stderr)
+        raise SystemExit(2)

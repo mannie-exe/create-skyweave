@@ -1,5 +1,5 @@
 {
-  "name": "kaisyn:village/exclusives/mediterranean/streets/avenue",
+  "name": "skyweave_compat:villages/white_terrace_exchange/streets/avenue_second_turn",
   "fallback": "skyweave_compat:villages/white_terrace_exchange/terminators/avenue",
   "elements": [
     {
@@ -22,6 +22,10 @@
     }
   ],
   "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "lithostitched"
+    },
     {
       "type": "neoforge:mod_loaded",
       "modid": "t_and_t"

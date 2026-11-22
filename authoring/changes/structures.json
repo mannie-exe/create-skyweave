@@ -17,7 +17,7 @@
         "resource-patches/data/skyvillages/worldgen/structure/skyvillage.json"
       ],
       "review": "reviewed",
-      "reason": "Use absolute start Y 160–224 without terrain projection; retain jigsaw depth, radius, biome eligibility and spawn policy. Provisional sky-world placement, not final density tuning.",
+      "reason": "Retain native absolute 150 plus WORLD_SURFACE_WG for foreign generators. The native mod metadata declares the owned band and requires Compat 0.42.0 for marked-generator 160..224 sampling and host anchoring; preserve jigsaw depth, radius, biome eligibility and spawn policy.",
       "reference": "docs/development/structures.md"
     },
     {

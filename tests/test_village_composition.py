@@ -75,13 +75,15 @@ class VillageProfileTest(unittest.TestCase):
         self.assertEqual(legacy, {self.source})
         result = json.loads(self.output['resource-patches/' + path_for(self.profile['id'], 'worldgen/structure')])
         self.assertEqual((result.pop('size'), result.pop('max_distance_from_center')), (8, 116))
-        self.assertEqual(result.pop('neoforge:conditions'), [{'type': 'neoforge:true'}, {'type': 'neoforge:mod_loaded', 'modid': 'ctov'}])
+        self.assertEqual(result.pop('neoforge:conditions'), [{'type': 'neoforge:true'},
+            {'type': 'neoforge:mod_loaded', 'modid': 'lithostitched'}, {'type': 'neoforge:mod_loaded', 'modid': 'ctov'}])
         for key, value in result.items(): self.assertEqual(value, before[key])
         self.assertEqual(json.loads(self.output[self.alias_path])['structures'], [self.source])
         inherited = json.loads(self.output[MODIFIERS + 'profiles/plains_market/plains/aliases.json'])
         self.assertEqual(inherited['structures'], [self.profile['id']])
         self.assertEqual(inherited['pool_aliases'], json.loads(self.output[self.alias_path])['pool_aliases'])
-        self.assertEqual(inherited['neoforge:conditions'], [{'type': 'neoforge:true'}, {'type': 'neoforge:mod_loaded', 'modid': 'ctov'}])
+        self.assertEqual(inherited['neoforge:conditions'], [{'type': 'neoforge:true'},
+            {'type': 'neoforge:mod_loaded', 'modid': 'lithostitched'}, {'type': 'neoforge:mod_loaded', 'modid': 'ctov'}])
         self.assertEqual(self.native, before)
         self.assertEqual(self.schedule, [{'structure': self.source, 'weight': 1}])
 
@@ -142,6 +144,7 @@ class VillageProfileTest(unittest.TestCase):
         definition = json.loads(self.output['resource-patches/' + path_for(profile['id'], 'worldgen/structure')])
         self.assertEqual(definition['start_pool'], owned + 'town_centers')
         result = json.loads(self.output['resource-patches/' + path_for(owned + 'houses', 'worldgen/template_pool')])
+        self.assertEqual(result['name'], owned + 'houses')
         self.assertEqual(result['fallback'], owned + 'terminators')
         self.assertEqual(result['elements'], json.loads(original)['elements'])
         self.assertEqual(self.payloads[path_for(house, 'worldgen/template_pool')], original)

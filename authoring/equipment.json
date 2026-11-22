@@ -3,7 +3,9 @@
   "decision": "preserve-native-values",
   "exclusions": [
     {
-      "types": ["net.minecraft.world.item.SpawnEggItem"]
+      "types": [
+        "net.minecraft.world.item.SpawnEggItem"
+      ]
     },
     {
       "ids": [
@@ -53,7 +55,10 @@
           ]
         },
         {
-          "tagPrefixes": ["c:tools", "minecraft:enchantable/mining"]
+          "tagPrefixes": [
+            "c:tools",
+            "minecraft:enchantable/mining"
+          ]
         },
         {
           "typePrefixes": [
@@ -79,6 +84,13 @@
             "rbasamoyai.createbigcannons.crafting.",
             "org.patryk3211.powergrid.equipment.multimeter."
           ]
+        },
+        {
+          "types": [
+            "com.github.ysbbbbbb.kaleidoscopecookery.item.KitchenKnifeItem",
+            "com.github.ysbbbbbb.kaleidoscopecookery.item.KitchenShovelItem",
+            "com.github.ysbbbbbb.kaleidoscopecookery.item.SickleItem"
+          ]
         }
       ]
     },
@@ -97,7 +109,10 @@
           ]
         },
         {
-          "tagPrefixes": ["minecraft:enchantable/weapon", "minecraft:arrows"]
+          "tagPrefixes": [
+            "minecraft:enchantable/weapon",
+            "minecraft:arrows"
+          ]
         },
         {
           "ids": [
@@ -135,7 +150,9 @@
           ]
         },
         {
-          "tagPrefixes": ["minecraft:enchantable/armor"]
+          "tagPrefixes": [
+            "minecraft:enchantable/armor"
+          ]
         }
       ]
     },
@@ -145,10 +162,16 @@
       "role": "Native wearable slot effects and equipment layers",
       "selectors": [
         {
-          "tagPrefixes": ["accessories:", "curios:", "trinkets:"]
+          "tagPrefixes": [
+            "accessories:",
+            "curios:",
+            "trinkets:"
+          ]
         },
         {
-          "namespaces": ["artifacts"]
+          "namespaces": [
+            "artifacts"
+          ]
         }
       ]
     },
@@ -168,7 +191,10 @@
           ]
         },
         {
-          "namespaces": ["reliable_gliders"]
+          "namespaces": [
+            "reliable_gliders",
+            "grapplemod"
+          ]
         },
         {
           "ids": [
@@ -197,7 +223,11 @@
       "role": "Storage, upgrades and custody; world-only containers remain distinct",
       "selectors": [
         {
-          "namespaces": ["travelersbackpack", "create_vibrant_vaults", "lootr"]
+          "namespaces": [
+            "travelersbackpack",
+            "create_vibrant_vaults",
+            "lootr"
+          ]
         },
         {
           "blockTypes": [
@@ -208,7 +238,10 @@
           ]
         },
         {
-          "tagPrefixes": ["c:chests", "c:barrels"]
+          "tagPrefixes": [
+            "c:chests",
+            "c:barrels"
+          ]
         },
         {
           "ids": [
@@ -223,6 +256,11 @@
           "typePrefixes": [
             "com.simibubi.create.content.logistics.box.PackageItem",
             "com.palm1.analogaudio.item.CassetteBagItem"
+          ]
+        },
+        {
+          "ids": [
+            "kaleidoscope_cookery:transmutation_lunch_bag"
           ]
         }
       ]
@@ -243,7 +281,9 @@
           ]
         },
         {
-          "namespaces": ["exposure"]
+          "namespaces": [
+            "exposure"
+          ]
         },
         {
           "ids": [
@@ -282,7 +322,11 @@
           ]
         },
         {
-          "namespaces": ["yigd", "hostile_skies", "analogaudio"]
+          "namespaces": [
+            "yigd",
+            "hostile_skies",
+            "analogaudio"
+          ]
         },
         {
           "typePrefixes": [
@@ -291,6 +335,13 @@
             "com.simibubi.create.content.equipment.TreeFertilizerItem",
             "com.simibubi.create.content.trains.schedule.",
             "com.simibubi.create.content.logistics.tableCloth."
+          ]
+        },
+        {
+          "ids": [
+            "kaleidoscope_tavern:shaker",
+            "kaleidoscope_cookery:stockpot_lid",
+            "kaleidoscope_cookery:empty_cup"
           ]
         }
       ]
@@ -327,6 +378,22 @@
             "minecraft:lectern",
             "illagerinvasion:imbuing_table"
           ]
+        },
+        {
+          "ids": [
+            "kaleidoscope_cookery:stove",
+            "kaleidoscope_cookery:pot",
+            "kaleidoscope_cookery:stockpot",
+            "kaleidoscope_cookery:chopping_board",
+            "kaleidoscope_cookery:bamboo_tray",
+            "kaleidoscope_cookery:shawarma_spit",
+            "kaleidoscope_cookery:millstone",
+            "kaleidoscope_cookery:steamer",
+            "kaleidoscope_cookery:teapot",
+            "kaleidoscope_tavern:pressing_tub",
+            "kaleidoscope_tavern:barrel",
+            "kaleidoscope_tavern:tap"
+          ]
         }
       ]
     },
@@ -358,7 +425,10 @@
           ]
         },
         {
-          "tagPrefixes": ["minecraft:buttons", "minecraft:pressure_plates"]
+          "tagPrefixes": [
+            "minecraft:buttons",
+            "minecraft:pressure_plates"
+          ]
         },
         {
           "namespaces": [

@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "id": "photon-skyweave",
-  "version": "0.3.0",
-  "output": "Photon v1.4 + Skyweave 0.3.0.zip",
+  "version": "0.3.1",
+  "output": "Photon v1.4 + Skyweave 0.3.1.zip",
   "base": "photon",
   "inputs": {
     "photon": {
@@ -13,154 +13,10 @@
   "steps": [
     {
       "type": "text",
-      "path": "shaders/program/skyweave_dh_shadow.vsh",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "find": "",
-      "replace": "// Skyweave: native Photon sun-space distortion, with coarse DH material classes and no native atlas or voxel writes.\n#include \"/include/global.glsl\"\n#include \"/include/lighting/shadows/distortion.glsl\"\nout vec2 uv;\nflat out uint material_mask;\nflat out vec3 tint;\nflat out float skyweave_dh_alpha;\n#ifdef WATER_CAUSTICS\nout vec3 scene_pos;\n#endif\nuniform mat4 shadowModelViewInverse;\nuniform vec3 cameraPosition;\nvoid main() {\n    uv = vec2(0.0);\n    material_mask = dhMaterialId == DH_BLOCK_WATER ? 1u : 0u;\n    tint = gl_Color.rgb;\n    skyweave_dh_alpha = gl_Color.a;\n    vec3 camera_offset = fract(cameraPosition);\n    vec3 vertex = floor(gl_Vertex.xyz + camera_offset + 0.5) - camera_offset;\n    vec3 pos = transform(gl_ModelViewMatrix, vertex);\n#ifdef WATER_CAUSTICS\n    scene_pos = transform(shadowModelViewInverse, pos);\n#endif\n    gl_Position = vec4(distort_shadow_space(project_ortho(gl_ProjectionMatrix, pos)), 1.0);\n#ifdef WORLD_NETHER\n    gl_Position = vec4(-1.0);\n#endif\n}\n",
-      "count": 0
-    },
-    {
-      "type": "text",
-      "path": "shaders/world0/dh_shadow.vsh",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "find": "",
-      "replace": "#version 400 compatibility\n#define WORLD_OVERWORLD\n#define PROGRAM_SHADOW\n#define PROGRAM_SHADOW_FALLBACK\n#define SKYWEAVE_DH_SHADOW\n#define vsh\n#include \"/program/skyweave_dh_shadow.vsh\"\n",
-      "count": 0
-    },
-    {
-      "type": "text",
-      "path": "shaders/world0/dh_shadow.fsh",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "find": "",
-      "replace": "#version 400 compatibility\n#define WORLD_OVERWORLD\n#define PROGRAM_SHADOW\n#define PROGRAM_SHADOW_FALLBACK\n#define SKYWEAVE_DH_SHADOW\n#define fsh\n#include \"/program/shadow.fsh\"\n",
-      "count": 0
-    },
-    {
-      "type": "text",
-      "path": "shaders/world1/dh_shadow.vsh",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "find": "",
-      "replace": "#version 400 compatibility\n#define WORLD_END\n#define PROGRAM_SHADOW\n#define PROGRAM_SHADOW_FALLBACK\n#define SKYWEAVE_DH_SHADOW\n#define vsh\n#include \"/program/skyweave_dh_shadow.vsh\"\n",
-      "count": 0
-    },
-    {
-      "type": "text",
-      "path": "shaders/world1/dh_shadow.fsh",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "find": "",
-      "replace": "#version 400 compatibility\n#define WORLD_END\n#define PROGRAM_SHADOW\n#define PROGRAM_SHADOW_FALLBACK\n#define SKYWEAVE_DH_SHADOW\n#define fsh\n#include \"/program/shadow.fsh\"\n",
-      "count": 0
-    },
-    {
-      "type": "text",
-      "path": "shaders/world-1/dh_shadow.vsh",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "find": "",
-      "replace": "#version 400 compatibility\n#define WORLD_NETHER\n#define PROGRAM_SHADOW\n#define PROGRAM_SHADOW_FALLBACK\n#define SKYWEAVE_DH_SHADOW\n#define vsh\n#include \"/program/skyweave_dh_shadow.vsh\"\n",
-      "count": 0
-    },
-    {
-      "type": "text",
-      "path": "shaders/world-1/dh_shadow.fsh",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "find": "",
-      "replace": "#version 400 compatibility\n#define WORLD_NETHER\n#define PROGRAM_SHADOW\n#define PROGRAM_SHADOW_FALLBACK\n#define SKYWEAVE_DH_SHADOW\n#define fsh\n#include \"/program/shadow.fsh\"\n",
-      "count": 0
-    },
-    {
-      "type": "text",
-      "path": "shaders/program/shadow.fsh",
-      "sha256": "efc8024aa744e46b6d39b231b208b2251d56a6092145e995d6c7a2b9bc7721b6",
-      "find": "flat in vec3 tint;",
-      "replace": "flat in vec3 tint;\n#ifdef SKYWEAVE_DH_SHADOW\nflat in float skyweave_dh_alpha;\n#endif",
-      "count": 1
-    },
-    {
-      "type": "text",
-      "path": "shaders/program/shadow.fsh",
-      "sha256": "e3ee306ea9bd34a2d68a615ddcbe7464bc48d7705678e495eb792fa96f710c32",
-      "find": "        vec4 base_color = textureLod(tex, uv, 0);",
-      "replace": "        #ifdef SKYWEAVE_DH_SHADOW\n        vec4 base_color = vec4(1.0, 1.0, 1.0, skyweave_dh_alpha);\n        #else\n        vec4 base_color = textureLod(tex, uv, 0);\n        #endif",
-      "count": 1
-    },
-    {
-      "type": "text",
-      "path": "shaders/shaders.properties",
-      "sha256": "c08c43a575d0a949a7f2788dafc6f0b0a8c33b8a2fa7b5d19b42730d96e6342f",
-      "find": "dhShadow.enabled = false",
-      "replace": "dhShadow.enabled = true",
-      "count": 1
-    },
-    {
-      "type": "text",
-      "path": "shaders/include/lighting/shadows/common.glsl",
-      "sha256": "d0e0715e2edecaf8852cdead9c98dfd9a756f68fb4f74d4e1d727ea0e799e3a6",
-      "find": "    float effective_shadow_distance = min(shadowDistance, far);",
-      "replace": "#ifdef DISTANT_HORIZONS\n    float effective_shadow_distance = shadowDistance;\n#else\n    float effective_shadow_distance = min(shadowDistance, far);\n#endif",
-      "count": 1
-    },
-    {
-      "type": "text",
-      "path": "shaders/include/fog/overworld/raymarched.glsl",
-      "sha256": "40fc8c7c604dce236affc3a334a6c4ae49e745f280e46596f942deebd75eb085",
-      "find": "        ivec2 shadow_texel = ivec2(\n            shadow_screen_pos.xy * shadowMapResolution * MC_SHADOW_QUALITY\n        );",
-      "replace": "        ivec2 shadow_texel = ivec2(\n            shadow_screen_pos.xy * shadowMapResolution * MC_SHADOW_QUALITY\n        );\n#ifdef DISTANT_HORIZONS\n        shadow_texel = clamp(shadow_texel, ivec2(0), textureSize(shadowtex1, 0) - 1);\n#endif",
-      "count": 1
-    },
-    {
-      "type": "text",
-      "path": "shaders/include/fog/overworld/raymarched.glsl",
-      "sha256": "04c6a8dd0140b29ada7af0a0056dfd9396293c0775c8bee91cd3b5dffcca3916",
-      "find": "        shadow = (clamp01(shadow_screen_pos) == shadow_screen_pos)\n            ? shadow\n            : vec3(1.0);",
-      "replace": "        shadow = (clamp01(shadow_screen_pos) == shadow_screen_pos)\n            ? shadow\n#ifdef DISTANT_HORIZONS\n            : vec3(0.0);\n#else\n            : vec3(1.0);\n#endif",
-      "count": 1
-    },
-    {
-      "type": "text",
-      "path": "shaders/include/fog/overworld/raymarched.glsl",
-      "sha256": "39258d01b44d60bd021b9b16fc052771864f427a91d9ddf2e0dbca9e24f1ab93",
-      "find": "        float shadow = step(\n            float(clamp01(shadow_screen_pos) == shadow_screen_pos)\n                * shadow_screen_pos.z,\n            depth1\n        );",
-      "replace": "#ifdef DISTANT_HORIZONS\n        float shadow = float(clamp01(shadow_screen_pos) == shadow_screen_pos)\n            * step(shadow_screen_pos.z, depth1);\n#else\n        float shadow = step(\n            float(clamp01(shadow_screen_pos) == shadow_screen_pos)\n                * shadow_screen_pos.z,\n            depth1\n        );\n#endif",
-      "count": 1
-    },
-    {
-      "type": "text",
-      "path": "shaders/include/fog/water_fog_vl.glsl",
-      "sha256": "266854b9eabcaf930590f80a560e3b6ed1da5d6e06e9bee64617337f06df4a30",
-      "find": "        ivec2 shadow_texel = ivec2(\n            shadow_screen_pos.xy * shadowMapResolution * MC_SHADOW_QUALITY\n        );",
-      "replace": "        ivec2 shadow_texel = ivec2(\n            shadow_screen_pos.xy * shadowMapResolution * MC_SHADOW_QUALITY\n        );\n#ifdef DISTANT_HORIZONS\n        shadow_texel = clamp(shadow_texel, ivec2(0), textureSize(shadowtex1, 0) - 1);\n#endif",
-      "count": 1
-    },
-    {
-      "type": "text",
-      "path": "shaders/include/fog/water_fog_vl.glsl",
-      "sha256": "5577acd945046d6eafbfa69cce962a462fe93373acbc8a7345c43fa303bf3388",
-      "find": "        float shadow = step(\n            float(clamp01(shadow_screen_pos) == shadow_screen_pos)\n                * shadow_screen_pos.z,\n            depth1\n        );",
-      "replace": "#ifdef DISTANT_HORIZONS\n        float shadow = float(clamp01(shadow_screen_pos) == shadow_screen_pos)\n            * step(shadow_screen_pos.z, depth1);\n#else\n        float shadow = step(\n            float(clamp01(shadow_screen_pos) == shadow_screen_pos)\n                * shadow_screen_pos.z,\n            depth1\n        );\n#endif",
-      "count": 1
-    },
-    {
-      "type": "text",
-      "path": "shaders/include/fog/end_fog_vl.glsl",
-      "sha256": "ea9c884a130594f1ba0ee7c9929515885ba9a581bf3014d572cfdff266995e12",
-      "find": "        ivec2 shadow_texel = ivec2(\n            shadow_screen_pos.xy * shadowMapResolution * MC_SHADOW_QUALITY\n        );",
-      "replace": "        ivec2 shadow_texel = ivec2(\n            shadow_screen_pos.xy * shadowMapResolution * MC_SHADOW_QUALITY\n        );\n#ifdef DISTANT_HORIZONS\n        shadow_texel = clamp(shadow_texel, ivec2(0), textureSize(shadowtex1, 0) - 1);\n#endif",
-      "count": 1
-    },
-    {
-      "type": "text",
-      "path": "shaders/include/fog/end_fog_vl.glsl",
-      "sha256": "4a0c8243b685d2f8c8f66e666f4a50c64096ebadbb4b101e006e9ba2d8630f85",
-      "find": "        float shadow = step(\n            float(clamp01(shadow_screen_pos) == shadow_screen_pos)\n                * shadow_screen_pos.z,\n            depth1\n        );",
-      "replace": "#ifdef DISTANT_HORIZONS\n        float shadow = float(clamp01(shadow_screen_pos) == shadow_screen_pos)\n            * step(shadow_screen_pos.z, depth1);\n#else\n        float shadow = step(\n            float(clamp01(shadow_screen_pos) == shadow_screen_pos)\n                * shadow_screen_pos.z,\n            depth1\n        );\n#endif",
-      "count": 1
-    },
-    {
-      "type": "text",
       "path": "SKYWEAVE.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "find": "",
-      "replace": "Skyweave correction 0.3.0 for official Photon 1.4.\nNative Colorwheel support is retained; no obsolete 1.3a patcher is applied.\nDH shadows use Photon sun-space quartic distortion and native water/color transmission.\nFinite shadow-map coverage qualifies directional volumetric sunlight. Out-of-map samples\ncontribute no unqualified directional sun; ambient scattering is unchanged.\nCoarse LODs cannot reproduce every narrow opening or internal cavity. Supported-GPU visual\nand performance qualification is required; Photon remains unsupported on the Apple fixture.\n",
+      "replace": "Skyweave 0.3.1: recipient-generated wrapper for official Photon 1.4.\nNative Colorwheel support and native shader shadow behavior are retained.\nNo obsolete 1.3a patcher or Skyweave DH shadow program is applied.\nPhoton remains unsupported on Apple GPUs; this wrapper does not change that limitation.\nUpstream notices and licenses remain authoritative.\n",
       "count": 0
     }
   ],
@@ -172,5 +28,5 @@
     "fromInput": "photon",
     "seedSha256": "33fba6d833fc9cbba34398d3f8b4b25a605a8674e00ad6b00d6b5ea1cbd61a21"
   },
-  "expected": "52ad45455964b01d17469a698a7702ce9b9bf163b3b139f53c683f73b66900db"
+  "expected": "c582385a20b84b7018cee33bad18ce56331053fdf32b0ac8372581f5d128bef6"
 }

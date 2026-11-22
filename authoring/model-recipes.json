@@ -2238,12 +2238,12 @@
         {
           "name": "Beveled cage bend north",
           "from": [
-            6.0,
+            6,
             7.296447,
             5.0625
           ],
           "to": [
-            7.0,
+            7,
             8.203553,
             5.4375
           ],
@@ -2316,12 +2316,12 @@
         {
           "name": "Beveled cage bend north",
           "from": [
-            9.0,
+            9,
             7.296447,
             5.0625
           ],
           "to": [
-            10.0,
+            10,
             8.203553,
             5.4375
           ],
@@ -2394,12 +2394,12 @@
         {
           "name": "Beveled cage bend south",
           "from": [
-            6.0,
+            6,
             7.296447,
             10.5625
           ],
           "to": [
-            7.0,
+            7,
             8.203553,
             10.9375
           ],
@@ -2472,12 +2472,12 @@
         {
           "name": "Beveled cage bend south",
           "from": [
-            9.0,
+            9,
             7.296447,
             10.5625
           ],
           "to": [
-            10.0,
+            10,
             8.203553,
             10.9375
           ],
@@ -2552,12 +2552,12 @@
           "from": [
             5.0625,
             7.296447,
-            6.0
+            6
           ],
           "to": [
             5.4375,
             8.203553,
-            7.0
+            7
           ],
           "rotation": {
             "origin": [
@@ -2630,12 +2630,12 @@
           "from": [
             5.0625,
             7.296447,
-            9.0
+            9
           ],
           "to": [
             5.4375,
             8.203553,
-            10.0
+            10
           ],
           "rotation": {
             "origin": [
@@ -2708,12 +2708,12 @@
           "from": [
             10.5625,
             7.296447,
-            6.0
+            6
           ],
           "to": [
             10.9375,
             8.203553,
-            7.0
+            7
           ],
           "rotation": {
             "origin": [
@@ -2786,12 +2786,12 @@
           "from": [
             10.5625,
             7.296447,
-            9.0
+            9
           ],
           "to": [
             10.9375,
             8.203553,
-            10.0
+            10
           ],
           "rotation": {
             "origin": [
@@ -2859,7 +2859,316 @@
             }
           }
         }
-      ]
+      ],
+      "variants": [
+        {
+          "id": "joined-ribs",
+          "label": "Joined ribs (candidate)",
+          "kind": "composition",
+          "parts": [
+            {
+              "id": "yz-rib-1",
+              "label": "Front to back rib 1",
+              "kind": "path",
+              "plane": "yz",
+              "origin": [
+                6.912304735160447,
+                0,
+                0
+              ],
+              "points": [
+                [
+                  2,
+                  5.25
+                ],
+                [
+                  7,
+                  5.25
+                ],
+                [
+                  8,
+                  6.5
+                ],
+                [
+                  8,
+                  9.5
+                ],
+                [
+                  7,
+                  10.75
+                ],
+                [
+                  2,
+                  10.75
+                ]
+              ],
+              "width": 0.5,
+              "depth": 1,
+              "texture": "#cage",
+              "uv": {
+                "surface": [
+                  1,
+                  0,
+                  2,
+                  12
+                ],
+                "edge": [
+                  1,
+                  0,
+                  1.5,
+                  12
+                ],
+                "cap": [
+                  1,
+                  1,
+                  2,
+                  2
+                ]
+              },
+              "occlusion": "opaque"
+            },
+            {
+              "id": "yz-rib-2",
+              "label": "Front to back rib 2",
+              "kind": "path",
+              "plane": "yz",
+              "origin": [
+                9.087695264839553,
+                0,
+                0
+              ],
+              "points": [
+                [
+                  2,
+                  5.25
+                ],
+                [
+                  7,
+                  5.25
+                ],
+                [
+                  8,
+                  6.5
+                ],
+                [
+                  8,
+                  9.5
+                ],
+                [
+                  7,
+                  10.75
+                ],
+                [
+                  2,
+                  10.75
+                ]
+              ],
+              "width": 0.5,
+              "depth": 1,
+              "texture": "#cage",
+              "uv": {
+                "surface": [
+                  1,
+                  0,
+                  2,
+                  12
+                ],
+                "edge": [
+                  1,
+                  0,
+                  1.5,
+                  12
+                ],
+                "cap": [
+                  1,
+                  1,
+                  2,
+                  2
+                ]
+              },
+              "occlusion": "opaque"
+            },
+            {
+              "id": "xy-rib-1",
+              "label": "Left to right rib 1",
+              "kind": "path",
+              "plane": "xy",
+              "origin": [
+                0,
+                0,
+                6.912304735160447
+              ],
+              "points": [
+                [
+                  5.25,
+                  2
+                ],
+                [
+                  5.25,
+                  7
+                ],
+                [
+                  6.5,
+                  8
+                ],
+                [
+                  9.5,
+                  8
+                ],
+                [
+                  10.75,
+                  7
+                ],
+                [
+                  10.75,
+                  2
+                ]
+              ],
+              "width": 0.5,
+              "depth": 1,
+              "texture": "#cage",
+              "uv": {
+                "surface": [
+                  1,
+                  0,
+                  2,
+                  12
+                ],
+                "edge": [
+                  1,
+                  0,
+                  1.5,
+                  12
+                ],
+                "cap": [
+                  1,
+                  1,
+                  2,
+                  2
+                ]
+              },
+              "occlusion": "opaque"
+            },
+            {
+              "id": "xy-rib-2",
+              "label": "Left to right rib 2",
+              "kind": "path",
+              "plane": "xy",
+              "origin": [
+                0,
+                0,
+                9.087695264839553
+              ],
+              "points": [
+                [
+                  5.25,
+                  2
+                ],
+                [
+                  5.25,
+                  7
+                ],
+                [
+                  6.5,
+                  8
+                ],
+                [
+                  9.5,
+                  8
+                ],
+                [
+                  10.75,
+                  7
+                ],
+                [
+                  10.75,
+                  2
+                ]
+              ],
+              "width": 0.5,
+              "depth": 1,
+              "texture": "#cage",
+              "uv": {
+                "surface": [
+                  1,
+                  0,
+                  2,
+                  12
+                ],
+                "edge": [
+                  1,
+                  0,
+                  1.5,
+                  12
+                ],
+                "cap": [
+                  1,
+                  1,
+                  2,
+                  2
+                ]
+              },
+              "occlusion": "opaque"
+            },
+            {
+              "id": "middle-band",
+              "label": "Middle cage band",
+              "kind": "path",
+              "plane": "xz",
+              "origin": [
+                0,
+                4.5,
+                0
+              ],
+              "points": [
+                [
+                  5,
+                  5
+                ],
+                [
+                  11,
+                  5
+                ],
+                [
+                  11,
+                  11
+                ],
+                [
+                  5,
+                  11
+                ]
+              ],
+              "closed": true,
+              "width": 0.5,
+              "depth": 1,
+              "texture": "#cage",
+              "occlusion": "opaque",
+              "uv": {
+                "surface": [
+                  0,
+                  8,
+                  6,
+                  9
+                ],
+                "edge": [
+                  0,
+                  8,
+                  6,
+                  9
+                ],
+                "cap": [
+                  1,
+                  8,
+                  2,
+                  9
+                ]
+              }
+            }
+          ],
+          "additional_elements": []
+        }
+      ],
+      "variant": "joined-ribs"
     },
     {
       "id": "dnd-frontlight-nb-off-top",
@@ -5121,6 +5430,143 @@
               12.5,
               8
             ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "hay-bale-bands",
+      "label": "Hay bale closed bands",
+      "kind": "fitting",
+      "enabled": true,
+      "output": "minecraft:block/hay_block",
+      "texture": {
+        "source": "minecraft",
+        "id": "minecraft:block/hay_block_side"
+      },
+      "model": {
+        "source": "3d-default",
+        "id": "minecraft:block/hay_block"
+      },
+      "edits": [],
+      "texture_bindings": {
+        "side": {
+          "source": "minecraft",
+          "id": "minecraft:block/hay_block_side"
+        },
+        "end": {
+          "source": "minecraft",
+          "id": "minecraft:block/hay_block_top"
+        },
+        "particle": {
+          "source": "minecraft",
+          "id": "minecraft:block/hay_block_side"
+        }
+      },
+      "base": {
+        "model": {
+          "source": "3d-default",
+          "id": "minecraft:block/hay_block"
+        },
+        "elements": [
+          0
+        ],
+        "textures": {}
+      },
+      "variants": [
+        {
+          "id": "closed-bands",
+          "label": "Closed cuboid bands (candidate)",
+          "kind": "composition",
+          "parts": [
+            {
+              "id": "lower-band",
+              "label": "Lower band",
+              "kind": "band",
+              "plane": "xz",
+              "origin": [
+                0,
+                4,
+                0
+              ],
+              "rectangle": [
+                0,
+                0,
+                16,
+                16
+              ],
+              "height": 1,
+              "depth": 1,
+              "winding": "clockwise",
+              "corner_owner": "start",
+              "texture": "#side",
+              "inner_faces": false,
+              "cull_sides": true,
+              "uv_mode": "sides",
+              "uv": {
+                "surface": [
+                  0,
+                  11,
+                  16,
+                  12
+                ],
+                "edge": [
+                  0,
+                  11,
+                  16,
+                  12
+                ]
+              }
+            },
+            {
+              "id": "upper-band",
+              "label": "Upper band",
+              "kind": "band",
+              "plane": "xz",
+              "origin": [
+                0,
+                12,
+                0
+              ],
+              "rectangle": [
+                0,
+                0,
+                16,
+                16
+              ],
+              "height": 1,
+              "depth": 1,
+              "winding": "clockwise",
+              "corner_owner": "start",
+              "texture": "#side",
+              "inner_faces": false,
+              "cull_sides": true,
+              "uv_mode": "sides",
+              "uv": {
+                "surface": [
+                  0,
+                  3,
+                  16,
+                  4
+                ],
+                "edge": [
+                  0,
+                  3,
+                  16,
+                  4
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "variant": "closed-bands",
+      "targets": [
+        {
+          "output": "minecraft:block/hay_block_horizontal",
+          "model": {
+            "source": "3d-default",
+            "id": "minecraft:block/hay_block_horizontal"
           }
         }
       ]

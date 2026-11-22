@@ -24,6 +24,7 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Artifacts 3D | 1.1 | [Exact version](https://modrinth.com/resourcepack/artifacts-3d/version/kYgAZhY6) |
 | Azimuth API | 1.4.10 | [Exact version](https://modrinth.com/mod/azimuth-api/version/dxtZVosY) |
 | Better Climbing | 4-neoforge | [Exact version](https://modrinth.com/mod/better-climbing/version/RJgDIKSn) |
+| Better Combat | 2.4.0+1.21.1-neoforge | [Exact version](https://modrinth.com/mod/better-combat/version/VhIOvcXP) |
 | Better Third Person | 1.9.0 | [Exact version](https://modrinth.com/mod/better-third-person/version/aG5y4JUQ) |
 | Better Villages | 3.3.1 | [Exact version](https://modrinth.com/mod/better-village/version/1IEc4yoG) |
 | BlueMap (server only) | 5.7-neoforge | [Exact version](https://modrinth.com/mod/bluemap/version/8iJcPOHJ) |
@@ -43,7 +44,6 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Flashback NeoForge Fixed (client only) | 1.0.19 | [Exact version](https://modrinth.com/mod/flashback-neoforge-fixed/version/Fglj63ER) |
 | Collective | 1.21.1-8.65-fabric+forge+neo | [Exact version](https://modrinth.com/mod/collective/version/d78uVgbq) |
 | Colorwheel | 1.3.2+mc1.21.1 | [Exact version](https://modrinth.com/mod/colorwheel/version/lV874ox8) |
-| Combat Nouveau | 21.1.2 | [Exact version](https://modrinth.com/mod/combat-nouveau/version/us081FGF) |
 | Complementary Unbound (input) | r5.10 | [Exact version](https://modrinth.com/version/QJiYQisE) |
 | Colorwheel Patcher (payload only) | 1.0.5 | [Exact version](https://modrinth.com/version/dQqV3sci) |
 | Concurrent Chunk Management Engine (NeoForge) | 0.4.0-alpha.0.124+1.21.1 | [Exact version](https://modrinth.com/mod/c2me-neoforge/version/VACgDPOc) |
@@ -57,6 +57,7 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | FTB Quests | 2101.1.38 | [Exact release](https://www.curseforge.com/minecraft/mc-mods/ftb-quests-forge/files/9405148) |
 | FTB Teams | 2101.1.12 | [Exact release](https://www.curseforge.com/minecraft/mc-mods/ftb-teams-forge/files/9434081) |
 | Geophilic | 3.7 | [Exact version](https://modrinth.com/mod/geophilic/version/5kFV8CEz) |
+| Grappling Hook Mod: Skybound | 1.1+1.21.1-neoforge | [Exact version](https://modrinth.com/mod/grapplemod-skybound/version/ejlIzfJ8) |
 | Illager Invasion | v21.1.6-1.21.1-NeoForge | [Exact version](https://modrinth.com/mod/illager-invasion/version/9bEpNrvK) |
 | Inventory Profiles Next | 2.2.5 | [Exact version](https://modrinth.com/mod/inventory-profiles-next/version/vjuNnHLv) |
 | Interactive Foliage | 2.2.1-neoforge+1.21.1 | [Exact version](https://modrinth.com/mod/mc2-interactive-foliage/version/oKmXJIL5) |
@@ -77,8 +78,8 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Punched Backpacks! | 2.1 | [Exact version](https://modrinth.com/resourcepack/punched-backpacks/version/prexQWb0) |
 | Punchy! | 3.2b | [Exact version](https://modrinth.com/mod/punchy-fpa/version/aVZEe0j8) |
 | Punchy! Moves | 1.0.9 | [Exact version](https://modrinth.com/mod/punchymoves/version/SYcipAjI) |
-| re:form | 0.1.0 | [Published settings library](https://github.com/mannie-exe/reform/releases/tag/v0.1.0) |
-| Skyweave: Compatibility Patches | 0.41.0 | [Published adaptations](https://github.com/mannie-exe/skyweave-compat/releases/tag/v0.41.0) |
+| re:form | 0.2.0 | [Published settings library](https://github.com/mannie-exe/reform/releases/tag/v0.2.0) |
+| Skyweave: Compatibility Patches | 0.42.1 | [Published adaptations](https://github.com/mannie-exe/skyweave-compat/releases/tag/v0.42.1) |
 | Create Accessories Compat | 1.0 | [Exact version](https://modrinth.com/mod/create-accessories-compat/version/2r7hvkCQ) |
 | Create Aeronautics | 1.3.2+mc1.21.1 | [Exact version](https://modrinth.com/mod/create-aeronautics/version/44pLdPGg) |
 | Create Aeronautics: Transmission & Linkage | 0.2.9 | [Exact version](https://modrinth.com/mod/create-aeronautics-transmission-linkage/version/WoUjC6d4) |
@@ -151,6 +152,8 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Jade Addons (Neo/Forge) | 6.1.2+neoforge | [Exact version](https://modrinth.com/mod/jade-addons-forge/version/O3F6Dkle) |
 | Jade Sable Compat | 1.3.0 | [Exact version](https://modrinth.com/mod/jade-sable-compat/version/cxUohR7A) |
 | Jade 🔍 | 15.10.6+neoforge | [Exact version](https://modrinth.com/mod/jade/version/eYz2YBGT) |
+| Kaleidoscope Cookery | 1.6.0 | [Exact version](https://modrinth.com/mod/kaleidoscope-cookery/version/g8w0b2ly) |
+| Kaleidoscope Tavern | 1.2.0 | [Exact version](https://modrinth.com/mod/kaleidoscopetavern/version/W9ILsQt7) |
 | Just Enough Items (JEI) | 19.71.0.470 | [Exact version](https://modrinth.com/mod/jei/version/kmb7KviL) |
 | Kotlin for Forge | 5.13.0 | [Exact version](https://modrinth.com/mod/kotlin-for-forge/version/9ZlVvei8) |
 | LambDynamicLights | 4.8.11+1.21.1 | [Exact version](https://modrinth.com/mod/lambdynamiclights/version/ksaGCvSu) |
@@ -158,6 +161,7 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Linear Bearings Fix | 1.0.3 | [Exact version](https://modrinth.com/mod/linear-bearings-fix/version/MQ6XuOMQ) |
 | Lithium | mc1.21.1-0.15.4-neoforge | [Exact version](https://modrinth.com/mod/lithium/version/DDUrRVCA) |
 | Lootr | 1.21.1-1.11.38.127 | [Exact version](https://modrinth.com/version/SPOrIzX8) |
+| Lootr: Styled | 0.1.0 | [Published presentation addon](https://github.com/mannie-exe/lootr-styled/releases/tag/v0.1.0) |
 | Low On Fire | 26.3 | [Exact version](https://modrinth.com/version/yQdcUfnr) |
 | Low Shield | 3.0.0 | [Exact version](https://modrinth.com/version/AV6Mwfm5) |
 | Macaw's Doors | 1.1.5 | [Exact version](https://modrinth.com/mod/macaws-doors/version/u7BRX44F) |
@@ -179,6 +183,7 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Pick Up Notifier | 21.1.1 | [Exact version](https://modrinth.com/mod/pick-up-notifier/version/5NZounJc) |
 | Ponder | 1.0.87+mc1.21.1 | [Exact artifact](https://maven.createmod.net/net/createmod/ponder/ponder-neoforge/1.0.87+mc1.21.1/ponder-neoforge-1.0.87+mc1.21.1.jar) |
 | Puzzles Lib | 21.1.65 | [Exact version](https://modrinth.com/mod/puzzles-lib/version/kiX1lfse) |
+| Omnidirectional Movement | 1.2-OVERHAUL+1.21.1-neoforge | [Exact version](https://modrinth.com/mod/omnidirectional-movement/version/BnnlX11f) |
 | Outline Effects | 2.2 (runtime 2.4.0) | [Exact artifact](https://modrinth.com/mod/outline-effects/version/4Scic1zd) |
 | Questlog | 3.5.4-1.21.1-neoforge | [Exact version](https://modrinth.com/mod/questlog/version/McoSDHAk) |
 | RAY's 3D Ladders | 2.4 | [Exact version](https://modrinth.com/version/lfVriRcD) |
@@ -192,6 +197,7 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Resourceful Lib | 3.0.12 | [Exact version](https://modrinth.com/mod/resourceful-lib/version/x99nCLTm) |
 | Ritchie's Projectile Library | 2.1.2 | [Exact version](https://modrinth.com/mod/rpl/version/hZ6B2Z0x) |
 | Sable | 2.0.6+mc1.21.1 | [Exact version](https://modrinth.com/mod/sable/version/fg9dTRz9) |
+| Sable Beyond | 0.5.0 (alpha) | [Exact version](https://modrinth.com/mod/sable_beyond/version/BWQxgVOj) |
 | Sable Cool Rain | 1.0.1+1.21.1+neoforge | [Exact version](https://modrinth.com/mod/sable-cool-rain/version/3KLMffqk) |
 | Sable Dynamic Lights | 2.0.1 | [Exact version](https://modrinth.com/mod/sable-dynamic-lights/version/vjb0hAWB) |
 | Searchables | 1.0.2 | [Exact version](https://modrinth.com/mod/searchables/version/iEE85X0w) |

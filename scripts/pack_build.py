@@ -7,7 +7,7 @@ import sys
 from pack_identity import explanation, identity, verify_export
 
 
-def build(root, report, release_tag=None):
+def build(root, report, release_tag=None, delivery=None):
     expected = identity(report, release_tag)
     subprocess.run([sys.executable, str(root / 'scripts/build-resource-pack-repairs.py')],
                    cwd=root, check=True)
@@ -18,6 +18,8 @@ def build(root, report, release_tag=None):
     subprocess.run([sys.executable, str(root / 'scripts/build-visual-patches.py')],
                    cwd=root, check=True)
     command = ['empack', 'build', '--yes', '--optional-defaults']
+    if delivery is not None:
+        command += ['--delivery', delivery]
     for profile in report['profiles']:
         command += ['--profile', profile['name']]
     subprocess.run(command, cwd=root, check=True)
@@ -34,7 +36,8 @@ def build(root, report, release_tag=None):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--profile', action='append', default=[], help='Native empack profile; default uses the manifest selection')
+    parser.add_argument('--delivery', choices=('references', 'bundled'), help='Override native dependency delivery; default uses each profile')
     parser.add_argument('--release-tag', help='Exact manifest release tag; default embeds DEV')
     args = parser.parse_args()
     root = Path(__file__).resolve().parent.parent
-    build(root, explanation(root, args.profile), args.release_tag)
+    build(root, explanation(root, args.profile, args.delivery), args.release_tag, args.delivery)

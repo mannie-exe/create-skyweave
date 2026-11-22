@@ -1,5 +1,5 @@
 {
-  "name": "kaisyn:village/exclusives/tudor/decor",
+  "name": "skyweave_compat:villages/mill_market_common/decor",
   "fallback": "minecraft:empty",
   "elements": [
     {
@@ -29,6 +29,10 @@
     }
   ],
   "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "lithostitched"
+    },
     {
       "type": "neoforge:mod_loaded",
       "modid": "t_and_t"

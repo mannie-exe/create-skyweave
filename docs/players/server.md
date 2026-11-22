@@ -35,7 +35,7 @@ DH synchronization on load and real-time updates are enabled. The authored per-p
 
 ## Wayfinder
 
-Operators with permission level 2 can press **G** while looking at terrain or run `/skyweavecompat wayfinder`. Both use the same server policy. Press again or use `/skyweavecompat wayfinder cancel` to cancel a pending query. A successful warp preserves view direction. The cooldown is off by default. Spectator mode, riding and fall-flying currently prevent use, including for operators.
+Operators with permission level 2 can press **F12** while looking at terrain or run `/skyweavecompat wayfinder`. Both use the same server policy. Press again or use `/skyweavecompat wayfinder cancel` to cancel a pending query. A successful warp preserves view direction. The cooldown is off by default. Spectator mode, riding and fall-flying currently prevent use, including for operators.
 
 Native loaded terrain works without Distant Horizons. Distant targeting needs a compatible client and existing DH data along the sight ray. Available coarser observations can lead to bounded native destination refinement; genuinely missing data remains unknown. There is no configured distance limit. The server checks real footing, body space and hazards before moving the player.
 

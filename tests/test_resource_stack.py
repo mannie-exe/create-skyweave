@@ -51,7 +51,14 @@ class ResourceStackTests(unittest.TestCase):
     def test_unordered_conflicting_native_mod_resources_are_not_guessed(self):
         path='assets/test/textures/block/art.png'
         a=Layer('a','A','mod',{path:b'a'});b=Layer('b','B','mod',{path:b'b'})
-        with self.assertRaisesRegex(ValueError,'Unknown native mod-resource priority'):Stack([a,b]).read(path)
+        stack = Stack([a, b])
+        row, content = stack.lookup(path)
+        self.assertIsNone(content)
+        self.assertIsNone(row['winner'])
+        self.assertTrue(row['unresolved'])
+        self.assertEqual([entry['id'] for entry in row['contributors']], ['b', 'a'])
+        with self.assertRaisesRegex(ValueError,'Unknown native mod-resource priority'): stack.read(path)
+        self.assertEqual(stack.evidence(), [row])
         patch=Layer('patch','Patch','pack',{path:b'patch'})
         self.assertEqual(Stack([a,b,patch]).read(path),b'patch')
 

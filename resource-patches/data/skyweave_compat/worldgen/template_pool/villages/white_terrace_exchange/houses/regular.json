@@ -1,5 +1,5 @@
 {
-  "name": "kaisyn:village/exclusives/mediterranean/houses/regular",
+  "name": "skyweave_compat:villages/white_terrace_exchange/houses/regular",
   "fallback": "minecraft:empty",
   "elements": [
     {
@@ -175,6 +175,10 @@
     }
   ],
   "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "lithostitched"
+    },
     {
       "type": "neoforge:mod_loaded",
       "modid": "t_and_t"

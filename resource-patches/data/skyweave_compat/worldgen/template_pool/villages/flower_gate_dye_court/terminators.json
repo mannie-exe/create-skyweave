@@ -1,5 +1,5 @@
 {
-  "name": "kaisyn:village/flower_forest_japanese/terminators",
+  "name": "skyweave_compat:villages/flower_gate_dye_court/terminators",
   "fallback": "minecraft:empty",
   "elements": [
     {
@@ -40,6 +40,10 @@
     }
   ],
   "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "lithostitched"
+    },
     {
       "type": "neoforge:mod_loaded",
       "modid": "t_and_t"

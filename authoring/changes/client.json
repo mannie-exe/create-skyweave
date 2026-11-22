@@ -2,6 +2,13 @@
   "schema": 2,
   "records": [
     {
+      "paths": ["overrides/client/config/punchy/triggerable-keybindings.json"],
+      "review": "reviewed",
+      "reason": "Seed native-owned Punchy trigger preferences with both legacy sword shortcuts unassigned. Its deferred resource registration restores this file after options loading and writes changed player bindings; options.txt alone does not preserve an initial unassignment. Keep both seed owners aligned on a fresh install without overwriting existing player choices. Source-bound input auditing includes the native store.",
+      "reference": "docs/development/input-remap.md",
+      "family": "client-preferences"
+    },
+    {
       "paths": [
         "overrides/client/config/flashback/flashback.json",
         "overrides/client/config/cmdcam-client.json"
@@ -14,8 +21,8 @@
     {
       "paths": ["overrides/client/options.txt"],
       "review": "reviewed",
-      "reason": "Select Fresh base, Details, Objects, Quivers and Bray’s FA zombie variants in that increasing-priority order. Add dedicated Fresh Vines, the native-format Punchy potion backport and Artifacts 3D; retain the existing Refined/Luminous/Fluid & Foolish/backpack selections. Keep Visual Patches last for maintained model, bucket, chain and animation bindings. Seed existing distances and input bindings; CMDCam's nine global shortcuts are unbound to preserve gameplay controls. Existing players retain their preferences.",
-      "reference": "docs/players/graphics.md#resource-packs"
+      "reason": "Select Fresh base, Details, Objects, Quivers and Bray’s FA zombie variants in that increasing-priority order. Add dedicated Fresh Vines, the native-format Punchy potion backport and Artifacts 3D; retain the existing Refined/Luminous/Fluid & Foolish/backpack selections. Keep Visual Patches last for maintained model, bucket, chain and animation bindings. Seed existing distances and the complete post-fix input map: preserve core play, separate Left Alt building from Right Alt Create tools, supply camera/path/marker and non-keypad Jade controls, and move Ping/Wayfinder to G/F12. Avoid macOS app hide/window-cycle/settings shortcuts and native modified-F11 interception; retain contextual editor shortcuts. Explicitly seed audited native mappings; use the qualified optional input repairs for the U/Mod+U/Shift+U camera group and explicit platform-modifier undo/redo. Existing players retain their preferences.",
+      "reference": "docs/development/input-remap.md"
     },
     {
       "paths": ["overrides/common/config/DistantHorizons.toml"],
@@ -146,7 +153,7 @@
         "overrides/client/config/inventoryprofilesnext/inventoryprofiles.json"
       ],
       "review": "reviewed",
-      "reason": "Keep manual IPN sorting/transfers, equipment profile support and Auto Refill tool replacement; disable overlapping IPN scrolling/swipe, armor refill and hotbar restocking. Middle-click sorting preserves R recipe lookup. Hide only settings and overlay-editor buttons; retain sort buttons and refill indicators. Disable continuous crafting with its native unchecked default, saved value false and hidden checkbox; preserve manual sorting, transfers, profiles and refill.",
+      "reason": "Keep middle-click sorting, manual transfers and equipment profiles. Auto Refill protects tools at six durability points, reserves locked storage, matches bucket components and uses quieter notices. Its temporary tool-replacement bypass uses physical Right Control to avoid opening the Left Alt building radial; inventory lock gestures keep their separate context. Show Continuous Crafting unchecked. Mouse Tweaks owns wheel and drag. Hide the inventory settings and overlay-editor buttons. Armor refill and hotbar restock start off.",
       "reference": "docs/players/getting-started.md#controls",
       "family": "client-preferences"
     },
@@ -206,13 +213,6 @@
       "family": "client-preferences"
     },
     {
-      "paths": ["overrides/client/config/combatnouveau-client.toml"],
-      "review": "reviewed",
-      "reason": "Keep Combat Nouveau alternative swing timing off and passive offhand hiding empty so Punchy retains held-item presentation. Retain native server combat rules for the trial; client display preferences stay player-owned.",
-      "reference": "docs/players/movement-combat.md",
-      "family": "client-preferences"
-    },
-    {
       "paths": ["overrides/client/config/visualworkbench-client.toml"],
       "review": "reviewed",
       "reason": "Seed native floating contents, result display and nearest-player orientation; model styles belong to Visual Patches.",
@@ -229,7 +229,7 @@
     {
       "paths": ["overrides/client/config/lootr_styled/settings.json"],
       "review": "reviewed",
-      "reason": "Lootr: Styled owns reload-scoped Lootr geometry and optional Fresh adaptation. Seed independent model/artwork/AUTO choices as player preferences; Default changes only the Lootr barrel geometry and retains native artwork. Local profile drafts and permission-pending artwork previews are never shipped as pack defaults.",
+      "reason": "Lootr: Styled owns reload-scoped Lootr geometry and optional Fresh adaptation. Seed independent model/artwork/AUTO choices as player preferences. Default offers barrel geometry and artwork independently; the pack seeds inherited artwork. Local profile drafts and the older permission-pending editor previews are not shipped as pack defaults.",
       "reference": "docs/players/graphics.md#lootr-styled",
       "family": "client-preferences"
     }

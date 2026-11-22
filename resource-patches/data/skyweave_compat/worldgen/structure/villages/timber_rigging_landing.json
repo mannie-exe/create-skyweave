@@ -17,6 +17,10 @@
   "neoforge:conditions": [
     {
       "type": "neoforge:mod_loaded",
+      "modid": "lithostitched"
+    },
+    {
+      "type": "neoforge:mod_loaded",
       "modid": "ctov"
     }
   ]

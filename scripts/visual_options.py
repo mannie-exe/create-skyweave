@@ -158,11 +158,16 @@ def configure(entries, recipes, selections, report, variants):
         'lighting.dndLamps': ('Design n’ Decor lamps', 'Changes the matching lamp top and rotated variants together.', ('dnd-frontlight-',)),
         'chains.dnd': ('Design n’ Decor large chains', 'Extrudes all eight decorative materials; native axes and item transforms remain.', ('dnd-chain-',)),
         'chains.lanternLoops': ('Luminous lantern chains and handles', 'Adds thickness to the chain and handle only; retains Luminous’ body.', ('luminous-chain-',)),
+        'props.hay': ('Hay bales', 'Uses closed authored bands on all hay axes.', ('hay-bale-',)),
     }
     for key, (label, description, prefixes) in families.items():
+        if key == 'props.hay' and key in options.defaults:
+            # The legacy selected donor still owns this option until replaced.
+            continue
         options.define(key, label, description)
-        paths = {f'assets/{r["output"].split(":")[0]}/models/{r["output"].split(":")[1]}.json'
-                 for r in recipes['recipes'] if r['enabled'] and r['id'].startswith(prefixes)}
+        paths = {f'assets/{output.split(":")[0]}/models/{output.split(":")[1]}.json'
+                 for r in recipes['recipes'] if r['enabled'] and r['id'].startswith(prefixes)
+                 for output in [r['output'], *[target['output'] for target in r.get('targets', [])]]}
         if key == 'chains.lanternLoops':
             paths = set(variants['lanternRoots'])
         options.gate(entries, paths, key)

@@ -16,6 +16,7 @@ coverage:
   azimuth-api: complete
   bellsandwhistles: complete
   better-climbing: complete
+  better-combat: complete
   better-third-person: complete
   better-village: complete
   bluemap: complete
@@ -32,7 +33,6 @@ coverage:
   collective: complete
   colorwheel: complete
   colorwheel-patcher: complete
-  combat-nouveau: complete
   complementary-unbound: complete
   connector: complete
   controlling: complete
@@ -108,6 +108,7 @@ coverage:
   fusion-connected-textures: complete
   fzzy-config: complete
   geophilic: complete
+  grapplemod-skybound: complete
   guard-villagers: complete
   hoofprint: unknown
   illager-invasion: complete
@@ -123,6 +124,8 @@ coverage:
   jade-sable-compat: complete
   jei: complete
   just-3d-potions-punchy-1.21-backport: complete
+  kaleidoscope-cookery: complete
+  kaleidoscopetavern: complete
   kotlin-for-forge: complete
   lambdynamiclights: unknown
   libipn: complete
@@ -151,6 +154,7 @@ coverage:
   moreculling: complete
   mouse-tweaks: complete
   mt-ct-d: complete
+  omnidirectional-movement: complete
   outline-effects: unknown
   owo-lib: complete
   photon-shader: complete
@@ -184,6 +188,7 @@ coverage:
   sable: complete
   sable-cool-rain: complete
   sable-dynamic-lights: complete
+  sable_beyond: complete
   searchables: complete
   shulkerboxtooltip: complete
   simple-3d-iron-bars: complete
@@ -1081,6 +1086,61 @@ dependencies:
       provider: modrinth
       selector: better-climbing
     title: Better Climbing
+  better-combat:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/5sy6g3kz/versions/VhIOvcXP/bettercombat-neoforge-2.4.0%2B1.21.1.jar
+        kind: provider
+        pin:
+          project:
+            project: 5sy6g3kz
+            provider: modrinth
+          selection:
+            id: VhIOvcXP
+            provider: modrinth
+        slot: bettercombat-neoforge-2.4.0+1.21.1.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: bacbc8c86671663e9998b141c5732250c1f4d4fb
+          sha512: >-
+            db24730a42ae7e2dd546ee031d2f5e0dd6f9896418417a529fa21a44121761ebb29c8b8299db8f20500f7497f7b60a7d793b66c93abf37a8ea0aa3edafd80eb6
+        size: 1045389
+      placements:
+      - destination: mods/bettercombat-neoforge-2.4.0+1.21.1.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: bacbc8c86671663e9998b141c5732250c1f4d4fb
+          sha512: >-
+            db24730a42ae7e2dd546ee031d2f5e0dd6f9896418417a529fa21a44121761ebb29c8b8299db8f20500f7497f7b60a7d793b66c93abf37a8ea0aa3edafd80eb6
+        location: 5sy6g3kz
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: 5sy6g3kz
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: 5sy6g3kz
+        provider: modrinth
+      selection:
+        id: VhIOvcXP
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: better-combat
+    title: Better Combat
   better-third-person:
     content: mod
     files:
@@ -1946,61 +2006,6 @@ dependencies:
       provider: modrinth
       selector: colorwheel-patcher
     title: Colorwheel Patcher
-  combat-nouveau:
-    content: mod
-    files:
-    - acquisition:
-        downloads:
-        - >-
-          https://cdn.modrinth.com/data/Iv3kcKZn/versions/us081FGF/CombatNouveau-v21.1.2-1.21.1-NeoForge.jar
-        kind: provider
-        pin:
-          project:
-            project: Iv3kcKZn
-            provider: modrinth
-          selection:
-            id: us081FGF
-            provider: modrinth
-        slot: CombatNouveau-v21.1.2-1.21.1-NeoForge.jar
-      expected:
-        accepted-observation: null
-        digests:
-          sha1: 11376f1ed6f8f77631200a31b4583b49fb44775b
-          sha512: >-
-            288b11a3863a43a66255bbf27a92802ad75857b8d3d031d145741350afcec1409346517dc3e85f6e91b973842e134778d463cf8d2d7e347000373e9128b66a86
-        size: 100317
-      placements:
-      - destination: mods/CombatNouveau-v21.1.2-1.21.1-NeoForge.jar
-        environment:
-          client: required
-          server: required
-        layer: common
-      provenance:
-        conversions: []
-        declared-digests:
-          sha1: 11376f1ed6f8f77631200a31b4583b49fb44775b
-          sha512: >-
-            288b11a3863a43a66255bbf27a92802ad75857b8d3d031d145741350afcec1409346517dc3e85f6e91b973842e134778d463cf8d2d7e347000373e9128b66a86
-        location: Iv3kcKZn
-        source: provider-catalog
-      slot: primary
-    identity:
-      kind: provider
-      project:
-        project: Iv3kcKZn
-        provider: modrinth
-    incompatibilities: []
-    selection:
-      project:
-        project: Iv3kcKZn
-        provider: modrinth
-      selection:
-        id: us081FGF
-        provider: modrinth
-    source-selector:
-      provider: modrinth
-      selector: combat-nouveau
-    title: Combat Nouveau
   complementary-unbound:
     content: shader-pack
     files:
@@ -5931,6 +5936,61 @@ dependencies:
       provider: modrinth
       selector: geophilic
     title: Geophilic
+  grapplemod-skybound:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/tHHGzOFQ/versions/ejlIzfJ8/grapplemod-1.1%2B1.21.1.neoforge.jar
+        kind: provider
+        pin:
+          project:
+            project: tHHGzOFQ
+            provider: modrinth
+          selection:
+            id: ejlIzfJ8
+            provider: modrinth
+        slot: grapplemod-1.1+1.21.1.neoforge.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 2b6060de273f721857d715db9a811ddaa5422683
+          sha512: >-
+            c3081c0a8d62e90388c7d2c281d459c3b4b61f42a83d182a1a0dc2fa15599ffa10aec91528ba685980341a007a619c38aca92d75ad6747cef0e5f814d44fdbcb
+        size: 847238
+      placements:
+      - destination: mods/grapplemod-1.1+1.21.1.neoforge.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 2b6060de273f721857d715db9a811ddaa5422683
+          sha512: >-
+            c3081c0a8d62e90388c7d2c281d459c3b4b61f42a83d182a1a0dc2fa15599ffa10aec91528ba685980341a007a619c38aca92d75ad6747cef0e5f814d44fdbcb
+        location: tHHGzOFQ
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: tHHGzOFQ
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: tHHGzOFQ
+        provider: modrinth
+      selection:
+        id: ejlIzfJ8
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: grapplemod-skybound
+    title: "Grappling Hook Mod: Skybound"
   guard-villagers:
     content: mod
     files:
@@ -6737,6 +6797,116 @@ dependencies:
       provider: modrinth
       selector: just-3d-potions-punchy-1.21-backport
     title: Just 3D Potions (Punchy! 1.21 Backport)
+  kaleidoscope-cookery:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/v17FatAc/versions/g8w0b2ly/kaleidoscopecookery-1.6.0-neoforge%2Bmc1.21.1.jar
+        kind: provider
+        pin:
+          project:
+            project: v17FatAc
+            provider: modrinth
+          selection:
+            id: g8w0b2ly
+            provider: modrinth
+        slot: kaleidoscopecookery-1.6.0-neoforge+mc1.21.1.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 9093e830c91a8f2e19eca7dda78713f0bbc21327
+          sha512: >-
+            b562f73395f70d39fb26d89ca62a5b5cebe7d66b11e8930217f0daf03fdcea617629728f55e4c8ced690406204c44462a8a568e5c15f05f5940274904ce0b77f
+        size: 3496661
+      placements:
+      - destination: mods/kaleidoscopecookery-1.6.0-neoforge+mc1.21.1.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 9093e830c91a8f2e19eca7dda78713f0bbc21327
+          sha512: >-
+            b562f73395f70d39fb26d89ca62a5b5cebe7d66b11e8930217f0daf03fdcea617629728f55e4c8ced690406204c44462a8a568e5c15f05f5940274904ce0b77f
+        location: v17FatAc
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: v17FatAc
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: v17FatAc
+        provider: modrinth
+      selection:
+        id: g8w0b2ly
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: kaleidoscope-cookery
+    title: Kaleidoscope Cookery
+  kaleidoscopetavern:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/r9RZvhiJ/versions/W9ILsQt7/kaleidoscopetavern-1.2.0-neoforge%2Bmc1.21.1.jar
+        kind: provider
+        pin:
+          project:
+            project: r9RZvhiJ
+            provider: modrinth
+          selection:
+            id: W9ILsQt7
+            provider: modrinth
+        slot: kaleidoscopetavern-1.2.0-neoforge+mc1.21.1.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: bf026cb97921749adf6155181d2f9639d37a7261
+          sha512: >-
+            2481f11727ee303004d2e849739651f63bc28493a79d2e6a784f45632fc92e27ce4a43cc3b08b71740aa1f2a1879c15cc097c65d7a95d9d642c4a9958df6c473
+        size: 1708047
+      placements:
+      - destination: mods/kaleidoscopetavern-1.2.0-neoforge+mc1.21.1.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: bf026cb97921749adf6155181d2f9639d37a7261
+          sha512: >-
+            2481f11727ee303004d2e849739651f63bc28493a79d2e6a784f45632fc92e27ce4a43cc3b08b71740aa1f2a1879c15cc097c65d7a95d9d642c4a9958df6c473
+        location: r9RZvhiJ
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: r9RZvhiJ
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: r9RZvhiJ
+        provider: modrinth
+      selection:
+        id: W9ILsQt7
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: kaleidoscopetavern
+    title: Kaleidoscope Tavern
   kotlin-for-forge:
     content: mod
     files:
@@ -7272,15 +7442,19 @@ dependencies:
     content: mod
     files:
     - acquisition:
-        kind: local
-        path: .cache/local-candidates/lootr-styled-1.21.1-neoforge-0.1.0-dev.jar
+        downloads:
+        - >-
+          https://github.com/mannie-exe/lootr-styled/releases/download/v0.1.0/lootr-styled-1.21.1-neoforge-0.1.0.jar
+        kind: url
       expected:
         accepted-observation: null
         digests:
-          sha256: d3688d2d3aeffee5055798a2bcfd7f794d8702eae78e41e867d02b0c47d33ddf
+          sha1: 7fb1999a91bc4868d7f6ded7c1a3b9a9f8d1230a
+          sha512: >-
+            efc9954a4d39527d664c594d413150268ce8f1299102be31a6f270a4b1f3daaf9d7dbadd40499eed12654eee1f658abf1e26fa1f4ad73dbc858e2cc548333867
         size: null
       placements:
-      - destination: mods/lootr-styled-1.21.1-neoforge-0.1.0-dev.jar
+      - destination: mods/lootr-styled-1.21.1-neoforge-0.1.0.jar
         environment:
           client: required
           server: unsupported
@@ -7288,13 +7462,15 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha256: d3688d2d3aeffee5055798a2bcfd7f794d8702eae78e41e867d02b0c47d33ddf
+          sha1: 7fb1999a91bc4868d7f6ded7c1a3b9a9f8d1230a
+          sha512: >-
+            efc9954a4d39527d664c594d413150268ce8f1299102be31a6f270a4b1f3daaf9d7dbadd40499eed12654eee1f658abf1e26fa1f4ad73dbc858e2cc548333867
         location: null
-        source: local-file
+        source: url-file
       slot: primary
     identity:
       key: lootr-styled
-      kind: local
+      kind: url
     incompatibilities: []
     selection: null
     source-selector: null
@@ -8214,6 +8390,61 @@ dependencies:
       provider: modrinth
       selector: mt-ct-d
     title: Midnighttigger's Default Connected Textures
+  omnidirectional-movement:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/FK8ma0OQ/versions/BnnlX11f/omni-1.2-OVERHAUL%2B1.21.1-neoforge.jar
+        kind: provider
+        pin:
+          project:
+            project: FK8ma0OQ
+            provider: modrinth
+          selection:
+            id: BnnlX11f
+            provider: modrinth
+        slot: omni-1.2-OVERHAUL+1.21.1-neoforge.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: c228440c5dfc01ce92a82a79ca6782b244185076
+          sha512: >-
+            e2cc80197a7c71e73b90a82230d9879b9eb5087b660cea49f281476634c331236de733a24fe1eb9634f253d3db9473171b1d422f6c5d4ce4be48e42b3600642c
+        size: 55636
+      placements:
+      - destination: mods/omni-1.2-OVERHAUL+1.21.1-neoforge.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: c228440c5dfc01ce92a82a79ca6782b244185076
+          sha512: >-
+            e2cc80197a7c71e73b90a82230d9879b9eb5087b660cea49f281476634c331236de733a24fe1eb9634f253d3db9473171b1d422f6c5d4ce4be48e42b3600642c
+        location: FK8ma0OQ
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: FK8ma0OQ
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: FK8ma0OQ
+        provider: modrinth
+      selection:
+        id: BnnlX11f
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: omnidirectional-movement
+    title: Omnidirectional Movement
   outline-effects:
     content: mod
     files:
@@ -9447,17 +9678,17 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://github.com/mannie-exe/reform/releases/download/v0.1.0/reform-0.1.0-mc1.21.1-neoforge.jar
+          https://github.com/mannie-exe/reform/releases/download/v0.2.0/reform-0.2.0-mc1.21.1-neoforge.jar
         kind: url
       expected:
         accepted-observation: null
         digests:
-          sha1: 625f0abb5bede69cec59ccea80f3b23a06c85e77
+          sha1: 3bcee4e8fcdd937e433e7c1433a73c3cd884000c
           sha512: >-
-            3a740a41c52ca815e7f3018adf96b5c58cb5ce735f64c64b5802645ef5b055148c66ab5c630452acfcdea39b68c194c3e23d60f7f4cc5c71ad90adb136b709e5
+            6248cb8de5576a766f09313a8072f8e7ae6f7c2d74af260baab4007c83f1e38cac076d1f8b11102241379f16deb1e6290f76478f0bfbc2ac400ed0ee66703680
         size: null
       placements:
-      - destination: mods/reform-0.1.0-mc1.21.1-neoforge.jar
+      - destination: mods/reform.jar
         environment:
           client: required
           server: required
@@ -9465,9 +9696,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: 625f0abb5bede69cec59ccea80f3b23a06c85e77
+          sha1: 3bcee4e8fcdd937e433e7c1433a73c3cd884000c
           sha512: >-
-            3a740a41c52ca815e7f3018adf96b5c58cb5ce735f64c64b5802645ef5b055148c66ab5c630452acfcdea39b68c194c3e23d60f7f4cc5c71ad90adb136b709e5
+            6248cb8de5576a766f09313a8072f8e7ae6f7c2d74af260baab4007c83f1e38cac076d1f8b11102241379f16deb1e6290f76478f0bfbc2ac400ed0ee66703680
         location: null
         source: url-file
       slot: primary
@@ -9916,6 +10147,61 @@ dependencies:
       provider: modrinth
       selector: KKb9KQzX
     title: "Sable Dynamic Lights (Create: Dynamic Lights fork)"
+  sable_beyond:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/PrW3B4fH/versions/BWQxgVOj/sablebeyond-neoforge-1.21.1-v0.5.0.jar
+        kind: provider
+        pin:
+          project:
+            project: PrW3B4fH
+            provider: modrinth
+          selection:
+            id: BWQxgVOj
+            provider: modrinth
+        slot: sablebeyond-neoforge-1.21.1-v0.5.0.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 6040db8c52ddd2fe6e9c266a52df8865107e4124
+          sha512: >-
+            2b0faffcde079b6f87944c1fbfdcfaf99c9780e60e91fba412d5a3bf04af4acd35c51ea15aadc076c99ce07675554f3d8482255312c2c20f686521e386b45eb8
+        size: 1290691
+      placements:
+      - destination: mods/sablebeyond-neoforge-1.21.1-v0.5.0.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 6040db8c52ddd2fe6e9c266a52df8865107e4124
+          sha512: >-
+            2b0faffcde079b6f87944c1fbfdcfaf99c9780e60e91fba412d5a3bf04af4acd35c51ea15aadc076c99ce07675554f3d8482255312c2c20f686521e386b45eb8
+        location: PrW3B4fH
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: PrW3B4fH
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: PrW3B4fH
+        provider: modrinth
+      selection:
+        id: BWQxgVOj
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: sable_beyond
+    title: Sable Beyond
   searchables:
     content: mod
     files:
@@ -10249,14 +10535,14 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.41.0/skyweave-compat-0.41.0-mc1.21.1-neoforge.jar
+          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.42.1/skyweave-compat-0.42.1-mc1.21.1-neoforge.jar
         kind: url
       expected:
         accepted-observation: null
         digests:
-          sha1: a06c600022d9bbf76ea12103e290fb1438e58cba
+          sha1: ce69095c906214041b78b2653606c08ab54e0aba
           sha512: >-
-            d431e4d4d4012777347e471ada01a447b031e7af0fa4ec887c5b29e4e2582232fc7897ac7c078a79b4b9824fd51e360af1f82805d89ecbf5479da9082f5387bb
+            c7812a36ed76e5851b89d65064a055ea71d603a45316d82d696ec5fc125bb01a344806eb4d80f62c8e1a78ee542d6727091cdb23ed23097a18f9a2091063f757
         size: null
       placements:
       - destination: mods/skyweave-compat.jar
@@ -10267,9 +10553,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: a06c600022d9bbf76ea12103e290fb1438e58cba
+          sha1: ce69095c906214041b78b2653606c08ab54e0aba
           sha512: >-
-            d431e4d4d4012777347e471ada01a447b031e7af0fa4ec887c5b29e4e2582232fc7897ac7c078a79b4b9824fd51e360af1f82805d89ecbf5479da9082f5387bb
+            c7812a36ed76e5851b89d65064a055ea71d603a45316d82d696ec5fc125bb01a344806eb4d80f62c8e1a78ee542d6727091cdb23ed23097a18f9a2091063f757
         location: null
         source: url-file
       slot: primary
@@ -11776,7 +12062,7 @@ dependencies:
       provider: modrinth
       selector: OnlVIpq5
     title: Fast Noise
-intent-revision: 5e845b4d62654b8eee3200cb3b07f0cf869ed6f3c418570843fe6d201e94d983
+intent-revision: a81456ca6675fe6d22f2660db1e6b1d73afa7d4714a14e17078004ff5ff185e9
 java-policy:
   historical-minimum: 21
   id: empack-java-1
@@ -11799,6 +12085,9 @@ required-edges:
   - create
   bellsandwhistles:
   - create
+  better-combat:
+  - cloth-config
+  - playeranimator
   better-village:
   - library-ferret
   brays-zombie-overhaul-fresh-animations:
@@ -11808,8 +12097,6 @@ required-edges:
   - creativecore
   colorwheel:
   - iris
-  combat-nouveau:
-  - puzzles-lib
   connector:
   - forgified-fabric-api
   controlling:
@@ -11930,6 +12217,8 @@ required-edges:
   - libjf
   sable-cool-rain:
   - cool-rain-reforged
+  - sable
+  sable_beyond:
   - sable
   sky-villages:
   - architectury-api

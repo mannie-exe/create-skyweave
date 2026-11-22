@@ -22,8 +22,11 @@ Player guides explain installation and operation. Development documents describe
 | --- | --- |
 | [Build and release](development/build.md) | Source layout, empack commands and CI |
 | [Dependency and patch maintenance](development/patches.md) | Coupled updates, patch ownership, checks and removal criteria |
+| [New-content triage](development/content-triage.md) | Review mod/resource additions and changes across rendering, animation, inputs, recipes, and moving machinery |
 | [Compatibility constraints](development/compatibility.md) | Dependency interactions and supported boundaries |
 | [Animation and model compatibility](development/animation-compatibility.md) | Renderer ownership, item fitting and native comparison requirements |
+| [Input ownership and controls](development/keybinds.md) | Binding inventory, contextual interactions, overlap findings, keyboard layouts, and proposed defaults |
+| [Complete control remap](development/input-remap.md) | Pre-Compat defaults, filming controls, and registered/custom dispositions |
 | [Pack verification](development/verification.md) | Artifact checks, evidence ownership and coverage limits |
 | [Journal design and definitions](development/journal.md) | Capabilities, reward budgets, conditions and update checks |
 | [Pack authoring](development/authoring.md) | Journal generation, locale editing and categorized configuration audit |

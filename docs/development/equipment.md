@@ -2,6 +2,12 @@
 
 Use this register to review equipment, acquisition and presentation together. The Atlas owns current registry/acquisition evidence; this document owns pack decisions and review boundaries. A recipe/loot route is an opportunity, not proof of affordable progression or a working setup. Keep native values until an explicit balance decision; do not invent a blanket reduction across unrelated items.
 
+## Kaleidoscope trial equipment
+
+Cookery 1.6.0 and Tavern 1.2.0 retain native recipes and values for this trial. The selectors include Cookery kitchen tools, stove/pot/stockpot, chopping board, tray, spit, millstone, steamer and teapot; Tavern pressing tub, barrel and tap; and their lunch bag, shaker, lid and cup utilities. These are source-reviewed classifications, not a refreshed native registry/acquisition capture. Avoid reporting new totals from the older native dataset.
+
+Their crafted stations and tools lead into custom cooking, milling, drying, tea, pressing, barrel and shaker recipe systems. Seeds, animal drops, crops, tree decorators and food/drink effects also affect acquisition and progression. Keep ordinary food/ingredients and decorative palettes outside equipment classification. Compat 0.42.1 supplies the optional millstone insertion repair for exactly Cookery 1.6.0; native capability/processing checks do not qualify every automation network or production route. Tavern's managed common config disables infinite lava-cauldron filling; all other trial settings retain native defaults. [Compatibility](compatibility.md#sable-beyond-and-kaleidoscope) owns integration concerns and future in-world station adapters.
+
 ## Review domains
 
 Include tools, weapons, armor, accessories, storage, travel gear, portable utilities and functional stations/machinery. Exclude ordinary materials, decorative building palettes, mobs and terrain generation; note their dependencies where they supply equipment. Use exact registry IDs in Atlas searches. Native type evidence and curated selectors in `authoring/equipment.json` define the register; they do not change item behavior or acquisition.
@@ -13,7 +19,7 @@ The 2026-11-18 native capture contains 9,928 items and 9,267 blocks from 212 loa
 | Family | Items | Review boundary |
 | --- | --: | --- |
 | Tools | 66 | Harvesting, maintenance and inspection; preserve durability, actions and custom renderers. |
-| Weapons | 61 | Native attack/projectile behavior, ammunition and Combat Nouveau timing; models do not establish mechanics. |
+| Weapons | 61 | Native attack and projectile behavior, ammunition, and Better Combat weapon profiles. Verify the effective profile separately from the displayed model. |
 | Armor | 42 | Native protection and equipment slots, held versus worn appearance and synchronization. |
 | Accessories | 96 | Curios/Accessories slot authority, active effects, duplicate capabilities and equipped layers. |
 | Mobility | 47 | Flight, riding, falling, return journeys and moving-ship interactions. |

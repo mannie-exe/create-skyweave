@@ -30,6 +30,10 @@
     {
       "type": "neoforge:mod_loaded",
       "modid": "ctov"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "lithostitched"
     }
   ]
 }

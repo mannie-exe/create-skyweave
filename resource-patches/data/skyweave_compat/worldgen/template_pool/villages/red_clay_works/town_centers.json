@@ -1,5 +1,5 @@
 {
-  "name": "kaisyn:village/badlands_pueblo/town_centers",
+  "name": "skyweave_compat:villages/red_clay_works/town_centers",
   "fallback": "minecraft:empty",
   "elements": [
     {
@@ -18,6 +18,10 @@
     }
   ],
   "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "lithostitched"
+    },
     {
       "type": "neoforge:mod_loaded",
       "modid": "t_and_t"

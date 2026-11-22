@@ -1,5 +1,11 @@
 # Pack verification
 
+## Generator ownership and release 0.23.0
+
+The release selects public Compat 0.42.1 and re:form 0.2.0. Resource Patches requires Compat 0.42.0 or newer and declares its owned village band; shared data retains the native foreign-generator height/projection policy. Release-mode exports carry the authored version rather than DEV. [Compat’s generator qualification](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/verification.md#generator-ownership-0420) records its native ownership, standalone, explicit-off, saved-identity and client lifecycle controls. Those generation scenes use a minimal carrier for village data, not the complete Resource Patches module.
+
+The isolated release tree passes 271 unit checks, the configuration ownership audit and current quest/resource builds. The selected visual source/producer closure regenerates the accepted Visual Patches archive byte-for-byte; its cage native check remains waived. Exact release-recipe title registration and input evidence are distinct from gameplay, physics, village generation and production Prism qualification. Fresh BlueMap defaults leave native vertical bounds uncropped; seeded explicit crops and cave visibility remain independent. The ordinary release does not reset worlds or operator preferences; local reset/sync operations need their own authorization.
+
 ## Empack 0.8.8 and server defaults 0.22.2
 
 The host CLI and validation/release workflows select public empack 0.8.8-beta. The default macOS archive matches the public asset SHA-256 `54c054c71f35c6102994fee968e7a0abbdf58def31c7b0ab768458c1da5c592b`; the installed executable is `99dabfeac357d25c9ec68f05c4d09b3154dbdcd905baf516c28a866e847d447f`. All three release-mode exports pass integrity and pack-identity checks. Prism and server preparation/launch records select 0.8.8-beta and include the public bootstrap JAR, SHA-256 `b5c6ebad53cbc1c80cd2bcfaf41dcecc6718f6e114de951d15b4dca1b35e4b45`. The lock changes only its intent revision; dependency selections remain equal to 0.22.1.

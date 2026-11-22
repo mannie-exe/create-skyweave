@@ -79,7 +79,12 @@
       }
     }
   ],
+  "name": "skyweave_compat:villages/timber_rigging_landing/roads",
   "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "lithostitched"
+    },
     {
       "type": "neoforge:mod_loaded",
       "modid": "ctov"

@@ -3,7 +3,7 @@
   "records": [
     {
       "paths": [
-        "overrides/client/shaderpacks/BSL_v10.1.8 + Clrwl_1.0.5 + Skyweave_0.3.0.zip.txt"
+        "overrides/client/shaderpacks/BSL_v10.1.8 + Clrwl_1.0.5 + Skyweave_0.3.1.zip.txt"
       ],
       "review": "reviewed",
       "reason": "Reduce sampler pressure and shadow distance while retaining the tested shader effects.",
@@ -11,7 +11,7 @@
     },
     {
       "paths": [
-        "overrides/client/shaderpacks/Complementary Unbound r5.10 + Euphoria 1.11.1 + Skyweave 0.4.0.zip.txt"
+        "overrides/client/shaderpacks/Complementary Unbound r5.10 + Euphoria 1.11.1 + Skyweave 0.4.1.zip.txt"
       ],
       "review": "reviewed",
       "reason": "Retain the existing preset for the lab-generated shader with texture-aware window layers and opaque frame materials.",
@@ -37,7 +37,7 @@
     },
     {
       "paths": [
-        "overrides/client/shaderpacks/Photon v1.4 + Skyweave 0.3.0.zip.txt"
+        "overrides/client/shaderpacks/Photon v1.4 + Skyweave 0.3.1.zip.txt"
       ],
       "review": "reviewed",
       "reason": "Retain native High lighting, add block-entity shadows for machinery, and use 128-block shadows without depth of field or motion blur. No macOS workaround or non-Apple GPU validation.",
@@ -49,7 +49,7 @@
         "overrides/client/config/skyweave/shaders/recipes/complementary-euphoria-skyweave.json"
       ],
       "review": "reviewed",
-      "reason": "Assemble native material/environment corrections and pack-specific DH shadow programs and finite-map directional fog through the shared Java engine.",
+      "reason": "Assemble the qualified material and island-environment corrections through the shared Java engine while retaining native shadow behavior without custom DH shadow programs.",
       "reference": "tools/shader-lab/README.md",
       "family": "shader-recipes"
     },
@@ -58,7 +58,7 @@
         "overrides/client/config/skyweave/shaders/recipes/photon-skyweave.json"
       ],
       "review": "reviewed",
-      "reason": "Assemble official Photon1.4 native DH shadow/color/fog correction; retain Apple GPU exclusion and exact-input-only first adoption.",
+      "reason": "Retain official Photon 1.4 and native Colorwheel through the shared engine, without custom DH shadow programs; preserve Apple GPU exclusion and exact-input-only first adoption.",
       "reference": "tools/shader-lab/README.md",
       "family": "shader-recipes"
     }

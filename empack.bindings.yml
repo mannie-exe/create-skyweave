@@ -304,6 +304,13 @@ bindings:
         client: required
         server: required
       layer: common
+  reform:
+    placement:
+    - destination: mods/reform.jar
+      environment:
+        client: required
+        server: required
+      layer: common
   absolute_kinematics-1.0.1:
     placement:
     - destination: mods/absolute_kinematics-1.0.1.jar
@@ -366,11 +373,30 @@ bindings:
             client: required
             server: unsupported
           layer: common
+  kaleidoscope-cookery:
+    placement:
+      files:
+        primary:
+        - destination: mods/kaleidoscopecookery-1.6.0-neoforge+mc1.21.1.jar
+          environment:
+            client: required
+            server: required
+          layer: common
+  kaleidoscopetavern:
+    placement:
+      files:
+        primary:
+        - destination: mods/kaleidoscopetavern-1.2.0-neoforge+mc1.21.1.jar
+          environment:
+            client: required
+            server: required
+          layer: common
 policies:
+  config/kaleidoscope_tavern-common.toml: managed
   config/lootr_styled/settings.json: seed
   config/cmdcam-client.json: seed
+  config/punchy/triggerable-keybindings.json: seed
   config/flashback/flashback.json: seed
-  config/combatnouveau-client.toml: seed
   server.properties: seed
   user_jvm_args.txt: seed
   config/DistantHorizons.toml: seed
@@ -670,15 +696,14 @@ policies:
   config/yigd.json: seed
   icon.png: seed
   options.txt: seed
-  "shaderpacks/BSL_v10.1.8 + Clrwl_1.0.5 + Skyweave_0.3.0.zip.txt": seed
-  "shaderpacks/Complementary Unbound r5.10 + Euphoria 1.11.1 + Skyweave 0.4.0.zip.txt": seed
-  shaderpacks/Photon v1.4 + Skyweave 0.3.0.zip.txt: seed
+  "shaderpacks/BSL_v10.1.8 + Clrwl_1.0.5 + Skyweave_0.3.1.zip.txt": seed
+  "shaderpacks/Complementary Unbound r5.10 + Euphoria 1.11.1 + Skyweave 0.4.1.zip.txt": seed
+  shaderpacks/Photon v1.4 + Skyweave 0.3.1.zip.txt: seed
   config/guardvillagers-common.toml: managed
   config/guardvillagers-startup.toml: managed
   config/illagerinvasion-server.toml: managed
+  config/grapplemod-properties.json: managed
   config/variantsandventures.json: managed
-  config/combatnouveau-common.toml: managed
-  config/combatnouveau-server.toml: managed
   config/pickupnotifier-client.toml: seed
   config/hmioutline.json: seed
   config/ftbquests/quests/.skyweave-generated.json: managed

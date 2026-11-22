@@ -16,7 +16,12 @@
       }
     }
   ],
+  "name": "skyweave_compat:villages/timber_rigging_landing/town_centers",
   "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "lithostitched"
+    },
     {
       "type": "neoforge:mod_loaded",
       "modid": "ctov"

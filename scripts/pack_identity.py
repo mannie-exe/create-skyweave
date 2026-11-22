@@ -29,8 +29,10 @@ class PackIdentity:
                 'skyweave:pack-version': self.version}
 
 
-def explanation(root, profiles=()):
+def explanation(root, profiles=(), delivery=None):
     command = ['empack', 'build', '--explain', '--json', '--optional-defaults']
+    if delivery is not None:
+        command += ['--delivery', delivery]
     for profile in profiles:
         command += ['--profile', profile]
     result = subprocess.run(command, cwd=root, check=True, text=True, capture_output=True)
@@ -98,21 +100,28 @@ def verify_export(path, expected):
             data = archive.read(candidates[0])
         else:
             candidates = [name for name in names if name.endswith('/.empack-consumer/release.json') or name == '.empack-consumer/release.json']
-            if len(candidates) != 1:
-                raise ValueError('Expected one immutable consumer recipe in reference export')
-            recipe_name = candidates[0]
-            recipe = json.loads(archive.read(recipe_name))
-            if recipe.get('pack') != expected.pack_id or expected.version != 'DEV' and recipe.get('version') != expected.version:
-                raise ValueError('Consumer recipe disagrees with release identity')
-            resources = [entry for entry in recipe.get('files', []) if entry.get('destination') == MOD_PATH]
-            if len(resources) != 1 or resources[0].get('source', {}).get('kind') != 'asset':
-                raise ValueError('Expected one content-addressed Resource Patches selection')
-            resource = resources[0]
-            relative = PurePosixPath(resource['source']['path'])
-            if relative.is_absolute() or '..' in relative.parts or relative.parts[:1] != ('assets',):
-                raise ValueError('Resource Patches asset escapes its consumer snapshot')
-            data = archive.read(str(PurePosixPath(recipe_name).parent / relative))
-            if sha256(data).hexdigest() != resource['sha256']:
-                raise ValueError('Exported Resource Patches content disagrees with its recipe hash')
+            installed = [name for name in names if name in {
+                MOD_PATH, '.minecraft/' + MOD_PATH, 'game/' + MOD_PATH}]
+            if installed:
+                if len(installed) != 1 or candidates:
+                    raise ValueError('Expected one Resource Patches owner; conflicting direct/reference payloads')
+                data = archive.read(installed[0])
+            else:
+                if len(candidates) != 1:
+                    raise ValueError('Expected one immutable consumer recipe in reference export')
+                recipe_name = candidates[0]
+                recipe = json.loads(archive.read(recipe_name))
+                if recipe.get('pack') != expected.pack_id or expected.version != 'DEV' and recipe.get('version') != expected.version:
+                    raise ValueError('Consumer recipe disagrees with release identity')
+                resources = [entry for entry in recipe.get('files', []) if entry.get('destination') == MOD_PATH]
+                if len(resources) != 1 or resources[0].get('source', {}).get('kind') != 'asset':
+                    raise ValueError('Expected one content-addressed Resource Patches selection')
+                resource = resources[0]
+                relative = PurePosixPath(resource['source']['path'])
+                if relative.is_absolute() or '..' in relative.parts or relative.parts[:1] != ('assets',):
+                    raise ValueError('Resource Patches asset escapes its consumer snapshot')
+                data = archive.read(str(PurePosixPath(recipe_name).parent / relative))
+                if sha256(data).hexdigest() != resource['sha256']:
+                    raise ValueError('Exported Resource Patches content disagrees with its recipe hash')
         verify_resource(data, expected)
     return {'artifact': Path(path).name, 'resourceSha256': sha256(data).hexdigest(), 'identity': expected.properties()}

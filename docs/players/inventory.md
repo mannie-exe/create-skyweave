@@ -9,18 +9,24 @@ Mouse Tweaks owns drag and wheel gestures. Inventory Profiles Next (IPN) adds ma
 | Drag and wheel transfer | Mouse Tweaks; IPN scrolling and swipe movement are disabled to avoid overlap |
 | Manual sorting | IPN, middle-click over an inventory; the three sort buttons remain available |
 | Recipe lookup | EMI; the pack leaves R available |
-| Tool replacement | IPN Auto Refill replaces worn tools before they break |
+| Tool replacement | IPN Auto Refill looks for a spare at six durability points remaining |
 | Stack replenishment | IPN Auto Refill replenishes consumed stacks |
 | Equipment profiles | Available for deliberately configured, manual gear switching |
 | Armor refill and hotbar restocking | Disabled in the authored defaults |
-| Continuous crafting | Disabled; its checkbox starts unchecked and is hidden |
+| Continuous crafting | The checkbox is visible and starts unchecked when a crafting screen opens |
 | IPN settings and overlay-editor inventory buttons | Hidden in source defaults; use the mod's configuration screen instead |
 
 Open **Mods → Inventory Profiles Next → Config** to change these preferences. Seeded settings do not replace an existing player's choices. A source change does not prove an installed instance has it. Refill indicators keep their current magenta artwork; a quieter texture treatment is deferred.
 
 ## Crafting and automation
 
-Vanilla Shift-click on a crafting result makes as many outputs as the grid and inventory permit. IPN continuous crafting additionally refills the grid and repeats output collection; the pack disables that behavior through its client GUI settings. Ordinary crafting, manual transfers, equipment profiles, slot locking, refill and trading assistance remain available. Mouse Tweaks owns its separate drag and wheel interactions.
+Vanilla Shift-click on a crafting result makes as many outputs as the grid and inventory permit. Check **Continuous Crafting** to let IPN refill the grid and use its repeat controls on the current screen. Opening a new crafting screen resets the checkbox to off.
+
+## Refill and reserved slots
+
+IPN watches the selected hotbar slot and offhand. It draws spares from main inventory storage. Other hotbar slots remain available for deliberate switching. A healthy spare of the same item takes priority. When only another material in the same category is eligible, IPN can swap it in and retain the worn tool in storage.
+
+Hold **Left Alt** and click an inventory slot to edit its lock with the default bindings. **Auto Refill → Use Items From Locked Slots** starts off, so locked storage slots reserve their spares. A lock on a selected hotbar slot still allows refill there. Use **Ctrl+left-click** over a hotbar slot in survival inventory or **Ctrl+R** on the selected slot to toggle refill for that slot. The temporary **Right Control** tool control bypasses pre-break replacement while held and briefly after release. Ordinary replacement after a tool runs out can still occur.
 
 ## Known creative-screen issue
 

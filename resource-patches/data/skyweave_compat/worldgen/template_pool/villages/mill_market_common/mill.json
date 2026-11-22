@@ -1,5 +1,5 @@
 {
-  "name": "kaisyn:village/sunflower_plains_farm/side/windmill",
+  "name": "skyweave_compat:villages/mill_market_common/mill",
   "fallback": "minecraft:empty",
   "elements": [
     {
@@ -18,6 +18,10 @@
     }
   ],
   "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "lithostitched"
+    },
     {
       "type": "neoforge:mod_loaded",
       "modid": "t_and_t"

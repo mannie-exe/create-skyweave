@@ -27,6 +27,17 @@
     },
     "refill_before_tool_break": {
       "value": true
+    },
+    "ignore_locked_slots": false,
+    "tool_damage_threshold": 6,
+    "auto_refill_ignore_nbt_for_buckets": false,
+    "number_of_notifications": 1,
+    "notification_step": 1,
+    "type_visual_replace_failed_notification": "HOTBAR",
+    "auto_refill_temp_disable_refill_for_tools": {
+      "main": {
+        "keys": "RIGHT_CONTROL"
+      }
     }
   },
   "Tweaks": {
@@ -52,7 +63,7 @@
       "value": false
     },
     "show_continuous_crafting_checkbox": {
-      "value": false
+      "value": true
     },
     "continuous_crafting_checkbox_value": "UNCHECKED",
     "continuous_crafting_saved_value": false

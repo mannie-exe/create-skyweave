@@ -1865,6 +1865,19 @@
         {
           "from": [
             2,
+            4,
+            2
+          ],
+          "to": [
+            4,
+            4,
+            5
+          ],
+          "block": "minecraft:brick_slab[type=double]"
+        },
+        {
+          "from": [
+            2,
             5,
             2
           ],
@@ -1952,6 +1965,19 @@
             6
           ],
           "block": "minecraft:brick_slab[type=bottom]"
+        },
+        {
+          "from": [
+            12,
+            4,
+            2
+          ],
+          "to": [
+            14,
+            4,
+            5
+          ],
+          "block": "minecraft:brick_slab[type=double]"
         },
         {
           "from": [
@@ -2415,6 +2441,19 @@
         {
           "from": [
             2,
+            5,
+            5
+          ],
+          "to": [
+            8,
+            5,
+            15
+          ],
+          "block": "minecraft:dark_oak_slab[type=double]"
+        },
+        {
+          "from": [
+            2,
             6,
             5
           ],
@@ -2424,6 +2463,19 @@
             15
           ],
           "block": "minecraft:dark_oak_slab[type=bottom]"
+        },
+        {
+          "from": [
+            3,
+            6,
+            6
+          ],
+          "to": [
+            7,
+            6,
+            14
+          ],
+          "block": "minecraft:dark_oak_slab[type=double]"
         },
         {
           "from": [
@@ -2727,6 +2779,19 @@
             14
           ],
           "block": "minecraft:birch_slab[type=bottom]"
+        },
+        {
+          "from": [
+            2,
+            4,
+            7
+          ],
+          "to": [
+            7,
+            4,
+            13
+          ],
+          "block": "minecraft:birch_slab[type=double]"
         },
         {
           "from": [
@@ -3045,6 +3110,19 @@
         {
           "from": [
             2,
+            5,
+            6
+          ],
+          "to": [
+            8,
+            5,
+            15
+          ],
+          "block": "minecraft:brick_slab[type=double]"
+        },
+        {
+          "from": [
+            2,
             6,
             6
           ],
@@ -3054,6 +3132,19 @@
             15
           ],
           "block": "minecraft:brick_slab[type=bottom]"
+        },
+        {
+          "from": [
+            3,
+            6,
+            7
+          ],
+          "to": [
+            7,
+            6,
+            14
+          ],
+          "block": "minecraft:brick_slab[type=double]"
         },
         {
           "from": [
@@ -3409,6 +3500,19 @@
         {
           "from": [
             3,
+            5,
+            7
+          ],
+          "to": [
+            7,
+            5,
+            14
+          ],
+          "block": "minecraft:cut_red_sandstone_slab[type=double]"
+        },
+        {
+          "from": [
+            3,
             6,
             7
           ],
@@ -3691,6 +3795,19 @@
         {
           "from": [
             12,
+            4,
+            3
+          ],
+          "to": [
+            14,
+            4,
+            10
+          ],
+          "block": "minecraft:spruce_slab[type=double]"
+        },
+        {
+          "from": [
+            12,
             5,
             3
           ],
@@ -3704,6 +3821,19 @@
         {
           "from": [
             13,
+            5,
+            3
+          ],
+          "to": [
+            13,
+            5,
+            10
+          ],
+          "block": "minecraft:cut_copper_slab[type=double]"
+        },
+        {
+          "from": [
+            13,
             6,
             3
           ],
@@ -3712,7 +3842,7 @@
             6,
             10
           ],
-          "block": "minecraft:copper_cut_slab[type=bottom]"
+          "block": "minecraft:cut_copper_slab[type=bottom]"
         },
         {
           "from": [
@@ -3962,6 +4092,19 @@
             12
           ],
           "block": "minecraft:spruce_slab[type=bottom]"
+        },
+        {
+          "from": [
+            3,
+            4,
+            3
+          ],
+          "to": [
+            7,
+            4,
+            11
+          ],
+          "block": "minecraft:spruce_slab[type=double]"
         },
         {
           "from": [

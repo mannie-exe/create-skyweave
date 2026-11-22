@@ -6,7 +6,7 @@ The source includes [Sky Villages 1.0.6 for NeoForge](https://modrinth.com/mod/s
 
 | Control | Current choice |
 | --- | --- |
-| Height | Base start Y 160 to 224; Skyweave: Compatibility Patches shifts it relative to the host island in the expanded preset |
+| Height | Foreign generators: native surface projection plus150. Owned preset: Compat samples160..224 relative to its host and suppresses projection |
 | Layout | Upstream jigsaw depth 7 and maximum distance 128 blocks |
 | Distribution | Expanded preset: per-anchor allowance 0 to 3, candidate grid 4/2 chunks. Ordinary preset: upstream 70/65 chunks, salt 23734816 |
 | Island proximity | Skyweave: Compatibility Patches: minimum gap 64, maximum host distance 128, minimum host radius 96 |
@@ -17,7 +17,7 @@ The source includes [Sky Villages 1.0.6 for NeoForge](https://modrinth.com/mod/s
 | Foundation minerals | One ordered pass: 0.025% diamond ore, 0.15% emerald ore, 20% diorite overall |
 | Crops and chest loot | Upstream defaults |
 
-The base height override avoids adding 150 blocks to the upstream surface projection; Skyweave: Compatibility Patches applies its host-relative altitude adaptation separately. It does not guarantee clearance from terrain. Removing 63 absent optional compatibility-template references prevents selections that cannot resolve. Revisit those pools when adding related content. Clearing generated jukebox records avoids the reproduced null-level failure during structure placement; player-inserted records are unaffected. No third-party NBT templates are copied.
+Shared data retains Sky Villages' native absolute 150 plus WORLD_SURFACE_WG projection. Compat 0.42.0 or newer applies the separate owned band and host anchoring only to its marked generator; Resource Patches requires that runtime boundary and declares integer 1 `skyweave:owned-village-band` in its native mod entry. Keep the declaration, runtime floor and native assembly/RNG controls aligned when changing these inputs. It does not guarantee clearance from terrain. Removing 63 absent optional compatibility-template references prevents selections that cannot resolve. Revisit those pools when adding related content. Clearing generated jukebox records avoids the reproduced null-level failure during structure placement; player-inserted records are unaffected. No third-party NBT templates are copied.
 
 Sky Archipelago classifies `skyvillage` as `SKY` before its village-name rule. Village-tag membership supports Delivery Quests lookup without changing that classification. Ocean biomes are eligible; native floating ocean habitats are enabled in the Skyweave profile. Eligibility alone does not establish that a usable village will appear in an ocean void; structure placement rules still apply.
 
@@ -32,6 +32,12 @@ Native surveys found losses between allowed opportunities and usable layouts. Ra
 Village fitting has a separate `villageFitting` group in the same authored policy. It controls structural support, retained inhabited buildings and bounded site, assembly and column work. These settings improve usable placement rather than changing the encounter allowance. Native pools and processors remain authoritative; connectivity checks and compatible road endings constrain trimming. Complete building support defaults on: every center, building and farm root must stay within the shallow-repair limit, while roads retain their coverage and short-overhang controls. A failed building can be trimmed or another bounded native layout selected; family allowances are unchanged. This geometric admission does not substitute for the later captured-material, actual-block and access checks. See the [Compat configuration reference](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/configuration.md#structure-distribution) for defaults and units. Foundation blending also follows the island's surface materials instead of imposing generic grass around structures on sandy terrain.
 
 An accepted layout does not guarantee material support beneath every authored block. The [Compat footing contract](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/terrain.md#climate-and-villages) owns template qualification, partial-block limits and positive grading. Static floor embeddings and dry scaffold legs qualify through the shared bearing policy; block-entity presence alone does not remove otherwise valid foundations. Material, native updates and final support proofs remain separate checks. Check those limits before changing encounter rates or repair depth to address floating furniture, unsupported foundations or exterior hillside transitions.
+
+## Authored roof states
+
+Original court geometry lives in `authoring/villages.json`; `scripts/generate-villages.py` compiles its explicit block states into the seven maintained templates. Stepped roofs use double slabs only inside the footprint beneath the next tier, preserving bottom-slab eaves, benches and trim. Snowline uses the same filled interior beneath its full-plank roof tier. Keep these fills immediately after their lower roof layer so later chimney and decorative overrides retain precedence. Native template placement installs states directly; it does not combine adjacent slab items as player placement would.
+
+Do not apply automatic slab merging to donor templates: decorative rails, mixed materials and gaps above storage can be intentional. Registry IDs and state properties must match the selected Minecraft/mod versions. Template resource updates affect newly placed pieces; they do not retrofit existing saved buildings.
 
 ## Cluster discoveries
 

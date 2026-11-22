@@ -12,7 +12,19 @@ Rendering a replay can take longer than the footage's running time. Record short
 
 ## Live camera paths
 
-CMDCam's global shortcuts start unbound to preserve gameplay controls. Use commands, or assign keys under **Options → Controls → CMDCam**. Its client configuration loads when entering a world; review the configuration screen after joining.
+New defaults provide the camera controls below. **Mod** means the native primary modifier: Command on macOS, Control on Windows/Linux. Function keys may need Fn. Existing installations retain their saved assignments; review **Options → Controls → CMDCam** after an update. Its client configuration loads on world entry; that is not evidence it resets saved keybindings.
+
+| Action | Default |
+| --- | --- |
+| Moves orbit / custom camera / editor | U (custom camera active) / Mod+U / Shift+U |
+| Roll left / right / reset | Mod+Left / Mod+Right / Mod+Down |
+| Zoom in / out / reset | Mod+= / Mod+− / Mod+Up |
+| Add path point | Mod+Enter |
+| Play or stop path | F10 |
+| Clear path points | Mod+Backspace |
+| Flashback markers 1–4 | Mod+Home / Mod+End / Mod+Page Up / Mod+Page Down |
+
+Clear points deliberately: that shortcut clears the current path. Exit Moves orbit/custom camera before starting a CMDCam path; automatic handoff is not established. Flashback recording still starts and finishes through its native pause-menu controls. Home/End/Page keys may live on Fn+arrows on a compact keyboard; rebind through Controls if the hardware or OS captures them.
 
 Create a basic path:
 

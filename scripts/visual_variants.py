@@ -2,9 +2,15 @@
 import copy
 import json
 
-from model_authoring import require
+from model_authoring import require, resource
 from resource_assets import resources
 from selective_resources import build as select
+
+
+LUMINOUS_CHAIN_MODELS = {
+    f'minecraft:block/{kind}{suffix}': f'create_skyweave:block/chains/{kind}{suffix}'
+    for kind in ('lantern', 'soul_lantern') for suffix in ('', '_hanging')
+}
 
 
 def crafting_accessories(resources):
@@ -50,9 +56,6 @@ def crafting_accessories(resources):
 def build(entries, archives):
     vanilla = resources(archives['minecraft'])[1]
     refined = resources(archives['refined-torches'])[1]
-    dnd = json.loads(archives['create-design-n-decor'].read('assets/dndecor/models/block/large_chain.json'))
-    for material in ('andesite', 'brass', 'copper', 'gold', 'industrial', 'iron', 'netherite', 'zinc'):
-        entries[f'assets/dndecor/models/block/large_{material}_chain.json']['gui_light'] = dnd['gui_light']
     sounds = json.loads(archives['create-design-n-decor'].read('assets/dndecor/sounds.json'))
     chain_sounds = {}
     for action in ('break', 'step', 'place', 'hit', 'fall'):
@@ -93,22 +96,21 @@ def build(entries, archives):
     native_item = {'model': {'type': 'minecraft:model', 'model': 'create_skyweave:item/redstone_torch_vanilla'}}
     entries[item] = copy.deepcopy(refined_item)
     lantern_roots = []
-    for kind in ('lantern', 'soul_lantern'):
-        for suffix in ('', '_hanging'):
-            path = f'assets/minecraft/models/block/{kind}{suffix}.json'
-            original = json.loads(archives['luminous-lanterns'].read(path))
-            require(len(original['elements']) == 7 and original['elements'][3]['from'][2] == 8
-                    and original['elements'][3]['to'][2] == 8, 'Luminous chain coverage changed')
-            body = copy.deepcopy(original)
-            body['elements'] = [e for i, e in enumerate(body['elements']) if i not in (3, 4)]
-            body.pop('groups', None)
-            chain = f'assets/create_skyweave/models/block/chains/{kind}{suffix}.json'
-            require(chain in entries, 'Missing authored Luminous chain geometry')
-            entries[path] = {'parent': original.get('parent', 'minecraft:block/block'),
-                             'textures': copy.deepcopy(original['textures']),
-                             'loader': 'neoforge:composite', 'render_type': 'minecraft:cutout',
-                             'children': {'body': body, 'chain': copy.deepcopy(entries[chain])}}
-            lantern_roots.append(path)
+    for model, chain_model in LUMINOUS_CHAIN_MODELS.items():
+        path = resource(model, 'models', '.json')
+        original = json.loads(archives['luminous-lanterns'].read(path))
+        require(len(original['elements']) == 7 and original['elements'][3]['from'][2] == 8
+                and original['elements'][3]['to'][2] == 8, 'Luminous chain coverage changed')
+        body = copy.deepcopy(original)
+        body['elements'] = [e for i, e in enumerate(body['elements']) if i not in (3, 4)]
+        body.pop('groups', None)
+        chain = resource(chain_model, 'models', '.json')
+        require(chain in entries, 'Missing authored Luminous chain geometry')
+        entries[path] = {'parent': original.get('parent', 'minecraft:block/block'),
+                         'textures': copy.deepcopy(original['textures']),
+                         'loader': 'neoforge:composite', 'render_type': 'minecraft:cutout',
+                         'children': {'body': body, 'chain': copy.deepcopy(entries[chain])}}
+        lantern_roots.append(path)
     # Native item rendering should use the same selected chain geometry in every context.
     entries['assets/minecraft/models/item/chain.json'] = {'parent': 'minecraft:block/chain'}
     return {**crafting, 'craftClassic': craft_classic, 'craftVanilla': craft_vanilla,

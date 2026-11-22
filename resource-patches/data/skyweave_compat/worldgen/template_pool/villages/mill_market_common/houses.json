@@ -1,5 +1,5 @@
 {
-  "name": "kaisyn:village/exclusives/tudor/houses",
+  "name": "skyweave_compat:villages/mill_market_common/houses",
   "fallback": "minecraft:empty",
   "elements": [
     {
@@ -146,6 +146,10 @@
     }
   ],
   "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "lithostitched"
+    },
     {
       "type": "neoforge:mod_loaded",
       "modid": "t_and_t"

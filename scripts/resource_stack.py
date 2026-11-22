@@ -27,6 +27,8 @@ class Layer:
     version: str = ''
     archive_sha256: str = ''
     filename: str = ''
+    containers: list = field(default_factory=list)
+    admission: str = ''
 
     @classmethod
     def archive(cls, identifier, label, kind, archive, *, fusion=False):
@@ -59,7 +61,7 @@ class Stack:
         self.layers = layers
         self.used = {}
 
-    def read(self, path):
+    def lookup(self, path):
         require(re.fullmatch(r'assets/[a-z0-9_.-]+/[a-zA-Z0-9_/ .+()§-]+', path) is not None and
                 all(part not in ('', '.', '..') for part in path.split('/')), 'Invalid resource path')
         contributors, winner, value = [], None, None
@@ -70,18 +72,26 @@ class Stack:
                 require(len(data) <= 4 * 1024 * 1024, 'Resource exceeds preview limit')
                 contributors.append({'id': layer.id, 'label': layer.label, 'kind': layer.kind,
                                      'sha256': hashlib.sha256(data).hexdigest(), 'version': layer.version, 'file': layer.filename,
-                                     'archiveSha256': layer.archive_sha256})
+                                     'archiveSha256': layer.archive_sha256,
+                                     **({'containers': layer.containers, 'admission': layer.admission} if layer.containers else {})})
                 if winner is None and not blocked:
                     winner, value = layer.id, data
             if layer.blocks(path):
                 blocked = True
                 break
-        self.used[path] = {'path': path, 'contributors': contributors, 'winner': winner, 'filtered': blocked}
+        row = {'path': path, 'contributors': contributors, 'winner': winner, 'filtered': blocked}
         if winner is not None:
             effective = next(layer for layer in self.layers if layer.id == winner)
             native = [entry for entry in contributors if entry['kind'] == 'mod']
-            require(effective.kind != 'mod' or len({entry['sha256'] for entry in native}) <= 1,
-                    f'Unknown native mod-resource priority: {path}')
+            if effective.kind == 'mod' and len({entry['sha256'] for entry in native}) > 1:
+                row.update(winner=None, unresolved=True)
+                value = None
+        return row, value
+
+    def read(self, path):
+        row, value = self.lookup(path)
+        self.used[path] = row
+        require(not row.get('unresolved'), f'Unknown native mod-resource priority: {path}')
         require(value is not None, f'Missing or filtered resource: {path}')
         return value
 
@@ -100,7 +110,7 @@ class Stack:
     def model(self, identifier, trail=()):
         require(identifier not in trail and len(trail) < 32, f'Model parent cycle: {identifier}')
         data = self.json(resource(identifier, 'models', '.json'))
-        require(data.get('loader') in (None, 'neoforge:composite'), f'Unsupported model loader: {data.get("loader")}')
+        require(data.get('loader') in (None, 'neoforge:composite', 'neoforge:obj'), f'Unsupported model loader: {data.get("loader")}')
         result = self.model(namespaced(data['parent']), (*trail, identifier)) if data.get('parent') else {}
         result = {**result, **data, 'textures': {**result.get('textures', {}), **data.get('textures', {})}}
         return result
@@ -156,13 +166,24 @@ class Stack:
                     for face in element['faces'].values():
                         identifier = part['model']['textures'][face['texture'][1:]]
                         face['texture'] = '#' + identifier
+                for mesh in part['model'].get('meshes', []):
+                    mesh['texture'] = part['model']['textures'][mesh['texture']]
+                if part['model'].get('meshes'):
+                    combined.setdefault('meshes', []).extend(part['model']['meshes'])
                 combined['elements'].extend(part['model']['elements'])
                 images.update(part['textures'])
-            require(images and len(combined['elements']) <= 2048, 'Empty or oversized composite preview')
+            require(images and len(combined['elements']) <= 2048 and len(combined.get('meshes', [])) <= 8192,
+                    'Empty or oversized composite preview')
             combined['textures'] = {identifier:identifier for identifier in images}
             return {'id':key,'model':combined,'textures':images,'texture':next(iter(images.values())),
-                    'elements':len(combined['elements']),'faces':sum(len(element['faces']) for element in combined['elements'])}
-        require(model.get('loader') is None, 'Unsupported inline model loader')
+                    'elements':len(combined['elements']),'faces':sum(len(element['faces']) for element in combined['elements']) + len(combined.get('meshes', []))}
+        if model.get('loader') == 'neoforge:obj':
+            from obj_geometry import read_obj
+            require(not model.get('transform'), 'OBJ root transforms need an explicit adapter')
+            model['meshes'] = read_obj(model, self.read)
+            model['elements'] = []
+        else:
+            require(model.get('loader') is None, 'Unsupported inline model loader')
         if model.get('transform'):
             require(set(model['transform']) == {'matrix'}, 'Only explicit root matrices are supported in static previews')
             matrix = validate_matrix(model['transform']['matrix'])
@@ -176,6 +197,18 @@ class Stack:
             require(isinstance(value, str), f'Missing texture alias: {alias}')
             return texture_id(value[1:], (*trail, alias)) if value.startswith('#') else namespaced(value)
         bindings = {}
+        def bind(value):
+            require(isinstance(value, str), 'Expected a texture binding')
+            alias = value
+            if alias.startswith('#'):
+                alias = alias[1:]
+                require(alias in model['textures'], 'Unbound visible texture variable: #' + alias)
+            elif alias not in model['textures']:
+                model['textures'][alias] = namespaced(alias)
+            identifier = texture_id(alias)
+            textures.setdefault(identifier, None)
+            bindings[alias] = identifier
+            return alias
         for element in model['elements']:
             rotation = element.get('rotation', {})
             require(rotation.get('axis', 'x') in ('x','y','z') and rotation.get('angle', 0) in (-45,-22.5,0,22.5,45), 'Element rotation is not supported by Minecraft 1.21.1')
@@ -185,25 +218,18 @@ class Stack:
                 if any(element['from'][axis] == element['to'][axis] for axis in axes):
                     del element['faces'][direction]
                     continue
-                alias = face['texture']
-                if alias.startswith('#'):
-                    alias = alias[1:]
-                    require(alias in model['textures'], 'Unbound visible texture variable: #' + alias)
-                elif alias not in model['textures']:
-                    model['textures'][alias] = namespaced(alias)
-                identifier = texture_id(alias)
-                textures.setdefault(identifier, None)
-                bindings[alias] = identifier
-                face['texture'] = '#' + alias
+                face['texture'] = '#' + bind(face['texture'])
                 face.setdefault('uv', face_uv(element, direction))
                 require(face.get('rotation', 0) in (0, 90, 180, 270), 'Invalid face rotation')
+        for mesh in model.get('meshes', []):
+            mesh['texture'] = bind(mesh['texture'])
         for identifier in textures:
             textures[identifier] = self.texture(identifier)
         model['textures'] = bindings
         require(textures, 'Model has no renderable textures')
         return {'id': key, 'model': model, 'textures': textures,
                 'texture': next(iter(textures.values())), 'elements': len(model['elements']),
-                'faces': sum(len(element['faces']) for element in model['elements'])}
+                'faces': sum(len(element['faces']) for element in model['elements']) + len(model.get('meshes', []))}
 
     def evidence(self):
         return list(self.used.values())

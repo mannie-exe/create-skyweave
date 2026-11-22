@@ -44,7 +44,7 @@ dependencies:
     type: other-file
     side: client
   shader-runner:
-    url: https://github.com/mannie-exe/skyweave-compat/releases/download/v0.41.0/skyweave-compat-0.41.0-mc1.21.1-neoforge.jar
-    sha256: 6d6e08a8f32ecf13c3d3ad629ad2079dc73d4c237e412341f851a1e90fb0ddbd
+    url: https://github.com/mannie-exe/skyweave-compat/releases/download/v0.42.1/skyweave-compat-0.42.1-mc1.21.1-neoforge.jar
+    sha256: 6b2a32010570185f2898147bf4b4ba6e1baaf82aba0af7bad08bf0bc3965a133
     type: other-file
     side: client

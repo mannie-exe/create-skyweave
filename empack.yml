@@ -1,7 +1,7 @@
 schema: 6
 pack:
   name: Create - Skyweave
-  version: 0.22.2
+  version: 0.23.0
   id: create_skyweave
   description: Sky islands, airships and engineering. Java 21 and at least 12 GiB of system memory. Allow additional host memory for the default 12 GiB Prism heap or a comparable server heap.
   authors:
@@ -340,10 +340,15 @@ dependencies:
     source: modrinth:EltpO5cN
     pin: SPOrIzX8
   lootr-styled:
-    path: .cache/local-candidates/lootr-styled-1.21.1-neoforge-0.1.0-dev.jar
+    source:
+      kind: url
+      downloads:
+        - https://github.com/mannie-exe/lootr-styled/releases/download/v0.1.0/lootr-styled-1.21.1-neoforge-0.1.0.jar
+    digests:
+      sha1: 7fb1999a91bc4868d7f6ded7c1a3b9a9f8d1230a
+      sha512: efc9954a4d39527d664c594d413150268ce8f1299102be31a6f270a4b1f3daaf9d7dbadd40499eed12654eee1f658abf1e26fa1f4ad73dbc858e2cc548333867
     type: mod
     side: client
-    sha256: d3688d2d3aeffee5055798a2bcfd7f794d8702eae78e41e867d02b0c47d33ddf
   macaws-doors:
     source: modrinth:kNxa8z3e
     pin: u7BRX44F
@@ -816,24 +821,22 @@ dependencies:
     source:
       kind: url
       downloads:
-        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.41.0/skyweave-compat-0.41.0-mc1.21.1-neoforge.jar
+        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.42.1/skyweave-compat-0.42.1-mc1.21.1-neoforge.jar
     digests:
-      sha1: a06c600022d9bbf76ea12103e290fb1438e58cba
-      sha512: d431e4d4d4012777347e471ada01a447b031e7af0fa4ec887c5b29e4e2582232fc7897ac7c078a79b4b9824fd51e360af1f82805d89ecbf5479da9082f5387bb
-    environment:
-      client: required
-      server: required
+      sha1: ce69095c906214041b78b2653606c08ab54e0aba
+      sha512: c7812a36ed76e5851b89d65064a055ea71d603a45316d82d696ec5fc125bb01a344806eb4d80f62c8e1a78ee542d6727091cdb23ed23097a18f9a2091063f757
+    type: mod
+    side: both
   reform:
     source:
       kind: url
       downloads:
-        - https://github.com/mannie-exe/reform/releases/download/v0.1.0/reform-0.1.0-mc1.21.1-neoforge.jar
+        - https://github.com/mannie-exe/reform/releases/download/v0.2.0/reform-0.2.0-mc1.21.1-neoforge.jar
     digests:
-      sha1: 625f0abb5bede69cec59ccea80f3b23a06c85e77
-      sha512: 3a740a41c52ca815e7f3018adf96b5c58cb5ce735f64c64b5802645ef5b055148c66ab5c630452acfcdea39b68c194c3e23d60f7f4cc5c71ad90adb136b709e5
-    environment:
-      client: required
-      server: required
+      sha1: 3bcee4e8fcdd937e433e7c1433a73c3cd884000c
+      sha512: 6248cb8de5576a766f09313a8072f8e7ae6f7c2d74af260baab4007c83f1e38cac076d1f8b11102241379f16deb1e6290f76478f0bfbc2ac400ed0ee66703680
+    type: mod
+    side: both
   linear-bearings-fix:
     pin: MQ6XuOMQ
     source: modrinth:linear-bearings-fix
@@ -1013,9 +1016,6 @@ dependencies:
     environment:
       client: required
       server: required
-  combat-nouveau:
-    pin: us081FGF
-    source: modrinth:combat-nouveau
   visual-workbench:
     pin: 3646RfLS
     source: modrinth:visual-workbench
@@ -1058,6 +1058,24 @@ dependencies:
     environment:
       client: required
       server: unsupported
+  better-combat:
+    pin: VhIOvcXP
+    source: modrinth:better-combat
+  omnidirectional-movement:
+    pin: BnnlX11f
+    source: modrinth:omnidirectional-movement
+  grapplemod-skybound:
+    pin: ejlIzfJ8
+    source: modrinth:grapplemod-skybound
+  sable_beyond:
+    pin: BWQxgVOj
+    source: modrinth:sable_beyond
+  kaleidoscope-cookery:
+    pin: g8w0b2ly
+    source: modrinth:kaleidoscope-cookery
+  kaleidoscopetavern:
+    pin: W9ILsQt7
+    source: modrinth:kaleidoscopetavern
 
 build:
   default:

@@ -244,7 +244,7 @@
         "overrides/server/config/bluemap/maps/world.conf"
       ],
       "review": "reviewed",
-      "reason": "Map all saved Overworld chunks across the full Compat height range, preserving island undersides without horizontal coverage limits.",
+      "reason": "Map saved Overworld chunks without horizontal or vertical crops, using native world bounds. Preserve underside visibility and explicit Seed-owned operator crops.",
       "reference": "docs/development/build.md#server-webmap",
       "family": "host-settings"
     },
@@ -345,24 +345,6 @@
     },
     {
       "paths": [
-        "overrides/common/config/combatnouveau-common.toml"
-      ],
-      "review": "reviewed",
-      "reason": "Retain native 21.1.2 common combat rules: half-strength Sweeping Edge scaling, 64 snowball/egg and 16 potion stacks, +0.5 sword/mace and +1 hoe/trident entity reach, and no custom damage/speed/reach overrides. Freeze pack gameplay defaults separately from client animation preferences.",
-      "reference": "docs/players/movement-combat.md",
-      "family": "pack-rules"
-    },
-    {
-      "paths": [
-        "overrides/common/config/combatnouveau-server.toml"
-      ],
-      "review": "reviewed",
-      "reason": "Retain native 21.1.2 server combat baseline: full-charge attacks, no hold-to-attack, misses consume charge, hotbar switching preserves charge, sprint attacks/crits, Sweeping Edge-gated air swings, immediate directional shields, timed shield knockback and native item-use/projectile changes. Server-synchronized gameplay is managed; client presentation remains seeded.",
-      "reference": "docs/players/movement-combat.md",
-      "family": "pack-rules"
-    },
-    {
-      "paths": [
         "overrides/common/config/skyweave/skyweave_compat-encounters.json"
       ],
       "review": "reviewed",
@@ -386,6 +368,24 @@
       "review": "reviewed",
       "reason": "Equipment-only Artifacts introduction: disable campsite generation with campsiteCount=0 while retaining native rarity1.0, mob-equipment0.0015, archaeology0.0625 and item/slot defaults. Campsite/mimic encounter design is separate; do not introduce native global-Y sites into island terrain implicitly. Native NightConfig output is byte-stable across two isolated dedicated boots.",
       "reference": "docs/development/equipment.md#artifacts",
+      "family": "pack-rules"
+    },
+    {
+      "paths": [
+        "overrides/common/config/grapplemod-properties.json"
+      ],
+      "review": "reviewed",
+      "reason": "Owner-requested maximum-length grappling trial: maxRopeLength=255, the native customization upper bound. Keep native throw speed, gravity, movement limits and fling defaults. Apply on both sides because property defaults load independently; no client-only preference claim.",
+      "reference": "docs/players/movement-combat.md#grappling",
+      "family": "pack-rules"
+    },
+    {
+      "paths": [
+        "overrides/common/config/kaleidoscope_tavern-common.toml"
+      ],
+      "review": "reviewed",
+      "reason": "Disable Tavern tap duplication of lava into empty cauldrons; retain native bottle/Molotov behavior and all other defaults.",
+      "reference": "docs/development/compatibility.md",
       "family": "pack-rules"
     }
   ]

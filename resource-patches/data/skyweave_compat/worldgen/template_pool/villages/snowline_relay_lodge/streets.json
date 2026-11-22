@@ -1,5 +1,5 @@
 {
-  "name": "kaisyn:village/snowy_taiga_viking/streets",
+  "name": "skyweave_compat:villages/snowline_relay_lodge/streets",
   "fallback": "skyweave_compat:villages/snowline_relay_lodge/terminators",
   "elements": [
     {
@@ -148,6 +148,10 @@
     }
   ],
   "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "lithostitched"
+    },
     {
       "type": "neoforge:mod_loaded",
       "modid": "t_and_t"

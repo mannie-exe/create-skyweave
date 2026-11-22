@@ -120,6 +120,34 @@ class PackIdentityTests(unittest.TestCase):
             path.write_bytes(archive_bytes(entries, TIMESTAMP))
             with self.assertRaisesRegex(ValueError, 'recipe hash'): verify_export(path, expected)
 
+    def test_bundled_prism_checks_the_installed_resource_jar(self):
+        expected = identity(self.report(), 'v0.18.0')
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'prism-bundled.zip'
+            entries = {'instance.cfg': b'[General]\nInstanceType=OneSix\n',
+                       'mmc-pack.json': b'{"formatVersion":1,"components":[]}',
+                       '.minecraft/' + MOD_PATH: resource(expected)}
+            path.write_bytes(archive_bytes(entries, TIMESTAMP))
+            self.assertEqual(verify_export(path, expected)['resourceSha256'], sha256(resource(expected)).hexdigest())
+            entries['.minecraft/' + MOD_PATH] = resource(identity(self.report()))
+            path.write_bytes(archive_bytes(entries, TIMESTAMP))
+            with self.assertRaisesRegex(ValueError, 'stale or missing'):
+                verify_export(path, expected)
+
+    def test_direct_payload_cannot_hide_behind_a_valid_reference_asset(self):
+        expected = identity(self.report(), 'v0.18.0')
+        jar = resource(expected); digest = sha256(jar).hexdigest()
+        recipe = {'pack': 'create_skyweave', 'version': '0.18.0', 'files': [
+            {'destination': MOD_PATH, 'sha256': digest, 'source': {'kind': 'asset', 'path': 'assets/' + digest}}]}
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'ambiguous.zip'
+            entries = {'.minecraft/.empack-consumer/release.json': json.dumps(recipe).encode(),
+                       '.minecraft/.empack-consumer/assets/' + digest: jar,
+                       '.minecraft/' + MOD_PATH: resource(identity(self.report()))}
+            path.write_bytes(archive_bytes(entries, TIMESTAMP))
+            with self.assertRaisesRegex(ValueError, 'one.*Resource Patches|conflicting'):
+                verify_export(path, expected)
+
     def test_native_schema_type_is_not_coerced_from_boolean_float_or_string(self):
         expected = identity(self.report())
         source = render_metadata(SOURCE, expected)

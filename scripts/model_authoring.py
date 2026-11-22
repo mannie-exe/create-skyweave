@@ -5,15 +5,60 @@ never publishes files. Recipes contain resource IDs, never arbitrary output path
 """
 import base64
 import copy
+from contextlib import contextmanager
+from contextvars import ContextVar
+import hashlib
 import json
 import math
 import re
 import struct
 import zlib
 
+BLOCK_ATLAS = 'assets/minecraft/atlases/blocks.json'
+_MODEL_LOCATION = ContextVar('model_recipe_location', default=None)
 
-def require(condition, message):
+
+class ModelRecipeError(ValueError):
+    """A validation failure with source locations, without changing its message."""
+    def __init__(self, message, *, field=()):
+        super().__init__(message)
+        location = _MODEL_LOCATION.get() or {}
+        self.diagnostic = {'schema': 1, 'message': str(message)[:2048],
+                           'field': list(location.get('field', ())) + list(field)}
+        for owner in ('recipe', 'variant', 'part', 'operation'):
+            value = location.get(owner)
+            if isinstance(value, str) and re.fullmatch(r'[a-z0-9_-]{1,80}', value):
+                self.diagnostic[owner] = value
+
+    def json_line(self):
+        return 'ATLAS_MODEL_DIAGNOSTIC ' + json.dumps(self.diagnostic, separators=(',', ':'), ensure_ascii=False, allow_nan=False)
+
+
+def model_field(*suffix):
+    return (*(_MODEL_LOCATION.get() or {}).get('field', ()), *suffix)
+
+
+@contextmanager
+def model_location(*field, absolute=False, **owners):
+    """Locate the existing validator; nested calls retain their most specific error."""
+    previous = _MODEL_LOCATION.get() or {}
+    location = {**previous, **owners,
+                'field': tuple(field) if absolute else (*previous.get('field', ()), *field)}
+    token = _MODEL_LOCATION.set(location)
+    try:
+        yield
+    except ModelRecipeError:
+        raise
+    except (ValueError, KeyError, TypeError) as error:
+        raise ModelRecipeError(str(error)) from error
+    finally:
+        _MODEL_LOCATION.reset(token)
+
+
+def require(condition, message, *, field=None):
     if not condition:
+        if _MODEL_LOCATION.get() is not None or field is not None:
+            raise ModelRecipeError(message, field=field or ())
         raise ValueError(message)
 
 
@@ -25,10 +70,17 @@ def resource(value, kind, suffix):
     return f'assets/{namespace}/{kind}/{name}{suffix}'
 
 
-def numbers(values, size, low, high, label):
-    require(isinstance(values, list) and len(values) == size
-            and all(type(n) in (int, float) and math.isfinite(n) and low <= n <= high for n in values),
-            f'{label}: expected {size} finite values from {low} to {high}')
+def numbers(values, size, low, high, label, *, field=None):
+    message = f'{label}: expected {size} finite values from {low} to {high}'
+    require(isinstance(values, list) and len(values) == size, message, field=field)
+    for index, number in enumerate(values):
+        require(type(number) in (int, float) and math.isfinite(number) and low <= number <= high,
+                message, field=(*field, index) if field is not None else None)
+
+
+def number(value, low, high, label, *, field):
+    with model_location(*field):
+        numbers([value], 1, low, high, label)
 
 
 def rgba(data):
@@ -215,7 +267,7 @@ def compose_texture(texture, operations):
 def select_mask(part, texture, threshold):
     """Select source pixels; material meaning remains explicit authored data."""
     width, height = texture['width'], texture['frameHeight']
-    numbers(part['uv'], 4, 0, 16, 'UV crop')
+    numbers(part['uv'], 4, 0, 16, 'UV crop', field=('uv',))
     u0, v0, u1, v1 = part['uv']
     require(u0 < u1 and v0 < v1, 'Crops must have positive area')
     crop = [u0 * width / 16, v0 * height / 16, u1 * width / 16, v1 * height / 16]
@@ -274,11 +326,11 @@ def select_mask(part, texture, threshold):
 
 
 def extrude(part, texture, threshold, depth):
-    numbers(part['uv'], 4, 0, 16, 'UV crop')
-    numbers(part['span'], 4, -16, 32, 'Plane bounds')
-    require(part['axis'] in ('x', 'y', 'z'), 'Extrusion axis must be x, y or z')
+    numbers(part['uv'], 4, 0, 16, 'UV crop', field=('uv',))
+    numbers(part['span'], 4, -16, 32, 'Plane bounds', field=('span',))
+    require(part['axis'] in ('x', 'y', 'z'), 'Extrusion axis must be x, y or z', field=('axis',))
     require(type(part['center']) in (int, float) and math.isfinite(part['center'])
-            and -16 + depth / 2 <= part['center'] <= 32 - depth / 2, 'Invalid plane center')
+            and -16 + depth / 2 <= part['center'] <= 32 - depth / 2, 'Invalid plane center', field=('center',))
     u0, v0, u1, v1 = part['uv']
     a0, y0, a1, y1 = part['span']
     require(u0 < u1 and v0 < v1 and a0 < a1 and y0 < y1, 'Crops and bounds must have positive area')
@@ -386,10 +438,34 @@ def box_corner_joins(parts, textures, masks, depth):
     return result
 
 
-def validate_model(model):
+def validate_face_data(value, label):
+    """NeoForge 21.1.265 ExtraFaceData, not newer vanilla emission fields."""
+    require(isinstance(value, dict) and set(value) <= {'color', 'block_light', 'sky_light', 'ambient_occlusion'},
+            label + ': unknown NeoForge face data')
+    for key in ('block_light', 'sky_light'):
+        if key in value:
+            require(type(value[key]) is int and 0 <= value[key] <= 15, label + ': ' + key + ' must be 0 to 15')
+    require(type(value.get('ambient_occlusion', True)) is bool, label + ': ambient_occlusion must be boolean')
+    if 'color' in value:
+        color = value['color']
+        valid = type(color) is int and -(1 << 31) <= color < (1 << 31)
+        if isinstance(color, str) and re.fullmatch(r'[+-]?[a-fA-F0-9]{1,16}', color):
+            valid = -(1 << 63) <= int(color, 16) < (1 << 63)
+        require(valid, label + ': expected a signed ARGB integer or native hexadecimal color')
+
+
+def validate_model(model, *, allow_empty=False, element_location=None):
     elements = model.get('elements')
-    require(isinstance(elements, list) and 0 < len(elements) <= 2048, 'Expected 1 to 2048 model elements')
-    for element in elements:
+    require(isinstance(elements, list) and (0 if allow_empty else 1) <= len(elements) <= 2048,
+            'Expected bounded model elements')
+    def validate_element(element):
+        require(isinstance(element, dict), 'Expected a native model element')
+        require('light_emission' not in element,
+                'Minecraft 1.21.1 emission uses neoforge_data.block_light; light_emission needs an explicit adapter')
+        require('forge_data' not in element, 'Use neoforge_data for the pinned NeoForge target')
+        require(type(element.get('shade', True)) is bool, 'Element shade must be boolean')
+        if 'neoforge_data' in element:
+            validate_face_data(element['neoforge_data'], element.get('name', 'Element'))
         numbers(element['from'], 3, -16, 32, 'Element start')
         numbers(element['to'], 3, -16, 32, 'Element end')
         require(all(a <= b for a, b in zip(element['from'], element['to'])), 'Reversed element bounds')
@@ -398,73 +474,128 @@ def validate_model(model):
             numbers(rotation['origin'], 3, -16, 32, 'Rotation origin')
             require(rotation['axis'] in ('x', 'y', 'z') and rotation['angle'] in (-45, -22.5, 0, 22.5, 45),
                     'Invalid element rotation')
+        require(isinstance(element.get('faces'), dict), 'Expected native element faces')
         for direction, face in element['faces'].items():
+            require(isinstance(face, dict), 'Expected a native model face')
             require(direction in ('north', 'south', 'east', 'west', 'up', 'down'), 'Unknown face')
             numbers(face['uv'], 4, 0, 16, 'Face UV')
             require(face.get('rotation', 0) in (0, 90, 180, 270), 'Invalid UV rotation')
-            require(face['texture'].startswith('#') and face['texture'][1:] in model['textures'], 'Unbound texture')
+            require(isinstance(face.get('texture'), str) and face['texture'].startswith('#')
+                    and face['texture'][1:] in model['textures'], 'Unbound texture')
+            require(type(face.get('tintindex', -1)) is int and -(1 << 31) <= face.get('tintindex', -1) < (1 << 31),
+                    'Face tintindex must be a native integer')
+            require(face.get('cullface', '') in ('', 'north', 'south', 'east', 'west', 'up', 'down'), 'Invalid native cullface')
+            require('forge_data' not in face, 'Use neoforge_data for the pinned NeoForge target')
+            if 'neoforge_data' in face:
+                validate_face_data(face['neoforge_data'], element.get('name', 'Element') + '/' + direction)
+
+    for index, element in enumerate(elements):
+        if element_location is None:
+            validate_element(element)
+        else:
+            with element_location(index):
+                validate_element(element)
 
 
 def generate(document, archives):
-    require(document.get('schema') == 1, 'Unsupported model recipe schema')
-    require(isinstance(document.get('recipes'), list) and len(document['recipes']) <= 256, 'Expected up to 256 recipes')
+    require(isinstance(document, dict), 'Expected a model recipe document', field=())
+    require(document.get('schema') == 1, 'Unsupported model recipe schema', field=('schema',))
+    require(isinstance(document.get('recipes'), list) and len(document['recipes']) <= 256, 'Expected up to 256 recipes', field=('recipes',))
     assets, outputs, previews, ids = Assets(archives), {}, [], set()
-    for recipe in document['recipes']:
+    def build_recipe(recipe):
+        require(isinstance(recipe, dict), 'Expected a model recipe')
+        require('id' in recipe, 'Recipe needs an id', field=('id',))
         identifier = recipe['id']
         require(isinstance(identifier, str) and re.fullmatch(r'[a-z0-9_-]{1,80}', identifier)
-                and identifier not in ids, 'Invalid or duplicate recipe ID')
+                and identifier not in ids, 'Invalid or duplicate recipe ID', field=('id',))
         ids.add(identifier)
-        require(type(recipe['enabled']) is bool and isinstance(recipe['label'], str)
-                and 0 < len(recipe['label']) <= 120, 'Invalid recipe label or selection')
+        require(type(recipe.get('enabled')) is bool, 'Invalid recipe label or selection', field=('enabled',))
+        require(isinstance(recipe.get('label'), str) and 0 < len(recipe['label']) <= 120,
+                'Invalid recipe label or selection', field=('label',))
+        variants = recipe.get('variants', [])
+        require(isinstance(variants, list) and len(variants) <= 16, 'Expected up to 16 shape variants', field=('variants',))
+        variant_ids = set()
+        for index, variant in enumerate(variants):
+            with model_location('variants', index, variant=variant.get('id') if isinstance(variant, dict) else None):
+                require(isinstance(variant, dict) and
+                        set(variant) <= {'id', 'label', 'kind', 'parts', 'depth', 'threshold', 'model', 'edits',
+                                         'additional_elements', 'attachments', 'omit_elements', 'faces', 'box_corners'},
+                        'Unknown shape variant field')
+                key = variant.get('id')
+                require(isinstance(key, str) and re.fullmatch(r'[a-z0-9_-]{1,80}', key)
+                        and key not in variant_ids and key != 'source', 'Invalid or duplicate shape variant ID', field=('id',))
+                require(isinstance(variant.get('label'), str) and 0 < len(variant['label']) <= 80,
+                        'Invalid shape variant label', field=('label',))
+                require(variant.get('kind') in ('extrusion', 'fitting', 'composition'), 'Invalid shape variant kind', field=('kind',))
+                variant_ids.add(key)
+        selected_variant = recipe.get('variant')
+        variant_index = None
+        if selected_variant is not None:
+            require(selected_variant in variant_ids, 'Unknown selected shape variant', field=('variant',))
+            variant_index = next(i for i, value in enumerate(variants) if value['id'] == selected_variant)
+            variant = next(value for value in variants if value['id'] == selected_variant)
+            recipe = {**recipe, **{key: value for key, value in variant.items() if key not in ('id', 'label')}}
+        def recipe_field(key):
+            return ('variants', variant_index, key) if variant_index is not None and key in variants[variant_index] else (key,)
         texture_edits = recipe.get('texture_edits', {})
         require(isinstance(texture_edits, dict) and len(texture_edits) <= 16, 'Too many edited textures')
-        loaded = {}
+        loaded, artwork = {}, {}
         def load_texture(binding):
             key = (binding['source'], binding['id'])
             if key not in loaded:
                 original = assets.texture(*key)
                 loaded[key] = compose_texture(original, texture_edits.get(binding['id'], []))
-            return loaded[key]
-        texture = load_texture(recipe['texture'])
+            current = loaded[key]
+            previous = artwork.get(binding['id'])
+            require(previous is None or (previous['url'] == current['url'] and previous['metadata'] == current['metadata']),
+                    'Conflicting pinned artwork for ' + binding['id'])
+            artwork[binding['id']] = current
+            return current
+        with model_location(*recipe_field('texture')):
+            texture = load_texture(recipe['texture'])
         textures = {recipe['texture']['id']: texture}
         masks = []
+        meshes, parts, source_bindings = [], [], {}
+        composition_locations, fitting_locations, attachment_locations = {}, {}, {}
         extra_bindings = recipe.get('texture_bindings', {})
         require(isinstance(extra_bindings, dict) and len(extra_bindings) <= 16, 'Too many texture bindings')
-        if recipe['kind'] == 'extrusion':
-            require(type(recipe['threshold']) is int and 1 <= recipe['threshold'] <= 255, 'Alpha threshold must be 1 to 255')
+        if recipe.get('kind') == 'extrusion':
+            require(type(recipe['threshold']) is int and 1 <= recipe['threshold'] <= 255, 'Alpha threshold must be 1 to 255', field=recipe_field('threshold'))
             require(type(recipe['depth']) in (int, float) and math.isfinite(recipe['depth'])
-                    and 0.125 <= recipe['depth'] <= 4, 'Depth must be 0.125 to 4')
-            require(isinstance(recipe['parts'], list) and 0 < len(recipe['parts']) <= 8, 'Expected 1 to 8 planes')
+                    and 0.125 <= recipe['depth'] <= 4, 'Depth must be 0.125 to 4', field=recipe_field('depth'))
+            require(isinstance(recipe['parts'], list) and 0 < len(recipe['parts']) <= 8, 'Expected 1 to 8 planes', field=recipe_field('parts'))
             model = {'ambientocclusion': False, 'render_type': 'minecraft:cutout',
                      'textures': {'surface': recipe['texture']['id'], 'particle': recipe['texture']['id']},
                      'elements': []}
             plane_textures, plane_masks = [], []
             require(type(recipe.get('box_corners', False)) is bool, 'Box corner selection must be a boolean')
             for index, part in enumerate(recipe['parts']):
-                binding = part.get('texture', recipe['texture'])
-                current = load_texture(binding) if 'texture' in part else texture
-                textures[binding['id']] = current
-                key = part.get('key', f'plane{index}')
-                require(isinstance(key, str) and re.fullmatch(r'[a-zA-Z0-9_]+', key), 'Invalid plane texture key')
-                require(key not in model['textures'] or model['textures'][key] == binding['id'], 'Conflicting plane texture key')
-                model['textures'][key] = binding['id']
-                selected, _ = select_mask(part, current, recipe['threshold'])
-                plane_textures.append(current); plane_masks.append(selected)
-                masks.append({'plane': index, 'key': key, 'width': current['width'], 'height': current['frameHeight'],
-                              'texture': binding['id'], 'pixels': [list(p) for p in sorted(selected, key=lambda p: (p[1], p[0]))]})
-                plane = {**part, 'join_edges': ['u_min', 'u_max']} if recipe.get('box_corners') else part
-                for element in extrude(plane, current, recipe['threshold'], recipe['depth']):
-                    if 'rotation' in part:
-                        rotation = part['rotation']
-                        numbers(rotation['origin'], 3, -16, 32, 'Rotation origin')
-                        require(rotation['axis'] in ('x', 'y', 'z') and rotation['angle'] in (-45, -22.5, 0, 22.5, 45),
-                                'Invalid plane rotation')
-                        element['rotation'] = copy.deepcopy(rotation)
-                    for face in element['faces'].values():
-                        face['texture'] = '#' + key
-                    model['elements'].append(element)
+                with model_location(*recipe_field('parts'), index, operation='extrusion', variant=selected_variant):
+                    binding = part.get('texture', recipe['texture'])
+                    current = load_texture(binding) if 'texture' in part else texture
+                    textures[binding['id']] = current
+                    key = part.get('key', f'plane{index}')
+                    require(isinstance(key, str) and re.fullmatch(r'[a-zA-Z0-9_]+', key), 'Invalid plane texture key')
+                    require(key not in model['textures'] or model['textures'][key] == binding['id'], 'Conflicting plane texture key')
+                    model['textures'][key] = binding['id']
+                    selected, _ = select_mask(part, current, recipe['threshold'])
+                    plane_textures.append(current); plane_masks.append(selected)
+                    masks.append({'plane': index, 'key': key, 'width': current['width'], 'height': current['frameHeight'],
+                                  'texture': binding['id'], 'pixels': [list(p) for p in sorted(selected, key=lambda p: (p[1], p[0]))]})
+                    plane = {**part, 'join_edges': ['u_min', 'u_max']} if recipe.get('box_corners') else part
+                    for element in extrude(plane, current, recipe['threshold'], recipe['depth']):
+                        if 'rotation' in part:
+                            rotation = part['rotation']
+                            numbers(rotation['origin'], 3, -16, 32, 'Rotation origin')
+                            require(rotation['axis'] in ('x', 'y', 'z') and rotation['angle'] in (-45, -22.5, 0, 22.5, 45),
+                                    'Invalid plane rotation')
+                            element['rotation'] = copy.deepcopy(rotation)
+                        for face in element['faces'].values():
+                            face['texture'] = '#' + key
+                        model['elements'].append(element)
             if recipe.get('box_corners'):
-                model['elements'].extend(box_corner_joins(recipe['parts'], plane_textures, plane_masks, recipe['depth']))
+                with model_location('box_corners', operation='corners'):
+                    model['elements'].extend(box_corner_joins(recipe['parts'], plane_textures, plane_masks, recipe['depth']))
             if 'faces' in recipe:
                 require(isinstance(recipe['faces'], list) and recipe['faces']
                         and set(recipe['faces']) <= {'north', 'south', 'east', 'west', 'up', 'down'},
@@ -472,54 +603,80 @@ def generate(document, archives):
                 for element in model['elements']:
                     element['faces'] = {k: v for k, v in element['faces'].items() if k in recipe['faces']}
                 model['elements'] = [e for e in model['elements'] if e['faces']]
-            if 'base' in recipe:
+        elif recipe.get('kind') == 'composition':
+            from model_composition import compose
+            from model_sources import source_part
+            def resolve_source(part):
+                selected, bindings, metadata = source_part(part, assets)
+                for key, binding in bindings.items():
+                    image = load_texture(binding)
+                    textures[binding['id']] = image
+                    source_bindings[key] = binding['id']
+                require(len(textures) <= 64, part['id'] + ': composition exceeds 64 bound textures')
+                return selected, metadata
+            with model_location(*recipe_field('parts'), variant=selected_variant):
+                elements, meshes, parts = compose(recipe['parts'], resolve_source, locations=composition_locations)
+            model = {'ambientocclusion': False, 'render_type': 'minecraft:cutout',
+                     'textures': {'surface': recipe['texture']['id'], 'particle': recipe['texture']['id'], **source_bindings},
+                     'elements': elements}
+        elif recipe.get('kind') == 'fitting':
+            with model_location(*recipe_field('model'), operation='fitting', variant=selected_variant):
+                model = assets.model(recipe['model']['source'], recipe['model']['id'])
+                require(model.get('parent') in (None, 'block/block', 'minecraft:block/block') and 'elements' in model
+                        and not model.get('loader') and not model.get('transform'),
+                        'Fitting requires an explicit template model; custom loaders/root transforms need an adapter')
+            model['textures'] = {key: extra_bindings[key]['id'] if key in extra_bindings else recipe['texture']['id']
+                                 for key in model['textures']}
+            model.setdefault('render_type', 'minecraft:cutout')
+            require(isinstance(recipe['edits'], list) and len(recipe['edits']) <= 128, 'Too many element edits', field=recipe_field('edits'))
+            seen = set()
+            for edit_index, edit in enumerate(recipe['edits']):
+                with model_location(*recipe_field('edits'), edit_index, operation='fitting', variant=selected_variant):
+                    index = edit['element']
+                    require(type(index) is int and 0 <= index < len(model['elements']) and index not in seen,
+                            'Invalid or duplicate element index', field=('element',))
+                    seen.add(index)
+                    fitting_locations[index] = model_field()
+                    element = model['elements'][index]
+                    # Pinned bytes plus name guards prevent silent fitting to a new element.
+                    require(edit['name'] == element.get('name', ''), 'Fitting element name changed')
+                    for key in ('from', 'to'):
+                        if key in edit:
+                            element[key] = copy.deepcopy(edit[key])
+                    if 'rotation' in edit:
+                        rotation = edit['rotation']
+                        numbers(rotation['origin'], 3, -16, 32, 'Rotation origin')
+                        require(rotation['axis'] in ('x', 'y', 'z') and rotation['angle'] in (-45, -22.5, 0, 22.5, 45),
+                                'Invalid element rotation')
+                        element['rotation'] = copy.deepcopy(rotation)
+                    for direction, face in edit.get('faces', {}).items():
+                        require(direction in element['faces'] and set(face) <= {'uv', 'rotation'}, 'Unknown fitting face field')
+                        element['faces'][direction].update(copy.deepcopy(face))
+        else:
+            require(False, 'Unknown model recipe kind', field=recipe_field('kind'))
+        if recipe['kind'] in ('extrusion', 'composition') and 'base' in recipe:
+            with model_location('base', operation='fitting', variant=selected_variant):
                 base = recipe['base']
                 template = assets.model(base['model']['source'], base['model']['id'])
-                require(template.get('parent') in (None, 'block/block', 'minecraft:block/block'),
-                        'Base requires explicit geometry')
+                require(template.get('parent') in (None, 'block/block', 'minecraft:block/block')
+                        and not template.get('loader') and not template.get('transform'),
+                        'Base requires explicit geometry; custom loaders/root transforms need an adapter')
                 selected = base['elements']
                 require(isinstance(selected, list) and len(selected) == len(set(selected))
                         and all(type(i) is int and 0 <= i < len(template['elements']) for i in selected),
                         'Invalid retained elements')
-                for key, binding in base['textures'].items():
+                bindings = {key: binding for key, binding in extra_bindings.items() if key in template['textures']}
+                bindings.update(base['textures'])
+                for key, binding in bindings.items():
                     require(key in template['textures'], 'Unknown retained texture key')
                     require(key == 'particle' or key not in model['textures'] or model['textures'][key] == binding['id'], 'Conflicting retained texture')
                     template['textures'][key] = binding['id']
                     textures[binding['id']] = load_texture(binding)
                 model['textures'].update(template['textures'])
                 model['elements'].extend(template['elements'][i] for i in selected)
-                if 'display' in template:
-                    model['display'] = template['display']
-        elif recipe['kind'] == 'fitting':
-            model = assets.model(recipe['model']['source'], recipe['model']['id'])
-            require(model.get('parent') in (None, 'block/block', 'minecraft:block/block') and 'elements' in model,
-                    'Fitting requires an explicit template model')
-            model['textures'] = {key: recipe['texture']['id'] for key in model['textures']}
-            model['render_type'] = 'minecraft:cutout'
-            require(isinstance(recipe['edits'], list) and len(recipe['edits']) <= 128, 'Too many element edits')
-            seen = set()
-            for edit in recipe['edits']:
-                index = edit['element']
-                require(type(index) is int and 0 <= index < len(model['elements']) and index not in seen,
-                        'Invalid or duplicate element index')
-                seen.add(index)
-                element = model['elements'][index]
-                # Pinned bytes plus name guards prevent silent fitting to a new element.
-                require(edit['name'] == element.get('name', ''), 'Fitting element name changed')
-                for key in ('from', 'to'):
-                    if key in edit:
-                        element[key] = copy.deepcopy(edit[key])
-                if 'rotation' in edit:
-                    rotation = edit['rotation']
-                    numbers(rotation['origin'], 3, -16, 32, 'Rotation origin')
-                    require(rotation['axis'] in ('x', 'y', 'z') and rotation['angle'] in (-45, -22.5, 0, 22.5, 45),
-                            'Invalid element rotation')
-                    element['rotation'] = copy.deepcopy(rotation)
-                for direction, face in edit.get('faces', {}).items():
-                    require(direction in element['faces'] and set(face) <= {'uv', 'rotation'}, 'Unknown fitting face field')
-                    element['faces'][direction].update(copy.deepcopy(face))
-        else:
-            raise ValueError('Unknown model recipe kind')
+                for key in ('parent', 'display', 'ambientocclusion', 'gui_light', 'render_type', 'overrides'):
+                    if key in template:
+                        model[key] = copy.deepcopy(template[key])
         for key, binding in extra_bindings.items():
             require(isinstance(key, str) and re.fullmatch(r'[a-zA-Z0-9_]+', key), 'Invalid texture binding key')
             require(key not in model['textures'] or model['textures'][key] == binding['id'], 'Conflicting texture binding')
@@ -529,31 +686,40 @@ def generate(document, archives):
         require(isinstance(omitted, list) and len(omitted) == len(set(omitted))
                 and all(type(i) is int and 0 <= i < len(model['elements']) for i in omitted),
                 'Invalid omitted elements')
-        model['elements'] = [e for i, e in enumerate(model['elements']) if i not in omitted]
+        retained = {old: new for new, old in enumerate(i for i in range(len(model['elements'])) if i not in omitted)}
+        model['elements'] = [e for i, e in enumerate(model['elements']) if i in retained]
+        fitting_locations = {retained[index]: field for index, field in fitting_locations.items() if index in retained}
+        for part in parts:
+            if 'elements' in part:
+                part['elements'] = [retained[i] for i in part['elements'] if i in retained]
         attachments = recipe.get('attachments', [])
         require(isinstance(attachments, list) and len(attachments) <= 8, 'Too many attachments')
-        for attachment in attachments:
-            template = assets.model(attachment['model']['source'], attachment['model']['id'])
-            require(template.get('parent') in (None, 'block/block', 'minecraft:block/block')
-                    and 'elements' in template, 'Attachment requires explicit geometry')
-            indices = attachment['elements']
-            require(isinstance(indices, list) and len(indices) == len(set(indices))
-                    and all(type(i) is int and 0 <= i < len(template['elements']) for i in indices),
-                    'Invalid attachment elements')
-            for key, binding in attachment['textures'].items():
-                require(isinstance(key, str) and re.fullmatch(r'[a-zA-Z0-9_]+', key), 'Invalid attachment texture key')
-                require(key not in model['textures'] or model['textures'][key] == binding['id'],
-                        'Conflicting attachment texture')
-                model['textures'][key] = binding['id']
-                textures[binding['id']] = load_texture(binding)
-            for i in indices:
-                element = copy.deepcopy(template['elements'][i])
-                # Some upstream exports retain distant pivots on no-op rotations.
-                if element.get('rotation', {}).get('angle') == 0:
-                    element.pop('rotation')
-                model['elements'].append(element)
+        for attachment_index, attachment in enumerate(attachments):
+            with model_location(*recipe_field('attachments'), attachment_index, operation='attachment', variant=selected_variant):
+                template = assets.model(attachment['model']['source'], attachment['model']['id'])
+                require(template.get('parent') in (None, 'block/block', 'minecraft:block/block')
+                        and 'elements' in template and not template.get('loader') and not template.get('transform'),
+                        'Attachment requires explicit geometry; custom loaders/root transforms need an adapter')
+                indices = attachment['elements']
+                require(isinstance(indices, list) and len(indices) == len(set(indices))
+                        and all(type(i) is int and 0 <= i < len(template['elements']) for i in indices),
+                        'Invalid attachment elements')
+                for key, binding in attachment['textures'].items():
+                    require(isinstance(key, str) and re.fullmatch(r'[a-zA-Z0-9_]+', key), 'Invalid attachment texture key')
+                    require(key not in model['textures'] or model['textures'][key] == binding['id'],
+                            'Conflicting attachment texture')
+                    model['textures'][key] = binding['id']
+                    textures[binding['id']] = load_texture(binding)
+                for i in indices:
+                    element = copy.deepcopy(template['elements'][i])
+                    # Some upstream exports retain distant pivots on no-op rotations.
+                    if element.get('rotation', {}).get('angle') == 0:
+                        element.pop('rotation')
+                    attachment_locations[len(model['elements'])] = model_field()
+                    model['elements'].append(element)
         additions = recipe.get('additional_elements', [])
-        require(isinstance(additions, list) and len(additions) <= 128, 'Too many authored elements')
+        require(isinstance(additions, list) and len(additions) <= 128, 'Too many authored elements', field=recipe_field('additional_elements'))
+        additional_start = len(model['elements'])
         model['elements'].extend(copy.deepcopy(additions))
         require(set(texture_edits) <= textures.keys(), 'Edited texture is not bound to this recipe')
         # Derivatives belong to this recipe; other blocks retain their native artwork.
@@ -568,17 +734,139 @@ def generate(document, archives):
             if current['metadata']:
                 outputs[path + '.mcmeta'] = current['metadata'] if recipe['enabled'] else None
             model['textures'] = {key: derived if value == texture_id else value for key, value in model['textures'].items()}
-            textures[derived] = current
-        validate_model(model)
-        output = resource(recipe['output'], 'models', '.json')
-        require(output not in outputs, 'Duplicate generated model')
+            textures[derived] = {**current, **({'originalResource': texture_id} if texture_id in source_bindings.values() else {})}
+        # Imported artwork must also work when its donor pack is build-only or
+        # another selected pack overrides the original resource ID at runtime.
+        for texture_id in sorted(set(source_bindings.values())):
+            current = textures[texture_id]
+            if 'originalUrl' in current:
+                continue  # The edited recipe-local derivative above already owns it.
+            derived = f'create_skyweave:generated/{identifier}/source_texture_' + hashlib.sha256(texture_id.encode()).hexdigest()
+            path = resource(derived, 'textures', '.png')
+            require(path not in outputs, 'Duplicate imported texture')
+            outputs[path] = base64.b64decode(current['url'].partition(',')[2]) if recipe['enabled'] else None
+            if current['metadata']:
+                outputs[path + '.mcmeta'] = current['metadata'] if recipe['enabled'] else None
+            model['textures'] = {key: derived if value == texture_id else value for key, value in model['textures'].items()}
+            textures[derived] = {**current, 'originalResource': texture_id}
+        element_owners = {}
+        for part in parts:
+            field = composition_locations.get(part['id'])
+            if field is not None:
+                for index in part.get('elements', []):
+                    # A group also owns its children; report the deepest authored part.
+                    if index not in element_owners or len(field) > len(element_owners[index][0]):
+                        element_owners[index] = (field, part['id'])
+        @contextmanager
+        def element_location(index):
+            owner = element_owners.get(index)
+            if owner:
+                field, identifier = owner
+                authored = document
+                for key in field:
+                    authored = authored[key]
+                with model_location(*field, absolute=True, part=identifier,
+                                    variant=selected_variant, operation=authored.get('kind', 'part')):
+                    # Emitted face directions/indices may have been transformed;
+                    # the authored part is a truthful address for output validation.
+                    yield
+            elif index in fitting_locations:
+                with model_location(*fitting_locations[index], absolute=True,
+                                    variant=selected_variant, operation='fitting'):
+                    yield
+            elif index in attachment_locations:
+                with model_location(*attachment_locations[index], absolute=True,
+                                    variant=selected_variant, operation='attachment'):
+                    yield
+            elif index >= additional_start:
+                with model_location(*recipe_field('additional_elements'), index-additional_start,
+                                    variant=selected_variant, operation='cuboid'):
+                    yield
+            else:
+                fallback = 'base' if 'base' in recipe else 'model' if recipe['kind'] == 'fitting' else 'parts'
+                with model_location(*recipe_field(fallback), variant=selected_variant,
+                                    operation='extrusion' if recipe['kind'] == 'extrusion' else 'fitting'):
+                    yield
+        validate_model(model, allow_empty=bool(meshes), element_location=element_location)
+        require(all(mesh['texture'] in model['textures'] for mesh in meshes), 'Unbound composition material')
+        if meshes:
+            from model_composition import merge_coplanar
+            meshes = merge_coplanar(meshes, ambient_occlusion=model.get('ambientocclusion', True),
+                                   render_type=model.get('render_type'))
+        preview_model = copy.deepcopy(model)
+        if meshes:
+            from model_composition import obj_assets, cuboid_meshes, native_cuboid_reason
+            preview_model['meshes'] = meshes
+            native = any(native_cuboid_reason(element) for element in model['elements'])
+            obj, mtl = obj_assets('geometry', meshes if native else cuboid_meshes(model['elements']) + meshes)
+            prefix = f'assets/create_skyweave/models/generated/{identifier}/geometry'
+            for suffix, data in (('.obj', obj), ('.mtl', mtl)):
+                require(prefix+suffix not in outputs, 'Duplicate composition output')
+                outputs[prefix+suffix] = data if recipe['enabled'] else None
+            common = {key:value for key,value in model.items() if key != 'elements'}
+            geometry = {**common, 'loader': 'neoforge:obj',
+                        'model': f'create_skyweave:models/generated/{identifier}/geometry.obj',
+                        'mtl_override': f'create_skyweave:models/generated/{identifier}/geometry.mtl',
+                        'automatic_culling': False, 'shade_quads': True, 'flip_v': True, 'emissive_ambient': False}
+            # Children are independent BlockModels in NeoForge 21.1.265. Each
+            # needs its own bindings. Keep cuboids first even in sorted JSON.
+            model = {**common, 'loader': 'neoforge:composite',
+                     'children': {'cuboids': model, 'mesh': geometry},
+                     'item_render_order': ['cuboids', 'mesh']} if native else geometry
+        with model_location('output'):
+            output = resource(recipe['output'], 'models', '.json')
+            require(output not in outputs, 'Duplicate generated model')
         # Reserve disabled destinations too, so toggling recipes cannot change ownership.
         outputs[output] = model if recipe['enabled'] else None
-        previews.append({'id': identifier, 'model': model,
+        previews.append({'id': identifier, 'model': preview_model,
                          'texture': {k: v for k, v in texture.items() if k != 'pixels'},
                          'textures': {key: {k: v for k, v in value.items() if k != 'pixels'}
                                       for key, value in textures.items()},
                          'masks': masks,
-                         'elements': len(model['elements']),
-                         'faces': sum(len(e['faces']) for e in model['elements'])})
-    return {path: model for path, model in outputs.items() if model is not None}, previews
+                         **({'parts': parts} if parts else {}),
+                         'elements': len(preview_model['elements']),
+                         'faces': sum(len(e['faces']) for e in preview_model['elements']) + len(meshes)})
+        targets = recipe.get('targets', [])
+        require(isinstance(targets, list) and len(targets) <= 16, 'Expected up to 16 native model targets', field=('targets',))
+        for target_index, target in enumerate(targets):
+            with model_location('targets', target_index, operation='target'):
+                require(isinstance(target, dict) and set(target) == {'output', 'model'}, 'Invalid native model target')
+                path = resource(target['output'], 'models', '.json')
+                require(path not in outputs, 'Duplicate generated model target')
+                sibling = copy.deepcopy(recipe)
+                sibling.pop('targets', None)
+                sibling['output'] = target['output']
+                require(sibling['kind'] == 'fitting' or 'base' in sibling, 'Native target needs an explicit source template')
+                if sibling['kind'] == 'fitting':
+                    sibling['model'] = target['model']
+                if 'base' in sibling:
+                    sibling['base']['model'] = target['model']
+                with model_location('model'):
+                    try:
+                        resources, inspected = generate({'schema': 1, 'recipes': [sibling]}, archives)
+                    except ModelRecipeError as error:
+                        # A sibling is synthesized from this target; its recipe-0
+                        # pointer is not an address in the authored document.
+                        raise ModelRecipeError(str(error)) from error
+                require(not inspected[0]['model'].get('meshes') and not inspected[0]['model'].get('loader'),
+                        'Sibling model targets currently require native cuboid geometry')
+                for shared, value in resources.items():
+                    if shared not in (path, BLOCK_ATLAS):
+                        require(shared in outputs and outputs[shared] == value, 'Native targets cannot replace shared derived assets')
+                # Reserve even disabled sibling destinations, just like primary outputs.
+                outputs[path] = resources.get(path)
+    for recipe_index, recipe in enumerate(document['recipes']):
+        with model_location('recipes', recipe_index, absolute=True,
+                            recipe=recipe.get('id') if isinstance(recipe, dict) else None,
+                            variant=None, part=None, operation='compile'):
+            build_recipe(recipe)
+    outputs = {path: model for path, model in outputs.items() if model is not None}
+    # Minecraft's block atlas discovers block/ and item/ directories, not the
+    # recipe-local generated/ artwork. Register only emitted owned sprites.
+    prefix = 'assets/create_skyweave/textures/'
+    sprites = sorted('create_skyweave:' + path[len(prefix):-4] for path in outputs
+                     if path.startswith(prefix + 'generated/') and path.endswith('.png'))
+    if sprites:
+        outputs[BLOCK_ATLAS] = {'sources': [{'type': 'minecraft:single', 'resource': sprite}
+                                          for sprite in sprites]}
+    return outputs, previews

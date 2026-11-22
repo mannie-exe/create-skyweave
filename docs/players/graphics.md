@@ -80,17 +80,17 @@ Shaders are off by default. Select a pack through Iris's shader settings:
 
 | Pack | Included version | Notes |
 | --- | --- | --- |
-| Complementary + Euphoria + Skyweave | r5.10 + 1.11.1 + 0.4.0 | Generated shader with window and island-environment corrections |
-| BSL + Colorwheel + Skyweave | 10.1.8 + 1.0.5 + 0.3.0 | Generated alternative with the supplied BSL settings |
-| Photon + Skyweave | 1.4 + 0.3.0 | Generated correction retaining native Colorwheel; supported GPUs only |
+| Complementary + Euphoria + Skyweave | r5.10 + 1.11.1 + 0.4.1 | Generated shader with window and island-environment corrections |
+| BSL + Colorwheel + Skyweave | 10.1.8 + 1.0.5 + 0.3.1 | Generated alternative with the supplied BSL settings |
+| Photon + Skyweave | 1.4 + 0.3.1 | Generated wrapper retaining native Colorwheel; supported GPUs only |
 
 The supplied Complementary, Euphoria and BSL presets use 128-block shadow distance. Complementary and Euphoria also use Low light-shaft sampling. Their clouds, water reflections, ambient occlusion, bloom and anti-aliasing retain the stock HIGH behavior. BSL disables depth of field, motion blur and multicolored blocklight.
 
-The generated corrections also supply DH shadow programs and qualify affected directional light-shaft samples against finite shadow-map coverage. Ambient lighting remains native. Coarse LODs can miss narrow openings; beyond the map, the correction conservatively omits unverified direct shafts. Larger shadow distance does not create missing terrain and spreads the same resolution over more ground.
+The generated shaders retain upstream shadow behavior. Custom DH shadow programs are absent because their coarse-face projection could falsely shadow unobstructed terrain. Distant terrain can still render, but roofs outside native shadow coverage may allow cavern light shafts. Larger shadow distance does not create missing terrain and spreads the same resolution over more ground.
 
 These settings reduce selected rendering costs while retaining most effects; there is no measured FPS guarantee. Check moving ships, water and glass, island edges, and sunrise/sunset after changing settings.
 
-Select `BSL_v10.1.8 + Clrwl_1.0.5 + Skyweave_0.3.0.zip` for the BSL alternative. The installed runner assembles supported outputs before Iris opens them; original inputs stay outside the shader selection list. Current Complementary, Euphoria and Photon support Colorwheel natively.
+Select `BSL_v10.1.8 + Clrwl_1.0.5 + Skyweave_0.3.1.zip` for the BSL alternative. The installed runner assembles supported outputs before Iris opens them; original inputs stay outside the shader selection list. Current Complementary, Euphoria and Photon support Colorwheel natively.
 
 Photon retains its native High lighting settings, including SH Skylight and colored shadows, with block-entity shadows enabled for machinery. Shadow distance is 128 blocks at 2048 resolution; depth of field and motion blur are disabled. Its Ultra profile and colored-lighting options remain available through the shader menu.
 
@@ -133,4 +133,4 @@ Lootr: Styled adapts supported selected vanilla chest models to Lootr and suppli
 
 Use `/lootrstyled` or NeoForge’s Mods configuration button. Model and artwork profiles are independent. Fresh Objects AUTO follows supported installed rigs; OFF retains native chest parts. Apply saves client preferences and reloads resources. The reason view explains requested/effective profiles and source selection. A missing profile ID stays saved while native/inherited resources remain available.
 
-Local profiles live under `config/lootr_styled/`. Export Default makes an editable geometry-only copy and never replaces an existing directory. User choices and local profiles are client preferences. The pack’s relighting artwork is a separate permission-pending development preview, not a bundled default.
+Local profiles live under `config/lootr_styled/`. Export makes an editable copy and never replaces an existing directory; artwork can be included when requested. User choices and local profiles are client preferences. The addon includes Default artwork, while the pack seeds Artwork as Vanilla (Inherited). Choose Default to use the addon’s textures. The pack’s older relighting-editor export remains a separate local preview.

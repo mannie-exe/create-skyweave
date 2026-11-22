@@ -175,14 +175,15 @@ def profile_pools(profile, archives, outputs, conditions, overrides, catalog):
     for native in definitions.values():
         fallback = native['fallback']
         path_for(fallback, 'worldgen/template_pool')
-        # Native assembly reads this pool and its immediate fallback, not a recursive
-        # chain. T&T's Pueblo profession pool deliberately falls back to itself.
+        # Verify the declared holder without flattening donor fallback topology.
+        # Lithostitched owns traversal and cycle handling, including self-fallbacks.
         if fallback not in definitions and fallback not in mapping and fallback != 'minecraft:empty':
             provider = POOL_PROVIDERS.get(fallback.split(':', 1)[0])
             require(provider is not None, f'{fallback}: unsupported fallback provider')
             if path_for(fallback, 'worldgen/template_pool') not in overrides:
                 read(archives[provider], fallback, 'worldgen/template_pool')
     for target, native in definitions.items():
+        native['name'] = target
         native['fallback'] = mapping.get(native['fallback'], native['fallback'])
         inherited = native.get('neoforge:conditions', [])
         require(isinstance(inherited, list), f'{target}: invalid pool dependency conditions')
@@ -233,12 +234,15 @@ def authored_profiles(recipe, archives, result, villages, pool_overrides=None):
         require(profile.get('pools') or profile.get('biomes') or (profile['depth'], profile['reach'], root) != (definition.get('size'), definition.get('max_distance_from_center'), definition.get('start_pool')),
                 f'{resource}: author a growth or starting-pool change rather than duplicating upstream behavior')
         definition = copy.deepcopy(definition)
-        definition.update(size=profile['depth'], max_distance_from_center=profile['reach'], start_pool=root)
+        # Owned profiles explicitly select the assembler already required by their
+        # aliases and delegating elements; provider definitions retain their type.
+        definition.update(type='lithostitched:jigsaw', size=profile['depth'],
+                          max_distance_from_center=profile['reach'], start_pool=root)
         conditions = definition.get('neoforge:conditions', [])
         require(isinstance(conditions, list), f'{source}: invalid native resource conditions')
         conditions = list(conditions)
         root_modid = {'ct-overhaul-village': 'ctov', 'towns-and-towers': 't_and_t'}.get(pool_source)
-        for dependency_modid in dict.fromkeys([modid] + ([root_modid] if root_modid else [])):
+        for dependency_modid in dict.fromkeys(['lithostitched', modid] + ([root_modid] if root_modid else [])):
             dependency = {'type': 'neoforge:mod_loaded', 'modid': dependency_modid}
             if dependency not in conditions:
                 conditions.append(dependency)
