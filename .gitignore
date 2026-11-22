@@ -115,6 +115,8 @@ coverage.xml
 # Local audit evidence can contain host paths and source settings.
 /docs/config-audit/
 /docs/**/*.json
+# Sanitized registration data required by the maintained input audit.
+!/docs/development/input-bindings.json
 /docs/TASK.md
 
 # Recipient shader inputs are materialized from pinned provider references.
