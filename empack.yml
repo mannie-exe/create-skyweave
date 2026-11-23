@@ -151,7 +151,7 @@ dependencies:
     pin: Wn81ihHo
   create-aeronautics:
     source: modrinth:oWaK0Q19
-    pin: 44pLdPGg
+    pin: demX2roU
   create-aeronautics-climbable-rope:
     source: modrinth:jImqv1M5
     pin: 1r3CmpkA
@@ -277,7 +277,7 @@ dependencies:
   euphoria-patches:
     side: client
     source: modrinth:4H6sumDB
-    pin: Gkv3fLVg
+    pin: fqKNZqvM
   exposure:
     source: modrinth:hB899VmG
     pin: tjX0GpFW
@@ -819,22 +819,21 @@ dependencies:
       server: unsupported
   skyweave-compat:
     source:
-      kind: url
-      downloads:
-        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.42.1/skyweave-compat-0.42.1-mc1.21.1-neoforge.jar
+      kind: local
+      path: .local-artifacts/skyweave-compat-0.44.0-world-runtime-dev.11-8f5fd9b521e6b929.jar
     digests:
-      sha1: ce69095c906214041b78b2653606c08ab54e0aba
-      sha512: c7812a36ed76e5851b89d65064a055ea71d603a45316d82d696ec5fc125bb01a344806eb4d80f62c8e1a78ee542d6727091cdb23ed23097a18f9a2091063f757
+      sha256: 8f5fd9b521e6b929f31ce8acb9cc2f8a0527dc8668a81de37ca42081da57f4c9
+      sha512: 3be3b5f870c565e633837fb166a2ea3e8c9d90cda181f7f70b1d4bb22dd8142d87791eb02bd584fa7891ce9afcedf4744785b46f27d64022a063bab8cf744d92
     type: mod
     side: both
   reform:
     source:
       kind: url
       downloads:
-        - https://github.com/mannie-exe/reform/releases/download/v0.2.0/reform-0.2.0-mc1.21.1-neoforge.jar
+        - https://github.com/mannie-exe/reform/releases/download/v0.3.0/reform-0.3.0-mc1.21.1-neoforge.jar
     digests:
-      sha1: 3bcee4e8fcdd937e433e7c1433a73c3cd884000c
-      sha512: 6248cb8de5576a766f09313a8072f8e7ae6f7c2d74af260baab4007c83f1e38cac076d1f8b11102241379f16deb1e6290f76478f0bfbc2ac400ed0ee66703680
+      sha256: 8a3fcc486b44351962535b4b63b83caee538e086e35529ec6710ed5c6397b7ab
+      sha512: c07a5ae655f0d5ec36e49e855f54c58d61827307465594069de7dde40d9260984fc6a5572abf5a7ae870c251b7ad51e2b3bb9227e317ae33e2f020271764685c
     type: mod
     side: both
   linear-bearings-fix:
@@ -1064,6 +1063,7 @@ dependencies:
   omnidirectional-movement:
     pin: BnnlX11f
     source: modrinth:omnidirectional-movement
+    side: client
   grapplemod-skybound:
     pin: ejlIzfJ8
     source: modrinth:grapplemod-skybound

@@ -234,25 +234,25 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://cdn.modrinth.com/data/4H6sumDB/versions/Gkv3fLVg/EuphoriaPatcher-1.11.1-r5.10-neoforge.jar
+          https://cdn.modrinth.com/data/4H6sumDB/versions/fqKNZqvM/EuphoriaPatcher-1.11.2-r5.10-neoforge.jar
         kind: provider
         pin:
           project:
             project: 4H6sumDB
             provider: modrinth
           selection:
-            id: Gkv3fLVg
+            id: fqKNZqvM
             provider: modrinth
-        slot: EuphoriaPatcher-1.11.1-r5.10-neoforge.jar
+        slot: EuphoriaPatcher-1.11.2-r5.10-neoforge.jar
       expected:
         accepted-observation: null
         digests:
-          sha1: ea16de899b121f72be048a9410f72af0181337d1
+          sha1: 7503e6443074a72438d7d1b049dae3838ae3f202
           sha512: >-
-            fc920172bf56004909381c847b5efd73ecdf734eb0d9302da8e6ce39aa1c806ae50418b929e21550234d9dbcf614f3899938c75807e3afe98fa67e16239bbb88
-        size: 5327310
+            19adaa62567117fa239e19b80b04485ee7b9cbae158425dc788918e3d4e7cde4a8f4d9b181a4887b7174954de345b84d776b5b6e9803fc3b3a96699d705c90ca
+        size: 5331451
       placements:
-      - destination: mods/EuphoriaPatcher-1.11.1-r5.10-neoforge.jar
+      - destination: mods/EuphoriaPatcher-1.11.2-r5.10-neoforge.jar
         environment:
           client: required
           server: unsupported
@@ -260,9 +260,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: ea16de899b121f72be048a9410f72af0181337d1
+          sha1: 7503e6443074a72438d7d1b049dae3838ae3f202
           sha512: >-
-            fc920172bf56004909381c847b5efd73ecdf734eb0d9302da8e6ce39aa1c806ae50418b929e21550234d9dbcf614f3899938c75807e3afe98fa67e16239bbb88
+            19adaa62567117fa239e19b80b04485ee7b9cbae158425dc788918e3d4e7cde4a8f4d9b181a4887b7174954de345b84d776b5b6e9803fc3b3a96699d705c90ca
         location: 4H6sumDB
         source: provider-catalog
       slot: primary
@@ -277,7 +277,7 @@ dependencies:
         project: 4H6sumDB
         provider: modrinth
       selection:
-        id: Gkv3fLVg
+        id: fqKNZqvM
         provider: modrinth
     source-selector:
       provider: modrinth
@@ -374,14 +374,15 @@ dependencies:
     content: other-file
     files:
     - acquisition:
-        downloads:
-        - >-
-          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.42.1/skyweave-compat-0.42.1-mc1.21.1-neoforge.jar
-        kind: url
+        kind: local
+        path: >-
+          .local-artifacts/skyweave-compat-0.44.0-world-runtime-dev.11-8f5fd9b521e6b929.jar
       expected:
         accepted-observation: null
         digests:
-          sha256: 6b2a32010570185f2898147bf4b4ba6e1baaf82aba0af7bad08bf0bc3965a133
+          sha256: 8f5fd9b521e6b929f31ce8acb9cc2f8a0527dc8668a81de37ca42081da57f4c9
+          sha512: >-
+            3be3b5f870c565e633837fb166a2ea3e8c9d90cda181f7f70b1d4bb22dd8142d87791eb02bd584fa7891ce9afcedf4744785b46f27d64022a063bab8cf744d92
         size: null
       placements:
       - destination: shader-tools/runner.jar
@@ -392,18 +393,20 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha256: 6b2a32010570185f2898147bf4b4ba6e1baaf82aba0af7bad08bf0bc3965a133
+          sha256: 8f5fd9b521e6b929f31ce8acb9cc2f8a0527dc8668a81de37ca42081da57f4c9
+          sha512: >-
+            3be3b5f870c565e633837fb166a2ea3e8c9d90cda181f7f70b1d4bb22dd8142d87791eb02bd584fa7891ce9afcedf4744785b46f27d64022a063bab8cf744d92
         location: null
-        source: url-file
+        source: local-file
       slot: content
     identity:
       key: shader-runner
-      kind: url
+      kind: local
     incompatibilities: []
     selection: null
     source-selector: null
     title: shader-runner
-intent-revision: 160642584db9f6069e3d63610e815653c351b2b97f36b7ad8fdd6d72f4bf32f1
+intent-revision: 7687c68f45bf875332bd8aa56a787b825cb32335d28b93944c2821706f37a1c4
 java-policy:
   historical-minimum: 21
   id: empack-java-1

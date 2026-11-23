@@ -2489,25 +2489,25 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://cdn.modrinth.com/data/oWaK0Q19/versions/44pLdPGg/create-aeronautics-bundled-1.21.1-1.3.2.jar
+          https://cdn.modrinth.com/data/oWaK0Q19/versions/demX2roU/create-aeronautics-bundled-1.21.1-1.3.3.jar
         kind: provider
         pin:
           project:
             project: oWaK0Q19
             provider: modrinth
           selection:
-            id: 44pLdPGg
+            id: demX2roU
             provider: modrinth
-        slot: create-aeronautics-bundled-1.21.1-1.3.2.jar
+        slot: create-aeronautics-bundled-1.21.1-1.3.3.jar
       expected:
         accepted-observation: null
         digests:
-          sha1: ddbe9cbc25e8f663218aa1e9fdfc4b99f0e11e4b
+          sha1: fc2757dad6ac888fc7624865d8ad2d2e02fad8f3
           sha512: >-
-            dc7e8e1148fa442243889ba29412207137e1bb86206e6c92bc0a589f1374a466e93de22bdbf14f753984d86c29308fbbdc0f14a4b9618b14c0ac1666a36b46f5
-        size: 33123131
+            e28026fd6447b997f2c9b81c1d939094cf26c5c8572c6194b65282106f17257729efaecec670d0f2c84c6d7b2160102b08abb4e5822cf0fc01a4f4c74e5640a8
+        size: 33133981
       placements:
-      - destination: mods/create-aeronautics-bundled-1.21.1-1.3.2.jar
+      - destination: mods/create-aeronautics-bundled-1.21.1-1.3.3.jar
         environment:
           client: required
           server: required
@@ -2515,9 +2515,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: ddbe9cbc25e8f663218aa1e9fdfc4b99f0e11e4b
+          sha1: fc2757dad6ac888fc7624865d8ad2d2e02fad8f3
           sha512: >-
-            dc7e8e1148fa442243889ba29412207137e1bb86206e6c92bc0a589f1374a466e93de22bdbf14f753984d86c29308fbbdc0f14a4b9618b14c0ac1666a36b46f5
+            e28026fd6447b997f2c9b81c1d939094cf26c5c8572c6194b65282106f17257729efaecec670d0f2c84c6d7b2160102b08abb4e5822cf0fc01a4f4c74e5640a8
         location: oWaK0Q19
         source: provider-catalog
       slot: primary
@@ -2532,7 +2532,7 @@ dependencies:
         project: oWaK0Q19
         provider: modrinth
       selection:
-        id: 44pLdPGg
+        id: demX2roU
         provider: modrinth
     source-selector:
       provider: modrinth
@@ -4979,25 +4979,25 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://cdn.modrinth.com/data/4H6sumDB/versions/Gkv3fLVg/EuphoriaPatcher-1.11.1-r5.10-neoforge.jar
+          https://cdn.modrinth.com/data/4H6sumDB/versions/fqKNZqvM/EuphoriaPatcher-1.11.2-r5.10-neoforge.jar
         kind: provider
         pin:
           project:
             project: 4H6sumDB
             provider: modrinth
           selection:
-            id: Gkv3fLVg
+            id: fqKNZqvM
             provider: modrinth
-        slot: EuphoriaPatcher-1.11.1-r5.10-neoforge.jar
+        slot: EuphoriaPatcher-1.11.2-r5.10-neoforge.jar
       expected:
         accepted-observation: null
         digests:
-          sha1: ea16de899b121f72be048a9410f72af0181337d1
+          sha1: 7503e6443074a72438d7d1b049dae3838ae3f202
           sha512: >-
-            fc920172bf56004909381c847b5efd73ecdf734eb0d9302da8e6ce39aa1c806ae50418b929e21550234d9dbcf614f3899938c75807e3afe98fa67e16239bbb88
-        size: 5327310
+            19adaa62567117fa239e19b80b04485ee7b9cbae158425dc788918e3d4e7cde4a8f4d9b181a4887b7174954de345b84d776b5b6e9803fc3b3a96699d705c90ca
+        size: 5331451
       placements:
-      - destination: mods/EuphoriaPatcher-1.11.1-r5.10-neoforge.jar
+      - destination: mods/EuphoriaPatcher-1.11.2-r5.10-neoforge.jar
         environment:
           client: required
           server: unsupported
@@ -5005,9 +5005,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: ea16de899b121f72be048a9410f72af0181337d1
+          sha1: 7503e6443074a72438d7d1b049dae3838ae3f202
           sha512: >-
-            fc920172bf56004909381c847b5efd73ecdf734eb0d9302da8e6ce39aa1c806ae50418b929e21550234d9dbcf614f3899938c75807e3afe98fa67e16239bbb88
+            19adaa62567117fa239e19b80b04485ee7b9cbae158425dc788918e3d4e7cde4a8f4d9b181a4887b7174954de345b84d776b5b6e9803fc3b3a96699d705c90ca
         location: 4H6sumDB
         source: provider-catalog
       slot: primary
@@ -5022,7 +5022,7 @@ dependencies:
         project: 4H6sumDB
         provider: modrinth
       selection:
-        id: Gkv3fLVg
+        id: fqKNZqvM
         provider: modrinth
     source-selector:
       provider: modrinth
@@ -8473,7 +8473,7 @@ dependencies:
       - destination: mods/omni-1.2-OVERHAUL+1.21.1-neoforge.jar
         environment:
           client: required
-          server: required
+          server: unsupported
         layer: common
       provenance:
         conversions: []
@@ -9734,14 +9734,14 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://github.com/mannie-exe/reform/releases/download/v0.2.0/reform-0.2.0-mc1.21.1-neoforge.jar
+          https://github.com/mannie-exe/reform/releases/download/v0.3.0/reform-0.3.0-mc1.21.1-neoforge.jar
         kind: url
       expected:
         accepted-observation: null
         digests:
-          sha1: 3bcee4e8fcdd937e433e7c1433a73c3cd884000c
+          sha256: 8a3fcc486b44351962535b4b63b83caee538e086e35529ec6710ed5c6397b7ab
           sha512: >-
-            6248cb8de5576a766f09313a8072f8e7ae6f7c2d74af260baab4007c83f1e38cac076d1f8b11102241379f16deb1e6290f76478f0bfbc2ac400ed0ee66703680
+            c07a5ae655f0d5ec36e49e855f54c58d61827307465594069de7dde40d9260984fc6a5572abf5a7ae870c251b7ad51e2b3bb9227e317ae33e2f020271764685c
         size: null
       placements:
       - destination: mods/reform.jar
@@ -9752,9 +9752,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: 3bcee4e8fcdd937e433e7c1433a73c3cd884000c
+          sha256: 8a3fcc486b44351962535b4b63b83caee538e086e35529ec6710ed5c6397b7ab
           sha512: >-
-            6248cb8de5576a766f09313a8072f8e7ae6f7c2d74af260baab4007c83f1e38cac076d1f8b11102241379f16deb1e6290f76478f0bfbc2ac400ed0ee66703680
+            c07a5ae655f0d5ec36e49e855f54c58d61827307465594069de7dde40d9260984fc6a5572abf5a7ae870c251b7ad51e2b3bb9227e317ae33e2f020271764685c
         location: null
         source: url-file
       slot: primary
@@ -10589,16 +10589,15 @@ dependencies:
     content: mod
     files:
     - acquisition:
-        downloads:
-        - >-
-          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.42.1/skyweave-compat-0.42.1-mc1.21.1-neoforge.jar
-        kind: url
+        kind: local
+        path: >-
+          .local-artifacts/skyweave-compat-0.44.0-world-runtime-dev.11-8f5fd9b521e6b929.jar
       expected:
         accepted-observation: null
         digests:
-          sha1: ce69095c906214041b78b2653606c08ab54e0aba
+          sha256: 8f5fd9b521e6b929f31ce8acb9cc2f8a0527dc8668a81de37ca42081da57f4c9
           sha512: >-
-            c7812a36ed76e5851b89d65064a055ea71d603a45316d82d696ec5fc125bb01a344806eb4d80f62c8e1a78ee542d6727091cdb23ed23097a18f9a2091063f757
+            3be3b5f870c565e633837fb166a2ea3e8c9d90cda181f7f70b1d4bb22dd8142d87791eb02bd584fa7891ce9afcedf4744785b46f27d64022a063bab8cf744d92
         size: null
       placements:
       - destination: mods/skyweave-compat.jar
@@ -10609,15 +10608,15 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: ce69095c906214041b78b2653606c08ab54e0aba
+          sha256: 8f5fd9b521e6b929f31ce8acb9cc2f8a0527dc8668a81de37ca42081da57f4c9
           sha512: >-
-            c7812a36ed76e5851b89d65064a055ea71d603a45316d82d696ec5fc125bb01a344806eb4d80f62c8e1a78ee542d6727091cdb23ed23097a18f9a2091063f757
+            3be3b5f870c565e633837fb166a2ea3e8c9d90cda181f7f70b1d4bb22dd8142d87791eb02bd584fa7891ce9afcedf4744785b46f27d64022a063bab8cf744d92
         location: null
-        source: url-file
+        source: local-file
       slot: primary
     identity:
       key: skyweave-compat
-      kind: url
+      kind: local
     incompatibilities: []
     selection: null
     source-selector: null
@@ -12118,7 +12117,7 @@ dependencies:
       provider: modrinth
       selector: OnlVIpq5
     title: Fast Noise
-intent-revision: e4ed05d3f8403682b9d3b4ebed8db3aa889736efd589a66c2da76a0d2ae9249c
+intent-revision: eda12918949009a490660df2dd35cf125b9c5299989f8f08c71cb7a9d8557143
 java-policy:
   historical-minimum: 21
   id: empack-java-1

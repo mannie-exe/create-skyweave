@@ -15,7 +15,7 @@ The lab pins the same Compat artifact as the playable pack, plus Gson. Use relea
 
 `overrides/client/config/skyweave/shaders/recipes/` is the canonical source for patch versions, ordered operations, exact input hashes, runtime requirements, output names and expected payloads. The combined Skyweave correction is versioned independently of its inputs. Its current Complementary output is:
 
-`Complementary Unbound r5.10 + Euphoria 1.11.1 + Skyweave 0.4.1.zip`
+`Complementary Unbound r5.10 + Euphoria 1.11.2 + Skyweave 0.4.2.zip`
 
 Skyweave Glass remains the material-classification patch within that result; its 0.1.0 material report is unchanged by the environment corrections.
 
@@ -54,7 +54,7 @@ Native cloud height comes from Compat's dimension-effects provider; independent 
 
 ## DH shadows
 
-Current outputs retain the upstream packs' shadow behavior: Complementary/Euphoria/Skyweave 0.4.1, BSL/Colorwheel/Skyweave 0.3.1 and Photon/Skyweave 0.3.1 supply no custom `dh_shadow` programs or related finite-map directional-fog changes. Their native `dhShadow.enabled=false` declaration remains intact. Complementary's window/material and island-environment corrections, BSL's environment correction and Colorwheel overlay, Photon’s native Colorwheel support, and player presets remain independent.
+Current outputs retain the upstream packs' shadow behavior: Complementary/Euphoria/Skyweave 0.4.2, BSL/Colorwheel/Skyweave 0.3.1 and Photon/Skyweave 0.3.1 supply no custom `dh_shadow` programs or related finite-map directional-fog changes. Their native `dhShadow.enabled=false` declaration remains intact. Complementary's window/material and island-environment corrections, BSL's environment correction and Colorwheel overlay, Photon’s native Colorwheel support, and player presets remain independent.
 
 The retired adapters applied nonlinear distortion only at the vertices of large merged DH faces, which does not preserve depth interpolation or rasterized coverage. Complementary reproduced false curved shadows on flat terrain; BSL shares the affected mechanism by source inspection, and Photon uses a related quartic warp. A private conservative geometry-stage correction removed the reproduced ring and edges but measured about 18.5 ms/frame versus 8 to 9 ms for the old adapter on Apple M4 Pro. It was rejected and is not shipped. The [native controls](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/verification.md#flat-plane-dh-shadow-projection) own the exact evidence and limits. This is separate from SDL/Lamb dynamic lighting and moving-construct shadow continuity.
 
