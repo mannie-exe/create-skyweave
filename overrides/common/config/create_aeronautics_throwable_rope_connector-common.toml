@@ -20,7 +20,7 @@
 
 [mounted]
 	#Maximum distance in blocks that a Mounted Rope Launcher can fire a connector.
-	#Native default is 40. The pack selects 128 below the separate 255-block rope ceiling.
+	#Default is 40, matching Create Simulated's default max_rope_range in this pack.
 	#This can exceed the normal handheld launcher range because the mounted block creates the rope link itself.
 	#Create Simulated's server config max_rope_range is the absolute maximum this can ever use at runtime.
 	# Default: 40.0
