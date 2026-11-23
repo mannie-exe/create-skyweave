@@ -1,6 +1,6 @@
 # Performance investigation
 
-Use a fixed question, a small repeatable workload and a bounded recording. Start with the shipped pack and existing harnesses. Do not add a monitoring stack or tune several JVM flags before identifying what consumes time. These procedures cover startup, disconnect/teardown, GC, terrain generation and other server-side calculations; GPU/rendering optimization is separate.
+Use a fixed question, a small repeatable workload and a bounded recording. Start with the shipped pack and existing harnesses. Do not add a monitoring stack or tune several JVM flags before identifying what consumes time. These procedures cover startup, disconnect/teardown, GC, terrain generation and other server-side calculations, including contention with client rendering and background work. GPU timings need their own measurement; JVM samples cannot establish them.
 
 ## Scope and baseline
 
@@ -11,6 +11,14 @@ Record the exact pack/Compat revisions, artifact/configuration hashes, Minecraft
 Do not equate process memory with Java heap. Also track RSS, host memory pressure/swap, thread counts and direct/native allocations where relevant. Do not add heap, native, mapped-cache and RSS values as if they were disjoint categories. Thread stacks, LOD/native buffers and operating-system file cache can matter even when heap occupancy is modest.
 
 Separate fresh generated data, saved/reopened data, JIT warmup and operating-system cache warmth. State which condition was tested. Do not purge host caches just to label a run cold. Perform one bounded diagnostic run; use three comparable repetitions for a claimed improvement and retain individual results rather than only the best. Change one cause at a time.
+
+## Combined runtime workloads
+
+Individual-mod profiling, native setting sweeps and focused implementation tests are valid ways to identify and improve a local cost. Record their tested scope and useful outputs. Keep the actual modpack as the primary acceptance environment for changes spanning terrain, DH, water, Sable, rendering and interactions. Use one owned fixture lineage with deterministic scenes and phase markers rather than a full matrix of separately copied mod installations. Focused absence, opt-out and physical-side checks remain necessary when an optional boundary changes. An in-stack switch or controlled workload can isolate a timing question without removing the interactions being qualified.
+
+Measure useful completed work beside foreground tick/frame/operation tails, queue age, completion bursts, memory retention and cleanup. Follow induced dependencies: a ray may initiate chunk promotion; a terrain update can enqueue DH meshing/upload; a close can wait on those callbacks. Record the real loading, generation, ticking and physics states separately. A lower CPU reading with starved output or reduced reach, visibility, fidelity or simulation is not an equivalent optimization. Discuss capability trade-offs explicitly.
+
+Separate unchanged-capability comparisons from the cost of newly enabled features or a changed generator. Repeat comparable pairs or interleaved runs at least three times before claiming an improvement, retaining variance and actual output checks. Reuse existing JFR/capture helpers after refreshing their artifact paths, effective settings and event coverage. Keep compact metrics for each run and only the raw traces needed for causal evidence, failures and representative comparisons; do not copy old recordings into each new task. Qualify long-session plateau/release and useful save/reopen data separately from a successful title boot or normal exit.
 
 ## Choose the endpoint
 
