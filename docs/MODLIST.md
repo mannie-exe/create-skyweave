@@ -154,6 +154,7 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Jade 🔍 | 15.10.6+neoforge | [Exact version](https://modrinth.com/mod/jade/version/eYz2YBGT) |
 | Kaleidoscope Cookery | 1.6.0 | [Exact version](https://modrinth.com/mod/kaleidoscope-cookery/version/g8w0b2ly) |
 | Kaleidoscope Tavern | 1.2.0 | [Exact version](https://modrinth.com/mod/kaleidoscopetavern/version/W9ILsQt7) |
+| Just Another Rotten Flesh to Leather Mod | 1.8.0 | [Exact version](https://modrinth.com/mod/jrftl/version/ZgbUilZH) |
 | Just Enough Items (JEI) | 19.71.0.470 | [Exact version](https://modrinth.com/mod/jei/version/kmb7KviL) |
 | Kotlin for Forge | 5.13.0 | [Exact version](https://modrinth.com/mod/kotlin-for-forge/version/9ZlVvei8) |
 | LambDynamicLights | 4.8.11+1.21.1 | [Exact version](https://modrinth.com/mod/lambdynamiclights/version/ksaGCvSu) |

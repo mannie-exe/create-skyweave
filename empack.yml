@@ -1076,6 +1076,9 @@ dependencies:
   kaleidoscopetavern:
     pin: W9ILsQt7
     source: modrinth:kaleidoscopetavern
+  jrftl:
+    pin: ZgbUilZH
+    source: modrinth:jrftl
 
 build:
   default:

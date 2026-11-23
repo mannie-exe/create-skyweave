@@ -12,7 +12,7 @@ Try sideways and backward sprinting with the sprint key, then repeat while attac
 
 ## Grappling
 
-Skybound adds the Grappling Hook, crafted from an iron pickaxe and a lead. The pack sets its default maximum rope length to **255 blocks**, the native customization ceiling, for the long-range trial. Throw speed and gravity remain native, so that length does not guarantee the same horizontal firing distance. Upgrades are available through smithing. The pack retains native recipes and upgrade limits.
+Skybound adds the Grappling Hook, crafted from an iron pickaxe and a lead. The pack sets its default maximum rope length to **64 blocks**. Throw speed and gravity remain native, so that length does not guarantee the same horizontal firing distance. Upgrades are available through smithing. The pack retains native recipes and upgrade limits.
 
 Existing hooks with an explicitly customized length retain that value. The new default applies when no per-hook length overrides it.
 

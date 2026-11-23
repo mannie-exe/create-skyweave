@@ -10,6 +10,12 @@ Temperature-sensitive island consumers use reference Y64 while block positions, 
 
 Native full-pack checks include ordinary fluid ticks, a natural edge waterfall, reopening, source/height-query agreement, and bounded Sable current submission. A real DH job persists terrain and water palettes. These checks do not certify all boats, Create machines, distant fluid colors, aquatic progression or scarcity.
 
+## Omnidirectional Movement
+
+The selected 1.2-OVERHAUL NeoForge artifact fails a dedicated-server startup check: `omni.mixins.json:LivingEntityMixin` references `net.minecraft.client.player.LocalPlayer::input` in its common sprint-jump method, which the dedicated-server distribution cannot load. The installed client reaches the title screen with it; that does not qualify dedicated use. Resolve the common/client hook boundary before claiming server readiness. No Omni repair or placement change is included in the leather/range update.
+
+The bounded native recipe/config fixture excludes this artifact after retaining the original failure. It verifies JRFTL's loaded preparation and cooking recipes and the Simulated/Skybound defaults; it does not establish an unchanged full-pack dedicated boot.
+
 ## Redstone control
 
 Redstone Link GUI keeps Create's ghost frequencies and personal presets. Open it with an empty hand and Shift + right-click on a frequency slot. The native range remains 24 blocks. Compat checks server permissions and menu identity, projects Sable coordinates and limits relocation to ordinary links within one coordinate frame. Vector-thruster frequency menus remain available; machinery relocation is intentionally refused.

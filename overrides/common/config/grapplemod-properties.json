@@ -1,5 +1,5 @@
 {
-  "maxRopeLength": 255.0,
+  "maxRopeLength": 64.0,
   "hookGravity": 1.0,
   "hookSpeed": 2.0,
   "playerMovementMultiplier": 1.0,

@@ -703,6 +703,7 @@ policies:
   config/guardvillagers-startup.toml: managed
   config/illagerinvasion-server.toml: managed
   config/grapplemod-properties.json: managed
+  config/jrftl-common.toml: managed
   config/variantsandventures.json: managed
   config/pickupnotifier-client.toml: seed
   config/hmioutline.json: seed

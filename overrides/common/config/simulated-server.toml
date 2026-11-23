@@ -191,7 +191,7 @@
 	#Maximum range for rope connections
 	# Default: 40.0
 	# Range: 0.0 ~ 1000.0
-	max_rope_range = 40.0
+	max_rope_range = 255.0
 	#.
 	#Maximum percent the rope mounted on a Rope Winch is allowed to stretch before not accepting input
 	# Default: 25.0

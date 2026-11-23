@@ -123,6 +123,7 @@ coverage:
   jade-addons-forge: complete
   jade-sable-compat: complete
   jei: complete
+  jrftl: complete
   just-3d-potions-punchy-1.21-backport: complete
   kaleidoscope-cookery: complete
   kaleidoscopetavern: complete
@@ -6742,6 +6743,61 @@ dependencies:
       provider: modrinth
       selector: u6dRKJwZ
     title: Just Enough Items (JEI)
+  jrftl:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/8nIicBYu/versions/ZgbUilZH/jrftl-1.21-neoforge-1.8.0.jar
+        kind: provider
+        pin:
+          project:
+            project: 8nIicBYu
+            provider: modrinth
+          selection:
+            id: ZgbUilZH
+            provider: modrinth
+        slot: jrftl-1.21-neoforge-1.8.0.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: 72cd77e1d2239d2ae583481481aab5fa5e2d4f31
+          sha512: >-
+            db9179a6e664ffa7fb723b009ab19afcb585be055785bca499baf1e7b513ff8b2233c962b76088809f93f1fa2b583ebdfdb07426276f7cd45eeceeeae82f59b7
+        size: 13841
+      placements:
+      - destination: mods/jrftl-1.21-neoforge-1.8.0.jar
+        environment:
+          client: required
+          server: required
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: 72cd77e1d2239d2ae583481481aab5fa5e2d4f31
+          sha512: >-
+            db9179a6e664ffa7fb723b009ab19afcb585be055785bca499baf1e7b513ff8b2233c962b76088809f93f1fa2b583ebdfdb07426276f7cd45eeceeeae82f59b7
+        location: 8nIicBYu
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: 8nIicBYu
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: 8nIicBYu
+        provider: modrinth
+      selection:
+        id: ZgbUilZH
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: jrftl
+    title: Just Another Rotten Flesh to Leather Mod
   just-3d-potions-punchy-1.21-backport:
     content: resource-pack
     files:
@@ -12062,7 +12118,7 @@ dependencies:
       provider: modrinth
       selector: OnlVIpq5
     title: Fast Noise
-intent-revision: a81456ca6675fe6d22f2660db1e6b1d73afa7d4714a14e17078004ff5ff185e9
+intent-revision: e4ed05d3f8403682b9d3b4ebed8db3aa889736efd589a66c2da76a0d2ae9249c
 java-policy:
   historical-minimum: 21
   id: empack-java-1

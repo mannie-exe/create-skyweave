@@ -113,6 +113,14 @@
       "review": "reviewed",
       "reason": "Retain the native one-to-one Connected-to-Copycats+ conversion while the redundant Connected category is hidden. Respect the target Copycats+ feature selection.",
       "reference": "docs/development/weights.md#copycat-selection"
+    },
+    {
+      "paths": [
+        "resource-patches/data/create_skyweave/recipe/prepared_flesh_campfire.json"
+      ],
+      "review": "reviewed",
+      "reason": "Add 600-tick campfire cooking of JRFTL prepared flesh into one leather at the same 0.2 recipe XP value as its furnace/smoker recipes; condition on the item-provider mod. Keep native 4:1 preparation and other leather acquisition.",
+      "reference": "docs/development/progression.md#leather"
     }
   ]
 }

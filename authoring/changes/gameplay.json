@@ -69,7 +69,6 @@
         "overrides/common/config/ritchiesprojectilelib-server.toml",
         "overrides/common/config/sable-common.toml",
         "overrides/common/config/sable-server.toml",
-        "overrides/common/config/simulated-server.toml",
         "overrides/common/config/tracks-server.toml",
         "overrides/common/config/travelersbackpack-common.toml",
         "overrides/common/config/treechop-common.toml",
@@ -375,7 +374,7 @@
         "overrides/common/config/grapplemod-properties.json"
       ],
       "review": "reviewed",
-      "reason": "Owner-requested maximum-length grappling trial: maxRopeLength=255, the native customization upper bound. Keep native throw speed, gravity, movement limits and fling defaults. Apply on both sides because property defaults load independently; no client-only preference claim.",
+      "reason": "Owner-selected Skybound default rope length of 64 blocks. Preserve native throw physics, movement, upgrades and explicit per-hook customization; the native customization ceiling remains 255.",
       "reference": "docs/players/movement-combat.md#grappling",
       "family": "pack-rules"
     },
@@ -386,6 +385,24 @@
       "review": "reviewed",
       "reason": "Disable Tavern tap duplication of lava into empty cauldrons; retain native bottle/Molotov behavior and all other defaults.",
       "reference": "docs/development/compatibility.md",
+      "family": "pack-rules"
+    },
+    {
+      "paths": [
+        "overrides/common/config/simulated-server.toml"
+      ],
+      "review": "reviewed",
+      "reason": "Set the Simulated rope-connection ceiling to 255 blocks (native allowed maximum 1000). Throwable connector hand/launcher/mounted firing limits remain separate and unchanged at 10/20/40; no physics, force or chunk-loading limits are changed.",
+      "reference": "docs/development/progression.md#ropes-and-connection-limits",
+      "family": "pack-rules"
+    },
+    {
+      "paths": [
+        "overrides/common/config/jrftl-common.toml"
+      ],
+      "review": "reviewed",
+      "reason": "Enable JRFTL hard mode: four rotten flesh craft one prepared flesh, then furnace or smoker processing yields one leather. Resource Patches adds campfire processing of that same intermediate; no direct rotten-flesh cooking bypass.",
+      "reference": "docs/development/progression.md#leather",
       "family": "pack-rules"
     }
   ]

@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "recordedAt": "2026-11-22T22:31:57.243163+00:00",
+  "recordedAt": "2026-11-23T00:10:24.853093+00:00",
   "scope": "Actual Options.keyMappings registration and effective keys on TitleScreen in a marked owned client; no world or input-dispatch qualification",
   "sources": {
-    "empack.yml": "1c562cf6b0e154669a73880651ed1c655c73ed528a119fef6413bdacc23b533d",
-    "empack.lock": "5e76093b12d7c7a4497c003f0b5b3ba1e571b21ef156a52ccf16d25372c0fe36",
-    "empack.bindings.yml": "a4cbb7198db11b4c187156b4576b3f4ddee1a4d24745eca5712e8dfbc836e0c7",
+    "empack.yml": "6a06781de4386acd5585813b42119ae48486da42996a3452c5d1912ad4a363da",
+    "empack.lock": "7acd885c771cacab60fc83166b910d65ac8fc07fcb5e89a514b00f8bc3be4ef8",
+    "empack.bindings.yml": "7f889c7484741c7a2feb507998160d2d2cf2104352d85e194893a1a6e8340897",
     "overrides/client/options.txt": "cf80f1969c924470bfa582fe15d9cdbefdb34ad27a1ca609687c11c0d85629f9",
     "authoring/visual-patches.json": "dc7f559bfd0c4f14c0f93a047bfca62dd53f3e40652d1c680f919aba5427b7fa",
     "authoring/resource-selections.json": "c44c12f0301ea3882735864f80e766109d8feb1b6e66a4f773e1d148b61f11ee",
@@ -140,6 +140,7 @@
     "inventorytotem-1.21.1-3.6.jar": "896aac6322c9ea325f6f8e5d29d920862570fb0cd38e53cd1f8955a20fba238a",
     "iris-neoforge-1.8.14-beta.1+mc1.21.1.jar": "60d5f8bf52f25e9986440f4a4270a6bd986d9cff994510e1108ac1547063b314",
     "jei-1.21.1-neoforge-19.71.0.470.jar": "8195f26531499779a7cd2ce5817b11977292115b1fea5e9f55a4041667f6ba86",
+    "jrftl-1.21-neoforge-1.8.0.jar": "b1eb51191c20b34d183fcc32c19b472f5c295337c99c660688bc627a92ddb1a5",
     "kaleidoscopecookery-1.6.0-neoforge+mc1.21.1.jar": "e93784a3f17e546ebfa7c449572933bf67c6b694c01cb26b83ad120c40452b33",
     "kaleidoscopetavern-1.2.0-neoforge+mc1.21.1.jar": "03f35e1e614953b22cd1f5e34345613f3a6a283bf1b1c99659b57d58970edeff",
     "kotlinforforge-5.13.0-all.jar": "1aa52c3e992d8ee4d1b9e9bdb0c62bf7ad03845195136d63f312ade6f30809de",
@@ -195,7 +196,7 @@
     "skinlayers3d-neoforge-1.11.4-mc1.21.1.jar": "0b6594418245efbe4ae2cf7fde133878d56a4c41eff06e231ba7e1a233e0b615",
     "sky_archipelago-1.4.jar": "4aa55186f8c49c4143cc0d9fd8e11acad103edaf0cc8dcee7845ac10c80ccc20",
     "skyweave-compat.jar": "6b2a32010570185f2898147bf4b4ba6e1baaf82aba0af7bad08bf0bc3965a133",
-    "skyweave-resource-patches-0.1.0.jar": "894d199c05990bbecd0d4c32795941e81c77f356c90558448ef86e08c7bb6c4e",
+    "skyweave-resource-patches-0.1.0.jar": "85a9d6b7eea386394e545e84732b72797eff337a162caa219b78201b8d5e18b6",
     "sodium-extra.jar": "37c33efdee16fc515392fd422b6ec8769cbc1079f6a2eb6cff2072411d511faf",
     "sodium-neoforge-0.8.13+mc1.21.1.jar": "575d187b15328d7bddd8a9b1bee64333c22c14735f5780ec49eac0cd5503c08d",
     "sound-physics-remastered-neoforge-1.21.1-1.5.2.jar": "108cac1fe49d0dc210183d69787db5a359cdc03c5b580eb8ab0208be7f072982",
@@ -217,7 +218,7 @@
   "collector": {
     "modId": "keybind_audit",
     "version": "1",
-    "sha256": "9e9bf3eef151bf7c55ea5505fafafb6de25b05c2e000d12506e06aecbb216a0f"
+    "sha256": "a2b27867514f315a84ea9d4976695d5ccb87f46f3571d4189e61747ebcefbdba"
   },
   "mods": {
     "c2me_fixes_worldgen_threading_issues": "0.4.0-alpha.0.124+1.21.1",
@@ -364,6 +365,7 @@
     "analoglib": "0.1.0",
     "kaleidoscope_tavern": "1.2.0-neoforge+mc1.21.1",
     "ritchiesprojectilelib": "2.1.2",
+    "jrftl": "1.8.0",
     "controlling": "19.0.5",
     "fabric_data_attachment_api_v1": "1.4.7+26d408aa19",
     "lambdynlights": "4.8.11+1.21.1",
@@ -1876,7 +1878,7 @@
       "defaultInput": "key.keyboard.d",
       "modifier": "NONE",
       "defaultModifier": "NONE",
-      "context": "design.inherent.skyweavecompat.client.input.PowerGridInput$1@d2642d6",
+      "context": "design.inherent.skyweavecompat.client.input.PowerGridInput$1@5f8e779",
       "contextClass": "design.inherent.skyweavecompat.client.input.PowerGridInput$1",
       "class": "net.minecraft.client.KeyMapping",
       "display": "D"
@@ -1890,7 +1892,7 @@
       "defaultInput": "key.keyboard.s",
       "modifier": "NONE",
       "defaultModifier": "NONE",
-      "context": "design.inherent.skyweavecompat.client.input.PowerGridInput$1@d2642d6",
+      "context": "design.inherent.skyweavecompat.client.input.PowerGridInput$1@5f8e779",
       "contextClass": "design.inherent.skyweavecompat.client.input.PowerGridInput$1",
       "class": "net.minecraft.client.KeyMapping",
       "display": "S"
@@ -1904,7 +1906,7 @@
       "defaultInput": "key.keyboard.t",
       "modifier": "NONE",
       "defaultModifier": "NONE",
-      "context": "design.inherent.skyweavecompat.client.input.PowerGridInput$1@d2642d6",
+      "context": "design.inherent.skyweavecompat.client.input.PowerGridInput$1@5f8e779",
       "contextClass": "design.inherent.skyweavecompat.client.input.PowerGridInput$1",
       "class": "net.minecraft.client.KeyMapping",
       "display": "T"
@@ -1918,7 +1920,7 @@
       "defaultInput": "key.keyboard.r",
       "modifier": "NONE",
       "defaultModifier": "NONE",
-      "context": "design.inherent.skyweavecompat.client.input.PowerGridInput$1@d2642d6",
+      "context": "design.inherent.skyweavecompat.client.input.PowerGridInput$1@5f8e779",
       "contextClass": "design.inherent.skyweavecompat.client.input.PowerGridInput$1",
       "class": "net.minecraft.client.KeyMapping",
       "display": "."
@@ -1932,7 +1934,7 @@
       "defaultInput": "key.keyboard.x",
       "modifier": "NONE",
       "defaultModifier": "NONE",
-      "context": "design.inherent.skyweavecompat.client.input.PowerGridInput$1@d2642d6",
+      "context": "design.inherent.skyweavecompat.client.input.PowerGridInput$1@5f8e779",
       "contextClass": "design.inherent.skyweavecompat.client.input.PowerGridInput$1",
       "class": "net.minecraft.client.KeyMapping",
       "display": "X"
@@ -3304,7 +3306,7 @@
       "defaultInput": "key.keyboard.left.shift",
       "modifier": "NONE",
       "defaultModifier": "NONE",
-      "context": "com.mred231.aeroworks.AeroworksKeys$1@306a2e4d",
+      "context": "com.mred231.aeroworks.AeroworksKeys$1@47142d27",
       "contextClass": "com.mred231.aeroworks.AeroworksKeys$1",
       "class": "net.minecraft.client.KeyMapping",
       "display": "Left Shift"
@@ -4186,7 +4188,7 @@
       "defaultInput": "key.keyboard.k",
       "modifier": "NONE",
       "defaultModifier": "NONE",
-      "context": "EmoteContext[mapping=net.minecraft.client.KeyMapping@1e3d7a89, original=UNIVERSAL]",
+      "context": "EmoteContext[mapping=net.minecraft.client.KeyMapping@2ae5a356, original=UNIVERSAL]",
       "contextClass": "design.inherent.skyweavecompat.client.input.MovesBindingActivity$EmoteContext",
       "class": "net.minecraft.client.KeyMapping",
       "display": "Not Bound"
@@ -4200,7 +4202,7 @@
       "defaultInput": "key.keyboard.h",
       "modifier": "NONE",
       "defaultModifier": "NONE",
-      "context": "EmoteContext[mapping=net.minecraft.client.KeyMapping@5402c814, original=UNIVERSAL]",
+      "context": "EmoteContext[mapping=net.minecraft.client.KeyMapping@725f896e, original=UNIVERSAL]",
       "contextClass": "design.inherent.skyweavecompat.client.input.MovesBindingActivity$EmoteContext",
       "class": "net.minecraft.client.KeyMapping",
       "display": "Not Bound"
@@ -4214,7 +4216,7 @@
       "defaultInput": "key.keyboard.j",
       "modifier": "NONE",
       "defaultModifier": "NONE",
-      "context": "EmoteContext[mapping=net.minecraft.client.KeyMapping@5fa47304, original=UNIVERSAL]",
+      "context": "EmoteContext[mapping=net.minecraft.client.KeyMapping@595db58, original=UNIVERSAL]",
       "contextClass": "design.inherent.skyweavecompat.client.input.MovesBindingActivity$EmoteContext",
       "class": "net.minecraft.client.KeyMapping",
       "display": "Not Bound"
@@ -4228,7 +4230,7 @@
       "defaultInput": "key.keyboard.l",
       "modifier": "NONE",
       "defaultModifier": "NONE",
-      "context": "EmoteContext[mapping=net.minecraft.client.KeyMapping@74b75800, original=UNIVERSAL]",
+      "context": "EmoteContext[mapping=net.minecraft.client.KeyMapping@348c65a9, original=UNIVERSAL]",
       "contextClass": "design.inherent.skyweavecompat.client.input.MovesBindingActivity$EmoteContext",
       "class": "net.minecraft.client.KeyMapping",
       "display": "Not Bound"
@@ -5722,214 +5724,6 @@
       "serialized": {}
     },
     {
-      "id": "Hotkeys.AUTO_REFILL_GAME_TOGGLE_FOR_SLOT",
-      "display": "Ctrl + r",
-      "keyCodes": [
-        341,
-        82
-      ],
-      "defaultKeyCodes": [
-        341,
-        82
-      ],
-      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=true, orderSensitive=false, modifierKey=Normal)",
-      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=true, orderSensitive=false, modifierKey=Normal)",
-      "alternatives": [],
-      "serialized": {}
-    },
-    {
-      "id": "Hotkeys.AUTO_REFILL_GUI_TOGGLE_FOR_SLOT",
-      "display": "Ctrl + Left Button",
-      "keyCodes": [
-        341,
-        -100
-      ],
-      "defaultKeyCodes": [
-        341,
-        -100
-      ],
-      "settings": "KeybindSettings(context=In-game / Gui, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "defaultSettings": "KeybindSettings(context=In-game / Gui, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "alternatives": [],
-      "serialized": {}
-    },
-    {
-      "id": "Hotkeys.OPEN_CONFIG_MENU",
-      "display": "r + c",
-      "keyCodes": [
-        82,
-        67
-      ],
-      "defaultKeyCodes": [
-        82,
-        67
-      ],
-      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "alternatives": [],
-      "serialized": {}
-    },
-    {
-      "id": "Hotkeys.PROFILE_1",
-      "display": "r + 1",
-      "keyCodes": [
-        82,
-        49
-      ],
-      "defaultKeyCodes": [
-        82,
-        49
-      ],
-      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "alternatives": [],
-      "serialized": {}
-    },
-    {
-      "id": "Hotkeys.PROFILE_10",
-      "display": "r + 0",
-      "keyCodes": [
-        82,
-        48
-      ],
-      "defaultKeyCodes": [
-        82,
-        48
-      ],
-      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "alternatives": [],
-      "serialized": {}
-    },
-    {
-      "id": "Hotkeys.PROFILE_2",
-      "display": "r + 2",
-      "keyCodes": [
-        82,
-        50
-      ],
-      "defaultKeyCodes": [
-        82,
-        50
-      ],
-      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "alternatives": [],
-      "serialized": {}
-    },
-    {
-      "id": "Hotkeys.PROFILE_3",
-      "display": "r + 3",
-      "keyCodes": [
-        82,
-        51
-      ],
-      "defaultKeyCodes": [
-        82,
-        51
-      ],
-      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "alternatives": [],
-      "serialized": {}
-    },
-    {
-      "id": "Hotkeys.PROFILE_4",
-      "display": "r + 4",
-      "keyCodes": [
-        82,
-        52
-      ],
-      "defaultKeyCodes": [
-        82,
-        52
-      ],
-      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "alternatives": [],
-      "serialized": {}
-    },
-    {
-      "id": "Hotkeys.PROFILE_5",
-      "display": "r + 5",
-      "keyCodes": [
-        82,
-        53
-      ],
-      "defaultKeyCodes": [
-        82,
-        53
-      ],
-      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "alternatives": [],
-      "serialized": {}
-    },
-    {
-      "id": "Hotkeys.PROFILE_6",
-      "display": "r + 6",
-      "keyCodes": [
-        82,
-        54
-      ],
-      "defaultKeyCodes": [
-        82,
-        54
-      ],
-      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "alternatives": [],
-      "serialized": {}
-    },
-    {
-      "id": "Hotkeys.PROFILE_7",
-      "display": "r + 7",
-      "keyCodes": [
-        82,
-        55
-      ],
-      "defaultKeyCodes": [
-        82,
-        55
-      ],
-      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "alternatives": [],
-      "serialized": {}
-    },
-    {
-      "id": "Hotkeys.PROFILE_8",
-      "display": "r + 8",
-      "keyCodes": [
-        82,
-        56
-      ],
-      "defaultKeyCodes": [
-        82,
-        56
-      ],
-      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "alternatives": [],
-      "serialized": {}
-    },
-    {
-      "id": "Hotkeys.PROFILE_9",
-      "display": "r + 9",
-      "keyCodes": [
-        82,
-        57
-      ],
-      "defaultKeyCodes": [
-        82,
-        57
-      ],
-      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
-      "alternatives": [],
-      "serialized": {}
-    },
-    {
       "id": "Hotkeys.DUMP_ITEM_NBT_TO_CHAT",
       "display": "",
       "keyCodes": [],
@@ -6306,6 +6100,214 @@
       "serialized": {}
     },
     {
+      "id": "Hotkeys.OPEN_CONFIG_MENU",
+      "display": "r + c",
+      "keyCodes": [
+        82,
+        67
+      ],
+      "defaultKeyCodes": [
+        82,
+        67
+      ],
+      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "alternatives": [],
+      "serialized": {}
+    },
+    {
+      "id": "Hotkeys.PROFILE_1",
+      "display": "r + 1",
+      "keyCodes": [
+        82,
+        49
+      ],
+      "defaultKeyCodes": [
+        82,
+        49
+      ],
+      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "alternatives": [],
+      "serialized": {}
+    },
+    {
+      "id": "Hotkeys.PROFILE_10",
+      "display": "r + 0",
+      "keyCodes": [
+        82,
+        48
+      ],
+      "defaultKeyCodes": [
+        82,
+        48
+      ],
+      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "alternatives": [],
+      "serialized": {}
+    },
+    {
+      "id": "Hotkeys.PROFILE_2",
+      "display": "r + 2",
+      "keyCodes": [
+        82,
+        50
+      ],
+      "defaultKeyCodes": [
+        82,
+        50
+      ],
+      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "alternatives": [],
+      "serialized": {}
+    },
+    {
+      "id": "Hotkeys.PROFILE_3",
+      "display": "r + 3",
+      "keyCodes": [
+        82,
+        51
+      ],
+      "defaultKeyCodes": [
+        82,
+        51
+      ],
+      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "alternatives": [],
+      "serialized": {}
+    },
+    {
+      "id": "Hotkeys.PROFILE_4",
+      "display": "r + 4",
+      "keyCodes": [
+        82,
+        52
+      ],
+      "defaultKeyCodes": [
+        82,
+        52
+      ],
+      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "alternatives": [],
+      "serialized": {}
+    },
+    {
+      "id": "Hotkeys.PROFILE_5",
+      "display": "r + 5",
+      "keyCodes": [
+        82,
+        53
+      ],
+      "defaultKeyCodes": [
+        82,
+        53
+      ],
+      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "alternatives": [],
+      "serialized": {}
+    },
+    {
+      "id": "Hotkeys.PROFILE_6",
+      "display": "r + 6",
+      "keyCodes": [
+        82,
+        54
+      ],
+      "defaultKeyCodes": [
+        82,
+        54
+      ],
+      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "alternatives": [],
+      "serialized": {}
+    },
+    {
+      "id": "Hotkeys.PROFILE_7",
+      "display": "r + 7",
+      "keyCodes": [
+        82,
+        55
+      ],
+      "defaultKeyCodes": [
+        82,
+        55
+      ],
+      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "alternatives": [],
+      "serialized": {}
+    },
+    {
+      "id": "Hotkeys.PROFILE_8",
+      "display": "r + 8",
+      "keyCodes": [
+        82,
+        56
+      ],
+      "defaultKeyCodes": [
+        82,
+        56
+      ],
+      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "alternatives": [],
+      "serialized": {}
+    },
+    {
+      "id": "Hotkeys.PROFILE_9",
+      "display": "r + 9",
+      "keyCodes": [
+        82,
+        57
+      ],
+      "defaultKeyCodes": [
+        82,
+        57
+      ],
+      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "alternatives": [],
+      "serialized": {}
+    },
+    {
+      "id": "Hotkeys.AUTO_REFILL_GAME_TOGGLE_FOR_SLOT",
+      "display": "Ctrl + r",
+      "keyCodes": [
+        341,
+        82
+      ],
+      "defaultKeyCodes": [
+        341,
+        82
+      ],
+      "settings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=true, orderSensitive=false, modifierKey=Normal)",
+      "defaultSettings": "KeybindSettings(context=In-game, activateOn=Press, allowExtraKeys=true, orderSensitive=false, modifierKey=Normal)",
+      "alternatives": [],
+      "serialized": {}
+    },
+    {
+      "id": "Hotkeys.AUTO_REFILL_GUI_TOGGLE_FOR_SLOT",
+      "display": "Ctrl + Left Button",
+      "keyCodes": [
+        341,
+        -100
+      ],
+      "defaultKeyCodes": [
+        341,
+        -100
+      ],
+      "settings": "KeybindSettings(context=In-game / Gui, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "defaultSettings": "KeybindSettings(context=In-game / Gui, activateOn=Press, allowExtraKeys=false, orderSensitive=true, modifierKey=Normal)",
+      "alternatives": [],
+      "serialized": {}
+    },
+    {
       "id": "ScrollSettings.SCROLL_FULL_STACK",
       "display": "Shift",
       "keyCodes": [
@@ -6376,20 +6378,6 @@
       "serialized": {}
     },
     {
-      "id": "LockedSlotsSettings.LOCK_SLOTS_SWITCH_CONFIG_MODIFIER",
-      "display": "Alt",
-      "keyCodes": [
-        342
-      ],
-      "defaultKeyCodes": [
-        342
-      ],
-      "settings": "KeybindSettings(context=Gui, activateOn=Press, allowExtraKeys=true, orderSensitive=true, modifierKey=Normal)",
-      "defaultSettings": "KeybindSettings(context=Gui, activateOn=Press, allowExtraKeys=true, orderSensitive=true, modifierKey=Normal)",
-      "alternatives": [],
-      "serialized": {}
-    },
-    {
       "id": "LockedSlotsSettings.LOCK_SLOTS_CONFIG_KEY",
       "display": "Left Button",
       "keyCodes": [
@@ -6424,6 +6412,20 @@
       "serialized": {}
     },
     {
+      "id": "LockedSlotsSettings.LOCK_SLOTS_SWITCH_CONFIG_MODIFIER",
+      "display": "Alt",
+      "keyCodes": [
+        342
+      ],
+      "defaultKeyCodes": [
+        342
+      ],
+      "settings": "KeybindSettings(context=Gui, activateOn=Press, allowExtraKeys=true, orderSensitive=true, modifierKey=Normal)",
+      "defaultSettings": "KeybindSettings(context=Gui, activateOn=Press, allowExtraKeys=true, orderSensitive=true, modifierKey=Normal)",
+      "alternatives": [],
+      "serialized": {}
+    },
+    {
       "id": "AutoRefillSettings.AUTO_REFILL_TEMP_DISABLE_REFILL_FOR_TOOLS",
       "display": "Ctrl",
       "keyCodes": [
@@ -6440,20 +6442,6 @@
           "keys": "RIGHT_CONTROL"
         }
       }
-    },
-    {
-      "id": "ModSettings.MOVE_ALL_MODIFIER",
-      "display": "Shift",
-      "keyCodes": [
-        340
-      ],
-      "defaultKeyCodes": [
-        340
-      ],
-      "settings": "KeybindSettings(context=Gui, activateOn=Press, allowExtraKeys=true, orderSensitive=true, modifierKey=Normal)",
-      "defaultSettings": "KeybindSettings(context=Gui, activateOn=Press, allowExtraKeys=true, orderSensitive=true, modifierKey=Normal)",
-      "alternatives": [],
-      "serialized": {}
     },
     {
       "id": "ModSettings.INCLUDE_HOTBAR_MODIFIER",
@@ -6491,6 +6479,20 @@
       ],
       "defaultKeyCodes": [
         280
+      ],
+      "settings": "KeybindSettings(context=Gui, activateOn=Press, allowExtraKeys=true, orderSensitive=true, modifierKey=Normal)",
+      "defaultSettings": "KeybindSettings(context=Gui, activateOn=Press, allowExtraKeys=true, orderSensitive=true, modifierKey=Normal)",
+      "alternatives": [],
+      "serialized": {}
+    },
+    {
+      "id": "ModSettings.MOVE_ALL_MODIFIER",
+      "display": "Shift",
+      "keyCodes": [
+        340
+      ],
+      "defaultKeyCodes": [
+        340
       ],
       "settings": "KeybindSettings(context=Gui, activateOn=Press, allowExtraKeys=true, orderSensitive=true, modifierKey=Normal)",
       "defaultSettings": "KeybindSettings(context=Gui, activateOn=Press, allowExtraKeys=true, orderSensitive=true, modifierKey=Normal)",

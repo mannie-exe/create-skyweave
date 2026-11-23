@@ -36,6 +36,39 @@ other starting resources, with diamond/platinum in deep interiors. Mining access
 travel time and whole-island quantities remain separate gameplay checks. Gold washing supplies a separate 5% platinum-nugget chance. At that
 rate, one ingot takes 180 crushed-gold washes on average, not a guaranteed batch.
 
+## Leather
+
+JRFTL 1.8.0 supplies prepared flesh, with its managed `general.enableHardMode` set to `true`. Craft four rotten flesh in a 2×2 grid into one prepared flesh, then cook it into one leather: 200 ticks in a furnace, 100 in a smoker, or 600 on a campfire. The campfire recipe belongs to Resource Patches and loads only with JRFTL installed. Direct rotten-flesh cooking is disabled by the native hard-mode conditions. Restart after changing hard mode.
+
+The chain requires no water, cattle, or machinery. Existing animal, loot, and other leather acquisition remains available. Create fan smoking uses the native smoking recipe; there is no second custom automation recipe. The intermediate is a registered item supplied on both sides, so recipe JSON alone cannot replace the JRFTL dependency. Keep its config and campfire recipe aligned when updating or removing it.
+
+## Ropes and connection limits
+
+Simulated's managed `blocks.max_rope_range` sets the rope-connection ceiling to 255 blocks; its native accepted range is 0–1000. This changes connection admission, not the throwable addon's projectile range: hand throws remain 10, handheld launchers 20, and mounted launchers 40 blocks. The plunger launcher has its own 64-block separation limit. Existing world-local server configs can override installation defaults; inspect the loaded world's `serverconfig/simulated-server.toml` during a local update.
+
+Skybound's separate managed `maxRopeLength` default is 64 blocks. Explicit lengths already stored on customized hooks remain authoritative; the native customization ceiling is still 255. These settings do not extend chunk loading or guarantee a projectile can reach its nominal length.
+
+Other authored connection and transport limits remain unchanged:
+
+| Mechanism | Current limit | Separate consideration |
+| --- | --- | --- |
+| Throwable rope connector | Hand 10, handheld launcher 20, mounted launcher 40 blocks | Native tool maxima are 128/1000/1000; Simulated's 255-block ceiling also applies. Raising the connection ceiling alone does not extend these shots. |
+| Plunger launcher | 64 blocks between launched plungers | Independent of rope-connector and Skybound limits. |
+| Create mechanical belt | 20 blocks | A kinetic transport link, not a physical rope constraint. |
+| Create chain conveyor | 32 blocks per connection, 4 connections per conveyor | Longer spans and more branches are separate settings. |
+| Create rope pulley | 384 blocks of rope | Vertical contraption travel; independent of Simulated connectors. |
+| Coupled minecarts | 32 blocks separation | Independent of rope and railway placement limits. |
+| Weighted ejector | 32 blocks | Relevant to short player/cargo crossings; increasing range does not provide safe landing or return travel. |
+| Redstone link | 256 blocks | Signal range does not load distant chunks. The relocation GUI has a separate 24-block move limit. |
+| Display link | 64 blocks to target | Independent of redstone signal range. |
+| Mechanical arm / package port | 5 blocks each | Local inventory-transfer reach. |
+| Mechanical pump / hose pulley | 16 blocks of pipe on each pump side / 128-block fluid search | Pipe reach and fluid-body search are different costs. |
+| Escalated walkway / escalator | 128 blocks long / 32 blocks high | Fixed infrastructure, not a dynamic rope. |
+| Simulated honey glue / merging glue | 48 / 4 blocks | Initial assembly/merge placement reach. |
+| Simulated docking connectors | 0.5-block distance and 20-degree angular tolerance | Alignment tolerances, not a long-distance connection system. |
+
+The first range decision for longer rope crossings is whether to extend handheld or mounted launchers toward the new 255-block ceiling while retaining short hand throws. Conveyor, signal, and fluid changes should follow specific builds rather than a blanket range increase. These are configuration/source observations, not long-span physics or throughput measurements. Their owners are `create_aeronautics_throwable_rope_connector-common.toml`, `simulated-server.toml`, `create-server.toml`, `createredstonelinkgui-common.toml`, and `escalated-server.toml` under the shared config overrides.
+
 ## Mechanical alternatives
 
 Linear Bearing supplies passive guides with powered brakes, short-range magnetic
@@ -105,8 +138,8 @@ but mining access and wool/slime acquisition still require survival playtesting.
 | Turpentine | Crushing spruce logs gives resin at 60%; one resin and 250 mB water mix into 250 mB fuel without heat. | Spruce access and Crushing Wheels matter; a heated fuel refinery is not required. |
 | Liquid thrust | A standard 1,000 mB tank at full throttle lasts about 33.3 s on turpentine or 50 s on lava at 20 TPS. Turpentine has 100% thrust, lava 75%. | Turpentine is stronger but currently slightly worse in thrust per fuel volume. These budgets exclude multiblocks/oxidizer and do not measure flight range. |
 | Gliding | Membranes supply crafting and repair; tagged heat blocks provide a 15-block updraft range. | Gliders suit local crossings and prepared ascent points. Sleeping habits affect membrane encounters; no artificial membrane gate is needed. |
-| Ropes | Connector ranges are 10/20/40 blocks by hand/launcher/mount; the plunger reaches 64. | Useful for docking and nearby gaps, not for crossing whole cluster intervals. |
-| Personal grappling | Skybound's basic hook costs an iron pickaxe and a lead. The pack's long-range trial sets the default rope ceiling to 255 blocks. | Lead acquisition, projectile drop, and a reachable anchor still matter. Throw physics and upgrade bounds remain native; rope length alone does not establish horizontal crossing range. |
+| Ropes | Rope connections allow 255 blocks; throwable hand/launcher/mount ranges remain 10/20/40 and the plunger reaches 64. | The connection ceiling and tool firing ranges are separate. See [connection limits](#ropes-and-connection-limits). |
+| Personal grappling | Skybound's basic hook costs an iron pickaxe and a lead. The pack sets the default rope length to 64 blocks. | Lead acquisition, projectile drop, and a reachable anchor still matter. Throw physics and upgrade bounds remain native; rope length alone does not establish horizontal crossing range. |
 | Flywheel Bearing | The block is enabled, but kinetic storage is disabled. Its recipe already requires brass. | It currently has no storage role. Do not describe it as an early energy buffer until that feature is enabled and tested. |
 | Backpacks | Base storage is 27 slots, with larger tiers and portable processing upgrades. | Ships need roles beyond carrying a player's normal inventory: mounted machines, bulk flows and physical delivery cargo. |
 
