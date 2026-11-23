@@ -45,7 +45,6 @@
         "overrides/common/config/copycats-server.toml",
         "overrides/common/config/create-common.toml",
         "overrides/common/config/create-server.toml",
-        "overrides/common/config/create_aeronautics_throwable_rope_connector-common.toml",
         "overrides/common/config/create_connected-server.toml",
         "overrides/common/config/create_power_loader-server.toml",
         "overrides/common/config/createbigcannons-server.toml",
@@ -389,10 +388,11 @@
     },
     {
       "paths": [
-        "overrides/common/config/simulated-server.toml"
+        "overrides/common/config/simulated-server.toml",
+        "overrides/common/config/create_aeronautics_throwable_rope_connector-common.toml"
       ],
       "review": "reviewed",
-      "reason": "Set the Simulated rope-connection ceiling to 255 blocks (native allowed maximum 1000). Throwable connector hand/launcher/mounted firing limits remain separate and unchanged at 10/20/40; no physics, force or chunk-loading limits are changed.",
+      "reason": "Retain the selected Longshot profile: hand 16, handheld 64 and mounted 128 blocks, below the separate Simulated rope-connection ceiling of 255 (native maximum 1000). The optional Compat startup repair preserves configured ranges while enforcing the loaded server ceiling. Projectile velocity, physics and chunk-loading policy remain unchanged; configured reach is not a flight-distance qualification.",
       "reference": "docs/development/progression.md#ropes-and-connection-limits",
       "family": "pack-rules"
     },
