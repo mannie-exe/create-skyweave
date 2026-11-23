@@ -367,7 +367,7 @@ bindings:
   punchymoves:
     placement:
       files:
-        punchy-moves-1.0.9-neoforge-1.21.1.jar:
+        punchy-moves-1.0.9b-neoforge-1.21.1.jar:
         - destination: mods/punchymoves.jar
           environment:
             client: required

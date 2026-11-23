@@ -77,11 +77,11 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Refined Сreate Buckets | 1.0 | [Exact version](https://modrinth.com/resourcepack/refined-reate-buckets/version/ByxDrT5M) |
 | Punched Backpacks! | 2.1 | [Exact version](https://modrinth.com/resourcepack/punched-backpacks/version/prexQWb0) |
 | Punchy! | 3.2b | [Exact version](https://modrinth.com/mod/punchy-fpa/version/aVZEe0j8) |
-| Punchy! Moves | 1.0.9 | [Exact version](https://modrinth.com/mod/punchymoves/version/SYcipAjI) |
-| re:form | 0.2.0 | [Published settings library](https://github.com/mannie-exe/reform/releases/tag/v0.2.0) |
-| Skyweave: Compatibility Patches | 0.42.1 | [Published adaptations](https://github.com/mannie-exe/skyweave-compat/releases/tag/v0.42.1) |
+| Punchy! Moves | 1.0.9b | [Exact version](https://modrinth.com/mod/punchymoves/version/8dHgPPh6) |
+| re:form | 0.3.0 | [Published settings library](https://github.com/mannie-exe/reform/releases/tag/v0.3.0) |
+| Skyweave: Compatibility Patches | 0.44.0-world-runtime-dev.12 | [Local runtime candidate](development/world-runtime.md) |
 | Create Accessories Compat | 1.0 | [Exact version](https://modrinth.com/mod/create-accessories-compat/version/2r7hvkCQ) |
-| Create Aeronautics | 1.3.2+mc1.21.1 | [Exact version](https://modrinth.com/mod/create-aeronautics/version/44pLdPGg) |
+| Create Aeronautics | 1.3.3+mc1.21.1 | [Exact version](https://modrinth.com/mod/create-aeronautics/version/demX2roU) |
 | Create Aeronautics: Transmission & Linkage | 0.2.9 | [Exact version](https://modrinth.com/mod/create-aeronautics-transmission-linkage/version/WoUjC6d4) |
 | Create Aeronautics: Covers | 1.0.1 | [Exact version](https://modrinth.com/mod/create-aeronautics-covers/version/R35biaZf) |
 | Create Aeronautics: Rechiseled Compatibility | 1.2.2 | [Exact version](https://modrinth.com/mod/create-aeronautics-rechiseled-compatibility/version/b6O6XLL6) |
@@ -128,7 +128,7 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | EMI Loot | 0.7.10+1.21+neoforge | [Exact version](https://modrinth.com/mod/emi-loot/version/kOwbrV11) |
 | EMI | 1.1.24+1.21.1+neoforge | [Exact version](https://modrinth.com/mod/emi/version/5sIPA1To) |
 | Entity Culling | 1.12.1 | [Exact version](https://modrinth.com/mod/entityculling/version/DDaDZQ47) |
-| Euphoria Patches | 1.11.1-r5.10-neoforge | [Exact version](https://modrinth.com/mod/euphoria-patches/version/Gkv3fLVg) |
+| Euphoria Patches | 1.11.2-r5.10-neoforge | [Exact version](https://modrinth.com/mod/euphoria-patches/version/fqKNZqvM) |
 | Exposure | 1.9.21 | [Exact version](https://modrinth.com/version/tjX0GpFW) |
 | Fast Noise | 1.0.13+1.21.1+neoforge | [Exact version](https://modrinth.com/mod/zfastnoise/version/9vSFkDAr) |
 | FerriteCore | 7.0.3-neoforge | [Exact version](https://modrinth.com/mod/ferrite-core/version/x7kQWVju) |
@@ -162,7 +162,7 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Linear Bearings Fix | 1.0.3 | [Exact version](https://modrinth.com/mod/linear-bearings-fix/version/MQ6XuOMQ) |
 | Lithium | mc1.21.1-0.15.4-neoforge | [Exact version](https://modrinth.com/mod/lithium/version/DDUrRVCA) |
 | Lootr | 1.21.1-1.11.38.127 | [Exact version](https://modrinth.com/version/SPOrIzX8) |
-| Lootr: Styled | 0.1.0 | [Published presentation addon](https://github.com/mannie-exe/lootr-styled/releases/tag/v0.1.0) |
+| Lootr: Styled | 0.2.0-reform-public.1 | [Local presentation candidate](development/compatibility.md#lootr-styled) |
 | Low On Fire | 26.3 | [Exact version](https://modrinth.com/version/yQdcUfnr) |
 | Low Shield | 3.0.0 | [Exact version](https://modrinth.com/version/AV6Mwfm5) |
 | Macaw's Doors | 1.1.5 | [Exact version](https://modrinth.com/mod/macaws-doors/version/u7BRX44F) |

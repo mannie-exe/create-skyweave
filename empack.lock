@@ -7498,19 +7498,17 @@ dependencies:
     content: mod
     files:
     - acquisition:
-        downloads:
-        - >-
-          https://github.com/mannie-exe/lootr-styled/releases/download/v0.1.0/lootr-styled-1.21.1-neoforge-0.1.0.jar
-        kind: url
+        kind: local
+        path: .local-artifacts/lootr-styled-0.2.0-reform-public.1-4711942c0603f5f4.jar
       expected:
         accepted-observation: null
         digests:
-          sha1: 7fb1999a91bc4868d7f6ded7c1a3b9a9f8d1230a
+          sha256: 4711942c0603f5f4f6366b9844c0cc7d45c29b02ad447a1064f603bacca65e6f
           sha512: >-
-            efc9954a4d39527d664c594d413150268ce8f1299102be31a6f270a4b1f3daaf9d7dbadd40499eed12654eee1f658abf1e26fa1f4ad73dbc858e2cc548333867
+            945f88d81b9f83cae25e3e8453aec131786f0a174520d06259997ee07735e3d0d5f122aab248474c7b9e2a4c01adcb51c57a41e974ca3738721723ef95503687
         size: null
       placements:
-      - destination: mods/lootr-styled-1.21.1-neoforge-0.1.0.jar
+      - destination: mods/lootr-styled-0.2.0-reform-public.1-4711942c0603f5f4.jar
         environment:
           client: required
           server: unsupported
@@ -7518,15 +7516,15 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: 7fb1999a91bc4868d7f6ded7c1a3b9a9f8d1230a
+          sha256: 4711942c0603f5f4f6366b9844c0cc7d45c29b02ad447a1064f603bacca65e6f
           sha512: >-
-            efc9954a4d39527d664c594d413150268ce8f1299102be31a6f270a4b1f3daaf9d7dbadd40499eed12654eee1f658abf1e26fa1f4ad73dbc858e2cc548333867
+            945f88d81b9f83cae25e3e8453aec131786f0a174520d06259997ee07735e3d0d5f122aab248474c7b9e2a4c01adcb51c57a41e974ca3738721723ef95503687
         location: null
-        source: url-file
+        source: local-file
       slot: primary
     identity:
       key: lootr-styled
-      kind: url
+      kind: local
     incompatibilities: []
     selection: null
     source-selector: null
@@ -9074,23 +9072,23 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://cdn.modrinth.com/data/mzgtK8pY/versions/SYcipAjI/punchy-moves-1.0.9-neoforge-1.21.1.jar
+          https://cdn.modrinth.com/data/mzgtK8pY/versions/8dHgPPh6/punchy-moves-1.0.9b-neoforge-1.21.1.jar
         kind: provider
         pin:
           project:
             project: mzgtK8pY
             provider: modrinth
           selection:
-            id: SYcipAjI
+            id: 8dHgPPh6
             provider: modrinth
-        slot: punchy-moves-1.0.9-neoforge-1.21.1.jar
+        slot: punchy-moves-1.0.9b-neoforge-1.21.1.jar
       expected:
         accepted-observation: null
         digests:
-          sha1: a14541fab479e91374a2bd5dc83b9ee05485e090
+          sha1: 1e938b17657839a3d87044860bbe432c98f90141
           sha512: >-
-            eb36f9f07ed78756a87b3c42d365c4e1f70dd7dfcb44c158cbbd73193fc9b0225bc385a16f0531d5d9cc40c1b1a11101fa8e2c3aebcc854b79d69b21d5d450ed
-        size: 1250746
+            3170ba413202dafe3571d5023cdf3fa3e2b9ecf79decf03220a14dff453d76398b4e8eca24d17844269bc10b2111cadac36ed64b15ca0523b6730cc2855901ad
+        size: 1283504
       placements:
       - destination: mods/punchymoves.jar
         environment:
@@ -9100,12 +9098,12 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: a14541fab479e91374a2bd5dc83b9ee05485e090
+          sha1: 1e938b17657839a3d87044860bbe432c98f90141
           sha512: >-
-            eb36f9f07ed78756a87b3c42d365c4e1f70dd7dfcb44c158cbbd73193fc9b0225bc385a16f0531d5d9cc40c1b1a11101fa8e2c3aebcc854b79d69b21d5d450ed
+            3170ba413202dafe3571d5023cdf3fa3e2b9ecf79decf03220a14dff453d76398b4e8eca24d17844269bc10b2111cadac36ed64b15ca0523b6730cc2855901ad
         location: mzgtK8pY
         source: provider-catalog
-      slot: punchy-moves-1.0.9-neoforge-1.21.1.jar
+      slot: punchy-moves-1.0.9b-neoforge-1.21.1.jar
     identity:
       kind: provider
       project:
@@ -9117,7 +9115,7 @@ dependencies:
         project: mzgtK8pY
         provider: modrinth
       selection:
-        id: SYcipAjI
+        id: 8dHgPPh6
         provider: modrinth
     source-selector:
       provider: modrinth
@@ -10591,13 +10589,13 @@ dependencies:
     - acquisition:
         kind: local
         path: >-
-          .local-artifacts/skyweave-compat-0.44.0-world-runtime-dev.11-8f5fd9b521e6b929.jar
+          .local-artifacts/skyweave-compat-0.44.0-world-runtime-dev.12-3f436fd36e24d2b1.jar
       expected:
         accepted-observation: null
         digests:
-          sha256: 8f5fd9b521e6b929f31ce8acb9cc2f8a0527dc8668a81de37ca42081da57f4c9
+          sha256: 3f436fd36e24d2b1361dea124f627dda92f529c4303819f35009c0d02ccbd63c
           sha512: >-
-            3be3b5f870c565e633837fb166a2ea3e8c9d90cda181f7f70b1d4bb22dd8142d87791eb02bd584fa7891ce9afcedf4744785b46f27d64022a063bab8cf744d92
+            f02dd76f72c3a1a6147d4ceac934d21b77b1778bb84e7142deb51f4f6d715b8d34fb0044e497497634f7f607b4f0c616011c74a40f24f5349465a1ece7e613b8
         size: null
       placements:
       - destination: mods/skyweave-compat.jar
@@ -10606,11 +10604,12 @@ dependencies:
           server: required
         layer: common
       provenance:
-        conversions: []
+        conversions:
+        - Explicit acceptance of changed tracked bytes
         declared-digests:
-          sha256: 8f5fd9b521e6b929f31ce8acb9cc2f8a0527dc8668a81de37ca42081da57f4c9
+          sha256: 3f436fd36e24d2b1361dea124f627dda92f529c4303819f35009c0d02ccbd63c
           sha512: >-
-            3be3b5f870c565e633837fb166a2ea3e8c9d90cda181f7f70b1d4bb22dd8142d87791eb02bd584fa7891ce9afcedf4744785b46f27d64022a063bab8cf744d92
+            f02dd76f72c3a1a6147d4ceac934d21b77b1778bb84e7142deb51f4f6d715b8d34fb0044e497497634f7f607b4f0c616011c74a40f24f5349465a1ece7e613b8
         location: null
         source: local-file
       slot: primary
@@ -12117,7 +12116,7 @@ dependencies:
       provider: modrinth
       selector: OnlVIpq5
     title: Fast Noise
-intent-revision: eda12918949009a490660df2dd35cf125b9c5299989f8f08c71cb7a9d8557143
+intent-revision: ae736ca8429470b9dc3142d49b47315f6cc8524c69067bcf2f633f3c90258e1e
 java-policy:
   historical-minimum: 21
   id: empack-java-1

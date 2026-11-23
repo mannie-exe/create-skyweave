@@ -46,9 +46,9 @@ dependencies:
   shader-runner:
     source:
       kind: local
-      path: .local-artifacts/skyweave-compat-0.44.0-world-runtime-dev.11-8f5fd9b521e6b929.jar
+      path: .local-artifacts/skyweave-compat-0.44.0-world-runtime-dev.12-3f436fd36e24d2b1.jar
     digests:
-      sha256: 8f5fd9b521e6b929f31ce8acb9cc2f8a0527dc8668a81de37ca42081da57f4c9
-      sha512: 3be3b5f870c565e633837fb166a2ea3e8c9d90cda181f7f70b1d4bb22dd8142d87791eb02bd584fa7891ce9afcedf4744785b46f27d64022a063bab8cf744d92
+      sha256: 3f436fd36e24d2b1361dea124f627dda92f529c4303819f35009c0d02ccbd63c
+      sha512: f02dd76f72c3a1a6147d4ceac934d21b77b1778bb84e7142deb51f4f6d715b8d34fb0044e497497634f7f607b4f0c616011c74a40f24f5349465a1ece7e613b8
     type: other-file
     side: client
