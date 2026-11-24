@@ -8,7 +8,7 @@ Cookery 1.6.0 and Tavern 1.2.0 retain native recipes and values for this trial. 
 
 Their crafted stations and tools lead into custom cooking, milling, drying, tea, pressing, barrel and shaker recipe systems. Seeds, animal drops, crops, tree decorators and food/drink effects also affect acquisition and progression. Keep ordinary food/ingredients and decorative palettes outside equipment classification. Compat 0.42.1 supplies the optional millstone insertion repair for exactly Cookery 1.6.0; native capability/processing checks do not qualify every automation network or production route. Tavern's managed common config disables infinite lava-cauldron filling; all other trial settings retain native defaults. [Compatibility](compatibility.md#sable-beyond-and-kaleidoscope) owns integration concerns and future in-world station adapters.
 
-## Review domains
+## Wearable equipment
 
 Lamb Lanterns 1.2.0 makes existing vanilla and soul lanterns wearable in a dedicated Curios `lantern` slot, with no new acquisition recipe or item. Backpack equipment remains independent. Keep native offset defaults; equipped rendering, dynamic-light publication, and lifecycle limits are tracked in [moving lights](compatibility.md#moving-lights). This addition does not refresh the historical item counts below.
 
@@ -23,6 +23,8 @@ Keep additions tied to a useful action or presentation rather than admitting arb
 Cookery's `red_lantern` is the strongest additional hip-light candidate. It emits light level 14, but Lamb Lanterns registers body renderers only for vanilla and soul lanterns. A tag alone would admit it without a visible equipped model. Its block also lacks vanilla's `hanging` property, so reusing the existing renderer unchanged would be invalid. A version-qualified renderer using its actual block state and a reviewed attachment/scale is needed. Redden's Stone Lanterns remains architectural content, outside the wearable-light candidates.
 
 Create backtanks are a useful functional equipment candidate. Create 6.0.10 already registers a Curios backtank supplier with `BacktankUtil`, so do not add a second air-discovery hook. Qualify that native path through the actual bridge, and inspect air consumption, diving protection, damage/armor rules, rendering, and backpack/glider combinations before assuming a tag completes the integration. Artifacts' Umbrella is intentionally held; making it a passive equipped slow-fall ability would be a gameplay redesign. Wrench, grapple, and spyglass shortcuts belong to the deferred contextual-interaction/input design rather than new Curios eligibility here. These are unselected candidates, not additional changes shipped with the glider slot.
+
+## Review domains
 
 Include tools, weapons, armor, accessories, storage, travel gear, portable utilities and functional stations/machinery. Exclude ordinary materials, decorative building palettes, mobs and terrain generation; note their dependencies where they supply equipment. Use exact registry IDs in Atlas searches. Native type evidence and curated selectors in `authoring/equipment.json` define the register; they do not change item behavior or acquisition.
 
