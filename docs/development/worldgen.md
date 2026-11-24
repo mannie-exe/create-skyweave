@@ -8,6 +8,8 @@ Sky Archipelago's common config and the selected legacy `eee` preset apply to or
 
 ## Terrain
 
+The [world-runtime migration gate](world-runtime.md#candidate-and-release-gates) owns future DW14 adoption. It requires actual complete group material/features, physical fluids and current/publication on the existing Compat/Sky Arch pipeline; prepared-field evidence from the separate Skyweave generator is not ordinary modpack generation acceptance. Native source and geological positions remain authoritative through each stage.
+
 The authored profile is `overrides/common/config/skyweave/skyweave_compat-generation.json`.
 
 | Control | Pack setting | Meaning |

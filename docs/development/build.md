@@ -89,6 +89,8 @@ Its source repository owns the Java 21 Gradle build, exact Create artifact check
 
 ### Terrain and rendering mods
 
+Follow the [world-runtime candidate gates](world-runtime.md#candidate-and-release-gates) for coupled terrain, physics, distant-rendering and water changes. Baseline candidates and DW14 migration have independent completion/release gates; do not update a pin from source inspection or a title boot alone.
+
 [Skyweave: Compatibility Patches](https://github.com/mannie-exe/skyweave-compat) owns optional terrain, gameplay, and rendering adapters and belongs on both pack sides. It incorporates the former Veil Iris Fix; do not include that standalone JAR or Sky Village Neighbors in any payload. Runtime code does not belong in the resource-only `skyweave-resource-patches` JAR.
 
 Publish and verify Skyweave: Compatibility Patches before updating its URL and digest pins in `empack.yml`. Use empack to regenerate bindings and the lock; inspect exports for duplicate or obsolete JARs. `overrides/common/config/skyweave/skyweave_compat-features.properties` explicitly selects the pack's adaptations. Unknown feature keys fail startup, so review this file whenever removing or renaming upstreamed adapters. The local configuration sidebar edits this same file for next startup; existing keys and omitted defaults remain authoritative. Review Skyweave: Compatibility Patches’ [editor maintenance](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/configuration.md) when updating its configuration facilities.

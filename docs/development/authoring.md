@@ -49,6 +49,8 @@ The Macaw mosaic profile in `resource-patches/assets/skyweave_compat/transparenc
 
 ## Configuration register
 
+The [world-runtime owner matrix](world-runtime.md#configuration-and-resource-owners) identifies coupled native/Compat/resource defaults and their application timing. Add tuning rationale and installation bindings through the existing owners; do not create parallel native settings or distribute fixture worker/profiling overrides.
+
 `authoring/changes/*.json` owns configuration rationale, grouped by client, shaders, worldgen, structures, recipes, drops, journal and gameplay. Schema 2 records contain an exact `paths` list, `review`, `reason`, `reference` and an optional descriptive `family`. Files sharing the same decision share one record; each path has one rationale owner. The register neither applies settings nor stores installation-policy copies, file hashes or historical baseline revisions. Git owns authored-file history. `inherited` means individual settings still need review; `reviewed` describes the stated decision's scope, not complete file or gameplay qualification.
 
 The checker rejects duplicate JSON keys or file records in the register, repeated client-option keys, and common/side override files that target the same installation path. Put a shared file in `overrides/common`, or put distinct client/server versions in their respective layers; do not rely on a common file being shadowed. Client and server counterparts may share a destination because they are installed separately.

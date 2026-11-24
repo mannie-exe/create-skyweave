@@ -4,6 +4,8 @@ This reference describes constraints behind the current pack configuration. Play
 
 ## Island water and environment
 
+The [world-runtime adoption contract](world-runtime.md) coordinates future individual tuning, Longshot, water migration, renderer and lifecycle work. The installed DW13 behavior below remains distinct from the planned DW14 source, identity, feature, and current qualification. Existing baseline improvements need not wait for that migration.
+
 Skyweave's marked island preset disables Sky Archipelago's native rivers and lakes. Dynamic Waters 13.1.0 supplies terrain-following mountain watersheds and basin lakes through Compat's supported-column bridge. Its lowland mode remains `VANILLA`; `NONE` also rewrites density inputs. Mountain tunnels are disabled. Native Lagoon/Broken Reef habitats remain independent. Coastal Lagoon treatment is enabled; the perimeter variant is disabled in current defaults. Generation settings belong to the saved world identity; these changes require a fresh world rather than modifying old chunks in place.
 
 Temperature-sensitive island consumers use reference Y64 while block positions, light and collision remain real. Cloud height maps to Y469.3333. Native void height darkening is disabled only in marked worlds; the supported shader recipes use scoped exposure signals for their corresponding cave/void heuristics. Other shaders retain their own behavior. Settings and limitations belong to Compat's [configuration](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/configuration.md) and [verification](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/verification.md).

@@ -4,6 +4,8 @@ Longshot review covers interactions whose useful range can exceed the assumption
 
 The source review defines a first repair sequence: connector range/terminal order and ammunition custody, Skybound movement validation, then loaded-only query and ordinary tracking/rendering qualification. These are proposed adaptations, not installed features. Longer flight profiles, DH-assisted targeting, deliberate terrain loading, and extended physics remain gated by their authority, lifecycle, and measured cost. Weighted ejectors retain a 64-block range; chaining stations is the intended way to extend that route.
 
+The broader [world-runtime program](world-runtime.md) owns coupled water, renderer, lifecycle, and profiling adoption. This page retains the action-specific pack constraints; proposed runtime selectors and geometry belong to Compat.
+
 ## Owning references
 
 | Reference | Owns |
