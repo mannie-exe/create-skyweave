@@ -14,7 +14,8 @@
   "entityWhitelist": [
     "botania:mana_burst",
     "drg_flares:drg_flares",
-    "quark:soul_bead"
+    "quark:soul_bead",
+    "simulated:launched_plunger"
   ],
   "tracingDistance": 128,
   "debugMode": false,
@@ -67,7 +68,23 @@
     "cinematiccataclysm:ancient_remnant_cutscene",
     "createbigcannons:cannon_carriage",
     "createbigcannons:pitch_contraption",
-    "cinematiccataclysm:ignis_cutscene"
+    "cinematiccataclysm:ignis_cutscene",
+    "grapplemod:grapplehook",
+    "illagerinvasion:invoker_fangs",
+    "createbigcannons:shot",
+    "createbigcannons:he_shell",
+    "createbigcannons:shrapnel_shell",
+    "createbigcannons:bag_of_grapeshot",
+    "createbigcannons:ap_shot",
+    "createbigcannons:traffic_cone",
+    "createbigcannons:ap_shell",
+    "createbigcannons:fluid_shell",
+    "createbigcannons:smoke_shell",
+    "createbigcannons:mortar_stone",
+    "createbigcannons:drop_mortar_shell",
+    "createbigcannons:ap_autocannon",
+    "createbigcannons:flak_autocannon",
+    "createbigcannons:machine_gun_bullet"
   ],
   "disableF3": false,
   "skipEntityCulling": false,

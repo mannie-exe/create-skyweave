@@ -5,7 +5,6 @@
       "paths": [
         "overrides/common/config/accessories.json5",
         "overrides/common/config/dynamic_fps.json",
-        "overrides/common/config/entityculling.json",
         "overrides/common/config/fzzy_config/keybinds.toml",
         "overrides/common/config/hoofprint.toml",
         "overrides/common/config/immediatelyfast.json",
@@ -14,7 +13,6 @@
         "overrides/common/config/jade/jade.json",
         "overrides/common/config/jade/plugins.json",
         "overrides/common/config/mcqoy.toml",
-        "overrides/common/config/moreculling.toml",
         "overrides/common/config/ssrd-common.toml",
         "overrides/common/config/surveyor.toml",
         "overrides/common/config/trender.json",
@@ -23,6 +21,24 @@
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
       "reference": "docs/development/decisions.md",
+      "family": "client-preferences"
+    },
+    {
+      "paths": [
+        "overrides/common/config/moreculling.toml"
+      ],
+      "review": "reviewed",
+      "reason": "Use Check Surrounding leaf culling to omit enclosed canopy faces. Delay item-frame LOD simplification to 256 blocks and three-face culling to 16 blocks to retain detailed resource-pack models nearby. Other settings retain the imported values; native visual and performance comparisons remain separate qualification.",
+      "reference": "docs/development/performance.md#client-culling",
+      "family": "client-preferences"
+    },
+    {
+      "paths": [
+        "overrides/common/config/entityculling.json"
+      ],
+      "review": "reviewed",
+      "reason": "Exempt Simulated's launched plunger from visibility and client tick culling because its renderer draws a rope beyond the entity bounds. Preserve client ticks for Skybound hooks, Illager Invasion's invoker fangs and 14 Create Big Cannons shot/shell/autocannon projectile types for attachment following, attack animation clocks, flight, trails and flyby audio. Retain all other native values and inherited exceptions. These source-reviewed selections still require native presentation qualification.",
+      "reference": "docs/development/performance.md#client-culling",
       "family": "client-preferences"
     },
     {
