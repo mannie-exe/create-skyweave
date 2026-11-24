@@ -2,7 +2,7 @@
 
 Flashback records gameplay for later playback, camera editing and video export. Flashback NeoForge Fixed supplies the Connector, Create and Sable replay adaptations. CMDCam provides camera control during live gameplay. All four additions, including CMDCam's CreativeCore dependency, install on clients only; a dedicated server does not need them.
 
-Recording is manual. In a world, open the pause menu and use Flashback's recording controls. Finish the recording there, or disconnect to finish it automatically. Open the saved replay through Flashback's main-menu entry, make camera keyframes in its editor, then export. Initial export preferences are 1920 × 1080 at 30 frames per second, H.264/MP4 with game audio and no supersampling. Export preferences remain editable. Voice-chat recording is off.
+Recording is manual. In a world, open the pause menu and use Flashback's recording controls. Finish the recording there, or disconnect to finish it automatically. Quicksave is on: finishing saves with default values instead of opening the Save Replay screen. It does not automatically begin recording. Open the saved replay through Flashback's main-menu entry, make camera keyframes in its editor, then export. Initial export preferences are 1920 × 1080 at 30 frames per second, H.264/MP4 with game audio and no supersampling. Export preferences remain editable. Voice-chat recording is off.
 
 Move the replay camera away from the recorded player before composing a shot, and add camera keyframes for the exported movement. The initial replay view can overlap the recorded player's model. On Apple Silicon, choose an encoder Flashback actually lists; the qualified native H.264 encoder is `h264_videotoolbox`.
 

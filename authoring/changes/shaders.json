@@ -11,7 +11,7 @@
     },
     {
       "paths": [
-        "overrides/client/shaderpacks/Complementary Unbound r5.10 + Euphoria 1.11.1 + Skyweave 0.4.1.zip.txt"
+        "overrides/client/shaderpacks/Complementary Unbound r5.10 + Euphoria 1.11.2 + Skyweave 0.4.2.zip.txt"
       ],
       "review": "reviewed",
       "reason": "Retain the existing preset for the lab-generated shader with texture-aware window layers and opaque frame materials.",

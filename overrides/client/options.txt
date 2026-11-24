@@ -327,3 +327,7 @@ key_keybind.invmove.toggleMove:key.keyboard.unknown
 key_keybinds.bettercombat.feint:key.keyboard.v
 key_keybinds.bettercombat.toggle_mine_with_weapons:key.keyboard.unknown
 key_lambdynlights.key.toggle_fps_dynamic_lighting:key.keyboard.unknown
+key_key.keybindatlas.open_keyboard:key.keyboard.f7
+key_key.keybindatlas.cycle_sets:key.keyboard.unknown
+key_key.keybindatlas.open_controller:key.keyboard.unknown
+key_key.keybindatlas.cycle_controller_sets:key.keyboard.unknown

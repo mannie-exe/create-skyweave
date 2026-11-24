@@ -3,7 +3,7 @@ pack:
   id: create_skyweave_shader_lab
   name: Create Skyweave Shader Lab
   version: 0.1.0
-  authors: [ mannie-exe ]
+  authors: [ inherent.design contributors ]
 runtime:
   minecraft: 1.21.1
   loader:
@@ -28,7 +28,7 @@ dependencies:
     side: client
   euphoria-patches:
     source: modrinth:4H6sumDB
-    pin: Gkv3fLVg
+    pin: fqKNZqvM
     side: client
   create:
     source: modrinth:LNytGWDc
@@ -44,7 +44,11 @@ dependencies:
     type: other-file
     side: client
   shader-runner:
-    url: https://github.com/mannie-exe/skyweave-compat/releases/download/v0.42.1/skyweave-compat-0.42.1-mc1.21.1-neoforge.jar
-    sha256: 6b2a32010570185f2898147bf4b4ba6e1baaf82aba0af7bad08bf0bc3965a133
+    source:
+      kind: local
+      path: .local-artifacts/skyweave-compat-0.43.0-euphoria-dev.1-b403a6cb5b1dbb91.jar
+    digests:
+      sha256: b403a6cb5b1dbb91538e41bb3527bd5a3e97800492e51ee0e0ee96942d171b16
+      sha512: 562c6256e3b81eaceb1a9c8f40de916819b954ca52dbb4b8f08f05b3def2e488086036155d3d554ce5bba26732f2bb044ab809e415fe01b1d7f869486e442b01
     type: other-file
     side: client

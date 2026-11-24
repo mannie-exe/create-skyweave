@@ -36,10 +36,10 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Chat Heads | 0.15.7 | [Exact version](https://modrinth.com/mod/chat-heads/version/ZPylso9i) |
 | ChoiceTheorem's Overhauled Village | 3.6.4 | [Exact version](https://modrinth.com/mod/ct-overhaul-village/version/hJfyJvWt) |
 | Clean Tooltips | 1.1 | [Exact version](https://modrinth.com/mod/clean-tooltips/version/F8TicG1p) |
-| Climbable Ropes for Create Aeronautics | 2.2.2 | [Exact version](https://modrinth.com/mod/create-aeronautics-climbable-rope/version/1r3CmpkA) |
+| Climbable Ropes for Create Aeronautics | 2.2.3 | [Exact version](https://modrinth.com/mod/create-aeronautics-climbable-rope/version/MQNJGin9) |
 | Cloth Config API | 15.0.140+neoforge | [Exact version](https://modrinth.com/mod/cloth-config/version/izKINKFg) |
 | CMDCam (client only) | 2.2.9 | [Exact version](https://modrinth.com/mod/cmdcam/version/ZibX3UR8) |
-| CreativeCore (client only) | 2.13.54 | [Exact version](https://modrinth.com/mod/creativecore/version/v8QrwctR) |
+| CreativeCore (client only) | 2.13.55 | [Exact version](https://modrinth.com/mod/creativecore/version/aoWQBRG8) |
 | Flashback (client only, through Connector) | 0.39.10 | [Exact version](https://modrinth.com/mod/flashback/version/nPzvTtsX) |
 | Flashback NeoForge Fixed (client only) | 1.0.19 | [Exact version](https://modrinth.com/mod/flashback-neoforge-fixed/version/Fglj63ER) |
 | Collective | 1.21.1-8.65-fabric+forge+neo | [Exact version](https://modrinth.com/mod/collective/version/d78uVgbq) |
@@ -47,6 +47,7 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Complementary Unbound (input) | r5.10 | [Exact version](https://modrinth.com/version/QJiYQisE) |
 | Colorwheel Patcher (payload only) | 1.0.5 | [Exact version](https://modrinth.com/version/dQqV3sci) |
 | Concurrent Chunk Management Engine (NeoForge) | 0.4.0-alpha.0.124+1.21.1 | [Exact version](https://modrinth.com/mod/c2me-neoforge/version/VACgDPOc) |
+| Keybind Atlas (client only) | 3.0.0 | [Exact version](https://modrinth.com/mod/keybind-atlas/version/r5GwaT7L) |
 | Controlling | 19.0.5 | [Exact version](https://modrinth.com/mod/controlling/version/FaNppCJJ) |
 | Cool Rain Reforged | 1.0.2 | [Exact version](https://modrinth.com/mod/cool-rain-reforged/version/SwSSfJQQ) |
 | Copycat Bar Extrusion | 0.1.0 | [Exact release](https://github.com/mannie-exe/copycat-bar-extrusion/releases/tag/v0.1.0) |
@@ -78,8 +79,8 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Punched Backpacks! | 2.1 | [Exact version](https://modrinth.com/resourcepack/punched-backpacks/version/prexQWb0) |
 | Punchy! | 3.2b | [Exact version](https://modrinth.com/mod/punchy-fpa/version/aVZEe0j8) |
 | Punchy! Moves | 1.0.9 | [Exact version](https://modrinth.com/mod/punchymoves/version/SYcipAjI) |
-| re:form | 0.2.0 | [Published settings library](https://github.com/mannie-exe/reform/releases/tag/v0.2.0) |
-| Skyweave: Compatibility Patches | 0.42.1 | [Published adaptations](https://github.com/mannie-exe/skyweave-compat/releases/tag/v0.42.1) |
+| re:form | 0.3.0 | [Published settings library](https://github.com/mannie-exe/reform/releases/tag/v0.3.0) |
+| Skyweave: Compatibility Patches | 0.43.0-euphoria-dev.1 | Unpublished local candidate; [snapshot workflow](development/build.md#local-builds) |
 | Create Accessories Compat | 1.0 | [Exact version](https://modrinth.com/mod/create-accessories-compat/version/2r7hvkCQ) |
 | Create Aeronautics | 1.3.2+mc1.21.1 | [Exact version](https://modrinth.com/mod/create-aeronautics/version/44pLdPGg) |
 | Create Aeronautics: Transmission & Linkage | 0.2.9 | [Exact version](https://modrinth.com/mod/create-aeronautics-transmission-linkage/version/WoUjC6d4) |
@@ -109,7 +110,7 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Create: Interiors | 0.6.1 | [Exact version](https://modrinth.com/mod/interiors/version/gBrfZy6S) |
 | Create: Power Grid | 0.6.2 | [Exact version](https://modrinth.com/mod/power-grid/version/jCkPHjmP) |
 | Create: Power Loader | 2.0.5-mc1.21.1 | [Exact version](https://modrinth.com/mod/create-power-loader/version/3Y4r0ItR) |
-| Create: Radars | 5.1.1-1.21.1 | [Exact version](https://modrinth.com/mod/create-radars/version/ES5qa3pY) |
+| Create: Radars | 5.1.2-1.21.1 | [Exact version](https://modrinth.com/mod/create-radars/version/2wQXuyCI) |
 | Create: Transmission! | 1.2.2+neoforge-create6-1.21.1 | [Exact version](https://modrinth.com/mod/create-transmission/version/dOsq88jX) |
 | Create: Vibrant Vaults | 0.3.2 | [Exact version](https://modrinth.com/mod/create-vibrant-vaults/version/t17qYXjn) |
 | Create: Redstone Additions | 1.0.6-1.21.1-neoforge | [Exact version](https://modrinth.com/mod/create-redstone-additions/version/Hvlv9gb6) |
@@ -127,8 +128,8 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Effortless Building | 4.2 | [Exact version](https://modrinth.com/mod/effortless-building/version/YxnBXtLv) |
 | EMI Loot | 0.7.10+1.21+neoforge | [Exact version](https://modrinth.com/mod/emi-loot/version/kOwbrV11) |
 | EMI | 1.1.24+1.21.1+neoforge | [Exact version](https://modrinth.com/mod/emi/version/5sIPA1To) |
-| Entity Culling | 1.12.1 | [Exact version](https://modrinth.com/mod/entityculling/version/DDaDZQ47) |
-| Euphoria Patches | 1.11.1-r5.10-neoforge | [Exact version](https://modrinth.com/mod/euphoria-patches/version/Gkv3fLVg) |
+| Entity Culling | 1.12.2 | [Exact version](https://modrinth.com/mod/entityculling/version/8uamSG2K) |
+| Euphoria Patches | 1.11.2-r5.10-neoforge | [Exact version](https://modrinth.com/mod/euphoria-patches/version/fqKNZqvM) |
 | Exposure | 1.9.21 | [Exact version](https://modrinth.com/version/tjX0GpFW) |
 | Fast Noise | 1.0.13+1.21.1+neoforge | [Exact version](https://modrinth.com/mod/zfastnoise/version/9vSFkDAr) |
 | FerriteCore | 7.0.3-neoforge | [Exact version](https://modrinth.com/mod/ferrite-core/version/x7kQWVju) |
@@ -157,12 +158,13 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Just Another Rotten Flesh to Leather Mod | 1.8.0 | [Exact version](https://modrinth.com/mod/jrftl/version/ZgbUilZH) |
 | Just Enough Items (JEI) | 19.71.0.470 | [Exact version](https://modrinth.com/mod/jei/version/kmb7KviL) |
 | Kotlin for Forge | 5.13.0 | [Exact version](https://modrinth.com/mod/kotlin-for-forge/version/9ZlVvei8) |
+| Lamb Lanterns | 1.2.0 | [Exact version](https://modrinth.com/mod/lamb-lanterns/version/H8iHSQhM) |
 | LambDynamicLights | 4.8.11+1.21.1 | [Exact version](https://modrinth.com/mod/lambdynamiclights/version/ksaGCvSu) |
 | Linear Bearing | 1.3.5 | [Exact version](https://modrinth.com/mod/linear-bearing/version/8SJdnoXS) |
 | Linear Bearings Fix | 1.0.3 | [Exact version](https://modrinth.com/mod/linear-bearings-fix/version/MQ6XuOMQ) |
 | Lithium | mc1.21.1-0.15.4-neoforge | [Exact version](https://modrinth.com/mod/lithium/version/DDUrRVCA) |
 | Lootr | 1.21.1-1.11.38.127 | [Exact version](https://modrinth.com/version/SPOrIzX8) |
-| Lootr: Styled | 0.1.0 | [Published presentation addon](https://github.com/mannie-exe/lootr-styled/releases/tag/v0.1.0) |
+| Lootr: Styled | 0.2.0-reform-public.1 | Unpublished local candidate; [snapshot workflow](development/build.md#local-builds) |
 | Low On Fire | 26.3 | [Exact version](https://modrinth.com/version/yQdcUfnr) |
 | Low Shield | 3.0.0 | [Exact version](https://modrinth.com/version/AV6Mwfm5) |
 | Macaw's Doors | 1.1.5 | [Exact version](https://modrinth.com/mod/macaws-doors/version/u7BRX44F) |
@@ -187,13 +189,13 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Omnidirectional Movement | 1.2-OVERHAUL+1.21.1-neoforge | [Exact version](https://modrinth.com/mod/omnidirectional-movement/version/BnnlX11f) |
 | Outline Effects | 2.2 (runtime 2.4.0) | [Exact artifact](https://modrinth.com/mod/outline-effects/version/4Scic1zd) |
 | Questlog | 3.5.4-1.21.1-neoforge | [Exact version](https://modrinth.com/mod/questlog/version/McoSDHAk) |
-| RAY's 3D Ladders | 2.4 | [Exact version](https://modrinth.com/version/lfVriRcD) |
+| RAY's 3D Ladders | 2.5 | [Exact version](https://modrinth.com/version/6ubKzVD3) |
 | RAY's 3D Rails | 3.7 | [Exact version](https://modrinth.com/version/tKWH9VdI) |
 | Rechiseled | 1.2.6-neoforge-mc1.21 | [Exact version](https://modrinth.com/mod/rechiseled/version/6muGRqvu) |
 | Rechiseled: Create | 1.1.1-neoforge-mc1.21 | [Exact version](https://modrinth.com/mod/rechiseled-create/version/VnOezhJR) |
 | Redden's Stone Lanterns | 1.0.4 | [Exact version](https://modrinth.com/mod/reddens-stone-lanterns/version/uehlsDrT) |
 | Redstone Tweaks | 2.4.5 | [Exact version](https://modrinth.com/resourcepack/redstone-tweaks/version/acYT0fGm) |
-| Reliable EMI (REMI) | 4.9.0-1.21.1-neoforge | [Exact version](https://modrinth.com/mod/reliable-emi/version/yPFwnhDo) |
+| Reliable EMI (REMI) | 4.9.0-1.21.1-neoforge | [Exact version](https://modrinth.com/mod/reliable-emi/version/XQQ84u5q) |
 | Reliable Gliders | 2.1.0+1.21.1-neoforge | [Exact version](https://modrinth.com/mod/reliable-gliders/version/rW61WzQF) |
 | Resourceful Lib | 3.0.12 | [Exact version](https://modrinth.com/mod/resourceful-lib/version/x99nCLTm) |
 | Ritchie's Projectile Library | 2.1.2 | [Exact version](https://modrinth.com/mod/rpl/version/hZ6B2Z0x) |
@@ -208,6 +210,10 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Sinytra Connector | 2.0.0-beta.17+1.21.1 | [Exact version](https://modrinth.com/mod/connector/version/IITF0PRC) |
 | Sky Archipelago | 1.4 | [Exact version](https://modrinth.com/mod/sky-archipelago/version/XPc17YJD) |
 | Sky Villages | 1.0.6 | [Exact version](https://modrinth.com/mod/sky-villages/version/3InSHTOp) |
+| Snow! Real Magic! | 12.2.7 (NeoForge) | [Exact version](https://modrinth.com/mod/snow-real-magic/version/gLnAisfF) |
+| Kiwi | 15.8.7 (NeoForge) | [Exact version](https://modrinth.com/mod/kiwi/version/tfwJWC8g) |
+| Snow Under Trees | 1.21.1-v1.7 | [Exact version](https://modrinth.com/mod/snow-under-trees/version/OYaUDns6) |
+| Simple Snowy Fix | 2.2.1 (NeoForge) | [Exact version](https://modrinth.com/mod/simple-snowy-fix-forge-fabric/version/UlwusT7e) |
 | Sodium Extra | mc1.21.1-0.9.5+neoforge | [Exact version](https://modrinth.com/mod/sodium-extra/version/T819dLGI) |
 | Sodium | mc1.21.1-0.8.13-neoforge | [Exact version](https://modrinth.com/mod/sodium/version/uMOpc5uV) |
 | Soft Weather | 1.0 | [Exact version](https://modrinth.com/version/iAb7bpl5) |

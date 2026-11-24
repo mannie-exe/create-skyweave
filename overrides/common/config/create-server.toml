@@ -118,7 +118,7 @@
 	#Max Distance in blocks a Weighted Ejector can throw
 	# Default: 32
 	# Range: > 0
-	maxEjectorDistance = 32
+	maxEjectorDistance = 64
 	#.
 	#Time in ticks until the next item launched by an ejector scans blocks for potential collisions
 	# Default: 120
@@ -177,7 +177,7 @@
 		#Max length of rope available off a Rope Pulley.
 		# Default: 384
 		# Range: > 1
-		maxRopeLength = 384
+		maxRopeLength = 512
 		#.
 		#Maximum allowed distance of two coupled minecarts.
 		# Default: 32

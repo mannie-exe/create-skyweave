@@ -14,20 +14,20 @@
         "overrides/client/config/cmdcam-client.json"
       ],
       "review": "reviewed",
-      "reason": "Seed personal filming preferences on clients only. Flashback recording starts manually, finishes on disconnect, records the local player at 20 updates per second and leaves voice capture and synchronized ticking off. Seed 1080p/30 H.264 export with game audio and no supersampling without forcing later user choices. CMDCam starts with a ten-second Hermite path, outside camera and smooth entry; legacy Minema synchronization is off. Native editors rewrite these preference files; recordings, export paths, camera scenes and cache state remain installation-local.",
+      "reason": "Seed personal filming preferences on clients only. Flashback recording starts manually, finishes on disconnect with Quicksave enabled (save using default values instead of opening Save Replay), records the local player at 20 updates per second and leaves voice capture and synchronized ticking off. Seed 1080p/30 H.264 export with game audio and no supersampling without forcing later user choices. CMDCam starts with a ten-second Hermite path, outside camera and smooth entry; legacy Minema synchronization is off. Native editors rewrite these preference files; recordings, export paths, camera scenes and cache state remain installation-local.",
       "reference": "docs/players/filming.md",
       "family": "client-preferences"
     },
     {
       "paths": ["overrides/client/options.txt"],
       "review": "reviewed",
-      "reason": "Select Fresh base, Details, Objects, Quivers and Bray’s FA zombie variants in that increasing-priority order. Add dedicated Fresh Vines, the native-format Punchy potion backport and Artifacts 3D; retain the existing Refined/Luminous/Fluid & Foolish/backpack selections. Keep Visual Patches last for maintained model, bucket, chain and animation bindings. Seed existing distances and the complete post-fix input map: preserve core play, separate Left Alt building from Right Alt Create tools, supply camera/path/marker and non-keypad Jade controls, and move Ping/Wayfinder to G/F12. Avoid macOS app hide/window-cycle/settings shortcuts and native modified-F11 interception; retain contextual editor shortcuts. Explicitly seed audited native mappings; use the qualified optional input repairs for the U/Mod+U/Shift+U camera group and explicit platform-modifier undo/redo. Existing players retain their preferences.",
+      "reason": "Select Fresh base, Details, Objects, Quivers and Bray\u2019s FA zombie variants in that increasing-priority order. Add dedicated Fresh Vines, the native-format Punchy potion backport and Artifacts 3D; retain the existing Refined/Luminous/Fluid & Foolish/backpack selections. Keep Visual Patches last for maintained model, bucket, chain and animation bindings. Seed existing distances and the complete post-fix input map: preserve core play, separate Left Alt building from Right Alt Create tools, supply camera/path/marker and non-keypad Jade controls, and move Ping/Wayfinder to G/F12. Avoid macOS app hide/window-cycle/settings shortcuts and native modified-F11 interception; retain contextual editor shortcuts. Explicitly seed audited native mappings; use the qualified optional input repairs for the U/Mod+U/Shift+U camera group and explicit platform-modifier undo/redo. Existing players retain their preferences.",
       "reference": "docs/development/input-remap.md"
     },
     {
       "paths": ["overrides/common/config/DistantHorizons.toml"],
       "review": "reviewed",
-      "reason": "Bound multiplayer LOD transfers to 2048 KB/s, 64 fresh requests and 100 sync requests. Disable height-based cave culling for floating island undersides. Exclude glow lichen from LOD rendering because DH 3.3.3 transfers its tint and emissive material to columns below, including fluids; native lichen remains visible. Retain 256-chunk rendering, four workers, CHUNKS_ONLY generation and hidden progress; preserve installation-specific identities.",
+      "reason": "Bound multiplayer LOD transfers to 2048 KB/s, 64 fresh requests and 100 sync requests. Disable height-based cave culling for floating island undersides. Exclude glow lichen from LOD rendering because DH 3.3.3 transfers its tint and emissive material to columns below, including fluids; native lichen remains visible. Retain 256-chunk rendering, four workers, CHUNKS_ONLY generation and hidden progress; preserve installation-specific identities. Disable the native updater so the curated pack owns dependency updates; retain the existing health warnings and other presentation choices.",
       "reference": "docs/development/compatibility.md#dh-multiplayer-cache-filling",
       "family": "host-settings"
     },
@@ -46,7 +46,6 @@
         "overrides/common/config/emi.css",
         "overrides/common/config/emi_loot_config.toml",
         "overrides/common/config/emixx/emixx-client.toml",
-        "overrides/common/config/emixx/remi.json",
         "overrides/common/config/flywheel-client.toml",
         "overrides/common/config/immersivelanterns-client.toml",
         "overrides/common/config/jei/blacklist.json",
@@ -88,7 +87,7 @@
     {
       "paths": ["overrides/common/config/create-client.toml"],
       "review": "reviewed",
-      "reason": "Use the reviewed Create menu positions: main-menu row 3 and in-game-menu row 4. Other inherited settings remain unchanged.",
+      "reason": "Hide Create main-menu and pause-menu config buttons (row 0) to reduce clutter. Keep settings accessible through its Mods configuration entry; other preferences remain unchanged. Native editable client preferences remain seeded.",
       "reference": "docs/development/authoring.md#configuration-register",
       "family": "client-preferences"
     },
@@ -231,6 +230,23 @@
       "review": "reviewed",
       "reason": "Lootr: Styled owns reload-scoped Lootr geometry and optional Fresh adaptation. Seed independent model/artwork/AUTO choices as player preferences. Default offers barrel geometry and artwork independently; the pack seeds inherited artwork. Local profile drafts and the older permission-pending editor previews are not shipped as pack defaults.",
       "reference": "docs/players/graphics.md#lootr-styled",
+      "family": "client-preferences"
+    },
+    {
+      "paths": ["overrides/client/config/sable_beyond/other.json"],
+      "review": "reviewed",
+      "reason": "Hide Sable Beyond main-menu and pause-menu config buttons while retaining its Mods configuration entry. This native file contains only the two local UI preferences; no mass or gameplay settings are copied. Seed player choices.",
+      "reference": "docs/development/client-messages.md",
+      "family": "client-preferences"
+    },
+    {
+      "paths": [
+        "overrides/common/config/emixx/remi.json",
+        "overrides/common/config/remi/remi.json"
+      ],
+      "review": "reviewed",
+      "reason": "Retain existing recipe-viewer preferences and enable native creative-tab scroll memory in the updated 4.9.0 artifact; keep current and legacy config paths aligned.",
+      "reference": "docs/development/compatibility.md",
       "family": "client-preferences"
     }
   ]

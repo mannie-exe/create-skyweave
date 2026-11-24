@@ -6,7 +6,6 @@
         "overrides/common/config/accessories.json5",
         "overrides/common/config/dynamic_fps.json",
         "overrides/common/config/entityculling.json",
-        "overrides/common/config/euphoria_patcher/settings.toml",
         "overrides/common/config/fzzy_config/keybinds.toml",
         "overrides/common/config/hoofprint.toml",
         "overrides/common/config/immediatelyfast.json",
@@ -16,7 +15,6 @@
         "overrides/common/config/jade/plugins.json",
         "overrides/common/config/mcqoy.toml",
         "overrides/common/config/moreculling.toml",
-        "overrides/common/config/remi/remi.json",
         "overrides/common/config/ssrd-common.toml",
         "overrides/common/config/surveyor.toml",
         "overrides/common/config/trender.json",
@@ -44,8 +42,6 @@
         "overrides/common/config/copycats-common.toml",
         "overrides/common/config/copycats-server.toml",
         "overrides/common/config/create-common.toml",
-        "overrides/common/config/create-server.toml",
-        "overrides/common/config/create_aeronautics_throwable_rope_connector-common.toml",
         "overrides/common/config/create_connected-server.toml",
         "overrides/common/config/create_power_loader-server.toml",
         "overrides/common/config/createbigcannons-server.toml",
@@ -403,6 +399,61 @@
       "review": "reviewed",
       "reason": "Enable JRFTL hard mode: four rotten flesh craft one prepared flesh, then furnace or smoker processing yields one leather. Resource Patches adds campfire processing of that same intermediate; no direct rotten-flesh cooking bypass.",
       "reference": "docs/development/progression.md#leather",
+      "family": "pack-rules"
+    },
+    {
+      "paths": [
+        "overrides/common/config/create-server.toml"
+      ],
+      "review": "reviewed",
+      "reason": "Owner-selected weighted-ejector maximum distance of 64 blocks and vertical rope-pulley travel ceiling of 512 blocks for tall islands. Preserve belt20, chain32, and other native/inherited settings; this review does not qualify every setting in the file or safe player landings.",
+      "reference": "docs/development/progression.md#ropes-and-connection-limits",
+      "family": "pack-rules"
+    },
+    {
+      "paths": [
+        "overrides/common/config/create_aeronautics_throwable_rope_connector-common.toml"
+      ],
+      "review": "reviewed",
+      "reason": "Owner-selected projectile range ceilings: hand16, handheld launcher64, mounted launcher128. Retain hand velocity1.5, native launcher velocity3, success-only ammo consumption and other settings. Optional Compat throwable_rope_connector.range_limits prevents native COMMON startup from overwriting above40 values before Simulated SERVER settings load, while effective readers retain the real server ceiling. Simulated connector admission remains255; larger caps do not remove drag/gravity or guarantee level-to-level shots.",
+      "reference": "docs/development/progression.md#ropes-and-connection-limits",
+      "family": "pack-rules"
+    },
+    {
+      "paths": [
+        "overrides/common/config/euphoria_patcher/settings.toml"
+      ],
+      "review": "reviewed",
+      "reason": "Disable Euphoria update checking for the curated pack. Retain existing shader messages, popup logging, support prompt behavior, shader maintenance and other preferences. Native dismissal history remains installation-local.",
+      "reference": "docs/development/client-messages.md",
+      "family": "client-preferences"
+    },
+    {
+      "paths": [
+        "overrides/common/config/snowundertrees-common.toml",
+        "overrides/common/config/simple_snowy_fix_common.json"
+      ],
+      "review": "reviewed",
+      "reason": "Enable native snow beneath cold-biome canopies at generation and during snowfall. Keep Simple Snowy Fix limited to repairing cross-chunk leaf snow caps; extra snow beneath other leaves remains false. Both files own pack world-generation/gameplay defaults and are managed. Neither mod adds accumulating multi-layer storms. Snow Real Magic is selected separately for snowlogging, with accumulation disabled.",
+      "reference": "docs/development/compatibility.md#snow-and-ground-cover",
+      "family": "pack-rules"
+    },
+    {
+      "paths": [
+        "overrides/common/config/snowrealmagic-common.yaml"
+      ],
+      "review": "reviewed",
+      "reason": "Keep Snow Real Magic 12.2.7 and Kiwi installed for snowlogging. Disable accumulation in ordinary snowfall and thunderstorms, and disable snow gravity. Retain water-to-ice conversion, fall cushioning and the eight-layer covered-block spawn limit by explicit owner choice; retain the other native QoL, collision, step, grass-preservation, melting and overlay defaults. With gravity off, falling-snow conversion normally has no automatic falling snow to act on. Full native-writer YAML avoids omission-only rewrites; common gameplay policy is managed.",
+      "reference": "docs/development/compatibility.md#snow-and-ground-cover",
+      "family": "pack-rules"
+    },
+    {
+      "paths": [
+        "overrides/common/config/kaleidoscope_cookery-common.toml"
+      ],
+      "review": "reviewed",
+      "reason": "Keep native Satiated Shield enabled with its current nine common settings for gameplay review; these are managed pack combat policy, not player preferences. Other Cookery effects remain native.",
+      "reference": "docs/development/culinary.md",
       "family": "pack-rules"
     }
   ]

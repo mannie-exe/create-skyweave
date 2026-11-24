@@ -94,6 +94,14 @@ Keep the baseline's familiar positions/semantics and let users rebind through Co
 
 macOS Control/Command/Option, AltGr, dead keys, IME composition, compact keyboards, function/media layers, and two-button mice need actual platform checks. In particular, Effortless Building's raw Control test is not a promise of Command equivalence. Avoid mass assigning Ctrl/Alt chords until each consumer honors them. No alternate layout, Windows/Linux input path, IME behavior, Amecs installation, or automatic profile-selection facility was qualified by this audit. Controlling improves discovery and conflict display; it does not govern raw polls, custom chord dispatch, or text-focus policy.
 
+## Visual keyboard viewer
+
+Keybind Atlas 3.0.0 is a client-only trial. Open it with **F7**, or **Options → Controls → Keybind Atlas**; `/keybindatlas` is its client command. K remains the shader toggle. Keyboard-set cycling and both controller shortcuts start unassigned, preventing accidental profile switches. No saved sets or selected-set config is distributed. Its native autosave does nothing while no set is selected; selecting a set makes it a mutable player-owned snapshot.
+
+The exact NeoForge artifact uses native KeyMappings/consumeClick, drains clicks before declining open screens, and registers its Controls entry independently of gameplay. Source inspection found no renderer/terrain mixins. Its single mixin injects into `KeyMapping.isDown` and can supply a held result through the optional Controllable adapter; this is a global input hook, not a renderer change. This is implementation review, not an observed GUI or cross-platform dispatch result. The four Atlas registrations are newer than the retained 224-mapping native capture; that capture remains historical and the freshness check must report changed inputs until a new native collection. Do not relabel it as current.
+
+The viewer covers registered mappings and its supported integrations; it does not promise a complete representation of IPN/EMI custom chords, resource-defined interaction rules, or raw key polling. Keep this guide and the authored map authoritative for those paths. Set editing can write options and does not replace our separate custom-config owners. Recheck the four mapping IDs, screen/text guards, profile persistence, and Controlling’s Controls-list layout when updating Atlas. No automatic profile application is authored.
+
 ## Updating the index
 
 1. Capture a fresh disposable client from the current exact packaged recipe, after resource reload and dynamic binding registration. Collect `Options.keyMappings`, constructor defaults, native modifiers/conflict contexts, loaded IPN main/alternative bindings and settings, and EMI alternatives. The collector is in `tools/input-audit/KeybindAudit.java`. It reads configuration at the title screen and exits; it does not qualify action dispatch.

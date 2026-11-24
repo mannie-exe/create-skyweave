@@ -1,5 +1,14 @@
 schema: 1
 bindings:
+  keybind-atlas:
+    placement:
+      files:
+        primary:
+        - destination: mods/KeybindAtlas-v3.0.0-mc1.21.1-neoforge.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
   flashback:
     placement:
       files:
@@ -392,11 +401,16 @@ bindings:
             server: required
           layer: common
 policies:
+  config/snowrealmagic-common.yaml: managed
+  config/snowundertrees-common.toml: managed
+  config/simple_snowy_fix_common.json: managed
+  config/kaleidoscope_cookery-common.toml: managed
   config/kaleidoscope_tavern-common.toml: managed
   config/lootr_styled/settings.json: seed
   config/cmdcam-client.json: seed
   config/punchy/triggerable-keybindings.json: seed
   config/flashback/flashback.json: seed
+  config/sable_beyond/other.json: seed
   server.properties: seed
   user_jvm_args.txt: seed
   config/DistantHorizons.toml: seed
@@ -697,7 +711,7 @@ policies:
   icon.png: seed
   options.txt: seed
   "shaderpacks/BSL_v10.1.8 + Clrwl_1.0.5 + Skyweave_0.3.1.zip.txt": seed
-  "shaderpacks/Complementary Unbound r5.10 + Euphoria 1.11.1 + Skyweave 0.4.1.zip.txt": seed
+  "shaderpacks/Complementary Unbound r5.10 + Euphoria 1.11.2 + Skyweave 0.4.2.zip.txt": seed
   shaderpacks/Photon v1.4 + Skyweave 0.3.1.zip.txt: seed
   config/guardvillagers-common.toml: managed
   config/guardvillagers-startup.toml: managed

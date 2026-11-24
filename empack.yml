@@ -5,8 +5,7 @@ pack:
   id: create_skyweave
   description: Sky islands, airships and engineering. Java 21 and at least 12 GiB of system memory. Allow additional host memory for the default 12 GiB Prism heap or a comparable server heap.
   authors:
-    - mannie-exe
-    - TimdoesLive
+    - inherent.design contributors
 runtime:
   loader:
     kind: neoforge
@@ -36,7 +35,7 @@ dependencies:
   creativecore:
     side: client
     source: modrinth:OsZiaDHq
-    pin: v8QrwctR
+    pin: aoWQBRG8
   carryon-animation-fix:
     side: client
     source:
@@ -154,7 +153,7 @@ dependencies:
     pin: 44pLdPGg
   create-aeronautics-climbable-rope:
     source: modrinth:jImqv1M5
-    pin: 1r3CmpkA
+    pin: MQNJGin9
   create-aeronautics-covers:
     source: modrinth:eWrKPy9E
     pin: R35biaZf
@@ -205,7 +204,7 @@ dependencies:
     source: modrinth:wPQ6GgFE
     pin: 3Y4r0ItR
   create-radars:
-    pin: ES5qa3pY
+    pin: 2wQXuyCI
     source: modrinth:BLu2Yqfq
   create-transmission:
     source: modrinth:QFCkBuIh
@@ -270,14 +269,14 @@ dependencies:
   entityculling:
     side: client
     source: modrinth:NNAgCjsB
-    pin: DDaDZQ47
+    pin: 8uamSG2K
   escalated:
     source: modrinth:LyOBYG8Q
     pin: vJ49zRJl
   euphoria-patches:
     side: client
     source: modrinth:4H6sumDB
-    pin: Gkv3fLVg
+    pin: fqKNZqvM
   exposure:
     source: modrinth:hB899VmG
     pin: tjX0GpFW
@@ -341,12 +340,8 @@ dependencies:
     pin: SPOrIzX8
   lootr-styled:
     source:
-      kind: url
-      downloads:
-        - https://github.com/mannie-exe/lootr-styled/releases/download/v0.1.0/lootr-styled-1.21.1-neoforge-0.1.0.jar
-    digests:
-      sha1: 7fb1999a91bc4868d7f6ded7c1a3b9a9f8d1230a
-      sha512: efc9954a4d39527d664c594d413150268ce8f1299102be31a6f270a4b1f3daaf9d7dbadd40499eed12654eee1f658abf1e26fa1f4ad73dbc858e2cc548333867
+      kind: local
+      path: .local-artifacts/lootr-styled-0.2.0-reform-public.1-4711942c0603f5f4.jar
     type: mod
     side: client
   macaws-doors:
@@ -421,7 +416,7 @@ dependencies:
     source: modrinth:plgWdsGJ
     pin: uehlsDrT
   reliable-emi:
-    pin: yPFwnhDo
+    pin: XQQ84u5q
     side: client
     source: modrinth:N9WucjHL
   rpl:
@@ -643,7 +638,7 @@ dependencies:
       server: unsupported
   rays-3d-ladders:
     source: modrinth:rays-3d-ladders
-    pin: lfVriRcD
+    pin: 6ubKzVD3
     type: resource-pack
     environment:
       client: required
@@ -819,22 +814,21 @@ dependencies:
       server: unsupported
   skyweave-compat:
     source:
-      kind: url
-      downloads:
-        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.42.1/skyweave-compat-0.42.1-mc1.21.1-neoforge.jar
+      kind: local
+      path: .local-artifacts/skyweave-compat-0.43.0-euphoria-dev.1-b403a6cb5b1dbb91.jar
     digests:
-      sha1: ce69095c906214041b78b2653606c08ab54e0aba
-      sha512: c7812a36ed76e5851b89d65064a055ea71d603a45316d82d696ec5fc125bb01a344806eb4d80f62c8e1a78ee542d6727091cdb23ed23097a18f9a2091063f757
+      sha256: b403a6cb5b1dbb91538e41bb3527bd5a3e97800492e51ee0e0ee96942d171b16
+      sha512: 562c6256e3b81eaceb1a9c8f40de916819b954ca52dbb4b8f08f05b3def2e488086036155d3d554ce5bba26732f2bb044ab809e415fe01b1d7f869486e442b01
     type: mod
     side: both
   reform:
     source:
       kind: url
       downloads:
-        - https://github.com/mannie-exe/reform/releases/download/v0.2.0/reform-0.2.0-mc1.21.1-neoforge.jar
+        - https://github.com/mannie-exe/reform/releases/download/v0.3.0/reform-0.3.0-mc1.21.1-neoforge.jar
     digests:
-      sha1: 3bcee4e8fcdd937e433e7c1433a73c3cd884000c
-      sha512: 6248cb8de5576a766f09313a8072f8e7ae6f7c2d74af260baab4007c83f1e38cac076d1f8b11102241379f16deb1e6290f76478f0bfbc2ac400ed0ee66703680
+      sha256: 8a3fcc486b44351962535b4b63b83caee538e086e35529ec6710ed5c6397b7ab
+      sha512: c07a5ae655f0d5ec36e49e855f54c58d61827307465594069de7dde40d9260984fc6a5572abf5a7ae870c251b7ad51e2b3bb9227e317ae33e2f020271764685c
     type: mod
     side: both
   linear-bearings-fix:
@@ -1062,6 +1056,7 @@ dependencies:
     pin: VhIOvcXP
     source: modrinth:better-combat
   omnidirectional-movement:
+    side: client
     pin: BnnlX11f
     source: modrinth:omnidirectional-movement
   grapplemod-skybound:
@@ -1079,6 +1074,25 @@ dependencies:
   jrftl:
     pin: ZgbUilZH
     source: modrinth:jrftl
+  keybind-atlas:
+    side: client
+    pin: r5GwaT7L
+    source: modrinth:keybind-atlas
+  snow-real-magic:
+    pin: gLnAisfF
+    source: modrinth:snow-real-magic
+  snow-under-trees:
+    pin: OYaUDns6
+    source: modrinth:snow-under-trees
+  simple-snowy-fix-forge-fabric:
+    pin: UlwusT7e
+    source: modrinth:simple-snowy-fix-forge-fabric
+  lamb-lanterns:
+    pin: H8iHSQhM
+    source: modrinth:lamb-lanterns
+    environment:
+      client: required
+      server: required
 
 build:
   default:

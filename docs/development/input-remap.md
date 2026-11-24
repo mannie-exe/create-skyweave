@@ -15,14 +15,14 @@ The **post-fix** map is authored in `overrides/client/options.txt` and the exist
 | Player presentation | I Inspect; J emote menu; U orbit camera; F5 native perspective; Mod+U custom camera; Shift+U editor; F9 Punchy settings. |
 | Building | Left Alt Effortless radial; F4 modifier settings; Mod+Z/Y undo/redo. Right Alt Create alternate/toolbox/schematic and Copycat fill. Period Simulated tool rotation. |
 | Tools | Mod+F4 Analog Audio input mode; Mod+Semicolon rope camera lock; Mod+E Exposure controls. Retain native item Use, mounting, movement and target rules. |
-| Graphics | O shader selection; K shader toggle; F8 shader reload; Mod+O Outline settings; F11 fullscreen. |
+| Graphics | F7 Keybind Atlas; O shader selection; K shader toggle; F8 shader reload; Mod+O Outline settings; F11 fullscreen. |
 | Target information | Backslash Jade config; Mod+Backslash overlay; Mod+[ fluid; Mod+] narrate; Shift+[ recipes; Shift+] uses. No numeric keypad required. |
 | Inventory | Native transfers; Mouse Tweaks drag/wheel; IPN middle-sort/buttons; EMI R/U/A, Ctrl+F search and Ctrl+O visibility through its native modifier interpretation. Existing profile chords remain custom, not typed sequences. |
 | Refill | Physical Right Control replaces Left Alt for temporary tool-replacement bypass. Inventory slot-lock editing retains Left Alt in its different screen context. |
 
 Right Alt deliberately separates Create's existing contextual group from the owner's Left Alt building wheel. It is not proof all arbitrary offhand/tool combinations are exclusive. Qualify actual held tools, target transitions, and AltGr/platform layouts. No Ctrl+B binding is added; preserve the native narrator shortcut. R stays free of new world actions because IPN uses it as a profile/config chord prefix. An unassigned Helium Flamingo mapping preserves its native Sprint fallback; do not mistake it for an inactive feature.
 
-Moves' U, Mod+U and Shift+U mappings use the qualified native-priority repair. Orbit still requires the native custom camera to be active; Mod+U enables it. F6/F7 become available for deliberate rebinding. Direct emotes remain menu-accessible instead of adding another default shortcut bank.
+Moves' U, Mod+U and Shift+U mappings use the qualified native-priority repair. Orbit still requires the native custom camera to be active; Mod+U enables it. F6 remains available for deliberate rebinding; F7 opens Keybind Atlas. Direct emotes remain menu-accessible instead of adding another default shortcut bank.
 
 ## Platform shortcut boundaries
 

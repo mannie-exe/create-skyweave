@@ -3,3 +3,4 @@
 /.cache/
 /.empack-cache/
 /.host-state/
+/.local-artifacts/

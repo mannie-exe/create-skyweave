@@ -9,6 +9,7 @@
   "horizontalTabsHeight": 24,
   "tabIconSize": 16,
   "syncSelectedCreativeModeTab": true,
+  "rememberCreativeTabPosition": true,
   "showCreativeTabNameInSearchbar": true,
   "switchToSearchTabWhenSearching": true,
   "maxSidebarTabs": 0,
