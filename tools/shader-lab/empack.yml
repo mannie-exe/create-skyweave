@@ -46,9 +46,9 @@ dependencies:
   shader-runner:
     source:
       kind: local
-      path: .local-artifacts/skyweave-compat-0.43.0-euphoria-dev.1-b403a6cb5b1dbb91.jar
+      path: .local-artifacts/skyweave-compat-0.43.0-maintenance-euphoria-dev.1-4ae402eaa858eef4.jar
     digests:
-      sha256: b403a6cb5b1dbb91538e41bb3527bd5a3e97800492e51ee0e0ee96942d171b16
-      sha512: 562c6256e3b81eaceb1a9c8f40de916819b954ca52dbb4b8f08f05b3def2e488086036155d3d554ce5bba26732f2bb044ab809e415fe01b1d7f869486e442b01
+      sha256: 4ae402eaa858eef4141858554a3f9f0867f6e2ddc72e68313668187a3058e5d5
+      sha512: 6df266494b96fc0172bb29cc58c79411dbbb8268c4be1dbace7548a6c80fa0854635988e6bc62511c8dfb3c25d14b14be20919b11625de50025457b42e0fd097
     type: other-file
     side: client

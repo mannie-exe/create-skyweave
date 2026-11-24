@@ -18,18 +18,14 @@
       "reference": "docs/development/compatibility.md"
     },
     {
-      "paths": [
-        "overrides/common/config/iris-excluded.json"
-      ],
+      "paths": ["overrides/common/config/iris-excluded.json"],
       "review": "inherited",
       "reason": "Retained from the imported pack. Individual setting intent has not been reviewed.",
       "reference": "docs/development/decisions.md",
       "family": "client-preferences"
     },
     {
-      "paths": [
-        "overrides/common/config/iris.properties"
-      ],
+      "paths": ["overrides/common/config/iris.properties"],
       "review": "reviewed",
       "reason": "Select the generated Complementary/Euphoria/Skyweave shader; preserve shader enablement and player rendering policy.",
       "reference": "docs/development/decisions.md",
