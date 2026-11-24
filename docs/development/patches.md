@@ -152,7 +152,6 @@ Skyweave: Compatibility Patches’ [adapter reference](https://github.com/mannie
 
 | Family | Intent | Recheck on update |
 | --- | --- | --- |
-| Create Radars jammer | Repair the invalid 5.1.1 JSON | Keep native output and ingredients, qualify both recipes and remove the override once the native jammer parses |
 | Create Deco placard; Interiors recoloring; Bells & Whistles metro window; Design n' Decor cogwheel tag | Repair ingredient/tag references | Native item/tag decoding and intended ingredient membership |
 | Sable mass tags | Extend existing weight conventions to equivalent modded construction and machine variants; see [building weights](weights.md) | Recheck registered IDs, optional family membership, overlapping property selectors and priority against exact Sable/building-mod artifacts. Remove redundant entries when upstream provides equivalent behavior; do not override newly authored upstream weights. Compare all-state mass/zero-mass controls and assembled fixtures, including double slabs and multipart doors/lights. Rebuild Resource Patches and update audit digests. |
 | Aero Cables and TFMG overrides | Condition recipes on optional mods | Startup with optional mods absent; retain recipes when their dependencies are present |
@@ -241,7 +240,9 @@ Luminous Lanterns replaces Better Lanterns and owns lantern rendering above Refi
 
 For an update, review the base bucket geometry bone names, model texture aliases, both display contexts, animated surface dimensions, selected resource filters and Punchy definition/compat precedence together. The generator refuses changed contracts rather than silently using the old geometry. Regenerate the ZIP, review its credits/provenance and confirm native inventory, held-use and placed-block rendering with shaders both off and on. Enchanted Fishing Line 1.1.1 includes a Punchy-aware hand adapter; that source evidence does not qualify every custom fishing-rod model or shader combination.
 
-`authoring/held-items.json` selects 17 additional registered buckets: four Factory food fluids, three Propulsion fluids, four Confectionery chocolate/caramel fluids, Power Grid acid, four Big Cannons molten metals and Aeronautics Levitite Blend. The Confectionery hot-chocolate bucket model is an orphan asset in the pinned version: the fluid exists, but no corresponding bucket item is registered. The catalogue excludes it and leaves the drink bottles alone.
+`authoring/held-items.json` selects 23 additional registered buckets: four Factory food fluids, three Propulsion fluids, four Confectionery chocolate/caramel fluids, Power Grid acid, four Big Cannons molten metals, Aeronautics Levitite Blend, and six Tavern juices. The Confectionery hot-chocolate bucket model is an orphan asset in the pinned version: the fluid exists, but no corresponding bucket item is registered. The catalogue excludes it and leaves the drink bottles alone.
+
+Tavern juices reference their six static native still textures. Keep the exact Tavern input pin, item/fluid IDs, and asset paths aligned with the bucket catalogue; no Tavern artwork is copied for these bindings. Cookery has no corresponding native fluid bucket in this selection.
 
 The same generator preserves each native GUI/frame/ground model and adds held models and Punchy definitions. It references the native fluid surfaces directly where their frame order and colours already work. Propulsion turpentine and oxidizer use tinted vanilla water in their native client extensions; the builder applies those exact ARGB values to the pinned water texture. Power Grid acid uses a 20-frame ping-pong sequence that Punchy’s count/time/frame-height interface cannot express directly, so its first-person strip is expanded to 38 frames at the native three-tick duration. The third-person acid sprite remains native. Generated sprites live under the ordinary item-texture directory, and the ZIP includes the Power Grid Apache license and a resolved `held-items.json` provenance report.
 
@@ -385,3 +386,7 @@ Validation for the initial selection is recorded with pack verification. The [pl
 Keep maintained scripts/tests, exact input recipes, compact native surveys and selected comparison captures. Remove disposable clients, audit worlds, raw logs, compiler classes and obsolete exports after their findings enter the owning docs. The Atlas's active generated data and textures are needed for local browsing; `web/dist/` is a duplicate build output and can be removed after checks.
 
 Retain reusable visual fixtures and the source of testing harnesses. Cleanup of build output does not authorize deleting play worlds, LODs, backups, unrelated instances or dependency caches shared with other projects.
+
+## Culinary recipe and data maintenance
+
+[The culinary integration guide](culinary.md) owns accepted flour/dough, tray, and drink policy. Recheck Create machine/crafting outputs, both ordinary ingredient tags, every direct dough consumer and discovery reward, the eight disabled native `minecraft:flour_from_N_wheat` IDs, and the replacement batch recipes together. Preserve water costs and container remainders. Milling access and yields remain a separate owner decision, including Cookery's Create-to-animal-mill fallback. Runtime bowl, potion, tap, and seating repairs belong to optional Compat adaptations rather than another hidden recipe owner.

@@ -26,6 +26,7 @@ Player guides explain installation and operation. Development documents describe
 | [Compatibility constraints](development/compatibility.md) | Dependency interactions and supported boundaries |
 | [Animation and model compatibility](development/animation-compatibility.md) | Renderer ownership, item fitting and native comparison requirements |
 | [Input ownership and controls](development/keybinds.md) | Binding inventory, contextual interactions, overlap findings, keyboard layouts, and proposed defaults |
+| [Client messages and onboarding](development/client-messages.md) | Welcome/update/support prompts, dismissal ownership, useful warnings, and proposed defaults |
 | [Complete control remap](development/input-remap.md) | Pre-Compat defaults, filming controls, and registered/custom dispositions |
 | [Pack verification](development/verification.md) | Artifact checks, evidence ownership and coverage limits |
 | [Journal design and definitions](development/journal.md) | Capabilities, reward budgets, conditions and update checks |
@@ -43,6 +44,8 @@ Player guides explain installation and operation. Development documents describe
 | [Encounters and settlement population](development/encounters.md) | Illager, guard and biome-variant settings, spawn paths and integration limits |
 | [Building weights](development/weights.md) | Classification policy, multipart decisions and native verification |
 | [Progression review](development/progression.md) | Routes, overlaps and remaining play checks |
+| [Culinary integration](development/culinary.md) | Flour/dough interoperability, milling decisions, trays, drink policy, and runtime repair boundaries |
+| [Longshot interactions](development/longshot-interactions.md) | Extended-range review, distant terrain authority, loading policy, and qualification boundaries |
 | [Equipment evaluation](development/equipment.md) | Equipment families, Artifacts effects/acquisition and renderer decisions |
 | [Upstream findings](development/upstream.md) | Known reports and candidates for submission |
 | [Decision history](development/decisions.md) | Accepted pack policies and supporting evidence |

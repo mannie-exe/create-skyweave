@@ -102,14 +102,20 @@ The Modrinth NeoForge artifact `bp6Aw3FM` (`0.7.7+fix1+1.21+neoforge`) contains 
 
 [Rejected artifact](https://modrinth.com/mod/fzzy-config/version/bp6Aw3FM).
 
-## Create Radars 5.1.1
+## Create Radars 5.1.2
 
-The 5.1.1 native warning receiver has the correct copper-plate tag and supplies the previous pack recipe. The native directional-jammer recipe selects the real shaft item but omits a comma before the quartz ingredient. Resource Patches keeps only the jammer repair. Its ingredients, shape, registry ID and output follow 5.1.1.
+Both native warning-receiver and directional-jammer recipes now parse and match the intended ingredients and outputs. Resource Patches supplies neither recipe; the redundant 5.1.1 jammer repair is retired.
 
-The 5.1 line changes saved network-link ordering and removes the legacy `create_radar:t_pitch` block. This alpha upgrade uses 5.1.1's native registry and new link behavior. Recreate affected legacy links with the new version and use its replacement controller for new builds. Recheck both recipes, link persistence and affected registry IDs on the next Radars update.
+The 5.1 line changes saved network-link ordering and removes the legacy `create_radar:t_pitch` block. Recreate affected legacy links with the new version and use its replacement controller for new builds. On future updates, check native recipe parsing, link persistence, and affected registry IDs before restoring any override.
 
-When updating Radars, compare the full runtime-written server configuration with the managed template. Retain native defaults such as `sableCannonTargetingConfig.damageableBlocksOnly = true` in their emitted form so the writer does not create a managed-file conflict at the next preparation. [Native config qualification](verification.md#native-radars-configuration-0221).
+Compare the full runtime-written server configuration with the managed template. Retain native defaults such as `sableCannonTargetingConfig.damageableBlocksOnly = true` in their emitted form so the writer does not create a managed-file conflict at the next preparation. [Native config qualification](verification.md#native-radars-configuration-0221).
 
 ## Recipe-viewer shutdown observation, 2026-10-25
 
 Closing the isolated client while an EMI recipe screen was open logged a caught `NullPointerException` in `JemiPlugin.lambda$register$3`: JEI had already announced its runtime unavailable, while the remaining tooltip render queried that runtime. Recipe viewing worked before shutdown. Normal window close then stalled in `Minecraft.disconnect`; the integrated server remained in its tick wait, so the disposable test process was terminated. A causal link between that stall and the tooltip error has not been established. This is a shutdown-order observation with JEI 19.70.0.460, EMI 1.1.24 and Reliable EMI 4.8.0, not an established regression or gameplay failure. No upstream issue was filed.
+
+## Cookery conditional furniture tags
+
+Cookery 1.6.0 marks nine Every Compat/Quark furniture entries as required in its `cookery_mod_items` item tag and the shared Carry On block blacklist. An isolated NeoForge 1.21.1 server without those registrations reports both tags missing their references, in original and recipe-patched controls. This is a native tag-load failure, not proof that every full-pack Carry On route has been exploited.
+
+The narrow repair should make only those known Cookery-origin conditional entries optional before tag validation, preserving other mods' blacklist additions. Appending optional duplicates does not erase lower required entries. NeoForge's tag removals operate on resolved values and do not clear earlier missing-required failures. Replacing the entire shared blacklist would needlessly discard other owners' policy. The source-qualified optional adaptation is retained with the culinary runtime work; no global blacklist replacement is shipped. Retire it when the selected native tag generator supplies correct optional entries.

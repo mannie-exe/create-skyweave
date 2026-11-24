@@ -62,6 +62,8 @@ Check actual assembly, movement, interaction, unload/removal/disassembly, and re
 
 ## Shared lifecycle and terrain assumptions
 
+For expanded projectile, rope, or attachment reach, use the [longshot interaction index](longshot-interactions.md). Review authoritative collision, tracking/render bounds, and simulation residency together. Deliberate server-admitted terrain loading for an actual action remains a separate discovery question; it is not implied by increasing a range or showing a preview.
+
 New integrations must respect the current world/generator, session, player, resource revision, and rendering or storage owner. Scope caches and queued work accordingly. Recheck disconnect/reconnect, teleport/dimension changes, resource/pipeline reload, failed actions, and late asynchronous results for the affected path. Cancellation is not rollback, a saved config is not necessarily applied, and data present on disk is not necessarily ready for rendering.
 
 Terrain-sensitive spawning, structures, fluids, climate, and previews need island/layer-aware queries where the owning integration supplies them. Review stage ordering, physical versus reference height, local water versus sea level, missing/void data, and saved generation identity. Preserve foreign-generator behavior and ordinary presets. Use [world generation](worldgen.md) and [structures](structures.md) for these contracts; a single heightmap or loaded spawn fixture does not qualify stacked islands or every settlement.

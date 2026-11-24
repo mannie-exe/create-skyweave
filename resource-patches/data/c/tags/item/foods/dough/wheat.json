@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "create:dough",
+      "required": false
+    },
+    {
+      "id": "kaleidoscope_cookery:raw_dough",
+      "required": false
+    }
+  ]
+}

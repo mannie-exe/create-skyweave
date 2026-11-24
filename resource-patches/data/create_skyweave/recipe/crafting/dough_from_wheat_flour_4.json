@@ -1,0 +1,36 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "kaleidoscope_cookery"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "create_skyweave:wheat_dough",
+  "ingredients": [
+    {
+      "item": "minecraft:water_bucket"
+    },
+    {
+      "tag": "c:flours/wheat"
+    },
+    {
+      "tag": "c:flours/wheat"
+    },
+    {
+      "tag": "c:flours/wheat"
+    },
+    {
+      "tag": "c:flours/wheat"
+    }
+  ],
+  "result": {
+    "id": "kaleidoscope_cookery:raw_dough",
+    "count": 4
+  }
+}

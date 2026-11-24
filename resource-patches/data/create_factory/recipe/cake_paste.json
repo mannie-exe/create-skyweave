@@ -1,0 +1,36 @@
+{
+  "type": "create:mixing",
+  "heat_requirement": "heated",
+  "ingredients": [
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "tag": "c:foods/dough/wheat"
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "type": "neoforge:tag",
+      "amount": 250,
+      "tag": "c:milk"
+    }
+  ],
+  "results": [
+    {
+      "id": "create_factory:cake_paste",
+      "count": 2
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "kaleidoscope_cookery"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create_factory"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "grapplemod"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "simulated"
+    }
+  ],
+  "parent": "minecraft:story/root",
+  "rewards": {
+    "recipes": [
+      "grapplemod:grappling_hook",
+      "grapplemod:grappling_hook_from_iron_sheets"
+    ]
+  },
+  "criteria": {
+    "auto_unlock": {
+      "trigger": "minecraft:location"
+    }
+  },
+  "requirements": [["auto_unlock"]]
+}

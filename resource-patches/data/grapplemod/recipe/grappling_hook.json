@@ -1,0 +1,47 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "grapplemod"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "simulated"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "grapplemod:grappling_hook",
+  "pattern": [
+    " HB",
+    " CH",
+    "R  "
+  ],
+  "key": {
+    "B": [
+      {
+        "tag": "c:foods/dough/wheat"
+      },
+      {
+        "item": "minecraft:leather"
+      }
+    ],
+    "H": {
+      "item": "minecraft:iron_pickaxe"
+    },
+    "R": {
+      "item": "simulated:rope_coupling"
+    },
+    "C": {
+      "item": "minecraft:chain"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "grapplemod:grappling_hook"
+  }
+}

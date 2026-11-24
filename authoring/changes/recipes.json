@@ -92,14 +92,6 @@
     },
     {
       "paths": [
-        "resource-patches/data/create_radar/recipe/crafting/radar_jammer.json"
-      ],
-      "review": "reviewed",
-      "reason": "Repair the missing comma in the native 5.1.1 jammer recipe while retaining its registered output, shaft item and other ingredients.",
-      "reference": "docs/development/upstream.md#create-radars-511"
-    },
-    {
-      "paths": [
         "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_beam_compat.json",
         "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_block_compat.json",
         "resource-patches/data/create_connected/recipe/crafting/palettes/copycat_board_compat.json",
@@ -121,6 +113,92 @@
       "review": "reviewed",
       "reason": "Add 600-tick campfire cooking of JRFTL prepared flesh into one leather at the same 0.2 recipe XP value as its furnace/smoker recipes; condition on the item-provider mod. Keep native 4:1 preparation and other leather acquisition.",
       "reference": "docs/development/progression.md#leather"
+    },
+    {
+      "paths": [
+        "resource-patches/data/grapplemod/recipe/grappling_hook.json",
+        "resource-patches/data/grapplemod/recipe/grappling_hook_from_iron_sheets.json",
+        "resource-patches/data/minecraft/recipe/lead.json",
+        "resource-patches/data/grapplemod/advancement/hidden/unlock_grappling_hook_recipie.json",
+        "resource-patches/data/minecraft/advancement/recipes/tools/lead.json"
+      ],
+      "review": "reviewed",
+      "reason": "Replace the native pickaxe-plus-lead hook with two shaped recipes using the same diagonal layout: two iron pickaxes OR two iron sheets, a chain, a Simulated rope coupling, and one ordinary wheat dough OR leather binder. Never mix pickaxe and sheet head slots. Both yield one hook; only the original recipe ID is replaced. Replace the lead recipe slimeball with ordinary wheat dough, retaining four string, shape and two-lead output. Condition recipes on their item providers. Retain native initial hook discovery while unlocking both routes; lead discovery accepts either ordinary wheat dough instead of slime.",
+      "reference": "docs/development/progression.md#grappling-hooks-and-leads"
+    },
+    {
+      "paths": [
+        "resource-patches/data/c/tags/item/doughs.json",
+        "resource-patches/data/c/tags/item/flour.json",
+        "resource-patches/data/c/tags/item/flours.json",
+        "resource-patches/data/c/tags/item/flours/wheat.json",
+        "resource-patches/data/c/tags/item/foods/dough.json",
+        "resource-patches/data/c/tags/item/foods/dough/wheat.json",
+        "resource-patches/data/create/advancement/recipes/misc/campfire_cooking/bread.json",
+        "resource-patches/data/create/advancement/recipes/misc/crafting/appliances/slime_ball.json",
+        "resource-patches/data/create/advancement/recipes/misc/smelting/bread.json",
+        "resource-patches/data/create/advancement/recipes/misc/smoking/bread.json",
+        "resource-patches/data/create/recipe/campfire_cooking/bread.json",
+        "resource-patches/data/create/recipe/crafting/appliances/dough.json",
+        "resource-patches/data/create/recipe/crafting/appliances/slime_ball.json",
+        "resource-patches/data/create/recipe/mixing/dough_by_mixing.json",
+        "resource-patches/data/create/recipe/smelting/bread.json",
+        "resource-patches/data/create/recipe/smoking/bread.json",
+        "resource-patches/data/create/recipe/splashing/wheat_flour.json",
+        "resource-patches/data/create_factory/recipe/cake_paste.json",
+        "resource-patches/data/create_skyweave/advancement/recipes/food/dough_from_wheat_flour_1.json",
+        "resource-patches/data/create_skyweave/advancement/recipes/food/dough_from_wheat_flour_2.json",
+        "resource-patches/data/create_skyweave/advancement/recipes/food/dough_from_wheat_flour_3.json",
+        "resource-patches/data/create_skyweave/advancement/recipes/food/dough_from_wheat_flour_4.json",
+        "resource-patches/data/create_skyweave/advancement/recipes/food/dough_from_wheat_flour_5.json",
+        "resource-patches/data/create_skyweave/advancement/recipes/food/dough_from_wheat_flour_6.json",
+        "resource-patches/data/create_skyweave/advancement/recipes/food/dough_from_wheat_flour_7.json",
+        "resource-patches/data/create_skyweave/advancement/recipes/food/dough_from_wheat_flour_8.json",
+        "resource-patches/data/create_skyweave/recipe/crafting/dough_from_wheat_flour_1.json",
+        "resource-patches/data/create_skyweave/recipe/crafting/dough_from_wheat_flour_2.json",
+        "resource-patches/data/create_skyweave/recipe/crafting/dough_from_wheat_flour_3.json",
+        "resource-patches/data/create_skyweave/recipe/crafting/dough_from_wheat_flour_4.json",
+        "resource-patches/data/create_skyweave/recipe/crafting/dough_from_wheat_flour_5.json",
+        "resource-patches/data/create_skyweave/recipe/crafting/dough_from_wheat_flour_6.json",
+        "resource-patches/data/create_skyweave/recipe/crafting/dough_from_wheat_flour_7.json",
+        "resource-patches/data/create_skyweave/recipe/crafting/dough_from_wheat_flour_8.json",
+        "resource-patches/data/minecraft/advancement/recipes/food/flour_from_1_wheat.json",
+        "resource-patches/data/minecraft/advancement/recipes/food/flour_from_2_wheat.json",
+        "resource-patches/data/minecraft/advancement/recipes/food/flour_from_3_wheat.json",
+        "resource-patches/data/minecraft/advancement/recipes/food/flour_from_4_wheat.json",
+        "resource-patches/data/minecraft/advancement/recipes/food/flour_from_5_wheat.json",
+        "resource-patches/data/minecraft/advancement/recipes/food/flour_from_6_wheat.json",
+        "resource-patches/data/minecraft/advancement/recipes/food/flour_from_7_wheat.json",
+        "resource-patches/data/minecraft/advancement/recipes/food/flour_from_8_wheat.json",
+        "resource-patches/data/minecraft/recipe/flour_from_1_wheat.json",
+        "resource-patches/data/minecraft/recipe/flour_from_2_wheat.json",
+        "resource-patches/data/minecraft/recipe/flour_from_3_wheat.json",
+        "resource-patches/data/minecraft/recipe/flour_from_4_wheat.json",
+        "resource-patches/data/minecraft/recipe/flour_from_5_wheat.json",
+        "resource-patches/data/minecraft/recipe/flour_from_6_wheat.json",
+        "resource-patches/data/minecraft/recipe/flour_from_7_wheat.json",
+        "resource-patches/data/minecraft/recipe/flour_from_8_wheat.json",
+        "resource-patches/data/powergrid/recipe/sequenced_assembly/unetched_circuit_board.json"
+      ],
+      "review": "reviewed",
+      "reason": "Bridge ordinary wheat flour and dough tags without cinder/flavored substitutions; prefer Cookery dough from Create processing and eight correctly named flour/bucket crafts. Preserve counts, water cost, bucket remainders, machine timings, and non-food dough consumers; retire duplicate/misnamed recipes and discovery rewards. Milling recipes and yields remain native pending owner policy.",
+      "reference": "docs/development/culinary.md"
+    },
+    {
+      "paths": [
+        "resource-patches/data/kaleidoscope_cookery/recipe/bamboo_tray/drying/rotten_flesh_to_leather.json"
+      ],
+      "review": "reviewed",
+      "reason": "Disable the one-rotten-flesh leather drying shortcut; retain the JRFTL four-flesh prepared-flesh chain and other native tray recipes.",
+      "reference": "docs/development/culinary.md"
+    },
+    {
+      "paths": [
+        "resource-patches/data/kaleidoscope_tavern/datamap/drink_effect/screwdriver.json"
+      ],
+      "review": "reviewed",
+      "reason": "Stop new Screwdriver grants of Upside Down, which permanently renames mobs. Preserve the drink and every other Tavern effect for testing; existing serialized cocktail effects require the separately saved runtime repair.",
+      "reference": "docs/development/culinary.md"
     }
   ]
 }

@@ -169,6 +169,18 @@
     },
     {
       "paths": [
+        "resource-patches/data/create_skyweave/curios/slots/glider.json",
+        "resource-patches/data/create_skyweave/curios/entities/player_glider.json",
+        "resource-patches/data/curios/tags/item/glider.json",
+        "resource-patches/data/curios/tags/item/back.json"
+      ],
+      "review": "reviewed",
+      "reason": "Give players one dedicated glider slot and move Reliable Gliders out of the back tag without replacing other back equipment. Preserve native Curios drop policy and existing flight/item-use behavior; backpack coexistence uses independent slots.",
+      "reference": "docs/development/equipment.md",
+      "family": "pack-rules"
+    },
+    {
+      "paths": [
         "overrides/common/config/transition.json"
       ],
       "review": "inherited",
