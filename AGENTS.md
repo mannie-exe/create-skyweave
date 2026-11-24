@@ -72,3 +72,10 @@ Keep Markdown prose unwrapped; do not insert line breaks to meet a fixed width. 
 Use direct, concise language without marketing or repeated page introductions. Player guides own usage; development docs own decisions and evidence. Rewrite the owning document instead of accumulating review reports. Group by purpose; omit incidental migration history and per-edit commentary. Keep the authoring UI editable, organized by domain, and aligned with the existing component conventions.
 
 Use a conventional commit subject, a blank line, then relevant `- [tag]: message` bullets. Bullet messages are at most 40 characters, have no final period, and use lowercase except proper nouns and initialisms. Scale detail to the change; do not pad small commits to 15 to 30 bullets.
+
+### Changelogs and release notes
+
+- Generate changelogs with git-cliff and the repository's `cliff.toml`, using the actual release tag or comparison range. Inspect the generated output before publication and retain it alongside the authored release summary.
+- Organize release summaries and user-facing change reviews with descriptive category headings and bullet lists. Use the applicable categories, such as gameplay/content, controls/settings, world generation, visuals, compatibility/dependencies, and update instructions; omit empty categories.
+- Name changed dependency versions and describe concrete behavior, defaults, removals, and required user actions. Separate shipped changes from local instance operations, held candidates, and verification limits. A local world reset is not a release-wide migration requirement.
+- Keep feature and fix commits specific enough for git-cliff to produce useful history. Reserve version-only release commits for release administration; do not hide unrelated user-visible changes behind one generic release subject.
