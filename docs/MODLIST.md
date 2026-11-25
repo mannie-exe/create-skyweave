@@ -60,6 +60,7 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | FTB Teams | 2101.1.12 | [Exact release](https://www.curseforge.com/minecraft/mc-mods/ftb-teams-forge/files/9434081) |
 | Geophilic | 3.7 | [Exact version](https://modrinth.com/mod/geophilic/version/5kFV8CEz) |
 | Grappling Hook Mod: Skybound | 1.1+1.21.1-neoforge | [Exact version](https://modrinth.com/mod/grapplemod-skybound/version/ejlIzfJ8) |
+| Grassrise (client only) | 2.0.0+mc1.21.1-neoforge | [Exact version](https://modrinth.com/mod/grassrise-mod/version/dCoBnf1L) |
 | Illager Invasion | v21.1.6-1.21.1-NeoForge | [Exact version](https://modrinth.com/mod/illager-invasion/version/9bEpNrvK) |
 | Inventory Profiles Next | 2.2.5 | [Exact version](https://modrinth.com/mod/inventory-profiles-next/version/vjuNnHLv) |
 | Interactive Foliage | 2.2.1-neoforge+1.21.1 | [Exact version](https://modrinth.com/mod/mc2-interactive-foliage/version/oKmXJIL5) |

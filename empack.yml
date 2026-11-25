@@ -1103,6 +1103,12 @@ dependencies:
     environment:
       client: required
       server: unsupported
+  grassrise-mod:
+    pin: dCoBnf1L
+    source: modrinth:grassrise-mod
+    environment:
+      client: required
+      server: unsupported
 
 build:
   default:

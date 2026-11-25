@@ -42,6 +42,8 @@ Dedicated Sugar Cane and RAY's Rails sit above 3D Crops and Redstone Tweaks resp
 
 Motschen’s Better Leaves 9.6 adds bushy leaf geometry and supplies its own leaf textures. MoreCulling uses `CHECK` for leaves; no additional leaf-culling mod is required by this selection. Interactive Foliage’s ambient leaf waving remains off. The pack uses ordinary 1.21.1 model geometry, but shader appearance and foliage interactions still need an in-game comparison. Existing players can enable `Better-Leaves-9.6.zip` in Resource Packs; new instances select it by default.
 
+Grassrise supplies short, biome-tinted grass blades through its bundled resource pack; snowy grass retains the native snowy model. Its mod automatically enables and prioritizes that pack, so a separate Grassrise ZIP is unnecessary. Grassrise’s shader corrections are not yet qualified for the generated Skyweave shaders: the current names are rejected by its shader-family checks. Native shader-off lighting and the bundled geometry remain available; do not assume that blade-shadow removal is active until the pending Compat bridge is qualified.
+
 The pinned 3D Crops archive declares a newer format despite its 1.21.1 download tag. Default options explicitly accept this inspected archive so Minecraft does not silently deselect it. This acceptance is specific to the pinned file; review it again on updates. Icons is excluded because its symbols add visual clutter.
 
 Punchy supplies the first-person animations; Hold My Items and InteractiveStuff are alternative animation systems and are not installed. Modefite reads the newer item definitions on Minecraft 1.21.1, and RespackOpts supplies resource-pack options. Luminous owns lanterns. Enchanted Fishing Line adds a client-side simulated fishing line.

@@ -110,6 +110,7 @@ coverage:
   fzzy-config: complete
   geophilic: complete
   grapplemod-skybound: complete
+  grassrise-mod: complete
   guard-villagers: complete
   hoofprint: unknown
   illager-invasion: complete
@@ -6053,6 +6054,61 @@ dependencies:
       provider: modrinth
       selector: grapplemod-skybound
     title: "Grappling Hook Mod: Skybound"
+  grassrise-mod:
+    content: mod
+    files:
+    - acquisition:
+        downloads:
+        - >-
+          https://cdn.modrinth.com/data/XEbPlg55/versions/dCoBnf1L/grassrise-2.0.0%2Bmc1.21.1-neoforge.jar
+        kind: provider
+        pin:
+          project:
+            project: XEbPlg55
+            provider: modrinth
+          selection:
+            id: dCoBnf1L
+            provider: modrinth
+        slot: grassrise-2.0.0+mc1.21.1-neoforge.jar
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: e7f7d0c9bb2f709985a08a37ff72269d253baaf2
+          sha512: >-
+            71693ddb4c4679c2c785ff72d509cc389b8122bffdf38222781a15ce72ae07b9d029b5ec8903bce06691464bc3fe88b49e3ac1688780c7ae140292a86cb42157
+        size: 101505
+      placements:
+      - destination: mods/grassrise-2.0.0+mc1.21.1-neoforge.jar
+        environment:
+          client: required
+          server: unsupported
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: e7f7d0c9bb2f709985a08a37ff72269d253baaf2
+          sha512: >-
+            71693ddb4c4679c2c785ff72d509cc389b8122bffdf38222781a15ce72ae07b9d029b5ec8903bce06691464bc3fe88b49e3ac1688780c7ae140292a86cb42157
+        location: XEbPlg55
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: XEbPlg55
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: XEbPlg55
+        provider: modrinth
+      selection:
+        id: dCoBnf1L
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: grassrise-mod
+    title: Grassrise
   guard-villagers:
     content: mod
     files:
@@ -12508,7 +12564,7 @@ dependencies:
       provider: modrinth
       selector: OnlVIpq5
     title: Fast Noise
-intent-revision: e4502349f8b2627df3bbcc4e2fd8855ceb38370db3aba131b701bc5234425b91
+intent-revision: 43d7b2063dad1d3a4d53c63ec316be16816703dda26e30f4ac6bf140b9032c76
 java-policy:
   historical-minimum: 21
   id: empack-java-1
