@@ -23,6 +23,19 @@ RETAINED = {'pack.mcmeta': b'{"pack":{"pack_format":34}}',
 
 
 class ResourcePackRepairs(unittest.TestCase):
+    def tool_entries(self):
+        entries = {**RETAINED, **{path: b'{condition:"arrowModel.old"}' for path in BOW_ORPHANS}}
+        for arrow in ('arrow', 'spectral_arrow'):
+            entries[f'assets/minecraft/optifine/cem/{arrow}.jem'] = json.dumps({
+                'credit': 'Original author', 'textureSize': [32, 32], 'texture': arrow + '.png',
+                'models': [{'part': part, 'id': part, 'invertAxis': 'xy',
+                            'translate': [0, -3.5, 4], 'rotate': [45, -90, 0],
+                            'boxes': [{'coordinates': [0, 0, 0, 4, 1, 1], 'textureOffset': [0, 0]}],
+                            'animations': [{'this.rx': 0, 'this.ry': 0}]}
+                           for part in ('back', 'cross_1', 'cross_2')]}).encode()
+            entries[f'assets/minecraft/optifine/cem/{arrow}.png'] = b'original image'
+        return entries
+
     def torch_entries(self):
         entries = {**RETAINED, **{name: b'lantern-only resource' for name in REFINED_LANTERN_FILES}}
         entries['assets/minecraft/punchy/compat/compat.json'] = json.dumps({
@@ -103,16 +116,52 @@ class ResourcePackRepairs(unittest.TestCase):
                 repair('refined-torches', source, SOURCE)
 
     def test_only_unreferenced_orphan_bow_sidecars_are_removed(self):
-        entries = {**RETAINED, **{path: b'{condition:"arrowModel.old"}' for path in BOW_ORPHANS}}
+        entries = self.tool_entries()
         with fixture(entries) as source:
             output = repair('refined-tools', source, SOURCE)
             self.assertEqual({name: source.read(name) for name in source.namelist()}, entries)
         with ZipFile(io.BytesIO(output)) as result:
-            self.assertEqual(set(result.namelist()), set(RETAINED) | {NOTICE})
-            for path, value in RETAINED.items(): self.assertEqual(result.read(path), value)
+            added = {f'assets/minecraft/emf/cem/{arrow}.jem' for arrow in ('arrow', 'spectral_arrow')}
+            self.assertEqual(set(result.namelist()), (set(entries) - BOW_ORPHANS) | added | {NOTICE})
+            for path, value in entries.items():
+                if path not in BOW_ORPHANS: self.assertEqual(result.read(path), value)
         for path, data in [('assets/example/model.json', b'{"parent":"minecraft:item/alternative/bow/deletar/example"}'),
                            ('assets/minecraft/models/item/alternative/bow/deletar/bow_old_arrow_1.json', b'{}')]:
             with self.subTest(path=path), fixture({**entries, path: data}) as source:
+                with self.assertRaises(ValueError): repair('refined-tools', source, SOURCE)
+
+    def test_arrow_emf_override_attaches_all_parts_and_preserves_artwork_and_animation(self):
+        entries = self.tool_entries()
+        with fixture(entries) as source:
+            output = repair('refined-tools', source, SOURCE)
+            self.assertEqual({name: source.read(name) for name in source.namelist()}, entries)
+        with ZipFile(io.BytesIO(output)) as result:
+            for arrow in ('arrow', 'spectral_arrow'):
+                original = json.loads(entries[f'assets/minecraft/optifine/cem/{arrow}.jem'])
+                adapted = json.loads(result.read(f'assets/minecraft/emf/cem/{arrow}.jem'))
+                self.assertEqual(adapted['texture'], f'minecraft:optifine/cem/{arrow}.png')
+                # The delivered EMF 3.3.12 maps body to its empty native root.
+                mapping = {'body': 'root'}
+                self.assertEqual([mapping.get(part['part']) for part in adapted['models']], ['root'] * 3)
+                self.assertTrue(all(part['attach'] for part in adapted['models']))
+                expected = json.loads(json.dumps(original))
+                expected['texture'] = adapted['texture']
+                for part in expected['models']:
+                    part.update(part='body', attach=True)
+                self.assertEqual(adapted, expected)
+                self.assertEqual(result.read(f'assets/minecraft/optifine/cem/{arrow}.png'),
+                                 entries[f'assets/minecraft/optifine/cem/{arrow}.png'])
+
+    def test_arrow_repair_refuses_changed_part_contract_and_existing_override(self):
+        path = 'assets/minecraft/optifine/cem/arrow.jem'
+        for change in ('part', 'texture', 'already-adapted'):
+            entries = self.tool_entries()
+            model = json.loads(entries[path])
+            if change == 'part': model['models'][0]['part'] = 'body'
+            elif change == 'texture': model['texture'] = 'other.png'
+            else: entries['assets/minecraft/emf/cem/arrow.jem'] = b'{}'
+            entries[path] = json.dumps(model).encode()
+            with self.subTest(change=change), fixture(entries) as source:
                 with self.assertRaises(ValueError): repair('refined-tools', source, SOURCE)
 
     def test_lamp_appearance_switches_survive_without_missing_texture_fallbacks(self):

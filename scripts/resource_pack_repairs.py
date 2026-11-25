@@ -39,6 +39,33 @@ REFINED_LANTERN_FILES.remove('assets/minecraft/models/item/joy/lampiao_alma.json
 REFINED_LANTERN_FILES.add('assets/minecraft/models/item/joy/lampiao.alma.json.rpo')
 
 
+def refined_arrow_models(entries):
+    """Attach the legacy arrow groups to EMF's body root; retain OptiFine resources."""
+    changes = []
+    for arrow in ('arrow', 'spectral_arrow'):
+        original = f'assets/minecraft/optifine/cem/{arrow}.jem'
+        output = f'assets/minecraft/emf/cem/{arrow}.jem'
+        texture = f'assets/minecraft/optifine/cem/{arrow}.png'
+        require(original in entries and texture in entries, 'Refined arrow resources are missing')
+        require(output not in entries, 'Refined arrow EMF override already exists; review adaptation')
+        model = json.loads(entries[original])
+        parts = model.get('models', [])
+        require(model.get('textureSize') == [32, 32] and model.get('texture') == arrow + '.png'
+                and len(parts) == 3
+                and [part.get('part') for part in parts] == ['back', 'cross_1', 'cross_2']
+                and all(part.get('id') == part.get('part') and 'attach' not in part for part in parts),
+                'Refined arrow model contract changed; review adaptation')
+        # The EMF-specific folder takes precedence over the untouched legacy CEM.
+        # All three groups share its empty body/root, so retain each as an attachment.
+        for part in parts:
+            part['part'] = 'body'
+            part['attach'] = True
+        model['texture'] = 'minecraft:optifine/cem/' + arrow + '.png'
+        entries[output] = (json.dumps(model, ensure_ascii=False, indent=2) + '\n').encode()
+        changes.append({'add': output, 'source': original, 'part': 'body', 'attach': True})
+    return changes
+
+
 def repair(key, archive, source):
     """Retain every unaffected resource byte and refuse changed upstream contracts."""
     require(key in KEYS, 'Unknown resource-pack repair')
@@ -63,6 +90,7 @@ def repair(key, archive, source):
             require(b'arrowModel.old' in entries[name], 'Legacy bow selector changed')
             del entries[name]
             changes.append({'remove': name})
+        changes.extend(refined_arrow_models(entries))
     elif key == 'refined-torches':
         options = entries['respackopts.json5']
         require(all(name in options for name in (b'smokeParticlesOnThirdPerson',
@@ -145,6 +173,8 @@ def repair(key, archive, source):
         'upstream': source, 'repairs': changes,
         'notice': ('Only the listed model-format repairs are by Create: Skyweave. '
                    if key == 'luminous-lanterns' else
+                   'Only the listed resource-option and EMF arrow-model repairs are by Create: Skyweave. '
+                   if key == 'refined-tools' else
                    'Only the listed option repairs and lantern exclusions are by Create: Skyweave. '
                    if key == 'refined-torches' else
                    'Only the listed resource-option repairs are by Create: Skyweave. ') +
