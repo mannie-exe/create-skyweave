@@ -17,6 +17,7 @@ coverage:
   bellsandwhistles: complete
   better-climbing: complete
   better-combat: complete
+  better-leaves: complete
   better-third-person: complete
   better-village: complete
   bluemap: complete
@@ -1148,6 +1149,60 @@ dependencies:
       provider: modrinth
       selector: better-combat
     title: Better Combat
+  better-leaves:
+    content: resource-pack
+    files:
+    - acquisition:
+        downloads:
+        - https://cdn.modrinth.com/data/uvpymuxq/versions/w4ReEpuG/Better-Leaves-9.6.zip
+        kind: provider
+        pin:
+          project:
+            project: uvpymuxq
+            provider: modrinth
+          selection:
+            id: w4ReEpuG
+            provider: modrinth
+        slot: Better-Leaves-9.6.zip
+      expected:
+        accepted-observation: null
+        digests:
+          sha1: fa3a961b82a9f15a4e80b1f7f021bc121649f073
+          sha512: >-
+            793dacaca4c200656e8875195e42975ecb628af114e13aad2059368b51cf45f00280f86075368e9adf492e847718a9d593bdf481664e10cf1aa9628d2a51a8d6
+        size: 1977146
+      placements:
+      - destination: resourcepacks/Better-Leaves-9.6.zip
+        environment:
+          client: required
+          server: unsupported
+        layer: common
+      provenance:
+        conversions: []
+        declared-digests:
+          sha1: fa3a961b82a9f15a4e80b1f7f021bc121649f073
+          sha512: >-
+            793dacaca4c200656e8875195e42975ecb628af114e13aad2059368b51cf45f00280f86075368e9adf492e847718a9d593bdf481664e10cf1aa9628d2a51a8d6
+        location: uvpymuxq
+        source: provider-catalog
+      slot: primary
+    identity:
+      kind: provider
+      project:
+        project: uvpymuxq
+        provider: modrinth
+    incompatibilities: []
+    selection:
+      project:
+        project: uvpymuxq
+        provider: modrinth
+      selection:
+        id: w4ReEpuG
+        provider: modrinth
+    source-selector:
+      provider: modrinth
+      selector: better-leaves
+    title: Motschen's Better Leaves
   better-third-person:
     content: mod
     files:
@@ -12453,7 +12508,7 @@ dependencies:
       provider: modrinth
       selector: OnlVIpq5
     title: Fast Noise
-intent-revision: 4afaaa056f1669da5ec95dabb502b299fe78c6ff9d2d45b5945f863994f5e4fd
+intent-revision: e4502349f8b2627df3bbcc4e2fd8855ceb38370db3aba131b701bc5234425b91
 java-policy:
   historical-minimum: 21
   id: empack-java-1

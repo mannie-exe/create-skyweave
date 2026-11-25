@@ -25,6 +25,7 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Azimuth API | 1.4.10 | [Exact version](https://modrinth.com/mod/azimuth-api/version/dxtZVosY) |
 | Better Climbing | 4-neoforge | [Exact version](https://modrinth.com/mod/better-climbing/version/RJgDIKSn) |
 | Better Combat | 2.4.0+1.21.1-neoforge | [Exact version](https://modrinth.com/mod/better-combat/version/VhIOvcXP) |
+| Motschen’s Better Leaves (client only) | 9.6 | [Exact version](https://modrinth.com/resourcepack/better-leaves/version/w4ReEpuG) |
 | Better Third Person | 1.9.0 | [Exact version](https://modrinth.com/mod/better-third-person/version/aG5y4JUQ) |
 | Better Villages | 3.3.1 | [Exact version](https://modrinth.com/mod/better-village/version/1IEc4yoG) |
 | BlueMap (server only) | 5.7-neoforge | [Exact version](https://modrinth.com/mod/bluemap/version/8iJcPOHJ) |

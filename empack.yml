@@ -1096,6 +1096,13 @@ dependencies:
     environment:
       client: required
       server: required
+  better-leaves:
+    pin: w4ReEpuG
+    source: modrinth:better-leaves
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
 
 build:
   default:
