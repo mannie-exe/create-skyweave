@@ -16,7 +16,7 @@ Keep the release's DH Polygon Fix installed with DH 3.3.3 on clients, including 
 
 ## Compatibility adaptations
 
-Skyweave: Compatibility Patches includes the Veil/Iris framebuffer correction and optional balloon shadow-pass, construct-material, and single-block render-pass adaptations. Do not install the old standalone Veil Iris Fix JAR. Their `rendering.*` switches live in `config/skyweave/skyweave_compat-features.properties`; change them only with the game stopped and restart to apply. Other feature switches are independent.
+Skyweave: Compatibility Patches includes the Veil/Iris framebuffer correction and optional construct-material and single-block render-pass adaptations. Do not install the old standalone Veil Iris Fix JAR. Their `rendering.*` switches live in `config/skyweave/skyweave_compat-features.properties`; change them only with the game stopped and restart to apply. Other feature switches are independent.
 
 Native checks covered the selected shader stack, Ponder, heated balloons, and material controls. Single-block glass rendering is corrected; flickering or gapped airship shadows remain unresolved. Report the shader pack, block types, whether the balloon is inflated, and whether camera or ship motion changes the artifact. Do not clear worlds or LOD caches to troubleshoot it.
 
@@ -32,6 +32,8 @@ These are separate `rendering.colorwheel_samplers` and `rendering.colorwheel_mat
 
 The pack includes Sable Dynamic Lights and LambDynamicLights for moving Create contraptions and Sable ships. Skyweave: Compatibility Patches' `lighting.lifecycle` and `lighting.sodium` startup switches are enabled by default. These are client-only; the server does not need the lighting mods.
 
+Compat also enables `c2me.client_light_updates` for the pinned C2ME/NoTick stack. It defers affected client light checks until their initial section light data has been published. The Sodium adaptation preserves opaque zero-light sentinels instead of treating them as ordinary light samples. Native storage, corner and lifecycle controls pass; these corrections do not establish a general FPS improvement or eliminate every dynamic-light artifact. C2ME’s executor and `ensureChunkCorrectness` settings are unchanged.
+
 Lamb's settings control ordinary dynamic lighting. If a shader already lights your held item, its light can overlap with Lamb's first-person contribution. SDL also supplies a held-block fallback, so Lamb's self-light switch alone may not remove every contribution. Light can leak through ship walls; the adapter does not guarantee fully enclosed cabin lighting.
 
 ## Resource packs
@@ -42,7 +44,7 @@ Dedicated Sugar Cane and RAY's Rails sit above 3D Crops and Redstone Tweaks resp
 
 Motschen’s Better Leaves 9.6 adds bushy leaf geometry and supplies its own leaf textures. MoreCulling uses `CHECK` for leaves; no additional leaf-culling mod is required by this selection. Interactive Foliage’s ambient leaf waving remains off. The pack uses ordinary 1.21.1 model geometry, but shader appearance and foliage interactions still need an in-game comparison. Existing players can enable `Better-Leaves-9.6.zip` in Resource Packs; new instances select it by default.
 
-Grassrise supplies short, biome-tinted grass blades through its bundled resource pack; snowy grass retains the native snowy model. Its mod automatically enables and prioritizes that pack, so a separate Grassrise ZIP is unnecessary. Grassrise’s shader corrections are not yet qualified for the generated Skyweave shaders: the current names are rejected by its shader-family checks. Native shader-off lighting and the bundled geometry remain available; do not assume that blade-shadow removal is active until the pending Compat bridge is qualified.
+Grassrise supplies short, biome-tinted grass blades through its bundled resource pack; snowy grass retains the native snowy model. Its mod automatically enables and prioritizes that pack, so a separate Grassrise ZIP is unnecessary. Compat’s optional `grassrise.shader_recipes` bridge recognizes the three qualified generated shader recipes without changing their filenames. It preserves Grassrise’s native transformation guards and supplies Photon 1.4’s default grass material. Shader preprocessing, marker activation and reload controls pass; rendered appearance, performance and grass on moving constructs still need review.
 
 The pinned 3D Crops archive declares a newer format despite its 1.21.1 download tag. Default options explicitly accept this inspected archive so Minecraft does not silently deselect it. This acceptance is specific to the pinned file; review it again on updates. Icons is excluded because its symbols add visual clutter.
 

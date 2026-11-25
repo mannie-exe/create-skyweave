@@ -14,7 +14,7 @@ Lamb Lanterns 1.2.0 makes existing vanilla and soul lanterns wearable in a dedic
 
 Resource Patches gives players one Curios `glider` slot, admits `reliable_gliders:glider`, and removes only that item from the `curios:back` tag. Its optional `AFTER` dependency on Reliable Gliders is required: the removal must follow upstream's tag contribution. Traveler's Backpack retains its native back eligibility. Curios' default drop policy and tag validator remain in force, including native universal-curio eligibility. A minimum dedicated fixture with the actual Curios/Accessories bridge verifies slot assignment, capacity, tag removal with a foreign back entry preserved, simulated and committed insertion/extraction, and Reliable Gliders' native lookup. This does not qualify client rendering or existing-world equipment migration.
 
-The data change does not repair deployed rendering, relax item-use restrictions, or alter flight. Apply through the normal pack update; changing slot eligibility requires checking existing equipped items and inventory recovery during reload/relogin, rather than assuming an old back-slot glider migrates automatically.
+The independent default-on Compat `accessories_compat_layer.curio_break` adaptation repairs the Curios/Accessories crash when Reliable Gliders invokes its native break callback. Dedicated back/glider controls preserve damage, removal, notification and item custody. This does not repair deployed rendering, relax item-use restrictions, or alter flight. Apply through the normal pack update; changing slot eligibility requires checking existing equipped items and inventory recovery during reload/relogin, rather than assuming an old back-slot glider migrates automatically.
 
 ### Further equipment integrations
 

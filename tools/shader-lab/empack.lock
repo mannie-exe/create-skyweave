@@ -375,14 +375,13 @@ dependencies:
     files:
     - acquisition:
         kind: local
-        path: >-
-          .local-artifacts/skyweave-compat-0.43.0-maintenance-euphoria-dev.1-4ae402eaa858eef4.jar
+        path: .local-artifacts/skyweave-compat-0.43.1-maintenance-dev.4-bff1345862e91f62.jar
       expected:
         accepted-observation: null
         digests:
-          sha256: 4ae402eaa858eef4141858554a3f9f0867f6e2ddc72e68313668187a3058e5d5
+          sha256: bff1345862e91f62fb2d65900d88a491291ee2356b814f1218ba40494bbcaf6a
           sha512: >-
-            6df266494b96fc0172bb29cc58c79411dbbb8268c4be1dbace7548a6c80fa0854635988e6bc62511c8dfb3c25d14b14be20919b11625de50025457b42e0fd097
+            8bd115d1db90fd35d4c67c865f48d644d207c020b871f7910c37b4a4626b66c76e6f34c5c0efc9c5dcae4fa25e039bab7cc1119758985b88013f1f930a932ab5
         size: null
       placements:
       - destination: shader-tools/runner.jar
@@ -393,10 +392,11 @@ dependencies:
       provenance:
         conversions:
         - Explicit acceptance of changed tracked bytes
+        - Explicit acceptance of changed tracked bytes
         declared-digests:
-          sha256: 4ae402eaa858eef4141858554a3f9f0867f6e2ddc72e68313668187a3058e5d5
+          sha256: bff1345862e91f62fb2d65900d88a491291ee2356b814f1218ba40494bbcaf6a
           sha512: >-
-            6df266494b96fc0172bb29cc58c79411dbbb8268c4be1dbace7548a6c80fa0854635988e6bc62511c8dfb3c25d14b14be20919b11625de50025457b42e0fd097
+            8bd115d1db90fd35d4c67c865f48d644d207c020b871f7910c37b4a4626b66c76e6f34c5c0efc9c5dcae4fa25e039bab7cc1119758985b88013f1f930a932ab5
         location: null
         source: local-file
       slot: content
@@ -407,7 +407,7 @@ dependencies:
     selection: null
     source-selector: null
     title: shader-runner
-intent-revision: 6f2e22a8c93e37d372ecddef04e27bc0d3460c590a96ce945651f02eadc365ef
+intent-revision: db866b97635ba43843653247f1c416ace6c6c2fb92e7eae796bc27132699419f
 java-policy:
   historical-minimum: 21
   id: empack-java-1
