@@ -52,6 +52,8 @@ Generated from Git history. Player-facing release summaries are in [release note
 
 - **build:** Preserve retired Analog download ([30e1dba](https://github.com/mannie-exe/create-skyweave/commit/30e1dba1b556e91326d0d687ae1b10c4c7d70d63))
 
+- **build:** Materialize Studio inspection inputs ([c9623d1](https://github.com/mannie-exe/create-skyweave/commit/c9623d15d80608be83090778118a7aa72a260c20))
+
 ### Documentation
 
 - Define changelog and release note conventions ([bd74b5a](https://github.com/mannie-exe/create-skyweave/commit/bd74b5a19a6f6a6c4ea355c6899075252ecce638))
