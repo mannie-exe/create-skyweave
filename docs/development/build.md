@@ -73,6 +73,8 @@ The [shader lab](../../tools/shader-lab/README.md) qualifies all three recipes t
 
 The defaults build reference Modrinth, Prism and server archives under `dist/`. Prism and server references include a Java bootstrap that acquires and verifies the exact empack 0.8.8-beta engine before preparation and launch; recipients need Java, not a global empack installation or Python. Modrinth-compatible launchers handle the `.mrpack` downloads. Authored files remain included, and empack includes prepared server-runtime assets. Check content sources and installation as well as archive integrity.
 
+The release workflow also builds the separate [Replay Studio](../../tools/replay-studio/README.md) Prism snapshot after preparing the playable profiles. Its independent consumer identity retains the exact parent Resource Patches identity and payload. CI installs PyYAML 6.0.3 for this source derivation, checks the generated Studio inputs, and stages all four distributions under one checksum manifest. Missing Studio output, changed parent resources, unsafe output paths, and normalized filename collisions refuse publication. The ordinary validation workflow builds Studio too; neither workflow updates an installed personal instance.
+
 The shared resource builder excludes Finder/AppleDouble and Windows desktop metadata while retaining authored assets. Archives use stable ordering and publication avoids rewriting unchanged output. Verify generated archives before release; source-directory cleanliness alone does not prove archive cleanliness.
 
 Local edits can change an export without changing its filename. Use the published release's checksums to identify released bytes; a local rebuild is not a substitute for verifying downloaded release assets.

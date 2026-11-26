@@ -2,15 +2,21 @@
 
 Replay Studio is a separate empack project for recording, editing, and exporting Create: Skyweave footage. It inherits the playable pack's exact content, world generation, shaders, resource packs, controls, and compatibility fixes. It does not install into DEV or share a writable game directory with it.
 
+The modpack release includes a separate Replay Studio Prism ZIP and its checksum alongside the playable distributions. Import it as a new instance; keep editing projects and filming worlds with that installation.
+
 ## Build a snapshot
 
 From the repository root, with empack, Python, and PyYAML available:
 
 ```sh
-uv run --with pyyaml python tools/replay-studio/build.py
-uv run --with pyyaml python tools/replay-studio/build.py --check
+empack sync --materialize --yes
+python3 scripts/build-pack.py --profile prism
+uv run --with PyYAML==6.0.3 python tools/replay-studio/build.py
+uv run --with PyYAML==6.0.3 python tools/replay-studio/build.py --check
 empack --workdir tools/replay-studio check
 ```
+
+Prepare the parent through its normal wrapper first so Studio inherits the maintained resources and repaired visual inputs. Studio refuses a missing or incorrectly stamped parent Resource Patches JAR. Release automation passes `--release-tag v<parent-version>` after building the parent in release mode. Studio keeps its own consumer version while inheriting the parent's resource identity; the exporter verifies both identities and the exact carried JAR before staging it for publication.
 
 `--prepare-only` refreshes derived authoring files without acquiring dependencies or exporting. The builder reads the root manifest, lock, bindings, authored overrides, and client templates. It keeps exact transitive selections and their content types. `empack.yml`, `empack.bindings.yml`, and `empack.lock` retain the Studio snapshot; generated overrides and local artifacts remain ignored. Update the root pack deliberately, then regenerate Studio. Do not independently update Studio's providers to different versions.
 

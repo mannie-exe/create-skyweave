@@ -55,6 +55,7 @@ jobs:
         run: python3 .github/scripts/empack-ci.py install
       - name: Build maintained resources
         run: |
+          python3 -m pip install --disable-pip-version-check PyYAML==6.0.3
           python3 scripts/build-resource-patches.py --release-tag "$GITHUB_REF_NAME"
           python3 tools/shader-lab/build.py
           python3 -m unittest discover -s tests -v

@@ -77,11 +77,12 @@ def artifact(root, output):
     return candidate
 
 
-def stage(root, report, destination):
+def stage(root, report, destination, additional=()):
     selected = []
     names = {"sha256sums"}
-    for profile in report["profiles"]:
-        source = artifact(root, profile["output"])
+    outputs = [(root, profile["output"]) for profile in report["profiles"]] + list(additional)
+    for owner, output in outputs:
+        source = artifact(owner, output)
         name = re.sub(r"[^A-Za-z0-9._]+", "-", source.name).strip(".-")
         if not name or name.lower() in names:
             raise ValueError(f"Published filename is empty or collides: {source.name}")
@@ -112,8 +113,17 @@ def build(release=False):
     if release and tag != "v" + report["version"]:
         raise ValueError(f"Release tag {tag!r} must match authored version v{report['version']}")
     build_exports(Path.cwd(), report, tag if release else None)
+    studio = Path.cwd() / 'tools/replay-studio'
+    studio_options = ['--release-tag', tag] if release else []
+    run(sys.executable, str(studio / 'build.py'), *studio_options)
+    run(sys.executable, str(studio / 'build.py'), '--check', *studio_options)
+    studio_report = json.loads(run('empack', '--workdir', str(studio), 'build',
+                                   '--explain', '--json', '--profile', 'prism', capture=True))
+    if studio_report['pack_id'] != 'create_skyweave_replay_studio' or len(studio_report['profiles']) != 1:
+        raise ValueError('Expected one Replay Studio release profile')
+    additional = [(studio, studio_report['profiles'][0]['output'])]
     destination = Path(os.environ["RUNNER_TEMP"]) / "empack-artifacts"
-    stage(Path.cwd(), report, destination)
+    stage(Path.cwd(), report, destination, additional)
     if release:
         publish(destination, tag)
 

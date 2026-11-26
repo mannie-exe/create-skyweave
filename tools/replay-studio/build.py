@@ -8,13 +8,13 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
-
-import yaml
+from zipfile import ZipFile
 
 STUDIO = Path(__file__).resolve().parent
 ROOT = STUDIO.parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 from building_authoring.environment import locked_path, native_metadata
+from pack_identity import MOD_PATH, identity, verify_resource
 
 
 def digest(path):
@@ -30,8 +30,43 @@ def copy_file(source, destination):
         shutil.copy2(source, destination)
 
 
-def prepare(check=False):
+def parent_resource(manifest, release_tag=None):
+    expected = identity({'schema': 2, 'pack_id': manifest['pack']['id'],
+                         'version': manifest['pack']['version']}, release_tag)
+    path = ROOT / 'overrides/common' / MOD_PATH
+    if not path.is_file():
+        raise ValueError('Prepare the parent pack first with scripts/build-pack.py; Resource Patches is missing')
+    data = path.read_bytes()
+    verify_resource(data, expected)
+    return data
+
+
+def verify_snapshot(path, version, resource):
+    """Keep Studio's consumer identity distinct from its inherited Resource Patches."""
+    prefix = '.minecraft/.empack-consumer/'
+    with ZipFile(path) as archive:
+        names = archive.namelist()
+        if len(names) != len(set(names)) or MOD_PATH in names or '.minecraft/' + MOD_PATH in names:
+            raise ValueError('Replay Studio has duplicate entries or conflicting Resource Patches owners')
+        if archive.testzip() is not None:
+            raise ValueError('Replay Studio archive failed its CRC check')
+        recipe = json.loads(archive.read(prefix + 'release.json'))
+        if recipe.get('pack') != 'create_skyweave_replay_studio' or recipe.get('version') != version:
+            raise ValueError('Replay Studio consumer identity disagrees with its manifest')
+        entries = [entry for entry in recipe['files'] if entry['destination'] == MOD_PATH]
+        expected_hash = hashlib.sha256(resource).hexdigest()
+        expected_source = {'kind': 'asset', 'path': 'assets/' + expected_hash}
+        if len(entries) != 1 or entries[0]['sha256'] != expected_hash or entries[0]['source'] != expected_source:
+            raise ValueError('Replay Studio must carry exactly the prepared parent Resource Patches')
+        if archive.read(prefix + expected_source['path']) != resource:
+            raise ValueError('Replay Studio Resource Patches payload differs from its parent')
+
+
+def prepare(check=False, release_tag=None):
+    import yaml
+
     manifest = yaml.safe_load((ROOT / 'empack.yml').read_text())
+    parent_resource(manifest, release_tag)
     lock = yaml.safe_load((ROOT / 'empack.lock').read_text())
     bindings = yaml.safe_load((ROOT / 'empack.bindings.yml').read_text())
     selection = json.loads((STUDIO / 'selection.json').read_text())
@@ -170,11 +205,21 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--prepare-only', action='store_true', help='Refresh source and exact manifest without empack acquisition/export')
     parser.add_argument('--check', action='store_true', help='Verify derived source and exact dependency closure without writes')
+    parser.add_argument('--release-tag', help='Require the already prepared parent resources to match this exact release tag')
     args = parser.parse_args()
-    report = prepare(args.check)
+    import yaml
+
+    report = prepare(args.check, args.release_tag)
     if not args.check and not args.prepare_only:
         subprocess.run(['empack', '--workdir', str(STUDIO), '--yes', 'sync', '--materialize'], check=True)
         subprocess.run(['empack', '--workdir', str(STUDIO), 'build', '--yes', '--optional-defaults', 'prism'], check=True)
+        output = json.loads(subprocess.check_output(
+            ['empack', '--workdir', str(STUDIO), 'build', '--explain', '--json', '--profile', 'prism'], text=True))
+        manifest = yaml.safe_load((ROOT / 'empack.yml').read_text())
+        if output['pack_id'] != 'create_skyweave_replay_studio' or len(output['profiles']) != 1:
+            raise ValueError('Expected one Replay Studio Prism snapshot')
+        verify_snapshot(STUDIO / output['profiles'][0]['output'], output['version'],
+                        parent_resource(manifest, args.release_tag))
     print(json.dumps({'selectedDependencies': len(report['selected']), 'excluded': list(report['excluded']),
                       'missingNativeProviders': report['requiredNativeModIdsMissing'], 'check': args.check}, indent=2))
 
