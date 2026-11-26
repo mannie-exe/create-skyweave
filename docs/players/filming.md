@@ -10,6 +10,10 @@ For a clean Euphoria recording, disable **Display shader in-game messages** in E
 
 Rendering a replay can take longer than the footage's running time. Record short takes in already generated areas, preview at modest settings and export at the final shader quality separately from heavy server generation. The initial local-player recording rate is 20 updates per second; raise it only when a shot needs smoother recorded local motion and the host has headroom.
 
+For a separate editing installation, use [Replay Studio](../../tools/replay-studio/README.md). It keeps the pack's content and shaders while excluding optional optimization mods that can suppress or change export rendering. Copy replay ZIPs together with their editor states to preserve camera work. Existing world loading is expected from the retained content but has not been natively qualified in this snapshot; use world copies.
+
+Disable Dynamic FPS before exporting in the ordinary playable pack, particularly when leaving Minecraft in the background. Its installed NeoForge build can skip export draws after Flashback clears the capture target, producing black encoded frames. Replay Studio excludes it. **Dummy Render Frames** renders extra frames before every saved frame: eight means nine scene renders per saved frame, rather than eight warm-up frames only at cuts. Start at zero and test a short range before raising it for temporal shader effects. AAC avoids the installed audio writer's incompatible Opus sample format.
+
 ## Live camera paths
 
 New defaults provide the camera controls below. **Mod** means the native primary modifier: Command on macOS, Control on Windows/Linux. Function keys may need Fn. Existing installations retain their saved assignments; review **Options → Controls → CMDCam** after an update. Its client configuration loads on world entry; that is not evidence it resets saved keybindings.

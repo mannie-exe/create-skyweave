@@ -1,0 +1,7 @@
+/pack/
+/dist/
+/.cache/
+/.local-artifacts/
+/overrides/
+/templates/
+/source-report.json

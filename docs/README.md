@@ -40,6 +40,7 @@ Player guides explain installation and operation. Development documents describe
 | [Island generation reference](development/island-generation.md) | Biome eligibility, archetypes, descriptor combinations and shaping/placement controls |
 | [Terrain and structure candidates](development/worldgen-candidates.md) | Selected projects, exclusions and integration review |
 | [Building authoring](development/building-authoring.md) | Isolated Mighty workshop, deterministic templates, owner review, and inactive village admission |
+| [Replay Studio](../tools/replay-studio/README.md) | Separate empack filming snapshot, optimizer exclusions, and replay/world ownership |
 | [Performance investigation](development/performance.md) | Bounded startup, teardown, GC, terrain and server-work profiling |
 | [World runtime](development/world-runtime.md) | Coupled workstreams, ownership and candidate adoption |
 | [Structures](development/structures.md) | Sky Villages placement, loot and delivery integration |

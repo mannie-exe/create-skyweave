@@ -1,0 +1,27 @@
+{
+  "excluded": {
+    "bluemap": "Dedicated-server map service; not part of a client snapshot.",
+    "c2me-neoforge": "Alternate chunk scheduling and storage are unnecessary for editing recorded scenes.",
+    "dynamic-fps": "Background render suppression can leave Flashback capture frames black.",
+    "entityculling": "Entity/block-entity visibility and tick suppression can affect recorded subjects.",
+    "ferrite-core": "Optional memory optimization; retain native content implementations.",
+    "immediatelyfast": "Optional rendering/batching hooks are excluded from the editing baseline.",
+    "lithium": "Optional simulation optimization; retain native gameplay implementations.",
+    "modernfix": "Optional loading, resource, and runtime optimizations are excluded.",
+    "moreculling": "Additional model, leaf, and item-frame culling is excluded.",
+    "sodium-extra": "Optional renderer settings and effects suppression are excluded."
+  },
+  "omittedConfigs": [
+    "config/c2me.toml",
+    "config/dynamic_fps.json",
+    "config/entityculling.json",
+    "config/ferritecore-mixin.toml",
+    "config/immediatelyfast.json",
+    "config/lithium.properties",
+    "config/modernfix-common.toml",
+    "config/modernfix-mixins.properties",
+    "config/moreculling.toml",
+    "config/sodium-extra-options.json",
+    "config/sodium-extra.properties"
+  ]
+}

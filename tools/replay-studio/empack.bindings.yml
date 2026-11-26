@@ -1,0 +1,694 @@
+schema: 1
+bindings:
+  keybind-atlas:
+    placement:
+      files:
+        primary:
+        - destination: mods/KeybindAtlas-v3.0.0-mc1.21.1-neoforge.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  flashback:
+    placement:
+      files:
+        content:
+        - destination: mods/flashback.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  flashback-neoforge-fixed:
+    placement:
+      files:
+        primary:
+        - destination: mods/flashback-neoforge-fixed.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  cmdcam:
+    placement:
+      files:
+        primary:
+        - destination: mods/cmdcam.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  creativecore:
+    placement:
+      files:
+        primary:
+        - destination: mods/creativecore.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  sable-dynamic-lights:
+    placement:
+      files:
+        primary:
+        - destination: mods/sable-dynamic-lights-1.21.1-2.0.1.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  lambdynamiclights:
+    placement:
+      files:
+        content:
+        - destination: mods/lambdynamiclights-4.8.11+1.21.1.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  create-aeronautics-rechiseled-compatibility:
+    placement:
+      files:
+        content:
+        - destination: mods/create-aeronautics-rechiseled-compat-1.21.1-1.2.2.jar
+          environment:
+            client: required
+            server: required
+          layer: common
+  create-aeronautics-throwable-rope-connector:
+    placement:
+      files:
+        content:
+        - destination: mods/create_aeronautics_throwable_rope_connector-0.4.3.jar
+          environment:
+            client: required
+            server: required
+          layer: common
+  create-vibrant-vaults:
+    placement:
+      files:
+        content:
+        - destination: mods/create_vibrant_vaults-0.3.2.jar
+          environment:
+            client: required
+            server: required
+          layer: common
+  dh-polygon-fix:
+    placement:
+      files:
+        content:
+        - destination: mods/dh-polygon-fix-1.0.2-mc1.21.1-neoforge.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  hoofprint:
+    placement:
+      files:
+        content:
+        - destination: mods/hoofprint-1.3.0+1.21.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  mcqoy:
+    placement:
+      files:
+        content:
+        - destination: mods/mcqoy-0.4.1+neo-1.21.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  rechiseled:
+    placement:
+      files:
+        content:
+        - destination: mods/rechiseled-1.2.6-neoforge-mc1.21.jar
+          environment:
+            client: required
+            server: required
+          layer: common
+  rechiseled-create:
+    placement:
+      files:
+        content:
+        - destination: mods/rechiseledcreate-1.1.1-neoforge-mc1.21.jar
+          environment:
+            client: required
+            server: required
+          layer: common
+  ssrd:
+    placement:
+      files:
+        content:
+        - destination: mods/SSRD-1.8.8-1.21.1.jar
+          environment:
+            client: required
+            server: required
+          layer: common
+  surveyor:
+    placement:
+      files:
+        content:
+        - destination: mods/surveyor-1.2.4+1.21.jar
+          environment:
+            client: required
+            server: required
+          layer: common
+  accessories:
+    placement:
+      files:
+        primary:
+        - destination: mods/accessories.jar
+          environment:
+            client: required
+            server: required
+          layer: common
+  accessories-compat-layer:
+    placement:
+      files:
+        primary:
+        - destination: mods/accessories-compat-layer.jar
+          environment:
+            client: required
+            server: required
+          layer: common
+  createaddoncompatibility:
+    placement:
+      files:
+        primary:
+        - destination: mods/createaddoncompatibility.jar
+          environment:
+            client: required
+            server: required
+          layer: common
+  curios:
+    placement:
+      files:
+        primary:
+        - destination: mods/curios.jar
+          environment:
+            client: required
+            server: required
+          layer: common
+  distraction-free-recipes:
+    placement:
+      files:
+        primary:
+        - destination: mods/distraction-free-recipes.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  fzzy-config:
+    placement:
+      files:
+        primary:
+        - destination: mods/fzzy-config.jar
+          environment:
+            client: required
+            server: required
+          layer: common
+  owo-lib:
+    placement:
+      files:
+        primary:
+        - destination: mods/owo-lib.jar
+          environment:
+            client: required
+            server: required
+          layer: common
+  polymorph:
+    placement:
+      files:
+        primary:
+        - destination: mods/polymorph.jar
+          environment:
+            client: required
+            server: required
+          layer: common
+  txnilib:
+    placement:
+      files:
+        primary:
+        - destination: mods/txnilib.jar
+          environment:
+            client: required
+            server: required
+          layer: common
+  iris:
+    placement:
+      files:
+        primary:
+        - destination: mods/iris-neoforge-1.8.14-beta.1+mc1.21.1.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  sodium:
+    placement:
+      files:
+        primary:
+        - destination: mods/sodium-neoforge-0.8.13+mc1.21.1.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  cool-rain-reforged:
+    placement:
+      files:
+        primary:
+        - destination: mods/coolrain-1.21.1-NeoForge-1.0.2.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  sable-cool-rain:
+    placement:
+      files:
+        primary:
+        - destination: mods/sable-cool-rain-1.0.1+1.21.1+neoforge.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  colorwheel:
+    placement:
+      files:
+        primary:
+        - destination: mods/colorwheel-neoforge-1.3.2+mc1.21.1.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  skyweave-compat:
+    placement:
+    - destination: mods/skyweave-compat.jar
+      environment:
+        client: required
+        server: required
+      layer: common
+  reform:
+    placement:
+    - destination: mods/reform.jar
+      environment:
+        client: required
+        server: required
+      layer: common
+  absolute_kinematics-1.0.1:
+    placement:
+    - destination: mods/absolute_kinematics-1.0.1.jar
+      environment:
+        client: required
+        server: required
+      layer: common
+  photon-shader:
+    placement:
+      files:
+        photon_v1.4.zip:
+        - destination: shader-inputs/photon_v1.4.zip
+          environment:
+            client: required
+            server: unsupported
+          layer: common
+  bsl-shaders:
+    placement:
+      files:
+        primary:
+        - destination: shader-inputs/BSL_v10.1.8.zip
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  complementary-unbound:
+    placement:
+      files:
+        primary:
+        - destination: shader-inputs/ComplementaryUnbound_r5.10.zip
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  colorwheel-patcher:
+    placement:
+      files:
+        primary:
+        - destination: shader-inputs/colorwheel_patcher-neoforge-1.0.5+mc1.21.1.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: client
+  emf-compat-core:
+    placement:
+      files:
+        emf_compat_core_neoforge_1.21.1_2.4.0.jar:
+        - destination: mods/emf-compat-core.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: common
+  punchymoves:
+    placement:
+      files:
+        primary:
+        - destination: mods/punchymoves.jar
+          environment:
+            client: required
+            server: unsupported
+          layer: common
+  kaleidoscope-cookery:
+    placement:
+      files:
+        primary:
+        - destination: mods/kaleidoscopecookery-1.6.0-neoforge+mc1.21.1.jar
+          environment:
+            client: required
+            server: required
+          layer: common
+  kaleidoscopetavern:
+    placement:
+      files:
+        primary:
+        - destination: mods/kaleidoscopetavern-1.2.0-neoforge+mc1.21.1.jar
+          environment:
+            client: required
+            server: required
+          layer: common
+policies:
+  config/snowrealmagic-common.yaml: managed
+  config/snowundertrees-common.toml: managed
+  config/simple_snowy_fix_common.json: managed
+  config/kaleidoscope_cookery-common.toml: managed
+  config/kaleidoscope_tavern-common.toml: managed
+  config/lootr_styled/settings.json: seed
+  config/cmdcam-client.json: seed
+  config/punchy/triggerable-keybindings.json: seed
+  config/flashback/flashback.json: seed
+  config/sable_beyond/other.json: seed
+  server.properties: seed
+  user_jvm_args.txt: seed
+  config/DistantHorizons.toml: seed
+  config/MouseTweaks.cfg: seed
+  config/accessories.json5: seed
+  config/accessories_compat.json5: managed
+  config/aerocables-common.toml: managed
+  config/aerocables-server.toml: managed
+  config/aeronautics-server.toml: managed
+  config/aeronautics_delivery_quests.toml: managed
+  config/aeronautics_delivery_quests/custom_quests.json: managed
+  config/aeroworks-client.toml: seed
+  config/aeroworks-common.toml: managed
+  config/almostunified/debug.json: managed
+  config/almostunified/duplicates.json: managed
+  config/almostunified/placeholders.json: managed
+  config/almostunified/startup.json: managed
+  config/almostunified/tags.json: managed
+  config/almostunified/unification/materials.json: managed
+  config/analogaudio/analogaudio.client.toml: seed
+  config/analogaudio/analogaudio.fileserver.toml: seed
+  config/analogaudio/analogaudio.server.toml: managed
+  config/analoglib/analoglib.client.toml: seed
+  config/artifacts/general.toml: managed
+  config/azimuth-client.toml: seed
+  config/azimuth-common.toml: managed
+  config/bakery-common.toml: managed
+  config/betterdeserttemples-neoforge-1_21.toml: managed
+  config/betterjungletemples-neoforge-1_21.toml: managed
+  config/bettermineshafts-neoforge-1_21.toml: managed
+  config/betteroceanmonuments-neoforge-1_21.toml: managed
+  config/betterthirdperson-common.toml: seed
+  config/bettervillage_1.properties: managed
+  config/betterwitchhuts-neoforge-1_21.toml: managed
+  config/bits_n_bobs-common.toml: managed
+  config/bits_n_bobs-server.toml: managed
+  config/cable_facades-common.toml: managed
+  config/carryon-common.toml: managed
+  config/chat_heads.json5: seed
+  config/clean_tooltips-client.toml: seed
+  config/climbable_ropes-client.toml: seed
+  config/climbable_ropes-server.toml: managed
+  config/connector.json: managed
+  config/copycats-client.toml: seed
+  config/copycats-common.toml: managed
+  config/copycats-server.toml: managed
+  config/create-client.toml: seed
+  config/create-common.toml: managed
+  config/create-server.toml: managed
+  config/create_aeronautics_throwable_rope_connector-common.toml: managed
+  config/create_connected-common.toml: managed
+  config/create_connected-server.toml: managed
+  config/create_power_loader-server.toml: managed
+  config/create_radar-client.toml: seed
+  config/create_radar-server.toml: managed
+  config/createbigcannons-client.toml: seed
+  config/createbigcannons-server.toml: managed
+  config/createdynlight-client.toml: seed
+  config/createdynlight-server.toml: managed
+  config/createpropulsion-common.toml: managed
+  config/createredstonelinkgui-client.toml: seed
+  config/createredstonelinkgui-common.toml: managed
+  config/createtransmission-server.toml: managed
+  config/ctov-common.toml: managed
+  config/curios-client.toml: seed
+  config/curios-common.toml: managed
+  config/curios-server.toml: managed
+  config/defaultworldtype/client-config.toml: managed
+  config/distraction_free_recipes-client.toml: seed
+  config/dndecor-server.toml: managed
+  config/dynamicwaters-common.toml: managed
+  config/easyanvils-client.toml: seed
+  config/easyanvils-common.toml: managed
+  config/easyanvils-server.toml: managed
+  config/easymagic-client.toml: seed
+  config/visualworkbench-client.toml: seed
+  config/visualworkbench-server.toml: managed
+  config/easymagic-common.toml: managed
+  config/easymagic-server.toml: managed
+  config/emi.css: seed
+  config/emi_loot_config.toml: seed
+  config/emixx/emixx-client.toml: seed
+  config/emixx/remi.json: seed
+  config/entity_model_features.json: seed
+  config/entity_texture_features.json: seed
+  config/escalated-server.toml: managed
+  config/euphoria_patcher/settings.toml: seed
+  config/fabric/indigo-renderer.properties: seed
+  config/farm_and_charm-common.toml: managed
+  config/flywheel-client.toml: seed
+  config/fml.toml: seed
+  config/fzzy_config/keybinds.toml: seed
+  config/herbalbrews-common.toml: managed
+  config/hoofprint.toml: seed
+  config/hostile_skies-common.toml: managed
+  config/immersivelanterns-client.toml: seed
+  config/inventoryprofilesnext/inventoryprofiles.json: seed
+  config/invmove.json: seed
+  config/invmove/cloth-config.json: seed
+  config/invmove/emi.json: seed
+  config/invmove/jei.json: seed
+  config/invmove/ponder.json: seed
+  config/invmove/vanilla.json: seed
+  config/iris-excluded.json: seed
+  config/iris.properties: seed
+  config/jade/hide-blocks.json: seed
+  config/jade/hide-entities.json: seed
+  config/jade/jade.json: seed
+  config/jade/plugins.json: seed
+  config/jei-server.toml: managed
+  config/jei/blacklist.json: seed
+  config/jei/client/default/jei-client.ini: seed
+  config/jei/client/default/jei-colors.ini: seed
+  config/jei/client/default/jei-debug.ini: seed
+  config/jei/client/default/jei-mod-id-format.ini: seed
+  config/jei/client/jei-client.ini: seed
+  config/jei/client/jei-colors.ini: seed
+  config/jei/client/jei-debug.ini: seed
+  config/jei/client/jei-mod-id-format.ini: seed
+  config/jei/client/recipe-category-sort-order.ini: seed
+  config/jei/jei-client.ini: seed
+  config/jei/jei-colors.ini: seed
+  config/jei/jei-debug.ini: seed
+  config/jei/jei-mod-id-format.ini: seed
+  config/jei/recipe-category-sort-order.ini: seed
+  config/jei/server/world/default/jei-server.ini: seed
+  config/lithostitched.json: managed
+  config/mcqoy.toml: seed
+  config/meadow-common.toml: managed
+  config/mezz_config/client/default/settings.ini: seed
+  config/neoforge-client.toml: seed
+  config/neoforge-common.toml: managed
+  config/neoforge-server.toml: managed
+  config/offroad-server.toml: managed
+  config/pingwheel.json: seed
+  config/pingwheel.server.json: managed
+  config/ponder-client.toml: seed
+  config/powergrid-client.toml: seed
+  config/powergrid-common.toml: managed
+  config/powergrid-server.toml: seed
+  config/punchy_moves/tutorial_seen_v1: seed
+  config/questlog-client.json: seed
+  config/questlog/chapters/cargo.json: managed
+  config/questlog/chapters/electricity.json: managed
+  config/questlog/chapters/engines.json: managed
+  config/questlog/chapters/flight.json: managed
+  config/questlog/chapters/main.json: managed
+  config/questlog/chapters/manufacturing.json: managed
+  config/questlog/chapters/projects.json: managed
+  config/questlog/chapters/travel.json: managed
+  config/questlog/chapters/workshop.json: managed
+  config/questlog/quests/cargo/deliveries.json: managed
+  config/questlog/quests/cargo/dock.json: managed
+  config/questlog/quests/cargo/filter.json: managed
+  config/questlog/quests/cargo/funnel.json: managed
+  config/questlog/quests/cargo/kelp.json: managed
+  config/questlog/quests/cargo/package.json: managed
+  config/questlog/quests/electricity/battery.json: managed
+  config/questlog/quests/electricity/ion.json: managed
+  config/questlog/quests/electricity/motor.json: managed
+  config/questlog/quests/electricity/rotor.json: managed
+  config/questlog/quests/electricity/run_motor.json: managed
+  config/questlog/quests/electricity/use_design.json: managed
+  config/questlog/quests/electricity/wire.json: managed
+  config/questlog/quests/engines/controller.json: managed
+  config/questlog/quests/engines/gyro_sensor.json: managed
+  config/questlog/quests/engines/liquid.json: managed
+  config/questlog/quests/engines/magnetic_link.json: managed
+  config/questlog/quests/engines/portable.json: managed
+  config/questlog/quests/engines/resin.json: managed
+  config/questlog/quests/engines/sensor.json: managed
+  config/questlog/quests/engines/signal_gates.json: managed
+  config/questlog/quests/engines/solid.json: managed
+  config/questlog/quests/engines/spring_link.json: managed
+  config/questlog/quests/engines/steering.json: managed
+  config/questlog/quests/engines/stirling.json: managed
+  config/questlog/quests/engines/tank.json: managed
+  config/questlog/quests/engines/turpentine.json: managed
+  config/questlog/quests/engines/verdigris.json: managed
+  config/questlog/quests/flight/assembler.json: managed
+  config/questlog/quests/flight/bearing.json: managed
+  config/questlog/quests/flight/burner.json: managed
+  config/questlog/quests/flight/diagram.json: managed
+  config/questlog/quests/flight/envelopes.json: managed
+  config/questlog/quests/flight/glue.json: managed
+  config/questlog/quests/flight/hot_air.json: managed
+  config/questlog/quests/flight/propeller.json: managed
+  config/questlog/quests/flight/spin_propeller.json: managed
+  config/questlog/quests/main/anvil.json: managed
+  config/questlog/quests/main/breeding.json: managed
+  config/questlog/quests/main/enchanting.json: managed
+  config/questlog/quests/main/food.json: managed
+  config/questlog/quests/main/pack_fluids.json: managed
+  config/questlog/quests/main/pack_sleeping_bag.json: managed
+  config/questlog/quests/main/pack_tools.json: managed
+  config/questlog/quests/main/travel_pack.json: managed
+  config/questlog/quests/main/water.json: managed
+  config/questlog/quests/manufacturing/crafters.json: managed
+  config/questlog/quests/manufacturing/deployer.json: managed
+  config/questlog/quests/manufacturing/precision.json: managed
+  config/questlog/quests/manufacturing/quartz.json: managed
+  config/questlog/quests/manufacturing/wheels.json: managed
+  config/questlog/quests/projects/crossbow.json: managed
+  config/questlog/quests/projects/photograph.json: managed
+  config/questlog/quests/projects/print.json: managed
+  config/questlog/quests/projects/rail.json: managed
+  config/questlog/quests/travel/connector.json: managed
+  config/questlog/quests/travel/coupling.json: managed
+  config/questlog/quests/travel/glider.json: managed
+  config/questlog/quests/travel/membranes.json: managed
+  config/questlog/quests/travel/winch.json: managed
+  config/questlog/quests/workshop/alloy.json: managed
+  config/questlog/quests/workshop/ball_joint.json: managed
+  config/questlog/quests/workshop/brass.json: managed
+  config/questlog/quests/workshop/fan.json: managed
+  config/questlog/quests/workshop/fan_processing.json: managed
+  config/questlog/quests/workshop/flexible_shafts.json: managed
+  config/questlog/quests/workshop/heat.json: managed
+  config/questlog/quests/workshop/hinged_motion.json: managed
+  config/questlog/quests/workshop/linear_guide.json: managed
+  config/questlog/quests/workshop/millstone.json: managed
+  config/questlog/quests/workshop/mix.json: managed
+  config/questlog/quests/workshop/mixer.json: managed
+  config/questlog/quests/workshop/pneumatic_motion.json: managed
+  config/questlog/quests/workshop/press.json: managed
+  config/questlog/quests/workshop/press_sheets.json: managed
+  config/questlog/quests/workshop/rotation_recovery.json: managed
+  config/questlog/quests/workshop/wheel.json: managed
+  config/railways-untold/config.toml: managed
+  config/reliable_gliders.json: managed
+  config/remi/remi.json: seed
+  config/ritchiesprojectilelib-server.toml: managed
+  config/sable-client.toml: seed
+  config/sable-common.toml: managed
+  config/sable-server.toml: managed
+  config/sablejade-client.toml: seed
+  config/simulated-client.toml: seed
+  config/simulated-server.toml: managed
+  config/sky_archipelago-common.toml: managed
+  config/sky_archipelago-server.toml: managed
+  config/sky_archipelago/default-preset.toml: managed
+  config/sky_archipelago/presets/eee.json: managed
+  config/skyweave/shaders/recipes/bsl-colorwheel.json: managed
+  config/skyweave/shaders/recipes/photon-skyweave.json: managed
+  config/skyweave/shaders/recipes/complementary-euphoria-skyweave.json: managed
+  config/skyweave/skyweave_compat-ancient-cities.json: managed
+  config/skyweave/skyweave_compat-bluemap.json: seed
+  config/skyweave/skyweave_compat-climate.json: managed
+  config/skyweave/skyweave_compat-common.toml: managed
+  config/skyweave/skyweave_compat-encounters.json: managed
+  config/skyweave/skyweave_compat-features.properties: managed
+  config/skyweave/skyweave_compat-generation.json: managed
+  config/skyweave/skyweave_compat-interiors.json: managed
+  config/skyweave/skyweave_compat-oceans.json: managed
+  config/skyweave/skyweave_compat-rivers.json: managed
+  config/skyweave/skyweave_compat-search.json: managed
+  config/skyweave/skyweave_compat-shapes.json: managed
+  config/skyweave/skyweave_compat-structures.json: managed
+  config/mc2_interactivefoliage.json: seed
+  config/skinlayers.json: seed
+  config/subtle_effects/blocks.toml: seed
+  config/subtle_effects/entities.toml: seed
+  config/subtle_effects/environment.toml: seed
+  config/subtle_effects/general.toml: seed
+  config/subtle_effects/items.toml: seed
+  config/sodium-mixins.properties: seed
+  config/sodium-options.json: seed
+  config/sodiumdynamiclights-client.toml: seed
+  config/spyglass-improvements/settings.json: seed
+  config/ssrd-common.toml: seed
+  config/surveyor.toml: seed
+  config/towns_and_towers/structure_enable_or_disable_new.json5: managed
+  config/tracks-server.toml: managed
+  config/transition.json: seed
+  config/travelersbackpack-client.toml: seed
+  config/travelersbackpack-common.toml: managed
+  config/travelersbackpack-server.toml: managed
+  config/treechop-client.toml: seed
+  config/treechop-common.toml: managed
+  config/trender.json: seed
+  config/vinery.toml: managed
+  config/yacl.json5: seed
+  config/yigd.json: seed
+  icon.png: seed
+  options.txt: seed
+  shaderpacks/BSL_v10.1.8 + Clrwl_1.0.5 + Skyweave_0.3.1.zip.txt: seed
+  shaderpacks/Complementary Unbound r5.10 + Euphoria 1.11.2 + Skyweave 0.4.2.zip.txt: seed
+  shaderpacks/Photon v1.4 + Skyweave 0.3.1.zip.txt: seed
+  config/guardvillagers-common.toml: managed
+  config/guardvillagers-startup.toml: managed
+  config/illagerinvasion-server.toml: managed
+  config/grapplemod-properties.json: managed
+  config/jrftl-common.toml: managed
+  config/variantsandventures.json: managed
+  config/pickupnotifier-client.toml: seed
+  config/hmioutline.json: seed
+  config/ftbquests/quests/.skyweave-generated.json: managed
+  config/ftbquests/quests/chapter_groups.snbt: managed
+  config/ftbquests/quests/chapters/control.snbt: managed
+  config/ftbquests/quests/chapters/crossings.snbt: managed
+  config/ftbquests/quests/chapters/electricity.snbt: managed
+  config/ftbquests/quests/chapters/flight.snbt: managed
+  config/ftbquests/quests/chapters/foothold.snbt: managed
+  config/ftbquests/quests/chapters/handbook.snbt: managed
+  config/ftbquests/quests/chapters/production.snbt: managed
+  config/ftbquests/quests/chapters/projects.snbt: managed
+  config/ftbquests/quests/chapters/workshop.snbt: managed
+  config/ftbquests/quests/data.snbt: managed
+  config/ftbquests/quests/lang/en_us.snbt: managed

@@ -1,0 +1,1080 @@
+schema: 6
+pack:
+  id: create_skyweave_replay_studio
+  name: Create Skyweave Replay Studio
+  version: 0.1.0
+  authors:
+  - inherent.design contributors
+  description: Skyweave content, shaders, and replay editing without optional runtime
+    optimizers.
+runtime:
+  loader:
+    kind: neoforge
+    pin: 21.1.265
+  minecraft: 1.21.1
+  java:
+    preferred: 21
+dependencies:
+  3d-crops:
+    source: modrinth:3d-crops
+    pin: iKYRZwnm
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  3d-sugar-cane:
+    source: modrinth:3d-sugar-cane
+    pin: sU6FmyoH
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  3dskinlayers:
+    pin: GJTnQGfe
+    source: modrinth:3dskinlayers
+    side: client
+  absolute_kinematics-1.0.1:
+    source:
+      kind: url
+      downloads:
+      - https://edge.forgecdn.net/files/8511/680/absolute_kinematics-1.0.1.jar
+    digests:
+      sha1: fc502f4edfab93626a08d33aee45947323533623
+      sha512: ff89f5e875e9a6c5e07ea03cd562b4f9942f4ce009f8b652c84748c19a9da48036e9acb4b6a778497655cb81d8efb9a20dd29fa82d5bd1577d160394c168b195
+    environment:
+      client: required
+      server: required
+  accessories:
+    source: modrinth:jtmvUHXj
+    pin: dy9BbDEy
+    environment:
+      client: required
+      server: required
+  accessories-compat-layer:
+    source: modrinth:ySnjMzLg
+    pin: UB8bxpVn
+    environment:
+      client: required
+      server: required
+  aeronautics-delivery-quests:
+    pin: GBzcF6Il
+    source: modrinth:aeronautics-delivery-quests
+  almostunified:
+    source: modrinth:sdaSaQEz
+    pin: e8iYxxI3
+  analog-audio:
+    source: modrinth:iMAVG2nH
+    pin: BshMjyFt
+  appleskin:
+    source: modrinth:EsAfCjCV
+    pin: uAKA6Laj
+  architectury-api:
+    source: modrinth:lhGA9TYQ
+    pin: xGfBrBzj
+  artifacts:
+    pin: lMfuK0o7
+    source: modrinth:artifacts
+  artifacts-3d:
+    pin: kYgAZhY6
+    source: modrinth:artifacts-3d
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  azimuth-api:
+    source: modrinth:RpH8tmT1
+    pin: dxtZVosY
+  bellsandwhistles:
+    source: modrinth:gJ5afkVv
+    pin: w0mifib8
+  better-climbing:
+    source: modrinth:better-climbing
+    pin: RJgDIKSn
+    environment:
+      client: required
+      server: required
+  better-combat:
+    pin: VhIOvcXP
+    source: modrinth:better-combat
+  better-leaves:
+    pin: w4ReEpuG
+    source: modrinth:better-leaves
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  better-third-person:
+    source: modrinth:better-third-person
+    pin: aG5y4JUQ
+    environment:
+      client: required
+      server: unsupported
+  better-village:
+    pin: 1IEc4yoG
+    source: modrinth:better-village
+  brays-zombie-overhaul-fresh-animations:
+    source: modrinth:brays-zombie-overhaul-fresh-animations
+    type: resource-pack
+    pin: 2YAVbBRq
+    environment:
+      client: required
+      server: unsupported
+  bsl-shaders:
+    source: modrinth:Q1vvjJYV
+    type: shader-pack
+    pin: Y68yiql9
+    side: client
+  cable-facades:
+    source: modrinth:twipgzWx
+    pin: XWCAtdzJ
+  carry-on:
+    source: modrinth:joEfVgkn
+    pin: PV8oLZ1q
+  carryon-animation-fix:
+    side: client
+    source:
+      kind: url
+      downloads:
+      - https://github.com/Pelly-the-Crafter/carryon-animation-fix/releases/download/v1.0.0/carryon-animation-fix-1.0.0.jar
+    digests:
+      sha1: 20f3b426c334d69fbc40a1da77bd99fffa86da21
+      sha512: 3101b106371c5f349f6e78781677ba0329ba9bcd6a397a3c2de6376526e365bf17aad2b5a877a4e40fce0b0853b7ef9f804558ef35cd7d3b29a79cf8e277ac8b
+  chat-heads:
+    source: modrinth:chat-heads
+    pin: ZPylso9i
+    environment:
+      client: required
+      server: unsupported
+  clean-tooltips:
+    source: modrinth:clean-tooltips
+    pin: F8TicG1p
+    environment:
+      client: required
+      server: unsupported
+  cloth-config:
+    source: modrinth:9s6osm5g
+    pin: izKINKFg
+  cmdcam:
+    side: client
+    source: modrinth:hZw3uqi3
+    pin: ZibX3UR8
+  colorwheel:
+    source: modrinth:colorwheel
+    environment:
+      client: required
+      server: unsupported
+    pin: lV874ox8
+  colorwheel-patcher:
+    source: modrinth:colorwheel-patcher
+    pin: dQqV3sci
+    side: client
+  complementary-unbound:
+    source: modrinth:R6NEzAwj
+    type: shader-pack
+    pin: QJiYQisE
+    side: client
+  connector:
+    source: modrinth:u58R1TMW
+    pin: IITF0PRC
+  controlling:
+    source: modrinth:controlling
+    pin: FaNppCJJ
+    environment:
+      client: required
+      server: unsupported
+  cool-rain-reforged:
+    source: modrinth:cool-rain-reforged
+    pin: SwSSfJQQ
+    environment:
+      client: required
+      server: unsupported
+  copycat-bar-extrusion:
+    side: client
+    source:
+      kind: url
+      downloads:
+      - https://github.com/mannie-exe/copycat-bar-extrusion/releases/download/v0.1.0/copycat-bar-extrusion-0.1.0.jar
+    digests:
+      sha1: 6453e2496835b439a433c444442d79f6f52e4525
+      sha512: a8cc2bbeee0eef84e0180e146c17dcd320c8f0ad07afd530c500a87dd98014f6cce29cb07935098d1b13097705fb5fa3ef4fa2bbabae9ac3e07ef36ba0278083
+  copycats:
+    source: modrinth:UT2M39wf
+    pin: zLlVJXf0
+  create:
+    source: modrinth:LNytGWDc
+    pin: UjX6dr61
+  create-accessories-compat:
+    source: modrinth:2MhMVi7C
+    pin: 2r7hvkCQ
+  create-aero-cables:
+    source: modrinth:AHTfty0S
+    pin: Wn81ihHo
+  create-aeronautics:
+    source: modrinth:oWaK0Q19
+    pin: demX2roU
+  create-aeronautics-climbable-rope:
+    source: modrinth:jImqv1M5
+    pin: MQNJGin9
+  create-aeronautics-covers:
+    source: modrinth:eWrKPy9E
+    pin: R35biaZf
+  create-aeronautics-rechiseled-compatibility:
+    source:
+      downloads:
+      - https://cdn.modrinth.com/data/ub0jAGhg/versions/b6O6XLL6/create-aeronautics-rechiseled-compat-1.21.1-1.2.2.jar
+      kind: url
+    digests:
+      sha1: 80083f94d278ddba23d43a92cd8a0de584a5a087
+      sha512: 0a0cc1a51602b59a49fc5b316c8b7356bd307b4e0ed33d1485e22cae51b9bcc9ac1637067fd4c833699b7f3785d6f156723bccabc90f85c4044c37e8efe96db4
+  create-aeronautics-throwable-rope-connector:
+    source:
+      downloads:
+      - https://cdn.modrinth.com/data/9xiCbKmM/versions/EDzeTV17/create_aeronautics_throwable_rope_connector-0.4.3.jar
+      kind: url
+    digests:
+      sha1: 63fcbbc960461d42a59b417665fb938c79919514
+      sha512: 0a1fc122e4c303a0903213192c32dbc6a0a819c101e70e508e989297e5e688855730a2f9e28f7107a92524cc3ee7349fc47615fd04902fda04b797a401a40c71
+  create-aeronautics-transmission-linkage:
+    pin: WoUjC6d4
+    source: modrinth:create-aeronautics-transmission-linkage
+  create-aeroworks:
+    source: modrinth:P26k79kP
+    pin: 6kk7ruR3
+  create-ballast:
+    source: modrinth:5ypXYrfG
+    pin: XzlV3NlT
+  create-big-cannons:
+    source: modrinth:GWp4jCJj
+    pin: bOiDu0LS
+  create-bits-n-bobs:
+    source: modrinth:T8bvmqVZ
+    pin: g9Lmjjc5
+  create-confectionery:
+    source: modrinth:WPE5gRs9
+    pin: ndnETBEN
+  create-connected:
+    source: modrinth:Vg5TIO6d
+    pin: Xe7EqzfQ
+  create-deco:
+    source: modrinth:sMvUb4Rb
+    pin: qrcMVoBD
+  create-design-n-decor:
+    source: modrinth:x49wilh8
+    pin: uQsIRky8
+  create-factory:
+    source: modrinth:j6Zt3N7W
+    pin: OA9Dvj5m
+  create-hostile-skies:
+    source:
+      kind: url
+      downloads:
+      - https://cdn.modrinth.com/data/78hqRjWm/versions/HaZ4GxKd/hostile_skies-0.2.6.jar
+    digests:
+      sha1: 25eadcdcf4db40b5e5e33f3aa7080f71fe4033ee
+      sha512: aacb60d2392aa2cf36417d60f95afd4ee334e5c4e3d0a426dfd3db1c5ff09ee012cc942995bd9f89c67b08ed19cf946c467431386e97dc893199804a817d9343
+  create-power-loader:
+    source: modrinth:wPQ6GgFE
+    pin: 3Y4r0ItR
+  create-propulsion-simulated:
+    pin: H13U56dc
+    source: modrinth:create-propulsion-simulated
+  create-radars:
+    pin: 2wQXuyCI
+    source: modrinth:BLu2Yqfq
+  create-redstone-additions:
+    pin: Hvlv9gb6
+    source: modrinth:create-redstone-additions
+  create-redstone-link-gui:
+    pin: s8Yw7I6l
+    source: modrinth:create-redstone-link-gui
+  create-touch-ups:
+    source: modrinth:create-touch-ups
+    pin: aoJf3Iu6
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  create-transmission:
+    source: modrinth:QFCkBuIh
+    pin: dOsq88jX
+  create-vibrant-vaults:
+    source:
+      downloads:
+      - https://cdn.modrinth.com/data/hddN8ksR/versions/t17qYXjn/create_vibrant_vaults-0.3.2.jar
+      kind: url
+    digests:
+      sha1: d0dbdde6318c4dd4ede1d2c091f1a64896ba872a
+      sha512: 3bd53097482e614dc4e5e635778af25020fa27c1c453d4928d1d8baa6767c93cb300810a5ac0c49af86813749a180e3f092ab2e65b07e7741c2b12aaebd47006
+  createaddoncompatibility:
+    source: modrinth:QgrK9rtJ
+    pin: tL1Tayuh
+    environment:
+      client: required
+      server: required
+  creativecore:
+    side: client
+    source: modrinth:OsZiaDHq
+    pin: aoWQBRG8
+  ct-overhaul-village:
+    pin: hJfyJvWt
+    source: modrinth:ct-overhaul-village
+  cubic-sun-moon:
+    source: modrinth:cubic-sun-moon
+    pin: zHa4qeKn
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  curios:
+    source: modrinth:vvuO3ImH
+    pin: KJsZIQrT
+    environment:
+      client: required
+      server: required
+  defaultworldtype:
+    side: client
+    source: modrinth:kZvO1mDq
+    pin: CCrwlupr
+  dh-polygon-fix:
+    side: client
+    source:
+      kind: url
+      downloads:
+      - https://github.com/mannie-exe/dh-polygon-fix/releases/download/v1.0.2/dh-polygon-fix-1.0.2-mc1.21.1-neoforge.jar
+    digests:
+      sha1: e5931d2ed1990c98b40bb60555362fb1b761447d
+      sha512: b59f30e1541b6138ffee2efe7d7f1a639118799124925b57e58dbcb67a994144435882a7e40e25eaba3dc299536c92c3dcdf01ff3476d5ab99b7985a94317e99
+  distanthorizons:
+    source: modrinth:uCdwusMi
+    pin: 9w34y8ai
+  distraction-free-recipes:
+    source: modrinth:gbJLUhZP
+    pin: H0rFJIiC
+    environment:
+      client: required
+      server: unsupported
+  dynamic-waters:
+    source: modrinth:wL4lvEci
+    pin: At4uOo4s
+  easy-anvils:
+    source: modrinth:easy-anvils
+    pin: fSQSKhdF
+    environment:
+      client: required
+      server: required
+  easy-magic:
+    source: modrinth:easy-magic
+    pin: MxbfrOEv
+    environment:
+      client: required
+      server: required
+  effortless-building:
+    source: modrinth:DYtfQEYj
+    pin: YxnBXtLv
+  emf-compat-core:
+    pin: upzqIWB0
+    side: client
+    source: modrinth:emf-compat-core
+  emi:
+    source: modrinth:fRiHVvU7
+    pin: 5sIPA1To
+  emi-loot:
+    source: modrinth:qbbO7Jns
+    pin: kOwbrV11
+  enchanted-fishing-line:
+    source: modrinth:FtXZNeim
+    pin: HNRIgUFH
+    environment:
+      client: required
+      server: unsupported
+  entity-model-features:
+    source: modrinth:entity-model-features
+    environment:
+      client: required
+      server: unsupported
+    pin: 197m3VoU
+  entitytexturefeatures:
+    source: modrinth:entitytexturefeatures
+    environment:
+      client: required
+      server: unsupported
+    pin: 1DVPB3a4
+  escalated:
+    source: modrinth:LyOBYG8Q
+    pin: vJ49zRJl
+  euphoria-patches:
+    side: client
+    source: modrinth:4H6sumDB
+    pin: fqKNZqvM
+  exposure:
+    source: modrinth:hB899VmG
+    pin: tjX0GpFW
+  flashback:
+    side: client
+    source:
+      kind: url
+      downloads:
+      - https://cdn.modrinth.com/data/4das1Fjq/versions/nPzvTtsX/Flashback-0.39.10-for-MC1.21.1.jar
+    digests:
+      sha1: 3705800d44eddbb417d8ca741116883525fbb3b2
+      sha512: 97ec529d8d420ebe68df851979f3544c1d290088c2c9ce1458ee046fb5011cfb12459f0bf78cf38e42b74dca1bae6986b89336b4e5764f0587ba13a3f3d437f7
+  flashback-neoforge-fixed:
+    side: client
+    source: modrinth:QaOcZcLU
+    pin: Fglj63ER
+  forgified-fabric-api:
+    source: modrinth:Aqlf1Shp
+    pin: C4eskNuR
+  fresh-animations:
+    source: modrinth:fresh-animations
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+    pin: HC1XRKGD
+  fresh-animations-details:
+    pin: XM8VyQLk
+    source: modrinth:fresh-animations-details
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  fresh-animations-objects:
+    source: modrinth:fresh-animations-objects
+    pin: AIGgXNdl
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  fresh-animations-quivers:
+    pin: dxPm8dtx
+    source: modrinth:fresh-animations-quivers
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  fresh-flower-pots:
+    source: modrinth:fresh-flower-pots
+    pin: YEM2pUsf
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  fresh-vines:
+    pin: X7b3irib
+    source: modrinth:fresh-vines
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  ftb-library:
+    source:
+      kind: url
+      downloads:
+      - https://edge.forgecdn.net/files/9350/706/ftb-library-neoforge-2101.1.39.jar
+    digests:
+      sha1: ff852d99ade215fb892369687d0634ecf0bca6ae
+      sha512: e28a5c032395b96ce696800ca7689315074110e572186d8ba08bdf326e0ff43f6fcce942c35a3fe60637dc2bf2077f04b3e222892e60016fe545339dcc7529aa
+  ftb-quests:
+    source:
+      kind: url
+      downloads:
+      - https://edge.forgecdn.net/files/9405/148/ftb-quests-neoforge-2101.1.38.jar
+    digests:
+      sha1: 389fb269d338ed4c7f14f945a07759b6d444af40
+      sha512: fc97e8f2848b72ca04eba930a5382a9839faf860c1f943eeb698b4859cd5fa9a9533b900f06855b878cf8b7f1c2c10a9c3db37194e5dcb3ed3e2df342538009d
+  ftb-teams:
+    source:
+      kind: url
+      downloads:
+      - https://edge.forgecdn.net/files/9434/81/ftb-teams-neoforge-2101.1.12.jar
+    digests:
+      sha1: 9c831fbbbccf2178827c3ccf278b2f2a0ce57306
+      sha512: c2c8853615c1ec97e0ace07c320db8f0ad4a18c59746e1d30c86f7af0e6ad36d9bbfe0ca6a365aa63d29244e1690323296fb29d99a38bab97e2c19181a57e376
+  fusion-connected-textures:
+    side: client
+    source: modrinth:p19vrgc2
+    pin: AYDaLPK8
+  fzzy-config:
+    source: modrinth:hYykXjDp
+    environment:
+      client: required
+      server: required
+    pin: jRuOkBAG
+  geophilic:
+    pin: 5kFV8CEz
+    source: modrinth:geophilic
+  grapplemod-skybound:
+    pin: ejlIzfJ8
+    source: modrinth:grapplemod-skybound
+  grassrise-mod:
+    pin: dCoBnf1L
+    source: modrinth:grassrise-mod
+    environment:
+      client: required
+      server: unsupported
+  guard-villagers:
+    pin: JyXugpy2
+    source: modrinth:guard-villagers
+  hoofprint:
+    side: client
+    source:
+      downloads:
+      - https://cdn.modrinth.com/data/8O6iJpuJ/versions/YQxLELnA/hoofprint-1.3.0%2B1.21.jar
+      kind: url
+    digests:
+      sha1: d2395ad821239db36507fc6946d185fd10e81d3c
+      sha512: 68afc8c41407f2a421bf322e9b7bd71cf69285fa871f2dfd91a996f4822bac35ee20215d12d39ac91ddd6ab4d5e3a9ce6c735fd171b06edd71a817ed8bec5e17
+  illager-invasion:
+    pin: 9bEpNrvK
+    source: modrinth:illager-invasion
+  interiors:
+    source: modrinth:r4Knci2k
+    pin: gBrfZy6S
+  inventory-profiles-next:
+    pin: vjuNnHLv
+    source: modrinth:inventory-profiles-next
+    environment:
+      client: required
+      server: unsupported
+  inventory-totem:
+    source: modrinth:inventory-totem
+    pin: lgjs8TXC
+    environment:
+      client: required
+      server: required
+  invmove:
+    source: modrinth:invmove
+    pin: C7ePwvWW
+    environment:
+      client: required
+      server: unsupported
+  invmovecompats:
+    source: modrinth:invmovecompats
+    pin: GjTuFGdp
+    environment:
+      client: required
+      server: unsupported
+  iris:
+    side: client
+    source: modrinth:YL57xq9U
+    pin: KduFYu4t
+  jade:
+    source: modrinth:nvQzSEkH
+    pin: eYz2YBGT
+  jade-addons-forge:
+    source: modrinth:xuDOzCLy
+    pin: O3F6Dkle
+  jade-sable-compat:
+    side: client
+    source: modrinth:jCrJ4iGH
+    pin: cxUohR7A
+  jei:
+    source: modrinth:u6dRKJwZ
+    pin: kmb7KviL
+  jrftl:
+    pin: ZgbUilZH
+    source: modrinth:jrftl
+  just-3d-potions-punchy-1.21-backport:
+    pin: GkDN5SwX
+    source: modrinth:just-3d-potions-punchy-1.21-backport
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  kaleidoscope-cookery:
+    pin: g8w0b2ly
+    source: modrinth:kaleidoscope-cookery
+  kaleidoscopetavern:
+    pin: W9ILsQt7
+    source: modrinth:kaleidoscopetavern
+  keybind-atlas:
+    side: client
+    pin: r5GwaT7L
+    source: modrinth:keybind-atlas
+  kotlin-for-forge:
+    source: modrinth:ordsPcFz
+    pin: 9ZlVvei8
+  lamb-lanterns:
+    pin: H8iHSQhM
+    source: modrinth:lamb-lanterns
+    environment:
+      client: required
+      server: required
+  lambdynamiclights:
+    source:
+      kind: url
+      downloads:
+      - https://cdn.modrinth.com/data/yBW8D80W/versions/ksaGCvSu/lambdynamiclights-4.8.11%2B1.21.1.jar
+    digests:
+      sha1: 7b5afc75a094b4e8a7118f9856eec959b10f2422
+      sha512: 0286076e8b2922dfbe90cd4544a0d16e6d07d7249c732a37479ea4281e9cf96c86dd2e1ce5261489bd5553ceba33044bc550a04b9eb582645eb97f15c9c6a64c
+    environment:
+      client: required
+      server: unsupported
+  libipn:
+    source: modrinth:libipn
+    pin: BGe4KMlE
+    environment:
+      client: required
+      server: unsupported
+  libjf:
+    source: modrinth:WKwQAwke
+    pin: kCSwQJ9C
+    environment:
+      client: required
+      server: unsupported
+  linear-bearing:
+    pin: 8SJdnoXS
+    source: modrinth:linear-bearing
+  linear-bearings-fix:
+    pin: MQ6XuOMQ
+    source: modrinth:linear-bearings-fix
+  lithostitched:
+    pin: cZu4cHY3
+    source: modrinth:lithostitched
+  lootr:
+    source: modrinth:EltpO5cN
+    pin: SPOrIzX8
+  lootr-styled:
+    source:
+      kind: local
+      path: .local-artifacts/lootr-styled-0.2.0-reform-public.1-4711942c0603f5f4.jar
+    digests:
+      sha256: 4711942c0603f5f4f6366b9844c0cc7d45c29b02ad447a1064f603bacca65e6f
+      sha512: 945f88d81b9f83cae25e3e8453aec131786f0a174520d06259997ee07735e3d0d5f122aab248474c7b9e2a4c01adcb51c57a41e974ca3738721723ef95503687
+    type: mod
+    side: client
+  low-on-fire:
+    source: modrinth:low-on-fire
+    pin: yQdcUfnr
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  low-shield-pack:
+    source: modrinth:low-shield-pack
+    pin: AV6Mwfm5
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  luminous-lanterns:
+    source: modrinth:9k8RMjsM
+    pin: S2z4ITQ6
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  macaws-doors:
+    source: modrinth:kNxa8z3e
+    pin: u7BRX44F
+  macaws-fences-and-walls:
+    source: modrinth:GmwLse2I
+    pin: jVdb0r4W
+  macaws-paths-and-pavings:
+    source: modrinth:VRLhWB91
+    pin: tlymsxUG
+  macaws-stairs:
+    source: modrinth:iP3wH1ha
+    pin: 4t8L0dGP
+  macaws-trapdoors:
+    source: modrinth:n2fvCDlM
+    pin: StnP0RNi
+  macaws-windows:
+    source: modrinth:C7I0BCni
+    pin: rQUE4LCz
+  mc2-interactive-foliage:
+    pin: oKmXJIL5
+    source: modrinth:mc2-interactive-foliage
+    side: client
+  mcqoy:
+    side: client
+    source:
+      downloads:
+      - https://cdn.modrinth.com/data/tNmWwdI2/versions/nfqfeKsL/mcqoy-0.4.1%2Bneo-1.21.jar
+      kind: url
+    digests:
+      sha1: 98a771b14c1f4ead12ffcd99a90b1c91b25cca8d
+      sha512: 20c40e4bd4104069b65455065cbb9beac829efa314b6e9e960b269725727f0d4f9bed6946815e8b573223cd4a76feddd1e5fbfb17c7293fa6a25545299e1afbc
+  mezzconfig:
+    pin: V6oWFnxW
+    source: modrinth:7tEfOcA7
+  modefite-item-definition-backport:
+    source: modrinth:qjlkcVfy
+    pin: cy8BkRZc
+    environment:
+      client: required
+      server: unsupported
+  mouse-tweaks:
+    pin: 9I21YYxf
+    source: modrinth:mouse-tweaks
+    environment:
+      client: required
+      server: unsupported
+  mt-ct-d:
+    source: modrinth:mt-ct-d
+    pin: UPBKvt5T
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  omnidirectional-movement:
+    side: client
+    pin: BnnlX11f
+    source: modrinth:omnidirectional-movement
+  outline-effects:
+    source:
+      kind: url
+      downloads:
+      - https://cdn.modrinth.com/data/tzMIGXhD/versions/4Scic1zd/outline-effects-neoforge-2.2%2Bmc1.21.1.jar
+    digests:
+      sha1: 0c58c99206659283ee786cd4c7ab07d0332d7816
+      sha512: 245165436c97c04b67d44e5dc799758d6d68e09d0e49a72f021abd04cea4eff6f6ec80eb3953d29a65de1f7473fbc555a7a129cbb0cd50f5441d54d03229dab9
+    environment:
+      client: required
+      server: unsupported
+  owo-lib:
+    source: modrinth:ccKDOlHs
+    pin: wbdHEItB
+    environment:
+      client: required
+      server: required
+  photon-shader:
+    pin: BnGklH5y
+    side: client
+    source: modrinth:photon-shader
+    type: shader-pack
+  pick-up-notifier:
+    pin: 5NZounJc
+    source: modrinth:pick-up-notifier
+    side: client
+  ping-wheel:
+    source: modrinth:ping-wheel
+    pin: Zrh2Fmn9
+    environment:
+      client: required
+      server: required
+  playeranimator:
+    source: modrinth:gedNE4y2
+    pin: HJZB6bmA
+  polymorph:
+    source: modrinth:tagwiZkJ
+    pin: 9yWvrF5o
+    environment:
+      client: required
+      server: required
+  ponder:
+    source:
+      kind: url
+      downloads:
+      - https://maven.createmod.net/net/createmod/ponder/ponder-neoforge/1.0.87+mc1.21.1/ponder-neoforge-1.0.87+mc1.21.1.jar
+    digests:
+      sha1: 7783eeff0389f8c6003457133b9dd98e903266c6
+      sha512: 2706cbc70e7800f13847d838ebbc2ac4f9776e0d979f60f94924336be2130e0f5790b145088158866cfdc37256bdf166d54169f047fbaaee7d260e8d630f9c40
+  power-grid:
+    source: modrinth:eWiBLJ9R
+    pin: jCkPHjmP
+  punched-backpacks:
+    pin: prexQWb0
+    source: modrinth:punched-backpacks
+    type: resource-pack
+    side: client
+  punchy-fpa:
+    pin: aVZEe0j8
+    side: client
+    source: modrinth:punchy-fpa
+  punchymoves:
+    pin: 8dHgPPh6
+    side: client
+    source: modrinth:punchymoves
+  questlog:
+    pin: McoSDHAk
+    source: modrinth:questlog
+  rays-3d-ladders:
+    source: modrinth:rays-3d-ladders
+    pin: 6ubKzVD3
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  rays-3d-rails:
+    source: modrinth:rays-3d-rails
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+    pin: tKWH9VdI
+  rechiseled:
+    source:
+      downloads:
+      - https://cdn.modrinth.com/data/B0g2vT6l/versions/6muGRqvu/rechiseled-1.2.6-neoforge-mc1.21.jar
+      kind: url
+    digests:
+      sha1: a7ca83d2f99520233bfa9ce769a157fe05201639
+      sha512: fc7556e42439e526edddafdbde108cd1326fd5742d75ae73fe9519f57af18b75cd2861053247b65fa3acd9c58e186bc540496d1e7095a3206b401d9459958e34
+  rechiseled-create:
+    source:
+      downloads:
+      - https://cdn.modrinth.com/data/E6867niZ/versions/VnOezhJR/rechiseledcreate-1.1.1-neoforge-mc1.21.jar
+      kind: url
+    digests:
+      sha1: 6f7e53f39eb477d7cee8e21af215cd3db698deda
+      sha512: ca77dea4dd3276105176578855b0ffd9f48256bed58701a86171b05db1116a29592871ca7d6d5acc9a023270a45654feb4ab7153026eb751d567e7bf892ca560
+  reddens-stone-lanterns:
+    source: modrinth:plgWdsGJ
+    pin: uehlsDrT
+  redstone-tweaks:
+    source: modrinth:redstone-tweaks
+    pin: acYT0fGm
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  refined-buckets:
+    source: modrinth:l2nl8HQJ
+    pin: 3xfWCDi5
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  refined-create-buckets:
+    type: resource-pack
+    source:
+      kind: url
+      downloads:
+      - https://cdn.modrinth.com/data/5m3ARu6i/versions/ByxDrT5M/Refined%20%D0%A1reate%20Buckets%20PV.zip
+    digests:
+      sha1: 62a657d70f30286dfaf272a9529d9ac50a0330c4
+      sha512: 5e421da835064d4f48fb8b1028775a37e8f5f7908a619504f3aff2d04693b1acbcabba76df8ec85b5649f4c7ed6b7a53a13924de068004c4f2493d7e26d420d2
+    environment:
+      client: required
+      server: unsupported
+  refined-tools:
+    source: modrinth:6l1WUegn
+    pin: ndAFoNmO
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  refined-torches:
+    source: modrinth:M6aa729D
+    pin: e7EW6ibn
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  reform:
+    source:
+      kind: url
+      downloads:
+      - https://github.com/mannie-exe/reform/releases/download/v0.3.0/reform-0.3.0-mc1.21.1-neoforge.jar
+    digests:
+      sha256: 8a3fcc486b44351962535b4b63b83caee538e086e35529ec6710ed5c6397b7ab
+      sha512: c07a5ae655f0d5ec36e49e855f54c58d61827307465594069de7dde40d9260984fc6a5572abf5a7ae870c251b7ad51e2b3bb9227e317ae33e2f020271764685c
+    type: mod
+    side: both
+  reliable-emi:
+    pin: XQQ84u5q
+    side: client
+    source: modrinth:N9WucjHL
+  reliable-gliders:
+    source: modrinth:reliable-gliders
+    pin: rW61WzQF
+  respackopts:
+    source: modrinth:TiF5QWZY
+    pin: zVaOQTh5
+    environment:
+      client: required
+      server: unsupported
+  rpl:
+    source: modrinth:B3pb093D
+    pin: hZ6B2Z0x
+  sable:
+    source: modrinth:T9PomCSv
+    pin: fg9dTRz9
+  sable-cool-rain:
+    source: modrinth:sable-cool-rain
+    pin: 3KLMffqk
+    environment:
+      client: required
+      server: unsupported
+  sable-dynamic-lights:
+    source: modrinth:KKb9KQzX
+    pin: vjb0hAWB
+    environment:
+      client: required
+      server: unsupported
+  sable_beyond:
+    pin: BWQxgVOj
+    source: modrinth:sable_beyond
+  searchables:
+    source: modrinth:searchables
+    pin: iEE85X0w
+    environment:
+      client: required
+      server: unsupported
+  shulkerboxtooltip:
+    source: modrinth:shulkerboxtooltip
+    pin: IuqNIoAi
+    environment:
+      client: required
+      server: unsupported
+  simple-3d-iron-bars:
+    source: modrinth:simple-3d-iron-bars
+    pin: harPhc3X
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  simple-snowy-fix-forge-fabric:
+    pin: UlwusT7e
+    source: modrinth:simple-snowy-fix-forge-fabric
+  simulated-copycats:
+    source: modrinth:NYBH9vVY
+    pin: 6zbD44Qe
+  sky-archipelago:
+    source: modrinth:sHFNUlBU
+    pin: XPc17YJD
+  sky-villages:
+    pin: 3InSHTOp
+    source: modrinth:sky-villages
+  skyweave-compat:
+    source:
+      kind: url
+      downloads:
+      - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.43.3/skyweave-compat-0.43.3-mc1.21.1-neoforge.jar
+    digests:
+      sha256: d997bdb755695963681e6a52e91d7401eed39b2d65a884524d3d7af87196ad9f
+      sha512: 8280bcfc6938185382dc9eb882199ac79a71df7b205b1f21ba6743659277a37f7654d508c0f6733e5111d430971585bfb629c0f062af4f73967ba7f1d2df88da
+    type: mod
+    side: both
+  snow-real-magic:
+    pin: gLnAisfF
+    source: modrinth:snow-real-magic
+  snow-under-trees:
+    pin: OYaUDns6
+    source: modrinth:snow-under-trees
+  sodium:
+    side: client
+    source: modrinth:AANobbMI
+    pin: uMOpc5uV
+  soft-weather:
+    source: modrinth:soft-weather
+    pin: iAb7bpl5
+    type: resource-pack
+    environment:
+      client: required
+      server: unsupported
+  sound-physics-remastered:
+    side: client
+    source: modrinth:qyVF9oeo
+    pin: 85fA7L1W
+  spyglass-improvements:
+    side: client
+    source: modrinth:Z6ykjRlM
+    pin: F2s6rUr5
+  ssrd:
+    source:
+      downloads:
+      - https://cdn.modrinth.com/data/fJ183v3D/versions/Zdhm9p2k/SSRD-1.8.8-1.21.1.jar
+      kind: url
+    digests:
+      sha1: 0639b720f16bfc817724b029433b55acbfb76ce7
+      sha512: d1f68fde1f8d1045dd7fd791a983b9bfd92aae9a7b427c2dcd55c31fbf75e33199c9be96f021d4ed97142c4e42672707572fad4ec8920624eca25d45b80411c0
+  strut-your-stuff:
+    source: modrinth:sHO3MhQx
+    pin: BOTN7zzN
+  subtle-effects:
+    pin: 1Cj3QYAu
+    source: modrinth:subtle-effects
+    side: client
+  supermartijn642s-config-lib:
+    source: modrinth:LN9BxssP
+    pin: qKL9jM75
+  supermartijn642s-core-lib:
+    source: modrinth:rOUBggPv
+    pin: Bmsxj5pY
+  surveyor:
+    source:
+      downloads:
+      - https://cdn.modrinth.com/data/4KjqhPc9/versions/egJBsDTn/surveyor-1.2.4%2B1.21.jar
+      kind: url
+    digests:
+      sha1: 77e9d3996c11eed104fe224c3ba706be1c759303
+      sha512: 3a91efbc596db7192792de069e814aeb3e9e1d771267ea5a5d4371b1311bef26a7f9bd02a28619026c23e4df702d99a1bbaaf732e06179dd4999dbd01aaf920c
+  sway:
+    pin: uGTq42kW
+    source: modrinth:sway
+    side: client
+  touch-n-motion:
+    source:
+      kind: url
+      downloads:
+      - https://edge.forgecdn.net/files/9524/859/touch_n_motion_neoforge_1.21.1_1.0.5.jar
+    digests:
+      sha1: 888c6175492105f4df7be86ad5bc0fb65332064e
+      sha512: 2cb1c096b86539550158c2a1b45b57b46fd806428f7388254543e93d10b4ff8f41149cc3204121d69e5911789d91366325f573ec8b5321c5b032fb9dce0488bb
+    environment:
+      client: required
+      server: required
+  towns-and-towers:
+    pin: DZxwgj6V
+    source: modrinth:towns-and-towers
+  travelersbackpack:
+    source: modrinth:rlloIFEV
+    pin: JrOhWsXk
+  treechop:
+    source: modrinth:gHoB7SHO
+    pin: iLXWmfax
+  txnilib:
+    source: modrinth:vBbPDuOs
+    pin: M1CyD3Uu
+    environment:
+      client: required
+      server: required
+  variants-and-ventures:
+    pin: Efvt97uC
+    source: modrinth:variants-and-ventures
+  visual-workbench:
+    pin: 3646RfLS
+    source: modrinth:visual-workbench
+  yacl:
+    source: modrinth:1eAoo2KR
+    pin: 7TVdVtxF
+  yigd:
+    pin: Axk4bfXT
+    source: modrinth:yigd
+  yungs-better-desert-temples:
+    pin: GQ9iNWkI
+    source: modrinth:yungs-better-desert-temples
+  yungs-better-jungle-temples:
+    pin: P00i2hJn
+    source: modrinth:yungs-better-jungle-temples
+  yungs-better-mineshafts:
+    pin: Go3nbneL
+    source: modrinth:yungs-better-mineshafts
+  yungs-better-ocean-monuments:
+    pin: yFjEcj2g
+    source: modrinth:yungs-better-ocean-monuments
+  yungs-better-witch-huts:
+    pin: AvedwcIe
+    source: modrinth:yungs-better-witch-huts
+build:
+  default:
+  - prism
+  profiles:
+    prism:
+      target: prism
+      delivery: references
+      environment: client
+      format: zip
+      updates: snapshot
+sources:
+  exclude:
+  - '**/*.pw.toml'
+  - pack.toml
+  - index.toml
+  - .packwizignore
+  - '**/.DS_Store'
+  - '**/*.mrpack'
