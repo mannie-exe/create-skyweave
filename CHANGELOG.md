@@ -50,6 +50,8 @@ Generated from Git history. Player-facing release summaries are in [release note
 
 - Adopt public Compat and retire Zfastnoise ([3a5fdd3](https://github.com/mannie-exe/create-skyweave/commit/3a5fdd398ef9ca0bc6db4da07da43aba416be840))
 
+- **build:** Preserve retired Analog download ([30e1dba](https://github.com/mannie-exe/create-skyweave/commit/30e1dba1b556e91326d0d687ae1b10c4c7d70d63))
+
 ### Documentation
 
 - Define changelog and release note conventions ([bd74b5a](https://github.com/mannie-exe/create-skyweave/commit/bd74b5a19a6f6a6c4ea355c6899075252ecce638))
