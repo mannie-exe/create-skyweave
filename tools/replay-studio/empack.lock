@@ -7381,34 +7381,35 @@ dependencies:
     content: mod
     files:
     - acquisition:
-        kind: local
-        path: .local-artifacts/lootr-styled-0.2.0-reform-public.1-4711942c0603f5f4.jar
+        downloads:
+        - >-
+          https://github.com/mannie-exe/lootr-styled/releases/download/v0.2.0/lootr-styled-1.21.1-neoforge-0.2.0.jar
+        kind: url
       expected:
         accepted-observation: null
         digests:
-          sha256: 4711942c0603f5f4f6366b9844c0cc7d45c29b02ad447a1064f603bacca65e6f
+          sha256: 150fd4cb44b7388153762e37efb8b504ae343698465be0f0bb91383aabbf2888
           sha512: >-
-            945f88d81b9f83cae25e3e8453aec131786f0a174520d06259997ee07735e3d0d5f122aab248474c7b9e2a4c01adcb51c57a41e974ca3738721723ef95503687
+            eb569a378170d675f0f37ddeab8c8aea399cb24774cbbe0fd9b15c805ea3d39bbc975446f431175190ab05d71c0d038190b5dc8ad63a6532e97f54b16038b706
         size: null
       placements:
-      - destination: mods/lootr-styled-0.2.0-reform-public.1-4711942c0603f5f4.jar
+      - destination: mods/lootr-styled-1.21.1-neoforge-0.2.0.jar
         environment:
           client: required
           server: unsupported
         layer: common
       provenance:
-        conversions:
-        - Explicit acceptance of changed tracked bytes
+        conversions: []
         declared-digests:
-          sha256: 4711942c0603f5f4f6366b9844c0cc7d45c29b02ad447a1064f603bacca65e6f
+          sha256: 150fd4cb44b7388153762e37efb8b504ae343698465be0f0bb91383aabbf2888
           sha512: >-
-            945f88d81b9f83cae25e3e8453aec131786f0a174520d06259997ee07735e3d0d5f122aab248474c7b9e2a4c01adcb51c57a41e974ca3738721723ef95503687
+            eb569a378170d675f0f37ddeab8c8aea399cb24774cbbe0fd9b15c805ea3d39bbc975446f431175190ab05d71c0d038190b5dc8ad63a6532e97f54b16038b706
         location: null
-        source: local-file
+        source: url-file
       slot: primary
     identity:
       key: lootr-styled
-      kind: local
+      kind: url
     incompatibilities: []
     selection: null
     source-selector: null
@@ -9506,14 +9507,14 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://github.com/mannie-exe/reform/releases/download/v0.3.0/reform-0.3.0-mc1.21.1-neoforge.jar
+          https://github.com/mannie-exe/reform/releases/download/v0.4.0/reform-0.4.0-mc1.21.1-neoforge.jar
         kind: url
       expected:
         accepted-observation: null
         digests:
-          sha256: 8a3fcc486b44351962535b4b63b83caee538e086e35529ec6710ed5c6397b7ab
+          sha256: 179dbbc9caf062a13435d71f128626ccc65340bf60000e93490a6eedea449d4e
           sha512: >-
-            c07a5ae655f0d5ec36e49e855f54c58d61827307465594069de7dde40d9260984fc6a5572abf5a7ae870c251b7ad51e2b3bb9227e317ae33e2f020271764685c
+            c7d54d189d07f4a3efe868edf8b547dc7c8da182019b6b1e6afefae7b94b2be8dda64e3006f60f52b82e68f98ef9d043b12aa6da34f9c9a2d1d331fa6a670233
         size: null
       placements:
       - destination: mods/reform.jar
@@ -9524,9 +9525,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha256: 8a3fcc486b44351962535b4b63b83caee538e086e35529ec6710ed5c6397b7ab
+          sha256: 179dbbc9caf062a13435d71f128626ccc65340bf60000e93490a6eedea449d4e
           sha512: >-
-            c07a5ae655f0d5ec36e49e855f54c58d61827307465594069de7dde40d9260984fc6a5572abf5a7ae870c251b7ad51e2b3bb9227e317ae33e2f020271764685c
+            c7d54d189d07f4a3efe868edf8b547dc7c8da182019b6b1e6afefae7b94b2be8dda64e3006f60f52b82e68f98ef9d043b12aa6da34f9c9a2d1d331fa6a670233
         location: null
         source: url-file
       slot: primary
@@ -10418,14 +10419,14 @@ dependencies:
     - acquisition:
         downloads:
         - >-
-          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.43.3/skyweave-compat-0.43.3-mc1.21.1-neoforge.jar
+          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.44.0/skyweave-compat-0.44.0-mc1.21.1-neoforge.jar
         kind: url
       expected:
         accepted-observation: null
         digests:
-          sha256: d997bdb755695963681e6a52e91d7401eed39b2d65a884524d3d7af87196ad9f
+          sha256: 3a837ce47d7d4d2c360a71cc1c5f67fef0061bde1d4ad625b51ceaada80611b8
           sha512: >-
-            8280bcfc6938185382dc9eb882199ac79a71df7b205b1f21ba6743659277a37f7654d508c0f6733e5111d430971585bfb629c0f062af4f73967ba7f1d2df88da
+            4ec8f85f20ded26daacd6e4bf2d8a484280607d1d9948c461773b02e464bb9f365326b7336f31a5cf0f02d61dd3c4e279c5f5076475b97bff63d0c9885fced2d
         size: null
       placements:
       - destination: mods/skyweave-compat.jar
@@ -10436,9 +10437,9 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha256: d997bdb755695963681e6a52e91d7401eed39b2d65a884524d3d7af87196ad9f
+          sha256: 3a837ce47d7d4d2c360a71cc1c5f67fef0061bde1d4ad625b51ceaada80611b8
           sha512: >-
-            8280bcfc6938185382dc9eb882199ac79a71df7b205b1f21ba6743659277a37f7654d508c0f6733e5111d430971585bfb629c0f062af4f73967ba7f1d2df88da
+            4ec8f85f20ded26daacd6e4bf2d8a484280607d1d9948c461773b02e464bb9f365326b7336f31a5cf0f02d61dd3c4e279c5f5076475b97bff63d0c9885fced2d
         location: null
         source: url-file
       slot: primary
@@ -11933,7 +11934,7 @@ dependencies:
       provider: modrinth
       selector: yungs-better-witch-huts
     title: YUNG's Better Witch Huts
-intent-revision: 1d20acf3e5d15d77116b192320c68567d49e23e967c4ef24a75e9ee48f3ef29d
+intent-revision: ed0086f7294476a66224ccf98d04e88694071eebf8bc38f69a89a637835cc306
 java-policy:
   historical-minimum: 21
   id: empack-java-1
