@@ -108,6 +108,9 @@ def publish(destination, tag):
 
 
 def build(release=False):
+    # Reference exports may acquire only emitted files. Studio inspects every retained
+    # locked mod, including files omitted by an individual export's optional defaults.
+    run('empack', 'sync', '--materialize', '--yes')
     report = selection()
     tag = os.environ.get("GITHUB_REF_NAME", "")
     if release and tag != "v" + report["version"]:
