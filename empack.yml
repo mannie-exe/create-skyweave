@@ -1,7 +1,7 @@
 schema: 6
 pack:
   name: Create - Skyweave
-  version: 0.23.0
+  version: 0.24.0
   id: create_skyweave
   description: Sky islands, airships and engineering. Java 21 and at least 12 GiB of system memory. Allow additional host memory for the default 12 GiB Prism heap or a comparable server heap.
   authors:
@@ -340,11 +340,12 @@ dependencies:
     pin: SPOrIzX8
   lootr-styled:
     source:
-      kind: local
-      path: .local-artifacts/lootr-styled-0.2.0-reform-public.1-4711942c0603f5f4.jar
+      kind: url
+      downloads:
+        - https://github.com/mannie-exe/lootr-styled/releases/download/v0.2.0/lootr-styled-1.21.1-neoforge-0.2.0.jar
     digests:
-      sha256: 4711942c0603f5f4f6366b9844c0cc7d45c29b02ad447a1064f603bacca65e6f
-      sha512: 945f88d81b9f83cae25e3e8453aec131786f0a174520d06259997ee07735e3d0d5f122aab248474c7b9e2a4c01adcb51c57a41e974ca3738721723ef95503687
+      sha256: 150fd4cb44b7388153762e37efb8b504ae343698465be0f0bb91383aabbf2888
+      sha512: eb569a378170d675f0f37ddeab8c8aea399cb24774cbbe0fd9b15c805ea3d39bbc975446f431175190ab05d71c0d038190b5dc8ad63a6532e97f54b16038b706
     type: mod
     side: client
   macaws-doors:
@@ -811,21 +812,22 @@ dependencies:
       server: unsupported
   skyweave-compat:
     source:
-      kind: local
-      path: .local-artifacts/skyweave-compat-0.43.4-dh-dev.7-40f05df79da1ab9b.jar
+      kind: url
+      downloads:
+        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.44.0/skyweave-compat-0.44.0-mc1.21.1-neoforge.jar
     digests:
-      sha256: 40f05df79da1ab9bd9d8b795b6f331ea1db0fb251d30494bb7e4c8775dfdd3e7
-      sha512: 2867557b8bcfc1e927edb0153a65f61807538c6e876b599fbe2db8440ef8abab17654e9943c78f3d322a775e91605af49836cb47dec27a9a38d235d773e88238
+      sha256: 3a837ce47d7d4d2c360a71cc1c5f67fef0061bde1d4ad625b51ceaada80611b8
+      sha512: 4ec8f85f20ded26daacd6e4bf2d8a484280607d1d9948c461773b02e464bb9f365326b7336f31a5cf0f02d61dd3c4e279c5f5076475b97bff63d0c9885fced2d
     type: mod
     side: both
   reform:
     source:
       kind: url
       downloads:
-        - https://github.com/mannie-exe/reform/releases/download/v0.3.0/reform-0.3.0-mc1.21.1-neoforge.jar
+        - https://github.com/mannie-exe/reform/releases/download/v0.4.0/reform-0.4.0-mc1.21.1-neoforge.jar
     digests:
-      sha256: 8a3fcc486b44351962535b4b63b83caee538e086e35529ec6710ed5c6397b7ab
-      sha512: c07a5ae655f0d5ec36e49e855f54c58d61827307465594069de7dde40d9260984fc6a5572abf5a7ae870c251b7ad51e2b3bb9227e317ae33e2f020271764685c
+      sha256: 179dbbc9caf062a13435d71f128626ccc65340bf60000e93490a6eedea449d4e
+      sha512: c7d54d189d07f4a3efe868edf8b547dc7c8da182019b6b1e6afefae7b94b2be8dda64e3006f60f52b82e68f98ef9d043b12aa6da34f9c9a2d1d331fa6a670233
     type: mod
     side: both
   linear-bearings-fix:

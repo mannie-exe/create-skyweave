@@ -81,8 +81,8 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Punched Backpacks! | 2.1 | [Exact version](https://modrinth.com/resourcepack/punched-backpacks/version/prexQWb0) |
 | Punchy! | 3.2b | [Exact version](https://modrinth.com/mod/punchy-fpa/version/aVZEe0j8) |
 | Punchy! Moves | 1.0.9b | [Exact version](https://modrinth.com/mod/punchymoves/version/8dHgPPh6) |
-| re:form | 0.3.0 | [Published settings library](https://github.com/mannie-exe/reform/releases/tag/v0.3.0) |
-| Skyweave: Compatibility Patches | 0.43.3 | [Published release](https://github.com/mannie-exe/skyweave-compat/releases/tag/v0.43.3) |
+| re:form | 0.4.0 | [Published settings library](https://github.com/mannie-exe/reform/releases/tag/v0.4.0) |
+| Skyweave: Compatibility Patches | 0.44.0 | [Published release](https://github.com/mannie-exe/skyweave-compat/releases/tag/v0.44.0) |
 | Create Accessories Compat | 1.0 | [Exact version](https://modrinth.com/mod/create-accessories-compat/version/2r7hvkCQ) |
 | Create Aeronautics | 1.3.3+mc1.21.1 | [Exact version](https://modrinth.com/mod/create-aeronautics/version/demX2roU) |
 | Create Aeronautics: Transmission & Linkage | 0.2.9 | [Exact version](https://modrinth.com/mod/create-aeronautics-transmission-linkage/version/WoUjC6d4) |
@@ -165,7 +165,7 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Linear Bearings Fix | 1.0.3 | [Exact version](https://modrinth.com/mod/linear-bearings-fix/version/MQ6XuOMQ) |
 | Lithium | mc1.21.1-0.15.4-neoforge | [Exact version](https://modrinth.com/mod/lithium/version/DDUrRVCA) |
 | Lootr | 1.21.1-1.11.38.127 | [Exact version](https://modrinth.com/version/SPOrIzX8) |
-| Lootr: Styled | 0.2.0-reform-public.1 | Unpublished local candidate; [snapshot workflow](development/build.md#local-builds) |
+| Lootr: Styled | 0.2.0 | [Published release](https://github.com/mannie-exe/lootr-styled/releases/tag/v0.2.0); requires re:form 0.4.0 |
 | Low On Fire | 26.3 | [Exact version](https://modrinth.com/version/yQdcUfnr) |
 | Low Shield | 3.0.0 | [Exact version](https://modrinth.com/version/AV6Mwfm5) |
 | Macaw's Doors | 1.1.5 | [Exact version](https://modrinth.com/mod/macaws-doors/version/u7BRX44F) |

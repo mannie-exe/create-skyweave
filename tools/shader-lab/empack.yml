@@ -45,10 +45,11 @@ dependencies:
     side: client
   shader-runner:
     source:
-      kind: local
-      path: .local-artifacts/skyweave-compat-0.43.4-dh-dev.7-40f05df79da1ab9b.jar
+      kind: url
+      downloads:
+        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.44.0/skyweave-compat-0.44.0-mc1.21.1-neoforge.jar
     digests:
-      sha256: 40f05df79da1ab9bd9d8b795b6f331ea1db0fb251d30494bb7e4c8775dfdd3e7
-      sha512: 2867557b8bcfc1e927edb0153a65f61807538c6e876b599fbe2db8440ef8abab17654e9943c78f3d322a775e91605af49836cb47dec27a9a38d235d773e88238
+      sha256: 3a837ce47d7d4d2c360a71cc1c5f67fef0061bde1d4ad625b51ceaada80611b8
+      sha512: 4ec8f85f20ded26daacd6e4bf2d8a484280607d1d9948c461773b02e464bb9f365326b7336f31a5cf0f02d61dd3c4e279c5f5076475b97bff63d0c9885fced2d
     type: other-file
     side: client
