@@ -811,12 +811,11 @@ dependencies:
       server: unsupported
   skyweave-compat:
     source:
-      kind: url
-      downloads:
-        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.43.3/skyweave-compat-0.43.3-mc1.21.1-neoforge.jar
+      kind: local
+      path: .local-artifacts/skyweave-compat-0.43.4-dh-dev.7-40f05df79da1ab9b.jar
     digests:
-      sha256: d997bdb755695963681e6a52e91d7401eed39b2d65a884524d3d7af87196ad9f
-      sha512: 8280bcfc6938185382dc9eb882199ac79a71df7b205b1f21ba6743659277a37f7654d508c0f6733e5111d430971585bfb629c0f062af4f73967ba7f1d2df88da
+      sha256: 40f05df79da1ab9bd9d8b795b6f331ea1db0fb251d30494bb7e4c8775dfdd3e7
+      sha512: 2867557b8bcfc1e927edb0153a65f61807538c6e876b599fbe2db8440ef8abab17654e9943c78f3d322a775e91605af49836cb47dec27a9a38d235d773e88238
     type: mod
     side: both
   reform:
