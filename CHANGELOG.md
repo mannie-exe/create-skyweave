@@ -2,6 +2,86 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.24.0 · 2026-11-26
+
+### Features
+
+- **progression:** Add prepared leather and tune rope ranges ([4116d9c](https://github.com/mannie-exe/create-skyweave/commit/4116d9c0145572db3c8ad97073bf2c28e41960d4))
+
+- **pack:** Update dependencies and client defaults ([ff4600e](https://github.com/mannie-exe/create-skyweave/commit/ff4600ed165c831114c99c4168715b6a4b5d043f))
+
+- **progression:** Unify cooking recipes and glider equipment ([2ba668e](https://github.com/mannie-exe/create-skyweave/commit/2ba668eb74cc53a366a3c6e1d8a472ae6723c570))
+
+- Adopt native runtime candidate and shader inputs ([24489c5](https://github.com/mannie-exe/create-skyweave/commit/24489c589a4818d0d6553ca1a309537b58736e7f))
+
+- Adopt qualified Moves runtime cohort ([bb4daa6](https://github.com/mannie-exe/create-skyweave/commit/bb4daa65564a397bdce88326df49baa96037abc9))
+
+- **pack:** Merge the qualified Aero and Moves cohort ([e61809c](https://github.com/mannie-exe/create-skyweave/commit/e61809c3525e2b165256c3c90b9ee64a9ae08bea))
+
+- Tune client culling and projectile continuity ([98801c0](https://github.com/mannie-exe/create-skyweave/commit/98801c0e8ab2804b83ed4015cda0d1f7cf107384))
+
+- Select Motschen's Better Leaves ([03d0c56](https://github.com/mannie-exe/create-skyweave/commit/03d0c560740e3dca873d015228e40debf0f0f73a))
+
+- Add client-side Grassrise ([b630764](https://github.com/mannie-exe/create-skyweave/commit/b630764d43637af9a7002755972a7c99714a51bf))
+
+- Adopt qualified Compat maintenance candidate ([2e98423](https://github.com/mannie-exe/create-skyweave/commit/2e98423f4661395e9724c6c321cf7a350c5bc519))
+
+- Add isolated White Terrace authoring ([1e06647](https://github.com/mannie-exe/create-skyweave/commit/1e066476210b8eb38383835381d7b5e774c1d23a))
+
+- Adopt qualified DH lifecycle repairs ([f668798](https://github.com/mannie-exe/create-skyweave/commit/f668798db34b3bf967b4457f35a9f24c1bc58481))
+
+- Add isolated replay editing subpack ([349d0ce](https://github.com/mannie-exe/create-skyweave/commit/349d0ce1fe122f5e618b72195979f2c0ba9fa229))
+
+- Publish verified Replay Studio snapshots ([d3ef2ec](https://github.com/mannie-exe/create-skyweave/commit/d3ef2ec1b3a1333fbdd1378e9ab02ca2941c6dd2))
+
+- Adopt public shared settings cohort ([224f753](https://github.com/mannie-exe/create-skyweave/commit/224f7538d268dacc6fd0e7fb79d00985b4746f3c))
+
+### Fixes
+
+- **resources:** Select the updated ladder pack filename ([30fc3a4](https://github.com/mannie-exe/create-skyweave/commit/30fc3a458885702a46db5a2443a518d9da16e049))
+
+- **config:** Retain selected Longshot ranges ([245e443](https://github.com/mannie-exe/create-skyweave/commit/245e44394c2efd3cf14bb6a2bb5d35d26c32f722))
+
+- **config:** Preserve native launcher comments ([d87d5b8](https://github.com/mannie-exe/create-skyweave/commit/d87d5b83d883b04d0d8045302ef453ac19cbf421))
+
+- Restore Refined Tools arrow geometry with EMF ([2e8aebf](https://github.com/mannie-exe/create-skyweave/commit/2e8aebf022c6ac5b738c10704d248e111379e7be))
+
+- Adopt Compat production startup correction ([087bb34](https://github.com/mannie-exe/create-skyweave/commit/087bb3410549110b43ba0aaebf8730f2ea04e351))
+
+- Adopt public Compat and retire Zfastnoise ([3a5fdd3](https://github.com/mannie-exe/create-skyweave/commit/3a5fdd398ef9ca0bc6db4da07da43aba416be840))
+
+### Documentation
+
+- Define changelog and release note conventions ([bd74b5a](https://github.com/mannie-exe/create-skyweave/commit/bd74b5a19a6f6a6c4ea355c6899075252ecce638))
+
+- Define world runtime adoption gates ([82fded4](https://github.com/mannie-exe/create-skyweave/commit/82fded437f0c4ad27235005c3f1584a96dde50a7))
+
+- Merge world runtime adoption guidance ([02ace35](https://github.com/mannie-exe/create-skyweave/commit/02ace3524fc26113c22c2252b6959ea066f6b452))
+
+- Reconcile equipment and release history ([b5a7f00](https://github.com/mannie-exe/create-skyweave/commit/b5a7f0018afb930251d373e0eb4441a280484f7d))
+
+### Build and verification
+
+- Isolate Python dependencies for snapshots ([17cd505](https://github.com/mannie-exe/create-skyweave/commit/17cd50509935224a7c6479fc74e535eb82a742c4))
+
+- Align Replay Studio public cohort ([0cae777](https://github.com/mannie-exe/create-skyweave/commit/0cae7774570f3c7622bd2527e94a732c2259687c))
+
+### Maintenance
+
+- Align project attribution and notices ([3125392](https://github.com/mannie-exe/create-skyweave/commit/312539212b7c4f06ed038e714a9c35e0350945c6))
+
+## v0.23.0 · 2026-11-22
+
+### Features
+
+- Adopt Lootr Styled presentation ([5a8b2ea](https://github.com/mannie-exe/create-skyweave/commit/5a8b2ea50f0f47d9555823d1c721340301e01c08))
+
+- **release:** Publish Skyweave 0.23.0 ([c67fa7e](https://github.com/mannie-exe/create-skyweave/commit/c67fa7ed46065e92e875254b1e11939e7e20ee8e))
+
+### Fixes
+
+- **release:** Include native input inventory ([d832b89](https://github.com/mannie-exe/create-skyweave/commit/d832b892613e617dd869627ec56fc5da885f9000))
+
 ## v0.22.2 · 2026-11-20
 
 ### Fixes

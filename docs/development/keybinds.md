@@ -6,6 +6,8 @@ The [registered inventory](keybind-inventory.md) lists every mapping in the revi
 
 ## Evidence and limits
 
+The retained registration snapshot predates the 0.24.0 dependency manifests. Its source-hash check correctly reports that changed basis; it is historical input evidence until a fresh native capture is reviewed. Authored controls remain in their owning options and mod configs. The 0.24.0 settings-library migration does not claim a new complete registration or interaction audit.
+
 The audit captures the exact packaged modpack after resource reload in a disposable native client on Minecraft 1.21.1 / NeoForge 21.1.265, using the pinned ModDev bootstrap with project classes/resources excluded. It reads registered mappings and loaded custom configuration; it does not open a world or exercise competing action handlers. Source/bytecode inspection establishes additional eligibility and modifier conditions below. Treat an observed shared key, a source-confirmed competing consumer, and a reproduced unwanted action as different findings.
 
 The Controls menu does not enumerate every input system. IPN/libIPN uses its own chord/state dispatcher; EMI has its own alternatives and registered JEI bridge mappings; several tools poll keys or interpret modifiers and scrolling. Conversely, native conflict counts include deliberately shared mouse buttons and disjoint screens. `UNIVERSAL` in registration does not prove an action runs in chat. An unassigned mapping is not necessarily disabled: Skybound falls back to existing semantic actions.
