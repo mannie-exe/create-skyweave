@@ -492,12 +492,6 @@ dependencies:
   yacl:
     source: modrinth:1eAoo2KR
     pin: 7TVdVtxF
-  zfastnoise:
-    source: modrinth:OnlVIpq5
-    pin: 9vSFkDAr
-    environment:
-      client: required
-      server: required
   reliable-gliders:
     source: modrinth:reliable-gliders
     pin: rW61WzQF
@@ -817,11 +811,12 @@ dependencies:
       server: unsupported
   skyweave-compat:
     source:
-      kind: local
-      path: .local-artifacts/skyweave-compat-0.43.1-maintenance-dev.5-32ae1aad0240141a.jar
+      kind: url
+      downloads:
+        - https://github.com/mannie-exe/skyweave-compat/releases/download/v0.43.3/skyweave-compat-0.43.3-mc1.21.1-neoforge.jar
     digests:
-      sha256: 32ae1aad0240141a7b874a5118dab81703e545dda3c33afefd717a5a5eed15c3
-      sha512: dc201c8b1586e2eaa6d6940365b4ebe5553c83d233daec811f4f7bef57f38ae5e94089c331ec2cea0813372020cd8d09067a4c2de21a4629f2f9aead271bb1f3
+      sha256: d997bdb755695963681e6a52e91d7401eed39b2d65a884524d3d7af87196ad9f
+      sha512: 8280bcfc6938185382dc9eb882199ac79a71df7b205b1f21ba6743659277a37f7654d508c0f6733e5111d430971585bfb629c0f062af4f73967ba7f1d2df88da
     type: mod
     side: both
   reform:

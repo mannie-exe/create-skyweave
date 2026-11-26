@@ -71,7 +71,7 @@ See [patch maintenance](patches.md) for override ownership and update/removal ch
 
 ## Generation compatibility, 2026-10-21
 
-The installed Zfastnoise 1.0.13 biome redirect wins over Sky Archipelago 1.3.6's Deep Dark biome projection redirect. This is reproduced in both the existing server log and the isolated default-config capture. Disabling only `mixin.perf.biome` removes the conflict in the candidate capture. Noise optimization remains enabled. This is a report candidate; existing upstream issue coverage has not been established and no report was submitted.
+The previously selected Zfastnoise 1.0.13 biome redirect wins over Sky Archipelago 1.3.6's Deep Dark biome projection redirect. This is reproduced in both the existing server log and the isolated default-config capture. Disabling only `mixin.perf.biome` removes the conflict in the candidate capture. That workaround retained noise optimization, but the pack now excludes Zfastnoise; see [world generation](worldgen.md#biome-compatibility-and-updates). This is a report candidate; existing upstream issue coverage has not been established and no report was submitted.
 
 - [FastNoise repository and issue tracker](https://codeberg.org/ZenXArch/FastNoise)
 - [Local configuration and verification limits](worldgen.md)

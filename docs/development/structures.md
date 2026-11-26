@@ -21,6 +21,12 @@ Shared data retains Sky Villages' native absolute 150 plus WORLD_SURFACE_WG proj
 
 Sky Archipelago classifies `skyvillage` as `SKY` before its village-name rule. Village-tag membership supports Delivery Quests lookup without changing that classification. Ocean biomes are eligible; native floating ocean habitats are enabled in the Skyweave profile. Eligibility alone does not establish that a usable village will appear in an ocean void; structure placement rules still apply.
 
+## Delivery structure searches
+
+Compat 0.43.3 enables its optional `delivery.structure_search` repair for ADQ 1.1.1 in the owned island preset when `delivery.chunk_loading` is enabled. Explicit false remains authoritative. Structure searches use bounded asynchronous status requests admitted on server ticks, preserving native sampling, route validation, cargo, and rewards. Random dispatch and foreign worlds retain native behavior. This repairs the initial search's server-wait path; endpoint loading has separate ticket ownership. Sparse terrain can still make a useful destination expensive or unavailable.
+
+The qualified C2 cohort covered useful OFF/ON routes, integrated play, saved reopening, board/cargo/payment behavior, and cancellation/shutdown retirement. Its full server acceptance used a 6 GiB heap; a 4 GiB failure remains a limitation, not evidence that every host needs more memory. Manual structure searches also progress beyond memory batches without a whole-job deadline; finite search radius, bounded work, cancellation, and partial-coverage reporting remain. Island searches are unchanged. Use [Compat's terrain maintenance](https://github.com/mannie-exe/skyweave-compat/blob/main/docs/development/terrain.md) when updating ADQ or C2ME, and recheck native admission, route semantics, and cleanup together.
+
 ## Settlement encounter policy
 
 [Encounter maintenance](encounters.md) owns guard/golem population policy, biome-variant spawning and the separate raid/patrol/structure controls. Defender population is separate from village opportunity and geometric fitting; current marker-based Guard Villagers defaults do not scale with community size.

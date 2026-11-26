@@ -232,7 +232,6 @@ coverage:
   yungs-better-mineshafts: complete
   yungs-better-ocean-monuments: complete
   yungs-better-witch-huts: complete
-  zfastnoise: complete
 dependencies:
   3d-crops:
     content: resource-pack
@@ -10922,14 +10921,16 @@ dependencies:
     content: mod
     files:
     - acquisition:
-        kind: local
-        path: .local-artifacts/skyweave-compat-0.43.1-maintenance-dev.5-32ae1aad0240141a.jar
+        downloads:
+        - >-
+          https://github.com/mannie-exe/skyweave-compat/releases/download/v0.43.3/skyweave-compat-0.43.3-mc1.21.1-neoforge.jar
+        kind: url
       expected:
         accepted-observation: null
         digests:
-          sha256: 32ae1aad0240141a7b874a5118dab81703e545dda3c33afefd717a5a5eed15c3
+          sha256: d997bdb755695963681e6a52e91d7401eed39b2d65a884524d3d7af87196ad9f
           sha512: >-
-            dc201c8b1586e2eaa6d6940365b4ebe5553c83d233daec811f4f7bef57f38ae5e94089c331ec2cea0813372020cd8d09067a4c2de21a4629f2f9aead271bb1f3
+            8280bcfc6938185382dc9eb882199ac79a71df7b205b1f21ba6743659277a37f7654d508c0f6733e5111d430971585bfb629c0f062af4f73967ba7f1d2df88da
         size: null
       placements:
       - destination: mods/skyweave-compat.jar
@@ -10938,23 +10939,17 @@ dependencies:
           server: required
         layer: common
       provenance:
-        conversions:
-        - Explicit acceptance of changed tracked bytes
-        - Explicit acceptance of changed tracked bytes
-        - Explicit acceptance of changed tracked bytes
-        - Explicit acceptance of changed tracked bytes
-        - Explicit acceptance of changed tracked bytes
-        - Explicit acceptance of changed tracked bytes
+        conversions: []
         declared-digests:
-          sha256: 32ae1aad0240141a7b874a5118dab81703e545dda3c33afefd717a5a5eed15c3
+          sha256: d997bdb755695963681e6a52e91d7401eed39b2d65a884524d3d7af87196ad9f
           sha512: >-
-            dc201c8b1586e2eaa6d6940365b4ebe5553c83d233daec811f4f7bef57f38ae5e94089c331ec2cea0813372020cd8d09067a4c2de21a4629f2f9aead271bb1f3
+            8280bcfc6938185382dc9eb882199ac79a71df7b205b1f21ba6743659277a37f7654d508c0f6733e5111d430971585bfb629c0f062af4f73967ba7f1d2df88da
         location: null
-        source: local-file
+        source: url-file
       slot: primary
     identity:
       key: skyweave-compat
-      kind: local
+      kind: url
     incompatibilities: []
     selection: null
     source-selector: null
@@ -12498,74 +12493,7 @@ dependencies:
       provider: modrinth
       selector: yungs-better-witch-huts
     title: YUNG's Better Witch Huts
-  zfastnoise:
-    content: mod
-    files:
-    - acquisition:
-        downloads:
-        - >-
-          https://cdn.modrinth.com/data/OnlVIpq5/versions/9vSFkDAr/zfastnoise-1.0.13%2B1.21.1%2Bneoforge.jar
-        kind: provider
-        pin:
-          project:
-            project: OnlVIpq5
-            provider: modrinth
-          selection:
-            id: 9vSFkDAr
-            provider: modrinth
-        slot: zfastnoise-1.0.13+1.21.1+neoforge.jar
-      expected:
-        accepted-observation: null
-        digests:
-          sha1: 7b9f0b4d62a6e30505f8e64ebb58dfd2dc46c81e
-          sha512: >-
-            23c50dc3d75da96d87b065381e32a979528017f872d056bf1cb012e085122734ab218ea8af7b5570403d83c88ebfb53296969af47198fdb637058753d3974278
-        size: 39526
-      placements:
-      - destination: mods/zfastnoise.jar
-        environment:
-          client: required
-          server: required
-        layer: common
-      provenance:
-        conversions: []
-        declared-digests:
-          sha1: 7b9f0b4d62a6e30505f8e64ebb58dfd2dc46c81e
-          sha512: >-
-            23c50dc3d75da96d87b065381e32a979528017f872d056bf1cb012e085122734ab218ea8af7b5570403d83c88ebfb53296969af47198fdb637058753d3974278
-        location: OnlVIpq5
-        source: provider-catalog
-      slot: primary
-    identity:
-      kind: provider
-      project:
-        project: OnlVIpq5
-        provider: modrinth
-    incompatibilities:
-    - project:
-        project: sml2FMaA
-        provider: modrinth
-      selection: null
-    - project:
-        project: KOHu7RCS
-        provider: modrinth
-      selection: null
-    - project:
-        project: hasdd01q
-        provider: modrinth
-      selection: null
-    selection:
-      project:
-        project: OnlVIpq5
-        provider: modrinth
-      selection:
-        id: 9vSFkDAr
-        provider: modrinth
-    source-selector:
-      provider: modrinth
-      selector: OnlVIpq5
-    title: Fast Noise
-intent-revision: 4fb6ca4adc48c4572f8d8367b8eaf598a7c87d5055ca33711ab01209c21a8eb5
+intent-revision: 2f1378d5fb68b21296410b39584534ac0252b05152d09db93f07c0f2c435e91e
 java-policy:
   historical-minimum: 21
   id: empack-java-1

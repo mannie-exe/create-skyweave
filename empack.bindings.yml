@@ -252,15 +252,6 @@ bindings:
             client: required
             server: required
           layer: common
-  zfastnoise:
-    placement:
-      files:
-        primary:
-        - destination: mods/zfastnoise.jar
-          environment:
-            client: required
-            server: required
-          layer: common
   iris:
     placement:
       files:

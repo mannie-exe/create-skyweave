@@ -20,7 +20,7 @@ loaderVersion="[1,)"
 [[mods]]
 modId="skyweave_resource_patches"
 version="0.1.0"
-"zfastnoise:overrides"=["mixin.perf.biome"]
+"fixture:custom-property"=["retained-value"]
 [[dependencies.skyweave_resource_patches]]
 modId="skyweave_compat"
 type="required"

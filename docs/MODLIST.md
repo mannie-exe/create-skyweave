@@ -82,7 +82,7 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Punchy! | 3.2b | [Exact version](https://modrinth.com/mod/punchy-fpa/version/aVZEe0j8) |
 | Punchy! Moves | 1.0.9b | [Exact version](https://modrinth.com/mod/punchymoves/version/8dHgPPh6) |
 | re:form | 0.3.0 | [Published settings library](https://github.com/mannie-exe/reform/releases/tag/v0.3.0) |
-| Skyweave: Compatibility Patches | 0.43.1-maintenance-dev.5 | Unpublished local candidate; [snapshot workflow](development/build.md#local-builds) |
+| Skyweave: Compatibility Patches | 0.43.3 | [Published release](https://github.com/mannie-exe/skyweave-compat/releases/tag/v0.43.3) |
 | Create Accessories Compat | 1.0 | [Exact version](https://modrinth.com/mod/create-accessories-compat/version/2r7hvkCQ) |
 | Create Aeronautics | 1.3.3+mc1.21.1 | [Exact version](https://modrinth.com/mod/create-aeronautics/version/demX2roU) |
 | Create Aeronautics: Transmission & Linkage | 0.2.9 | [Exact version](https://modrinth.com/mod/create-aeronautics-transmission-linkage/version/WoUjC6d4) |
@@ -133,7 +133,6 @@ The [terrain and structure guide](development/worldgen-candidates.md) records se
 | Entity Culling | 1.12.2 | [Exact version](https://modrinth.com/mod/entityculling/version/8uamSG2K) |
 | Euphoria Patches | 1.11.2-r5.10-neoforge | [Exact version](https://modrinth.com/mod/euphoria-patches/version/fqKNZqvM) |
 | Exposure | 1.9.21 | [Exact version](https://modrinth.com/version/tjX0GpFW) |
-| Fast Noise | 1.0.13+1.21.1+neoforge | [Exact version](https://modrinth.com/mod/zfastnoise/version/9vSFkDAr) |
 | FerriteCore | 7.0.3-neoforge | [Exact version](https://modrinth.com/mod/ferrite-core/version/x7kQWVju) |
 | Forgified Fabric API | 0.116.15+2.3.6+1.21.1 | [Exact version](https://modrinth.com/mod/forgified-fabric-api/version/C4eskNuR) |
 | Fresh Animations | 1.11.2 | [Exact version](https://modrinth.com/resourcepack/fresh-animations/version/HC1XRKGD) |

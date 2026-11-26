@@ -101,7 +101,7 @@ Native random spacing selects one value for the whole world from its layout seed
 
 ## Biome compatibility and updates
 
-Resource Patches metadata owns the supported `zfastnoise:overrides` entry that disables `mixin.perf.biome`: ZFastNoise's biome optimization conflicts with Sky Archipelago's Deep Dark projection redirect. Its timestamped properties file is native-generated and is not distributed. The noise optimization remains enabled. Recheck native mixin admission and the metadata contract on updates; successful loading does not establish ancient-city availability. See [installation ownership](authoring.md#installation-file-policies).
+Zfastnoise is excluded because its biome redirect conflicts with Sky Archipelago's biome projection during dedicated-server startup. Reconsider it only after qualifying the exact artifact against the pack's client and dedicated-server paths; the former biome-mixin override is retired.
 
 Skyweave: Compatibility Patches records generation identity in each expanded-preset world and rejects incompatible changes or unmarked existing terrain. Preserve the original mod, configuration and marker with a save. Never delete the marker to force adoption of incompatible chunks. New geometry requires a separate new world.
 
