@@ -24,6 +24,7 @@
 - Add five independently configurable DH 3.3.3 lifecycle repairs for completion, resources, requests, executors, and queue progress. Explicit opt-outs remain authoritative.
 - Adopt the reviewed Aeronautics/Simulated 1.3.3 and Moves 1.0.9b cohort, retire the superseded balloon-shadow feature, and make Omnidirectional Movement client-only.
 - Update Climbable Ropes to 2.2.3, Create Radars to 5.1.2, EntityCulling to 1.12.2, and RAY's 3D Ladders to 2.5.
+- Preserve Analog Audio 0.1.5-hotfix.1 through its exact public CDN URL after its catalog version record was retired; installed audio bytes are unchanged.
 - Remove Zfastnoise because its biome redirect conflicts with Sky Archipelago in dedicated startup.
 
 ## Controls and defaults

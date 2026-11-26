@@ -2,6 +2,10 @@
 
 Update coupled components together, then verify the behavior the patch protects. The manifest and lock own exact selections. Use [new-content triage](content-triage.md) to identify affected owners and checks before selecting an addition or update. This guide owns update procedures; [compatibility](compatibility.md), [structures](structures.md) and [progression](progression.md) own behavior and measured limits.
 
+## Analog Audio acquisition
+
+Analog Audio 0.1.5-hotfix.1 retains its original public Modrinth CDN JAR through a URL and exact SHA-256/SHA-512 pin. The retired catalog version record `BshMjyFt` no longer resolves, which prevented cold reference exports even though cached builds passed. An anonymous download matches the prior locked size, SHA-1, and SHA-512; this changes acquisition identity, not installed audio code, filename, or side. Before changing this pin, inspect a real replacement's metadata, audio lifecycle, and Compat callers. Do not restore the missing catalog record as a source or upgrade the runtime merely to repair its download reference.
+
 ## Encounter resource ownership
 
 V&V slow-ranged Murk/Verdant pool repairs live in Resource Patches as two conditional pool references and one owned native processor, described in [encounter maintenance](encounters.md#biome-variants-and-island-altitude). Reuse upstream ranged templates without copying their NBT; preserve alias weights, mob/equipment/reward data and normal/ominous slow cadence. Review effective template closure and native placement before removing these overrides on updates. Patrol/spawner/Murk runtime hooks belong to optional Compatibility Patches, with pack settings and installation policies reviewed together.

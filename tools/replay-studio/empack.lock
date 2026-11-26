@@ -8,7 +8,7 @@ coverage:
   accessories-compat-layer: complete
   aeronautics-delivery-quests: complete
   almostunified: complete
-  analog-audio: complete
+  analog-audio: unknown
   appleskin: complete
   architectury-api: complete
   artifacts: complete
@@ -653,22 +653,14 @@ dependencies:
         downloads:
         - >-
           https://cdn.modrinth.com/data/iMAVG2nH/versions/BshMjyFt/Analog-Audio-0.1.5-hotfix.1.jar
-        kind: provider
-        pin:
-          project:
-            project: iMAVG2nH
-            provider: modrinth
-          selection:
-            id: BshMjyFt
-            provider: modrinth
-        slot: Analog-Audio-0.1.5-hotfix.1.jar
+        kind: url
       expected:
         accepted-observation: null
         digests:
-          sha1: 0dbee94c7d315d51a7a2c819c22f1c1235663277
+          sha256: effc623ad0b3e332bb29252f5c41f767cb194a47ce5ae195d186f442124807a3
           sha512: >-
             b53d0d09d0c6bb864b4ff5426599a029184583ebc8117d5c50fedbd54e949434970e8bf448ce492820f60adab2116effd1a46c7a082b82f53cf7dc3fbba6b909
-        size: 1726267
+        size: null
       placements:
       - destination: mods/Analog-Audio-0.1.5-hotfix.1.jar
         environment:
@@ -678,28 +670,18 @@ dependencies:
       provenance:
         conversions: []
         declared-digests:
-          sha1: 0dbee94c7d315d51a7a2c819c22f1c1235663277
+          sha256: effc623ad0b3e332bb29252f5c41f767cb194a47ce5ae195d186f442124807a3
           sha512: >-
             b53d0d09d0c6bb864b4ff5426599a029184583ebc8117d5c50fedbd54e949434970e8bf448ce492820f60adab2116effd1a46c7a082b82f53cf7dc3fbba6b909
-        location: iMAVG2nH
-        source: provider-catalog
+        location: null
+        source: url-file
       slot: primary
     identity:
-      kind: provider
-      project:
-        project: iMAVG2nH
-        provider: modrinth
+      key: analog-audio
+      kind: url
     incompatibilities: []
-    selection:
-      project:
-        project: iMAVG2nH
-        provider: modrinth
-      selection:
-        id: BshMjyFt
-        provider: modrinth
-    source-selector:
-      provider: modrinth
-      selector: iMAVG2nH
+    selection: null
+    source-selector: null
     title: Analog Audio
   appleskin:
     content: mod
@@ -11934,7 +11916,7 @@ dependencies:
       provider: modrinth
       selector: yungs-better-witch-huts
     title: YUNG's Better Witch Huts
-intent-revision: ed0086f7294476a66224ccf98d04e88694071eebf8bc38f69a89a637835cc306
+intent-revision: 09b802a7397415c4fb119d0334d7e6f624bddb3f6a6e5b154dbc368573ed8ea4
 java-policy:
   historical-minimum: 21
   id: empack-java-1
