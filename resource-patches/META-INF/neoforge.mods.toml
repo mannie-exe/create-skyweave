@@ -1,15 +1,14 @@
 modLoader="lowcodefml"
 loaderVersion="[1,)"
-license="MIT"
+license="Apache-2.0 (original work); third-party terms in NOTICE"
 [[mods]]
 modId="skyweave_resource_patches"
 version="0.1.0"
 displayName="Skyweave: Resource Patches"
+authors="inherent.design contributors"
 logoFile="pack.png"
 logoBlur=false
 description='''Resource repairs and journal presentation for Create: Skyweave.'''
-# Native ZFastNoise policy keeps Sky Archipelago biome projection available.
-"zfastnoise:overrides"=["mixin.perf.biome"]
 "skyweave:owned-village-band"=1
 [[dependencies.skyweave_resource_patches]]
 modId="skyweave_compat"

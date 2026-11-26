@@ -9,7 +9,7 @@ Package the compiled class under this disposable metadata:
 ```toml
 modLoader="javafml"
 loaderVersion="[4,)"
-license="MIT"
+license="Apache-2.0"
 [[mods]]
 modId="keybind_audit"
 version="1"

@@ -23,7 +23,7 @@ OUTPUT = ROOT / 'overrides/client/resourcepacks/skyweave-visual-patches-0.1.0.zi
 PLANTS = {'brown_mushroom': 2, 'red_mushroom': 3, 'crimson_fungus': 3, 'warped_fungus': 2}
 INPUT_FILES = ('authoring/visual-patches.json', 'authoring/model-recipes.json',
                'empack.yml', 'empack.lock', 'empack.bindings.yml', 'authoring/resource-selections.json',
-               'authoring/resource-licenses/nautilus3d-AGPL-3.0.txt', 'authoring/texture-resources.json',
+               'LICENSE', 'NOTICE', 'authoring/resource-licenses/nautilus3d-AGPL-3.0.txt', 'authoring/texture-resources.json',
                'authoring/held-items.json',
                'authoring/resource-licenses/3d-flint-steel-for-punchy-CC-BY-SA-4.0.txt',
                'authoring/resource-licenses/powergrid-Apache-2.0.txt',
@@ -106,7 +106,7 @@ def compose_azalea(fresh, plants, plant):
 
 
 def build(archives, recipes, config, selections=None, nautilus_license=None, textures=None, *, metadata, icon,
-          licenses=None, held_items=None):
+          licenses=None, held_items=None, notices=None):
     require(metadata['pack']['pack_format'] == 34, 'Unsupported visual pack format')
     filters = model_part_filters(config.get('compatibility', {}).get('flint_and_steel_backport', False))
     if filters:
@@ -219,6 +219,9 @@ def build(archives, recipes, config, selections=None, nautilus_license=None, tex
     if credits:
         encoded["CREDITS.txt"] = ("\n\n".join(credits) + "\n").encode()
     encoded['pack.png'] = icon
+    if notices is not None:
+        for notice in ('LICENSE', 'NOTICE'):
+            encoded[notice] = notices[notice]
     return archive_bytes(encoded, (2026, 10, 23, 0, 0, 0))
 
 
@@ -239,7 +242,8 @@ def generate_pack(root=ROOT, output=OUTPUT, check=False):
                                'create-fresh-items': before['authoring/resource-licenses/create-fresh-items-GPL-3.0-or-later.txt'],
                                '3d-cave-vines': before['authoring/resource-licenses/3d-cave-vines-MIT.txt'],
                                'foliage': before['authoring/resource-licenses/mc2-interactive-foliage-CC-BY-NC-SA-4.0.txt']},
-                     held_items=json.loads(before['authoring/held-items.json']))
+                     held_items=json.loads(before['authoring/held-items.json']),
+                     notices={name: before[name] for name in ('LICENSE', 'NOTICE')})
     finally:
         for archive in archives.values():
             archive.close()

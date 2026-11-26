@@ -38,7 +38,7 @@ The same wrapper prepares the pinned resource-pack repairs and exclusions before
 
 Compat's client-only footer combines this installed pack baseline with Compat's actual loaded version. A modified installation keeps its baseline identity; missing or invalid properties select the standalone Compat label. Resource/language reload uses native branding-cache invalidation. Pack identity is presentation metadata and does not change terrain identity, server policy or early loading screens. Recheck NeoForge/FML properties, branding/ModernFix composition, empack explanation/recipe formats and all three exports when their dependencies change.
 
-Empack's pack name is the portable **Create - Skyweave**, while `templates/client/instance.cfg.template` supplies the canonical Prism display name **Create: Skyweave**. The [naming policy](../../AGENTS.md#naming-and-artifact-identity) owns restricted-character fallbacks; display changes do not rename the pack ID or existing instance folder.
+empack's pack name is the portable **Create - Skyweave**, while `templates/client/instance.cfg.template` supplies the canonical Prism display name **Create: Skyweave**. The [naming policy](../../AGENTS.md#naming-and-artifact-identity) owns restricted-character fallbacks; display changes do not rename the pack ID or existing instance folder.
 
 For an authorized local Compat or re:form trial, retain each qualified JAR under the ignored `.local-artifacts/` directory with its content hash in the filename and use project-relative `path` dependencies. Use schema-6 `source: {kind: local, path: .local-artifacts/<candidate>.jar}` for that dependency. Select a matching library/consumer pair and keep their normal client/server placement bindings. Reconcile changed source declarations with `empack sync --materialize --yes`; do not overwrite tracked installed JARs afterward. Immutable source copies prevent later Gradle builds from changing the candidates implicitly. Qualify shader-lab with its explicit `--runner` Compat candidate option, then build the DEV Prism snapshot through the normal wrapper. Before a public release, restore the verified published URL/digests for both dependencies and align the shader-lab runner; local sources are development selections, not published dependencies.
 
@@ -83,7 +83,7 @@ Inspect the effective exported file inventory after consolidating worktrees or c
 
 ### Copycat renderer
 
-[Copycat Bar Extrusion](https://github.com/mannie-exe/copycat-bar-extrusion) is a client-only URL dependency pinned by release and SHA-1/SHA-512 in `empack.yml`. Empack materializes it like the other referenced mods; clean CI needs no local source checkout or hand-copied override. Do not keep another copy in client overrides.
+[Copycat Bar Extrusion](https://github.com/mannie-exe/copycat-bar-extrusion) is a client-only URL dependency pinned by release and SHA-1/SHA-512 in `empack.yml`. empack materializes it like the other referenced mods; clean CI needs no local source checkout or hand-copied override. Do not keep another copy in client overrides.
 
 Its source repository owns the Java 21 Gradle build, exact Create artifact check, transform tests and native rendering evidence. Review that hook before upgrading Create. The [compatibility guide](compatibility.md#visual-compatibility-pass) identifies the tested JAR and limits; no server installation or saved-data migration is needed.
 
@@ -158,7 +158,7 @@ Retain these choices when refreshing the scaffold:
 - Servers enforce the whitelist and create Sky Islands worlds.
 - Checkout credentials are not persisted.
 
-Empack 0.8.8-beta and its matching bootstrap support the authored NeoForge JVM Seed. Keep `user_jvm_args.txt: seed` explicit in `empack.bindings.yml` and define the destination in templates or selected game content, never both. A changed seed applies only to a missing file or fresh installation. When updating empack, verify the actual export, fresh native installation and operator-byte preservation through repair and update; inspect generated scripts and bootstrap engine pins together. [Upstream server contract](https://github.com/inherent-design/empack/blob/v0.8.8-beta/docs/servers.md).
+empack 0.8.8-beta and its matching bootstrap support the authored NeoForge JVM Seed. Keep `user_jvm_args.txt: seed` explicit in `empack.bindings.yml` and define the destination in templates or selected game content, never both. A changed seed applies only to a missing file or fresh installation. When updating empack, verify the actual export, fresh native installation and operator-byte preservation through repair and update; inspect generated scripts and bootstrap engine pins together. [Upstream server contract](https://github.com/inherent-design/empack/blob/v0.8.8-beta/docs/servers.md).
 
 Windows server launchers support `EMPACK_NO_PAUSE=1` for unattended tests. A successful build verifies packaging; it does not establish gameplay or GPU compatibility.
 
@@ -186,4 +186,4 @@ Reference exports contain `.empack-tools/empack-bootstrap.jar`, `prepare.json` a
 
 Keep the generated JAR, invocation records, scripts and immutable release assets together. Refresh these launcher files when changing the selected engine; installing game content alone does not rewrite them. Old launchers and native release schemas are not an interoperability path: reimport the current reference distribution, preserving only reviewed installation-local settings and authorized saves.
 
-Empack owns Unix foreground process-group transfer, console input, interrupt forwarding and terminal restoration. No pack-specific Python wrapper or archive rewriting step remains. Qualify terminal input, Ctrl-C and clean shutdown through the generated bootstrap when updating empack; archive inspection alone does not establish console behavior.
+empack owns Unix foreground process-group transfer, console input, interrupt forwarding and terminal restoration. No pack-specific Python wrapper or archive rewriting step remains. Qualify terminal input, Ctrl-C and clean shutdown through the generated bootstrap when updating empack; archive inspection alone does not establish console behavior.

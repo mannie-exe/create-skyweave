@@ -32,6 +32,10 @@ def main():
     subprocess.run([sys.executable, str(root / 'scripts/generate-villages.py')] + (['--check'] if args.check else []), check=True)
     output = root / 'overrides/common/mods/skyweave-resource-patches-0.1.0.jar'
     entries = resource_entries(root / 'resource-patches')
+    for notice in ('LICENSE', 'NOTICE'):
+        data = (root / notice).read_bytes()
+        entries[notice] = data
+        publish(root / 'overrides/common' / notice, data, args.check)
     entries[METADATA] = render_metadata(entries[METADATA], expected)
     changed = publish(output, archive_bytes(entries, (2026, 10, 21, 0, 0, 0)), args.check)
     print(f'{output.relative_to(root)}: {"updated" if changed else "current"}')

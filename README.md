@@ -1,6 +1,6 @@
 # Create: Skyweave
 
-A Minecraft modpack about sky islands, airships and engineering, built around Create, Create Aeronautics, Sable and Sky Archipelago. By **mannie-exe** and **TimdoesLive**. Survival progression and ship interactions are still being tested.
+A Minecraft modpack about sky islands, airships and engineering, built around Create, Create Aeronautics, Sable and Sky Archipelago. An inherent.design project by inherent.design contributors, including **mannie.exe** and **TimdoesLive**. Survival progression and ship interactions are still being tested.
 
 Minecraft **1.21.1** · NeoForge **21.1.265** · Java **21**
 
@@ -23,3 +23,7 @@ New worlds default to Skyweave Islands. Shaders are optional; Skyweave Glass ada
 Builds use empack **0.8.8-beta**. Start with the [build and release guide](docs/development/build.md). The [local web map and authoring app](web/README.md) lives in `web/`. Its [setup guide](docs/development/web/setup.md) covers installation and game data. The [documentation index](docs/README.md) separates player instructions from maintainer references and historical test evidence.
 
 Mod and shader authors retain their respective licenses; this repository does not relicense their work. User worlds, accounts and server lists are not distributed.
+
+## License
+
+Original project work is licensed under [Apache-2.0](LICENSE). Third-party mods, shaders, artwork, and adapted resources retain their own terms; see [NOTICE](NOTICE) and the source-specific notices.

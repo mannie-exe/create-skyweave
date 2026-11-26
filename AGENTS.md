@@ -17,7 +17,7 @@ This table owns the shared naming policy. Canonical slugs apply to new or explic
 
 Use kebab-case for slugs, dependency keys, and artifact basenames; use underscores where Minecraft/NeoForge identifiers require them. Published filenames use `<slug>-<version>.jar` or `.zip`. Repository-local shared source may use `resource-patches/`; keep visual inputs with their existing authoring owners, with `authoring/visual-patches.json` as the visual build definition. Builder names are `build-resource-patches.py` for the JAR and `build-visual-patches.py` for the ZIP. The word “resource” alone must not imply executable code; both artifacts contain resources, while Compatibility Patches owns runtime hooks.
 
-Prefer canonical display names wherever supported. If a destination forbids `:`, use a spaced hyphen, such as **Create - Skyweave** or **Skyweave - Resource Patches**. If it allows only spaces and alphabetic/alphanumeric characters, omit the separator: **Create Skyweave** or **Skyweave Resource Patches**. These are presentation fallbacks, not new slugs, mod IDs or saved-data identities. Empack's pack name must form a portable artifact filename; Prism's display template can retain **Create: Skyweave**.
+Prefer canonical display names wherever supported. If a destination forbids `:`, use a spaced hyphen, such as **Create - Skyweave** or **Skyweave - Resource Patches**. If it allows only spaces and alphabetic/alphanumeric characters, omit the separator: **Create Skyweave** or **Skyweave Resource Patches**. These are presentation fallbacks, not new slugs, mod IDs or saved-data identities. empack's pack name must form a portable artifact filename; Prism's display template can retain **Create: Skyweave**.
 
 For an authorized rename:
 
@@ -44,7 +44,7 @@ The local server installation is named `create-skyweave-server`; its game direct
 
 Default distributed files to **managed** pack ownership. Use **seed** only as an explicit, justified exception for player/operator preferences, host-specific settings, credentials, installation identities or genuinely native-owned mutable files. Do not distribute caches, logs or installation-generated runtime state. A config path, native comment rewrite or editable UI alone does not establish seed ownership. Pack-owned gameplay, generation and compatibility rules should receive updates; mixed-ownership files require inspection of their actual readers/writers.
 
-Empack currently defaults config files to seed, so encode pack ownership explicitly in `empack.bindings.yml`; a policy statement does not change exported artifacts. Review both client and server recipes. Preserve edited-file conflict checks and explicit opt-outs: managed does not authorize silent replacement. Existing seed-to- managed changes require deliberate reconciliation, and generation-identity guards still apply. See [installation policies](docs/development/authoring.md#installation-file-policies) for writer qualification, exceptions and verification.
+empack currently defaults config files to seed, so encode pack ownership explicitly in `empack.bindings.yml`; a policy statement does not change exported artifacts. Review both client and server recipes. Preserve edited-file conflict checks and explicit opt-outs: managed does not authorize silent replacement. Existing seed-to-managed changes require deliberate reconciliation, and generation-identity guards still apply. See [installation policies](docs/development/authoring.md#installation-file-policies) for writer qualification, exceptions and verification.
 
 ## Work and evidence
 

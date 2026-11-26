@@ -1,6 +1,8 @@
 Create: Skyweave
 
-Modpack authors: mannie-exe and TimdoesLive
+An inherent.design project by inherent.design contributors.
+Contributors include mannie.exe and TimdoesLive.
+Original project work: Apache-2.0; see LICENSE and NOTICE.
 
 Included mods, shaders and other third-party content belong to their respective authors.
 https://github.com/mannie-exe/create-skyweave
