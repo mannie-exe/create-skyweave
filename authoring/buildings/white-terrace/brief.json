@@ -1,0 +1,701 @@
+{
+  "schemaVersion": 1,
+  "id": "white-terrace-freight",
+  "theme": "skyweave_white_terrace",
+  "status": "draft; owner review required",
+  "seed": 1527,
+  "purpose": "Receive, sort, and dispatch island freight. A clear central aisle connects a public loading court to storage and a clerk's work area.",
+  "references": [
+    {
+      "study": "A04",
+      "observation": "Distinguished layered frontage and an upper terrace",
+      "reuse": "reference only; original geometry"
+    },
+    {
+      "study": "A07",
+      "observation": "Textured exterior, small planted details, and useful interior space",
+      "reuse": "reference only; original geometry"
+    }
+  ],
+  "bayWidth": 5,
+  "roomHeight": 6,
+  "foundationHeight": 3,
+  "entrance": {
+    "facing": "north",
+    "width": 3,
+    "height": 3,
+    "floorY": 2,
+    "feetY": 3
+  },
+  "aisle": {
+    "minimumWidth": 3,
+    "minimumHeight": 3
+  },
+  "variants": [
+    {
+      "id": "narrow-depot",
+      "width": 11,
+      "length": 22,
+      "role": "satellite freight depot"
+    },
+    {
+      "id": "wide-freight-hall",
+      "width": 17,
+      "length": 27,
+      "role": "court-facing freight hall"
+    }
+  ],
+  "palette": {
+    "HEAVY_PRIMARY": {
+      "Name": "minecraft:stone_bricks"
+    },
+    "HEAVY_SECONDARY": {
+      "Name": "minecraft:cracked_stone_bricks"
+    },
+    "HEAVY_WINDOW": {
+      "Name": "minecraft:cyan_stained_glass_pane"
+    },
+    "HEAVY_POST": {
+      "Name": "minecraft:polished_andesite"
+    },
+    "INNER_PRIMARY": {
+      "Name": "minecraft:calcite"
+    },
+    "INNER_SECONDARY": {
+      "Name": "minecraft:smooth_sandstone"
+    },
+    "INNER_DETAIL": {
+      "Name": "minecraft:quartz_pillar",
+      "Properties": {
+        "axis": "y"
+      }
+    },
+    "WINDOW": {
+      "Name": "minecraft:cyan_stained_glass_pane"
+    },
+    "OUTER_THICK": {
+      "Name": "minecraft:stone_brick_wall"
+    },
+    "OUTER_THIN": {
+      "Name": "minecraft:oak_fence"
+    },
+    "OUTER_SLAB": {
+      "Name": "minecraft:smooth_sandstone_slab",
+      "Properties": {
+        "type": "bottom"
+      }
+    },
+    "OUTER_FLAT": {
+      "Name": "minecraft:oak_trapdoor",
+      "Properties": {
+        "open": "true",
+        "facing": "north",
+        "half": "bottom"
+      }
+    },
+    "ROOF_PRIMARY": {
+      "Name": "minecraft:bricks"
+    },
+    "FLOOR": {
+      "Name": "minecraft:smooth_stone"
+    },
+    "ROOF_DETAIL": {
+      "Name": "minecraft:cut_sandstone"
+    },
+    "ROOF_SLAB": {
+      "Name": "minecraft:brick_slab",
+      "Properties": {
+        "type": "bottom"
+      }
+    },
+    "CLEAR": {
+      "Name": "minecraft:barrier"
+    }
+  },
+  "moddedPalette": {
+    "INNER_SECONDARY": {
+      "Name": "create:cut_limestone"
+    }
+  },
+  "parts": {
+    "foundationBay": [
+      "AAAAA",
+      "AABAA",
+      "AAAAA"
+    ],
+    "wallBay": [
+      "GFFFG",
+      "GEEEG",
+      "GHHHG",
+      "GHHHG",
+      "GEEEG",
+      "GGGGG"
+    ],
+    "corner": [
+      "G",
+      "G",
+      "G",
+      "G",
+      "G",
+      "G"
+    ],
+    "roof": [
+      [
+        "OOO",
+        "OMM",
+        "OMM"
+      ],
+      [
+        "PPP",
+        "P  ",
+        "P  "
+      ]
+    ],
+    "wallSpans": {
+      "9": {
+        "foundation": [
+          "AAAAAAAAA",
+          "AABAABAAA",
+          "AAAAAAAAA"
+        ],
+        "regular": [
+          "GFFFGFFFG",
+          "GEEEGEEEG",
+          "GHHHGHHHG",
+          "GHHHGHHHG",
+          "GEEEGEEEG",
+          "GGGGGGGGG"
+        ]
+      }
+    }
+  },
+  "furnishing": {
+    "functional": [
+      "create:depot",
+      "minecraft:barrel",
+      "minecraft:crafting_table"
+    ],
+    "contents": "Empty containers; no loot or reward implied",
+    "notes": "Apply exact repeatable furnishings after Mighty shell export; capture native block-entity data in the final template. A receiving depot, empty cargo barrels, packing counter, and dispatch lectern distinguish work zones; preserve the central three-block aisle. No inventories, loot, powered machinery, or cargo rewards are included.",
+    "operations": [
+      {
+        "from": [
+          "center-3",
+          0,
+          -4
+        ],
+        "to": [
+          "center+3",
+          2,
+          0
+        ],
+        "state": {
+          "Name": "minecraft:stone_bricks"
+        }
+      },
+      {
+        "from": [
+          "center-1",
+          0,
+          -6
+        ],
+        "to": [
+          "center+1",
+          0,
+          -6
+        ],
+        "state": {
+          "Name": "minecraft:smooth_sandstone_stairs",
+          "Properties": {
+            "facing": "south"
+          }
+        }
+      },
+      {
+        "from": [
+          "center-1",
+          1,
+          -5
+        ],
+        "to": [
+          "center+1",
+          1,
+          -5
+        ],
+        "state": {
+          "Name": "minecraft:smooth_sandstone_stairs",
+          "Properties": {
+            "facing": "south"
+          }
+        }
+      },
+      {
+        "from": [
+          "center-3",
+          3,
+          -3
+        ],
+        "to": [
+          "center-3",
+          6,
+          -3
+        ],
+        "state": {
+          "Name": "minecraft:quartz_pillar",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      {
+        "from": [
+          "center+3",
+          3,
+          -3
+        ],
+        "to": [
+          "center+3",
+          6,
+          -3
+        ],
+        "state": {
+          "Name": "minecraft:quartz_pillar",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      {
+        "from": [
+          "center-4",
+          7,
+          -4
+        ],
+        "to": [
+          "center+4",
+          7,
+          0
+        ],
+        "state": {
+          "Name": "minecraft:brick_slab",
+          "Properties": {
+            "type": "bottom"
+          }
+        }
+      },
+      {
+        "from": [
+          "center-2",
+          3,
+          -2
+        ],
+        "to": [
+          "center-2",
+          3,
+          -1
+        ],
+        "state": {
+          "Name": "minecraft:barrel",
+          "Properties": {
+            "facing": "north"
+          }
+        }
+      },
+      {
+        "from": [
+          "center+2",
+          3,
+          -2
+        ],
+        "to": [
+          "center+2",
+          3,
+          -1
+        ],
+        "state": {
+          "Name": "minecraft:barrel",
+          "Properties": {
+            "facing": "north"
+          }
+        }
+      },
+      {
+        "from": [
+          3,
+          3,
+          4
+        ],
+        "to": [
+          3,
+          3,
+          4
+        ],
+        "state": {
+          "Name": "create:depot"
+        }
+      },
+      {
+        "from": [
+          3,
+          3,
+          7
+        ],
+        "to": [
+          3,
+          3,
+          7
+        ],
+        "state": {
+          "Name": "minecraft:crafting_table"
+        }
+      },
+      {
+        "from": [
+          3,
+          3,
+          11
+        ],
+        "to": [
+          3,
+          4,
+          11
+        ],
+        "state": {
+          "Name": "minecraft:barrel",
+          "Properties": {
+            "facing": "north"
+          }
+        }
+      },
+      {
+        "from": [
+          3,
+          3,
+          14
+        ],
+        "to": [
+          3,
+          4,
+          14
+        ],
+        "state": {
+          "Name": "minecraft:barrel",
+          "Properties": {
+            "facing": "north"
+          }
+        }
+      },
+      {
+        "from": [
+          3,
+          3,
+          "end-5"
+        ],
+        "to": [
+          3,
+          4,
+          "end-5"
+        ],
+        "state": {
+          "Name": "minecraft:barrel",
+          "Properties": {
+            "facing": "north"
+          }
+        }
+      },
+      {
+        "from": [
+          "end-4",
+          3,
+          11
+        ],
+        "to": [
+          "end-4",
+          4,
+          11
+        ],
+        "state": {
+          "Name": "minecraft:barrel",
+          "Properties": {
+            "facing": "north"
+          }
+        }
+      },
+      {
+        "from": [
+          "end-4",
+          3,
+          14
+        ],
+        "to": [
+          "end-4",
+          4,
+          14
+        ],
+        "state": {
+          "Name": "minecraft:barrel",
+          "Properties": {
+            "facing": "north"
+          }
+        }
+      },
+      {
+        "from": [
+          "end-4",
+          3,
+          "end-5"
+        ],
+        "to": [
+          "end-4",
+          4,
+          "end-5"
+        ],
+        "state": {
+          "Name": "minecraft:barrel",
+          "Properties": {
+            "facing": "north"
+          }
+        }
+      },
+      {
+        "from": [
+          "center",
+          7,
+          3
+        ],
+        "to": [
+          "center",
+          7,
+          3
+        ],
+        "state": {
+          "Name": "minecraft:lantern",
+          "Properties": {
+            "hanging": "true"
+          }
+        }
+      },
+      {
+        "from": [
+          "center",
+          7,
+          "end-4"
+        ],
+        "to": [
+          "center",
+          7,
+          "end-4"
+        ],
+        "state": {
+          "Name": "minecraft:lantern",
+          "Properties": {
+            "hanging": "true"
+          }
+        }
+      },
+      {
+        "from": [
+          "center-1",
+          2,
+          "end-1"
+        ],
+        "to": [
+          "center+1",
+          2,
+          "end-1"
+        ],
+        "state": {
+          "Name": "minecraft:smooth_sandstone"
+        }
+      },
+      {
+        "from": [
+          "center-1",
+          1,
+          "end"
+        ],
+        "to": [
+          "center+1",
+          1,
+          "end"
+        ],
+        "state": {
+          "Name": "minecraft:smooth_sandstone_stairs",
+          "Properties": {
+            "facing": "north"
+          }
+        }
+      },
+      {
+        "from": [
+          "center-1",
+          0,
+          "end+1"
+        ],
+        "to": [
+          "center+1",
+          0,
+          "end+1"
+        ],
+        "state": {
+          "Name": "minecraft:smooth_sandstone_stairs",
+          "Properties": {
+            "facing": "north"
+          }
+        }
+      },
+      {
+        "from": [
+          "end-4",
+          3,
+          4
+        ],
+        "to": [
+          "end-4",
+          3,
+          4
+        ],
+        "state": {
+          "Name": "create:depot"
+        }
+      },
+      {
+        "from": [
+          "end-4",
+          3,
+          6
+        ],
+        "to": [
+          "end-4",
+          3,
+          6
+        ],
+        "state": {
+          "Name": "minecraft:barrel",
+          "Properties": {
+            "facing": "west"
+          }
+        }
+      },
+      {
+        "from": [
+          "end-4",
+          3,
+          7
+        ],
+        "to": [
+          "end-4",
+          3,
+          7
+        ],
+        "state": {
+          "Name": "minecraft:crafting_table"
+        }
+      },
+      {
+        "from": [
+          "end-4",
+          3,
+          8
+        ],
+        "to": [
+          "end-4",
+          3,
+          8
+        ],
+        "state": {
+          "Name": "minecraft:lectern",
+          "Properties": {
+            "facing": "west"
+          }
+        }
+      },
+      {
+        "from": [
+          3,
+          3,
+          16
+        ],
+        "to": [
+          3,
+          3,
+          16
+        ],
+        "state": {
+          "Name": "minecraft:hay_block",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      {
+        "from": [
+          "end-4",
+          3,
+          16
+        ],
+        "to": [
+          "end-4",
+          3,
+          16
+        ],
+        "state": {
+          "Name": "minecraft:hay_block",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      {
+        "from": [
+          "center-2",
+          3,
+          6
+        ],
+        "to": [
+          "center-2",
+          3,
+          8
+        ],
+        "state": {
+          "Name": "minecraft:oak_slab",
+          "Properties": {
+            "type": "top"
+          }
+        }
+      }
+    ],
+    "capture": {
+      "minimum": [
+        0,
+        -1,
+        -7
+      ],
+      "maximum": [
+        "end-1",
+        10,
+        "end+1"
+      ],
+      "entranceFloor": [
+        "center",
+        0,
+        0
+      ],
+      "notes": "Capture includes the loading porch, steps, and rear service steps. The source room floor is y=2; the public court is y=-1."
+    }
+  },
+  "connection": {
+    "position": [
+      "center",
+      0,
+      -7
+    ],
+    "orientation": "north_up",
+    "name": "minecraft:building_entrance",
+    "target": "minecraft:building_entrance",
+    "pool": "minecraft:empty",
+    "finalState": "minecraft:air",
+    "joint": "aligned",
+    "notes": "Entrance at the public court feet elevation, before the first stair. Compatible name observed in Mediterranean regular-house donor templates; no expansion connector or inhabitants implied."
+  }
+}

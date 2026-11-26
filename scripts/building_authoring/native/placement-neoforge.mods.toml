@@ -1,0 +1,8 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+[[mods]]
+modId="skyweave_building_probe"
+version="0.1.0"
+displayName="Skyweave template placement fixture"
+description="Disposable native baked-template consumer; no authoring-tool dependency"

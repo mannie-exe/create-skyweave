@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Creative building authoring from locked production content, without an independent set of content versions",
+  "prefixes": ["create", "macaws-", "rechiseled"],
+  "exclude": [
+    "create-hostile-skies",
+    "create-power-loader",
+    "create-aeronautics-throwable-rope-connector",
+    "create-propulsion-simulated",
+    "create-radars",
+    "create-accessories-compat",
+    "createaddoncompatibility"
+  ],
+  "include": [
+    "ponder",
+    "bellsandwhistles",
+    "copycat-bar-extrusion",
+    "cable-facades",
+    "copycats",
+    "effortless-building",
+    "interiors",
+    "jade",
+    "jade-addons-forge",
+    "lootr",
+    "lootr-styled",
+    "power-grid",
+    "reddens-stone-lanterns",
+    "strut-your-stuff",
+    "travelersbackpack",
+    "easy-anvils",
+    "easy-magic",
+    "visual-workbench",
+    "kaleidoscope-cookery",
+    "kaleidoscopetavern",
+    "snow-real-magic",
+    "snow-under-trees",
+    "simple-snowy-fix-forge-fabric",
+    "lamb-lanterns",
+    "modefite-item-definition-backport",
+    "respackopts",
+    "entity-model-features",
+    "entitytexturefeatures",
+    "emf-compat-core",
+    "fusion-connected-textures",
+    "sodium",
+    "sodium-extra",
+    "iris",
+    "colorwheel",
+    "colorwheel-patcher",
+    "moreculling",
+    "entityculling",
+    "immediatelyfast",
+    "ferrite-core",
+    "modernfix",
+    "lithium",
+    "skyweave-compat",
+    "reform",
+    "connector",
+    "forgified-fabric-api"
+  ],
+  "resourceTypes": ["resource-pack", "shader-pack"],
+  "closure": "Include recorded required edges and required NeoForge/Fabric metadata edges, including nested JAR providers. Missing providers are errors; loader qualification remains necessary.",
+  "mighty": {
+    "version": "3.2.2+mc1.21.1-neoforge",
+    "source": {
+      "kind": "url",
+      "downloads": [
+        "https://cdn.modrinth.com/data/FDYDUHRw/versions/3ecnQpP2/mightyarchitect-3.2.2%2Bmc1.21.1-neoforge.jar"
+      ]
+    },
+    "digests": {
+      "sha1": "94de81131c6860fec07f0eb9304696d16ba5759e",
+      "sha512": "9e515982fcd8b94b5ad557cf570e31eb3d59cab1c8c4024dc9cbf6525ae926984b2675cf4e12e42d98fae8a982ce504b93351367f07ee5ffdf85382fdc7c1eb6"
+    },
+    "type": "mod"
+  }
+}

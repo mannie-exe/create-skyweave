@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "status": "inactive; narrow depot selected after owner review; natural-island qualification pending",
+  "profile": "skyweave_compat:villages/white_terrace_exchange",
+  "targetPool": "skyweave_compat:villages/white_terrace_exchange/houses/regular",
+  "role": "freight_depot",
+  "selectedCandidate": "narrow-depot",
+  "candidates": [
+    {
+      "id": "narrow-depot",
+      "reviewedTemplateSha256": "cc898ef17744349a338fe77519ea74043483209ba9e5304b80881cf843fec631",
+      "location": "skyweave_compat:villages/white_terrace_exchange/houses/narrow_depot_1",
+      "sourceTemplate": "authoring/buildings/white-terrace/templates/narrow-depot-furnished.nbt"
+    },
+    {
+      "id": "wide-freight-hall",
+      "reviewedTemplateSha256": "fbaeb6d3d4014fe1325732780026f5e89d0c804716fec2cbe9a9ea387c3f1d1d",
+      "location": "skyweave_compat:villages/white_terrace_exchange/houses/wide_freight_hall_1",
+      "sourceTemplate": "authoring/buildings/white-terrace/templates/wide-freight-hall-furnished.nbt"
+    }
+  ],
+  "entryPattern": {
+    "weight": 1,
+    "element": {
+      "element_type": "lithostitched:delegating",
+      "delegate": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "skyweave_compat:villages/white_terrace_exchange/houses/narrow_depot_1",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "name": "skyweave_compat:villages/white_terrace_exchange/freight_depot",
+      "max_count": 1
+    }
+  },
+  "requiredMods": [
+    "create",
+    "lithostitched"
+  ],
+  "palettePolicy": "Authored material choices; no random weathering. Native jigsaw replacement is part of realization. The selected original template and rich payloads remain opaque native NBT.",
+  "attribution": {
+    "geometry": "Original Create: Skyweave contributors; A04/A07 are reference observations only",
+    "authoringTool": "The Mighty Architectury 3.2.2+mc1.21.1-neoforge; MIT",
+    "connectorCompiler": "scripts/village_templates.py"
+  },
+  "notYetProven": [
+    "Representative natural island fitting and required approach support for the selected revised candidate"
+  ],
+  "activation": "This file is outside the generation authoring manifest. It is not consumed by generate-villages.py and changes no active pool.",
+  "selectionBasis": "Smaller footprint leaves more usable land for roads, courts and neighboring pieces; first entry remains a bounded freight depot",
+  "approvedCandidates": [
+    "narrow-depot",
+    "wide-freight-hall"
+  ]
+}
