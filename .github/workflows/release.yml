@@ -53,9 +53,13 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python3 .github/scripts/empack-ci.py install
+      - name: Prepare Python build environment
+        run: |
+          python3 -m venv "$RUNNER_TEMP/skyweave-python"
+          "$RUNNER_TEMP/skyweave-python/bin/python" -m pip install --disable-pip-version-check PyYAML==6.0.3
+          echo "$RUNNER_TEMP/skyweave-python/bin" >> "$GITHUB_PATH"
       - name: Build maintained resources
         run: |
-          python3 -m pip install --disable-pip-version-check PyYAML==6.0.3
           python3 scripts/build-resource-patches.py --release-tag "$GITHUB_REF_NAME"
           python3 tools/shader-lab/build.py
           python3 -m unittest discover -s tests -v
