@@ -8,6 +8,10 @@ Generated from Git history. Player-facing release summaries are in [release note
 
 - **animations:** Restore native handoffs and composed poses ([2b5a7d7](https://github.com/mannie-exe/create-skyweave/commit/2b5a7d7c6ee069f0c8bd6e5b824049de4bd0dcf8))
 
+### Build and verification
+
+- Generate lantern bundle before config audit ([40fefa0](https://github.com/mannie-exe/create-skyweave/commit/40fefa0813fad6a83d547c208995182af17fc514))
+
 ## v0.24.1 · 2026-11-27
 
 ### Features
