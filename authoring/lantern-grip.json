@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "qualified_sha256": "fcd4b651e3e3ee86469892b4814bb6e166154d34b71041fd3b67854800fb459f",
+  "items": ["minecraft:lantern", "minecraft:soul_lantern"],
+  "profile": {
+    "kind": "LANTERN",
+    "armKind": "LANTERN",
+    "physics": [
+      {
+        "name": "FULL_PENDULUM",
+        "limitDeg": 55.0,
+        "force": 0.1,
+        "speed": 1.0,
+        "cameraSens": 0.25,
+        "gravity": 25.0
+      }
+    ],
+    "transforms": {
+      "left": {
+        "scale": 1.2932773,
+        "offX": 0.0,
+        "offY": -0.11,
+        "offZ": 0.13,
+        "rotX": -179.88386349640638,
+        "rotY": -66.65708820135657,
+        "rotZ": -63.82789421779934,
+        "pivotX": -0.04,
+        "pivotY": 0.14,
+        "pivotZ": -0.11,
+        "physics": "FULL_PENDULUM"
+      },
+      "right": {
+        "scale": 1.2932773,
+        "offX": 0.0,
+        "offY": -0.11,
+        "offZ": 0.13,
+        "rotX": 178.84895275535175,
+        "rotY": 63.52848624778855,
+        "rotZ": 62.433291892288125,
+        "pivotX": 0.04,
+        "pivotY": 0.14,
+        "pivotZ": -0.11,
+        "physics": "FULL_PENDULUM"
+      }
+    },
+    "armTransforms": {
+      "right": {
+        "scale": 1.0,
+        "offX": 0.0,
+        "offY": -0.30278897,
+        "offZ": -0.100000024,
+        "rotX": -13.949158,
+        "rotY": -99.80545,
+        "rotZ": -1.0,
+        "pivotX": 0.0,
+        "pivotY": 0.0,
+        "pivotZ": 0.0
+      },
+      "left": {
+        "scale": 1.0,
+        "offX": 0.0,
+        "offY": -0.30278897,
+        "offZ": -0.100000024,
+        "rotX": -13.949158,
+        "rotY": 99.80545,
+        "rotZ": 1.0,
+        "pivotX": 0.0,
+        "pivotY": 0.0,
+        "pivotZ": 0.0
+      }
+    }
+  },
+  "display": {
+    "rotation": [90, 45, 0],
+    "translation": [0, 0, -1.3125],
+    "scale": [0.375, 0.375, 0.375]
+  },
+  "rationale": "Measured two-item grip and native display-context compensation. Declarative transform parameters only; native upstream models, textures, animations and equip scales remain their original owners. Compat admits this pack and computes any live pose correction; no copied or sampled upstream animation tracks."
+}

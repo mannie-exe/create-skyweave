@@ -66,6 +66,7 @@ jobs:
           python3 scripts/audit-changes.py
           python3 scripts/generate-quests.py --check
           python3 scripts/build-visual-patches.py
+          python3 scripts/build-animation-packs.py
       - name: Build and publish selected profiles
         env:
           GH_TOKEN: ${{ github.token }}

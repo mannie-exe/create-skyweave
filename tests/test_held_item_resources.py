@@ -9,7 +9,7 @@ import unittest
 from zipfile import ZipFile
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from held_item_resources import buckets, contexts, flint_and_steel, model_part_filters, fluid_surface, modded_buckets
+from held_item_resources import buckets, contexts, flint_and_steel, model_part_filters, fluid_surface, modded_buckets, native_hand_rules
 from model_authoring import Assets, encode_rgba, rgba
 
 
@@ -22,6 +22,23 @@ def archive(entries):
 
 
 class HeldItemResources(unittest.TestCase):
+    def test_authored_native_handoffs_are_scoped_to_reviewed_renderers(self):
+        catalog = json.loads((Path(__file__).resolve().parents[1] / 'authoring/held-items.json').read_text())
+        resource = native_hand_rules(catalog)
+        self.assertEqual(set(resource), {'assets/create_skyweave/punchy_rules/native_handoffs.json'})
+        self.assertEqual(resource[next(iter(resource))]['rules'], [
+            {'leave_to_minecraft': {'items': ['exposure:aged_photograph', 'kaleidoscope_tavern:shaker',
+                                               'kaleidoscope_cookery:cold_cut_ham_slices']}}])
+
+    def test_native_handoff_refuses_broad_or_duplicate_exclusions(self):
+        for items in [['exposure:*'], ['#exposure:photographs'], ['aged_photograph'],
+                      ['exposure:aged_photograph', 'exposure:aged_photograph']]:
+            with self.subTest(items=items), self.assertRaises(ValueError):
+                native_hand_rules({'schema': 1, 'native_handoffs': items})
+
+    def test_no_selected_native_handoff_emits_no_rule(self):
+        self.assertEqual(native_hand_rules({'schema': 1}), {})
+
     def inputs(self, dimensions=(16, 512)):
         base = {'assets/minecraft/punchy/model_parts_items/geo/bucket_water.geo.json': {
             'minecraft:geometry': [{'bones': [{'name': n} for n in ('group', 'handle', 'water', 'bucket')]}]}}

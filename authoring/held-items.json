@@ -1,5 +1,10 @@
 {
   "schema": 1,
+  "native_handoffs": [
+    "exposure:aged_photograph",
+    "kaleidoscope_tavern:shaker",
+    "kaleidoscope_cookery:cold_cut_ham_slices"
+  ],
   "buckets": [
     {
       "item": "create_factory:sweet_berries_jam_bucket",

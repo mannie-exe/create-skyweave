@@ -13,7 +13,7 @@ from texture_resources import build as build_textures
 from selective_resources import build as build_selective
 from window_interiors import build as build_window_interiors
 from pane_lighting import build as build_pane_lighting
-from held_item_resources import buckets as build_buckets, flint_and_steel as build_flint, model_part_filters
+from held_item_resources import buckets as build_buckets, flint_and_steel as build_flint, model_part_filters, native_hand_rules
 from visual_variants import build as build_variants
 from visual_options import configure as configure_visuals
 from foliage_shader import build as build_foliage_shader
@@ -139,6 +139,7 @@ def build(archives, recipes, config, selections=None, nautilus_license=None, tex
     require(not entries.keys() & artwork.keys(), 'Texture selection collides with a maintained resource')
     entries.update(artwork)
     for setting, generate in [('refined_buckets', lambda: build_buckets(archives, held_items, licenses)),
+                              ('native_item_handoffs', lambda: native_hand_rules(held_items)),
                               ('flint_and_steel_backport', lambda: build_flint(
                                   archives['3d-flint-steel-for-punchy'], (licenses or {}).get('flint')))]:
         enabled = config.get('compatibility', {}).get(setting, False)

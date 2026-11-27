@@ -111,6 +111,7 @@ coverage.xml
 /overrides/server/mods/*.jar
 /overrides/common/mods/*.jar
 /overrides/client/resourcepacks/*.zip
+/overrides/client/config/skyweave/animation-packs/lantern-grip.zip
 
 # Local audit evidence can contain host paths and source settings.
 /docs/config-audit/

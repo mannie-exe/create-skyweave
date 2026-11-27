@@ -17,6 +17,8 @@ def build(root, report, release_tag=None, delivery=None):
     subprocess.run(command, cwd=root, check=True)
     subprocess.run([sys.executable, str(root / 'scripts/build-visual-patches.py')],
                    cwd=root, check=True)
+    subprocess.run([sys.executable, str(root / 'scripts/build-animation-packs.py')],
+                   cwd=root, check=True)
     command = ['empack', 'build', '--yes', '--optional-defaults']
     if delivery is not None:
         command += ['--delivery', delivery]

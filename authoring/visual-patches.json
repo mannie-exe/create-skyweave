@@ -232,6 +232,7 @@
     "window_interior_faces": false,
     "fusion_pane_lighting": true,
     "refined_buckets": true,
+    "native_item_handoffs": true,
     "flint_and_steel_backport": true,
     "configurable_visuals": true,
     "foliage_veil_wind": true,

@@ -1,6 +1,7 @@
 """Pack-owned bindings for pinned held-item resources; upstream archives stay intact."""
 import json
 import math
+import re
 import struct
 
 from model_authoring import Assets, encode_rgba, require, resource
@@ -25,6 +26,22 @@ def model_part_filters(flint):
     return ([{'namespace': 'minecraft',
               'path': r'punchy/model_parts_items/definitions/held_flint_steel\.json'}]
             if flint else [])
+
+
+def native_hand_rules(catalog):
+    """Let exact authored items retain their mod's native first-person renderer."""
+    require(isinstance(catalog, dict) and catalog.get('schema') == 1,
+            'Expected held-item catalogue schema 1')
+    items = catalog.get('native_handoffs', [])
+    require(isinstance(items, list) and len(items) <= 32,
+            'Expected at most 32 exact native handoff item IDs')
+    require(all(isinstance(item, str) and re.fullmatch(r'[a-z0-9_.-]+:[a-z0-9_./-]+', item)
+                for item in items), 'Native handoffs require exact item IDs, without tags or wildcards')
+    require(len(set(items)) == len(items), 'Duplicate native handoff item ID')
+    if not items:
+        return {}
+    return {'assets/create_skyweave/punchy_rules/native_handoffs.json': {
+        'rules': [{'leave_to_minecraft': {'items': items}}]}}
 
 
 def buckets(archives, catalog=None, licenses=None):

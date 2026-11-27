@@ -656,6 +656,7 @@ policies:
   config/sky_archipelago-server.toml: managed
   config/sky_archipelago/default-preset.toml: managed
   config/sky_archipelago/presets/eee.json: managed
+  config/skyweave/animation-packs/lantern-grip.zip: managed
   config/skyweave/shaders/recipes/bsl-colorwheel.json: managed
   config/skyweave/shaders/recipes/photon-skyweave.json: managed
   config/skyweave/shaders/recipes/complementary-euphoria-skyweave.json: managed

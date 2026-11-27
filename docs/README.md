@@ -18,40 +18,9 @@ Player guides explain installation and operation. Development documents describe
 
 ## Development and maintenance
 
-| Guide | Contents |
-| --- | --- |
-| [Build and release](development/build.md) | Source layout, empack commands and CI |
-| [Dependency and patch maintenance](development/patches.md) | Coupled updates, patch ownership, checks and removal criteria |
-| [New-content triage](development/content-triage.md) | Review mod/resource additions and changes across rendering, animation, inputs, recipes, and moving machinery |
-| [Compatibility constraints](development/compatibility.md) | Dependency interactions and supported boundaries |
-| [Animation and model compatibility](development/animation-compatibility.md) | Renderer ownership, item fitting and native comparison requirements |
-| [Input ownership and controls](development/keybinds.md) | Binding inventory, contextual interactions, overlap findings, keyboard layouts, and proposed defaults |
-| [Client messages and onboarding](development/client-messages.md) | Welcome/update/support prompts, dismissal ownership, useful warnings, and proposed defaults |
-| [Complete control remap](development/input-remap.md) | Pre-Compat defaults, filming controls, and registered/custom dispositions |
-| [Pack verification](development/verification.md) | Artifact checks, evidence ownership and coverage limits |
-| [Journal design and definitions](development/journal.md) | Capabilities, reward budgets, conditions and update checks |
-| [Pack authoring](development/authoring.md) | Journal generation, locale editing and categorized configuration audit |
-| [Debug World](development/debug-world.md) | Generated districts, native placement checks and safe fixture installation |
-| [Web map and authoring](development/web/README.md) | App setup, editor controls, data pipeline and verification |
-| [Journal integrations](development/journal-integrations.md) | EMI/JEI, translation and Ponder findings |
-| [Teams and world progress](development/team-world-progress.md) | Initial spawn, deferred team/home policy, FTB Quests trial and dimension access |
-| [Prison dimension](development/prison.md) | Planned protected liminal dimension and island-linked travel |
-| [World generation](development/worldgen.md) | Spacing policy and biome compatibility |
-| [Island generation reference](development/island-generation.md) | Biome eligibility, archetypes, descriptor combinations and shaping/placement controls |
-| [Terrain and structure candidates](development/worldgen-candidates.md) | Selected projects, exclusions and integration review |
-| [Building authoring](development/building-authoring.md) | Isolated Mighty workshop, deterministic templates, owner review, and inactive village admission |
-| [Replay Studio](../tools/replay-studio/README.md) | Separate empack filming snapshot, optimizer exclusions, and replay/world ownership |
-| [Performance investigation](development/performance.md) | Bounded startup, teardown, GC, terrain and server-work profiling |
-| [World runtime](development/world-runtime.md) | Coupled workstreams, ownership and candidate adoption |
-| [Structures](development/structures.md) | Sky Villages placement, loot and delivery integration |
-| [Encounters and settlement population](development/encounters.md) | Illager, guard and biome-variant settings, spawn paths and integration limits |
-| [Building weights](development/weights.md) | Classification policy, multipart decisions and native verification |
-| [Progression review](development/progression.md) | Routes, overlaps and remaining play checks |
-| [Culinary integration](development/culinary.md) | Flour/dough interoperability, milling decisions, trays, drink policy, and runtime repair boundaries |
-| [Longshot interactions](development/longshot-interactions.md) | Extended-range review, distant terrain authority, loading policy, and qualification boundaries |
-| [Equipment evaluation](development/equipment.md) | Equipment families, Artifacts effects/acquisition and renderer decisions |
-| [Upstream findings](development/upstream.md) | Known reports and candidates for submission |
-| [Decision history](development/decisions.md) | Accepted pack policies and supporting evidence |
+The [development index](development/README.md) groups the maintained technical guides by responsibility: builds and compatibility, gameplay and progression, world/building authoring, rendering and filming, and the authoring application.
+
+Start with [new-content triage](development/content-triage.md) for additions, [animation and model compatibility](development/animation-compatibility.md) for visual or interaction changes, and [build and release](development/build.md) for producing artifacts. Player instructions stay in the guides above; source findings and incomplete qualification stay in the owning development guide.
 
 ## Source and releases
 

@@ -20,10 +20,12 @@ Hold the hook in either hand and press Use to fire. Press Use again to detach, o
 
 ## Animation and camera
 
-Punchy can present Better Combat's first-person attacks when **Better Combat Support** is enabled in Punchy's Compatibility settings. Moves and Fluid & Foolish supply the third-person locomotion. Better Combat supplies the third-person attack poses with the selected Fluid & Foolish pack. Use the target's response to judge the hit timing. [Punchy settings](https://www.punchymod.com/projects/punchy).
+Punchy can present Better Combat's first-person attacks when **Better Combat Support** is enabled in Punchy's Compatibility settings. Moves and Fluid & Foolish supply the third-person locomotion. Better Combat supplies the third-person attack poses with the selected Fluid & Foolish pack. Compat reduces excessive backward bending during upward attacks while retaining the composed arm direction. Use the target's response to judge the hit timing. [Punchy settings](https://www.punchymod.com/projects/punchy).
 
 Punchy! supplies first-person item and hand animations. F9 opens its menu; I inspects the held item. Punchy! Moves uses Fluid & Foolish for third-person animations: Mod+U toggles its custom camera, U toggles orbit while that custom camera is active, Shift+U opens its camera editor and J opens emotes. Mod means Command on macOS and Control elsewhere. These defaults use the selected Compat modifier repairs; saved player bindings remain unchanged until deliberately updated.
 
-Touch’n Motion and EMF Compat: Core are installed for procedural interaction poses. Compat supplies an optional bridge between the selected Moves release and Touch’n Motion’s released body/cape API; gameplay and moving-ship pose combinations still need review. FA Player Extension is not selected. See [animation ownership](../development/patches.md#player-animation-ownership) for the boundary. Punched Backpacks supplies Traveler’s Backpack hand-alignment profiles without disabling Punchy’s animations.
+Touch’n Motion adds contact and interaction poses. Punched Backpacks supplies Traveler’s Backpack hand-alignment profiles while keeping Punchy's animations active. Appearance varies with the item model and action; compatibility has not been visually verified for every modded item or moving-ship interaction. The [development animation guide](../development/animation-compatibility.md) records coverage and unresolved combinations.
+
+Vanilla lanterns and soul lanterns use the matching hand-grip resources automatically when their Compat feature is enabled. Aged photographs, Tavern shakers, and Cookery ham slices retain their native first-person renderers with Punchy enabled. The separate third-person selfie, shaker, and carrying-pose issues remain under review.
 
 Fresh Animations and FA+Details are selected for mob presentation, with FA+Objects above them for boats, containers and other object models.
