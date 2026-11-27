@@ -2,6 +2,12 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.24.2 · 2026-11-27
+
+### Fixes
+
+- **animations:** Restore native handoffs and composed poses ([2b5a7d7](https://github.com/mannie-exe/create-skyweave/commit/2b5a7d7c6ee069f0c8bd6e5b824049de4bd0dcf8))
+
 ## v0.24.1 · 2026-11-27
 
 ### Features

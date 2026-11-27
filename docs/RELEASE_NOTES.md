@@ -1,19 +1,27 @@
-# Create: Skyweave 0.24.1
+# Create: Skyweave 0.24.2
 
-## Gameplay and processing
+## Animations and held items
 
-- Retire Cookery's animal millstone from normal survival crafting and disable all 85 of its original milling recipes. Ore, dye, and general-resource processing retain Create's existing progression.
-- Add Create milling of one seed-tag item into one Cookery oil item and one rice panicle into three rice. Both recipes use 150 processing work and Create's native rotational processing.
-- Preserve Create's wheat-to-flour outputs, chances, and processing time, along with the existing flour/dough integrations and other Create milling and crushing recipes.
-- Remove the retired station's recipe unlock and animal-mill advancement. Keep Cookery's dough-stretching advancement available beneath its root.
+- Reduce excessive backward bending during upward Better Combat attacks while preserving the composed arm direction, native combat timing, input, and damage.
+- Preserve underscores in Moves overlay bone filters so authored arm and item animations reach their intended bones.
+- Restore Exposure’s native first-person aged-photograph renderer, Cookery’s lifted ham model, and Tavern’s shaker renderer and progress bar. Their broader third-person pose conflicts remain deferred.
+- Correct vanilla lantern and soul-lantern grip placement in both hands and views. Preserve original arm animation and native item physics; the matching resource bundle is admitted only with its supported Compat feature.
+- Preserve equipped Reliable Gliders beside Moves’ third-person items and Punchy’s first-person hands.
 
-## Compatibility and update instructions
+## Shaders and constructs
 
-- This is a resource-only change. Create 6.0.10, Cookery 1.6.0, Skyweave: Compatibility Patches 0.44.0, re:form 0.4.0, and Lootr: Styled 0.2.0 remain pinned; no runtime adapter or config toggle is added.
-- Existing or creative/command-obtained Cookery millstones remain registered and can still use Cookery's native Create-recipe fallback. No placed-machine removal or saved-item migration is performed.
-- Update the client and server together while stopped. Preserve worlds, generation settings, LODs, replays, and player/operator preferences; no world reset is required.
+- Rebuild construct material annotations when changing shader packs, preventing stale material IDs.
+- Apply the camera rotation once to shader-rendered single-block constructs, preserving their body transform and translucent pass.
+
+## Dependencies and updating
+
+- Update Skyweave: Compatibility Patches from 0.44.0 to public 0.45.0. Retain public re:form 0.4.0 and Lootr: Styled 0.2.0.
+- Update clients and the server together while stopped. Preserve worlds, generation settings, LODs, replays, and player/operator preferences; no world reset or settings reset is required.
+- Keep explicit Compat opt-outs. Disabling the lantern feature restores upstream resources after restart. The three native first-person handoffs are exact-item resource rules, with no blanket item exclusions.
 
 ## Verification
 
-- Native before/after recipe-manager checks preserve existing Create milling IDs and exact wheat yields while adding only the two culinary routes. A registered Create millstone consumes the intended inputs and produces the expected oil/rice quantities; unpowered and invalid-input controls pass.
-- Native fixtures also check retired crafting/discovery, retained dough advancement and flour/dough consumers, plus Create-absent, Cookery-absent, and both-absent resource admission. These are bounded dedicated culinary fixtures, not a new whole-pack graphical or moving-machinery qualification.
+- Native OFF/ON controls cover upward attack poses, actual input through one server hit and release, and original arm/item overlay consumers.
+- Lantern controls cover both hands and views, removal and re-equipping, reload, Fluid & Foolish selected and unselected, and explicit feature opt-out. Native physics remains active.
+- The final generated-resource check passes all 36 photo cases, including all 12 aged-photo first-person cases, native viewers, stacks, cycling, and reload. Separate shaker and ham controls preserve native storage, results, and ordinary-item behavior.
+- These are bounded compatibility checks. Generic native-use poses, Exposure selfie composition, third-person shaker/carry conflicts, and the wider animation audit remain deferred. No performance, complete shader, or multiplayer qualification is claimed.
