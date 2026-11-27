@@ -12476,7 +12476,7 @@ dependencies:
       provider: modrinth
       selector: yungs-better-witch-huts
     title: YUNG's Better Witch Huts
-intent-revision: d13d47554defcf7b141b17371b347422a56003f64a97f5e171fffe304496d689
+intent-revision: b605ca764b90293ada2d2df69928050e981a4025b192a4fdb741d37628f47c03
 java-policy:
   historical-minimum: 21
   id: empack-java-1

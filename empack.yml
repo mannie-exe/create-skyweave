@@ -1,7 +1,7 @@
 schema: 6
 pack:
   name: Create - Skyweave
-  version: 0.24.0
+  version: 0.24.1
   id: create_skyweave
   description: Sky islands, airships and engineering. Java 21 and at least 12 GiB of system memory. Allow additional host memory for the default 12 GiB Prism heap or a comparable server heap.
   authors:

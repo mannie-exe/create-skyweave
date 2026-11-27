@@ -2,6 +2,12 @@
 
 Generated from Git history. Player-facing release summaries are in [release notes](docs/RELEASE_NOTES.md).
 
+## v0.24.1 · 2026-11-27
+
+### Features
+
+- **recipes:** Move culinary milling to Create ([3851764](https://github.com/mannie-exe/create-skyweave/commit/3851764366a95e202d52d3998a1b0c3ea8d62bc7))
+
 ## v0.24.0 · 2026-11-26
 
 ### Features
