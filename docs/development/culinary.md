@@ -16,13 +16,22 @@ Cookery's dropped flour converts to dough in water through `FlourItem`, outside 
 
 ## Milling decisions
 
-Milling recipes and yields are unchanged pending owner review. Cookery declares 85 own recipes. Create 6.0.10 declares 47 core and 199 conditional integration recipes; conditions and populated tags decide what actually loads. Cookery's bridge copies loaded Create milling into its own mill only when no Cookery recipe matches. It does not expose Cookery recipes to Create's mill.
+The Cookery animal millstone is retired from normal fresh-survival acquisition. Resource Patches disables its crafting recipe, all 85 original milling recipes, the station recipe unlock, and the animal-mill advancement. Dough stretching remains under Cookery's root advancement, so it does not depend on the retired station. The selected artifact's data resources contain no other millstone-producing recipe, loot, trade, or structure placement; block/item registration and the existing insertion-conservation repair remain unchanged.
 
-The animal-powered mill accepts batches up to eight and uses its bound entity's rotation cadence. Transformed Create recipes retain ingredient/output chances but do not retain Create power or processing-time requirements. Its cheap station and industrial outputs therefore need a progression policy separate from the existing optional insertion-conservation repair.
+Two culinary routes move to Create milling:
 
-The main decisions are early ore multiplication, flint-to-gunpowder, gravel-to-sand, fuel-free smoothing/compaction, higher wool/bone yields, and access to native Create fallback recipes without Create power. Cookery rice-panicle processing and seed oil are unique culinary routes. Its wheat recipe gives one flour, while Create gives one guaranteed flour plus a 25% chance of two extra and a 25% seed chance, averaging 1.5 flour and 0.25 seed. Removing Cookery milling must preserve selected rice/oil acquisition through explicit replacements; removing only recipe JSON cannot constrain its Create fallback.
+| Input | Output | Processing work |
+| --- | --- | --- |
+| One item in `c:seeds` | One `kaleidoscope_cookery:oil` item | 150 |
+| One `kaleidoscope_cookery:rice_panicle` | Three `kaleidoscope_cookery:rice` | 150 |
 
-Keep a full exact-artifact comparison when selecting the policy. Distinguish static conditional definitions from a loaded recipe-manager dump, mark higher-tier/heat/yield bypasses separately from ordinary alternatives, and include other installed mods' Create milling contributions. Do not call intended industrial recipes duplication defects merely because their accessibility differs.
+Both replacements require Create and Cookery. They retain the original input breadth and deterministic quantities. Oil remains an item for Cookery's oil-pot system, not a new fluid. The 150 work value matches Create's early wheat milling workload; elapsed time depends on native rotational speed, not the animal mill's cadence.
+
+The other 83 Cookery milling routes are removed rather than imported into Create. Create's existing wheat recipe is unchanged: one guaranteed Create flour, a 25% chance of two extra flour, and a 25% seed chance, averaging 1.5 flour and 0.25 seed. Other valid Create milling/crushing recipes and addon contributions keep their native inputs, yields, timings, and power requirements. Existing flour/dough interoperability is unchanged.
+
+Cookery 1.6.0 has no native config switch for its millstone or Create fallback. The bridge runs **from Create into Cookery**, not in reverse: a mill obtained through creative/commands or retained in an existing world can still process loaded Create milling recipes. Resource removal does not disable this runtime bridge. The alpha policy closes normal acquisition and does not migrate or destroy placed machines, unregister saved IDs, or add a Compat prohibition.
+
+When updating Cookery, enumerate its exact native milling IDs and acquisition/discovery resources again. Compare the original recipes with the explicit overrides; new upstream routes require review. Create 6.0.10 declares 47 core and 199 conditional integration recipes, but conditions and populated tags decide what actually loads. Keep this dated source comparison distinct from the native loaded-manager and actual machine checks.
 
 ## Drying and wetting trays
 

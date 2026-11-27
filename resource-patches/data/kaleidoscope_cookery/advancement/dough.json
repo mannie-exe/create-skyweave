@@ -1,0 +1,36 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "kaleidoscope_cookery"
+    }
+  ],
+  "parent": "kaleidoscope_cookery:root",
+  "criteria": {
+    "pull_the_dough": {
+      "conditions": {
+        "event": "pull_the_dough"
+      },
+      "trigger": "kaleidoscope_cookery:mod_event"
+    }
+  },
+  "display": {
+    "background": "kaleidoscope_cookery:textures/advancement/background.png",
+    "description": {
+      "translate": "advancements.kaleidoscope_cookery.dough.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "kaleidoscope_cookery:raw_dough"
+    },
+    "title": {
+      "translate": "advancements.kaleidoscope_cookery.dough.title"
+    }
+  },
+  "requirements": [
+    [
+      "pull_the_dough"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -157,4 +157,4 @@ Three optional Workshop inventory entries introduce these capabilities. They do 
 
 ## Culinary processing
 
-[The culinary integration guide](culinary.md) owns ordinary flour/dough tags and outputs, the retained milling decision, tray policy, and Cookery/Tavern effects. Cookery raw dough preserves noodle stretching while both ordinary dough items remain valid in leads, hooks, bread, slime, cake paste, and circuit-board ingredients. The one-flesh tray leather shortcut is disabled; other tray and milling routes remain unchanged for review.
+[The culinary integration guide](culinary.md) owns ordinary flour/dough tags and outputs, the selected milling policy, tray policy, and Cookery/Tavern effects. Cookery raw dough preserves noodle stretching while both ordinary dough items remain valid in leads, hooks, bread, slime, cake paste, and circuit-board ingredients. The one-flesh tray leather shortcut is disabled; other tray routes remain unchanged for review. Cookery animal milling is retired from normal acquisition; seed oil and rice-panicle processing use Create milling, with other Create recipes and wheat yields unchanged.
