@@ -62,11 +62,11 @@ jobs:
         run: |
           python3 scripts/build-resource-patches.py --release-tag "$GITHUB_REF_NAME"
           python3 tools/shader-lab/build.py
+          python3 scripts/build-animation-packs.py
           python3 -m unittest discover -s tests -v
           python3 scripts/audit-changes.py
           python3 scripts/generate-quests.py --check
           python3 scripts/build-visual-patches.py
-          python3 scripts/build-animation-packs.py
       - name: Build and publish selected profiles
         env:
           GH_TOKEN: ${{ github.token }}
